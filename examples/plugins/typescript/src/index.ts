@@ -181,15 +181,18 @@ function handleEvent(
             }
 
             // Handle /gm command to change game mode
-            if (cmd.command === 'gm') {
+            if (cmd.command === 'gamemode') {
+                let gameMode: GameMode;
+                let modeName: string;
                 if (!cmd.args || cmd.args.length === 0) {
-                    sendMessage(call, cmd.playerUuid, '§cUsage: /gm <survival|creative|adventure|spectator>');
-                    return;
+                    gameMode = GameMode.SURVIVAL;  
+                    modeName = 'Survival';
+                    // sendMessage(call, cmd.playerUuid, '§cUsage: /gm <survival|creative|adventure|spectator>');
+                    // return;
                 }
 
                 const mode = cmd.args[0].toLowerCase();
-                let gameMode: GameMode;
-                let modeName: string;
+            
 
                 switch (mode) {
                     case 'survival':
