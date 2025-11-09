@@ -1,0 +1,12 @@
+vendor/
+generated/
+composer.lock
+*.log
+bin/
+composer.phar
+
+# Windows-specific
+*.zip
+Thumbs.db
+desktop.ini
+

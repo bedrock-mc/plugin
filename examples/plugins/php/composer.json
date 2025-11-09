@@ -1,0 +1,22 @@
+{
+  "name": "dragonfly/php-plugin-example",
+  "description": "Example PHP plugin for Dragonfly using gRPC",
+  "type": "project",
+  "require": {
+    "php": ">=8.1",
+    "grpc/grpc": "^1.57",
+    "google/protobuf": "^3.25"
+  },
+  "autoload": {
+    "psr-4": {
+      "Df\\Plugin\\": "generated/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
+  }
+}
+
