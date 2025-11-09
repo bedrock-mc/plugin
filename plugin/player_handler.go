@@ -1,8 +1,6 @@
 package plugin
 
 import (
-	"strings"
-
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/cmd"
 	"github.com/df-mc/dragonfly/server/item"
@@ -26,11 +24,7 @@ func (h *PlayerHandler) HandleCommandExecution(ctx *player.Context, command cmd.
 	if h.mgr == nil || h.Player == nil {
 		return
 	}
-	raw := "/" + command.Name()
-	if len(args) > 0 {
-		raw += " " + strings.Join(args, " ")
-	}
-	h.mgr.emitCommand(ctx, h.Player, raw)
+	h.mgr.emitCommandWithArgs(ctx, h.Player, command.Name(), args)
 }
 
 func (h *PlayerHandler) HandleBlockBreak(ctx *player.Context, pos cube.Pos, drops *[]item.Stack, xp *int) {

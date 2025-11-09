@@ -188,7 +188,12 @@ func (m *Manager) emitChat(ctx *player.Context, p *player.Player, msg *string) {
 	}
 }
 
-func (m *Manager) emitCommand(ctx *player.Context, p *player.Player, raw string) {
+// emitCommandWithArgs emits a COMMAND event with structured command name and arguments.
+func (m *Manager) emitCommandWithArgs(ctx *player.Context, p *player.Player, cmdName string, args []string) {
+	raw := "/" + cmdName
+	if len(args) > 0 {
+		raw += " " + strings.Join(args, " ")
+	}
 	evt := &pb.EventEnvelope{
 		EventId: generateEventID(),
 		Type:    "COMMAND",
@@ -197,6 +202,8 @@ func (m *Manager) emitCommand(ctx *player.Context, p *player.Player, raw string)
 				PlayerUuid: p.UUID().String(),
 				Name:       p.Name(),
 				Raw:        raw,
+				Command:    cmdName,
+				Args:       args,
 			},
 		},
 	}
@@ -378,14 +385,12 @@ type pluginCommand struct {
 }
 
 func (c pluginCommand) Run(src cmd.Source, output *cmd.Output, tx *world.Tx) {
-	p, ok := src.(*player.Player)
+	_, ok := src.(*player.Player)
 	if !ok {
 		output.Errorf("command only available to players")
 		return
 	}
-	raw := "/" + c.name
-	c.mgr.emitCommand(nil, p, raw)
-	output.Printf("command forwarded to plugin")
+	// No-op: PlayerHandler.HandleCommandExecution emits command events
 }
 
 func (m *Manager) applyActions(p *pluginProcess, batch *pb.ActionBatch) {

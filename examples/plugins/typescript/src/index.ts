@@ -10,7 +10,7 @@ import {
     Action,
     EventResult,
     EventSubscribe,
-} from './generated/plugin/proto/plugin.js';
+} from './generated/plugin/proto/types/plugin.js';
 
 const pluginId = process.env.DF_PLUGIN_ID || 'typescript-plugin';
 const address = process.env.DF_PLUGIN_GRPC_ADDRESS || '127.0.0.1:50052';
@@ -112,10 +112,14 @@ function handleEvent(
         }
 
         case 'COMMAND': {
-            const command = event.command;
-            if (!command) break;
+            const cmd = event.command;
+            if (!cmd) break;
 
-            if (command.raw.startsWith('/greet')) {
+            // Now we get structured command name and args instead of parsing raw string!
+            console.log(`[ts] command: ${cmd.command}, args:`, cmd.args);
+
+            // Handle /greet command
+            if (cmd.command === 'greet') {
                 const response: PluginToHost = {
                     pluginId,
                     actions: {
@@ -123,17 +127,28 @@ function handleEvent(
                             {
                                 correlationId: `greet-${Date.now()}`,
                                 sendChat: {
-                                    targetUuid: command.playerUuid,
-                                    message: `§6Hello §b${command.name}§6! This is a TypeScript plugin with full type safety! 🚀`,
+                                    targetUuid: cmd.playerUuid,
+                                    message: `§6Hello §b${cmd.name}§6! This is a TypeScript plugin with full type safety! 🚀`,
                                 },
                             },
                         ],
                     },
                 };
                 call.write(response);
+                return;
             }
 
-            if (command.raw.startsWith('/tp')) {
+            // Handle /tp command with optional coordinates
+            if (cmd.command === 'tp') {
+                let x = 0, y = 100, z = 0;
+
+                // Parse coordinates from args if provided: /tp <x> <y> <z>
+                if (cmd.args && cmd.args.length === 3) {
+                    x = parseFloat(cmd.args[0]) || 0;
+                    y = parseFloat(cmd.args[1]) || 100;
+                    z = parseFloat(cmd.args[2]) || 0;
+                }
+
                 const response: PluginToHost = {
                     pluginId,
                     actions: {
@@ -141,24 +156,26 @@ function handleEvent(
                             {
                                 correlationId: `tp-${Date.now()}`,
                                 teleport: {
-                                    playerUuid: command.playerUuid,
-                                    x: 0,
-                                    y: 100,
-                                    z: 0,
+                                    playerUuid: cmd.playerUuid,
+                                    x,
+                                    y,
+                                    z,
                                     yaw: 0,
                                     pitch: 0,
                                 },
                             },
                             {
+                                correlationId: `tp-msg-${Date.now()}`,
                                 sendChat: {
-                                    targetUuid: command.playerUuid,
-                                    message: '§aTeleported to spawn!',
+                                    targetUuid: cmd.playerUuid,
+                                    message: `§aTeleported to ${x}, ${y}, ${z}!`,
                                 },
                             },
                         ],
                     },
                 };
                 call.write(response);
+                return;
             }
             break;
         }
@@ -186,7 +203,7 @@ function handleEvent(
                             {
                                 sendChat: {
                                     targetUuid: chat.playerUuid,
-                                    message: '§cPlease keep the chat friendly, n!gga',
+                                    message: '§cPlease keep the chat friendly',
                                 },
                             },
                         ],

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "generate": "mkdir -p src/generated && protoc --proto_path=../../.. --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=src/generated --ts_proto_opt=esModuleInterop=true,outputServices=generic-definitions,useExactTypes=false plugin/proto/types/plugin.proto",
+    "generate": "rm -rf src/generated && mkdir -p src/generated && protoc --proto_path=../../.. --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=src/generated --ts_proto_opt=esModuleInterop=true,outputServices=generic-definitions,useExactTypes=false plugin/proto/types/plugin.proto",
     "build": "tsc",
     "dev": "npm run generate && tsx src/index.ts",
     "start": "node dist/index.js"

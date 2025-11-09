@@ -10,7 +10,7 @@ This directory contains example plugins demonstrating how to create Dragonfly pl
 | 💰 **Sell Plugins** | Compile to binary (Rust, Go, C++) and distribute without source code | Create commercial plugins |
 | 🔥 **Hot Reload** | Edit JS/TS/PHP plugins and see changes instantly - no server restart needed | Develop and debug plugins in real-time |
 | 📱 **Remote Control** | Plugins connect over gRPC - run them anywhere (phone app, cloud service, another server) | Build mobile admin apps |
-| 📦 **Use Any Library** | Import npm packages on a Go server, use Python ML libraries, etc. | Leverage entire ecosystems (1M+ npm packages) |
+| 📦 **Use Any Library** | Import npm packages on a Go server, use Python ML libraries, etc. | Leverage entire ecosystems |
 | ⚡ **Zero Performance Impact** | Plugins run in separate processes - slow/heavy plugin code doesn't affect server TPS | Run intensive tasks without lag |
 | 🚀 **High Performance** | Optimized protobuf protocol with optional batching for low latency | Handle 100+ players with movement events |
 | 🔒 **Sandboxing** | Control what plugins can access via gRPC permissions | Host untrusted plugins safely |
