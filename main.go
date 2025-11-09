@@ -5,10 +5,10 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/df-mc/dragonfly/plugin"
 	"github.com/df-mc/dragonfly/server"
 	"github.com/df-mc/dragonfly/server/player/chat"
 	"github.com/pelletier/go-toml"
+	"github.com/secmc/plugin/plugin"
 )
 
 func main() {

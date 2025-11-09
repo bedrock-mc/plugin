@@ -18,7 +18,7 @@ import (
 	"github.com/google/uuid"
 	"google.golang.org/protobuf/proto"
 
-	pb "github.com/df-mc/dragonfly/plugin/proto/generated"
+	pb "github.com/secmc/plugin/plugin/proto/generated"
 )
 
 const apiVersion = "v1"

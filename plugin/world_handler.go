@@ -1,8 +1,8 @@
 package plugin
 
 import (
-	pb "github.com/df-mc/dragonfly/plugin/proto/generated"
 	"github.com/df-mc/dragonfly/server/world"
+	pb "github.com/secmc/plugin/plugin/proto/generated"
 )
 
 type WorldHandler struct {

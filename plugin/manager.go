@@ -10,7 +10,6 @@ import (
 	"sync"
 	"time"
 
-	pb "github.com/df-mc/dragonfly/plugin/proto/generated"
 	"github.com/df-mc/dragonfly/server"
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/cmd"
@@ -20,6 +19,7 @@ import (
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/go-gl/mathgl/mgl64"
 	"github.com/google/uuid"
+	pb "github.com/secmc/plugin/plugin/proto/generated"
 )
 
 type Manager struct {
