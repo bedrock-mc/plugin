@@ -6,7 +6,7 @@ use Grpc\Server;
 use Grpc\ServerCredentials;
 use Grpc\UnaryCall;
 
-define('PROTO_PATH', __DIR__ . '/../../../plugin/proto/plugin.proto');
+define('PROTO_PATH', __DIR__ . '/../../../plugin/proto/types/plugin.proto');
 require_once __DIR__ . '/vendor/autoload.php';
 
 $pluginId = getenv('DF_PLUGIN_ID') ?: 'php-plugin';

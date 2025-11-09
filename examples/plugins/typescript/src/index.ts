@@ -168,7 +168,7 @@ function handleEvent(
             if (!chat) break;
 
             // Profanity filter with event cancellation
-            const badWords = ['badword', 'spam', 'hack'];
+            const badWords = ['badword', 'spam', 'hack', 'fuck'];
             if (badWords.some(word => chat.message.toLowerCase().includes(word))) {
                 const cancelResponse: PluginToHost = {
                     pluginId,
@@ -186,7 +186,7 @@ function handleEvent(
                             {
                                 sendChat: {
                                     targetUuid: chat.playerUuid,
-                                    message: '§cPlease keep the chat friendly!',
+                                    message: '§cPlease keep the chat friendly, n!gga',
                                 },
                             },
                         ],
@@ -261,17 +261,27 @@ function handleEvent(
 // Create gRPC server
 const server = new grpc.Server();
 
-// Add service with type-safe handler
+// Add service with type-safe handler using protobuf binary encoding
 server.addService(
     {
         EventStream: {
             path: '/df.plugin.Plugin/EventStream',
             requestStream: true,
             responseStream: true,
-            requestSerialize: (msg: PluginToHost) => Buffer.from(JSON.stringify(msg)),
-            requestDeserialize: (buf: Buffer) => JSON.parse(buf.toString()),
-            responseSerialize: (msg: HostToPlugin) => Buffer.from(JSON.stringify(msg)),
-            responseDeserialize: (buf: Buffer) => JSON.parse(buf.toString()),
+            requestSerialize: (msg: HostToPlugin) => {
+                const writer = HostToPlugin.encode(msg);
+                return Buffer.from(writer.finish());
+            },
+            requestDeserialize: (buf: Buffer) => {
+                return HostToPlugin.decode(new Uint8Array(buf));
+            },
+            responseSerialize: (msg: PluginToHost) => {
+                const writer = PluginToHost.encode(msg);
+                return Buffer.from(writer.finish());
+            },
+            responseDeserialize: (buf: Buffer) => {
+                return PluginToHost.decode(new Uint8Array(buf));
+            },
         },
     },
     { EventStream: streamHandler }
