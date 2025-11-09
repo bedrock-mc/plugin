@@ -35,6 +35,11 @@ function sendMessage(
     call.write(response);
 }
 
+/**
+ * IMPORTANT: All events MUST receive an eventResult response to avoid timeout warnings.
+ * Even if your plugin doesn't modify or cancel an event, send an acknowledgment with cancel: false.
+ */
+
 // Type-safe bidirectional stream handler
 function streamHandler(call: grpc.ServerDuplexStream<HostToPlugin, PluginToHost>) {
     console.log('[ts] host connected');
@@ -113,6 +118,16 @@ function handleEvent(
                 `§aWelcome to the server, §e${player.name}§a! (from TypeScript)`,
                 `join-${player.playerUuid}`
             );
+
+            // Acknowledge the event
+            const ackResponse: PluginToHost = {
+                pluginId,
+                eventResult: {
+                    eventId: event.eventId,
+                    cancel: false,
+                },
+            };
+            call.write(ackResponse);
             break;
         }
 
@@ -120,6 +135,16 @@ function handleEvent(
             const player = event.playerQuit;
             if (!player) break;
             console.log(`[ts] player left ${player.name}`);
+
+            // Acknowledge the event
+            const ackResponse: PluginToHost = {
+                pluginId,
+                eventResult: {
+                    eventId: event.eventId,
+                    cancel: false,
+                },
+            };
+            call.write(ackResponse);
             break;
         }
 
@@ -185,14 +210,13 @@ function handleEvent(
                 let gameMode: GameMode;
                 let modeName: string;
                 if (!cmd.args || cmd.args.length === 0) {
-                    gameMode = GameMode.SURVIVAL;  
+                    gameMode = GameMode.SURVIVAL;
                     modeName = 'Survival';
                     // sendMessage(call, cmd.playerUuid, '§cUsage: /gm <survival|creative|adventure|spectator>');
                     // return;
                 }
 
                 const mode = cmd.args[0].toLowerCase();
-            
 
                 switch (mode) {
                     case 'survival':
@@ -249,6 +273,17 @@ function handleEvent(
                 sendMessage(call, cmd.playerUuid, `§aGame mode changed to §e${modeName}§a!`);
                 return;
             }
+
+            // For commands we don't handle, send an acknowledgment to avoid timeout warnings
+            // This allows the command to pass through to other handlers
+            const ackResponse: PluginToHost = {
+                pluginId,
+                eventResult: {
+                    eventId: event.eventId,
+                    cancel: false,
+                },
+            };
+            call.write(ackResponse);
             break;
         }
 
@@ -284,6 +319,7 @@ function handleEvent(
                     },
                 };
                 call.write(mutateResponse);
+                break;
             }
 
             // Rainbow text easter egg
@@ -300,7 +336,18 @@ function handleEvent(
                     },
                 };
                 call.write(mutateResponse);
+                break;
             }
+
+            // Acknowledge regular chat messages
+            const ackResponse: PluginToHost = {
+                pluginId,
+                eventResult: {
+                    eventId: event.eventId,
+                    cancel: false,
+                },
+            };
+            call.write(ackResponse);
             break;
         }
 
@@ -325,6 +372,16 @@ function handleEvent(
                     },
                 };
                 call.write(response);
+            } else {
+                // Acknowledge the event even if we don't modify it
+                const ackResponse: PluginToHost = {
+                    pluginId,
+                    eventResult: {
+                        eventId: event.eventId,
+                        cancel: false,
+                    },
+                };
+                call.write(ackResponse);
             }
             break;
         }

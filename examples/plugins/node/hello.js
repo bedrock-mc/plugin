@@ -35,6 +35,11 @@ server.bindAsync(address, grpc.ServerCredentials.createInsecure(), (err) => {
   console.log(`[node] plugin listening on ${address}`);
 });
 
+/**
+ * IMPORTANT: All events MUST receive an eventResult response to avoid timeout warnings.
+ * Even if your plugin doesn't modify or cancel an event, send an acknowledgment with cancel: false.
+ */
+
 function streamHandler(call) {
   console.log('[node] host connected');
 
@@ -97,6 +102,14 @@ function handleEvent(call, event) {
           ],
         },
       });
+      // Acknowledge the event
+      call.write({
+        pluginId: pluginId,
+        eventResult: {
+          eventId: event.eventId,
+          cancel: false,
+        },
+      });
       break;
     }
     case 'COMMAND': {
@@ -116,6 +129,14 @@ function handleEvent(call, event) {
           },
         });
       }
+      // Always acknowledge command events
+      call.write({
+        pluginId: pluginId,
+        eventResult: {
+          eventId: event.eventId,
+          cancel: false,
+        },
+      });
       break;
     }
     case 'CHAT': {
@@ -155,7 +176,16 @@ function handleEvent(call, event) {
             chat: { message: updated },
           },
         });
+        break;
       }
+      // Acknowledge regular chat messages
+      call.write({
+        pluginId: pluginId,
+        eventResult: {
+          eventId: event.eventId,
+          cancel: false,
+        },
+      });
       break;
     }
     default:

@@ -12,6 +12,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 $pluginId = getenv('DF_PLUGIN_ID') ?: 'php-plugin';
 $address = getenv('DF_PLUGIN_GRPC_ADDRESS') ?: '127.0.0.1:50052';
 
+/**
+ * IMPORTANT: All events MUST receive an eventResult response to avoid timeout warnings.
+ * Even if your plugin doesn't modify or cancel an event, send an acknowledgment with cancel: false.
+ */
+
 $server = new Server();
 $server->addHttp2Port($address, ServerCredentials::createInsecure());
 $service = new \DF\Plugin\PluginService();
@@ -42,6 +47,21 @@ $service->setEventStreamHandler(function ($stream) use ($pluginId) {
 
         if ($message->hasEvent()) {
             $event = $message->getEvent();
+            
+            // Handle PLAYER_JOIN events
+            if ($event->getType() === 'PLAYER_JOIN' && $event->hasPlayerJoin()) {
+                // Acknowledge the event
+                $result = new \DF\Plugin\EventResult();
+                $result->setEventId($event->getEventId());
+                $result->setCancel(false);
+                $resp = new \DF\Plugin\PluginToHost();
+                $resp->setPluginId($pluginId);
+                $resp->setEventResult($result);
+                $stream->write($resp);
+                continue;
+            }
+            
+            // Handle CHAT events
             if ($event->getType() === 'CHAT' && $event->hasChat()) {
                 $chat = $event->getChat();
                 if (stripos($chat->getMessage(), 'spoiler') !== false) {
@@ -67,19 +87,43 @@ $service->setEventStreamHandler(function ($stream) use ($pluginId) {
                     $stream->write($resp);
                     continue;
                 }
-            }
-            if ($event->getType() === 'COMMAND' && $event->getCommand()->getRaw() === '/cheers') {
-                $action = new \DF\Plugin\Action();
-                $send = new \DF\Plugin\SendChatAction();
-                $send->setTargetUuid($event->getCommand()->getPlayerUuid());
-                $send->setMessage('🍻 Cheers from the PHP plugin!');
-                $action->setSendChat($send);
-                $batch = new \DF\Plugin\ActionBatch();
-                $batch->setActions([$action]);
+                
+                // Acknowledge regular chat messages
+                $result = new \DF\Plugin\EventResult();
+                $result->setEventId($event->getEventId());
+                $result->setCancel(false);
                 $resp = new \DF\Plugin\PluginToHost();
                 $resp->setPluginId($pluginId);
-                $resp->setActions($batch);
+                $resp->setEventResult($result);
                 $stream->write($resp);
+                continue;
+            }
+            
+            // Handle COMMAND events
+            if ($event->getType() === 'COMMAND' && $event->hasCommand()) {
+                if ($event->getCommand()->getRaw() === '/cheers') {
+                    $action = new \DF\Plugin\Action();
+                    $send = new \DF\Plugin\SendChatAction();
+                    $send->setTargetUuid($event->getCommand()->getPlayerUuid());
+                    $send->setMessage('🍻 Cheers from the PHP plugin!');
+                    $action->setSendChat($send);
+                    $batch = new \DF\Plugin\ActionBatch();
+                    $batch->setActions([$action]);
+                    $resp = new \DF\Plugin\PluginToHost();
+                    $resp->setPluginId($pluginId);
+                    $resp->setActions($batch);
+                    $stream->write($resp);
+                }
+                
+                // Always acknowledge command events
+                $result = new \DF\Plugin\EventResult();
+                $result->setEventId($event->getEventId());
+                $result->setCancel(false);
+                $resp = new \DF\Plugin\PluginToHost();
+                $resp->setPluginId($pluginId);
+                $resp->setEventResult($result);
+                $stream->write($resp);
+                continue;
             }
         }
 

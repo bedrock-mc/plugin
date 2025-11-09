@@ -7,6 +7,7 @@ Protobuf-based plugin system for Dragonfly server.
 ```bash
 # After editing proto/types/plugin.proto
 cd proto/
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest # First time only
 npm install    # First time only
 npm run generate  # Generate Go code
 ```
