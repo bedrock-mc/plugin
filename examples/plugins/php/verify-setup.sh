@@ -67,10 +67,10 @@ echo ""
 
 # Check 5: HelloPlugin.php
 echo "✓ Check 5: Plugin File"
-if [ -f "HelloPlugin.php" ]; then
-    echo "  ✅ HelloPlugin.php exists"
+if [ -f "src/HelloPlugin.php" ]; then
+    echo "  ✅ src/HelloPlugin.php exists"
 else
-    echo "  ❌ HelloPlugin.php not found"
+    echo "  ❌ src/HelloPlugin.php not found"
     exit 1
 fi
 echo ""

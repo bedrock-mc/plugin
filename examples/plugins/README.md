@@ -34,7 +34,7 @@ PHP plugin using gRPC extension.
 ```bash
 cd php/
 # Requires: php-grpc extension installed
-php HelloPlugin.php
+php src/HelloPlugin.php
 ```
 
 **Features:**
@@ -83,7 +83,7 @@ plugins:
   - id: example-php
     name: Example PHP Plugin
     command: "php"
-    args: ["examples/plugins/php/HelloPlugin.php"]
+    args: ["examples/plugins/php/src/HelloPlugin.php"]
     address: "127.0.0.1:50053"
 ```
 

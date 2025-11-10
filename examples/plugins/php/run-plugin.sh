@@ -31,5 +31,5 @@ fi
 
 echo ""
 echo "🚀 Starting PHP plugin..."
-$PHP_BIN HelloPlugin.php
+$PHP_BIN src/HelloPlugin.php
 

@@ -115,7 +115,7 @@ plugins:
   - id: example-php
     name: Example PHP Plugin
     command: "examples/plugins/php/bin/php7/bin/php"
-    args: ["examples/plugins/php/HelloPlugin.php"]
+    args: ["examples/plugins/php/src/HelloPlugin.php"]
     address: "127.0.0.1:50053"
 ```
 
@@ -141,7 +141,7 @@ To test the plugin without Dragonfly:
 ./run-plugin.sh
 
 # Or directly
-bin/php7/bin/php HelloPlugin.php
+bin/php7/bin/php src/HelloPlugin.php
 ```
 
 ### With Docker
@@ -164,7 +164,7 @@ COPY . .
 
 RUN composer install
 
-CMD ["php", "HelloPlugin.php"]
+CMD ["php", "src/HelloPlugin.php"]
 ```
 
 ## Features
@@ -207,7 +207,7 @@ composer require protobuf-php/protobuf
 
 ## Development
 
-Edit `HelloPlugin.php` to add your custom plugin logic. The plugin uses the same protobuf messages as the TypeScript and Node.js examples, so you can reference those for additional examples.
+Edit `src/HelloPlugin.php` to add your custom plugin logic. The plugin uses the same protobuf messages as the TypeScript and Node.js examples, so you can reference those for additional examples.
 
 ## Learn More
 

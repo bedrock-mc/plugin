@@ -23,7 +23,7 @@ Windows uses a different directory structure. After running `./setup.sh`, edit `
 - id: example-php
   name: Example PHP Plugin
   command: "examples/plugins/php/bin/php/php.exe"  # ← Change this line
-  args: ["examples/plugins/php/HelloPlugin.php"]
+  args: ["examples/plugins/php/src/HelloPlugin.php"]
   address: "127.0.0.1:50053"
 ```
 
@@ -142,7 +142,7 @@ You should see responses from the PHP plugin running on Windows!
 
 ## Next Steps
 
-- Edit `HelloPlugin.php` to customize your plugin
+- Edit `src/HelloPlugin.php` to customize your plugin
 - See [README.md](README.md) for the full plugin API
 - Check [../typescript/src/index.ts](../typescript/src/index.ts) for more examples
 

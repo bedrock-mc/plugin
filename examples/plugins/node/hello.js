@@ -9,7 +9,7 @@ import { dirname, resolve } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const PROTO_PATH = resolve(__dirname, '../../../plugin/proto/types/plugin.proto');
+const PROTO_PATH = resolve(__dirname, '../../../proto/types/plugin.proto');
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   longs: String,
   enums: String,

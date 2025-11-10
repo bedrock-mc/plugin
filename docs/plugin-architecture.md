@@ -155,7 +155,7 @@ Reference implementations are provided under `examples/plugins`:
 
 * [`examples/plugins/node/hello.js`](../examples/plugins/node/hello.js) — Node.js plugin using `@grpc/grpc-js` and
   `protobufjs`, demonstrating chat cancellation and mutation.
-* [`examples/plugins/php/HelloPlugin.php`](../examples/plugins/php/HelloPlugin.php) — PHP plugin built with the
+* [`examples/plugins/php/src/HelloPlugin.php`](../examples/plugins/php/src/HelloPlugin.php) — PHP plugin built with the
   official gRPC extension, including chat moderation and message rewriting via `EventResult`.
 
 Each example reads `DF_PLUGIN_GRPC_ADDRESS` and `DF_PLUGIN_ID` from the environment, starts a gRPC server, registers

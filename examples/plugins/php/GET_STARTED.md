@@ -56,7 +56,7 @@ You should see responses from the PHP plugin! 🎉
 - **[QUICKSTART.md](QUICKSTART.md)** - All setup options
 - **[README.md](README.md)** - Complete documentation
 - **[CUSTOM_PHP.md](CUSTOM_PHP.md)** - Using your own PHP build
-- **[HelloPlugin.php](HelloPlugin.php)** - Plugin source code
+- **[HelloPlugin.php](src/HelloPlugin.php)** - Plugin source code
 
 ## 🔧 Troubleshooting
 
@@ -92,7 +92,7 @@ The example PHP plugin demonstrates:
 
 ## 📝 Next Steps
 
-Edit `HelloPlugin.php` to add your own logic!
+Edit `src/HelloPlugin.php` to add your own logic!
 
 See the [TypeScript example](../typescript/src/index.ts) for more advanced features:
 - Teleportation

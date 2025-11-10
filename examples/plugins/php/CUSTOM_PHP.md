@@ -61,7 +61,7 @@ You should see `grpc` in the output.
 ./run-plugin.sh
 
 # Option B: Run directly
-bin/php7/bin/php HelloPlugin.php
+bin/php7/bin/php src/HelloPlugin.php
 ```
 
 ### 4. Configure in plugins.yaml
@@ -73,7 +73,7 @@ plugins:
   - id: example-php
     name: Example PHP Plugin
     command: "examples/plugins/php/bin/php7/bin/php"
-    args: ["examples/plugins/php/HelloPlugin.php"]
+    args: ["examples/plugins/php/src/HelloPlugin.php"]
     address: "127.0.0.1:50053"
     env:
       PHP_ENV: production
@@ -163,7 +163,7 @@ Once running, test with:
 
 ## Next Steps
 
-- Edit `HelloPlugin.php` to add your custom logic
+- Edit `src/HelloPlugin.php` to add your custom logic
 - See [README.md](README.md) for the full plugin API
 - Check [../typescript/src/index.ts](../typescript/src/index.ts) for more examples
 

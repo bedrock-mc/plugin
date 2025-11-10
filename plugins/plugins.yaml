@@ -17,7 +17,7 @@ plugins:
     name: Example PHP Plugin
     # Linux/macOS: bin/php7/bin/php | Windows: bin/php/php.exe
     command: "examples/plugins/php/bin/php7/bin/php"
-    args: ["examples/plugins/php/HelloPlugin.php"]
+    args: ["examples/plugins/php/src/HelloPlugin.php"]
     address: "127.0.0.1:50053"
     env:
       PHP_ENV: production
