@@ -36,7 +36,7 @@ func main() {
 			return handlers.NewWorldHandler(e)
 		},
 	)
-	if err := emitter.Start(""); err != nil {
+	if err := emitter.Start("../plugins/plugins.yaml"); err != nil {
 		slog.Default().Error("start plugins", "error", err)
 	}
 	emitter.AttachWorld(srv.World())
