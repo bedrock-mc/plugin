@@ -11,7 +11,7 @@ A powerful, language-agnostic plugin system for [Dragonfly](https://github.com/d
 | 🔥 **Hot Reload** | Edit JS/TS/PHP plugins and see changes instantly - no server restart needed | Develop and debug plugins in real-time |
 | 📱 **Remote Control** | Plugins connect over gRPC - run them anywhere (phone app, cloud service, discord bot) | Build mobile admin apps |
 | 📦 **Use Any Library** | Import npm packages on a Go server, use Python ML libraries, etc. | Leverage entire ecosystems |
-| ⚡ **Zero Performance Impact (COMING SOON)** | Plugins run in separate processes - slow/heavy plugin code doesn't affect server TPS | Run intensive tasks without lag |
+| ⚡ **Zero Performance Impact** | Plugins run in separate processes - slow/heavy plugin code doesn't affect server TPS | Run intensive tasks without lag |
 | 🚀 **High Performance (COMING SOON)** | Optimized protobuf protocol with optional batching for low latency | Handle 100+ players with movement events |
 | 🔒 **Sandboxing** | Control what plugins can access via gRPC permissions | Host untrusted plugins safely |
 
