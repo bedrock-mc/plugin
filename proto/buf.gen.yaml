@@ -3,7 +3,7 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: github.com/secmc/plugin/plugin/proto/generated
+      value: github.com/secmc/plugin/proto/generated
 plugins:
   - local: protoc-gen-go
     out: generated
