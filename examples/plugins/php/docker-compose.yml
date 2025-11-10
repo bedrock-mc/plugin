@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  php-plugin:
+    build:
+      context: ../../..
+      dockerfile: examples/plugins/php/Dockerfile
+      platforms:
+        - linux/amd64
+    environment:
+      - DF_PLUGIN_ID=php-plugin
+      - DF_PLUGIN_SERVER_ADDRESS=host.docker.internal:50050
+    volumes:
+      - ./src:/app/src
+    network_mode: host
+    platform: linux/amd64

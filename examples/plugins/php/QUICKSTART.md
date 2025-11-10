@@ -58,15 +58,10 @@ The plugin is already configured in `plugins/plugins.yaml`.
 
 ## Testing
 
-Once running, you should see:
+Once Dragonfly is running you should see logs like:
 
 ```
-[php] plugin listening on 127.0.0.1:50053
-```
-
-And in Dragonfly server logs:
-
-```
+[plugin-manager] plugin server listening on 127.0.0.1:50050
 [plugin-manager] plugin connected: example-php
 ```
 
@@ -91,11 +86,9 @@ Or manually check:
 ls bin/php7/bin/php
 ```
 
-### Port already in use
-Change the port in `plugins.yaml`:
-```yaml
-address: "127.0.0.1:50054"  # Use a different port
-```
+### Plugin cannot connect
+- Ensure Dragonfly is running and `server_port` in `plugins.yaml` matches `DF_PLUGIN_SERVER_ADDRESS`
+- Verify `bin/php7/bin/php` exists and has the gRPC extension enabled
 
 ### PHP version issues
 Check your PHP version:

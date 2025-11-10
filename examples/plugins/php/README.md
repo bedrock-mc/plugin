@@ -111,12 +111,13 @@ chmod +x setup.sh generate-proto.sh
 The PHP plugin is already configured in `plugins/plugins.yaml`:
 
 ```yaml
+server_port: 50050
+
 plugins:
   - id: example-php
     name: Example PHP Plugin
     command: "examples/plugins/php/bin/php7/bin/php"
     args: ["examples/plugins/php/src/HelloPlugin.php"]
-    address: "127.0.0.1:50053"
 ```
 
 ## Running the Plugin

@@ -69,12 +69,13 @@ bin/php7/bin/php src/HelloPlugin.php
 Update `/plugins/plugins.yaml` to use your custom PHP:
 
 ```yaml
+server_port: 50050
+
 plugins:
   - id: example-php
     name: Example PHP Plugin
     command: "examples/plugins/php/bin/php7/bin/php"
     args: ["examples/plugins/php/src/HelloPlugin.php"]
-    address: "127.0.0.1:50053"
     env:
       PHP_ENV: production
 ```
@@ -82,13 +83,14 @@ plugins:
 Or use the wrapper script:
 
 ```yaml
+server_port: 50050
+
 plugins:
   - id: example-php
     name: Example PHP Plugin
     command: "examples/plugins/php/run-plugin.sh"
     args: []
     work_dir: "examples/plugins/php"
-    address: "127.0.0.1:50053"
 ```
 
 ## What's Included

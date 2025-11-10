@@ -1,0 +1,13 @@
+parameters:
+    level: 6
+    paths:
+        - src
+    
+    # Ignore errors from generated protobuf files
+    excludePaths:
+        - generated/*
+        - vendor/*
+    
+    # Since we're using generated protobuf classes, be more lenient
+    checkMissingIterableValueType: false
+

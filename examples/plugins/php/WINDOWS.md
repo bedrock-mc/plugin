@@ -20,11 +20,13 @@ The script will:
 Windows uses a different directory structure. After running `./setup.sh`, edit `plugins/plugins.yaml`:
 
 ```yaml
-- id: example-php
-  name: Example PHP Plugin
-  command: "examples/plugins/php/bin/php/php.exe"  # ← Change this line
-  args: ["examples/plugins/php/src/HelloPlugin.php"]
-  address: "127.0.0.1:50053"
+server_port: 50050
+
+plugins:
+  - id: example-php
+    name: Example PHP Plugin
+    command: "examples/plugins/php/bin/php/php.exe"  # ← Change this line
+    args: ["examples/plugins/php/src/HelloPlugin.php"]
 ```
 
 ## Running on Windows
@@ -104,10 +106,6 @@ command: "examples/plugins/php/bin/php/php.exe"
 ### "DLL not found" errors
 
 The PHP build includes all necessary DLLs in `bin/php/`. Make sure you're running from the correct directory.
-
-### Firewall warnings
-
-Windows may ask for firewall permissions when PHP starts listening on port 50053. Click "Allow access".
 
 ### Line ending issues
 
