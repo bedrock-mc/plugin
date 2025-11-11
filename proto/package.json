@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "generate": "npm run generate:go && npm run generate:php && npm run generate:ts",
+    "generate": "npm run generate:go && npm run generate:php && npm run generate:ts && npm run generate:py",
     "generate:go": "buf generate && cd ../ && go mod tidy",
     "generate:php": "buf generate --template buf.gen.php.yaml",
     "generate:ts": "buf generate --template buf.gen.ts.yaml",
+    "generate:py": "buf generate --template buf.gen.py.yaml",
     "lint": "buf lint",
     "breaking": "buf breaking --against '.git#branch=main'"
   },
