@@ -1,36 +1,103 @@
 package handlers
 
 import (
+	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/world"
-	pb "github.com/secmc/plugin/proto/generated"
+	"github.com/go-gl/mathgl/mgl64"
+	"github.com/secmc/plugin/plugin/ports"
 )
 
 var _ world.Handler = (*WorldHandler)(nil)
 
-type EventBroadcaster interface {
-	BroadcastEvent(evt *pb.EventEnvelope)
-	GenerateEventID() string
-}
-
 type WorldHandler struct {
 	world.NopHandler
-	broadcaster EventBroadcaster
+	manager ports.EventManager
 }
 
-func NewWorldHandler(broadcaster EventBroadcaster) world.Handler {
-	return &WorldHandler{broadcaster: broadcaster}
+func NewWorldHandler(manager ports.EventManager) world.Handler {
+	return &WorldHandler{manager: manager}
 }
 
 func (h *WorldHandler) HandleClose(tx *world.Tx) {
-	if h.broadcaster == nil || tx == nil {
+	if h.manager == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
-		EventId: h.broadcaster.GenerateEventID(),
-		Type:    pb.EventType_WORLD_CLOSE,
-		Payload: &pb.EventEnvelope_WorldClose{
-			WorldClose: &pb.WorldCloseEvent{},
-		},
+	h.manager.EmitWorldClose(tx)
+}
+
+func (h *WorldHandler) HandleLiquidFlow(ctx *world.Context, from, into cube.Pos, liquid world.Liquid, replaced world.Block) {
+	if h.manager == nil {
+		return
 	}
-	h.broadcaster.BroadcastEvent(evt)
+	h.manager.EmitWorldLiquidFlow(ctx, from, into, liquid, replaced)
+}
+
+func (h *WorldHandler) HandleLiquidDecay(ctx *world.Context, pos cube.Pos, before, after world.Liquid) {
+	if h.manager == nil {
+		return
+	}
+	h.manager.EmitWorldLiquidDecay(ctx, pos, before, after)
+}
+
+func (h *WorldHandler) HandleLiquidHarden(ctx *world.Context, pos cube.Pos, liquidHardened, otherLiquid, newBlock world.Block) {
+	if h.manager == nil {
+		return
+	}
+	h.manager.EmitWorldLiquidHarden(ctx, pos, liquidHardened, otherLiquid, newBlock)
+}
+
+func (h *WorldHandler) HandleSound(ctx *world.Context, s world.Sound, pos mgl64.Vec3) {
+	if h.manager == nil {
+		return
+	}
+	h.manager.EmitWorldSound(ctx, s, pos)
+}
+
+func (h *WorldHandler) HandleFireSpread(ctx *world.Context, from, to cube.Pos) {
+	if h.manager == nil {
+		return
+	}
+	h.manager.EmitWorldFireSpread(ctx, from, to)
+}
+
+func (h *WorldHandler) HandleBlockBurn(ctx *world.Context, pos cube.Pos) {
+	if h.manager == nil {
+		return
+	}
+	h.manager.EmitWorldBlockBurn(ctx, pos)
+}
+
+func (h *WorldHandler) HandleCropTrample(ctx *world.Context, pos cube.Pos) {
+	if h.manager == nil {
+		return
+	}
+	h.manager.EmitWorldCropTrample(ctx, pos)
+}
+
+func (h *WorldHandler) HandleLeavesDecay(ctx *world.Context, pos cube.Pos) {
+	if h.manager == nil {
+		return
+	}
+	h.manager.EmitWorldLeavesDecay(ctx, pos)
+}
+
+func (h *WorldHandler) HandleEntitySpawn(tx *world.Tx, e world.Entity) {
+	if h.manager == nil {
+		return
+	}
+	h.manager.EmitWorldEntitySpawn(tx, e)
+}
+
+func (h *WorldHandler) HandleEntityDespawn(tx *world.Tx, e world.Entity) {
+	if h.manager == nil {
+		return
+	}
+	h.manager.EmitWorldEntityDespawn(tx, e)
+}
+
+func (h *WorldHandler) HandleExplosion(ctx *world.Context, position mgl64.Vec3, entities *[]world.Entity, blocks *[]cube.Pos, itemDropChance *float64, spawnFire *bool) {
+	if h.manager == nil {
+		return
+	}
+	h.manager.EmitWorldExplosion(ctx, position, entities, blocks, itemDropChance, spawnFire)
 }

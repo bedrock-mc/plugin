@@ -16,20 +16,14 @@ func (m *Manager) EmitBlockBreak(ctx *player.Context, p *player.Player, pos cube
 				PlayerUuid: p.UUID().String(),
 				Name:       p.Name(),
 				World:      worldDim,
-				X:          int32(pos.X()),
-				Y:          int32(pos.Y()),
-				Z:          int32(pos.Z()),
+				Position:   protoBlockPos(pos),
 			},
 		},
 	}
-	results := m.dispatchEvent(evt, true)
-	var cancelled bool
+	results := m.emitCancellable(ctx, evt)
 	for _, res := range results {
 		if res == nil {
 			continue
-		}
-		if res.Cancel != nil && *res.Cancel {
-			cancelled = true
 		}
 		if bbMut := res.GetBlockBreak(); bbMut != nil {
 			if drops != nil {
@@ -39,8 +33,5 @@ func (m *Manager) EmitBlockBreak(ctx *player.Context, p *player.Player, pos cube
 				*xp = int(*bbMut.Xp)
 			}
 		}
-	}
-	if cancelled && ctx != nil {
-		ctx.Cancel()
 	}
 }

@@ -274,6 +274,20 @@ func (m *Manager) dispatchEvent(envelope *pb.EventEnvelope, expectResult bool) [
 	return results
 }
 
+func (m *Manager) emitCancellable(ctx cancelContext, envelope *pb.EventEnvelope) []*pb.EventResult {
+	results := m.dispatchEvent(envelope, true)
+	cancelled := false
+	for _, res := range results {
+		if res != nil && res.Cancel != nil && *res.Cancel {
+			cancelled = true
+		}
+	}
+	if cancelled && ctx != nil {
+		ctx.Cancel()
+	}
+	return results
+}
+
 func (m *Manager) BroadcastEvent(evt *pb.EventEnvelope) {
 	m.broadcastEvent(evt)
 }

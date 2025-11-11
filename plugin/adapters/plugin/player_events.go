@@ -51,21 +51,14 @@ func (m *Manager) EmitChat(ctx *player.Context, p *player.Player, msg *string) {
 			},
 		},
 	}
-	results := m.dispatchEvent(evt, true)
-	var cancelled bool
+	results := m.emitCancellable(ctx, evt)
 	for _, res := range results {
 		if res == nil {
 			continue
 		}
-		if res.Cancel != nil && *res.Cancel {
-			cancelled = true
-		}
 		if chatMut := res.GetChat(); chatMut != nil {
 			*msg = chatMut.Message
 		}
-	}
-	if cancelled && ctx != nil {
-		ctx.Cancel()
 	}
 }
 
@@ -87,11 +80,5 @@ func (m *Manager) EmitCommand(ctx *player.Context, p *player.Player, cmdName str
 			},
 		},
 	}
-	results := m.dispatchEvent(evt, true)
-	for _, res := range results {
-		if res != nil && res.Cancel != nil && *res.Cancel && ctx != nil {
-			ctx.Cancel()
-			break
-		}
-	}
+	m.emitCancellable(ctx, evt)
 }
