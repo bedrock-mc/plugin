@@ -4,6 +4,8 @@ package df.plugin;
 
 option go_package = "github.com/secmc/plugin/proto/generated";
 
+import "common.proto";
+
 message PlayerJoinEvent {
   string player_uuid = 1;
   string name = 2;
@@ -14,10 +16,253 @@ message PlayerQuitEvent {
   string name = 2;
 }
 
+message PlayerMoveEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  Vec3 position = 4;
+  Rotation rotation = 5;
+}
+
+message PlayerJumpEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  Vec3 position = 4;
+}
+
+message PlayerTeleportEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  Vec3 position = 4;
+}
+
+message PlayerChangeWorldEvent {
+  string player_uuid = 1;
+  string name = 2;
+  optional WorldRef before = 3;
+  optional WorldRef after = 4;
+}
+
+message PlayerToggleSprintEvent {
+  string player_uuid = 1;
+  string name = 2;
+  bool after = 3;
+}
+
+message PlayerToggleSneakEvent {
+  string player_uuid = 1;
+  string name = 2;
+  bool after = 3;
+}
+
 message ChatEvent {
   string player_uuid = 1;
   string name = 2;
   string message = 3;
+}
+
+message PlayerFoodLossEvent {
+  string player_uuid = 1;
+  string name = 2;
+  int32 from = 3;
+  int32 to = 4;
+}
+
+message PlayerHealEvent {
+  string player_uuid = 1;
+  string name = 2;
+  double amount = 3;
+  optional HealingSource source = 4;
+}
+
+message PlayerHurtEvent {
+  string player_uuid = 1;
+  string name = 2;
+  double damage = 3;
+  bool immune = 4;
+  int64 attack_immunity_ms = 5;
+  optional DamageSource source = 6;
+}
+
+message PlayerDeathEvent {
+  string player_uuid = 1;
+  string name = 2;
+  optional DamageSource source = 3;
+  bool keep_inventory = 4;
+}
+
+message PlayerRespawnEvent {
+  string player_uuid = 1;
+  string name = 2;
+  optional Vec3 position = 3;
+  optional WorldRef world = 4;
+}
+
+message PlayerSkinChangeEvent {
+  string player_uuid = 1;
+  string name = 2;
+  optional string full_id = 3;
+  optional string play_fab_id = 4;
+  bool persona = 5;
+}
+
+message PlayerFireExtinguishEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  BlockPos position = 4;
+}
+
+message PlayerStartBreakEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  BlockPos position = 4;
+}
+
+message BlockBreakEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  BlockPos position = 4;
+}
+
+message PlayerBlockPlaceEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  BlockPos position = 4;
+  BlockState block = 5;
+}
+
+message PlayerBlockPickEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  BlockPos position = 4;
+  BlockState block = 5;
+}
+
+message PlayerItemUseEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  optional ItemStack item = 4;
+}
+
+message PlayerItemUseOnBlockEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  BlockPos position = 4;
+  string face = 5;
+  Vec3 click_position = 6;
+  BlockState block = 7;
+  optional ItemStack item = 8;
+}
+
+message PlayerItemUseOnEntityEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  EntityRef entity = 4;
+  optional ItemStack item = 5;
+}
+
+message PlayerItemReleaseEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  optional ItemStack item = 4;
+  int64 duration_ms = 5;
+}
+
+message PlayerItemConsumeEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  optional ItemStack item = 4;
+}
+
+message PlayerAttackEntityEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  EntityRef entity = 4;
+  double force = 5;
+  double height = 6;
+  bool critical = 7;
+  optional ItemStack item = 8;
+}
+
+message PlayerExperienceGainEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  int32 amount = 4;
+}
+
+message PlayerPunchAirEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+}
+
+message PlayerSignEditEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  BlockPos position = 4;
+  bool front_side = 5;
+  string old_text = 6;
+  string new_text = 7;
+}
+
+message PlayerLecternPageTurnEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  BlockPos position = 4;
+  int32 old_page = 5;
+  int32 new_page = 6;
+}
+
+message PlayerItemDamageEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  optional ItemStack item = 4;
+  int32 damage = 5;
+}
+
+message PlayerItemPickupEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  optional ItemStack item = 4;
+}
+
+message PlayerHeldSlotChangeEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  int32 from_slot = 4;
+  int32 to_slot = 5;
+}
+
+message PlayerItemDropEvent {
+  string player_uuid = 1;
+  string name = 2;
+  string world = 3;
+  optional ItemStack item = 4;
+}
+
+message PlayerTransferEvent {
+  string player_uuid = 1;
+  string name = 2;
+  optional Address address = 3;
 }
 
 message CommandEvent {
@@ -28,11 +273,16 @@ message CommandEvent {
   repeated string args = 5; // Parsed arguments like ["100", "64", "200"]
 }
 
-message BlockBreakEvent {
+message PlayerDiagnosticsEvent {
   string player_uuid = 1;
   string name = 2;
-  string world = 3;
-  int32 x = 4;
-  int32 y = 5;
-  int32 z = 6;
+  double average_frames_per_second = 3;
+  double average_server_sim_tick_time = 4;
+  double average_client_sim_tick_time = 5;
+  double average_begin_frame_time = 6;
+  double average_input_time = 7;
+  double average_render_time = 8;
+  double average_end_frame_time = 9;
+  double average_remainder_time_percent = 10;
+  double average_unaccounted_time_percent = 11;
 }

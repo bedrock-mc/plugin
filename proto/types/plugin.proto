@@ -37,10 +37,53 @@ message EventEnvelope {
   oneof payload {
     PlayerJoinEvent player_join = 10;
     PlayerQuitEvent player_quit = 11;
-    ChatEvent chat = 12;
-    CommandEvent command = 13;
-    BlockBreakEvent block_break = 14;
-    WorldCloseEvent world_close = 15;
+    PlayerMoveEvent player_move = 12;
+    PlayerJumpEvent player_jump = 13;
+    PlayerTeleportEvent player_teleport = 14;
+    PlayerChangeWorldEvent player_change_world = 15;
+    PlayerToggleSprintEvent player_toggle_sprint = 16;
+    PlayerToggleSneakEvent player_toggle_sneak = 17;
+    ChatEvent chat = 18;
+    PlayerFoodLossEvent player_food_loss = 19;
+    PlayerHealEvent player_heal = 20;
+    PlayerHurtEvent player_hurt = 21;
+    PlayerDeathEvent player_death = 22;
+    PlayerRespawnEvent player_respawn = 23;
+    PlayerSkinChangeEvent player_skin_change = 24;
+    PlayerFireExtinguishEvent player_fire_extinguish = 25;
+    PlayerStartBreakEvent player_start_break = 26;
+    BlockBreakEvent block_break = 27;
+    PlayerBlockPlaceEvent player_block_place = 28;
+    PlayerBlockPickEvent player_block_pick = 29;
+    PlayerItemUseEvent player_item_use = 30;
+    PlayerItemUseOnBlockEvent player_item_use_on_block = 31;
+    PlayerItemUseOnEntityEvent player_item_use_on_entity = 32;
+    PlayerItemReleaseEvent player_item_release = 33;
+    PlayerItemConsumeEvent player_item_consume = 34;
+    PlayerAttackEntityEvent player_attack_entity = 35;
+    PlayerExperienceGainEvent player_experience_gain = 36;
+    PlayerPunchAirEvent player_punch_air = 37;
+    PlayerSignEditEvent player_sign_edit = 38;
+    PlayerLecternPageTurnEvent player_lectern_page_turn = 39;
+    PlayerItemDamageEvent player_item_damage = 40;
+    PlayerItemPickupEvent player_item_pickup = 41;
+    PlayerHeldSlotChangeEvent player_held_slot_change = 42;
+    PlayerItemDropEvent player_item_drop = 43;
+    PlayerTransferEvent player_transfer = 44;
+    CommandEvent command = 45;
+    PlayerDiagnosticsEvent player_diagnostics = 46;
+    WorldLiquidFlowEvent world_liquid_flow = 70;
+    WorldLiquidDecayEvent world_liquid_decay = 71;
+    WorldLiquidHardenEvent world_liquid_harden = 72;
+    WorldSoundEvent world_sound = 73;
+    WorldFireSpreadEvent world_fire_spread = 74;
+    WorldBlockBurnEvent world_block_burn = 75;
+    WorldCropTrampleEvent world_crop_trample = 76;
+    WorldLeavesDecayEvent world_leaves_decay = 77;
+    WorldEntitySpawnEvent world_entity_spawn = 78;
+    WorldEntityDespawnEvent world_entity_despawn = 79;
+    WorldExplosionEvent world_explosion = 80;
+    WorldCloseEvent world_close = 81;
   }
 }
 

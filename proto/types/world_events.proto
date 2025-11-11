@@ -4,4 +4,77 @@ package df.plugin;
 
 option go_package = "github.com/secmc/plugin/proto/generated";
 
-message WorldCloseEvent {}
+import "common.proto";
+
+message WorldLiquidFlowEvent {
+  WorldRef world = 1;
+  BlockPos from = 2;
+  BlockPos to = 3;
+  LiquidState liquid = 4;
+  BlockState replaced = 5;
+}
+
+message WorldLiquidDecayEvent {
+  WorldRef world = 1;
+  BlockPos position = 2;
+  optional LiquidState before = 3;
+  optional LiquidState after = 4;
+}
+
+message WorldLiquidHardenEvent {
+  WorldRef world = 1;
+  BlockPos position = 2;
+  optional LiquidState liquid_hardened = 3;
+  optional LiquidState other_liquid = 4;
+  optional BlockState new_block = 5;
+}
+
+message WorldSoundEvent {
+  WorldRef world = 1;
+  string sound = 2;
+  Vec3 position = 3;
+}
+
+message WorldFireSpreadEvent {
+  WorldRef world = 1;
+  BlockPos from = 2;
+  BlockPos to = 3;
+}
+
+message WorldBlockBurnEvent {
+  WorldRef world = 1;
+  BlockPos position = 2;
+}
+
+message WorldCropTrampleEvent {
+  WorldRef world = 1;
+  BlockPos position = 2;
+}
+
+message WorldLeavesDecayEvent {
+  WorldRef world = 1;
+  BlockPos position = 2;
+}
+
+message WorldEntitySpawnEvent {
+  WorldRef world = 1;
+  EntityRef entity = 2;
+}
+
+message WorldEntityDespawnEvent {
+  WorldRef world = 1;
+  EntityRef entity = 2;
+}
+
+message WorldExplosionEvent {
+  WorldRef world = 1;
+  Vec3 position = 2;
+  repeated EntityRef affected_entities = 3;
+  repeated BlockPos affected_blocks = 4;
+  double item_drop_chance = 5;
+  bool spawn_fire = 6;
+}
+
+message WorldCloseEvent {
+  WorldRef world = 1;
+}

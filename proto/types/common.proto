@@ -9,8 +9,65 @@ enum GameMode {
     SPECTATOR = 3;
 }
 
+message Vec3 {
+    double x = 1;
+    double y = 2;
+    double z = 3;
+}
+
+message Rotation {
+    float yaw = 1;
+    float pitch = 2;
+}
+
+message BlockPos {
+    int32 x = 1;
+    int32 y = 2;
+    int32 z = 3;
+}
+
 message ItemStack {
     string name = 1;
     int32 meta = 2;
     int32 count = 3;
+}
+
+message BlockState {
+    string name = 1;
+    map<string, string> properties = 2;
+}
+
+message LiquidState {
+    BlockState block = 1;
+    int32 depth = 2;
+    bool falling = 3;
+    string liquid_type = 4;
+}
+
+message WorldRef {
+    string name = 1;
+    string dimension = 2;
+}
+
+message EntityRef {
+    string uuid = 1;
+    string type = 2;
+    optional string name = 3;
+    optional Vec3 position = 4;
+    optional Rotation rotation = 5;
+}
+
+message DamageSource {
+    string type = 1;
+    optional string description = 2;
+}
+
+message HealingSource {
+    string type = 1;
+    optional string description = 2;
+}
+
+message Address {
+    string host = 1;
+    int32 port = 2;
 }
