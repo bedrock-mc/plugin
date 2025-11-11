@@ -8,7 +8,7 @@
 - Clean separation between domain and infrastructure
 - Adapters don't depend on other adapters directly
 - Handler factories injected via dependency injection
-- Emitter implements PluginService interface
+- Manaager implements PluginService interface
 
 **✅ Switched to Generated Protobuf Code**
 - Using `protoc-gen-go` generated code instead of hand-written codec

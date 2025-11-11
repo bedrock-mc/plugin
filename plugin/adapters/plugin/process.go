@@ -9,7 +9,6 @@ import (
 	"log/slog"
 	"os"
 	"os/exec"
-	"strings"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -31,7 +30,7 @@ const (
 type pluginProcess struct {
 	id      string
 	cfg     config.PluginConfig
-	emitter *Emitter
+	manager *Manager
 	log     *slog.Logger
 
 	cmd      *exec.Cmd
@@ -55,15 +54,15 @@ type pluginProcess struct {
 	pending   map[string]chan *pb.EventResult
 }
 
-func newPluginProcess(e *Emitter, cfg config.PluginConfig) *pluginProcess {
-	logger := e.log.With("plugin", cfg.ID)
+func newPluginProcess(m *Manager, cfg config.PluginConfig) *pluginProcess {
+	logger := m.log.With("plugin", cfg.ID)
 	if cfg.Name != "" {
 		logger = logger.With("name", cfg.Name)
 	}
 	return &pluginProcess{
 		id:      cfg.ID,
 		cfg:     cfg,
-		emitter: e,
+		manager: m,
 		log:     logger,
 		sendCh:  make(chan *pb.HostToPlugin, sendChannelBuffer),
 		done:    make(chan struct{}),
@@ -141,7 +140,9 @@ func (p *pluginProcess) launchProcess(ctx context.Context, serverAddress string)
 	go p.consumeOutput(stdout)
 	go p.consumeOutput(stderr)
 
+	p.wg.Add(1)
 	go func() {
+		defer p.wg.Done()
 		if err := cmd.Wait(); err != nil && !p.closed.Load() {
 			p.log.Warn("process exited", "error", err)
 		}
@@ -189,9 +190,6 @@ func (p *pluginProcess) sendLoop() {
 			if msg == nil {
 				continue
 			}
-			if p.stream == nil {
-				return
-			}
 			data, err := proto.Marshal(msg)
 			if err != nil {
 				p.log.Error("marshal message", "error", err)
@@ -222,29 +220,31 @@ func (p *pluginProcess) recvLoop() {
 			p.log.Error("decode message", "error", err)
 			continue
 		}
-		p.emitter.handlePluginMessage(p, msg)
+		p.manager.handlePluginMessage(p, msg)
 	}
 }
 
-func (p *pluginProcess) HasSubscription(event string) bool {
+func (p *pluginProcess) HasSubscription(event pb.EventType) bool {
 	if !p.ready.Load() {
 		return false
 	}
-	if _, ok := p.subscriptions.Load("*"); ok {
+	if _, ok := p.subscriptions.Load(pb.EventType_EVENT_TYPE_ALL); ok {
 		return true
 	}
-	_, ok := p.subscriptions.Load(strings.ToUpper(event))
+	if event == pb.EventType_EVENT_TYPE_UNSPECIFIED {
+		return false
+	}
+	_, ok := p.subscriptions.Load(event)
 	return ok
 }
 
-func (p *pluginProcess) updateSubscriptions(events []string) {
+func (p *pluginProcess) updateSubscriptions(events []pb.EventType) {
 	p.subscriptions.Range(func(key, value any) bool {
 		p.subscriptions.Delete(key)
 		return true
 	})
 	for _, evt := range events {
-		evt = strings.ToUpper(strings.TrimSpace(evt))
-		if evt == "" {
+		if evt == pb.EventType_EVENT_TYPE_UNSPECIFIED {
 			continue
 		}
 		p.subscriptions.Store(evt, struct{}{})

@@ -28,27 +28,27 @@ func main() {
 	srv := conf.New()
 	srv.CloseOnProgramEnd()
 
-	emitter := plugin.NewEmitter(
+	manager := plugin.NewManager(
 		srv,
 		slog.Default(),
-		func(e ports.EventEmitter) player.Handler {
+		func(e ports.EventManager) player.Handler {
 			return handlers.NewPlayerHandler(e)
 		},
-		func(e ports.EventEmitter) world.Handler {
+		func(e ports.EventManager) world.Handler {
 			return handlers.NewWorldHandler(e)
 		},
 	)
-	if err := emitter.Start("plugins/plugins.yaml"); err != nil {
+	if err := manager.Start("plugins/plugins.yaml"); err != nil {
 		slog.Default().Error("start plugins", "error", err)
 	}
-	emitter.AttachWorld(srv.World())
-	emitter.AttachWorld(srv.Nether())
-	emitter.AttachWorld(srv.End())
-	defer emitter.Close()
+	manager.AttachWorld(srv.World())
+	manager.AttachWorld(srv.Nether())
+	manager.AttachWorld(srv.End())
+	defer manager.Close()
 
 	srv.Listen()
 	for p := range srv.Accept() {
-		emitter.AttachPlayer(p)
+		manager.AttachPlayer(p)
 	}
 }
 

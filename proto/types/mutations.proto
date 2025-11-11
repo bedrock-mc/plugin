@@ -1,0 +1,100 @@
+syntax = "proto3";
+package df.plugin;
+
+option go_package = "github.com/secmc/plugin/proto/generated";
+
+import "actions.proto";
+import "common.proto";
+
+message EventResult {
+    string event_id = 1;
+    optional bool cancel = 2;
+    oneof update {
+        ChatMutation chat = 10;
+        BlockBreakMutation block_break = 11;
+        PlayerFoodLossMutation player_food_loss = 12;
+        PlayerHealMutation player_heal = 13;
+        PlayerHurtMutation player_hurt = 14;
+        PlayerDeathMutation player_death = 15;
+        PlayerRespawnMutation player_respawn = 16;
+        PlayerAttackEntityMutation player_attack_entity = 17;
+        PlayerExperienceGainMutation player_experience_gain = 18;
+        PlayerLecternPageTurnMutation player_lectern_page_turn = 19;
+        PlayerItemPickupMutation player_item_pickup = 20;
+        PlayerTransferMutation player_transfer = 21;
+        WorldExplosionMutation world_explosion = 30;
+    }
+}
+
+// Wrapper messages for repeated fields to allow detecting "not set" vs "empty"
+message ItemStackList {
+    repeated ItemStack items = 1;
+}
+
+message StringList {
+    repeated string values = 1;
+}
+
+message BlockPosList {
+    repeated BlockPos positions = 1;
+}
+
+message ChatMutation {
+    optional string message = 1;
+}
+
+message BlockBreakMutation {
+    optional ItemStackList drops = 1;
+    optional int32 xp = 2;
+}
+
+message PlayerFoodLossMutation {
+    optional int32 to = 1;
+}
+
+message PlayerHealMutation {
+    optional double amount = 1;
+}
+
+message PlayerHurtMutation {
+    optional double damage = 1;
+    optional int64 attack_immunity_ms = 2;
+}
+
+message PlayerDeathMutation {
+    optional bool keep_inventory = 1;
+}
+
+message PlayerRespawnMutation {
+    optional Vec3 position = 1;
+    optional WorldRef world = 2;
+}
+
+message PlayerAttackEntityMutation {
+    optional double force = 1;
+    optional double height = 2;
+    optional bool critical = 3;
+}
+
+message PlayerExperienceGainMutation {
+    optional int32 amount = 1;
+}
+
+message PlayerLecternPageTurnMutation {
+    optional int32 new_page = 1;
+}
+
+message PlayerItemPickupMutation {
+    optional ItemStack item = 1;
+}
+
+message PlayerTransferMutation {
+    optional Address address = 1;
+}
+
+message WorldExplosionMutation {
+    optional StringList entity_uuids = 1;
+    optional BlockPosList blocks = 2;
+    optional double item_drop_chance = 3;
+    optional bool spawn_fire = 4;
+}
