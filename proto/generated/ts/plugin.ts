@@ -6,8 +6,8 @@
 
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
-import { ActionBatch } from "./actions";
-import { EventResult } from "./mutations";
+import { ActionBatch } from "./actions.js";
+import { EventResult } from "./mutations.js";
 import {
   BlockBreakEvent,
   ChatEvent,
@@ -46,7 +46,7 @@ import {
   PlayerToggleSneakEvent,
   PlayerToggleSprintEvent,
   PlayerTransferEvent,
-} from "./player_events";
+} from "./player_events.js";
 import {
   WorldBlockBurnEvent,
   WorldCloseEvent,
@@ -60,7 +60,7 @@ import {
   WorldLiquidFlowEvent,
   WorldLiquidHardenEvent,
   WorldSoundEvent,
-} from "./world_events";
+} from "./world_events.js";
 
 export const protobufPackage = "df.plugin";
 

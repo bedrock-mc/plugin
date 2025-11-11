@@ -6,7 +6,7 @@
 
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
-import { BlockPos, BlockState, EntityRef, LiquidState, Vec3, WorldRef } from "./common";
+import { BlockPos, BlockState, EntityRef, LiquidState, Vec3, WorldRef } from "./common.js";
 
 export const protobufPackage = "df.plugin";
 

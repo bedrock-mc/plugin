@@ -6,7 +6,7 @@
 
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
-import { GameMode, gameModeFromJSON, gameModeToJSON } from "./common";
+import { GameMode, gameModeFromJSON, gameModeToJSON } from "./common.js";
 
 export const protobufPackage = "df.plugin";
 

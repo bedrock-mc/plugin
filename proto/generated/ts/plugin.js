@@ -5,6 +5,10 @@
 // source: plugin.proto
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
+import { ActionBatch } from "./actions.js";
+import { EventResult } from "./mutations.js";
+import { BlockBreakEvent, ChatEvent, CommandEvent, PlayerAttackEntityEvent, PlayerBlockPickEvent, PlayerBlockPlaceEvent, PlayerChangeWorldEvent, PlayerDeathEvent, PlayerDiagnosticsEvent, PlayerExperienceGainEvent, PlayerFireExtinguishEvent, PlayerFoodLossEvent, PlayerHealEvent, PlayerHeldSlotChangeEvent, PlayerHurtEvent, PlayerItemConsumeEvent, PlayerItemDamageEvent, PlayerItemDropEvent, PlayerItemPickupEvent, PlayerItemReleaseEvent, PlayerItemUseEvent, PlayerItemUseOnBlockEvent, PlayerItemUseOnEntityEvent, PlayerJoinEvent, PlayerJumpEvent, PlayerLecternPageTurnEvent, PlayerMoveEvent, PlayerPunchAirEvent, PlayerQuitEvent, PlayerRespawnEvent, PlayerSignEditEvent, PlayerSkinChangeEvent, PlayerStartBreakEvent, PlayerTeleportEvent, PlayerToggleSneakEvent, PlayerToggleSprintEvent, PlayerTransferEvent, } from "./player_events.js";
+import { WorldBlockBurnEvent, WorldCloseEvent, WorldCropTrampleEvent, WorldEntityDespawnEvent, WorldEntitySpawnEvent, WorldExplosionEvent, WorldFireSpreadEvent, WorldLeavesDecayEvent, WorldLiquidDecayEvent, WorldLiquidFlowEvent, WorldLiquidHardenEvent, WorldSoundEvent, } from "./world_events.js";
 export const protobufPackage = "df.plugin";
 export var EventType;
 (function (EventType) {
@@ -331,49 +335,6 @@ export function eventTypeToJSON(object) {
             return "UNRECOGNIZED";
     }
 }
-export var GameMode;
-(function (GameMode) {
-    GameMode[GameMode["SURVIVAL"] = 0] = "SURVIVAL";
-    GameMode[GameMode["CREATIVE"] = 1] = "CREATIVE";
-    GameMode[GameMode["ADVENTURE"] = 2] = "ADVENTURE";
-    GameMode[GameMode["SPECTATOR"] = 3] = "SPECTATOR";
-    GameMode[GameMode["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(GameMode || (GameMode = {}));
-export function gameModeFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "SURVIVAL":
-            return GameMode.SURVIVAL;
-        case 1:
-        case "CREATIVE":
-            return GameMode.CREATIVE;
-        case 2:
-        case "ADVENTURE":
-            return GameMode.ADVENTURE;
-        case 3:
-        case "SPECTATOR":
-            return GameMode.SPECTATOR;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return GameMode.UNRECOGNIZED;
-    }
-}
-export function gameModeToJSON(object) {
-    switch (object) {
-        case GameMode.SURVIVAL:
-            return "SURVIVAL";
-        case GameMode.CREATIVE:
-            return "CREATIVE";
-        case GameMode.ADVENTURE:
-            return "ADVENTURE";
-        case GameMode.SPECTATOR:
-            return "SPECTATOR";
-        case GameMode.UNRECOGNIZED:
-        default:
-            return "UNRECOGNIZED";
-    }
-}
 function createBaseHostToPlugin() {
     return { pluginId: "", hello: undefined, shutdown: undefined, event: undefined };
 }
@@ -586,9 +547,52 @@ function createBaseEventEnvelope() {
         type: 0,
         playerJoin: undefined,
         playerQuit: undefined,
+        playerMove: undefined,
+        playerJump: undefined,
+        playerTeleport: undefined,
+        playerChangeWorld: undefined,
+        playerToggleSprint: undefined,
+        playerToggleSneak: undefined,
         chat: undefined,
-        command: undefined,
+        playerFoodLoss: undefined,
+        playerHeal: undefined,
+        playerHurt: undefined,
+        playerDeath: undefined,
+        playerRespawn: undefined,
+        playerSkinChange: undefined,
+        playerFireExtinguish: undefined,
+        playerStartBreak: undefined,
         blockBreak: undefined,
+        playerBlockPlace: undefined,
+        playerBlockPick: undefined,
+        playerItemUse: undefined,
+        playerItemUseOnBlock: undefined,
+        playerItemUseOnEntity: undefined,
+        playerItemRelease: undefined,
+        playerItemConsume: undefined,
+        playerAttackEntity: undefined,
+        playerExperienceGain: undefined,
+        playerPunchAir: undefined,
+        playerSignEdit: undefined,
+        playerLecternPageTurn: undefined,
+        playerItemDamage: undefined,
+        playerItemPickup: undefined,
+        playerHeldSlotChange: undefined,
+        playerItemDrop: undefined,
+        playerTransfer: undefined,
+        command: undefined,
+        playerDiagnostics: undefined,
+        worldLiquidFlow: undefined,
+        worldLiquidDecay: undefined,
+        worldLiquidHarden: undefined,
+        worldSound: undefined,
+        worldFireSpread: undefined,
+        worldBlockBurn: undefined,
+        worldCropTrample: undefined,
+        worldLeavesDecay: undefined,
+        worldEntitySpawn: undefined,
+        worldEntityDespawn: undefined,
+        worldExplosion: undefined,
         worldClose: undefined,
     };
 }
@@ -606,17 +610,146 @@ export const EventEnvelope = {
         if (message.playerQuit !== undefined) {
             PlayerQuitEvent.encode(message.playerQuit, writer.uint32(90).fork()).join();
         }
-        if (message.chat !== undefined) {
-            ChatEvent.encode(message.chat, writer.uint32(98).fork()).join();
+        if (message.playerMove !== undefined) {
+            PlayerMoveEvent.encode(message.playerMove, writer.uint32(98).fork()).join();
         }
-        if (message.command !== undefined) {
-            CommandEvent.encode(message.command, writer.uint32(106).fork()).join();
+        if (message.playerJump !== undefined) {
+            PlayerJumpEvent.encode(message.playerJump, writer.uint32(106).fork()).join();
+        }
+        if (message.playerTeleport !== undefined) {
+            PlayerTeleportEvent.encode(message.playerTeleport, writer.uint32(114).fork()).join();
+        }
+        if (message.playerChangeWorld !== undefined) {
+            PlayerChangeWorldEvent.encode(message.playerChangeWorld, writer.uint32(122).fork()).join();
+        }
+        if (message.playerToggleSprint !== undefined) {
+            PlayerToggleSprintEvent.encode(message.playerToggleSprint, writer.uint32(130).fork()).join();
+        }
+        if (message.playerToggleSneak !== undefined) {
+            PlayerToggleSneakEvent.encode(message.playerToggleSneak, writer.uint32(138).fork()).join();
+        }
+        if (message.chat !== undefined) {
+            ChatEvent.encode(message.chat, writer.uint32(146).fork()).join();
+        }
+        if (message.playerFoodLoss !== undefined) {
+            PlayerFoodLossEvent.encode(message.playerFoodLoss, writer.uint32(154).fork()).join();
+        }
+        if (message.playerHeal !== undefined) {
+            PlayerHealEvent.encode(message.playerHeal, writer.uint32(162).fork()).join();
+        }
+        if (message.playerHurt !== undefined) {
+            PlayerHurtEvent.encode(message.playerHurt, writer.uint32(170).fork()).join();
+        }
+        if (message.playerDeath !== undefined) {
+            PlayerDeathEvent.encode(message.playerDeath, writer.uint32(178).fork()).join();
+        }
+        if (message.playerRespawn !== undefined) {
+            PlayerRespawnEvent.encode(message.playerRespawn, writer.uint32(186).fork()).join();
+        }
+        if (message.playerSkinChange !== undefined) {
+            PlayerSkinChangeEvent.encode(message.playerSkinChange, writer.uint32(194).fork()).join();
+        }
+        if (message.playerFireExtinguish !== undefined) {
+            PlayerFireExtinguishEvent.encode(message.playerFireExtinguish, writer.uint32(202).fork()).join();
+        }
+        if (message.playerStartBreak !== undefined) {
+            PlayerStartBreakEvent.encode(message.playerStartBreak, writer.uint32(210).fork()).join();
         }
         if (message.blockBreak !== undefined) {
-            BlockBreakEvent.encode(message.blockBreak, writer.uint32(114).fork()).join();
+            BlockBreakEvent.encode(message.blockBreak, writer.uint32(218).fork()).join();
+        }
+        if (message.playerBlockPlace !== undefined) {
+            PlayerBlockPlaceEvent.encode(message.playerBlockPlace, writer.uint32(226).fork()).join();
+        }
+        if (message.playerBlockPick !== undefined) {
+            PlayerBlockPickEvent.encode(message.playerBlockPick, writer.uint32(234).fork()).join();
+        }
+        if (message.playerItemUse !== undefined) {
+            PlayerItemUseEvent.encode(message.playerItemUse, writer.uint32(242).fork()).join();
+        }
+        if (message.playerItemUseOnBlock !== undefined) {
+            PlayerItemUseOnBlockEvent.encode(message.playerItemUseOnBlock, writer.uint32(250).fork()).join();
+        }
+        if (message.playerItemUseOnEntity !== undefined) {
+            PlayerItemUseOnEntityEvent.encode(message.playerItemUseOnEntity, writer.uint32(258).fork()).join();
+        }
+        if (message.playerItemRelease !== undefined) {
+            PlayerItemReleaseEvent.encode(message.playerItemRelease, writer.uint32(266).fork()).join();
+        }
+        if (message.playerItemConsume !== undefined) {
+            PlayerItemConsumeEvent.encode(message.playerItemConsume, writer.uint32(274).fork()).join();
+        }
+        if (message.playerAttackEntity !== undefined) {
+            PlayerAttackEntityEvent.encode(message.playerAttackEntity, writer.uint32(282).fork()).join();
+        }
+        if (message.playerExperienceGain !== undefined) {
+            PlayerExperienceGainEvent.encode(message.playerExperienceGain, writer.uint32(290).fork()).join();
+        }
+        if (message.playerPunchAir !== undefined) {
+            PlayerPunchAirEvent.encode(message.playerPunchAir, writer.uint32(298).fork()).join();
+        }
+        if (message.playerSignEdit !== undefined) {
+            PlayerSignEditEvent.encode(message.playerSignEdit, writer.uint32(306).fork()).join();
+        }
+        if (message.playerLecternPageTurn !== undefined) {
+            PlayerLecternPageTurnEvent.encode(message.playerLecternPageTurn, writer.uint32(314).fork()).join();
+        }
+        if (message.playerItemDamage !== undefined) {
+            PlayerItemDamageEvent.encode(message.playerItemDamage, writer.uint32(322).fork()).join();
+        }
+        if (message.playerItemPickup !== undefined) {
+            PlayerItemPickupEvent.encode(message.playerItemPickup, writer.uint32(330).fork()).join();
+        }
+        if (message.playerHeldSlotChange !== undefined) {
+            PlayerHeldSlotChangeEvent.encode(message.playerHeldSlotChange, writer.uint32(338).fork()).join();
+        }
+        if (message.playerItemDrop !== undefined) {
+            PlayerItemDropEvent.encode(message.playerItemDrop, writer.uint32(346).fork()).join();
+        }
+        if (message.playerTransfer !== undefined) {
+            PlayerTransferEvent.encode(message.playerTransfer, writer.uint32(354).fork()).join();
+        }
+        if (message.command !== undefined) {
+            CommandEvent.encode(message.command, writer.uint32(362).fork()).join();
+        }
+        if (message.playerDiagnostics !== undefined) {
+            PlayerDiagnosticsEvent.encode(message.playerDiagnostics, writer.uint32(370).fork()).join();
+        }
+        if (message.worldLiquidFlow !== undefined) {
+            WorldLiquidFlowEvent.encode(message.worldLiquidFlow, writer.uint32(562).fork()).join();
+        }
+        if (message.worldLiquidDecay !== undefined) {
+            WorldLiquidDecayEvent.encode(message.worldLiquidDecay, writer.uint32(570).fork()).join();
+        }
+        if (message.worldLiquidHarden !== undefined) {
+            WorldLiquidHardenEvent.encode(message.worldLiquidHarden, writer.uint32(578).fork()).join();
+        }
+        if (message.worldSound !== undefined) {
+            WorldSoundEvent.encode(message.worldSound, writer.uint32(586).fork()).join();
+        }
+        if (message.worldFireSpread !== undefined) {
+            WorldFireSpreadEvent.encode(message.worldFireSpread, writer.uint32(594).fork()).join();
+        }
+        if (message.worldBlockBurn !== undefined) {
+            WorldBlockBurnEvent.encode(message.worldBlockBurn, writer.uint32(602).fork()).join();
+        }
+        if (message.worldCropTrample !== undefined) {
+            WorldCropTrampleEvent.encode(message.worldCropTrample, writer.uint32(610).fork()).join();
+        }
+        if (message.worldLeavesDecay !== undefined) {
+            WorldLeavesDecayEvent.encode(message.worldLeavesDecay, writer.uint32(618).fork()).join();
+        }
+        if (message.worldEntitySpawn !== undefined) {
+            WorldEntitySpawnEvent.encode(message.worldEntitySpawn, writer.uint32(626).fork()).join();
+        }
+        if (message.worldEntityDespawn !== undefined) {
+            WorldEntityDespawnEvent.encode(message.worldEntityDespawn, writer.uint32(634).fork()).join();
+        }
+        if (message.worldExplosion !== undefined) {
+            WorldExplosionEvent.encode(message.worldExplosion, writer.uint32(642).fork()).join();
         }
         if (message.worldClose !== undefined) {
-            WorldCloseEvent.encode(message.worldClose, writer.uint32(122).fork()).join();
+            WorldCloseEvent.encode(message.worldClose, writer.uint32(650).fork()).join();
         }
         return writer;
     },
@@ -659,25 +792,326 @@ export const EventEnvelope = {
                     if (tag !== 98) {
                         break;
                     }
-                    message.chat = ChatEvent.decode(reader, reader.uint32());
+                    message.playerMove = PlayerMoveEvent.decode(reader, reader.uint32());
                     continue;
                 }
                 case 13: {
                     if (tag !== 106) {
                         break;
                     }
-                    message.command = CommandEvent.decode(reader, reader.uint32());
+                    message.playerJump = PlayerJumpEvent.decode(reader, reader.uint32());
                     continue;
                 }
                 case 14: {
                     if (tag !== 114) {
                         break;
                     }
-                    message.blockBreak = BlockBreakEvent.decode(reader, reader.uint32());
+                    message.playerTeleport = PlayerTeleportEvent.decode(reader, reader.uint32());
                     continue;
                 }
                 case 15: {
                     if (tag !== 122) {
+                        break;
+                    }
+                    message.playerChangeWorld = PlayerChangeWorldEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 16: {
+                    if (tag !== 130) {
+                        break;
+                    }
+                    message.playerToggleSprint = PlayerToggleSprintEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 17: {
+                    if (tag !== 138) {
+                        break;
+                    }
+                    message.playerToggleSneak = PlayerToggleSneakEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 18: {
+                    if (tag !== 146) {
+                        break;
+                    }
+                    message.chat = ChatEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 19: {
+                    if (tag !== 154) {
+                        break;
+                    }
+                    message.playerFoodLoss = PlayerFoodLossEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 20: {
+                    if (tag !== 162) {
+                        break;
+                    }
+                    message.playerHeal = PlayerHealEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 21: {
+                    if (tag !== 170) {
+                        break;
+                    }
+                    message.playerHurt = PlayerHurtEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 22: {
+                    if (tag !== 178) {
+                        break;
+                    }
+                    message.playerDeath = PlayerDeathEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 23: {
+                    if (tag !== 186) {
+                        break;
+                    }
+                    message.playerRespawn = PlayerRespawnEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 24: {
+                    if (tag !== 194) {
+                        break;
+                    }
+                    message.playerSkinChange = PlayerSkinChangeEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 25: {
+                    if (tag !== 202) {
+                        break;
+                    }
+                    message.playerFireExtinguish = PlayerFireExtinguishEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 26: {
+                    if (tag !== 210) {
+                        break;
+                    }
+                    message.playerStartBreak = PlayerStartBreakEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 27: {
+                    if (tag !== 218) {
+                        break;
+                    }
+                    message.blockBreak = BlockBreakEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 28: {
+                    if (tag !== 226) {
+                        break;
+                    }
+                    message.playerBlockPlace = PlayerBlockPlaceEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 29: {
+                    if (tag !== 234) {
+                        break;
+                    }
+                    message.playerBlockPick = PlayerBlockPickEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 30: {
+                    if (tag !== 242) {
+                        break;
+                    }
+                    message.playerItemUse = PlayerItemUseEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 31: {
+                    if (tag !== 250) {
+                        break;
+                    }
+                    message.playerItemUseOnBlock = PlayerItemUseOnBlockEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 32: {
+                    if (tag !== 258) {
+                        break;
+                    }
+                    message.playerItemUseOnEntity = PlayerItemUseOnEntityEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 33: {
+                    if (tag !== 266) {
+                        break;
+                    }
+                    message.playerItemRelease = PlayerItemReleaseEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 34: {
+                    if (tag !== 274) {
+                        break;
+                    }
+                    message.playerItemConsume = PlayerItemConsumeEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 35: {
+                    if (tag !== 282) {
+                        break;
+                    }
+                    message.playerAttackEntity = PlayerAttackEntityEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 36: {
+                    if (tag !== 290) {
+                        break;
+                    }
+                    message.playerExperienceGain = PlayerExperienceGainEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 37: {
+                    if (tag !== 298) {
+                        break;
+                    }
+                    message.playerPunchAir = PlayerPunchAirEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 38: {
+                    if (tag !== 306) {
+                        break;
+                    }
+                    message.playerSignEdit = PlayerSignEditEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 39: {
+                    if (tag !== 314) {
+                        break;
+                    }
+                    message.playerLecternPageTurn = PlayerLecternPageTurnEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 40: {
+                    if (tag !== 322) {
+                        break;
+                    }
+                    message.playerItemDamage = PlayerItemDamageEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 41: {
+                    if (tag !== 330) {
+                        break;
+                    }
+                    message.playerItemPickup = PlayerItemPickupEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 42: {
+                    if (tag !== 338) {
+                        break;
+                    }
+                    message.playerHeldSlotChange = PlayerHeldSlotChangeEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 43: {
+                    if (tag !== 346) {
+                        break;
+                    }
+                    message.playerItemDrop = PlayerItemDropEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 44: {
+                    if (tag !== 354) {
+                        break;
+                    }
+                    message.playerTransfer = PlayerTransferEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 45: {
+                    if (tag !== 362) {
+                        break;
+                    }
+                    message.command = CommandEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 46: {
+                    if (tag !== 370) {
+                        break;
+                    }
+                    message.playerDiagnostics = PlayerDiagnosticsEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 70: {
+                    if (tag !== 562) {
+                        break;
+                    }
+                    message.worldLiquidFlow = WorldLiquidFlowEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 71: {
+                    if (tag !== 570) {
+                        break;
+                    }
+                    message.worldLiquidDecay = WorldLiquidDecayEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 72: {
+                    if (tag !== 578) {
+                        break;
+                    }
+                    message.worldLiquidHarden = WorldLiquidHardenEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 73: {
+                    if (tag !== 586) {
+                        break;
+                    }
+                    message.worldSound = WorldSoundEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 74: {
+                    if (tag !== 594) {
+                        break;
+                    }
+                    message.worldFireSpread = WorldFireSpreadEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 75: {
+                    if (tag !== 602) {
+                        break;
+                    }
+                    message.worldBlockBurn = WorldBlockBurnEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 76: {
+                    if (tag !== 610) {
+                        break;
+                    }
+                    message.worldCropTrample = WorldCropTrampleEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 77: {
+                    if (tag !== 618) {
+                        break;
+                    }
+                    message.worldLeavesDecay = WorldLeavesDecayEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 78: {
+                    if (tag !== 626) {
+                        break;
+                    }
+                    message.worldEntitySpawn = WorldEntitySpawnEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 79: {
+                    if (tag !== 634) {
+                        break;
+                    }
+                    message.worldEntityDespawn = WorldEntityDespawnEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 80: {
+                    if (tag !== 642) {
+                        break;
+                    }
+                    message.worldExplosion = WorldExplosionEvent.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 81: {
+                    if (tag !== 650) {
                         break;
                     }
                     message.worldClose = WorldCloseEvent.decode(reader, reader.uint32());
@@ -697,9 +1131,106 @@ export const EventEnvelope = {
             type: isSet(object.type) ? eventTypeFromJSON(object.type) : 0,
             playerJoin: isSet(object.playerJoin) ? PlayerJoinEvent.fromJSON(object.playerJoin) : undefined,
             playerQuit: isSet(object.playerQuit) ? PlayerQuitEvent.fromJSON(object.playerQuit) : undefined,
+            playerMove: isSet(object.playerMove) ? PlayerMoveEvent.fromJSON(object.playerMove) : undefined,
+            playerJump: isSet(object.playerJump) ? PlayerJumpEvent.fromJSON(object.playerJump) : undefined,
+            playerTeleport: isSet(object.playerTeleport) ? PlayerTeleportEvent.fromJSON(object.playerTeleport) : undefined,
+            playerChangeWorld: isSet(object.playerChangeWorld)
+                ? PlayerChangeWorldEvent.fromJSON(object.playerChangeWorld)
+                : undefined,
+            playerToggleSprint: isSet(object.playerToggleSprint)
+                ? PlayerToggleSprintEvent.fromJSON(object.playerToggleSprint)
+                : undefined,
+            playerToggleSneak: isSet(object.playerToggleSneak)
+                ? PlayerToggleSneakEvent.fromJSON(object.playerToggleSneak)
+                : undefined,
             chat: isSet(object.chat) ? ChatEvent.fromJSON(object.chat) : undefined,
-            command: isSet(object.command) ? CommandEvent.fromJSON(object.command) : undefined,
+            playerFoodLoss: isSet(object.playerFoodLoss) ? PlayerFoodLossEvent.fromJSON(object.playerFoodLoss) : undefined,
+            playerHeal: isSet(object.playerHeal) ? PlayerHealEvent.fromJSON(object.playerHeal) : undefined,
+            playerHurt: isSet(object.playerHurt) ? PlayerHurtEvent.fromJSON(object.playerHurt) : undefined,
+            playerDeath: isSet(object.playerDeath) ? PlayerDeathEvent.fromJSON(object.playerDeath) : undefined,
+            playerRespawn: isSet(object.playerRespawn) ? PlayerRespawnEvent.fromJSON(object.playerRespawn) : undefined,
+            playerSkinChange: isSet(object.playerSkinChange)
+                ? PlayerSkinChangeEvent.fromJSON(object.playerSkinChange)
+                : undefined,
+            playerFireExtinguish: isSet(object.playerFireExtinguish)
+                ? PlayerFireExtinguishEvent.fromJSON(object.playerFireExtinguish)
+                : undefined,
+            playerStartBreak: isSet(object.playerStartBreak)
+                ? PlayerStartBreakEvent.fromJSON(object.playerStartBreak)
+                : undefined,
             blockBreak: isSet(object.blockBreak) ? BlockBreakEvent.fromJSON(object.blockBreak) : undefined,
+            playerBlockPlace: isSet(object.playerBlockPlace)
+                ? PlayerBlockPlaceEvent.fromJSON(object.playerBlockPlace)
+                : undefined,
+            playerBlockPick: isSet(object.playerBlockPick)
+                ? PlayerBlockPickEvent.fromJSON(object.playerBlockPick)
+                : undefined,
+            playerItemUse: isSet(object.playerItemUse) ? PlayerItemUseEvent.fromJSON(object.playerItemUse) : undefined,
+            playerItemUseOnBlock: isSet(object.playerItemUseOnBlock)
+                ? PlayerItemUseOnBlockEvent.fromJSON(object.playerItemUseOnBlock)
+                : undefined,
+            playerItemUseOnEntity: isSet(object.playerItemUseOnEntity)
+                ? PlayerItemUseOnEntityEvent.fromJSON(object.playerItemUseOnEntity)
+                : undefined,
+            playerItemRelease: isSet(object.playerItemRelease)
+                ? PlayerItemReleaseEvent.fromJSON(object.playerItemRelease)
+                : undefined,
+            playerItemConsume: isSet(object.playerItemConsume)
+                ? PlayerItemConsumeEvent.fromJSON(object.playerItemConsume)
+                : undefined,
+            playerAttackEntity: isSet(object.playerAttackEntity)
+                ? PlayerAttackEntityEvent.fromJSON(object.playerAttackEntity)
+                : undefined,
+            playerExperienceGain: isSet(object.playerExperienceGain)
+                ? PlayerExperienceGainEvent.fromJSON(object.playerExperienceGain)
+                : undefined,
+            playerPunchAir: isSet(object.playerPunchAir) ? PlayerPunchAirEvent.fromJSON(object.playerPunchAir) : undefined,
+            playerSignEdit: isSet(object.playerSignEdit) ? PlayerSignEditEvent.fromJSON(object.playerSignEdit) : undefined,
+            playerLecternPageTurn: isSet(object.playerLecternPageTurn)
+                ? PlayerLecternPageTurnEvent.fromJSON(object.playerLecternPageTurn)
+                : undefined,
+            playerItemDamage: isSet(object.playerItemDamage)
+                ? PlayerItemDamageEvent.fromJSON(object.playerItemDamage)
+                : undefined,
+            playerItemPickup: isSet(object.playerItemPickup)
+                ? PlayerItemPickupEvent.fromJSON(object.playerItemPickup)
+                : undefined,
+            playerHeldSlotChange: isSet(object.playerHeldSlotChange)
+                ? PlayerHeldSlotChangeEvent.fromJSON(object.playerHeldSlotChange)
+                : undefined,
+            playerItemDrop: isSet(object.playerItemDrop) ? PlayerItemDropEvent.fromJSON(object.playerItemDrop) : undefined,
+            playerTransfer: isSet(object.playerTransfer) ? PlayerTransferEvent.fromJSON(object.playerTransfer) : undefined,
+            command: isSet(object.command) ? CommandEvent.fromJSON(object.command) : undefined,
+            playerDiagnostics: isSet(object.playerDiagnostics)
+                ? PlayerDiagnosticsEvent.fromJSON(object.playerDiagnostics)
+                : undefined,
+            worldLiquidFlow: isSet(object.worldLiquidFlow)
+                ? WorldLiquidFlowEvent.fromJSON(object.worldLiquidFlow)
+                : undefined,
+            worldLiquidDecay: isSet(object.worldLiquidDecay)
+                ? WorldLiquidDecayEvent.fromJSON(object.worldLiquidDecay)
+                : undefined,
+            worldLiquidHarden: isSet(object.worldLiquidHarden)
+                ? WorldLiquidHardenEvent.fromJSON(object.worldLiquidHarden)
+                : undefined,
+            worldSound: isSet(object.worldSound) ? WorldSoundEvent.fromJSON(object.worldSound) : undefined,
+            worldFireSpread: isSet(object.worldFireSpread)
+                ? WorldFireSpreadEvent.fromJSON(object.worldFireSpread)
+                : undefined,
+            worldBlockBurn: isSet(object.worldBlockBurn) ? WorldBlockBurnEvent.fromJSON(object.worldBlockBurn) : undefined,
+            worldCropTrample: isSet(object.worldCropTrample)
+                ? WorldCropTrampleEvent.fromJSON(object.worldCropTrample)
+                : undefined,
+            worldLeavesDecay: isSet(object.worldLeavesDecay)
+                ? WorldLeavesDecayEvent.fromJSON(object.worldLeavesDecay)
+                : undefined,
+            worldEntitySpawn: isSet(object.worldEntitySpawn)
+                ? WorldEntitySpawnEvent.fromJSON(object.worldEntitySpawn)
+                : undefined,
+            worldEntityDespawn: isSet(object.worldEntityDespawn)
+                ? WorldEntityDespawnEvent.fromJSON(object.worldEntityDespawn)
+                : undefined,
+            worldExplosion: isSet(object.worldExplosion) ? WorldExplosionEvent.fromJSON(object.worldExplosion) : undefined,
             worldClose: isSet(object.worldClose) ? WorldCloseEvent.fromJSON(object.worldClose) : undefined,
         };
     },
@@ -717,14 +1248,143 @@ export const EventEnvelope = {
         if (message.playerQuit !== undefined) {
             obj.playerQuit = PlayerQuitEvent.toJSON(message.playerQuit);
         }
+        if (message.playerMove !== undefined) {
+            obj.playerMove = PlayerMoveEvent.toJSON(message.playerMove);
+        }
+        if (message.playerJump !== undefined) {
+            obj.playerJump = PlayerJumpEvent.toJSON(message.playerJump);
+        }
+        if (message.playerTeleport !== undefined) {
+            obj.playerTeleport = PlayerTeleportEvent.toJSON(message.playerTeleport);
+        }
+        if (message.playerChangeWorld !== undefined) {
+            obj.playerChangeWorld = PlayerChangeWorldEvent.toJSON(message.playerChangeWorld);
+        }
+        if (message.playerToggleSprint !== undefined) {
+            obj.playerToggleSprint = PlayerToggleSprintEvent.toJSON(message.playerToggleSprint);
+        }
+        if (message.playerToggleSneak !== undefined) {
+            obj.playerToggleSneak = PlayerToggleSneakEvent.toJSON(message.playerToggleSneak);
+        }
         if (message.chat !== undefined) {
             obj.chat = ChatEvent.toJSON(message.chat);
+        }
+        if (message.playerFoodLoss !== undefined) {
+            obj.playerFoodLoss = PlayerFoodLossEvent.toJSON(message.playerFoodLoss);
+        }
+        if (message.playerHeal !== undefined) {
+            obj.playerHeal = PlayerHealEvent.toJSON(message.playerHeal);
+        }
+        if (message.playerHurt !== undefined) {
+            obj.playerHurt = PlayerHurtEvent.toJSON(message.playerHurt);
+        }
+        if (message.playerDeath !== undefined) {
+            obj.playerDeath = PlayerDeathEvent.toJSON(message.playerDeath);
+        }
+        if (message.playerRespawn !== undefined) {
+            obj.playerRespawn = PlayerRespawnEvent.toJSON(message.playerRespawn);
+        }
+        if (message.playerSkinChange !== undefined) {
+            obj.playerSkinChange = PlayerSkinChangeEvent.toJSON(message.playerSkinChange);
+        }
+        if (message.playerFireExtinguish !== undefined) {
+            obj.playerFireExtinguish = PlayerFireExtinguishEvent.toJSON(message.playerFireExtinguish);
+        }
+        if (message.playerStartBreak !== undefined) {
+            obj.playerStartBreak = PlayerStartBreakEvent.toJSON(message.playerStartBreak);
+        }
+        if (message.blockBreak !== undefined) {
+            obj.blockBreak = BlockBreakEvent.toJSON(message.blockBreak);
+        }
+        if (message.playerBlockPlace !== undefined) {
+            obj.playerBlockPlace = PlayerBlockPlaceEvent.toJSON(message.playerBlockPlace);
+        }
+        if (message.playerBlockPick !== undefined) {
+            obj.playerBlockPick = PlayerBlockPickEvent.toJSON(message.playerBlockPick);
+        }
+        if (message.playerItemUse !== undefined) {
+            obj.playerItemUse = PlayerItemUseEvent.toJSON(message.playerItemUse);
+        }
+        if (message.playerItemUseOnBlock !== undefined) {
+            obj.playerItemUseOnBlock = PlayerItemUseOnBlockEvent.toJSON(message.playerItemUseOnBlock);
+        }
+        if (message.playerItemUseOnEntity !== undefined) {
+            obj.playerItemUseOnEntity = PlayerItemUseOnEntityEvent.toJSON(message.playerItemUseOnEntity);
+        }
+        if (message.playerItemRelease !== undefined) {
+            obj.playerItemRelease = PlayerItemReleaseEvent.toJSON(message.playerItemRelease);
+        }
+        if (message.playerItemConsume !== undefined) {
+            obj.playerItemConsume = PlayerItemConsumeEvent.toJSON(message.playerItemConsume);
+        }
+        if (message.playerAttackEntity !== undefined) {
+            obj.playerAttackEntity = PlayerAttackEntityEvent.toJSON(message.playerAttackEntity);
+        }
+        if (message.playerExperienceGain !== undefined) {
+            obj.playerExperienceGain = PlayerExperienceGainEvent.toJSON(message.playerExperienceGain);
+        }
+        if (message.playerPunchAir !== undefined) {
+            obj.playerPunchAir = PlayerPunchAirEvent.toJSON(message.playerPunchAir);
+        }
+        if (message.playerSignEdit !== undefined) {
+            obj.playerSignEdit = PlayerSignEditEvent.toJSON(message.playerSignEdit);
+        }
+        if (message.playerLecternPageTurn !== undefined) {
+            obj.playerLecternPageTurn = PlayerLecternPageTurnEvent.toJSON(message.playerLecternPageTurn);
+        }
+        if (message.playerItemDamage !== undefined) {
+            obj.playerItemDamage = PlayerItemDamageEvent.toJSON(message.playerItemDamage);
+        }
+        if (message.playerItemPickup !== undefined) {
+            obj.playerItemPickup = PlayerItemPickupEvent.toJSON(message.playerItemPickup);
+        }
+        if (message.playerHeldSlotChange !== undefined) {
+            obj.playerHeldSlotChange = PlayerHeldSlotChangeEvent.toJSON(message.playerHeldSlotChange);
+        }
+        if (message.playerItemDrop !== undefined) {
+            obj.playerItemDrop = PlayerItemDropEvent.toJSON(message.playerItemDrop);
+        }
+        if (message.playerTransfer !== undefined) {
+            obj.playerTransfer = PlayerTransferEvent.toJSON(message.playerTransfer);
         }
         if (message.command !== undefined) {
             obj.command = CommandEvent.toJSON(message.command);
         }
-        if (message.blockBreak !== undefined) {
-            obj.blockBreak = BlockBreakEvent.toJSON(message.blockBreak);
+        if (message.playerDiagnostics !== undefined) {
+            obj.playerDiagnostics = PlayerDiagnosticsEvent.toJSON(message.playerDiagnostics);
+        }
+        if (message.worldLiquidFlow !== undefined) {
+            obj.worldLiquidFlow = WorldLiquidFlowEvent.toJSON(message.worldLiquidFlow);
+        }
+        if (message.worldLiquidDecay !== undefined) {
+            obj.worldLiquidDecay = WorldLiquidDecayEvent.toJSON(message.worldLiquidDecay);
+        }
+        if (message.worldLiquidHarden !== undefined) {
+            obj.worldLiquidHarden = WorldLiquidHardenEvent.toJSON(message.worldLiquidHarden);
+        }
+        if (message.worldSound !== undefined) {
+            obj.worldSound = WorldSoundEvent.toJSON(message.worldSound);
+        }
+        if (message.worldFireSpread !== undefined) {
+            obj.worldFireSpread = WorldFireSpreadEvent.toJSON(message.worldFireSpread);
+        }
+        if (message.worldBlockBurn !== undefined) {
+            obj.worldBlockBurn = WorldBlockBurnEvent.toJSON(message.worldBlockBurn);
+        }
+        if (message.worldCropTrample !== undefined) {
+            obj.worldCropTrample = WorldCropTrampleEvent.toJSON(message.worldCropTrample);
+        }
+        if (message.worldLeavesDecay !== undefined) {
+            obj.worldLeavesDecay = WorldLeavesDecayEvent.toJSON(message.worldLeavesDecay);
+        }
+        if (message.worldEntitySpawn !== undefined) {
+            obj.worldEntitySpawn = WorldEntitySpawnEvent.toJSON(message.worldEntitySpawn);
+        }
+        if (message.worldEntityDespawn !== undefined) {
+            obj.worldEntityDespawn = WorldEntityDespawnEvent.toJSON(message.worldEntityDespawn);
+        }
+        if (message.worldExplosion !== undefined) {
+            obj.worldExplosion = WorldExplosionEvent.toJSON(message.worldExplosion);
         }
         if (message.worldClose !== undefined) {
             obj.worldClose = WorldCloseEvent.toJSON(message.worldClose);
@@ -744,513 +1404,147 @@ export const EventEnvelope = {
         message.playerQuit = (object.playerQuit !== undefined && object.playerQuit !== null)
             ? PlayerQuitEvent.fromPartial(object.playerQuit)
             : undefined;
+        message.playerMove = (object.playerMove !== undefined && object.playerMove !== null)
+            ? PlayerMoveEvent.fromPartial(object.playerMove)
+            : undefined;
+        message.playerJump = (object.playerJump !== undefined && object.playerJump !== null)
+            ? PlayerJumpEvent.fromPartial(object.playerJump)
+            : undefined;
+        message.playerTeleport = (object.playerTeleport !== undefined && object.playerTeleport !== null)
+            ? PlayerTeleportEvent.fromPartial(object.playerTeleport)
+            : undefined;
+        message.playerChangeWorld = (object.playerChangeWorld !== undefined && object.playerChangeWorld !== null)
+            ? PlayerChangeWorldEvent.fromPartial(object.playerChangeWorld)
+            : undefined;
+        message.playerToggleSprint = (object.playerToggleSprint !== undefined && object.playerToggleSprint !== null)
+            ? PlayerToggleSprintEvent.fromPartial(object.playerToggleSprint)
+            : undefined;
+        message.playerToggleSneak = (object.playerToggleSneak !== undefined && object.playerToggleSneak !== null)
+            ? PlayerToggleSneakEvent.fromPartial(object.playerToggleSneak)
+            : undefined;
         message.chat = (object.chat !== undefined && object.chat !== null) ? ChatEvent.fromPartial(object.chat) : undefined;
-        message.command = (object.command !== undefined && object.command !== null)
-            ? CommandEvent.fromPartial(object.command)
+        message.playerFoodLoss = (object.playerFoodLoss !== undefined && object.playerFoodLoss !== null)
+            ? PlayerFoodLossEvent.fromPartial(object.playerFoodLoss)
+            : undefined;
+        message.playerHeal = (object.playerHeal !== undefined && object.playerHeal !== null)
+            ? PlayerHealEvent.fromPartial(object.playerHeal)
+            : undefined;
+        message.playerHurt = (object.playerHurt !== undefined && object.playerHurt !== null)
+            ? PlayerHurtEvent.fromPartial(object.playerHurt)
+            : undefined;
+        message.playerDeath = (object.playerDeath !== undefined && object.playerDeath !== null)
+            ? PlayerDeathEvent.fromPartial(object.playerDeath)
+            : undefined;
+        message.playerRespawn = (object.playerRespawn !== undefined && object.playerRespawn !== null)
+            ? PlayerRespawnEvent.fromPartial(object.playerRespawn)
+            : undefined;
+        message.playerSkinChange = (object.playerSkinChange !== undefined && object.playerSkinChange !== null)
+            ? PlayerSkinChangeEvent.fromPartial(object.playerSkinChange)
+            : undefined;
+        message.playerFireExtinguish = (object.playerFireExtinguish !== undefined && object.playerFireExtinguish !== null)
+            ? PlayerFireExtinguishEvent.fromPartial(object.playerFireExtinguish)
+            : undefined;
+        message.playerStartBreak = (object.playerStartBreak !== undefined && object.playerStartBreak !== null)
+            ? PlayerStartBreakEvent.fromPartial(object.playerStartBreak)
             : undefined;
         message.blockBreak = (object.blockBreak !== undefined && object.blockBreak !== null)
             ? BlockBreakEvent.fromPartial(object.blockBreak)
             : undefined;
+        message.playerBlockPlace = (object.playerBlockPlace !== undefined && object.playerBlockPlace !== null)
+            ? PlayerBlockPlaceEvent.fromPartial(object.playerBlockPlace)
+            : undefined;
+        message.playerBlockPick = (object.playerBlockPick !== undefined && object.playerBlockPick !== null)
+            ? PlayerBlockPickEvent.fromPartial(object.playerBlockPick)
+            : undefined;
+        message.playerItemUse = (object.playerItemUse !== undefined && object.playerItemUse !== null)
+            ? PlayerItemUseEvent.fromPartial(object.playerItemUse)
+            : undefined;
+        message.playerItemUseOnBlock = (object.playerItemUseOnBlock !== undefined && object.playerItemUseOnBlock !== null)
+            ? PlayerItemUseOnBlockEvent.fromPartial(object.playerItemUseOnBlock)
+            : undefined;
+        message.playerItemUseOnEntity =
+            (object.playerItemUseOnEntity !== undefined && object.playerItemUseOnEntity !== null)
+                ? PlayerItemUseOnEntityEvent.fromPartial(object.playerItemUseOnEntity)
+                : undefined;
+        message.playerItemRelease = (object.playerItemRelease !== undefined && object.playerItemRelease !== null)
+            ? PlayerItemReleaseEvent.fromPartial(object.playerItemRelease)
+            : undefined;
+        message.playerItemConsume = (object.playerItemConsume !== undefined && object.playerItemConsume !== null)
+            ? PlayerItemConsumeEvent.fromPartial(object.playerItemConsume)
+            : undefined;
+        message.playerAttackEntity = (object.playerAttackEntity !== undefined && object.playerAttackEntity !== null)
+            ? PlayerAttackEntityEvent.fromPartial(object.playerAttackEntity)
+            : undefined;
+        message.playerExperienceGain = (object.playerExperienceGain !== undefined && object.playerExperienceGain !== null)
+            ? PlayerExperienceGainEvent.fromPartial(object.playerExperienceGain)
+            : undefined;
+        message.playerPunchAir = (object.playerPunchAir !== undefined && object.playerPunchAir !== null)
+            ? PlayerPunchAirEvent.fromPartial(object.playerPunchAir)
+            : undefined;
+        message.playerSignEdit = (object.playerSignEdit !== undefined && object.playerSignEdit !== null)
+            ? PlayerSignEditEvent.fromPartial(object.playerSignEdit)
+            : undefined;
+        message.playerLecternPageTurn =
+            (object.playerLecternPageTurn !== undefined && object.playerLecternPageTurn !== null)
+                ? PlayerLecternPageTurnEvent.fromPartial(object.playerLecternPageTurn)
+                : undefined;
+        message.playerItemDamage = (object.playerItemDamage !== undefined && object.playerItemDamage !== null)
+            ? PlayerItemDamageEvent.fromPartial(object.playerItemDamage)
+            : undefined;
+        message.playerItemPickup = (object.playerItemPickup !== undefined && object.playerItemPickup !== null)
+            ? PlayerItemPickupEvent.fromPartial(object.playerItemPickup)
+            : undefined;
+        message.playerHeldSlotChange = (object.playerHeldSlotChange !== undefined && object.playerHeldSlotChange !== null)
+            ? PlayerHeldSlotChangeEvent.fromPartial(object.playerHeldSlotChange)
+            : undefined;
+        message.playerItemDrop = (object.playerItemDrop !== undefined && object.playerItemDrop !== null)
+            ? PlayerItemDropEvent.fromPartial(object.playerItemDrop)
+            : undefined;
+        message.playerTransfer = (object.playerTransfer !== undefined && object.playerTransfer !== null)
+            ? PlayerTransferEvent.fromPartial(object.playerTransfer)
+            : undefined;
+        message.command = (object.command !== undefined && object.command !== null)
+            ? CommandEvent.fromPartial(object.command)
+            : undefined;
+        message.playerDiagnostics = (object.playerDiagnostics !== undefined && object.playerDiagnostics !== null)
+            ? PlayerDiagnosticsEvent.fromPartial(object.playerDiagnostics)
+            : undefined;
+        message.worldLiquidFlow = (object.worldLiquidFlow !== undefined && object.worldLiquidFlow !== null)
+            ? WorldLiquidFlowEvent.fromPartial(object.worldLiquidFlow)
+            : undefined;
+        message.worldLiquidDecay = (object.worldLiquidDecay !== undefined && object.worldLiquidDecay !== null)
+            ? WorldLiquidDecayEvent.fromPartial(object.worldLiquidDecay)
+            : undefined;
+        message.worldLiquidHarden = (object.worldLiquidHarden !== undefined && object.worldLiquidHarden !== null)
+            ? WorldLiquidHardenEvent.fromPartial(object.worldLiquidHarden)
+            : undefined;
+        message.worldSound = (object.worldSound !== undefined && object.worldSound !== null)
+            ? WorldSoundEvent.fromPartial(object.worldSound)
+            : undefined;
+        message.worldFireSpread = (object.worldFireSpread !== undefined && object.worldFireSpread !== null)
+            ? WorldFireSpreadEvent.fromPartial(object.worldFireSpread)
+            : undefined;
+        message.worldBlockBurn = (object.worldBlockBurn !== undefined && object.worldBlockBurn !== null)
+            ? WorldBlockBurnEvent.fromPartial(object.worldBlockBurn)
+            : undefined;
+        message.worldCropTrample = (object.worldCropTrample !== undefined && object.worldCropTrample !== null)
+            ? WorldCropTrampleEvent.fromPartial(object.worldCropTrample)
+            : undefined;
+        message.worldLeavesDecay = (object.worldLeavesDecay !== undefined && object.worldLeavesDecay !== null)
+            ? WorldLeavesDecayEvent.fromPartial(object.worldLeavesDecay)
+            : undefined;
+        message.worldEntitySpawn = (object.worldEntitySpawn !== undefined && object.worldEntitySpawn !== null)
+            ? WorldEntitySpawnEvent.fromPartial(object.worldEntitySpawn)
+            : undefined;
+        message.worldEntityDespawn = (object.worldEntityDespawn !== undefined && object.worldEntityDespawn !== null)
+            ? WorldEntityDespawnEvent.fromPartial(object.worldEntityDespawn)
+            : undefined;
+        message.worldExplosion = (object.worldExplosion !== undefined && object.worldExplosion !== null)
+            ? WorldExplosionEvent.fromPartial(object.worldExplosion)
+            : undefined;
         message.worldClose = (object.worldClose !== undefined && object.worldClose !== null)
             ? WorldCloseEvent.fromPartial(object.worldClose)
             : undefined;
-        return message;
-    },
-};
-function createBasePlayerJoinEvent() {
-    return { playerUuid: "", name: "" };
-}
-export const PlayerJoinEvent = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.playerUuid !== "") {
-            writer.uint32(10).string(message.playerUuid);
-        }
-        if (message.name !== "") {
-            writer.uint32(18).string(message.name);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePlayerJoinEvent();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.playerUuid = reader.string();
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 18) {
-                        break;
-                    }
-                    message.name = reader.string();
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
-            name: isSet(object.name) ? globalThis.String(object.name) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.playerUuid !== "") {
-            obj.playerUuid = message.playerUuid;
-        }
-        if (message.name !== "") {
-            obj.name = message.name;
-        }
-        return obj;
-    },
-    create(base) {
-        return PlayerJoinEvent.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBasePlayerJoinEvent();
-        message.playerUuid = object.playerUuid ?? "";
-        message.name = object.name ?? "";
-        return message;
-    },
-};
-function createBasePlayerQuitEvent() {
-    return { playerUuid: "", name: "" };
-}
-export const PlayerQuitEvent = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.playerUuid !== "") {
-            writer.uint32(10).string(message.playerUuid);
-        }
-        if (message.name !== "") {
-            writer.uint32(18).string(message.name);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePlayerQuitEvent();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.playerUuid = reader.string();
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 18) {
-                        break;
-                    }
-                    message.name = reader.string();
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
-            name: isSet(object.name) ? globalThis.String(object.name) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.playerUuid !== "") {
-            obj.playerUuid = message.playerUuid;
-        }
-        if (message.name !== "") {
-            obj.name = message.name;
-        }
-        return obj;
-    },
-    create(base) {
-        return PlayerQuitEvent.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBasePlayerQuitEvent();
-        message.playerUuid = object.playerUuid ?? "";
-        message.name = object.name ?? "";
-        return message;
-    },
-};
-function createBaseChatEvent() {
-    return { playerUuid: "", name: "", message: "" };
-}
-export const ChatEvent = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.playerUuid !== "") {
-            writer.uint32(10).string(message.playerUuid);
-        }
-        if (message.name !== "") {
-            writer.uint32(18).string(message.name);
-        }
-        if (message.message !== "") {
-            writer.uint32(26).string(message.message);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseChatEvent();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.playerUuid = reader.string();
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 18) {
-                        break;
-                    }
-                    message.name = reader.string();
-                    continue;
-                }
-                case 3: {
-                    if (tag !== 26) {
-                        break;
-                    }
-                    message.message = reader.string();
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
-            name: isSet(object.name) ? globalThis.String(object.name) : "",
-            message: isSet(object.message) ? globalThis.String(object.message) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.playerUuid !== "") {
-            obj.playerUuid = message.playerUuid;
-        }
-        if (message.name !== "") {
-            obj.name = message.name;
-        }
-        if (message.message !== "") {
-            obj.message = message.message;
-        }
-        return obj;
-    },
-    create(base) {
-        return ChatEvent.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseChatEvent();
-        message.playerUuid = object.playerUuid ?? "";
-        message.name = object.name ?? "";
-        message.message = object.message ?? "";
-        return message;
-    },
-};
-function createBaseCommandEvent() {
-    return { playerUuid: "", name: "", raw: "", command: "", args: [] };
-}
-export const CommandEvent = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.playerUuid !== "") {
-            writer.uint32(10).string(message.playerUuid);
-        }
-        if (message.name !== "") {
-            writer.uint32(18).string(message.name);
-        }
-        if (message.raw !== "") {
-            writer.uint32(26).string(message.raw);
-        }
-        if (message.command !== "") {
-            writer.uint32(34).string(message.command);
-        }
-        for (const v of message.args) {
-            writer.uint32(42).string(v);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseCommandEvent();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.playerUuid = reader.string();
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 18) {
-                        break;
-                    }
-                    message.name = reader.string();
-                    continue;
-                }
-                case 3: {
-                    if (tag !== 26) {
-                        break;
-                    }
-                    message.raw = reader.string();
-                    continue;
-                }
-                case 4: {
-                    if (tag !== 34) {
-                        break;
-                    }
-                    message.command = reader.string();
-                    continue;
-                }
-                case 5: {
-                    if (tag !== 42) {
-                        break;
-                    }
-                    message.args.push(reader.string());
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
-            name: isSet(object.name) ? globalThis.String(object.name) : "",
-            raw: isSet(object.raw) ? globalThis.String(object.raw) : "",
-            command: isSet(object.command) ? globalThis.String(object.command) : "",
-            args: globalThis.Array.isArray(object?.args) ? object.args.map((e) => globalThis.String(e)) : [],
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.playerUuid !== "") {
-            obj.playerUuid = message.playerUuid;
-        }
-        if (message.name !== "") {
-            obj.name = message.name;
-        }
-        if (message.raw !== "") {
-            obj.raw = message.raw;
-        }
-        if (message.command !== "") {
-            obj.command = message.command;
-        }
-        if (message.args?.length) {
-            obj.args = message.args;
-        }
-        return obj;
-    },
-    create(base) {
-        return CommandEvent.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseCommandEvent();
-        message.playerUuid = object.playerUuid ?? "";
-        message.name = object.name ?? "";
-        message.raw = object.raw ?? "";
-        message.command = object.command ?? "";
-        message.args = object.args?.map((e) => e) || [];
-        return message;
-    },
-};
-function createBaseBlockBreakEvent() {
-    return { playerUuid: "", name: "", world: "", x: 0, y: 0, z: 0 };
-}
-export const BlockBreakEvent = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.playerUuid !== "") {
-            writer.uint32(10).string(message.playerUuid);
-        }
-        if (message.name !== "") {
-            writer.uint32(18).string(message.name);
-        }
-        if (message.world !== "") {
-            writer.uint32(26).string(message.world);
-        }
-        if (message.x !== 0) {
-            writer.uint32(32).int32(message.x);
-        }
-        if (message.y !== 0) {
-            writer.uint32(40).int32(message.y);
-        }
-        if (message.z !== 0) {
-            writer.uint32(48).int32(message.z);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseBlockBreakEvent();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.playerUuid = reader.string();
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 18) {
-                        break;
-                    }
-                    message.name = reader.string();
-                    continue;
-                }
-                case 3: {
-                    if (tag !== 26) {
-                        break;
-                    }
-                    message.world = reader.string();
-                    continue;
-                }
-                case 4: {
-                    if (tag !== 32) {
-                        break;
-                    }
-                    message.x = reader.int32();
-                    continue;
-                }
-                case 5: {
-                    if (tag !== 40) {
-                        break;
-                    }
-                    message.y = reader.int32();
-                    continue;
-                }
-                case 6: {
-                    if (tag !== 48) {
-                        break;
-                    }
-                    message.z = reader.int32();
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
-            name: isSet(object.name) ? globalThis.String(object.name) : "",
-            world: isSet(object.world) ? globalThis.String(object.world) : "",
-            x: isSet(object.x) ? globalThis.Number(object.x) : 0,
-            y: isSet(object.y) ? globalThis.Number(object.y) : 0,
-            z: isSet(object.z) ? globalThis.Number(object.z) : 0,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.playerUuid !== "") {
-            obj.playerUuid = message.playerUuid;
-        }
-        if (message.name !== "") {
-            obj.name = message.name;
-        }
-        if (message.world !== "") {
-            obj.world = message.world;
-        }
-        if (message.x !== 0) {
-            obj.x = Math.round(message.x);
-        }
-        if (message.y !== 0) {
-            obj.y = Math.round(message.y);
-        }
-        if (message.z !== 0) {
-            obj.z = Math.round(message.z);
-        }
-        return obj;
-    },
-    create(base) {
-        return BlockBreakEvent.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseBlockBreakEvent();
-        message.playerUuid = object.playerUuid ?? "";
-        message.name = object.name ?? "";
-        message.world = object.world ?? "";
-        message.x = object.x ?? 0;
-        message.y = object.y ?? 0;
-        message.z = object.z ?? 0;
-        return message;
-    },
-};
-function createBaseWorldCloseEvent() {
-    return {};
-}
-export const WorldCloseEvent = {
-    encode(_, writer = new BinaryWriter()) {
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseWorldCloseEvent();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(_) {
-        return {};
-    },
-    toJSON(_) {
-        const obj = {};
-        return obj;
-    },
-    create(base) {
-        return WorldCloseEvent.fromPartial(base ?? {});
-    },
-    fromPartial(_) {
-        const message = createBaseWorldCloseEvent();
         return message;
     },
 };
@@ -1580,582 +1874,6 @@ export const CommandSpec = {
         return message;
     },
 };
-function createBaseEventSubscribe() {
-    return { events: [] };
-}
-export const EventSubscribe = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.events.length !== 0) {
-            writer.uint32(10).fork();
-            for (const v of message.events) {
-                writer.int32(v);
-            }
-            writer.join();
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseEventSubscribe();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag === 8) {
-                        message.events.push(reader.int32());
-                        continue;
-                    }
-                    if (tag === 10) {
-                        const end2 = reader.uint32() + reader.pos;
-                        while (reader.pos < end2) {
-                            message.events.push(reader.int32());
-                        }
-                        continue;
-                    }
-                    break;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            events: globalThis.Array.isArray(object?.events) ? object.events.map((e) => eventTypeFromJSON(e)) : [],
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.events?.length) {
-            obj.events = message.events.map((e) => eventTypeToJSON(e));
-        }
-        return obj;
-    },
-    create(base) {
-        return EventSubscribe.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseEventSubscribe();
-        message.events = object.events?.map((e) => e) || [];
-        return message;
-    },
-};
-function createBaseActionBatch() {
-    return { actions: [] };
-}
-export const ActionBatch = {
-    encode(message, writer = new BinaryWriter()) {
-        for (const v of message.actions) {
-            Action.encode(v, writer.uint32(10).fork()).join();
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseActionBatch();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.actions.push(Action.decode(reader, reader.uint32()));
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            actions: globalThis.Array.isArray(object?.actions) ? object.actions.map((e) => Action.fromJSON(e)) : [],
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.actions?.length) {
-            obj.actions = message.actions.map((e) => Action.toJSON(e));
-        }
-        return obj;
-    },
-    create(base) {
-        return ActionBatch.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseActionBatch();
-        message.actions = object.actions?.map((e) => Action.fromPartial(e)) || [];
-        return message;
-    },
-};
-function createBaseAction() {
-    return {
-        correlationId: undefined,
-        sendChat: undefined,
-        teleport: undefined,
-        kick: undefined,
-        setGameMode: undefined,
-    };
-}
-export const Action = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.correlationId !== undefined) {
-            writer.uint32(10).string(message.correlationId);
-        }
-        if (message.sendChat !== undefined) {
-            SendChatAction.encode(message.sendChat, writer.uint32(82).fork()).join();
-        }
-        if (message.teleport !== undefined) {
-            TeleportAction.encode(message.teleport, writer.uint32(90).fork()).join();
-        }
-        if (message.kick !== undefined) {
-            KickAction.encode(message.kick, writer.uint32(98).fork()).join();
-        }
-        if (message.setGameMode !== undefined) {
-            SetGameModeAction.encode(message.setGameMode, writer.uint32(106).fork()).join();
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseAction();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.correlationId = reader.string();
-                    continue;
-                }
-                case 10: {
-                    if (tag !== 82) {
-                        break;
-                    }
-                    message.sendChat = SendChatAction.decode(reader, reader.uint32());
-                    continue;
-                }
-                case 11: {
-                    if (tag !== 90) {
-                        break;
-                    }
-                    message.teleport = TeleportAction.decode(reader, reader.uint32());
-                    continue;
-                }
-                case 12: {
-                    if (tag !== 98) {
-                        break;
-                    }
-                    message.kick = KickAction.decode(reader, reader.uint32());
-                    continue;
-                }
-                case 13: {
-                    if (tag !== 106) {
-                        break;
-                    }
-                    message.setGameMode = SetGameModeAction.decode(reader, reader.uint32());
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            correlationId: isSet(object.correlationId) ? globalThis.String(object.correlationId) : undefined,
-            sendChat: isSet(object.sendChat) ? SendChatAction.fromJSON(object.sendChat) : undefined,
-            teleport: isSet(object.teleport) ? TeleportAction.fromJSON(object.teleport) : undefined,
-            kick: isSet(object.kick) ? KickAction.fromJSON(object.kick) : undefined,
-            setGameMode: isSet(object.setGameMode) ? SetGameModeAction.fromJSON(object.setGameMode) : undefined,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.correlationId !== undefined) {
-            obj.correlationId = message.correlationId;
-        }
-        if (message.sendChat !== undefined) {
-            obj.sendChat = SendChatAction.toJSON(message.sendChat);
-        }
-        if (message.teleport !== undefined) {
-            obj.teleport = TeleportAction.toJSON(message.teleport);
-        }
-        if (message.kick !== undefined) {
-            obj.kick = KickAction.toJSON(message.kick);
-        }
-        if (message.setGameMode !== undefined) {
-            obj.setGameMode = SetGameModeAction.toJSON(message.setGameMode);
-        }
-        return obj;
-    },
-    create(base) {
-        return Action.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseAction();
-        message.correlationId = object.correlationId ?? undefined;
-        message.sendChat = (object.sendChat !== undefined && object.sendChat !== null)
-            ? SendChatAction.fromPartial(object.sendChat)
-            : undefined;
-        message.teleport = (object.teleport !== undefined && object.teleport !== null)
-            ? TeleportAction.fromPartial(object.teleport)
-            : undefined;
-        message.kick = (object.kick !== undefined && object.kick !== null)
-            ? KickAction.fromPartial(object.kick)
-            : undefined;
-        message.setGameMode = (object.setGameMode !== undefined && object.setGameMode !== null)
-            ? SetGameModeAction.fromPartial(object.setGameMode)
-            : undefined;
-        return message;
-    },
-};
-function createBaseSendChatAction() {
-    return { targetUuid: "", message: "" };
-}
-export const SendChatAction = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.targetUuid !== "") {
-            writer.uint32(10).string(message.targetUuid);
-        }
-        if (message.message !== "") {
-            writer.uint32(18).string(message.message);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseSendChatAction();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.targetUuid = reader.string();
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 18) {
-                        break;
-                    }
-                    message.message = reader.string();
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            targetUuid: isSet(object.targetUuid) ? globalThis.String(object.targetUuid) : "",
-            message: isSet(object.message) ? globalThis.String(object.message) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.targetUuid !== "") {
-            obj.targetUuid = message.targetUuid;
-        }
-        if (message.message !== "") {
-            obj.message = message.message;
-        }
-        return obj;
-    },
-    create(base) {
-        return SendChatAction.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseSendChatAction();
-        message.targetUuid = object.targetUuid ?? "";
-        message.message = object.message ?? "";
-        return message;
-    },
-};
-function createBaseTeleportAction() {
-    return { playerUuid: "", x: 0, y: 0, z: 0, yaw: 0, pitch: 0 };
-}
-export const TeleportAction = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.playerUuid !== "") {
-            writer.uint32(10).string(message.playerUuid);
-        }
-        if (message.x !== 0) {
-            writer.uint32(17).double(message.x);
-        }
-        if (message.y !== 0) {
-            writer.uint32(25).double(message.y);
-        }
-        if (message.z !== 0) {
-            writer.uint32(33).double(message.z);
-        }
-        if (message.yaw !== 0) {
-            writer.uint32(45).float(message.yaw);
-        }
-        if (message.pitch !== 0) {
-            writer.uint32(53).float(message.pitch);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseTeleportAction();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.playerUuid = reader.string();
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 17) {
-                        break;
-                    }
-                    message.x = reader.double();
-                    continue;
-                }
-                case 3: {
-                    if (tag !== 25) {
-                        break;
-                    }
-                    message.y = reader.double();
-                    continue;
-                }
-                case 4: {
-                    if (tag !== 33) {
-                        break;
-                    }
-                    message.z = reader.double();
-                    continue;
-                }
-                case 5: {
-                    if (tag !== 45) {
-                        break;
-                    }
-                    message.yaw = reader.float();
-                    continue;
-                }
-                case 6: {
-                    if (tag !== 53) {
-                        break;
-                    }
-                    message.pitch = reader.float();
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
-            x: isSet(object.x) ? globalThis.Number(object.x) : 0,
-            y: isSet(object.y) ? globalThis.Number(object.y) : 0,
-            z: isSet(object.z) ? globalThis.Number(object.z) : 0,
-            yaw: isSet(object.yaw) ? globalThis.Number(object.yaw) : 0,
-            pitch: isSet(object.pitch) ? globalThis.Number(object.pitch) : 0,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.playerUuid !== "") {
-            obj.playerUuid = message.playerUuid;
-        }
-        if (message.x !== 0) {
-            obj.x = message.x;
-        }
-        if (message.y !== 0) {
-            obj.y = message.y;
-        }
-        if (message.z !== 0) {
-            obj.z = message.z;
-        }
-        if (message.yaw !== 0) {
-            obj.yaw = message.yaw;
-        }
-        if (message.pitch !== 0) {
-            obj.pitch = message.pitch;
-        }
-        return obj;
-    },
-    create(base) {
-        return TeleportAction.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseTeleportAction();
-        message.playerUuid = object.playerUuid ?? "";
-        message.x = object.x ?? 0;
-        message.y = object.y ?? 0;
-        message.z = object.z ?? 0;
-        message.yaw = object.yaw ?? 0;
-        message.pitch = object.pitch ?? 0;
-        return message;
-    },
-};
-function createBaseKickAction() {
-    return { playerUuid: "", reason: "" };
-}
-export const KickAction = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.playerUuid !== "") {
-            writer.uint32(10).string(message.playerUuid);
-        }
-        if (message.reason !== "") {
-            writer.uint32(18).string(message.reason);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseKickAction();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.playerUuid = reader.string();
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 18) {
-                        break;
-                    }
-                    message.reason = reader.string();
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
-            reason: isSet(object.reason) ? globalThis.String(object.reason) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.playerUuid !== "") {
-            obj.playerUuid = message.playerUuid;
-        }
-        if (message.reason !== "") {
-            obj.reason = message.reason;
-        }
-        return obj;
-    },
-    create(base) {
-        return KickAction.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseKickAction();
-        message.playerUuid = object.playerUuid ?? "";
-        message.reason = object.reason ?? "";
-        return message;
-    },
-};
-function createBaseSetGameModeAction() {
-    return { playerUuid: "", gameMode: 0 };
-}
-export const SetGameModeAction = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.playerUuid !== "") {
-            writer.uint32(10).string(message.playerUuid);
-        }
-        if (message.gameMode !== 0) {
-            writer.uint32(16).int32(message.gameMode);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseSetGameModeAction();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.playerUuid = reader.string();
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 16) {
-                        break;
-                    }
-                    message.gameMode = reader.int32();
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
-            gameMode: isSet(object.gameMode) ? gameModeFromJSON(object.gameMode) : 0,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.playerUuid !== "") {
-            obj.playerUuid = message.playerUuid;
-        }
-        if (message.gameMode !== 0) {
-            obj.gameMode = gameModeToJSON(message.gameMode);
-        }
-        return obj;
-    },
-    create(base) {
-        return SetGameModeAction.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseSetGameModeAction();
-        message.playerUuid = object.playerUuid ?? "";
-        message.gameMode = object.gameMode ?? 0;
-        return message;
-    },
-};
 function createBaseLogMessage() {
     return { level: "", message: "" };
 }
@@ -2224,59 +1942,38 @@ export const LogMessage = {
         return message;
     },
 };
-function createBaseEventResult() {
-    return { eventId: "", cancel: undefined, chat: undefined, blockBreak: undefined };
+function createBaseEventSubscribe() {
+    return { events: [] };
 }
-export const EventResult = {
+export const EventSubscribe = {
     encode(message, writer = new BinaryWriter()) {
-        if (message.eventId !== "") {
-            writer.uint32(10).string(message.eventId);
+        writer.uint32(10).fork();
+        for (const v of message.events) {
+            writer.int32(v);
         }
-        if (message.cancel !== undefined) {
-            writer.uint32(16).bool(message.cancel);
-        }
-        if (message.chat !== undefined) {
-            ChatMutation.encode(message.chat, writer.uint32(82).fork()).join();
-        }
-        if (message.blockBreak !== undefined) {
-            BlockBreakMutation.encode(message.blockBreak, writer.uint32(90).fork()).join();
-        }
+        writer.join();
         return writer;
     },
     decode(input, length) {
         const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseEventResult();
+        const message = createBaseEventSubscribe();
         while (reader.pos < end) {
             const tag = reader.uint32();
             switch (tag >>> 3) {
                 case 1: {
-                    if (tag !== 10) {
-                        break;
+                    if (tag === 8) {
+                        message.events.push(reader.int32());
+                        continue;
                     }
-                    message.eventId = reader.string();
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 16) {
-                        break;
+                    if (tag === 10) {
+                        const end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2) {
+                            message.events.push(reader.int32());
+                        }
+                        continue;
                     }
-                    message.cancel = reader.bool();
-                    continue;
-                }
-                case 10: {
-                    if (tag !== 82) {
-                        break;
-                    }
-                    message.chat = ChatMutation.decode(reader, reader.uint32());
-                    continue;
-                }
-                case 11: {
-                    if (tag !== 90) {
-                        break;
-                    }
-                    message.blockBreak = BlockBreakMutation.decode(reader, reader.uint32());
-                    continue;
+                    break;
                 }
             }
             if ((tag & 7) === 4 || tag === 0) {
@@ -2288,243 +1985,22 @@ export const EventResult = {
     },
     fromJSON(object) {
         return {
-            eventId: isSet(object.eventId) ? globalThis.String(object.eventId) : "",
-            cancel: isSet(object.cancel) ? globalThis.Boolean(object.cancel) : undefined,
-            chat: isSet(object.chat) ? ChatMutation.fromJSON(object.chat) : undefined,
-            blockBreak: isSet(object.blockBreak) ? BlockBreakMutation.fromJSON(object.blockBreak) : undefined,
+            events: globalThis.Array.isArray(object?.events) ? object.events.map((e) => eventTypeFromJSON(e)) : [],
         };
     },
     toJSON(message) {
         const obj = {};
-        if (message.eventId !== "") {
-            obj.eventId = message.eventId;
-        }
-        if (message.cancel !== undefined) {
-            obj.cancel = message.cancel;
-        }
-        if (message.chat !== undefined) {
-            obj.chat = ChatMutation.toJSON(message.chat);
-        }
-        if (message.blockBreak !== undefined) {
-            obj.blockBreak = BlockBreakMutation.toJSON(message.blockBreak);
+        if (message.events?.length) {
+            obj.events = message.events.map((e) => eventTypeToJSON(e));
         }
         return obj;
     },
     create(base) {
-        return EventResult.fromPartial(base ?? {});
+        return EventSubscribe.fromPartial(base ?? {});
     },
     fromPartial(object) {
-        const message = createBaseEventResult();
-        message.eventId = object.eventId ?? "";
-        message.cancel = object.cancel ?? undefined;
-        message.chat = (object.chat !== undefined && object.chat !== null)
-            ? ChatMutation.fromPartial(object.chat)
-            : undefined;
-        message.blockBreak = (object.blockBreak !== undefined && object.blockBreak !== null)
-            ? BlockBreakMutation.fromPartial(object.blockBreak)
-            : undefined;
-        return message;
-    },
-};
-function createBaseChatMutation() {
-    return { message: "" };
-}
-export const ChatMutation = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.message !== "") {
-            writer.uint32(10).string(message.message);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseChatMutation();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.message = reader.string();
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return { message: isSet(object.message) ? globalThis.String(object.message) : "" };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.message !== "") {
-            obj.message = message.message;
-        }
-        return obj;
-    },
-    create(base) {
-        return ChatMutation.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseChatMutation();
-        message.message = object.message ?? "";
-        return message;
-    },
-};
-function createBaseBlockBreakMutation() {
-    return { drops: [], xp: undefined };
-}
-export const BlockBreakMutation = {
-    encode(message, writer = new BinaryWriter()) {
-        for (const v of message.drops) {
-            ItemStack.encode(v, writer.uint32(10).fork()).join();
-        }
-        if (message.xp !== undefined) {
-            writer.uint32(16).int32(message.xp);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseBlockBreakMutation();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.drops.push(ItemStack.decode(reader, reader.uint32()));
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 16) {
-                        break;
-                    }
-                    message.xp = reader.int32();
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            drops: globalThis.Array.isArray(object?.drops) ? object.drops.map((e) => ItemStack.fromJSON(e)) : [],
-            xp: isSet(object.xp) ? globalThis.Number(object.xp) : undefined,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.drops?.length) {
-            obj.drops = message.drops.map((e) => ItemStack.toJSON(e));
-        }
-        if (message.xp !== undefined) {
-            obj.xp = Math.round(message.xp);
-        }
-        return obj;
-    },
-    create(base) {
-        return BlockBreakMutation.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseBlockBreakMutation();
-        message.drops = object.drops?.map((e) => ItemStack.fromPartial(e)) || [];
-        message.xp = object.xp ?? undefined;
-        return message;
-    },
-};
-function createBaseItemStack() {
-    return { name: "", meta: 0, count: 0 };
-}
-export const ItemStack = {
-    encode(message, writer = new BinaryWriter()) {
-        if (message.name !== "") {
-            writer.uint32(10).string(message.name);
-        }
-        if (message.meta !== 0) {
-            writer.uint32(16).int32(message.meta);
-        }
-        if (message.count !== 0) {
-            writer.uint32(24).int32(message.count);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseItemStack();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1: {
-                    if (tag !== 10) {
-                        break;
-                    }
-                    message.name = reader.string();
-                    continue;
-                }
-                case 2: {
-                    if (tag !== 16) {
-                        break;
-                    }
-                    message.meta = reader.int32();
-                    continue;
-                }
-                case 3: {
-                    if (tag !== 24) {
-                        break;
-                    }
-                    message.count = reader.int32();
-                    continue;
-                }
-            }
-            if ((tag & 7) === 4 || tag === 0) {
-                break;
-            }
-            reader.skip(tag & 7);
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            name: isSet(object.name) ? globalThis.String(object.name) : "",
-            meta: isSet(object.meta) ? globalThis.Number(object.meta) : 0,
-            count: isSet(object.count) ? globalThis.Number(object.count) : 0,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.name !== "") {
-            obj.name = message.name;
-        }
-        if (message.meta !== 0) {
-            obj.meta = Math.round(message.meta);
-        }
-        if (message.count !== 0) {
-            obj.count = Math.round(message.count);
-        }
-        return obj;
-    },
-    create(base) {
-        return ItemStack.fromPartial(base ?? {});
-    },
-    fromPartial(object) {
-        const message = createBaseItemStack();
-        message.name = object.name ?? "";
-        message.meta = object.meta ?? 0;
-        message.count = object.count ?? 0;
+        const message = createBaseEventSubscribe();
+        message.events = object.events?.map((e) => e) || [];
         return message;
     },
 };
@@ -2534,9 +2010,9 @@ export const PluginDefinition = {
     methods: {
         eventStream: {
             name: "EventStream",
-            requestType: HostToPlugin,
+            requestType: PluginToHost,
             requestStream: true,
-            responseType: PluginToHost,
+            responseType: HostToPlugin,
             responseStream: true,
             options: {},
         },
@@ -2545,4 +2021,3 @@ export const PluginDefinition = {
 function isSet(value) {
     return value !== null && value !== undefined;
 }
-//# sourceMappingURL=plugin.js.map

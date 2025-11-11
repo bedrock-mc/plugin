@@ -9,7 +9,7 @@ proto-php:
 	buf generate --template buf.gen.php.yaml
 
 proto-ts:
-	buf generate --template buf.gen.ts.yaml
+	buf generate --template buf.gen.ts.yaml && cd generated/ts && npm install && npm run build
 
 proto-py:
 	buf generate --template buf.gen.py.yaml

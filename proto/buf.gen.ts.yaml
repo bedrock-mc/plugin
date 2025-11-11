@@ -9,4 +9,5 @@ plugins:
       - esModuleInterop=true
       - outputServices=generic-definitions
       - useExactTypes=false
+      - importSuffix=.js
 

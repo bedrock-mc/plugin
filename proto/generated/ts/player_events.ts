@@ -17,7 +17,7 @@ import {
   Rotation,
   Vec3,
   WorldRef,
-} from "./common";
+} from "./common.js";
 
 export const protobufPackage = "df.plugin";
 

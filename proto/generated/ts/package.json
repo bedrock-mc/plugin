@@ -13,6 +13,9 @@
       "import": "./plugin.js"
     }
   },
+  "scripts": {
+    "build": "tsc --module ES2022 --target ES2022 --moduleResolution node --skipLibCheck --outDir . *.ts"
+  },
   "peerDependencies": {
     "@bufbuild/protobuf": "^2.2.2"
   }
