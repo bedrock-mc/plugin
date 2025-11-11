@@ -26,46 +26,46 @@ import actions_pb2 as actions__pb2
 import common_pb2 as common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fmutations.proto\x12\tdf.plugin\x1a\ractions.proto\x1a\x0c\x63ommon.proto\"\xe6\x06\n\x0b\x45ventResult\x12\x10\n\x08\x65vent_id\x18\x01 \x01(\t\x12\x13\n\x06\x63\x61ncel\x18\x02 \x01(\x08H\x01\x88\x01\x01\x12\'\n\x04\x63hat\x18\n \x01(\x0b\x32\x17.df.plugin.ChatMutationH\x00\x12\x34\n\x0b\x62lock_break\x18\x0b \x01(\x0b\x32\x1d.df.plugin.BlockBreakMutationH\x00\x12=\n\x10player_food_loss\x18\x0c \x01(\x0b\x32!.df.plugin.PlayerFoodLossMutationH\x00\x12\x34\n\x0bplayer_heal\x18\r \x01(\x0b\x32\x1d.df.plugin.PlayerHealMutationH\x00\x12\x34\n\x0bplayer_hurt\x18\x0e \x01(\x0b\x32\x1d.df.plugin.PlayerHurtMutationH\x00\x12\x36\n\x0cplayer_death\x18\x0f \x01(\x0b\x32\x1e.df.plugin.PlayerDeathMutationH\x00\x12:\n\x0eplayer_respawn\x18\x10 \x01(\x0b\x32 .df.plugin.PlayerRespawnMutationH\x00\x12\x45\n\x14player_attack_entity\x18\x11 \x01(\x0b\x32%.df.plugin.PlayerAttackEntityMutationH\x00\x12I\n\x16player_experience_gain\x18\x12 \x01(\x0b\x32\'.df.plugin.PlayerExperienceGainMutationH\x00\x12L\n\x18player_lectern_page_turn\x18\x13 \x01(\x0b\x32(.df.plugin.PlayerLecternPageTurnMutationH\x00\x12\x41\n\x12player_item_pickup\x18\x14 \x01(\x0b\x32#.df.plugin.PlayerItemPickupMutationH\x00\x12<\n\x0fplayer_transfer\x18\x15 \x01(\x0b\x32!.df.plugin.PlayerTransferMutationH\x00\x12<\n\x0fworld_explosion\x18\x1e \x01(\x0b\x32!.df.plugin.WorldExplosionMutationH\x00\x42\x08\n\x06updateB\t\n\x07_cancel\"4\n\rItemStackList\x12#\n\x05items\x18\x01 \x03(\x0b\x32\x14.df.plugin.ItemStack\"\x1c\n\nStringList\x12\x0e\n\x06values\x18\x01 \x03(\t\"6\n\x0c\x42lockPosList\x12&\n\tpositions\x18\x01 \x03(\x0b\x32\x13.df.plugin.BlockPos\"0\n\x0c\x43hatMutation\x12\x14\n\x07message\x18\x01 \x01(\tH\x00\x88\x01\x01\x42\n\n\x08_message\"d\n\x12\x42lockBreakMutation\x12,\n\x05\x64rops\x18\x01 \x01(\x0b\x32\x18.df.plugin.ItemStackListH\x00\x88\x01\x01\x12\x0f\n\x02xp\x18\x02 \x01(\x05H\x01\x88\x01\x01\x42\x08\n\x06_dropsB\x05\n\x03_xp\"0\n\x16PlayerFoodLossMutation\x12\x0f\n\x02to\x18\x01 \x01(\x05H\x00\x88\x01\x01\x42\x05\n\x03_to\"4\n\x12PlayerHealMutation\x12\x13\n\x06\x61mount\x18\x01 \x01(\x01H\x00\x88\x01\x01\x42\t\n\x07_amount\"l\n\x12PlayerHurtMutation\x12\x13\n\x06\x64\x61mage\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x1f\n\x12\x61ttack_immunity_ms\x18\x02 \x01(\x03H\x01\x88\x01\x01\x42\t\n\x07_damageB\x15\n\x13_attack_immunity_ms\"E\n\x13PlayerDeathMutation\x12\x1b\n\x0ekeep_inventory\x18\x01 \x01(\x08H\x00\x88\x01\x01\x42\x11\n\x0f_keep_inventory\"\x7f\n\x15PlayerRespawnMutation\x12&\n\x08position\x18\x01 \x01(\x0b\x32\x0f.df.plugin.Vec3H\x00\x88\x01\x01\x12\'\n\x05world\x18\x02 \x01(\x0b\x32\x13.df.plugin.WorldRefH\x01\x88\x01\x01\x42\x0b\n\t_positionB\x08\n\x06_world\"~\n\x1aPlayerAttackEntityMutation\x12\x12\n\x05\x66orce\x18\x01 \x01(\x01H\x00\x88\x01\x01\x12\x13\n\x06height\x18\x02 \x01(\x01H\x01\x88\x01\x01\x12\x15\n\x08\x63ritical\x18\x03 \x01(\x08H\x02\x88\x01\x01\x42\x08\n\x06_forceB\t\n\x07_heightB\x0b\n\t_critical\">\n\x1cPlayerExperienceGainMutation\x12\x13\n\x06\x61mount\x18\x01 \x01(\x05H\x00\x88\x01\x01\x42\t\n\x07_amount\"C\n\x1dPlayerLecternPageTurnMutation\x12\x15\n\x08new_page\x18\x01 \x01(\x05H\x00\x88\x01\x01\x42\x0b\n\t_new_page\"L\n\x18PlayerItemPickupMutation\x12\'\n\x04item\x18\x01 \x01(\x0b\x32\x14.df.plugin.ItemStackH\x00\x88\x01\x01\x42\x07\n\x05_item\"N\n\x16PlayerTransferMutation\x12(\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0b\x32\x12.df.plugin.AddressH\x00\x88\x01\x01\x42\n\n\x08_address\"\xf0\x01\n\x16WorldExplosionMutation\x12\x30\n\x0c\x65ntity_uuids\x18\x01 \x01(\x0b\x32\x15.df.plugin.StringListH\x00\x88\x01\x01\x12,\n\x06\x62locks\x18\x02 \x01(\x0b\x32\x17.df.plugin.BlockPosListH\x01\x88\x01\x01\x12\x1d\n\x10item_drop_chance\x18\x03 \x01(\x01H\x02\x88\x01\x01\x12\x17\n\nspawn_fire\x18\x04 \x01(\x08H\x03\x88\x01\x01\x42\x0f\n\r_entity_uuidsB\t\n\x07_blocksB\x13\n\x11_item_drop_chanceB\r\n\x0b_spawn_fireB)Z\'github.com/secmc/plugin/proto/generatedb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fmutations.proto\x12\tdf.plugin\x1a\ractions.proto\x1a\x0c\x63ommon.proto\"\xc0\x08\n\x0b\x45ventResult\x12\x19\n\x08\x65vent_id\x18\x01 \x01(\tR\x07\x65ventId\x12\x1b\n\x06\x63\x61ncel\x18\x02 \x01(\x08H\x01R\x06\x63\x61ncel\x88\x01\x01\x12-\n\x04\x63hat\x18\n \x01(\x0b\x32\x17.df.plugin.ChatMutationH\x00R\x04\x63hat\x12@\n\x0b\x62lock_break\x18\x0b \x01(\x0b\x32\x1d.df.plugin.BlockBreakMutationH\x00R\nblockBreak\x12M\n\x10player_food_loss\x18\x0c \x01(\x0b\x32!.df.plugin.PlayerFoodLossMutationH\x00R\x0eplayerFoodLoss\x12@\n\x0bplayer_heal\x18\r \x01(\x0b\x32\x1d.df.plugin.PlayerHealMutationH\x00R\nplayerHeal\x12@\n\x0bplayer_hurt\x18\x0e \x01(\x0b\x32\x1d.df.plugin.PlayerHurtMutationH\x00R\nplayerHurt\x12\x43\n\x0cplayer_death\x18\x0f \x01(\x0b\x32\x1e.df.plugin.PlayerDeathMutationH\x00R\x0bplayerDeath\x12I\n\x0eplayer_respawn\x18\x10 \x01(\x0b\x32 .df.plugin.PlayerRespawnMutationH\x00R\rplayerRespawn\x12Y\n\x14player_attack_entity\x18\x11 \x01(\x0b\x32%.df.plugin.PlayerAttackEntityMutationH\x00R\x12playerAttackEntity\x12_\n\x16player_experience_gain\x18\x12 \x01(\x0b\x32\'.df.plugin.PlayerExperienceGainMutationH\x00R\x14playerExperienceGain\x12\x63\n\x18player_lectern_page_turn\x18\x13 \x01(\x0b\x32(.df.plugin.PlayerLecternPageTurnMutationH\x00R\x15playerLecternPageTurn\x12S\n\x12player_item_pickup\x18\x14 \x01(\x0b\x32#.df.plugin.PlayerItemPickupMutationH\x00R\x10playerItemPickup\x12L\n\x0fplayer_transfer\x18\x15 \x01(\x0b\x32!.df.plugin.PlayerTransferMutationH\x00R\x0eplayerTransfer\x12L\n\x0fworld_explosion\x18\x1e \x01(\x0b\x32!.df.plugin.WorldExplosionMutationH\x00R\x0eworldExplosionB\x08\n\x06updateB\t\n\x07_cancel\";\n\rItemStackList\x12*\n\x05items\x18\x01 \x03(\x0b\x32\x14.df.plugin.ItemStackR\x05items\"$\n\nStringList\x12\x16\n\x06values\x18\x01 \x03(\tR\x06values\"A\n\x0c\x42lockPosList\x12\x31\n\tpositions\x18\x01 \x03(\x0b\x32\x13.df.plugin.BlockPosR\tpositions\"9\n\x0c\x43hatMutation\x12\x1d\n\x07message\x18\x01 \x01(\tH\x00R\x07message\x88\x01\x01\x42\n\n\x08_message\"o\n\x12\x42lockBreakMutation\x12\x33\n\x05\x64rops\x18\x01 \x01(\x0b\x32\x18.df.plugin.ItemStackListH\x00R\x05\x64rops\x88\x01\x01\x12\x13\n\x02xp\x18\x02 \x01(\x05H\x01R\x02xp\x88\x01\x01\x42\x08\n\x06_dropsB\x05\n\x03_xp\"4\n\x16PlayerFoodLossMutation\x12\x13\n\x02to\x18\x01 \x01(\x05H\x00R\x02to\x88\x01\x01\x42\x05\n\x03_to\"<\n\x12PlayerHealMutation\x12\x1b\n\x06\x61mount\x18\x01 \x01(\x01H\x00R\x06\x61mount\x88\x01\x01\x42\t\n\x07_amount\"\x86\x01\n\x12PlayerHurtMutation\x12\x1b\n\x06\x64\x61mage\x18\x01 \x01(\x01H\x00R\x06\x64\x61mage\x88\x01\x01\x12\x31\n\x12\x61ttack_immunity_ms\x18\x02 \x01(\x03H\x01R\x10\x61ttackImmunityMs\x88\x01\x01\x42\t\n\x07_damageB\x15\n\x13_attack_immunity_ms\"T\n\x13PlayerDeathMutation\x12*\n\x0ekeep_inventory\x18\x01 \x01(\x08H\x00R\rkeepInventory\x88\x01\x01\x42\x11\n\x0f_keep_inventory\"\x90\x01\n\x15PlayerRespawnMutation\x12\x30\n\x08position\x18\x01 \x01(\x0b\x32\x0f.df.plugin.Vec3H\x00R\x08position\x88\x01\x01\x12.\n\x05world\x18\x02 \x01(\x0b\x32\x13.df.plugin.WorldRefH\x01R\x05world\x88\x01\x01\x42\x0b\n\t_positionB\x08\n\x06_world\"\x97\x01\n\x1aPlayerAttackEntityMutation\x12\x19\n\x05\x66orce\x18\x01 \x01(\x01H\x00R\x05\x66orce\x88\x01\x01\x12\x1b\n\x06height\x18\x02 \x01(\x01H\x01R\x06height\x88\x01\x01\x12\x1f\n\x08\x63ritical\x18\x03 \x01(\x08H\x02R\x08\x63ritical\x88\x01\x01\x42\x08\n\x06_forceB\t\n\x07_heightB\x0b\n\t_critical\"F\n\x1cPlayerExperienceGainMutation\x12\x1b\n\x06\x61mount\x18\x01 \x01(\x05H\x00R\x06\x61mount\x88\x01\x01\x42\t\n\x07_amount\"L\n\x1dPlayerLecternPageTurnMutation\x12\x1e\n\x08new_page\x18\x01 \x01(\x05H\x00R\x07newPage\x88\x01\x01\x42\x0b\n\t_new_page\"R\n\x18PlayerItemPickupMutation\x12-\n\x04item\x18\x01 \x01(\x0b\x32\x14.df.plugin.ItemStackH\x00R\x04item\x88\x01\x01\x42\x07\n\x05_item\"W\n\x16PlayerTransferMutation\x12\x31\n\x07\x61\x64\x64ress\x18\x01 \x01(\x0b\x32\x12.df.plugin.AddressH\x00R\x07\x61\x64\x64ress\x88\x01\x01\x42\n\n\x08_address\"\xa0\x02\n\x16WorldExplosionMutation\x12=\n\x0c\x65ntity_uuids\x18\x01 \x01(\x0b\x32\x15.df.plugin.StringListH\x00R\x0b\x65ntityUuids\x88\x01\x01\x12\x34\n\x06\x62locks\x18\x02 \x01(\x0b\x32\x17.df.plugin.BlockPosListH\x01R\x06\x62locks\x88\x01\x01\x12-\n\x10item_drop_chance\x18\x03 \x01(\x01H\x02R\x0eitemDropChance\x88\x01\x01\x12\"\n\nspawn_fire\x18\x04 \x01(\x08H\x03R\tspawnFire\x88\x01\x01\x42\x0f\n\r_entity_uuidsB\t\n\x07_blocksB\x13\n\x11_item_drop_chanceB\r\n\x0b_spawn_fireB\x8d\x01\n\rcom.df.pluginB\x0eMutationsProtoP\x01Z\'github.com/secmc/plugin/proto/generated\xa2\x02\x03\x44PX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15\x44\x66\\Plugin\\GPBMetadata\xea\x02\nDf::Pluginb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'mutations_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/secmc/plugin/proto/generated'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\rcom.df.pluginB\016MutationsProtoP\001Z\'github.com/secmc/plugin/proto/generated\242\002\003DPX\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMetadata\352\002\nDf::Plugin'
   _globals['_EVENTRESULT']._serialized_start=60
-  _globals['_EVENTRESULT']._serialized_end=930
-  _globals['_ITEMSTACKLIST']._serialized_start=932
-  _globals['_ITEMSTACKLIST']._serialized_end=984
-  _globals['_STRINGLIST']._serialized_start=986
-  _globals['_STRINGLIST']._serialized_end=1014
-  _globals['_BLOCKPOSLIST']._serialized_start=1016
-  _globals['_BLOCKPOSLIST']._serialized_end=1070
-  _globals['_CHATMUTATION']._serialized_start=1072
-  _globals['_CHATMUTATION']._serialized_end=1120
-  _globals['_BLOCKBREAKMUTATION']._serialized_start=1122
-  _globals['_BLOCKBREAKMUTATION']._serialized_end=1222
-  _globals['_PLAYERFOODLOSSMUTATION']._serialized_start=1224
-  _globals['_PLAYERFOODLOSSMUTATION']._serialized_end=1272
-  _globals['_PLAYERHEALMUTATION']._serialized_start=1274
-  _globals['_PLAYERHEALMUTATION']._serialized_end=1326
-  _globals['_PLAYERHURTMUTATION']._serialized_start=1328
-  _globals['_PLAYERHURTMUTATION']._serialized_end=1436
-  _globals['_PLAYERDEATHMUTATION']._serialized_start=1438
-  _globals['_PLAYERDEATHMUTATION']._serialized_end=1507
-  _globals['_PLAYERRESPAWNMUTATION']._serialized_start=1509
-  _globals['_PLAYERRESPAWNMUTATION']._serialized_end=1636
-  _globals['_PLAYERATTACKENTITYMUTATION']._serialized_start=1638
-  _globals['_PLAYERATTACKENTITYMUTATION']._serialized_end=1764
-  _globals['_PLAYEREXPERIENCEGAINMUTATION']._serialized_start=1766
-  _globals['_PLAYEREXPERIENCEGAINMUTATION']._serialized_end=1828
-  _globals['_PLAYERLECTERNPAGETURNMUTATION']._serialized_start=1830
-  _globals['_PLAYERLECTERNPAGETURNMUTATION']._serialized_end=1897
-  _globals['_PLAYERITEMPICKUPMUTATION']._serialized_start=1899
-  _globals['_PLAYERITEMPICKUPMUTATION']._serialized_end=1975
-  _globals['_PLAYERTRANSFERMUTATION']._serialized_start=1977
-  _globals['_PLAYERTRANSFERMUTATION']._serialized_end=2055
-  _globals['_WORLDEXPLOSIONMUTATION']._serialized_start=2058
-  _globals['_WORLDEXPLOSIONMUTATION']._serialized_end=2298
+  _globals['_EVENTRESULT']._serialized_end=1148
+  _globals['_ITEMSTACKLIST']._serialized_start=1150
+  _globals['_ITEMSTACKLIST']._serialized_end=1209
+  _globals['_STRINGLIST']._serialized_start=1211
+  _globals['_STRINGLIST']._serialized_end=1247
+  _globals['_BLOCKPOSLIST']._serialized_start=1249
+  _globals['_BLOCKPOSLIST']._serialized_end=1314
+  _globals['_CHATMUTATION']._serialized_start=1316
+  _globals['_CHATMUTATION']._serialized_end=1373
+  _globals['_BLOCKBREAKMUTATION']._serialized_start=1375
+  _globals['_BLOCKBREAKMUTATION']._serialized_end=1486
+  _globals['_PLAYERFOODLOSSMUTATION']._serialized_start=1488
+  _globals['_PLAYERFOODLOSSMUTATION']._serialized_end=1540
+  _globals['_PLAYERHEALMUTATION']._serialized_start=1542
+  _globals['_PLAYERHEALMUTATION']._serialized_end=1602
+  _globals['_PLAYERHURTMUTATION']._serialized_start=1605
+  _globals['_PLAYERHURTMUTATION']._serialized_end=1739
+  _globals['_PLAYERDEATHMUTATION']._serialized_start=1741
+  _globals['_PLAYERDEATHMUTATION']._serialized_end=1825
+  _globals['_PLAYERRESPAWNMUTATION']._serialized_start=1828
+  _globals['_PLAYERRESPAWNMUTATION']._serialized_end=1972
+  _globals['_PLAYERATTACKENTITYMUTATION']._serialized_start=1975
+  _globals['_PLAYERATTACKENTITYMUTATION']._serialized_end=2126
+  _globals['_PLAYEREXPERIENCEGAINMUTATION']._serialized_start=2128
+  _globals['_PLAYEREXPERIENCEGAINMUTATION']._serialized_end=2198
+  _globals['_PLAYERLECTERNPAGETURNMUTATION']._serialized_start=2200
+  _globals['_PLAYERLECTERNPAGETURNMUTATION']._serialized_end=2276
+  _globals['_PLAYERITEMPICKUPMUTATION']._serialized_start=2278
+  _globals['_PLAYERITEMPICKUPMUTATION']._serialized_end=2360
+  _globals['_PLAYERTRANSFERMUTATION']._serialized_start=2362
+  _globals['_PLAYERTRANSFERMUTATION']._serialized_end=2449
+  _globals['_WORLDEXPLOSIONMUTATION']._serialized_start=2452
+  _globals['_WORLDEXPLOSIONMUTATION']._serialized_end=2740
 # @@protoc_insertion_point(module_scope)

@@ -25,36 +25,36 @@ _sym_db = _symbol_database.Default()
 import common_pb2 as common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12world_events.proto\x12\tdf.plugin\x1a\x0c\x63ommon.proto\"\xcf\x01\n\x14WorldLiquidFlowEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRef\x12!\n\x04\x66rom\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPos\x12\x1f\n\x02to\x18\x03 \x01(\x0b\x32\x13.df.plugin.BlockPos\x12&\n\x06liquid\x18\x04 \x01(\x0b\x32\x16.df.plugin.LiquidState\x12\'\n\x08replaced\x18\x05 \x01(\x0b\x32\x15.df.plugin.BlockState\"\xd0\x01\n\x15WorldLiquidDecayEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRef\x12%\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPos\x12+\n\x06\x62\x65\x66ore\x18\x03 \x01(\x0b\x32\x16.df.plugin.LiquidStateH\x00\x88\x01\x01\x12*\n\x05\x61\x66ter\x18\x04 \x01(\x0b\x32\x16.df.plugin.LiquidStateH\x01\x88\x01\x01\x42\t\n\x07_beforeB\x08\n\x06_after\"\xae\x02\n\x16WorldLiquidHardenEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRef\x12%\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPos\x12\x34\n\x0fliquid_hardened\x18\x03 \x01(\x0b\x32\x16.df.plugin.LiquidStateH\x00\x88\x01\x01\x12\x31\n\x0cother_liquid\x18\x04 \x01(\x0b\x32\x16.df.plugin.LiquidStateH\x01\x88\x01\x01\x12-\n\tnew_block\x18\x05 \x01(\x0b\x32\x15.df.plugin.BlockStateH\x02\x88\x01\x01\x42\x12\n\x10_liquid_hardenedB\x0f\n\r_other_liquidB\x0c\n\n_new_block\"g\n\x0fWorldSoundEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRef\x12\r\n\x05sound\x18\x02 \x01(\t\x12!\n\x08position\x18\x03 \x01(\x0b\x32\x0f.df.plugin.Vec3\"~\n\x14WorldFireSpreadEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRef\x12!\n\x04\x66rom\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPos\x12\x1f\n\x02to\x18\x03 \x01(\x0b\x32\x13.df.plugin.BlockPos\"`\n\x13WorldBlockBurnEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRef\x12%\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPos\"b\n\x15WorldCropTrampleEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRef\x12%\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPos\"b\n\x15WorldLeavesDecayEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRef\x12%\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPos\"a\n\x15WorldEntitySpawnEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRef\x12$\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\x14.df.plugin.EntityRef\"c\n\x17WorldEntityDespawnEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRef\x12$\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\x14.df.plugin.EntityRef\"\xe9\x01\n\x13WorldExplosionEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRef\x12!\n\x08position\x18\x02 \x01(\x0b\x32\x0f.df.plugin.Vec3\x12/\n\x11\x61\x66\x66\x65\x63ted_entities\x18\x03 \x03(\x0b\x32\x14.df.plugin.EntityRef\x12,\n\x0f\x61\x66\x66\x65\x63ted_blocks\x18\x04 \x03(\x0b\x32\x13.df.plugin.BlockPos\x12\x18\n\x10item_drop_chance\x18\x05 \x01(\x01\x12\x12\n\nspawn_fire\x18\x06 \x01(\x08\"5\n\x0fWorldCloseEvent\x12\"\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefB)Z\'github.com/secmc/plugin/proto/generatedb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12world_events.proto\x12\tdf.plugin\x1a\x0c\x63ommon.proto\"\xf2\x01\n\x14WorldLiquidFlowEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\'\n\x04\x66rom\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x04\x66rom\x12#\n\x02to\x18\x03 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x02to\x12.\n\x06liquid\x18\x04 \x01(\x0b\x32\x16.df.plugin.LiquidStateR\x06liquid\x12\x31\n\x08replaced\x18\x05 \x01(\x0b\x32\x15.df.plugin.BlockStateR\x08replaced\"\xf0\x01\n\x15WorldLiquidDecayEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\x12\x33\n\x06\x62\x65\x66ore\x18\x03 \x01(\x0b\x32\x16.df.plugin.LiquidStateH\x00R\x06\x62\x65\x66ore\x88\x01\x01\x12\x31\n\x05\x61\x66ter\x18\x04 \x01(\x0b\x32\x16.df.plugin.LiquidStateH\x01R\x05\x61\x66ter\x88\x01\x01\x42\t\n\x07_beforeB\x08\n\x06_after\"\xe6\x02\n\x16WorldLiquidHardenEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\x12\x44\n\x0fliquid_hardened\x18\x03 \x01(\x0b\x32\x16.df.plugin.LiquidStateH\x00R\x0eliquidHardened\x88\x01\x01\x12>\n\x0cother_liquid\x18\x04 \x01(\x0b\x32\x16.df.plugin.LiquidStateH\x01R\x0botherLiquid\x88\x01\x01\x12\x37\n\tnew_block\x18\x05 \x01(\x0b\x32\x15.df.plugin.BlockStateH\x02R\x08newBlock\x88\x01\x01\x42\x12\n\x10_liquid_hardenedB\x0f\n\r_other_liquidB\x0c\n\n_new_block\"\x7f\n\x0fWorldSoundEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\x14\n\x05sound\x18\x02 \x01(\tR\x05sound\x12+\n\x08position\x18\x03 \x01(\x0b\x32\x0f.df.plugin.Vec3R\x08position\"\x8f\x01\n\x14WorldFireSpreadEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\'\n\x04\x66rom\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x04\x66rom\x12#\n\x02to\x18\x03 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x02to\"q\n\x13WorldBlockBurnEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\"s\n\x15WorldCropTrampleEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\"s\n\x15WorldLeavesDecayEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\"p\n\x15WorldEntitySpawnEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12,\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\x14.df.plugin.EntityRefR\x06\x65ntity\"r\n\x17WorldEntityDespawnEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12,\n\x06\x65ntity\x18\x02 \x01(\x0b\x32\x14.df.plugin.EntityRefR\x06\x65ntity\"\xb7\x02\n\x13WorldExplosionEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12+\n\x08position\x18\x02 \x01(\x0b\x32\x0f.df.plugin.Vec3R\x08position\x12\x41\n\x11\x61\x66\x66\x65\x63ted_entities\x18\x03 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x10\x61\x66\x66\x65\x63tedEntities\x12<\n\x0f\x61\x66\x66\x65\x63ted_blocks\x18\x04 \x03(\x0b\x32\x13.df.plugin.BlockPosR\x0e\x61\x66\x66\x65\x63tedBlocks\x12(\n\x10item_drop_chance\x18\x05 \x01(\x01R\x0eitemDropChance\x12\x1d\n\nspawn_fire\x18\x06 \x01(\x08R\tspawnFire\"<\n\x0fWorldCloseEvent\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05worldB\x8f\x01\n\rcom.df.pluginB\x10WorldEventsProtoP\x01Z\'github.com/secmc/plugin/proto/generated\xa2\x02\x03\x44PX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15\x44\x66\\Plugin\\GPBMetadata\xea\x02\nDf::Pluginb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'world_events_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/secmc/plugin/proto/generated'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\rcom.df.pluginB\020WorldEventsProtoP\001Z\'github.com/secmc/plugin/proto/generated\242\002\003DPX\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMetadata\352\002\nDf::Plugin'
   _globals['_WORLDLIQUIDFLOWEVENT']._serialized_start=48
-  _globals['_WORLDLIQUIDFLOWEVENT']._serialized_end=255
-  _globals['_WORLDLIQUIDDECAYEVENT']._serialized_start=258
-  _globals['_WORLDLIQUIDDECAYEVENT']._serialized_end=466
-  _globals['_WORLDLIQUIDHARDENEVENT']._serialized_start=469
-  _globals['_WORLDLIQUIDHARDENEVENT']._serialized_end=771
-  _globals['_WORLDSOUNDEVENT']._serialized_start=773
-  _globals['_WORLDSOUNDEVENT']._serialized_end=876
-  _globals['_WORLDFIRESPREADEVENT']._serialized_start=878
-  _globals['_WORLDFIRESPREADEVENT']._serialized_end=1004
-  _globals['_WORLDBLOCKBURNEVENT']._serialized_start=1006
-  _globals['_WORLDBLOCKBURNEVENT']._serialized_end=1102
-  _globals['_WORLDCROPTRAMPLEEVENT']._serialized_start=1104
-  _globals['_WORLDCROPTRAMPLEEVENT']._serialized_end=1202
-  _globals['_WORLDLEAVESDECAYEVENT']._serialized_start=1204
-  _globals['_WORLDLEAVESDECAYEVENT']._serialized_end=1302
-  _globals['_WORLDENTITYSPAWNEVENT']._serialized_start=1304
-  _globals['_WORLDENTITYSPAWNEVENT']._serialized_end=1401
-  _globals['_WORLDENTITYDESPAWNEVENT']._serialized_start=1403
-  _globals['_WORLDENTITYDESPAWNEVENT']._serialized_end=1502
-  _globals['_WORLDEXPLOSIONEVENT']._serialized_start=1505
-  _globals['_WORLDEXPLOSIONEVENT']._serialized_end=1738
-  _globals['_WORLDCLOSEEVENT']._serialized_start=1740
-  _globals['_WORLDCLOSEEVENT']._serialized_end=1793
+  _globals['_WORLDLIQUIDFLOWEVENT']._serialized_end=290
+  _globals['_WORLDLIQUIDDECAYEVENT']._serialized_start=293
+  _globals['_WORLDLIQUIDDECAYEVENT']._serialized_end=533
+  _globals['_WORLDLIQUIDHARDENEVENT']._serialized_start=536
+  _globals['_WORLDLIQUIDHARDENEVENT']._serialized_end=894
+  _globals['_WORLDSOUNDEVENT']._serialized_start=896
+  _globals['_WORLDSOUNDEVENT']._serialized_end=1023
+  _globals['_WORLDFIRESPREADEVENT']._serialized_start=1026
+  _globals['_WORLDFIRESPREADEVENT']._serialized_end=1169
+  _globals['_WORLDBLOCKBURNEVENT']._serialized_start=1171
+  _globals['_WORLDBLOCKBURNEVENT']._serialized_end=1284
+  _globals['_WORLDCROPTRAMPLEEVENT']._serialized_start=1286
+  _globals['_WORLDCROPTRAMPLEEVENT']._serialized_end=1401
+  _globals['_WORLDLEAVESDECAYEVENT']._serialized_start=1403
+  _globals['_WORLDLEAVESDECAYEVENT']._serialized_end=1518
+  _globals['_WORLDENTITYSPAWNEVENT']._serialized_start=1520
+  _globals['_WORLDENTITYSPAWNEVENT']._serialized_end=1632
+  _globals['_WORLDENTITYDESPAWNEVENT']._serialized_start=1634
+  _globals['_WORLDENTITYDESPAWNEVENT']._serialized_end=1748
+  _globals['_WORLDEXPLOSIONEVENT']._serialized_start=1751
+  _globals['_WORLDEXPLOSIONEVENT']._serialized_end=2062
+  _globals['_WORLDCLOSEEVENT']._serialized_start=2064
+  _globals['_WORLDCLOSEEVENT']._serialized_end=2124
 # @@protoc_insertion_point(module_scope)

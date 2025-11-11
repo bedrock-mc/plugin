@@ -25,24 +25,24 @@ _sym_db = _symbol_database.Default()
 import common_pb2 as common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\ractions.proto\x12\tdf.plugin\x1a\x0c\x63ommon.proto\"1\n\x0b\x41\x63tionBatch\x12\"\n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32\x11.df.plugin.Action\"\xfd\x01\n\x06\x41\x63tion\x12\x1b\n\x0e\x63orrelation_id\x18\x01 \x01(\tH\x01\x88\x01\x01\x12.\n\tsend_chat\x18\n \x01(\x0b\x32\x19.df.plugin.SendChatActionH\x00\x12-\n\x08teleport\x18\x0b \x01(\x0b\x32\x19.df.plugin.TeleportActionH\x00\x12%\n\x04kick\x18\x0c \x01(\x0b\x32\x15.df.plugin.KickActionH\x00\x12\x35\n\rset_game_mode\x18\r \x01(\x0b\x32\x1c.df.plugin.SetGameModeActionH\x00\x42\x06\n\x04kindB\x11\n\x0f_correlation_id\"6\n\x0eSendChatAction\x12\x13\n\x0btarget_uuid\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t\"b\n\x0eTeleportAction\x12\x13\n\x0bplayer_uuid\x18\x01 \x01(\t\x12\t\n\x01x\x18\x02 \x01(\x01\x12\t\n\x01y\x18\x03 \x01(\x01\x12\t\n\x01z\x18\x04 \x01(\x01\x12\x0b\n\x03yaw\x18\x05 \x01(\x02\x12\r\n\x05pitch\x18\x06 \x01(\x02\"1\n\nKickAction\x12\x13\n\x0bplayer_uuid\x18\x01 \x01(\t\x12\x0e\n\x06reason\x18\x02 \x01(\t\"P\n\x11SetGameModeAction\x12\x13\n\x0bplayer_uuid\x18\x01 \x01(\t\x12&\n\tgame_mode\x18\x02 \x01(\x0e\x32\x13.df.plugin.GameModeB)Z\'github.com/secmc/plugin/proto/generatedb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\ractions.proto\x12\tdf.plugin\x1a\x0c\x63ommon.proto\":\n\x0b\x41\x63tionBatch\x12+\n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32\x11.df.plugin.ActionR\x07\x61\x63tions\"\xb3\x02\n\x06\x41\x63tion\x12*\n\x0e\x63orrelation_id\x18\x01 \x01(\tH\x01R\rcorrelationId\x88\x01\x01\x12\x38\n\tsend_chat\x18\n \x01(\x0b\x32\x19.df.plugin.SendChatActionH\x00R\x08sendChat\x12\x37\n\x08teleport\x18\x0b \x01(\x0b\x32\x19.df.plugin.TeleportActionH\x00R\x08teleport\x12+\n\x04kick\x18\x0c \x01(\x0b\x32\x15.df.plugin.KickActionH\x00R\x04kick\x12\x42\n\rset_game_mode\x18\r \x01(\x0b\x32\x1c.df.plugin.SetGameModeActionH\x00R\x0bsetGameModeB\x06\n\x04kindB\x11\n\x0f_correlation_id\"K\n\x0eSendChatAction\x12\x1f\n\x0btarget_uuid\x18\x01 \x01(\tR\ntargetUuid\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"\x83\x01\n\x0eTeleportAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x0c\n\x01x\x18\x02 \x01(\x01R\x01x\x12\x0c\n\x01y\x18\x03 \x01(\x01R\x01y\x12\x0c\n\x01z\x18\x04 \x01(\x01R\x01z\x12\x10\n\x03yaw\x18\x05 \x01(\x02R\x03yaw\x12\x14\n\x05pitch\x18\x06 \x01(\x02R\x05pitch\"E\n\nKickAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x16\n\x06reason\x18\x02 \x01(\tR\x06reason\"f\n\x11SetGameModeAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x30\n\tgame_mode\x18\x02 \x01(\x0e\x32\x13.df.plugin.GameModeR\x08gameModeB\x8b\x01\n\rcom.df.pluginB\x0c\x41\x63tionsProtoP\x01Z\'github.com/secmc/plugin/proto/generated\xa2\x02\x03\x44PX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15\x44\x66\\Plugin\\GPBMetadata\xea\x02\nDf::Pluginb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'actions_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/secmc/plugin/proto/generated'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\rcom.df.pluginB\014ActionsProtoP\001Z\'github.com/secmc/plugin/proto/generated\242\002\003DPX\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMetadata\352\002\nDf::Plugin'
   _globals['_ACTIONBATCH']._serialized_start=42
-  _globals['_ACTIONBATCH']._serialized_end=91
-  _globals['_ACTION']._serialized_start=94
-  _globals['_ACTION']._serialized_end=347
-  _globals['_SENDCHATACTION']._serialized_start=349
-  _globals['_SENDCHATACTION']._serialized_end=403
-  _globals['_TELEPORTACTION']._serialized_start=405
-  _globals['_TELEPORTACTION']._serialized_end=503
-  _globals['_KICKACTION']._serialized_start=505
-  _globals['_KICKACTION']._serialized_end=554
-  _globals['_SETGAMEMODEACTION']._serialized_start=556
-  _globals['_SETGAMEMODEACTION']._serialized_end=636
+  _globals['_ACTIONBATCH']._serialized_end=100
+  _globals['_ACTION']._serialized_start=103
+  _globals['_ACTION']._serialized_end=410
+  _globals['_SENDCHATACTION']._serialized_start=412
+  _globals['_SENDCHATACTION']._serialized_end=487
+  _globals['_TELEPORTACTION']._serialized_start=490
+  _globals['_TELEPORTACTION']._serialized_end=621
+  _globals['_KICKACTION']._serialized_start=623
+  _globals['_KICKACTION']._serialized_end=692
+  _globals['_SETGAMEMODEACTION']._serialized_start=694
+  _globals['_SETGAMEMODEACTION']._serialized_end=796
 # @@protoc_insertion_point(module_scope)

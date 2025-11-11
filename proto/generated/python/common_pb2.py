@@ -24,40 +24,40 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0c\x63ommon.proto\x12\tdf.plugin\"\'\n\x04Vec3\x12\t\n\x01x\x18\x01 \x01(\x01\x12\t\n\x01y\x18\x02 \x01(\x01\x12\t\n\x01z\x18\x03 \x01(\x01\"&\n\x08Rotation\x12\x0b\n\x03yaw\x18\x01 \x01(\x02\x12\r\n\x05pitch\x18\x02 \x01(\x02\"+\n\x08\x42lockPos\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\x12\t\n\x01z\x18\x03 \x01(\x05\"6\n\tItemStack\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04meta\x18\x02 \x01(\x05\x12\r\n\x05\x63ount\x18\x03 \x01(\x05\"\x88\x01\n\nBlockState\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x39\n\nproperties\x18\x02 \x03(\x0b\x32%.df.plugin.BlockState.PropertiesEntry\x1a\x31\n\x0fPropertiesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"h\n\x0bLiquidState\x12$\n\x05\x62lock\x18\x01 \x01(\x0b\x32\x15.df.plugin.BlockState\x12\r\n\x05\x64\x65pth\x18\x02 \x01(\x05\x12\x0f\n\x07\x66\x61lling\x18\x03 \x01(\x08\x12\x13\n\x0bliquid_type\x18\x04 \x01(\t\"+\n\x08WorldRef\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tdimension\x18\x02 \x01(\t\"\xb1\x01\n\tEntityRef\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x11\n\x04name\x18\x03 \x01(\tH\x00\x88\x01\x01\x12&\n\x08position\x18\x04 \x01(\x0b\x32\x0f.df.plugin.Vec3H\x01\x88\x01\x01\x12*\n\x08rotation\x18\x05 \x01(\x0b\x32\x13.df.plugin.RotationH\x02\x88\x01\x01\x42\x07\n\x05_nameB\x0b\n\t_positionB\x0b\n\t_rotation\"F\n\x0c\x44\x61mageSource\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x18\n\x0b\x64\x65scription\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x0e\n\x0c_description\"G\n\rHealingSource\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x18\n\x0b\x64\x65scription\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x0e\n\x0c_description\"%\n\x07\x41\x64\x64ress\x12\x0c\n\x04host\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\x05*D\n\x08GameMode\x12\x0c\n\x08SURVIVAL\x10\x00\x12\x0c\n\x08\x43REATIVE\x10\x01\x12\r\n\tADVENTURE\x10\x02\x12\r\n\tSPECTATOR\x10\x03\x42)Z\'github.com/secmc/plugin/proto/generatedb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0c\x63ommon.proto\x12\tdf.plugin\"0\n\x04Vec3\x12\x0c\n\x01x\x18\x01 \x01(\x01R\x01x\x12\x0c\n\x01y\x18\x02 \x01(\x01R\x01y\x12\x0c\n\x01z\x18\x03 \x01(\x01R\x01z\"2\n\x08Rotation\x12\x10\n\x03yaw\x18\x01 \x01(\x02R\x03yaw\x12\x14\n\x05pitch\x18\x02 \x01(\x02R\x05pitch\"4\n\x08\x42lockPos\x12\x0c\n\x01x\x18\x01 \x01(\x05R\x01x\x12\x0c\n\x01y\x18\x02 \x01(\x05R\x01y\x12\x0c\n\x01z\x18\x03 \x01(\x05R\x01z\"I\n\tItemStack\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n\x04meta\x18\x02 \x01(\x05R\x04meta\x12\x14\n\x05\x63ount\x18\x03 \x01(\x05R\x05\x63ount\"\xa6\x01\n\nBlockState\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x45\n\nproperties\x18\x02 \x03(\x0b\x32%.df.plugin.BlockState.PropertiesEntryR\nproperties\x1a=\n\x0fPropertiesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\x8b\x01\n\x0bLiquidState\x12+\n\x05\x62lock\x18\x01 \x01(\x0b\x32\x15.df.plugin.BlockStateR\x05\x62lock\x12\x14\n\x05\x64\x65pth\x18\x02 \x01(\x05R\x05\x64\x65pth\x12\x18\n\x07\x66\x61lling\x18\x03 \x01(\x08R\x07\x66\x61lling\x12\x1f\n\x0bliquid_type\x18\x04 \x01(\tR\nliquidType\"<\n\x08WorldRef\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1c\n\tdimension\x18\x02 \x01(\tR\tdimension\"\xd7\x01\n\tEntityRef\x12\x12\n\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x12\n\x04type\x18\x02 \x01(\tR\x04type\x12\x17\n\x04name\x18\x03 \x01(\tH\x00R\x04name\x88\x01\x01\x12\x30\n\x08position\x18\x04 \x01(\x0b\x32\x0f.df.plugin.Vec3H\x01R\x08position\x88\x01\x01\x12\x34\n\x08rotation\x18\x05 \x01(\x0b\x32\x13.df.plugin.RotationH\x02R\x08rotation\x88\x01\x01\x42\x07\n\x05_nameB\x0b\n\t_positionB\x0b\n\t_rotation\"Y\n\x0c\x44\x61mageSource\x12\x12\n\x04type\x18\x01 \x01(\tR\x04type\x12%\n\x0b\x64\x65scription\x18\x02 \x01(\tH\x00R\x0b\x64\x65scription\x88\x01\x01\x42\x0e\n\x0c_description\"Z\n\rHealingSource\x12\x12\n\x04type\x18\x01 \x01(\tR\x04type\x12%\n\x0b\x64\x65scription\x18\x02 \x01(\tH\x00R\x0b\x64\x65scription\x88\x01\x01\x42\x0e\n\x0c_description\"1\n\x07\x41\x64\x64ress\x12\x12\n\x04host\x18\x01 \x01(\tR\x04host\x12\x12\n\x04port\x18\x02 \x01(\x05R\x04port*D\n\x08GameMode\x12\x0c\n\x08SURVIVAL\x10\x00\x12\x0c\n\x08\x43REATIVE\x10\x01\x12\r\n\tADVENTURE\x10\x02\x12\r\n\tSPECTATOR\x10\x03\x42\x8a\x01\n\rcom.df.pluginB\x0b\x43ommonProtoP\x01Z\'github.com/secmc/plugin/proto/generated\xa2\x02\x03\x44PX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15\x44\x66\\Plugin\\GPBMetadata\xea\x02\nDf::Pluginb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'common_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z\'github.com/secmc/plugin/proto/generated'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\rcom.df.pluginB\013CommonProtoP\001Z\'github.com/secmc/plugin/proto/generated\242\002\003DPX\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMetadata\352\002\nDf::Plugin'
   _globals['_BLOCKSTATE_PROPERTIESENTRY']._loaded_options = None
   _globals['_BLOCKSTATE_PROPERTIESENTRY']._serialized_options = b'8\001'
-  _globals['_GAMEMODE']._serialized_start=863
-  _globals['_GAMEMODE']._serialized_end=931
+  _globals['_GAMEMODE']._serialized_start=1083
+  _globals['_GAMEMODE']._serialized_end=1151
   _globals['_VEC3']._serialized_start=27
-  _globals['_VEC3']._serialized_end=66
-  _globals['_ROTATION']._serialized_start=68
-  _globals['_ROTATION']._serialized_end=106
-  _globals['_BLOCKPOS']._serialized_start=108
-  _globals['_BLOCKPOS']._serialized_end=151
-  _globals['_ITEMSTACK']._serialized_start=153
-  _globals['_ITEMSTACK']._serialized_end=207
-  _globals['_BLOCKSTATE']._serialized_start=210
-  _globals['_BLOCKSTATE']._serialized_end=346
-  _globals['_BLOCKSTATE_PROPERTIESENTRY']._serialized_start=297
-  _globals['_BLOCKSTATE_PROPERTIESENTRY']._serialized_end=346
-  _globals['_LIQUIDSTATE']._serialized_start=348
-  _globals['_LIQUIDSTATE']._serialized_end=452
-  _globals['_WORLDREF']._serialized_start=454
-  _globals['_WORLDREF']._serialized_end=497
-  _globals['_ENTITYREF']._serialized_start=500
-  _globals['_ENTITYREF']._serialized_end=677
-  _globals['_DAMAGESOURCE']._serialized_start=679
-  _globals['_DAMAGESOURCE']._serialized_end=749
-  _globals['_HEALINGSOURCE']._serialized_start=751
-  _globals['_HEALINGSOURCE']._serialized_end=822
-  _globals['_ADDRESS']._serialized_start=824
-  _globals['_ADDRESS']._serialized_end=861
+  _globals['_VEC3']._serialized_end=75
+  _globals['_ROTATION']._serialized_start=77
+  _globals['_ROTATION']._serialized_end=127
+  _globals['_BLOCKPOS']._serialized_start=129
+  _globals['_BLOCKPOS']._serialized_end=181
+  _globals['_ITEMSTACK']._serialized_start=183
+  _globals['_ITEMSTACK']._serialized_end=256
+  _globals['_BLOCKSTATE']._serialized_start=259
+  _globals['_BLOCKSTATE']._serialized_end=425
+  _globals['_BLOCKSTATE_PROPERTIESENTRY']._serialized_start=364
+  _globals['_BLOCKSTATE_PROPERTIESENTRY']._serialized_end=425
+  _globals['_LIQUIDSTATE']._serialized_start=428
+  _globals['_LIQUIDSTATE']._serialized_end=567
+  _globals['_WORLDREF']._serialized_start=569
+  _globals['_WORLDREF']._serialized_end=629
+  _globals['_ENTITYREF']._serialized_start=632
+  _globals['_ENTITYREF']._serialized_end=847
+  _globals['_DAMAGESOURCE']._serialized_start=849
+  _globals['_DAMAGESOURCE']._serialized_end=938
+  _globals['_HEALINGSOURCE']._serialized_start=940
+  _globals['_HEALINGSOURCE']._serialized_end=1030
+  _globals['_ADDRESS']._serialized_start=1032
+  _globals['_ADDRESS']._serialized_end=1081
 # @@protoc_insertion_point(module_scope)
