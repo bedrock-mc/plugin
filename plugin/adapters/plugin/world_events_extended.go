@@ -10,7 +10,7 @@ import (
 )
 
 func (m *Manager) EmitWorldLiquidFlow(ctx *world.Context, from, into cube.Pos, liquid world.Liquid, replaced world.Block) {
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_LIQUID_FLOW,
 		Payload: &pb.EventEnvelope_WorldLiquidFlow{
@@ -22,12 +22,11 @@ func (m *Manager) EmitWorldLiquidFlow(ctx *world.Context, from, into cube.Pos, l
 				Replaced: protoBlockState(replaced),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitWorldLiquidDecay(ctx *world.Context, pos cube.Pos, before, after world.Liquid) {
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_LIQUID_DECAY,
 		Payload: &pb.EventEnvelope_WorldLiquidDecay{
@@ -38,12 +37,11 @@ func (m *Manager) EmitWorldLiquidDecay(ctx *world.Context, pos cube.Pos, before,
 				After:    protoLiquidState(after),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitWorldLiquidHarden(ctx *world.Context, pos cube.Pos, liquidHardened, otherLiquid, newBlock world.Block) {
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_LIQUID_HARDEN,
 		Payload: &pb.EventEnvelope_WorldLiquidHarden{
@@ -55,12 +53,11 @@ func (m *Manager) EmitWorldLiquidHarden(ctx *world.Context, pos cube.Pos, liquid
 				NewBlock:       protoBlockState(newBlock),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitWorldSound(ctx *world.Context, s world.Sound, pos mgl64.Vec3) {
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_SOUND,
 		Payload: &pb.EventEnvelope_WorldSound{
@@ -70,12 +67,11 @@ func (m *Manager) EmitWorldSound(ctx *world.Context, s world.Sound, pos mgl64.Ve
 				Position: protoVec3(pos),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitWorldFireSpread(ctx *world.Context, from, to cube.Pos) {
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_FIRE_SPREAD,
 		Payload: &pb.EventEnvelope_WorldFireSpread{
@@ -85,12 +81,11 @@ func (m *Manager) EmitWorldFireSpread(ctx *world.Context, from, to cube.Pos) {
 				To:    protoBlockPos(to),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitWorldBlockBurn(ctx *world.Context, pos cube.Pos) {
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_BLOCK_BURN,
 		Payload: &pb.EventEnvelope_WorldBlockBurn{
@@ -99,12 +94,11 @@ func (m *Manager) EmitWorldBlockBurn(ctx *world.Context, pos cube.Pos) {
 				Position: protoBlockPos(pos),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitWorldCropTrample(ctx *world.Context, pos cube.Pos) {
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_CROP_TRAMPLE,
 		Payload: &pb.EventEnvelope_WorldCropTrample{
@@ -113,12 +107,11 @@ func (m *Manager) EmitWorldCropTrample(ctx *world.Context, pos cube.Pos) {
 				Position: protoBlockPos(pos),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitWorldLeavesDecay(ctx *world.Context, pos cube.Pos) {
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_LEAVES_DECAY,
 		Payload: &pb.EventEnvelope_WorldLeavesDecay{
@@ -127,12 +120,11 @@ func (m *Manager) EmitWorldLeavesDecay(ctx *world.Context, pos cube.Pos) {
 				Position: protoBlockPos(pos),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitWorldEntitySpawn(tx *world.Tx, e world.Entity) {
-	evt := &pb.EventEnvelope{
+	m.broadcastEvent(&pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_ENTITY_SPAWN,
 		Payload: &pb.EventEnvelope_WorldEntitySpawn{
@@ -141,12 +133,11 @@ func (m *Manager) EmitWorldEntitySpawn(tx *world.Tx, e world.Entity) {
 				Entity: protoEntityRef(e),
 			},
 		},
-	}
-	m.broadcastEvent(evt)
+	})
 }
 
 func (m *Manager) EmitWorldEntityDespawn(tx *world.Tx, e world.Entity) {
-	evt := &pb.EventEnvelope{
+	m.broadcastEvent(&pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_ENTITY_DESPAWN,
 		Payload: &pb.EventEnvelope_WorldEntityDespawn{
@@ -155,8 +146,7 @@ func (m *Manager) EmitWorldEntityDespawn(tx *world.Tx, e world.Entity) {
 				Entity: protoEntityRef(e),
 			},
 		},
-	}
-	m.broadcastEvent(evt)
+	})
 }
 
 func (m *Manager) EmitWorldExplosion(ctx *world.Context, position mgl64.Vec3, entities *[]world.Entity, blocks *[]cube.Pos, itemDropChance *float64, spawnFire *bool) {
@@ -176,7 +166,7 @@ func (m *Manager) EmitWorldExplosion(ctx *world.Context, position mgl64.Vec3, en
 	if spawnFire != nil {
 		spawnFireVal = *spawnFire
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_EXPLOSION,
 		Payload: &pb.EventEnvelope_WorldExplosion{
@@ -189,12 +179,11 @@ func (m *Manager) EmitWorldExplosion(ctx *world.Context, position mgl64.Vec3, en
 				SpawnFire:        spawnFireVal,
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitWorldClose(tx *world.Tx) {
-	evt := &pb.EventEnvelope{
+	m.broadcastEvent(&pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_WORLD_CLOSE,
 		Payload: &pb.EventEnvelope_WorldClose{
@@ -202,8 +191,7 @@ func (m *Manager) EmitWorldClose(tx *world.Tx) {
 				World: protoWorldRef(worldFromTx(tx)),
 			},
 		},
-	}
-	m.broadcastEvent(evt)
+	})
 }
 
 func worldFromTx(tx *world.Tx) *world.World {

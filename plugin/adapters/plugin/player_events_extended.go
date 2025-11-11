@@ -2,6 +2,7 @@ package plugin
 
 import (
 	"net"
+	"strings"
 	"time"
 
 	"github.com/df-mc/dragonfly/server/block/cube"
@@ -14,11 +15,123 @@ import (
 	pb "github.com/secmc/plugin/proto/generated"
 )
 
+func (m *Manager) EmitPlayerJoin(p *player.Player) {
+	if p == nil {
+		return
+	}
+	m.broadcastEvent(&pb.EventEnvelope{
+		EventId: m.generateEventID(),
+		Type:    pb.EventType_PLAYER_JOIN,
+		Payload: &pb.EventEnvelope_PlayerJoin{
+			PlayerJoin: &pb.PlayerJoinEvent{
+				PlayerUuid: p.UUID().String(),
+				Name:       p.Name(),
+			},
+		},
+	})
+}
+
+func (m *Manager) EmitPlayerQuit(p *player.Player) {
+	if p == nil {
+		return
+	}
+	m.broadcastEvent(&pb.EventEnvelope{
+		EventId: m.generateEventID(),
+		Type:    pb.EventType_PLAYER_QUIT,
+		Payload: &pb.EventEnvelope_PlayerQuit{
+			PlayerQuit: &pb.PlayerQuitEvent{
+				PlayerUuid: p.UUID().String(),
+				Name:       p.Name(),
+			},
+		},
+	})
+	m.detachPlayer(p)
+}
+
+func (m *Manager) EmitChat(ctx *player.Context, p *player.Player, msg *string) {
+	if p == nil || msg == nil {
+		return
+	}
+	results := m.emitCancellable(ctx, &pb.EventEnvelope{
+		EventId: m.generateEventID(),
+		Type:    pb.EventType_CHAT,
+		Payload: &pb.EventEnvelope_Chat{
+			Chat: &pb.ChatEvent{
+				PlayerUuid: p.UUID().String(),
+				Name:       p.Name(),
+				Message:    *msg,
+			},
+		},
+	})
+	for _, res := range results {
+		if res == nil {
+			continue
+		}
+		if chatMut := res.GetChat(); chatMut != nil {
+			*msg = chatMut.Message
+		}
+	}
+}
+
+func (m *Manager) EmitCommand(ctx *player.Context, p *player.Player, cmdName string, args []string) {
+	if p == nil {
+		return
+	}
+	raw := "/" + cmdName
+	if len(args) > 0 {
+		raw += " " + strings.Join(args, " ")
+	}
+	m.emitCancellable(ctx, &pb.EventEnvelope{
+		EventId: m.generateEventID(),
+		Type:    pb.EventType_COMMAND,
+		Payload: &pb.EventEnvelope_Command{
+			Command: &pb.CommandEvent{
+				PlayerUuid: p.UUID().String(),
+				Name:       p.Name(),
+				Raw:        raw,
+				Command:    cmdName,
+				Args:       args,
+			},
+		},
+	})
+}
+
+func (m *Manager) EmitBlockBreak(ctx *player.Context, p *player.Player, pos cube.Pos, drops *[]item.Stack, xp *int, worldDim string) {
+	if p == nil {
+		return
+	}
+	results := m.emitCancellable(ctx, &pb.EventEnvelope{
+		EventId: m.generateEventID(),
+		Type:    pb.EventType_PLAYER_BLOCK_BREAK,
+		Payload: &pb.EventEnvelope_BlockBreak{
+			BlockBreak: &pb.BlockBreakEvent{
+				PlayerUuid: p.UUID().String(),
+				Name:       p.Name(),
+				World:      worldDim,
+				Position:   protoBlockPos(pos),
+			},
+		},
+	})
+	for _, res := range results {
+		if res == nil {
+			continue
+		}
+		if bbMut := res.GetBlockBreak(); bbMut != nil {
+			if drops != nil {
+				*drops = convertProtoDrops(bbMut.Drops)
+			}
+			if bbMut.Xp != nil && xp != nil {
+				*xp = int(*bbMut.Xp)
+			}
+		}
+	}
+}
+
 func (m *Manager) EmitPlayerMove(ctx *player.Context, p *player.Player, newPos mgl64.Vec3, newRot cube.Rotation) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_MOVE,
 		Payload: &pb.EventEnvelope_PlayerMove{
@@ -30,15 +143,14 @@ func (m *Manager) EmitPlayerMove(ctx *player.Context, p *player.Player, newPos m
 				Rotation:   protoRotation(newRot),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerJump(p *player.Player) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.broadcastEvent(&pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_JUMP,
 		Payload: &pb.EventEnvelope_PlayerJump{
@@ -49,15 +161,14 @@ func (m *Manager) EmitPlayerJump(p *player.Player) {
 				Position:   protoVec3(p.Position()),
 			},
 		},
-	}
-	m.broadcastEvent(evt)
+	})
 }
 
 func (m *Manager) EmitPlayerTeleport(ctx *player.Context, p *player.Player, pos mgl64.Vec3) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_TELEPORT,
 		Payload: &pb.EventEnvelope_PlayerTeleport{
@@ -68,15 +179,14 @@ func (m *Manager) EmitPlayerTeleport(ctx *player.Context, p *player.Player, pos 
 				Position:   protoVec3(pos),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerChangeWorld(p *player.Player, before, after *world.World) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.broadcastEvent(&pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_CHANGE_WORLD,
 		Payload: &pb.EventEnvelope_PlayerChangeWorld{
@@ -87,15 +197,14 @@ func (m *Manager) EmitPlayerChangeWorld(p *player.Player, before, after *world.W
 				After:      protoWorldRef(after),
 			},
 		},
-	}
-	m.broadcastEvent(evt)
+	})
 }
 
 func (m *Manager) EmitPlayerToggleSprint(ctx *player.Context, p *player.Player, after bool) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_TOGGLE_SPRINT,
 		Payload: &pb.EventEnvelope_PlayerToggleSprint{
@@ -105,15 +214,14 @@ func (m *Manager) EmitPlayerToggleSprint(ctx *player.Context, p *player.Player, 
 				After:      after,
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerToggleSneak(ctx *player.Context, p *player.Player, after bool) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_TOGGLE_SNEAK,
 		Payload: &pb.EventEnvelope_PlayerToggleSneak{
@@ -123,8 +231,7 @@ func (m *Manager) EmitPlayerToggleSneak(ctx *player.Context, p *player.Player, a
 				After:      after,
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerFoodLoss(ctx *player.Context, p *player.Player, from int, to *int) {
@@ -135,7 +242,7 @@ func (m *Manager) EmitPlayerFoodLoss(ctx *player.Context, p *player.Player, from
 	if to != nil {
 		toVal = *to
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_FOOD_LOSS,
 		Payload: &pb.EventEnvelope_PlayerFoodLoss{
@@ -146,8 +253,7 @@ func (m *Manager) EmitPlayerFoodLoss(ctx *player.Context, p *player.Player, from
 				To:         int32(toVal),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerHeal(ctx *player.Context, p *player.Player, health *float64, src world.HealingSource) {
@@ -158,7 +264,7 @@ func (m *Manager) EmitPlayerHeal(ctx *player.Context, p *player.Player, health *
 	if health != nil {
 		amount = *health
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_HEAL,
 		Payload: &pb.EventEnvelope_PlayerHeal{
@@ -169,8 +275,7 @@ func (m *Manager) EmitPlayerHeal(ctx *player.Context, p *player.Player, health *
 				Source:     protoHealingSource(src),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerHurt(ctx *player.Context, p *player.Player, damage *float64, immune bool, attackImmunity *time.Duration, src world.DamageSource) {
@@ -185,7 +290,7 @@ func (m *Manager) EmitPlayerHurt(ctx *player.Context, p *player.Player, damage *
 	if attackImmunity != nil {
 		immunityMS = attackImmunity.Milliseconds()
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_HURT,
 		Payload: &pb.EventEnvelope_PlayerHurt{
@@ -198,8 +303,7 @@ func (m *Manager) EmitPlayerHurt(ctx *player.Context, p *player.Player, damage *
 				Source:           protoDamageSource(src),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerDeath(p *player.Player, src world.DamageSource, keepInv *bool) {
@@ -210,7 +314,7 @@ func (m *Manager) EmitPlayerDeath(p *player.Player, src world.DamageSource, keep
 	if keepInv != nil {
 		keep = *keepInv
 	}
-	evt := &pb.EventEnvelope{
+	m.broadcastEvent(&pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_DEATH,
 		Payload: &pb.EventEnvelope_PlayerDeath{
@@ -221,8 +325,7 @@ func (m *Manager) EmitPlayerDeath(p *player.Player, src world.DamageSource, keep
 				KeepInventory: keep,
 			},
 		},
-	}
-	m.broadcastEvent(evt)
+	})
 }
 
 func (m *Manager) EmitPlayerRespawn(p *player.Player, pos *mgl64.Vec3, w **world.World) {
@@ -237,7 +340,7 @@ func (m *Manager) EmitPlayerRespawn(p *player.Player, pos *mgl64.Vec3, w **world
 	if w != nil && *w != nil {
 		worldRef = protoWorldRef(*w)
 	}
-	evt := &pb.EventEnvelope{
+	m.broadcastEvent(&pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_RESPAWN,
 		Payload: &pb.EventEnvelope_PlayerRespawn{
@@ -248,8 +351,7 @@ func (m *Manager) EmitPlayerRespawn(p *player.Player, pos *mgl64.Vec3, w **world
 				World:      worldRef,
 			},
 		},
-	}
-	m.broadcastEvent(evt)
+	})
 }
 
 func (m *Manager) EmitPlayerSkinChange(ctx *player.Context, p *player.Player, sk *skin.Skin) {
@@ -268,21 +370,20 @@ func (m *Manager) EmitPlayerSkinChange(ctx *player.Context, p *player.Player, sk
 	if playFabID != "" {
 		skinEvent.PlayFabId = &playFabID
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_SKIN_CHANGE,
 		Payload: &pb.EventEnvelope_PlayerSkinChange{
 			PlayerSkinChange: skinEvent,
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerFireExtinguish(ctx *player.Context, p *player.Player, pos cube.Pos) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_FIRE_EXTINGUISH,
 		Payload: &pb.EventEnvelope_PlayerFireExtinguish{
@@ -293,15 +394,14 @@ func (m *Manager) EmitPlayerFireExtinguish(ctx *player.Context, p *player.Player
 				Position:   protoBlockPos(pos),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerStartBreak(ctx *player.Context, p *player.Player, pos cube.Pos) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_START_BREAK,
 		Payload: &pb.EventEnvelope_PlayerStartBreak{
@@ -312,15 +412,14 @@ func (m *Manager) EmitPlayerStartBreak(ctx *player.Context, p *player.Player, po
 				Position:   protoBlockPos(pos),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerBlockPlace(ctx *player.Context, p *player.Player, pos cube.Pos, b world.Block) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_BLOCK_PLACE,
 		Payload: &pb.EventEnvelope_PlayerBlockPlace{
@@ -332,15 +431,14 @@ func (m *Manager) EmitPlayerBlockPlace(ctx *player.Context, p *player.Player, po
 				Block:      protoBlockState(b),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerBlockPick(ctx *player.Context, p *player.Player, pos cube.Pos, b world.Block) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_BLOCK_PICK,
 		Payload: &pb.EventEnvelope_PlayerBlockPick{
@@ -352,8 +450,7 @@ func (m *Manager) EmitPlayerBlockPick(ctx *player.Context, p *player.Player, pos
 				Block:      protoBlockState(b),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerItemUse(ctx *player.Context, p *player.Player) {
@@ -361,7 +458,7 @@ func (m *Manager) EmitPlayerItemUse(ctx *player.Context, p *player.Player) {
 		return
 	}
 	main, _ := p.HeldItems()
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_ITEM_USE,
 		Payload: &pb.EventEnvelope_PlayerItemUse{
@@ -372,8 +469,7 @@ func (m *Manager) EmitPlayerItemUse(ctx *player.Context, p *player.Player) {
 				Item:       protoItemStack(main),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerItemUseOnBlock(ctx *player.Context, p *player.Player, pos cube.Pos, face cube.Face, clickPos mgl64.Vec3, b world.Block) {
@@ -381,7 +477,7 @@ func (m *Manager) EmitPlayerItemUseOnBlock(ctx *player.Context, p *player.Player
 		return
 	}
 	main, _ := p.HeldItems()
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_ITEM_USE_ON_BLOCK,
 		Payload: &pb.EventEnvelope_PlayerItemUseOnBlock{
@@ -396,8 +492,7 @@ func (m *Manager) EmitPlayerItemUseOnBlock(ctx *player.Context, p *player.Player
 				Item:          protoItemStack(main),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerItemUseOnEntity(ctx *player.Context, p *player.Player, target world.Entity) {
@@ -405,7 +500,7 @@ func (m *Manager) EmitPlayerItemUseOnEntity(ctx *player.Context, p *player.Playe
 		return
 	}
 	main, _ := p.HeldItems()
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_ITEM_USE_ON_ENTITY,
 		Payload: &pb.EventEnvelope_PlayerItemUseOnEntity{
@@ -417,15 +512,14 @@ func (m *Manager) EmitPlayerItemUseOnEntity(ctx *player.Context, p *player.Playe
 				Item:       protoItemStack(main),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerItemRelease(ctx *player.Context, p *player.Player, it item.Stack, dur time.Duration) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_ITEM_RELEASE,
 		Payload: &pb.EventEnvelope_PlayerItemRelease{
@@ -437,15 +531,14 @@ func (m *Manager) EmitPlayerItemRelease(ctx *player.Context, p *player.Player, i
 				DurationMs: dur.Milliseconds(),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerItemConsume(ctx *player.Context, p *player.Player, it item.Stack) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_ITEM_CONSUME,
 		Payload: &pb.EventEnvelope_PlayerItemConsume{
@@ -456,8 +549,7 @@ func (m *Manager) EmitPlayerItemConsume(ctx *player.Context, p *player.Player, i
 				Item:       protoItemStack(it),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerAttackEntity(ctx *player.Context, p *player.Player, target world.Entity, force, height *float64, critical *bool) {
@@ -476,7 +568,7 @@ func (m *Manager) EmitPlayerAttackEntity(ctx *player.Context, p *player.Player, 
 	if critical != nil {
 		crit = *critical
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_ATTACK_ENTITY,
 		Payload: &pb.EventEnvelope_PlayerAttackEntity{
@@ -491,8 +583,7 @@ func (m *Manager) EmitPlayerAttackEntity(ctx *player.Context, p *player.Player, 
 				Item:       protoItemStack(main),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerExperienceGain(ctx *player.Context, p *player.Player, amount *int) {
@@ -503,7 +594,7 @@ func (m *Manager) EmitPlayerExperienceGain(ctx *player.Context, p *player.Player
 	if amount != nil {
 		amt = *amount
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_EXPERIENCE_GAIN,
 		Payload: &pb.EventEnvelope_PlayerExperienceGain{
@@ -514,15 +605,14 @@ func (m *Manager) EmitPlayerExperienceGain(ctx *player.Context, p *player.Player
 				Amount:     int32(amt),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerPunchAir(ctx *player.Context, p *player.Player) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_PUNCH_AIR,
 		Payload: &pb.EventEnvelope_PlayerPunchAir{
@@ -532,15 +622,14 @@ func (m *Manager) EmitPlayerPunchAir(ctx *player.Context, p *player.Player) {
 				World:      playerWorldDimension(p),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerSignEdit(ctx *player.Context, p *player.Player, pos cube.Pos, frontSide bool, oldText, newText string) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_SIGN_EDIT,
 		Payload: &pb.EventEnvelope_PlayerSignEdit{
@@ -554,8 +643,7 @@ func (m *Manager) EmitPlayerSignEdit(ctx *player.Context, p *player.Player, pos 
 				NewText:    newText,
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerLecternPageTurn(ctx *player.Context, p *player.Player, pos cube.Pos, oldPage int, newPage *int) {
@@ -566,7 +654,7 @@ func (m *Manager) EmitPlayerLecternPageTurn(ctx *player.Context, p *player.Playe
 	if newPage != nil {
 		newPageVal = *newPage
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_LECTERN_PAGE_TURN,
 		Payload: &pb.EventEnvelope_PlayerLecternPageTurn{
@@ -579,15 +667,14 @@ func (m *Manager) EmitPlayerLecternPageTurn(ctx *player.Context, p *player.Playe
 				NewPage:    int32(newPageVal),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerItemDamage(ctx *player.Context, p *player.Player, it item.Stack, damage int) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_ITEM_DAMAGE,
 		Payload: &pb.EventEnvelope_PlayerItemDamage{
@@ -599,15 +686,14 @@ func (m *Manager) EmitPlayerItemDamage(ctx *player.Context, p *player.Player, it
 				Damage:     int32(damage),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerItemPickup(ctx *player.Context, p *player.Player, it *item.Stack) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_ITEM_PICKUP,
 		Payload: &pb.EventEnvelope_PlayerItemPickup{
@@ -618,15 +704,14 @@ func (m *Manager) EmitPlayerItemPickup(ctx *player.Context, p *player.Player, it
 				Item:       protoItemStackPtr(it),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerHeldSlotChange(ctx *player.Context, p *player.Player, from, to int) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_HELD_SLOT_CHANGE,
 		Payload: &pb.EventEnvelope_PlayerHeldSlotChange{
@@ -638,15 +723,14 @@ func (m *Manager) EmitPlayerHeldSlotChange(ctx *player.Context, p *player.Player
 				ToSlot:     int32(to),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerItemDrop(ctx *player.Context, p *player.Player, it item.Stack) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_ITEM_DROP,
 		Payload: &pb.EventEnvelope_PlayerItemDrop{
@@ -657,15 +741,14 @@ func (m *Manager) EmitPlayerItemDrop(ctx *player.Context, p *player.Player, it i
 				Item:       protoItemStack(it),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerTransfer(ctx *player.Context, p *player.Player, addr *net.UDPAddr) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_TRANSFER,
 		Payload: &pb.EventEnvelope_PlayerTransfer{
@@ -675,15 +758,14 @@ func (m *Manager) EmitPlayerTransfer(ctx *player.Context, p *player.Player, addr
 				Address:    protoAddress(addr),
 			},
 		},
-	}
-	m.emitCancellable(ctx, evt)
+	})
 }
 
 func (m *Manager) EmitPlayerDiagnostics(p *player.Player, d session.Diagnostics) {
 	if p == nil {
 		return
 	}
-	evt := &pb.EventEnvelope{
+	applyDiagnosticsFields(&pb.EventEnvelope{
 		EventId: m.generateEventID(),
 		Type:    pb.EventType_PLAYER_DIAGNOSTICS,
 		Payload: &pb.EventEnvelope_PlayerDiagnostics{
@@ -692,7 +774,6 @@ func (m *Manager) EmitPlayerDiagnostics(p *player.Player, d session.Diagnostics)
 				Name:       p.Name(),
 			},
 		},
-	}
-	applyDiagnosticsFields(evt.GetPlayerDiagnostics(), d)
+	}.GetPlayerDiagnostics(), d)
 	m.broadcastEvent(evt)
 }
