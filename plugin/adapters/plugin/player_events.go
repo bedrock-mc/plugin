@@ -20,8 +20,7 @@ func (m *Manager) EmitPlayerJoin(p *player.Player) {
 		return
 	}
 	m.broadcastEvent(&pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_JOIN,
+		Type: pb.EventType_PLAYER_JOIN,
 		Payload: &pb.EventEnvelope_PlayerJoin{
 			PlayerJoin: &pb.PlayerJoinEvent{
 				PlayerUuid: p.UUID().String(),
@@ -36,8 +35,7 @@ func (m *Manager) EmitPlayerQuit(p *player.Player) {
 		return
 	}
 	m.broadcastEvent(&pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_QUIT,
+		Type: pb.EventType_PLAYER_QUIT,
 		Payload: &pb.EventEnvelope_PlayerQuit{
 			PlayerQuit: &pb.PlayerQuitEvent{
 				PlayerUuid: p.UUID().String(),
@@ -53,8 +51,7 @@ func (m *Manager) EmitChat(ctx *player.Context, p *player.Player, msg *string) {
 		return
 	}
 	results := m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_CHAT,
+		Type: pb.EventType_CHAT,
 		Payload: &pb.EventEnvelope_Chat{
 			Chat: &pb.ChatEvent{
 				PlayerUuid: p.UUID().String(),
@@ -82,8 +79,7 @@ func (m *Manager) EmitCommand(ctx *player.Context, p *player.Player, cmdName str
 		raw += " " + strings.Join(args, " ")
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_COMMAND,
+		Type: pb.EventType_COMMAND,
 		Payload: &pb.EventEnvelope_Command{
 			Command: &pb.CommandEvent{
 				PlayerUuid: p.UUID().String(),
@@ -101,8 +97,7 @@ func (m *Manager) EmitBlockBreak(ctx *player.Context, p *player.Player, pos cube
 		return
 	}
 	results := m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_BLOCK_BREAK,
+		Type: pb.EventType_PLAYER_BLOCK_BREAK,
 		Payload: &pb.EventEnvelope_BlockBreak{
 			BlockBreak: &pb.BlockBreakEvent{
 				PlayerUuid: p.UUID().String(),
@@ -132,8 +127,7 @@ func (m *Manager) EmitPlayerMove(ctx *player.Context, p *player.Player, newPos m
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_MOVE,
+		Type: pb.EventType_PLAYER_MOVE,
 		Payload: &pb.EventEnvelope_PlayerMove{
 			PlayerMove: &pb.PlayerMoveEvent{
 				PlayerUuid: p.UUID().String(),
@@ -151,8 +145,7 @@ func (m *Manager) EmitPlayerJump(p *player.Player) {
 		return
 	}
 	m.broadcastEvent(&pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_JUMP,
+		Type: pb.EventType_PLAYER_JUMP,
 		Payload: &pb.EventEnvelope_PlayerJump{
 			PlayerJump: &pb.PlayerJumpEvent{
 				PlayerUuid: p.UUID().String(),
@@ -169,8 +162,7 @@ func (m *Manager) EmitPlayerTeleport(ctx *player.Context, p *player.Player, pos 
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_TELEPORT,
+		Type: pb.EventType_PLAYER_TELEPORT,
 		Payload: &pb.EventEnvelope_PlayerTeleport{
 			PlayerTeleport: &pb.PlayerTeleportEvent{
 				PlayerUuid: p.UUID().String(),
@@ -187,8 +179,7 @@ func (m *Manager) EmitPlayerChangeWorld(p *player.Player, before, after *world.W
 		return
 	}
 	m.broadcastEvent(&pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_CHANGE_WORLD,
+		Type: pb.EventType_PLAYER_CHANGE_WORLD,
 		Payload: &pb.EventEnvelope_PlayerChangeWorld{
 			PlayerChangeWorld: &pb.PlayerChangeWorldEvent{
 				PlayerUuid: p.UUID().String(),
@@ -205,8 +196,7 @@ func (m *Manager) EmitPlayerToggleSprint(ctx *player.Context, p *player.Player, 
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_TOGGLE_SPRINT,
+		Type: pb.EventType_PLAYER_TOGGLE_SPRINT,
 		Payload: &pb.EventEnvelope_PlayerToggleSprint{
 			PlayerToggleSprint: &pb.PlayerToggleSprintEvent{
 				PlayerUuid: p.UUID().String(),
@@ -222,8 +212,7 @@ func (m *Manager) EmitPlayerToggleSneak(ctx *player.Context, p *player.Player, a
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_TOGGLE_SNEAK,
+		Type: pb.EventType_PLAYER_TOGGLE_SNEAK,
 		Payload: &pb.EventEnvelope_PlayerToggleSneak{
 			PlayerToggleSneak: &pb.PlayerToggleSneakEvent{
 				PlayerUuid: p.UUID().String(),
@@ -243,8 +232,7 @@ func (m *Manager) EmitPlayerFoodLoss(ctx *player.Context, p *player.Player, from
 		toVal = *to
 	}
 	results := m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_FOOD_LOSS,
+		Type: pb.EventType_PLAYER_FOOD_LOSS,
 		Payload: &pb.EventEnvelope_PlayerFoodLoss{
 			PlayerFoodLoss: &pb.PlayerFoodLossEvent{
 				PlayerUuid: p.UUID().String(),
@@ -273,8 +261,7 @@ func (m *Manager) EmitPlayerHeal(ctx *player.Context, p *player.Player, health *
 		amount = *health
 	}
 	results := m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_HEAL,
+		Type: pb.EventType_PLAYER_HEAL,
 		Payload: &pb.EventEnvelope_PlayerHeal{
 			PlayerHeal: &pb.PlayerHealEvent{
 				PlayerUuid: p.UUID().String(),
@@ -307,8 +294,7 @@ func (m *Manager) EmitPlayerHurt(ctx *player.Context, p *player.Player, damage *
 		immunityMS = attackImmunity.Milliseconds()
 	}
 	results := m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_HURT,
+		Type: pb.EventType_PLAYER_HURT,
 		Payload: &pb.EventEnvelope_PlayerHurt{
 			PlayerHurt: &pb.PlayerHurtEvent{
 				PlayerUuid:       p.UUID().String(),
@@ -346,8 +332,7 @@ func (m *Manager) EmitPlayerDeath(p *player.Player, src world.DamageSource, keep
 		keep = *keepInv
 	}
 	results := m.emitCancellable(nil, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_DEATH,
+		Type: pb.EventType_PLAYER_DEATH,
 		Payload: &pb.EventEnvelope_PlayerDeath{
 			PlayerDeath: &pb.PlayerDeathEvent{
 				PlayerUuid:    p.UUID().String(),
@@ -380,8 +365,7 @@ func (m *Manager) EmitPlayerRespawn(p *player.Player, pos *mgl64.Vec3, w **world
 		worldRef = protoWorldRef(*w)
 	}
 	envelope := &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_RESPAWN,
+		Type: pb.EventType_PLAYER_RESPAWN,
 		Payload: &pb.EventEnvelope_PlayerRespawn{
 			PlayerRespawn: &pb.PlayerRespawnEvent{
 				PlayerUuid: p.UUID().String(),
@@ -434,8 +418,7 @@ func (m *Manager) EmitPlayerSkinChange(ctx *player.Context, p *player.Player, sk
 		skinEvent.PlayFabId = &playFabID
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_SKIN_CHANGE,
+		Type: pb.EventType_PLAYER_SKIN_CHANGE,
 		Payload: &pb.EventEnvelope_PlayerSkinChange{
 			PlayerSkinChange: skinEvent,
 		},
@@ -447,8 +430,7 @@ func (m *Manager) EmitPlayerFireExtinguish(ctx *player.Context, p *player.Player
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_FIRE_EXTINGUISH,
+		Type: pb.EventType_PLAYER_FIRE_EXTINGUISH,
 		Payload: &pb.EventEnvelope_PlayerFireExtinguish{
 			PlayerFireExtinguish: &pb.PlayerFireExtinguishEvent{
 				PlayerUuid: p.UUID().String(),
@@ -465,8 +447,7 @@ func (m *Manager) EmitPlayerStartBreak(ctx *player.Context, p *player.Player, po
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_START_BREAK,
+		Type: pb.EventType_PLAYER_START_BREAK,
 		Payload: &pb.EventEnvelope_PlayerStartBreak{
 			PlayerStartBreak: &pb.PlayerStartBreakEvent{
 				PlayerUuid: p.UUID().String(),
@@ -483,8 +464,7 @@ func (m *Manager) EmitPlayerBlockPlace(ctx *player.Context, p *player.Player, po
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_BLOCK_PLACE,
+		Type: pb.EventType_PLAYER_BLOCK_PLACE,
 		Payload: &pb.EventEnvelope_PlayerBlockPlace{
 			PlayerBlockPlace: &pb.PlayerBlockPlaceEvent{
 				PlayerUuid: p.UUID().String(),
@@ -502,8 +482,7 @@ func (m *Manager) EmitPlayerBlockPick(ctx *player.Context, p *player.Player, pos
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_BLOCK_PICK,
+		Type: pb.EventType_PLAYER_BLOCK_PICK,
 		Payload: &pb.EventEnvelope_PlayerBlockPick{
 			PlayerBlockPick: &pb.PlayerBlockPickEvent{
 				PlayerUuid: p.UUID().String(),
@@ -522,8 +501,7 @@ func (m *Manager) EmitPlayerItemUse(ctx *player.Context, p *player.Player) {
 	}
 	main, _ := p.HeldItems()
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_ITEM_USE,
+		Type: pb.EventType_PLAYER_ITEM_USE,
 		Payload: &pb.EventEnvelope_PlayerItemUse{
 			PlayerItemUse: &pb.PlayerItemUseEvent{
 				PlayerUuid: p.UUID().String(),
@@ -541,8 +519,7 @@ func (m *Manager) EmitPlayerItemUseOnBlock(ctx *player.Context, p *player.Player
 	}
 	main, _ := p.HeldItems()
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_ITEM_USE_ON_BLOCK,
+		Type: pb.EventType_PLAYER_ITEM_USE_ON_BLOCK,
 		Payload: &pb.EventEnvelope_PlayerItemUseOnBlock{
 			PlayerItemUseOnBlock: &pb.PlayerItemUseOnBlockEvent{
 				PlayerUuid:    p.UUID().String(),
@@ -564,8 +541,7 @@ func (m *Manager) EmitPlayerItemUseOnEntity(ctx *player.Context, p *player.Playe
 	}
 	main, _ := p.HeldItems()
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_ITEM_USE_ON_ENTITY,
+		Type: pb.EventType_PLAYER_ITEM_USE_ON_ENTITY,
 		Payload: &pb.EventEnvelope_PlayerItemUseOnEntity{
 			PlayerItemUseOnEntity: &pb.PlayerItemUseOnEntityEvent{
 				PlayerUuid: p.UUID().String(),
@@ -582,9 +558,8 @@ func (m *Manager) EmitPlayerItemRelease(ctx *player.Context, p *player.Player, i
 	if p == nil {
 		return
 	}
-	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_ITEM_RELEASE,
+	m.emitCancellable(ctx, &pb.EventEnvelope
+		Type: pb.EventType_PLAYER_ITEM_RELEASE,
 		Payload: &pb.EventEnvelope_PlayerItemRelease{
 			PlayerItemRelease: &pb.PlayerItemReleaseEvent{
 				PlayerUuid: p.UUID().String(),
@@ -602,8 +577,7 @@ func (m *Manager) EmitPlayerItemConsume(ctx *player.Context, p *player.Player, i
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_ITEM_CONSUME,
+		Type: pb.EventType_PLAYER_ITEM_CONSUME,
 		Payload: &pb.EventEnvelope_PlayerItemConsume{
 			PlayerItemConsume: &pb.PlayerItemConsumeEvent{
 				PlayerUuid: p.UUID().String(),
@@ -632,8 +606,7 @@ func (m *Manager) EmitPlayerAttackEntity(ctx *player.Context, p *player.Player, 
 		crit = *critical
 	}
 	results := m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_ATTACK_ENTITY,
+		Type: pb.EventType_PLAYER_ATTACK_ENTITY,
 		Payload: &pb.EventEnvelope_PlayerAttackEntity{
 			PlayerAttackEntity: &pb.PlayerAttackEntityEvent{
 				PlayerUuid: p.UUID().String(),
@@ -676,8 +649,7 @@ func (m *Manager) EmitPlayerExperienceGain(ctx *player.Context, p *player.Player
 		amt = *amount
 	}
 	results := m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_EXPERIENCE_GAIN,
+		Type: pb.EventType_PLAYER_EXPERIENCE_GAIN,
 		Payload: &pb.EventEnvelope_PlayerExperienceGain{
 			PlayerExperienceGain: &pb.PlayerExperienceGainEvent{
 				PlayerUuid: p.UUID().String(),
@@ -702,8 +674,7 @@ func (m *Manager) EmitPlayerPunchAir(ctx *player.Context, p *player.Player) {
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_PUNCH_AIR,
+		Type: pb.EventType_PLAYER_PUNCH_AIR,
 		Payload: &pb.EventEnvelope_PlayerPunchAir{
 			PlayerPunchAir: &pb.PlayerPunchAirEvent{
 				PlayerUuid: p.UUID().String(),
@@ -719,8 +690,7 @@ func (m *Manager) EmitPlayerSignEdit(ctx *player.Context, p *player.Player, pos 
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_SIGN_EDIT,
+		Type: pb.EventType_PLAYER_SIGN_EDIT,
 		Payload: &pb.EventEnvelope_PlayerSignEdit{
 			PlayerSignEdit: &pb.PlayerSignEditEvent{
 				PlayerUuid: p.UUID().String(),
@@ -744,8 +714,7 @@ func (m *Manager) EmitPlayerLecternPageTurn(ctx *player.Context, p *player.Playe
 		newPageVal = *newPage
 	}
 	results := m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_LECTERN_PAGE_TURN,
+		Type: pb.EventType_PLAYER_LECTERN_PAGE_TURN,
 		Payload: &pb.EventEnvelope_PlayerLecternPageTurn{
 			PlayerLecternPageTurn: &pb.PlayerLecternPageTurnEvent{
 				PlayerUuid: p.UUID().String(),
@@ -772,8 +741,7 @@ func (m *Manager) EmitPlayerItemDamage(ctx *player.Context, p *player.Player, it
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_ITEM_DAMAGE,
+		Type: pb.EventType_PLAYER_ITEM_DAMAGE,
 		Payload: &pb.EventEnvelope_PlayerItemDamage{
 			PlayerItemDamage: &pb.PlayerItemDamageEvent{
 				PlayerUuid: p.UUID().String(),
@@ -791,8 +759,7 @@ func (m *Manager) EmitPlayerItemPickup(ctx *player.Context, p *player.Player, it
 		return
 	}
 	results := m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_ITEM_PICKUP,
+		Type: pb.EventType_PLAYER_ITEM_PICKUP,
 		Payload: &pb.EventEnvelope_PlayerItemPickup{
 			PlayerItemPickup: &pb.PlayerItemPickupEvent{
 				PlayerUuid: p.UUID().String(),
@@ -825,8 +792,7 @@ func (m *Manager) EmitPlayerHeldSlotChange(ctx *player.Context, p *player.Player
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_HELD_SLOT_CHANGE,
+		Type: pb.EventType_PLAYER_HELD_SLOT_CHANGE,
 		Payload: &pb.EventEnvelope_PlayerHeldSlotChange{
 			PlayerHeldSlotChange: &pb.PlayerHeldSlotChangeEvent{
 				PlayerUuid: p.UUID().String(),
@@ -844,8 +810,7 @@ func (m *Manager) EmitPlayerItemDrop(ctx *player.Context, p *player.Player, it i
 		return
 	}
 	m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_ITEM_DROP,
+		Type: pb.EventType_PLAYER_ITEM_DROP,
 		Payload: &pb.EventEnvelope_PlayerItemDrop{
 			PlayerItemDrop: &pb.PlayerItemDropEvent{
 				PlayerUuid: p.UUID().String(),
@@ -862,8 +827,7 @@ func (m *Manager) EmitPlayerTransfer(ctx *player.Context, p *player.Player, addr
 		return
 	}
 	results := m.emitCancellable(ctx, &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_TRANSFER,
+		Type: pb.EventType_PLAYER_TRANSFER,
 		Payload: &pb.EventEnvelope_PlayerTransfer{
 			PlayerTransfer: &pb.PlayerTransferEvent{
 				PlayerUuid: p.UUID().String(),
@@ -893,8 +857,7 @@ func (m *Manager) EmitPlayerDiagnostics(p *player.Player, d session.Diagnostics)
 		return
 	}
 	evt := &pb.EventEnvelope{
-		EventId: m.generateEventID(),
-		Type:    pb.EventType_PLAYER_DIAGNOSTICS,
+		Type: pb.EventType_PLAYER_DIAGNOSTICS,
 		Payload: &pb.EventEnvelope_PlayerDiagnostics{
 			PlayerDiagnostics: &pb.PlayerDiagnosticsEvent{
 				PlayerUuid: p.UUID().String(),

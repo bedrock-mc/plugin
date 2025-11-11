@@ -226,6 +226,10 @@ func (m *Manager) dispatchEvent(envelope *pb.EventEnvelope, expectResult bool) [
 	if envelope == nil {
 		return nil
 	}
+	if envelope.EventId == "" {
+		envelope.EventId = m.generateEventID()
+	}
+
 	eventType := envelope.Type
 	m.mu.RLock()
 	procs := make([]*pluginProcess, 0, len(m.plugins))
@@ -291,14 +295,6 @@ func (m *Manager) emitCancellable(ctx cancelContext, envelope *pb.EventEnvelope)
 		ctx.Cancel()
 	}
 	return results
-}
-
-func (m *Manager) BroadcastEvent(evt *pb.EventEnvelope) {
-	m.broadcastEvent(evt)
-}
-
-func (m *Manager) GenerateEventID() string {
-	return m.generateEventID()
 }
 
 func convertProtoDrops(drops []*pb.ItemStack) []item.Stack {

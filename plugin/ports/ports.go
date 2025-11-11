@@ -84,8 +84,6 @@ type EventManager interface {
 	EmitWorldEntityDespawn(tx *world.Tx, e world.Entity)
 	EmitWorldExplosion(ctx *world.Context, position mgl64.Vec3, entities *[]world.Entity, blocks *[]cube.Pos, itemDropChance *float64, spawnFire *bool)
 	EmitWorldClose(tx *world.Tx)
-	BroadcastEvent(evt *pb.EventEnvelope)
-	GenerateEventID() string
 }
 
 type PlayerHandlerFactory func(manager EventManager) player.Handler
