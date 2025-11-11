@@ -1,6 +1,6 @@
 .PHONY: proto proto-go proto-php proto-ts lint breaking clean
 
-proto: proto-go proto-php proto-ts
+proto: proto-go proto-php proto-ts proto-py proto-cpp proto-rs
 
 proto-go:
 	buf generate && cd .. && go mod tidy
@@ -13,6 +13,12 @@ proto-ts:
 
 proto-py:
 	buf generate --template buf.gen.py.yaml
+
+proto-cpp:
+	buf generate --template buf.gen.cpp.yaml
+
+proto-rs:
+	buf generate --template buf.gen.rs.yaml
 
 lint:
 	buf lint
