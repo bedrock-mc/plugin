@@ -1,2 +1,2 @@
 run:
-	go run cmd/main.go cmd/listener.go cmd/util.go
+	go run cmd/dragonfly/main.go cmd/dragonfly/listener.go cmd/dragonfly/util.go

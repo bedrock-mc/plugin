@@ -4,6 +4,8 @@ players/
 resources/
 config.toml
 
+data/
+
 # IDE configuration
 .idea/
 .vscode/
