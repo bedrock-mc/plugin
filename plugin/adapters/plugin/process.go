@@ -54,15 +54,15 @@ type pluginProcess struct {
 	pending   map[string]chan *pb.EventResult
 }
 
-func newPluginProcess(e *Manager, cfg config.PluginConfig) *pluginProcess {
-	logger := e.log.With("plugin", cfg.ID)
+func newPluginProcess(m *Manager, cfg config.PluginConfig) *pluginProcess {
+	logger := m.log.With("plugin", cfg.ID)
 	if cfg.Name != "" {
 		logger = logger.With("name", cfg.Name)
 	}
 	return &pluginProcess{
 		id:      cfg.ID,
 		cfg:     cfg,
-		manager: e,
+		manager: m,
 		log:     logger,
 		sendCh:  make(chan *pb.HostToPlugin, sendChannelBuffer),
 		done:    make(chan struct{}),
@@ -140,7 +140,9 @@ func (p *pluginProcess) launchProcess(ctx context.Context, serverAddress string)
 	go p.consumeOutput(stdout)
 	go p.consumeOutput(stderr)
 
+	p.wg.Add(1)
 	go func() {
+		defer p.wg.Done()
 		if err := cmd.Wait(); err != nil && !p.closed.Load() {
 			p.log.Warn("process exited", "error", err)
 		}
@@ -187,9 +189,6 @@ func (p *pluginProcess) sendLoop() {
 		case msg := <-p.sendCh:
 			if msg == nil {
 				continue
-			}
-			if p.stream == nil {
-				return
 			}
 			data, err := proto.Marshal(msg)
 			if err != nil {
