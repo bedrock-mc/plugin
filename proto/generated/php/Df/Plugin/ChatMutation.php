@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class ChatMutation extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string message = 1 [json_name = "message"];</code>
+     * Generated from protobuf field <code>optional string message = 1 [json_name = "message"];</code>
      */
-    protected $message = '';
+    protected $message = null;
 
     /**
      * Constructor.
@@ -34,16 +34,26 @@ class ChatMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string message = 1 [json_name = "message"];</code>
+     * Generated from protobuf field <code>optional string message = 1 [json_name = "message"];</code>
      * @return string
      */
     public function getMessage()
     {
-        return $this->message;
+        return isset($this->message) ? $this->message : '';
+    }
+
+    public function hasMessage()
+    {
+        return isset($this->message);
+    }
+
+    public function clearMessage()
+    {
+        unset($this->message);
     }
 
     /**
-     * Generated from protobuf field <code>string message = 1 [json_name = "message"];</code>
+     * Generated from protobuf field <code>optional string message = 1 [json_name = "message"];</code>
      * @param string $var
      * @return $this
      */

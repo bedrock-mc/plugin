@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class PlayerHurtMutation extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>double damage = 1 [json_name = "damage"];</code>
+     * Generated from protobuf field <code>optional double damage = 1 [json_name = "damage"];</code>
      */
-    protected $damage = 0.0;
+    protected $damage = null;
     /**
      * Generated from protobuf field <code>optional int64 attack_immunity_ms = 2 [json_name = "attackImmunityMs"];</code>
      */
@@ -39,16 +39,26 @@ class PlayerHurtMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>double damage = 1 [json_name = "damage"];</code>
+     * Generated from protobuf field <code>optional double damage = 1 [json_name = "damage"];</code>
      * @return float
      */
     public function getDamage()
     {
-        return $this->damage;
+        return isset($this->damage) ? $this->damage : 0.0;
+    }
+
+    public function hasDamage()
+    {
+        return isset($this->damage);
+    }
+
+    public function clearDamage()
+    {
+        unset($this->damage);
     }
 
     /**
-     * Generated from protobuf field <code>double damage = 1 [json_name = "damage"];</code>
+     * Generated from protobuf field <code>optional double damage = 1 [json_name = "damage"];</code>
      * @param float $var
      * @return $this
      */

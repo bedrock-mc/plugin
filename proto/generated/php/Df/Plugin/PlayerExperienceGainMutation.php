@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class PlayerExperienceGainMutation extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>int32 amount = 1 [json_name = "amount"];</code>
+     * Generated from protobuf field <code>optional int32 amount = 1 [json_name = "amount"];</code>
      */
-    protected $amount = 0;
+    protected $amount = null;
 
     /**
      * Constructor.
@@ -34,16 +34,26 @@ class PlayerExperienceGainMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int32 amount = 1 [json_name = "amount"];</code>
+     * Generated from protobuf field <code>optional int32 amount = 1 [json_name = "amount"];</code>
      * @return int
      */
     public function getAmount()
     {
-        return $this->amount;
+        return isset($this->amount) ? $this->amount : 0;
+    }
+
+    public function hasAmount()
+    {
+        return isset($this->amount);
+    }
+
+    public function clearAmount()
+    {
+        unset($this->amount);
     }
 
     /**
-     * Generated from protobuf field <code>int32 amount = 1 [json_name = "amount"];</code>
+     * Generated from protobuf field <code>optional int32 amount = 1 [json_name = "amount"];</code>
      * @param int $var
      * @return $this
      */

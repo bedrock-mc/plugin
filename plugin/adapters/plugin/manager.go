@@ -273,8 +273,8 @@ func (m *Manager) dispatchEvent(envelope *pb.EventEnvelope, expectResult bool) [
 			results = append(results, res)
 			if envelope.Type == pb.EventType_CHAT {
 				if chatEvt := envelope.GetChat(); chatEvt != nil {
-					if chatMut := res.GetChat(); chatMut != nil {
-						chatEvt.Message = chatMut.Message
+					if chatMut := res.GetChat(); chatMut != nil && chatMut.Message != nil {
+						chatEvt.Message = *chatMut.Message
 					}
 				}
 			}

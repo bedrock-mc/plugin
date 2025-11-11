@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class PlayerDeathMutation extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>bool keep_inventory = 1 [json_name = "keepInventory"];</code>
+     * Generated from protobuf field <code>optional bool keep_inventory = 1 [json_name = "keepInventory"];</code>
      */
-    protected $keep_inventory = false;
+    protected $keep_inventory = null;
 
     /**
      * Constructor.
@@ -34,16 +34,26 @@ class PlayerDeathMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>bool keep_inventory = 1 [json_name = "keepInventory"];</code>
+     * Generated from protobuf field <code>optional bool keep_inventory = 1 [json_name = "keepInventory"];</code>
      * @return bool
      */
     public function getKeepInventory()
     {
-        return $this->keep_inventory;
+        return isset($this->keep_inventory) ? $this->keep_inventory : false;
+    }
+
+    public function hasKeepInventory()
+    {
+        return isset($this->keep_inventory);
+    }
+
+    public function clearKeepInventory()
+    {
+        unset($this->keep_inventory);
     }
 
     /**
-     * Generated from protobuf field <code>bool keep_inventory = 1 [json_name = "keepInventory"];</code>
+     * Generated from protobuf field <code>optional bool keep_inventory = 1 [json_name = "keepInventory"];</code>
      * @param bool $var
      * @return $this
      */

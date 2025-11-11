@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class PlayerLecternPageTurnMutation extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>int32 new_page = 1 [json_name = "newPage"];</code>
+     * Generated from protobuf field <code>optional int32 new_page = 1 [json_name = "newPage"];</code>
      */
-    protected $new_page = 0;
+    protected $new_page = null;
 
     /**
      * Constructor.
@@ -34,16 +34,26 @@ class PlayerLecternPageTurnMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int32 new_page = 1 [json_name = "newPage"];</code>
+     * Generated from protobuf field <code>optional int32 new_page = 1 [json_name = "newPage"];</code>
      * @return int
      */
     public function getNewPage()
     {
-        return $this->new_page;
+        return isset($this->new_page) ? $this->new_page : 0;
+    }
+
+    public function hasNewPage()
+    {
+        return isset($this->new_page);
+    }
+
+    public function clearNewPage()
+    {
+        unset($this->new_page);
     }
 
     /**
-     * Generated from protobuf field <code>int32 new_page = 1 [json_name = "newPage"];</code>
+     * Generated from protobuf field <code>optional int32 new_page = 1 [json_name = "newPage"];</code>
      * @param int $var
      * @return $this
      */

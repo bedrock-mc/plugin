@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class PlayerHealMutation extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>double amount = 1 [json_name = "amount"];</code>
+     * Generated from protobuf field <code>optional double amount = 1 [json_name = "amount"];</code>
      */
-    protected $amount = 0.0;
+    protected $amount = null;
 
     /**
      * Constructor.
@@ -34,16 +34,26 @@ class PlayerHealMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>double amount = 1 [json_name = "amount"];</code>
+     * Generated from protobuf field <code>optional double amount = 1 [json_name = "amount"];</code>
      * @return float
      */
     public function getAmount()
     {
-        return $this->amount;
+        return isset($this->amount) ? $this->amount : 0.0;
+    }
+
+    public function hasAmount()
+    {
+        return isset($this->amount);
+    }
+
+    public function clearAmount()
+    {
+        unset($this->amount);
     }
 
     /**
-     * Generated from protobuf field <code>double amount = 1 [json_name = "amount"];</code>
+     * Generated from protobuf field <code>optional double amount = 1 [json_name = "amount"];</code>
      * @param float $var
      * @return $this
      */

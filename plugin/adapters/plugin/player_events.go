@@ -64,8 +64,8 @@ func (m *Manager) EmitChat(ctx *player.Context, p *player.Player, msg *string) {
 		if res == nil {
 			continue
 		}
-		if chatMut := res.GetChat(); chatMut != nil {
-			*msg = chatMut.Message
+		if chatMut := res.GetChat(); chatMut != nil && chatMut.Message != nil {
+			*msg = *chatMut.Message
 		}
 	}
 }
@@ -112,8 +112,8 @@ func (m *Manager) EmitBlockBreak(ctx *player.Context, p *player.Player, pos cube
 			continue
 		}
 		if bbMut := res.GetBlockBreak(); bbMut != nil {
-			if drops != nil {
-				*drops = convertProtoDrops(bbMut.Drops)
+			if drops != nil && bbMut.Drops != nil {
+				*drops = convertProtoDrops(bbMut.Drops.Items)
 			}
 			if bbMut.Xp != nil && xp != nil {
 				*xp = int(*bbMut.Xp)
@@ -246,8 +246,8 @@ func (m *Manager) EmitPlayerFoodLoss(ctx *player.Context, p *player.Player, from
 		if res == nil {
 			continue
 		}
-		if mut := res.GetPlayerFoodLoss(); mut != nil && to != nil {
-			*to = int(mut.To)
+		if mut := res.GetPlayerFoodLoss(); mut != nil && mut.To != nil && to != nil {
+			*to = int(*mut.To)
 		}
 	}
 }
@@ -275,8 +275,8 @@ func (m *Manager) EmitPlayerHeal(ctx *player.Context, p *player.Player, health *
 		if res == nil {
 			continue
 		}
-		if mut := res.GetPlayerHeal(); mut != nil && health != nil {
-			*health = mut.Amount
+		if mut := res.GetPlayerHeal(); mut != nil && mut.Amount != nil && health != nil {
+			*health = *mut.Amount
 		}
 	}
 }
@@ -314,8 +314,8 @@ func (m *Manager) EmitPlayerHurt(ctx *player.Context, p *player.Player, damage *
 		if mut == nil {
 			continue
 		}
-		if damage != nil {
-			*damage = mut.Damage
+		if damage != nil && mut.Damage != nil {
+			*damage = *mut.Damage
 		}
 		if attackImmunity != nil && mut.AttackImmunityMs != nil {
 			*attackImmunity = time.Duration(*mut.AttackImmunityMs) * time.Millisecond
@@ -346,8 +346,8 @@ func (m *Manager) EmitPlayerDeath(p *player.Player, src world.DamageSource, keep
 		if res == nil {
 			continue
 		}
-		if mut := res.GetPlayerDeath(); mut != nil && keepInv != nil {
-			*keepInv = mut.KeepInventory
+		if mut := res.GetPlayerDeath(); mut != nil && mut.KeepInventory != nil && keepInv != nil {
+			*keepInv = *mut.KeepInventory
 		}
 	}
 }
@@ -558,7 +558,7 @@ func (m *Manager) EmitPlayerItemRelease(ctx *player.Context, p *player.Player, i
 	if p == nil {
 		return
 	}
-	m.emitCancellable(ctx, &pb.EventEnvelope
+	m.emitCancellable(ctx, &pb.EventEnvelope{
 		Type: pb.EventType_PLAYER_ITEM_RELEASE,
 		Payload: &pb.EventEnvelope_PlayerItemRelease{
 			PlayerItemRelease: &pb.PlayerItemReleaseEvent{
@@ -628,14 +628,14 @@ func (m *Manager) EmitPlayerAttackEntity(ctx *player.Context, p *player.Player, 
 		if mut == nil {
 			continue
 		}
-		if force != nil {
-			*force = mut.Force
+		if force != nil && mut.Force != nil {
+			*force = *mut.Force
 		}
-		if height != nil {
-			*height = mut.Height
+		if height != nil && mut.Height != nil {
+			*height = *mut.Height
 		}
-		if critical != nil {
-			*critical = mut.Critical
+		if critical != nil && mut.Critical != nil {
+			*critical = *mut.Critical
 		}
 	}
 }
@@ -663,8 +663,8 @@ func (m *Manager) EmitPlayerExperienceGain(ctx *player.Context, p *player.Player
 		if res == nil {
 			continue
 		}
-		if mut := res.GetPlayerExperienceGain(); mut != nil && amount != nil {
-			*amount = int(mut.Amount)
+		if mut := res.GetPlayerExperienceGain(); mut != nil && mut.Amount != nil && amount != nil {
+			*amount = int(*mut.Amount)
 		}
 	}
 }
@@ -730,8 +730,8 @@ func (m *Manager) EmitPlayerLecternPageTurn(ctx *player.Context, p *player.Playe
 		if res == nil {
 			continue
 		}
-		if mut := res.GetPlayerLecternPageTurn(); mut != nil && newPage != nil {
-			*newPage = int(mut.NewPage)
+		if mut := res.GetPlayerLecternPageTurn(); mut != nil && mut.NewPage != nil && newPage != nil {
+			*newPage = int(*mut.NewPage)
 		}
 	}
 }
@@ -844,10 +844,12 @@ func (m *Manager) EmitPlayerTransfer(ctx *player.Context, p *player.Player, addr
 		if mut == nil || addr == nil {
 			continue
 		}
-		if newAddr := parseProtoAddress(mut.Address); newAddr != nil {
-			*addr = *newAddr
-		} else {
-			*addr = net.UDPAddr{}
+		if mut.Address != nil {
+			if newAddr := parseProtoAddress(mut.Address); newAddr != nil {
+				*addr = *newAddr
+			} else {
+				*addr = net.UDPAddr{}
+			}
 		}
 	}
 }

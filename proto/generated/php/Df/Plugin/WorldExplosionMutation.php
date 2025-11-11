@@ -15,13 +15,13 @@ use Google\Protobuf\RepeatedField;
 class WorldExplosionMutation extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated string entity_uuids = 1 [json_name = "entityUuids"];</code>
+     * Generated from protobuf field <code>optional .df.plugin.StringList entity_uuids = 1 [json_name = "entityUuids"];</code>
      */
-    private $entity_uuids;
+    protected $entity_uuids = null;
     /**
-     * Generated from protobuf field <code>repeated .df.plugin.BlockPos blocks = 2 [json_name = "blocks"];</code>
+     * Generated from protobuf field <code>optional .df.plugin.BlockPosList blocks = 2 [json_name = "blocks"];</code>
      */
-    private $blocks;
+    protected $blocks = null;
     /**
      * Generated from protobuf field <code>optional double item_drop_chance = 3 [json_name = "itemDropChance"];</code>
      */
@@ -37,8 +37,8 @@ class WorldExplosionMutation extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string[] $entity_uuids
-     *     @type \Df\Plugin\BlockPos[] $blocks
+     *     @type \Df\Plugin\StringList $entity_uuids
+     *     @type \Df\Plugin\BlockPosList $blocks
      *     @type float $item_drop_chance
      *     @type bool $spawn_fire
      * }
@@ -49,45 +49,65 @@ class WorldExplosionMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated string entity_uuids = 1 [json_name = "entityUuids"];</code>
-     * @return RepeatedField<string>
+     * Generated from protobuf field <code>optional .df.plugin.StringList entity_uuids = 1 [json_name = "entityUuids"];</code>
+     * @return \Df\Plugin\StringList|null
      */
     public function getEntityUuids()
     {
         return $this->entity_uuids;
     }
 
+    public function hasEntityUuids()
+    {
+        return isset($this->entity_uuids);
+    }
+
+    public function clearEntityUuids()
+    {
+        unset($this->entity_uuids);
+    }
+
     /**
-     * Generated from protobuf field <code>repeated string entity_uuids = 1 [json_name = "entityUuids"];</code>
-     * @param string[] $var
+     * Generated from protobuf field <code>optional .df.plugin.StringList entity_uuids = 1 [json_name = "entityUuids"];</code>
+     * @param \Df\Plugin\StringList $var
      * @return $this
      */
     public function setEntityUuids($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->entity_uuids = $arr;
+        GPBUtil::checkMessage($var, \Df\Plugin\StringList::class);
+        $this->entity_uuids = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated .df.plugin.BlockPos blocks = 2 [json_name = "blocks"];</code>
-     * @return RepeatedField<\Df\Plugin\BlockPos>
+     * Generated from protobuf field <code>optional .df.plugin.BlockPosList blocks = 2 [json_name = "blocks"];</code>
+     * @return \Df\Plugin\BlockPosList|null
      */
     public function getBlocks()
     {
         return $this->blocks;
     }
 
+    public function hasBlocks()
+    {
+        return isset($this->blocks);
+    }
+
+    public function clearBlocks()
+    {
+        unset($this->blocks);
+    }
+
     /**
-     * Generated from protobuf field <code>repeated .df.plugin.BlockPos blocks = 2 [json_name = "blocks"];</code>
-     * @param \Df\Plugin\BlockPos[] $var
+     * Generated from protobuf field <code>optional .df.plugin.BlockPosList blocks = 2 [json_name = "blocks"];</code>
+     * @param \Df\Plugin\BlockPosList $var
      * @return $this
      */
     public function setBlocks($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\BlockPos::class);
-        $this->blocks = $arr;
+        GPBUtil::checkMessage($var, \Df\Plugin\BlockPosList::class);
+        $this->blocks = $var;
 
         return $this;
     }

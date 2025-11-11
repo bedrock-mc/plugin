@@ -158,7 +158,7 @@ func (m *Manager) EmitWorldExplosion(ctx *world.Context, position mgl64.Vec3, en
 		spawnFireVal = *spawnFire
 	}
 	results := m.emitCancellable(ctx, &pb.EventEnvelope{
-		Type:    pb.EventType_WORLD_EXPLOSION,
+		Type: pb.EventType_WORLD_EXPLOSION,
 		Payload: &pb.EventEnvelope_WorldExplosion{
 			WorldExplosion: &pb.WorldExplosionEvent{
 				World:            protoWorldRef(worldFromContext(ctx)),
@@ -179,10 +179,10 @@ func (m *Manager) EmitWorldExplosion(ctx *world.Context, position mgl64.Vec3, en
 			continue
 		}
 		if entities != nil && mut.EntityUuids != nil {
-			*entities = filterEntitiesByUUIDs(*entities, mut.EntityUuids)
+			*entities = filterEntitiesByUUIDs(*entities, mut.EntityUuids.Values)
 		}
 		if blocks != nil && mut.Blocks != nil {
-			converted := convertProtoBlockPositionsToCube(mut.Blocks)
+			converted := convertProtoBlockPositionsToCube(mut.Blocks.Positions)
 			if converted == nil {
 				*blocks = nil
 			} else {
@@ -201,7 +201,7 @@ func (m *Manager) EmitWorldExplosion(ctx *world.Context, position mgl64.Vec3, en
 func (m *Manager) EmitWorldClose(tx *world.Tx) {
 	w := worldFromTx(tx)
 	m.broadcastEvent(&pb.EventEnvelope{
-		Type:    pb.EventType_WORLD_CLOSE,
+		Type: pb.EventType_WORLD_CLOSE,
 		Payload: &pb.EventEnvelope_WorldClose{
 			WorldClose: &pb.WorldCloseEvent{
 				World: protoWorldRef(w),

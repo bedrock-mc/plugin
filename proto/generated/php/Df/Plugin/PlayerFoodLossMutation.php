@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class PlayerFoodLossMutation extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>int32 to = 1 [json_name = "to"];</code>
+     * Generated from protobuf field <code>optional int32 to = 1 [json_name = "to"];</code>
      */
-    protected $to = 0;
+    protected $to = null;
 
     /**
      * Constructor.
@@ -34,16 +34,26 @@ class PlayerFoodLossMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int32 to = 1 [json_name = "to"];</code>
+     * Generated from protobuf field <code>optional int32 to = 1 [json_name = "to"];</code>
      * @return int
      */
     public function getTo()
     {
-        return $this->to;
+        return isset($this->to) ? $this->to : 0;
+    }
+
+    public function hasTo()
+    {
+        return isset($this->to);
+    }
+
+    public function clearTo()
+    {
+        unset($this->to);
     }
 
     /**
-     * Generated from protobuf field <code>int32 to = 1 [json_name = "to"];</code>
+     * Generated from protobuf field <code>optional int32 to = 1 [json_name = "to"];</code>
      * @param int $var
      * @return $this
      */

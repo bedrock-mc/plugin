@@ -26,30 +26,43 @@ message EventResult {
     }
 }
 
+// Wrapper messages for repeated fields to allow detecting "not set" vs "empty"
+message ItemStackList {
+    repeated ItemStack items = 1;
+}
+
+message StringList {
+    repeated string values = 1;
+}
+
+message BlockPosList {
+    repeated BlockPos positions = 1;
+}
+
 message ChatMutation {
-    string message = 1;
+    optional string message = 1;
 }
 
 message BlockBreakMutation {
-    repeated ItemStack drops = 1;
+    optional ItemStackList drops = 1;
     optional int32 xp = 2;
 }
 
 message PlayerFoodLossMutation {
-    int32 to = 1;
+    optional int32 to = 1;
 }
 
 message PlayerHealMutation {
-    double amount = 1;
+    optional double amount = 1;
 }
 
 message PlayerHurtMutation {
-    double damage = 1;
+    optional double damage = 1;
     optional int64 attack_immunity_ms = 2;
 }
 
 message PlayerDeathMutation {
-    bool keep_inventory = 1;
+    optional bool keep_inventory = 1;
 }
 
 message PlayerRespawnMutation {
@@ -58,17 +71,17 @@ message PlayerRespawnMutation {
 }
 
 message PlayerAttackEntityMutation {
-    double force = 1;
-    double height = 2;
-    bool critical = 3;
+    optional double force = 1;
+    optional double height = 2;
+    optional bool critical = 3;
 }
 
 message PlayerExperienceGainMutation {
-    int32 amount = 1;
+    optional int32 amount = 1;
 }
 
 message PlayerLecternPageTurnMutation {
-    int32 new_page = 1;
+    optional int32 new_page = 1;
 }
 
 message PlayerItemPickupMutation {
@@ -80,8 +93,8 @@ message PlayerTransferMutation {
 }
 
 message WorldExplosionMutation {
-    repeated string entity_uuids = 1;
-    repeated BlockPos blocks = 2;
+    optional StringList entity_uuids = 1;
+    optional BlockPosList blocks = 2;
     optional double item_drop_chance = 3;
     optional bool spawn_fire = 4;
 }

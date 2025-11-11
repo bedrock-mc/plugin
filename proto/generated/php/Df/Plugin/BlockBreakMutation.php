@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class BlockBreakMutation extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated .df.plugin.ItemStack drops = 1 [json_name = "drops"];</code>
+     * Generated from protobuf field <code>optional .df.plugin.ItemStackList drops = 1 [json_name = "drops"];</code>
      */
-    private $drops;
+    protected $drops = null;
     /**
      * Generated from protobuf field <code>optional int32 xp = 2 [json_name = "xp"];</code>
      */
@@ -29,7 +29,7 @@ class BlockBreakMutation extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Df\Plugin\ItemStack[] $drops
+     *     @type \Df\Plugin\ItemStackList $drops
      *     @type int $xp
      * }
      */
@@ -39,23 +39,33 @@ class BlockBreakMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .df.plugin.ItemStack drops = 1 [json_name = "drops"];</code>
-     * @return RepeatedField<\Df\Plugin\ItemStack>
+     * Generated from protobuf field <code>optional .df.plugin.ItemStackList drops = 1 [json_name = "drops"];</code>
+     * @return \Df\Plugin\ItemStackList|null
      */
     public function getDrops()
     {
         return $this->drops;
     }
 
+    public function hasDrops()
+    {
+        return isset($this->drops);
+    }
+
+    public function clearDrops()
+    {
+        unset($this->drops);
+    }
+
     /**
-     * Generated from protobuf field <code>repeated .df.plugin.ItemStack drops = 1 [json_name = "drops"];</code>
-     * @param \Df\Plugin\ItemStack[] $var
+     * Generated from protobuf field <code>optional .df.plugin.ItemStackList drops = 1 [json_name = "drops"];</code>
+     * @param \Df\Plugin\ItemStackList $var
      * @return $this
      */
     public function setDrops($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\ItemStack::class);
-        $this->drops = $arr;
+        GPBUtil::checkMessage($var, \Df\Plugin\ItemStackList::class);
+        $this->drops = $var;
 
         return $this;
     }

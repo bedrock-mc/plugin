@@ -28,30 +28,43 @@ export interface EventResult {
   worldExplosion?: WorldExplosionMutation | undefined;
 }
 
+/** Wrapper messages for repeated fields to allow detecting "not set" vs "empty" */
+export interface ItemStackList {
+  items: ItemStack[];
+}
+
+export interface StringList {
+  values: string[];
+}
+
+export interface BlockPosList {
+  positions: BlockPos[];
+}
+
 export interface ChatMutation {
-  message: string;
+  message?: string | undefined;
 }
 
 export interface BlockBreakMutation {
-  drops: ItemStack[];
+  drops?: ItemStackList | undefined;
   xp?: number | undefined;
 }
 
 export interface PlayerFoodLossMutation {
-  to: number;
+  to?: number | undefined;
 }
 
 export interface PlayerHealMutation {
-  amount: number;
+  amount?: number | undefined;
 }
 
 export interface PlayerHurtMutation {
-  damage: number;
+  damage?: number | undefined;
   attackImmunityMs?: number | undefined;
 }
 
 export interface PlayerDeathMutation {
-  keepInventory: boolean;
+  keepInventory?: boolean | undefined;
 }
 
 export interface PlayerRespawnMutation {
@@ -60,17 +73,17 @@ export interface PlayerRespawnMutation {
 }
 
 export interface PlayerAttackEntityMutation {
-  force: number;
-  height: number;
-  critical: boolean;
+  force?: number | undefined;
+  height?: number | undefined;
+  critical?: boolean | undefined;
 }
 
 export interface PlayerExperienceGainMutation {
-  amount: number;
+  amount?: number | undefined;
 }
 
 export interface PlayerLecternPageTurnMutation {
-  newPage: number;
+  newPage?: number | undefined;
 }
 
 export interface PlayerItemPickupMutation {
@@ -82,8 +95,8 @@ export interface PlayerTransferMutation {
 }
 
 export interface WorldExplosionMutation {
-  entityUuids: string[];
-  blocks: BlockPos[];
+  entityUuids?: StringList | undefined;
+  blocks?: BlockPosList | undefined;
   itemDropChance?: number | undefined;
   spawnFire?: boolean | undefined;
 }
@@ -423,13 +436,195 @@ export const EventResult: MessageFns<EventResult> = {
   },
 };
 
+function createBaseItemStackList(): ItemStackList {
+  return { items: [] };
+}
+
+export const ItemStackList: MessageFns<ItemStackList> = {
+  encode(message: ItemStackList, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    for (const v of message.items) {
+      ItemStack.encode(v!, writer.uint32(10).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): ItemStackList {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseItemStackList();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.items.push(ItemStack.decode(reader, reader.uint32()));
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): ItemStackList {
+    return {
+      items: globalThis.Array.isArray(object?.items) ? object.items.map((e: any) => ItemStack.fromJSON(e)) : [],
+    };
+  },
+
+  toJSON(message: ItemStackList): unknown {
+    const obj: any = {};
+    if (message.items?.length) {
+      obj.items = message.items.map((e) => ItemStack.toJSON(e));
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<ItemStackList>): ItemStackList {
+    return ItemStackList.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<ItemStackList>): ItemStackList {
+    const message = createBaseItemStackList();
+    message.items = object.items?.map((e) => ItemStack.fromPartial(e)) || [];
+    return message;
+  },
+};
+
+function createBaseStringList(): StringList {
+  return { values: [] };
+}
+
+export const StringList: MessageFns<StringList> = {
+  encode(message: StringList, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    for (const v of message.values) {
+      writer.uint32(10).string(v!);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): StringList {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseStringList();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.values.push(reader.string());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): StringList {
+    return {
+      values: globalThis.Array.isArray(object?.values) ? object.values.map((e: any) => globalThis.String(e)) : [],
+    };
+  },
+
+  toJSON(message: StringList): unknown {
+    const obj: any = {};
+    if (message.values?.length) {
+      obj.values = message.values;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<StringList>): StringList {
+    return StringList.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<StringList>): StringList {
+    const message = createBaseStringList();
+    message.values = object.values?.map((e) => e) || [];
+    return message;
+  },
+};
+
+function createBaseBlockPosList(): BlockPosList {
+  return { positions: [] };
+}
+
+export const BlockPosList: MessageFns<BlockPosList> = {
+  encode(message: BlockPosList, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    for (const v of message.positions) {
+      BlockPos.encode(v!, writer.uint32(10).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): BlockPosList {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseBlockPosList();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.positions.push(BlockPos.decode(reader, reader.uint32()));
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): BlockPosList {
+    return {
+      positions: globalThis.Array.isArray(object?.positions)
+        ? object.positions.map((e: any) => BlockPos.fromJSON(e))
+        : [],
+    };
+  },
+
+  toJSON(message: BlockPosList): unknown {
+    const obj: any = {};
+    if (message.positions?.length) {
+      obj.positions = message.positions.map((e) => BlockPos.toJSON(e));
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<BlockPosList>): BlockPosList {
+    return BlockPosList.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<BlockPosList>): BlockPosList {
+    const message = createBaseBlockPosList();
+    message.positions = object.positions?.map((e) => BlockPos.fromPartial(e)) || [];
+    return message;
+  },
+};
+
 function createBaseChatMutation(): ChatMutation {
-  return { message: "" };
+  return { message: undefined };
 }
 
 export const ChatMutation: MessageFns<ChatMutation> = {
   encode(message: ChatMutation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       writer.uint32(10).string(message.message);
     }
     return writer;
@@ -460,12 +655,12 @@ export const ChatMutation: MessageFns<ChatMutation> = {
   },
 
   fromJSON(object: any): ChatMutation {
-    return { message: isSet(object.message) ? globalThis.String(object.message) : "" };
+    return { message: isSet(object.message) ? globalThis.String(object.message) : undefined };
   },
 
   toJSON(message: ChatMutation): unknown {
     const obj: any = {};
-    if (message.message !== "") {
+    if (message.message !== undefined) {
       obj.message = message.message;
     }
     return obj;
@@ -476,19 +671,19 @@ export const ChatMutation: MessageFns<ChatMutation> = {
   },
   fromPartial(object: DeepPartial<ChatMutation>): ChatMutation {
     const message = createBaseChatMutation();
-    message.message = object.message ?? "";
+    message.message = object.message ?? undefined;
     return message;
   },
 };
 
 function createBaseBlockBreakMutation(): BlockBreakMutation {
-  return { drops: [], xp: undefined };
+  return { drops: undefined, xp: undefined };
 }
 
 export const BlockBreakMutation: MessageFns<BlockBreakMutation> = {
   encode(message: BlockBreakMutation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    for (const v of message.drops) {
-      ItemStack.encode(v!, writer.uint32(10).fork()).join();
+    if (message.drops !== undefined) {
+      ItemStackList.encode(message.drops, writer.uint32(10).fork()).join();
     }
     if (message.xp !== undefined) {
       writer.uint32(16).int32(message.xp);
@@ -508,7 +703,7 @@ export const BlockBreakMutation: MessageFns<BlockBreakMutation> = {
             break;
           }
 
-          message.drops.push(ItemStack.decode(reader, reader.uint32()));
+          message.drops = ItemStackList.decode(reader, reader.uint32());
           continue;
         }
         case 2: {
@@ -530,15 +725,15 @@ export const BlockBreakMutation: MessageFns<BlockBreakMutation> = {
 
   fromJSON(object: any): BlockBreakMutation {
     return {
-      drops: globalThis.Array.isArray(object?.drops) ? object.drops.map((e: any) => ItemStack.fromJSON(e)) : [],
+      drops: isSet(object.drops) ? ItemStackList.fromJSON(object.drops) : undefined,
       xp: isSet(object.xp) ? globalThis.Number(object.xp) : undefined,
     };
   },
 
   toJSON(message: BlockBreakMutation): unknown {
     const obj: any = {};
-    if (message.drops?.length) {
-      obj.drops = message.drops.map((e) => ItemStack.toJSON(e));
+    if (message.drops !== undefined) {
+      obj.drops = ItemStackList.toJSON(message.drops);
     }
     if (message.xp !== undefined) {
       obj.xp = Math.round(message.xp);
@@ -551,19 +746,21 @@ export const BlockBreakMutation: MessageFns<BlockBreakMutation> = {
   },
   fromPartial(object: DeepPartial<BlockBreakMutation>): BlockBreakMutation {
     const message = createBaseBlockBreakMutation();
-    message.drops = object.drops?.map((e) => ItemStack.fromPartial(e)) || [];
+    message.drops = (object.drops !== undefined && object.drops !== null)
+      ? ItemStackList.fromPartial(object.drops)
+      : undefined;
     message.xp = object.xp ?? undefined;
     return message;
   },
 };
 
 function createBasePlayerFoodLossMutation(): PlayerFoodLossMutation {
-  return { to: 0 };
+  return { to: undefined };
 }
 
 export const PlayerFoodLossMutation: MessageFns<PlayerFoodLossMutation> = {
   encode(message: PlayerFoodLossMutation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.to !== 0) {
+    if (message.to !== undefined) {
       writer.uint32(8).int32(message.to);
     }
     return writer;
@@ -594,12 +791,12 @@ export const PlayerFoodLossMutation: MessageFns<PlayerFoodLossMutation> = {
   },
 
   fromJSON(object: any): PlayerFoodLossMutation {
-    return { to: isSet(object.to) ? globalThis.Number(object.to) : 0 };
+    return { to: isSet(object.to) ? globalThis.Number(object.to) : undefined };
   },
 
   toJSON(message: PlayerFoodLossMutation): unknown {
     const obj: any = {};
-    if (message.to !== 0) {
+    if (message.to !== undefined) {
       obj.to = Math.round(message.to);
     }
     return obj;
@@ -610,18 +807,18 @@ export const PlayerFoodLossMutation: MessageFns<PlayerFoodLossMutation> = {
   },
   fromPartial(object: DeepPartial<PlayerFoodLossMutation>): PlayerFoodLossMutation {
     const message = createBasePlayerFoodLossMutation();
-    message.to = object.to ?? 0;
+    message.to = object.to ?? undefined;
     return message;
   },
 };
 
 function createBasePlayerHealMutation(): PlayerHealMutation {
-  return { amount: 0 };
+  return { amount: undefined };
 }
 
 export const PlayerHealMutation: MessageFns<PlayerHealMutation> = {
   encode(message: PlayerHealMutation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.amount !== 0) {
+    if (message.amount !== undefined) {
       writer.uint32(9).double(message.amount);
     }
     return writer;
@@ -652,12 +849,12 @@ export const PlayerHealMutation: MessageFns<PlayerHealMutation> = {
   },
 
   fromJSON(object: any): PlayerHealMutation {
-    return { amount: isSet(object.amount) ? globalThis.Number(object.amount) : 0 };
+    return { amount: isSet(object.amount) ? globalThis.Number(object.amount) : undefined };
   },
 
   toJSON(message: PlayerHealMutation): unknown {
     const obj: any = {};
-    if (message.amount !== 0) {
+    if (message.amount !== undefined) {
       obj.amount = message.amount;
     }
     return obj;
@@ -668,18 +865,18 @@ export const PlayerHealMutation: MessageFns<PlayerHealMutation> = {
   },
   fromPartial(object: DeepPartial<PlayerHealMutation>): PlayerHealMutation {
     const message = createBasePlayerHealMutation();
-    message.amount = object.amount ?? 0;
+    message.amount = object.amount ?? undefined;
     return message;
   },
 };
 
 function createBasePlayerHurtMutation(): PlayerHurtMutation {
-  return { damage: 0, attackImmunityMs: undefined };
+  return { damage: undefined, attackImmunityMs: undefined };
 }
 
 export const PlayerHurtMutation: MessageFns<PlayerHurtMutation> = {
   encode(message: PlayerHurtMutation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.damage !== 0) {
+    if (message.damage !== undefined) {
       writer.uint32(9).double(message.damage);
     }
     if (message.attackImmunityMs !== undefined) {
@@ -722,14 +919,14 @@ export const PlayerHurtMutation: MessageFns<PlayerHurtMutation> = {
 
   fromJSON(object: any): PlayerHurtMutation {
     return {
-      damage: isSet(object.damage) ? globalThis.Number(object.damage) : 0,
+      damage: isSet(object.damage) ? globalThis.Number(object.damage) : undefined,
       attackImmunityMs: isSet(object.attackImmunityMs) ? globalThis.Number(object.attackImmunityMs) : undefined,
     };
   },
 
   toJSON(message: PlayerHurtMutation): unknown {
     const obj: any = {};
-    if (message.damage !== 0) {
+    if (message.damage !== undefined) {
       obj.damage = message.damage;
     }
     if (message.attackImmunityMs !== undefined) {
@@ -743,19 +940,19 @@ export const PlayerHurtMutation: MessageFns<PlayerHurtMutation> = {
   },
   fromPartial(object: DeepPartial<PlayerHurtMutation>): PlayerHurtMutation {
     const message = createBasePlayerHurtMutation();
-    message.damage = object.damage ?? 0;
+    message.damage = object.damage ?? undefined;
     message.attackImmunityMs = object.attackImmunityMs ?? undefined;
     return message;
   },
 };
 
 function createBasePlayerDeathMutation(): PlayerDeathMutation {
-  return { keepInventory: false };
+  return { keepInventory: undefined };
 }
 
 export const PlayerDeathMutation: MessageFns<PlayerDeathMutation> = {
   encode(message: PlayerDeathMutation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.keepInventory !== false) {
+    if (message.keepInventory !== undefined) {
       writer.uint32(8).bool(message.keepInventory);
     }
     return writer;
@@ -786,12 +983,12 @@ export const PlayerDeathMutation: MessageFns<PlayerDeathMutation> = {
   },
 
   fromJSON(object: any): PlayerDeathMutation {
-    return { keepInventory: isSet(object.keepInventory) ? globalThis.Boolean(object.keepInventory) : false };
+    return { keepInventory: isSet(object.keepInventory) ? globalThis.Boolean(object.keepInventory) : undefined };
   },
 
   toJSON(message: PlayerDeathMutation): unknown {
     const obj: any = {};
-    if (message.keepInventory !== false) {
+    if (message.keepInventory !== undefined) {
       obj.keepInventory = message.keepInventory;
     }
     return obj;
@@ -802,7 +999,7 @@ export const PlayerDeathMutation: MessageFns<PlayerDeathMutation> = {
   },
   fromPartial(object: DeepPartial<PlayerDeathMutation>): PlayerDeathMutation {
     const message = createBasePlayerDeathMutation();
-    message.keepInventory = object.keepInventory ?? false;
+    message.keepInventory = object.keepInventory ?? undefined;
     return message;
   },
 };
@@ -888,18 +1085,18 @@ export const PlayerRespawnMutation: MessageFns<PlayerRespawnMutation> = {
 };
 
 function createBasePlayerAttackEntityMutation(): PlayerAttackEntityMutation {
-  return { force: 0, height: 0, critical: false };
+  return { force: undefined, height: undefined, critical: undefined };
 }
 
 export const PlayerAttackEntityMutation: MessageFns<PlayerAttackEntityMutation> = {
   encode(message: PlayerAttackEntityMutation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.force !== 0) {
+    if (message.force !== undefined) {
       writer.uint32(9).double(message.force);
     }
-    if (message.height !== 0) {
+    if (message.height !== undefined) {
       writer.uint32(17).double(message.height);
     }
-    if (message.critical !== false) {
+    if (message.critical !== undefined) {
       writer.uint32(24).bool(message.critical);
     }
     return writer;
@@ -947,21 +1144,21 @@ export const PlayerAttackEntityMutation: MessageFns<PlayerAttackEntityMutation> 
 
   fromJSON(object: any): PlayerAttackEntityMutation {
     return {
-      force: isSet(object.force) ? globalThis.Number(object.force) : 0,
-      height: isSet(object.height) ? globalThis.Number(object.height) : 0,
-      critical: isSet(object.critical) ? globalThis.Boolean(object.critical) : false,
+      force: isSet(object.force) ? globalThis.Number(object.force) : undefined,
+      height: isSet(object.height) ? globalThis.Number(object.height) : undefined,
+      critical: isSet(object.critical) ? globalThis.Boolean(object.critical) : undefined,
     };
   },
 
   toJSON(message: PlayerAttackEntityMutation): unknown {
     const obj: any = {};
-    if (message.force !== 0) {
+    if (message.force !== undefined) {
       obj.force = message.force;
     }
-    if (message.height !== 0) {
+    if (message.height !== undefined) {
       obj.height = message.height;
     }
-    if (message.critical !== false) {
+    if (message.critical !== undefined) {
       obj.critical = message.critical;
     }
     return obj;
@@ -972,20 +1169,20 @@ export const PlayerAttackEntityMutation: MessageFns<PlayerAttackEntityMutation> 
   },
   fromPartial(object: DeepPartial<PlayerAttackEntityMutation>): PlayerAttackEntityMutation {
     const message = createBasePlayerAttackEntityMutation();
-    message.force = object.force ?? 0;
-    message.height = object.height ?? 0;
-    message.critical = object.critical ?? false;
+    message.force = object.force ?? undefined;
+    message.height = object.height ?? undefined;
+    message.critical = object.critical ?? undefined;
     return message;
   },
 };
 
 function createBasePlayerExperienceGainMutation(): PlayerExperienceGainMutation {
-  return { amount: 0 };
+  return { amount: undefined };
 }
 
 export const PlayerExperienceGainMutation: MessageFns<PlayerExperienceGainMutation> = {
   encode(message: PlayerExperienceGainMutation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.amount !== 0) {
+    if (message.amount !== undefined) {
       writer.uint32(8).int32(message.amount);
     }
     return writer;
@@ -1016,12 +1213,12 @@ export const PlayerExperienceGainMutation: MessageFns<PlayerExperienceGainMutati
   },
 
   fromJSON(object: any): PlayerExperienceGainMutation {
-    return { amount: isSet(object.amount) ? globalThis.Number(object.amount) : 0 };
+    return { amount: isSet(object.amount) ? globalThis.Number(object.amount) : undefined };
   },
 
   toJSON(message: PlayerExperienceGainMutation): unknown {
     const obj: any = {};
-    if (message.amount !== 0) {
+    if (message.amount !== undefined) {
       obj.amount = Math.round(message.amount);
     }
     return obj;
@@ -1032,18 +1229,18 @@ export const PlayerExperienceGainMutation: MessageFns<PlayerExperienceGainMutati
   },
   fromPartial(object: DeepPartial<PlayerExperienceGainMutation>): PlayerExperienceGainMutation {
     const message = createBasePlayerExperienceGainMutation();
-    message.amount = object.amount ?? 0;
+    message.amount = object.amount ?? undefined;
     return message;
   },
 };
 
 function createBasePlayerLecternPageTurnMutation(): PlayerLecternPageTurnMutation {
-  return { newPage: 0 };
+  return { newPage: undefined };
 }
 
 export const PlayerLecternPageTurnMutation: MessageFns<PlayerLecternPageTurnMutation> = {
   encode(message: PlayerLecternPageTurnMutation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    if (message.newPage !== 0) {
+    if (message.newPage !== undefined) {
       writer.uint32(8).int32(message.newPage);
     }
     return writer;
@@ -1074,12 +1271,12 @@ export const PlayerLecternPageTurnMutation: MessageFns<PlayerLecternPageTurnMuta
   },
 
   fromJSON(object: any): PlayerLecternPageTurnMutation {
-    return { newPage: isSet(object.newPage) ? globalThis.Number(object.newPage) : 0 };
+    return { newPage: isSet(object.newPage) ? globalThis.Number(object.newPage) : undefined };
   },
 
   toJSON(message: PlayerLecternPageTurnMutation): unknown {
     const obj: any = {};
-    if (message.newPage !== 0) {
+    if (message.newPage !== undefined) {
       obj.newPage = Math.round(message.newPage);
     }
     return obj;
@@ -1090,7 +1287,7 @@ export const PlayerLecternPageTurnMutation: MessageFns<PlayerLecternPageTurnMuta
   },
   fromPartial(object: DeepPartial<PlayerLecternPageTurnMutation>): PlayerLecternPageTurnMutation {
     const message = createBasePlayerLecternPageTurnMutation();
-    message.newPage = object.newPage ?? 0;
+    message.newPage = object.newPage ?? undefined;
     return message;
   },
 };
@@ -1214,16 +1411,16 @@ export const PlayerTransferMutation: MessageFns<PlayerTransferMutation> = {
 };
 
 function createBaseWorldExplosionMutation(): WorldExplosionMutation {
-  return { entityUuids: [], blocks: [], itemDropChance: undefined, spawnFire: undefined };
+  return { entityUuids: undefined, blocks: undefined, itemDropChance: undefined, spawnFire: undefined };
 }
 
 export const WorldExplosionMutation: MessageFns<WorldExplosionMutation> = {
   encode(message: WorldExplosionMutation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
-    for (const v of message.entityUuids) {
-      writer.uint32(10).string(v!);
+    if (message.entityUuids !== undefined) {
+      StringList.encode(message.entityUuids, writer.uint32(10).fork()).join();
     }
-    for (const v of message.blocks) {
-      BlockPos.encode(v!, writer.uint32(18).fork()).join();
+    if (message.blocks !== undefined) {
+      BlockPosList.encode(message.blocks, writer.uint32(18).fork()).join();
     }
     if (message.itemDropChance !== undefined) {
       writer.uint32(25).double(message.itemDropChance);
@@ -1246,7 +1443,7 @@ export const WorldExplosionMutation: MessageFns<WorldExplosionMutation> = {
             break;
           }
 
-          message.entityUuids.push(reader.string());
+          message.entityUuids = StringList.decode(reader, reader.uint32());
           continue;
         }
         case 2: {
@@ -1254,7 +1451,7 @@ export const WorldExplosionMutation: MessageFns<WorldExplosionMutation> = {
             break;
           }
 
-          message.blocks.push(BlockPos.decode(reader, reader.uint32()));
+          message.blocks = BlockPosList.decode(reader, reader.uint32());
           continue;
         }
         case 3: {
@@ -1284,10 +1481,8 @@ export const WorldExplosionMutation: MessageFns<WorldExplosionMutation> = {
 
   fromJSON(object: any): WorldExplosionMutation {
     return {
-      entityUuids: globalThis.Array.isArray(object?.entityUuids)
-        ? object.entityUuids.map((e: any) => globalThis.String(e))
-        : [],
-      blocks: globalThis.Array.isArray(object?.blocks) ? object.blocks.map((e: any) => BlockPos.fromJSON(e)) : [],
+      entityUuids: isSet(object.entityUuids) ? StringList.fromJSON(object.entityUuids) : undefined,
+      blocks: isSet(object.blocks) ? BlockPosList.fromJSON(object.blocks) : undefined,
       itemDropChance: isSet(object.itemDropChance) ? globalThis.Number(object.itemDropChance) : undefined,
       spawnFire: isSet(object.spawnFire) ? globalThis.Boolean(object.spawnFire) : undefined,
     };
@@ -1295,11 +1490,11 @@ export const WorldExplosionMutation: MessageFns<WorldExplosionMutation> = {
 
   toJSON(message: WorldExplosionMutation): unknown {
     const obj: any = {};
-    if (message.entityUuids?.length) {
-      obj.entityUuids = message.entityUuids;
+    if (message.entityUuids !== undefined) {
+      obj.entityUuids = StringList.toJSON(message.entityUuids);
     }
-    if (message.blocks?.length) {
-      obj.blocks = message.blocks.map((e) => BlockPos.toJSON(e));
+    if (message.blocks !== undefined) {
+      obj.blocks = BlockPosList.toJSON(message.blocks);
     }
     if (message.itemDropChance !== undefined) {
       obj.itemDropChance = message.itemDropChance;
@@ -1315,8 +1510,12 @@ export const WorldExplosionMutation: MessageFns<WorldExplosionMutation> = {
   },
   fromPartial(object: DeepPartial<WorldExplosionMutation>): WorldExplosionMutation {
     const message = createBaseWorldExplosionMutation();
-    message.entityUuids = object.entityUuids?.map((e) => e) || [];
-    message.blocks = object.blocks?.map((e) => BlockPos.fromPartial(e)) || [];
+    message.entityUuids = (object.entityUuids !== undefined && object.entityUuids !== null)
+      ? StringList.fromPartial(object.entityUuids)
+      : undefined;
+    message.blocks = (object.blocks !== undefined && object.blocks !== null)
+      ? BlockPosList.fromPartial(object.blocks)
+      : undefined;
     message.itemDropChance = object.itemDropChance ?? undefined;
     message.spawnFire = object.spawnFire ?? undefined;
     return message;

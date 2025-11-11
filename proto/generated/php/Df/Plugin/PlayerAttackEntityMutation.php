@@ -15,17 +15,17 @@ use Google\Protobuf\RepeatedField;
 class PlayerAttackEntityMutation extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>double force = 1 [json_name = "force"];</code>
+     * Generated from protobuf field <code>optional double force = 1 [json_name = "force"];</code>
      */
-    protected $force = 0.0;
+    protected $force = null;
     /**
-     * Generated from protobuf field <code>double height = 2 [json_name = "height"];</code>
+     * Generated from protobuf field <code>optional double height = 2 [json_name = "height"];</code>
      */
-    protected $height = 0.0;
+    protected $height = null;
     /**
-     * Generated from protobuf field <code>bool critical = 3 [json_name = "critical"];</code>
+     * Generated from protobuf field <code>optional bool critical = 3 [json_name = "critical"];</code>
      */
-    protected $critical = false;
+    protected $critical = null;
 
     /**
      * Constructor.
@@ -44,16 +44,26 @@ class PlayerAttackEntityMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>double force = 1 [json_name = "force"];</code>
+     * Generated from protobuf field <code>optional double force = 1 [json_name = "force"];</code>
      * @return float
      */
     public function getForce()
     {
-        return $this->force;
+        return isset($this->force) ? $this->force : 0.0;
+    }
+
+    public function hasForce()
+    {
+        return isset($this->force);
+    }
+
+    public function clearForce()
+    {
+        unset($this->force);
     }
 
     /**
-     * Generated from protobuf field <code>double force = 1 [json_name = "force"];</code>
+     * Generated from protobuf field <code>optional double force = 1 [json_name = "force"];</code>
      * @param float $var
      * @return $this
      */
@@ -66,16 +76,26 @@ class PlayerAttackEntityMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>double height = 2 [json_name = "height"];</code>
+     * Generated from protobuf field <code>optional double height = 2 [json_name = "height"];</code>
      * @return float
      */
     public function getHeight()
     {
-        return $this->height;
+        return isset($this->height) ? $this->height : 0.0;
+    }
+
+    public function hasHeight()
+    {
+        return isset($this->height);
+    }
+
+    public function clearHeight()
+    {
+        unset($this->height);
     }
 
     /**
-     * Generated from protobuf field <code>double height = 2 [json_name = "height"];</code>
+     * Generated from protobuf field <code>optional double height = 2 [json_name = "height"];</code>
      * @param float $var
      * @return $this
      */
@@ -88,16 +108,26 @@ class PlayerAttackEntityMutation extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>bool critical = 3 [json_name = "critical"];</code>
+     * Generated from protobuf field <code>optional bool critical = 3 [json_name = "critical"];</code>
      * @return bool
      */
     public function getCritical()
     {
-        return $this->critical;
+        return isset($this->critical) ? $this->critical : false;
+    }
+
+    public function hasCritical()
+    {
+        return isset($this->critical);
+    }
+
+    public function clearCritical()
+    {
+        unset($this->critical);
     }
 
     /**
-     * Generated from protobuf field <code>bool critical = 3 [json_name = "critical"];</code>
+     * Generated from protobuf field <code>optional bool critical = 3 [json_name = "critical"];</code>
      * @param bool $var
      * @return $this
      */
