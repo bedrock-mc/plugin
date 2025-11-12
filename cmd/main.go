@@ -48,7 +48,7 @@ func main() {
 	}
 	if ok := manager.WaitForPlugins(cfgPlugins.RequiredPlugins, time.Duration(cfgPlugins.HelloTimeoutMs)*time.Millisecond); !ok {
 		if len(cfgPlugins.RequiredPlugins) > 0 {
-			slog.Warn("required plugins did not prime before timeout; custom items may not be included in resource pack")
+			slog.Warn("required plugins did not load before timeout; custom items may not be included in resource pack")
 		} else {
 			slog.Warn("no plugin hello received before timeout; custom items registered later won't reach clients until restart")
 		}

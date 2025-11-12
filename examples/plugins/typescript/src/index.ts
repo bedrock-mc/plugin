@@ -381,6 +381,7 @@ const helloMessage: PluginToHost = {
             { name: '/tp', description: 'Teleport to spawn', aliases: [] },
             { name: '/gamemode', description: 'Change game mode (survival, creative, adventure, spectator)', aliases: ['gm'] },
         ],
+        customItems: [],
     },
 };
 call.write(helloMessage);
