@@ -2,7 +2,7 @@
 
 namespace Dragonfly\PluginLib;
 
-use Df\Plugin\Event;
+use Df\Plugin\EventEnvelope;
 use Df\Plugin\CommandSpec;
 use Df\Plugin\EventSubscribe;
 use Df\Plugin\EventType;
@@ -87,7 +87,7 @@ abstract class PluginBase {
      * Register many handlers at once.
      * Keys must be int EventType values (e.g. EventType::PLAYER_JOIN).
      *
-     * Handlers receive (string $eventId, Event $event).
+     * Handlers receive (string $eventId, EventEnvelope $event).
      */
     public function registerHandlers(array $map): void {
         foreach ($map as $key => $handler) {
@@ -161,9 +161,9 @@ abstract class PluginBase {
             $methodName = $method->getName();
 
             $wantsContext = $method->getNumberOfParameters() >= 2;
-            $this->addEventHandler($eventType, function (string $eventId, Event $event) use ($listener, $methodName, $getter, $wantsContext): void {
+            $this->addEventHandler($eventType, function (string $eventId, EventEnvelope $event) use ($listener, $methodName, $getter, $wantsContext): void {
                 $payload = $event->{$getter}();
-                $ctx = new EventContext($this->pluginId, $eventId, $this->sender);
+                $ctx = new EventContext($this->pluginId, $eventId, $this->sender, $event->getExpectsResponse());
                 try {
                     if ($wantsContext) {
                         $listener->{$methodName}($payload, $ctx);
@@ -292,7 +292,7 @@ abstract class PluginBase {
                     }
 
                     // Default ack when unhandled
-                    (new EventContext($this->pluginId, $eventId, $this->sender))->ackIfUnhandled();
+                    (new EventContext($this->pluginId, $eventId, $this->sender, $event->getExpectsResponse()))->ackIfUnhandled();
                     continue;
                 }
 

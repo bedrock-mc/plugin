@@ -409,6 +409,8 @@ export interface HostShutdown {
 export interface EventEnvelope {
   eventId: string;
   type: EventType;
+  /** If an event can be cancelled or mutated it expects an acknowledgement. */
+  expectsResponse: boolean;
   playerJoin?: PlayerJoinEvent | undefined;
   playerQuit?: PlayerQuitEvent | undefined;
   playerMove?: PlayerMoveEvent | undefined;
@@ -725,6 +727,7 @@ function createBaseEventEnvelope(): EventEnvelope {
   return {
     eventId: "",
     type: 0,
+    expectsResponse: false,
     playerJoin: undefined,
     playerQuit: undefined,
     playerMove: undefined,
@@ -784,6 +787,9 @@ export const EventEnvelope: MessageFns<EventEnvelope> = {
     }
     if (message.type !== 0) {
       writer.uint32(16).int32(message.type);
+    }
+    if (message.expectsResponse !== false) {
+      writer.uint32(24).bool(message.expectsResponse);
     }
     if (message.playerJoin !== undefined) {
       PlayerJoinEvent.encode(message.playerJoin, writer.uint32(82).fork()).join();
@@ -956,6 +962,14 @@ export const EventEnvelope: MessageFns<EventEnvelope> = {
           }
 
           message.type = reader.int32() as any;
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.expectsResponse = reader.bool();
           continue;
         }
         case 10: {
@@ -1363,6 +1377,7 @@ export const EventEnvelope: MessageFns<EventEnvelope> = {
     return {
       eventId: isSet(object.eventId) ? globalThis.String(object.eventId) : "",
       type: isSet(object.type) ? eventTypeFromJSON(object.type) : 0,
+      expectsResponse: isSet(object.expectsResponse) ? globalThis.Boolean(object.expectsResponse) : false,
       playerJoin: isSet(object.playerJoin) ? PlayerJoinEvent.fromJSON(object.playerJoin) : undefined,
       playerQuit: isSet(object.playerQuit) ? PlayerQuitEvent.fromJSON(object.playerQuit) : undefined,
       playerMove: isSet(object.playerMove) ? PlayerMoveEvent.fromJSON(object.playerMove) : undefined,
@@ -1476,6 +1491,9 @@ export const EventEnvelope: MessageFns<EventEnvelope> = {
     }
     if (message.type !== 0) {
       obj.type = eventTypeToJSON(message.type);
+    }
+    if (message.expectsResponse !== false) {
+      obj.expectsResponse = message.expectsResponse;
     }
     if (message.playerJoin !== undefined) {
       obj.playerJoin = PlayerJoinEvent.toJSON(message.playerJoin);
@@ -1634,6 +1652,7 @@ export const EventEnvelope: MessageFns<EventEnvelope> = {
     const message = createBaseEventEnvelope();
     message.eventId = object.eventId ?? "";
     message.type = object.type ?? 0;
+    message.expectsResponse = object.expectsResponse ?? false;
     message.playerJoin = (object.playerJoin !== undefined && object.playerJoin !== null)
       ? PlayerJoinEvent.fromPartial(object.playerJoin)
       : undefined;

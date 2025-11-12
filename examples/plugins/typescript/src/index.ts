@@ -45,8 +45,8 @@ function sendMessage(
 }
 
 /**
- * IMPORTANT: All events MUST receive an eventResult response to avoid timeout warnings.
- * Even if your plugin doesn't modify or cancel an event, send an acknowledgment with cancel: false.
+ * IMPORTANT: Only send eventResult when event.expectsResponse is true.
+ * Broadcast events (expectsResponse = false) must not be acknowledged.
  */
 
 function handleEvent(
@@ -68,15 +68,17 @@ function handleEvent(
                 `join-${player.playerUuid}`
             );
 
-            // Acknowledge the event
-            const ackResponse: PluginToHost = {
-                pluginId,
-                eventResult: {
-                    eventId: event.eventId,
-                    cancel: false,
-                },
-            };
-            call.write(ackResponse);
+            // Acknowledge only if a response is expected
+            if (event.expectsResponse) {
+                const ackResponse: PluginToHost = {
+                    pluginId,
+                    eventResult: {
+                        eventId: event.eventId,
+                        cancel: false,
+                    },
+                };
+                call.write(ackResponse);
+            }
             break;
         }
 
@@ -85,15 +87,17 @@ function handleEvent(
             if (!player) break;
             console.log(`[ts] player left ${player.name}`);
 
-            // Acknowledge the event
-            const ackResponse: PluginToHost = {
-                pluginId,
-                eventResult: {
-                    eventId: event.eventId,
-                    cancel: false,
-                },
-            };
-            call.write(ackResponse);
+            // Acknowledge only if a response is expected
+            if (event.expectsResponse) {
+                const ackResponse: PluginToHost = {
+                    pluginId,
+                    eventResult: {
+                        eventId: event.eventId,
+                        cancel: false,
+                    },
+                };
+                call.write(ackResponse);
+            }
             break;
         }
 
@@ -223,16 +227,17 @@ function handleEvent(
                 return;
             }
 
-            // For commands we don't handle, send an acknowledgment to avoid timeout warnings
-            // This allows the command to pass through to other handlers
-            const ackResponse: PluginToHost = {
-                pluginId,
-                eventResult: {
-                    eventId: event.eventId,
-                    cancel: false,
-                },
-            };
-            call.write(ackResponse);
+            // For commands we don't handle, acknowledge only if a response is expected
+            if (event.expectsResponse) {
+                const ackResponse: PluginToHost = {
+                    pluginId,
+                    eventResult: {
+                        eventId: event.eventId,
+                        cancel: false,
+                    },
+                };
+                call.write(ackResponse);
+            }
             break;
         }
 
@@ -288,15 +293,17 @@ function handleEvent(
                 break;
             }
 
-            // Acknowledge regular chat messages
-            const ackResponse: PluginToHost = {
-                pluginId,
-                eventResult: {
-                    eventId: event.eventId,
-                    cancel: false,
-                },
-            };
-            call.write(ackResponse);
+            // Acknowledge regular chat messages (chat expects response)
+            if (event.expectsResponse) {
+                const ackResponse: PluginToHost = {
+                    pluginId,
+                    eventResult: {
+                        eventId: event.eventId,
+                        cancel: false,
+                    },
+                };
+                call.write(ackResponse);
+            }
             break;
         }
 
@@ -325,15 +332,17 @@ function handleEvent(
                 };
                 call.write(response);
             } else {
-                // Acknowledge the event even if we don't modify it
-                const ackResponse: PluginToHost = {
-                    pluginId,
-                    eventResult: {
-                        eventId: event.eventId,
-                        cancel: false,
-                    },
-                };
-                call.write(ackResponse);
+                // Acknowledge only if a response is expected
+                if (event.expectsResponse) {
+                    const ackResponse: PluginToHost = {
+                        pluginId,
+                        eventResult: {
+                            eventId: event.eventId,
+                            cancel: false,
+                        },
+                    };
+                    call.write(ackResponse);
+                }
             }
             break;
         }

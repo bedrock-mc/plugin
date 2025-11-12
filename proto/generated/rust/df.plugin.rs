@@ -1014,6 +1014,9 @@ pub struct EventEnvelope {
     pub event_id: ::prost::alloc::string::String,
     #[prost(enumeration="EventType", tag="2")]
     pub r#type: i32,
+    /// If an event can be cancelled or mutated it expects an acknowledgement.
+    #[prost(bool, tag="3")]
+    pub expects_response: bool,
     #[prost(oneof="event_envelope::Payload", tags="10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81")]
     pub payload: ::core::option::Option<event_envelope::Payload>,
 }

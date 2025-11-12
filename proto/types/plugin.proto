@@ -34,6 +34,7 @@ message HostShutdown {
 message EventEnvelope {
   string event_id = 1;
   EventType type = 2;
+  bool expects_response = 3; // If an event can be cancelled or mutated it expects an acknowledgement.
   oneof payload {
     PlayerJoinEvent player_join = 10;
     PlayerQuitEvent player_quit = 11;

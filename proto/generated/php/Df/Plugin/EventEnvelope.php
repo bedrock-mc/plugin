@@ -22,6 +22,12 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.df.plugin.EventType type = 2 [json_name = "type"];</code>
      */
     protected $type = 0;
+    /**
+     * If an event can be cancelled or mutated it expects an acknowledgement.
+     *
+     * Generated from protobuf field <code>bool expects_response = 3 [json_name = "expectsResponse"];</code>
+     */
+    protected $expects_response = false;
     protected $payload;
 
     /**
@@ -32,6 +38,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      *
      *     @type string $event_id
      *     @type int $type
+     *     @type bool $expects_response
+     *           If an event can be cancelled or mutated it expects an acknowledgement.
      *     @type \Df\Plugin\PlayerJoinEvent $player_join
      *     @type \Df\Plugin\PlayerQuitEvent $player_quit
      *     @type \Df\Plugin\PlayerMoveEvent $player_move
@@ -128,6 +136,32 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Df\Plugin\EventType::class);
         $this->type = $var;
+
+        return $this;
+    }
+
+    /**
+     * If an event can be cancelled or mutated it expects an acknowledgement.
+     *
+     * Generated from protobuf field <code>bool expects_response = 3 [json_name = "expectsResponse"];</code>
+     * @return bool
+     */
+    public function getExpectsResponse()
+    {
+        return $this->expects_response;
+    }
+
+    /**
+     * If an event can be cancelled or mutated it expects an acknowledgement.
+     *
+     * Generated from protobuf field <code>bool expects_response = 3 [json_name = "expectsResponse"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setExpectsResponse($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->expects_response = $var;
 
         return $this;
     }

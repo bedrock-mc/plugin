@@ -217,7 +217,10 @@ func (m *Manager) detachPlayer(p *player.Player) {
 	m.mu.Unlock()
 }
 
+// broadcastEvent sends an event which does not expect a response.
+// This is for events which cannot be canceled or mutated.
 func (m *Manager) broadcastEvent(envelope *pb.EventEnvelope) {
+	envelope.ExpectsResponse = false
 	_ = m.dispatchEvent(envelope, false)
 }
 
@@ -283,6 +286,7 @@ func (m *Manager) dispatchEvent(envelope *pb.EventEnvelope, expectResult bool) [
 }
 
 func (m *Manager) emitCancellable(ctx cancelContext, envelope *pb.EventEnvelope) []*pb.EventResult {
+	envelope.ExpectsResponse = true
 	results := m.dispatchEvent(envelope, true)
 	cancelled := false
 	for _, res := range results {

@@ -8,11 +8,12 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Df\Plugin\Event;
 use Df\Plugin\EventType;
 use Df\Plugin\PlayerJoinEvent;
 use Df\Plugin\ChatEvent;
 use Df\Plugin\CommandEvent;
+use Df\Plugin\PlayerAttackEntityEvent;
+use Df\Plugin\PlayerAttackEntityMutation;
 use Dragonfly\PluginLib\PluginBase;
 use Dragonfly\PluginLib\Events\EventContext;
 use Dragonfly\PluginLib\Events\Listener;
@@ -48,6 +49,13 @@ class HelloPlugin extends PluginBase implements Listener {
         if ($command->getRaw() === '/cheers') {
             $ctx->chatToUuid($command->getPlayerUuid(), '🍻 Cheers from the PHP plugin!');
         }
+    }
+
+    public function onPlayerAttackEntity(PlayerAttackEntityEvent $e, EventContext $ctx): void {
+        $mutation = new PlayerAttackEntityMutation();
+        $mutation->setForce(0.6);
+        $mutation->setHeight(0.6);
+        $ctx->playerAttackEntity($mutation);
     }
 }
 

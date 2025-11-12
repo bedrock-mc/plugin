@@ -3,6 +3,7 @@
 namespace Dragonfly\PluginLib\Events;
 
 use Df\Plugin\EventResult;
+use Df\Plugin\EventType;
 use Dragonfly\PluginLib\Actions\Actions;
 use Dragonfly\PluginLib\Actions\ActionsTrait;
 use Dragonfly\PluginLib\StreamSender;
@@ -18,6 +19,7 @@ final class EventContext {
         private string $pluginId,
         private string $eventId,
         private StreamSender $sender,
+        private bool $expectsResponse,
     ) {}
 
     protected function getActions(): Actions {
@@ -44,6 +46,10 @@ final class EventContext {
 
     public function ackIfUnhandled(): void {
         if (!$this->handled) {
+            if (!$this->expectsResponse) {
+                $this->handled = true;
+                return;
+            }
             $this->sender->respond($this->pluginId, $this->eventId, function (EventResult $r): void {
                 $r->setCancel(false);
             });

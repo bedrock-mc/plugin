@@ -238,6 +238,7 @@ inline constexpr EventEnvelope::Impl_::Impl_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         type_{static_cast< ::df::plugin::EventType >(0)},
+        expects_response_{false},
         payload_{},
         _oneof_case_{} {}
 
@@ -324,9 +325,10 @@ const ::uint32_t
         0x085, // bitmap
         PROTOBUF_FIELD_OFFSET(::df::plugin::EventEnvelope, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::EventEnvelope, _impl_._oneof_case_[0]),
-        56, // hasbit index offset
+        57, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::df::plugin::EventEnvelope, _impl_.event_id_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::EventEnvelope, _impl_.type_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::EventEnvelope, _impl_.expects_response_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::EventEnvelope, _impl_.payload_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::EventEnvelope, _impl_.payload_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::EventEnvelope, _impl_.payload_),
@@ -379,6 +381,7 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::df::plugin::EventEnvelope, _impl_.payload_),
         0,
         1,
+        2,
         ~0u,
         ~0u,
         ~0u,
@@ -485,11 +488,11 @@ static const ::_pbi::MigrationSchema
         {13, sizeof(::df::plugin::HostHello)},
         {18, sizeof(::df::plugin::HostShutdown)},
         {23, sizeof(::df::plugin::EventEnvelope)},
-        {130, sizeof(::df::plugin::PluginToHost)},
-        {147, sizeof(::df::plugin::PluginHello)},
-        {158, sizeof(::df::plugin::CommandSpec)},
-        {167, sizeof(::df::plugin::LogMessage)},
-        {174, sizeof(::df::plugin::EventSubscribe)},
+        {132, sizeof(::df::plugin::PluginToHost)},
+        {149, sizeof(::df::plugin::PluginHello)},
+        {160, sizeof(::df::plugin::CommandSpec)},
+        {169, sizeof(::df::plugin::LogMessage)},
+        {176, sizeof(::df::plugin::EventSubscribe)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::df::plugin::_HostToPlugin_default_instance_._instance,
@@ -514,156 +517,157 @@ const char descriptor_table_protodef_plugin_2eproto[] ABSL_ATTRIBUTE_SECTION_VAR
     "plugin.EventEnvelopeH\000R\005eventB\t\n\007payload"
     "\",\n\tHostHello\022\037\n\013api_version\030\001 \001(\tR\napiV"
     "ersion\"&\n\014HostShutdown\022\026\n\006reason\030\001 \001(\tR\006"
-    "reason\"\273\036\n\rEventEnvelope\022\031\n\010event_id\030\001 \001"
+    "reason\"\346\036\n\rEventEnvelope\022\031\n\010event_id\030\001 \001"
     "(\tR\007eventId\022(\n\004type\030\002 \001(\0162\024.df.plugin.Ev"
-    "entTypeR\004type\022=\n\013player_join\030\n \001(\0132\032.df."
-    "plugin.PlayerJoinEventH\000R\nplayerJoin\022=\n\013"
-    "player_quit\030\013 \001(\0132\032.df.plugin.PlayerQuit"
-    "EventH\000R\nplayerQuit\022=\n\013player_move\030\014 \001(\013"
-    "2\032.df.plugin.PlayerMoveEventH\000R\nplayerMo"
-    "ve\022=\n\013player_jump\030\r \001(\0132\032.df.plugin.Play"
-    "erJumpEventH\000R\nplayerJump\022I\n\017player_tele"
-    "port\030\016 \001(\0132\036.df.plugin.PlayerTeleportEve"
-    "ntH\000R\016playerTeleport\022S\n\023player_change_wo"
-    "rld\030\017 \001(\0132!.df.plugin.PlayerChangeWorldE"
-    "ventH\000R\021playerChangeWorld\022V\n\024player_togg"
-    "le_sprint\030\020 \001(\0132\".df.plugin.PlayerToggle"
-    "SprintEventH\000R\022playerToggleSprint\022S\n\023pla"
-    "yer_toggle_sneak\030\021 \001(\0132!.df.plugin.Playe"
-    "rToggleSneakEventH\000R\021playerToggleSneak\022*"
-    "\n\004chat\030\022 \001(\0132\024.df.plugin.ChatEventH\000R\004ch"
-    "at\022J\n\020player_food_loss\030\023 \001(\0132\036.df.plugin"
-    ".PlayerFoodLossEventH\000R\016playerFoodLoss\022="
-    "\n\013player_heal\030\024 \001(\0132\032.df.plugin.PlayerHe"
-    "alEventH\000R\nplayerHeal\022=\n\013player_hurt\030\025 \001"
-    "(\0132\032.df.plugin.PlayerHurtEventH\000R\nplayer"
-    "Hurt\022@\n\014player_death\030\026 \001(\0132\033.df.plugin.P"
-    "layerDeathEventH\000R\013playerDeath\022F\n\016player"
-    "_respawn\030\027 \001(\0132\035.df.plugin.PlayerRespawn"
-    "EventH\000R\rplayerRespawn\022P\n\022player_skin_ch"
-    "ange\030\030 \001(\0132 .df.plugin.PlayerSkinChangeE"
-    "ventH\000R\020playerSkinChange\022\\\n\026player_fire_"
-    "extinguish\030\031 \001(\0132$.df.plugin.PlayerFireE"
-    "xtinguishEventH\000R\024playerFireExtinguish\022P"
-    "\n\022player_start_break\030\032 \001(\0132 .df.plugin.P"
-    "layerStartBreakEventH\000R\020playerStartBreak"
-    "\022=\n\013block_break\030\033 \001(\0132\032.df.plugin.BlockB"
-    "reakEventH\000R\nblockBreak\022P\n\022player_block_"
-    "place\030\034 \001(\0132 .df.plugin.PlayerBlockPlace"
-    "EventH\000R\020playerBlockPlace\022M\n\021player_bloc"
-    "k_pick\030\035 \001(\0132\037.df.plugin.PlayerBlockPick"
-    "EventH\000R\017playerBlockPick\022G\n\017player_item_"
-    "use\030\036 \001(\0132\035.df.plugin.PlayerItemUseEvent"
-    "H\000R\rplayerItemUse\022^\n\030player_item_use_on_"
-    "block\030\037 \001(\0132$.df.plugin.PlayerItemUseOnB"
-    "lockEventH\000R\024playerItemUseOnBlock\022a\n\031pla"
-    "yer_item_use_on_entity\030  \001(\0132%.df.plugin"
-    ".PlayerItemUseOnEntityEventH\000R\025playerIte"
-    "mUseOnEntity\022S\n\023player_item_release\030! \001("
-    "\0132!.df.plugin.PlayerItemReleaseEventH\000R\021"
-    "playerItemRelease\022S\n\023player_item_consume"
-    "\030\" \001(\0132!.df.plugin.PlayerItemConsumeEven"
-    "tH\000R\021playerItemConsume\022V\n\024player_attack_"
-    "entity\030# \001(\0132\".df.plugin.PlayerAttackEnt"
-    "ityEventH\000R\022playerAttackEntity\022\\\n\026player"
-    "_experience_gain\030$ \001(\0132$.df.plugin.Playe"
-    "rExperienceGainEventH\000R\024playerExperience"
-    "Gain\022J\n\020player_punch_air\030% \001(\0132\036.df.plug"
-    "in.PlayerPunchAirEventH\000R\016playerPunchAir"
-    "\022J\n\020player_sign_edit\030& \001(\0132\036.df.plugin.P"
-    "layerSignEditEventH\000R\016playerSignEdit\022`\n\030"
-    "player_lectern_page_turn\030\' \001(\0132%.df.plug"
-    "in.PlayerLecternPageTurnEventH\000R\025playerL"
-    "ecternPageTurn\022P\n\022player_item_damage\030( \001"
-    "(\0132 .df.plugin.PlayerItemDamageEventH\000R\020"
-    "playerItemDamage\022P\n\022player_item_pickup\030)"
-    " \001(\0132 .df.plugin.PlayerItemPickupEventH\000"
-    "R\020playerItemPickup\022]\n\027player_held_slot_c"
-    "hange\030* \001(\0132$.df.plugin.PlayerHeldSlotCh"
-    "angeEventH\000R\024playerHeldSlotChange\022J\n\020pla"
-    "yer_item_drop\030+ \001(\0132\036.df.plugin.PlayerIt"
-    "emDropEventH\000R\016playerItemDrop\022I\n\017player_"
-    "transfer\030, \001(\0132\036.df.plugin.PlayerTransfe"
-    "rEventH\000R\016playerTransfer\0223\n\007command\030- \001("
-    "\0132\027.df.plugin.CommandEventH\000R\007command\022R\n"
-    "\022player_diagnostics\030. \001(\0132!.df.plugin.Pl"
-    "ayerDiagnosticsEventH\000R\021playerDiagnostic"
-    "s\022M\n\021world_liquid_flow\030F \001(\0132\037.df.plugin"
-    ".WorldLiquidFlowEventH\000R\017worldLiquidFlow"
-    "\022P\n\022world_liquid_decay\030G \001(\0132 .df.plugin"
-    ".WorldLiquidDecayEventH\000R\020worldLiquidDec"
-    "ay\022S\n\023world_liquid_harden\030H \001(\0132!.df.plu"
-    "gin.WorldLiquidHardenEventH\000R\021worldLiqui"
-    "dHarden\022=\n\013world_sound\030I \001(\0132\032.df.plugin"
-    ".WorldSoundEventH\000R\nworldSound\022M\n\021world_"
-    "fire_spread\030J \001(\0132\037.df.plugin.WorldFireS"
-    "preadEventH\000R\017worldFireSpread\022J\n\020world_b"
-    "lock_burn\030K \001(\0132\036.df.plugin.WorldBlockBu"
-    "rnEventH\000R\016worldBlockBurn\022P\n\022world_crop_"
-    "trample\030L \001(\0132 .df.plugin.WorldCropTramp"
-    "leEventH\000R\020worldCropTrample\022P\n\022world_lea"
-    "ves_decay\030M \001(\0132 .df.plugin.WorldLeavesD"
-    "ecayEventH\000R\020worldLeavesDecay\022P\n\022world_e"
-    "ntity_spawn\030N \001(\0132 .df.plugin.WorldEntit"
-    "ySpawnEventH\000R\020worldEntitySpawn\022V\n\024world"
-    "_entity_despawn\030O \001(\0132\".df.plugin.WorldE"
-    "ntityDespawnEventH\000R\022worldEntityDespawn\022"
-    "I\n\017world_explosion\030P \001(\0132\036.df.plugin.Wor"
-    "ldExplosionEventH\000R\016worldExplosion\022=\n\013wo"
-    "rld_close\030Q \001(\0132\032.df.plugin.WorldCloseEv"
-    "entH\000R\nworldCloseB\t\n\007payload\"\275\002\n\014PluginT"
-    "oHost\022\033\n\tplugin_id\030\001 \001(\tR\010pluginId\022.\n\005he"
-    "llo\030\n \001(\0132\026.df.plugin.PluginHelloH\000R\005hel"
-    "lo\0229\n\tsubscribe\030\013 \001(\0132\031.df.plugin.EventS"
-    "ubscribeH\000R\tsubscribe\0222\n\007actions\030\024 \001(\0132\026"
-    ".df.plugin.ActionBatchH\000R\007actions\022)\n\003log"
-    "\030\036 \001(\0132\025.df.plugin.LogMessageH\000R\003log\022;\n\014"
-    "event_result\030( \001(\0132\026.df.plugin.EventResu"
-    "ltH\000R\013eventResultB\t\n\007payload\"\220\001\n\013PluginH"
-    "ello\022\022\n\004name\030\001 \001(\tR\004name\022\030\n\007version\030\002 \001("
-    "\tR\007version\022\037\n\013api_version\030\003 \001(\tR\napiVers"
-    "ion\0222\n\010commands\030\004 \003(\0132\026.df.plugin.Comman"
-    "dSpecR\010commands\"]\n\013CommandSpec\022\022\n\004name\030\001"
-    " \001(\tR\004name\022 \n\013description\030\002 \001(\tR\013descrip"
-    "tion\022\030\n\007aliases\030\003 \003(\tR\007aliases\"<\n\nLogMes"
-    "sage\022\024\n\005level\030\001 \001(\tR\005level\022\030\n\007message\030\002 "
-    "\001(\tR\007message\">\n\016EventSubscribe\022,\n\006events"
-    "\030\001 \003(\0162\024.df.plugin.EventTypeR\006events*\212\t\n"
-    "\tEventType\022\032\n\026EVENT_TYPE_UNSPECIFIED\020\000\022\022"
-    "\n\016EVENT_TYPE_ALL\020\001\022\017\n\013PLAYER_JOIN\020\n\022\017\n\013P"
-    "LAYER_QUIT\020\013\022\017\n\013PLAYER_MOVE\020\014\022\017\n\013PLAYER_"
-    "JUMP\020\r\022\023\n\017PLAYER_TELEPORT\020\016\022\027\n\023PLAYER_CH"
-    "ANGE_WORLD\020\017\022\030\n\024PLAYER_TOGGLE_SPRINT\020\020\022\027"
-    "\n\023PLAYER_TOGGLE_SNEAK\020\021\022\010\n\004CHAT\020\022\022\024\n\020PLA"
-    "YER_FOOD_LOSS\020\023\022\017\n\013PLAYER_HEAL\020\024\022\017\n\013PLAY"
-    "ER_HURT\020\025\022\020\n\014PLAYER_DEATH\020\026\022\022\n\016PLAYER_RE"
-    "SPAWN\020\027\022\026\n\022PLAYER_SKIN_CHANGE\020\030\022\032\n\026PLAYE"
-    "R_FIRE_EXTINGUISH\020\031\022\026\n\022PLAYER_START_BREA"
-    "K\020\032\022\026\n\022PLAYER_BLOCK_BREAK\020\033\022\026\n\022PLAYER_BL"
-    "OCK_PLACE\020\034\022\025\n\021PLAYER_BLOCK_PICK\020\035\022\023\n\017PL"
-    "AYER_ITEM_USE\020\036\022\034\n\030PLAYER_ITEM_USE_ON_BL"
-    "OCK\020\037\022\035\n\031PLAYER_ITEM_USE_ON_ENTITY\020 \022\027\n\023"
-    "PLAYER_ITEM_RELEASE\020!\022\027\n\023PLAYER_ITEM_CON"
-    "SUME\020\"\022\030\n\024PLAYER_ATTACK_ENTITY\020#\022\032\n\026PLAY"
-    "ER_EXPERIENCE_GAIN\020$\022\024\n\020PLAYER_PUNCH_AIR"
-    "\020%\022\024\n\020PLAYER_SIGN_EDIT\020&\022\034\n\030PLAYER_LECTE"
-    "RN_PAGE_TURN\020\'\022\026\n\022PLAYER_ITEM_DAMAGE\020(\022\026"
-    "\n\022PLAYER_ITEM_PICKUP\020)\022\033\n\027PLAYER_HELD_SL"
-    "OT_CHANGE\020*\022\024\n\020PLAYER_ITEM_DROP\020+\022\023\n\017PLA"
-    "YER_TRANSFER\020,\022\013\n\007COMMAND\020-\022\026\n\022PLAYER_DI"
-    "AGNOSTICS\020.\022\025\n\021WORLD_LIQUID_FLOW\020F\022\026\n\022WO"
-    "RLD_LIQUID_DECAY\020G\022\027\n\023WORLD_LIQUID_HARDE"
-    "N\020H\022\017\n\013WORLD_SOUND\020I\022\025\n\021WORLD_FIRE_SPREA"
-    "D\020J\022\024\n\020WORLD_BLOCK_BURN\020K\022\026\n\022WORLD_CROP_"
-    "TRAMPLE\020L\022\026\n\022WORLD_LEAVES_DECAY\020M\022\026\n\022WOR"
-    "LD_ENTITY_SPAWN\020N\022\030\n\024WORLD_ENTITY_DESPAW"
-    "N\020O\022\023\n\017WORLD_EXPLOSION\020P\022\017\n\013WORLD_CLOSE\020"
-    "Q2M\n\006Plugin\022C\n\013EventStream\022\027.df.plugin.P"
-    "luginToHost\032\027.df.plugin.HostToPlugin(\0010\001"
-    "B\212\001\n\rcom.df.pluginB\013PluginProtoP\001Z\'githu"
-    "b.com/secmc/plugin/proto/generated\242\002\003DPX"
-    "\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPB"
-    "Metadata\352\002\nDf::Pluginb\006proto3"
+    "entTypeR\004type\022)\n\020expects_response\030\003 \001(\010R"
+    "\017expectsResponse\022=\n\013player_join\030\n \001(\0132\032."
+    "df.plugin.PlayerJoinEventH\000R\nplayerJoin\022"
+    "=\n\013player_quit\030\013 \001(\0132\032.df.plugin.PlayerQ"
+    "uitEventH\000R\nplayerQuit\022=\n\013player_move\030\014 "
+    "\001(\0132\032.df.plugin.PlayerMoveEventH\000R\nplaye"
+    "rMove\022=\n\013player_jump\030\r \001(\0132\032.df.plugin.P"
+    "layerJumpEventH\000R\nplayerJump\022I\n\017player_t"
+    "eleport\030\016 \001(\0132\036.df.plugin.PlayerTeleport"
+    "EventH\000R\016playerTeleport\022S\n\023player_change"
+    "_world\030\017 \001(\0132!.df.plugin.PlayerChangeWor"
+    "ldEventH\000R\021playerChangeWorld\022V\n\024player_t"
+    "oggle_sprint\030\020 \001(\0132\".df.plugin.PlayerTog"
+    "gleSprintEventH\000R\022playerToggleSprint\022S\n\023"
+    "player_toggle_sneak\030\021 \001(\0132!.df.plugin.Pl"
+    "ayerToggleSneakEventH\000R\021playerToggleSnea"
+    "k\022*\n\004chat\030\022 \001(\0132\024.df.plugin.ChatEventH\000R"
+    "\004chat\022J\n\020player_food_loss\030\023 \001(\0132\036.df.plu"
+    "gin.PlayerFoodLossEventH\000R\016playerFoodLos"
+    "s\022=\n\013player_heal\030\024 \001(\0132\032.df.plugin.Playe"
+    "rHealEventH\000R\nplayerHeal\022=\n\013player_hurt\030"
+    "\025 \001(\0132\032.df.plugin.PlayerHurtEventH\000R\npla"
+    "yerHurt\022@\n\014player_death\030\026 \001(\0132\033.df.plugi"
+    "n.PlayerDeathEventH\000R\013playerDeath\022F\n\016pla"
+    "yer_respawn\030\027 \001(\0132\035.df.plugin.PlayerResp"
+    "awnEventH\000R\rplayerRespawn\022P\n\022player_skin"
+    "_change\030\030 \001(\0132 .df.plugin.PlayerSkinChan"
+    "geEventH\000R\020playerSkinChange\022\\\n\026player_fi"
+    "re_extinguish\030\031 \001(\0132$.df.plugin.PlayerFi"
+    "reExtinguishEventH\000R\024playerFireExtinguis"
+    "h\022P\n\022player_start_break\030\032 \001(\0132 .df.plugi"
+    "n.PlayerStartBreakEventH\000R\020playerStartBr"
+    "eak\022=\n\013block_break\030\033 \001(\0132\032.df.plugin.Blo"
+    "ckBreakEventH\000R\nblockBreak\022P\n\022player_blo"
+    "ck_place\030\034 \001(\0132 .df.plugin.PlayerBlockPl"
+    "aceEventH\000R\020playerBlockPlace\022M\n\021player_b"
+    "lock_pick\030\035 \001(\0132\037.df.plugin.PlayerBlockP"
+    "ickEventH\000R\017playerBlockPick\022G\n\017player_it"
+    "em_use\030\036 \001(\0132\035.df.plugin.PlayerItemUseEv"
+    "entH\000R\rplayerItemUse\022^\n\030player_item_use_"
+    "on_block\030\037 \001(\0132$.df.plugin.PlayerItemUse"
+    "OnBlockEventH\000R\024playerItemUseOnBlock\022a\n\031"
+    "player_item_use_on_entity\030  \001(\0132%.df.plu"
+    "gin.PlayerItemUseOnEntityEventH\000R\025player"
+    "ItemUseOnEntity\022S\n\023player_item_release\030!"
+    " \001(\0132!.df.plugin.PlayerItemReleaseEventH"
+    "\000R\021playerItemRelease\022S\n\023player_item_cons"
+    "ume\030\" \001(\0132!.df.plugin.PlayerItemConsumeE"
+    "ventH\000R\021playerItemConsume\022V\n\024player_atta"
+    "ck_entity\030# \001(\0132\".df.plugin.PlayerAttack"
+    "EntityEventH\000R\022playerAttackEntity\022\\\n\026pla"
+    "yer_experience_gain\030$ \001(\0132$.df.plugin.Pl"
+    "ayerExperienceGainEventH\000R\024playerExperie"
+    "nceGain\022J\n\020player_punch_air\030% \001(\0132\036.df.p"
+    "lugin.PlayerPunchAirEventH\000R\016playerPunch"
+    "Air\022J\n\020player_sign_edit\030& \001(\0132\036.df.plugi"
+    "n.PlayerSignEditEventH\000R\016playerSignEdit\022"
+    "`\n\030player_lectern_page_turn\030\' \001(\0132%.df.p"
+    "lugin.PlayerLecternPageTurnEventH\000R\025play"
+    "erLecternPageTurn\022P\n\022player_item_damage\030"
+    "( \001(\0132 .df.plugin.PlayerItemDamageEventH"
+    "\000R\020playerItemDamage\022P\n\022player_item_picku"
+    "p\030) \001(\0132 .df.plugin.PlayerItemPickupEven"
+    "tH\000R\020playerItemPickup\022]\n\027player_held_slo"
+    "t_change\030* \001(\0132$.df.plugin.PlayerHeldSlo"
+    "tChangeEventH\000R\024playerHeldSlotChange\022J\n\020"
+    "player_item_drop\030+ \001(\0132\036.df.plugin.Playe"
+    "rItemDropEventH\000R\016playerItemDrop\022I\n\017play"
+    "er_transfer\030, \001(\0132\036.df.plugin.PlayerTran"
+    "sferEventH\000R\016playerTransfer\0223\n\007command\030-"
+    " \001(\0132\027.df.plugin.CommandEventH\000R\007command"
+    "\022R\n\022player_diagnostics\030. \001(\0132!.df.plugin"
+    ".PlayerDiagnosticsEventH\000R\021playerDiagnos"
+    "tics\022M\n\021world_liquid_flow\030F \001(\0132\037.df.plu"
+    "gin.WorldLiquidFlowEventH\000R\017worldLiquidF"
+    "low\022P\n\022world_liquid_decay\030G \001(\0132 .df.plu"
+    "gin.WorldLiquidDecayEventH\000R\020worldLiquid"
+    "Decay\022S\n\023world_liquid_harden\030H \001(\0132!.df."
+    "plugin.WorldLiquidHardenEventH\000R\021worldLi"
+    "quidHarden\022=\n\013world_sound\030I \001(\0132\032.df.plu"
+    "gin.WorldSoundEventH\000R\nworldSound\022M\n\021wor"
+    "ld_fire_spread\030J \001(\0132\037.df.plugin.WorldFi"
+    "reSpreadEventH\000R\017worldFireSpread\022J\n\020worl"
+    "d_block_burn\030K \001(\0132\036.df.plugin.WorldBloc"
+    "kBurnEventH\000R\016worldBlockBurn\022P\n\022world_cr"
+    "op_trample\030L \001(\0132 .df.plugin.WorldCropTr"
+    "ampleEventH\000R\020worldCropTrample\022P\n\022world_"
+    "leaves_decay\030M \001(\0132 .df.plugin.WorldLeav"
+    "esDecayEventH\000R\020worldLeavesDecay\022P\n\022worl"
+    "d_entity_spawn\030N \001(\0132 .df.plugin.WorldEn"
+    "titySpawnEventH\000R\020worldEntitySpawn\022V\n\024wo"
+    "rld_entity_despawn\030O \001(\0132\".df.plugin.Wor"
+    "ldEntityDespawnEventH\000R\022worldEntityDespa"
+    "wn\022I\n\017world_explosion\030P \001(\0132\036.df.plugin."
+    "WorldExplosionEventH\000R\016worldExplosion\022=\n"
+    "\013world_close\030Q \001(\0132\032.df.plugin.WorldClos"
+    "eEventH\000R\nworldCloseB\t\n\007payload\"\275\002\n\014Plug"
+    "inToHost\022\033\n\tplugin_id\030\001 \001(\tR\010pluginId\022.\n"
+    "\005hello\030\n \001(\0132\026.df.plugin.PluginHelloH\000R\005"
+    "hello\0229\n\tsubscribe\030\013 \001(\0132\031.df.plugin.Eve"
+    "ntSubscribeH\000R\tsubscribe\0222\n\007actions\030\024 \001("
+    "\0132\026.df.plugin.ActionBatchH\000R\007actions\022)\n\003"
+    "log\030\036 \001(\0132\025.df.plugin.LogMessageH\000R\003log\022"
+    ";\n\014event_result\030( \001(\0132\026.df.plugin.EventR"
+    "esultH\000R\013eventResultB\t\n\007payload\"\220\001\n\013Plug"
+    "inHello\022\022\n\004name\030\001 \001(\tR\004name\022\030\n\007version\030\002"
+    " \001(\tR\007version\022\037\n\013api_version\030\003 \001(\tR\napiV"
+    "ersion\0222\n\010commands\030\004 \003(\0132\026.df.plugin.Com"
+    "mandSpecR\010commands\"]\n\013CommandSpec\022\022\n\004nam"
+    "e\030\001 \001(\tR\004name\022 \n\013description\030\002 \001(\tR\013desc"
+    "ription\022\030\n\007aliases\030\003 \003(\tR\007aliases\"<\n\nLog"
+    "Message\022\024\n\005level\030\001 \001(\tR\005level\022\030\n\007message"
+    "\030\002 \001(\tR\007message\">\n\016EventSubscribe\022,\n\006eve"
+    "nts\030\001 \003(\0162\024.df.plugin.EventTypeR\006events*"
+    "\212\t\n\tEventType\022\032\n\026EVENT_TYPE_UNSPECIFIED\020"
+    "\000\022\022\n\016EVENT_TYPE_ALL\020\001\022\017\n\013PLAYER_JOIN\020\n\022\017"
+    "\n\013PLAYER_QUIT\020\013\022\017\n\013PLAYER_MOVE\020\014\022\017\n\013PLAY"
+    "ER_JUMP\020\r\022\023\n\017PLAYER_TELEPORT\020\016\022\027\n\023PLAYER"
+    "_CHANGE_WORLD\020\017\022\030\n\024PLAYER_TOGGLE_SPRINT\020"
+    "\020\022\027\n\023PLAYER_TOGGLE_SNEAK\020\021\022\010\n\004CHAT\020\022\022\024\n\020"
+    "PLAYER_FOOD_LOSS\020\023\022\017\n\013PLAYER_HEAL\020\024\022\017\n\013P"
+    "LAYER_HURT\020\025\022\020\n\014PLAYER_DEATH\020\026\022\022\n\016PLAYER"
+    "_RESPAWN\020\027\022\026\n\022PLAYER_SKIN_CHANGE\020\030\022\032\n\026PL"
+    "AYER_FIRE_EXTINGUISH\020\031\022\026\n\022PLAYER_START_B"
+    "REAK\020\032\022\026\n\022PLAYER_BLOCK_BREAK\020\033\022\026\n\022PLAYER"
+    "_BLOCK_PLACE\020\034\022\025\n\021PLAYER_BLOCK_PICK\020\035\022\023\n"
+    "\017PLAYER_ITEM_USE\020\036\022\034\n\030PLAYER_ITEM_USE_ON"
+    "_BLOCK\020\037\022\035\n\031PLAYER_ITEM_USE_ON_ENTITY\020 \022"
+    "\027\n\023PLAYER_ITEM_RELEASE\020!\022\027\n\023PLAYER_ITEM_"
+    "CONSUME\020\"\022\030\n\024PLAYER_ATTACK_ENTITY\020#\022\032\n\026P"
+    "LAYER_EXPERIENCE_GAIN\020$\022\024\n\020PLAYER_PUNCH_"
+    "AIR\020%\022\024\n\020PLAYER_SIGN_EDIT\020&\022\034\n\030PLAYER_LE"
+    "CTERN_PAGE_TURN\020\'\022\026\n\022PLAYER_ITEM_DAMAGE\020"
+    "(\022\026\n\022PLAYER_ITEM_PICKUP\020)\022\033\n\027PLAYER_HELD"
+    "_SLOT_CHANGE\020*\022\024\n\020PLAYER_ITEM_DROP\020+\022\023\n\017"
+    "PLAYER_TRANSFER\020,\022\013\n\007COMMAND\020-\022\026\n\022PLAYER"
+    "_DIAGNOSTICS\020.\022\025\n\021WORLD_LIQUID_FLOW\020F\022\026\n"
+    "\022WORLD_LIQUID_DECAY\020G\022\027\n\023WORLD_LIQUID_HA"
+    "RDEN\020H\022\017\n\013WORLD_SOUND\020I\022\025\n\021WORLD_FIRE_SP"
+    "READ\020J\022\024\n\020WORLD_BLOCK_BURN\020K\022\026\n\022WORLD_CR"
+    "OP_TRAMPLE\020L\022\026\n\022WORLD_LEAVES_DECAY\020M\022\026\n\022"
+    "WORLD_ENTITY_SPAWN\020N\022\030\n\024WORLD_ENTITY_DES"
+    "PAWN\020O\022\023\n\017WORLD_EXPLOSION\020P\022\017\n\013WORLD_CLO"
+    "SE\020Q2M\n\006Plugin\022C\n\013EventStream\022\027.df.plugi"
+    "n.PluginToHost\032\027.df.plugin.HostToPlugin("
+    "\0010\001B\212\001\n\rcom.df.pluginB\013PluginProtoP\001Z\'gi"
+    "thub.com/secmc/plugin/proto/generated\242\002\003"
+    "DPX\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\"
+    "GPBMetadata\352\002\nDf::Pluginb\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_plugin_2eproto_deps[5] = {
@@ -677,7 +681,7 @@ static ::absl::once_flag descriptor_table_plugin_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_plugin_2eproto = {
     false,
     false,
-    6389,
+    6432,
     descriptor_table_protodef_plugin_2eproto,
     "plugin.proto",
     &descriptor_table_plugin_2eproto_once,
@@ -2939,7 +2943,13 @@ EventEnvelope::EventEnvelope(
   _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
       from._internal_metadata_);
   new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
-  _impl_.type_ = from._impl_.type_;
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, type_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, type_),
+           offsetof(Impl_, expects_response_) -
+               offsetof(Impl_, type_) +
+               sizeof(Impl_::expects_response_));
   switch (payload_case()) {
     case PAYLOAD_NOT_SET:
       break;
@@ -3104,7 +3114,12 @@ PROTOBUF_NDEBUG_INLINE EventEnvelope::Impl_::Impl_(
 
 inline void EventEnvelope::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
-  _impl_.type_ = {};
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, type_),
+           0,
+           offsetof(Impl_, expects_response_) -
+               offsetof(Impl_, type_) +
+               sizeof(Impl_::expects_response_));
 }
 EventEnvelope::~EventEnvelope() {
   // @@protoc_insertion_point(destructor:df.plugin.EventEnvelope)
@@ -3571,16 +3586,16 @@ EventEnvelope::GetClassData() const {
   return EventEnvelope_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 51, 49, 88, 13>
+const ::_pbi::TcParseTable<2, 52, 49, 88, 13>
 EventEnvelope::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(EventEnvelope, _impl_._has_bits_),
     0, // no _extensions_
-    81, 8,  // max_field_number, fast_idx_mask
+    81, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    508,  // skipmap
+    504,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    51,  // num_field_entries
+    52,  // num_field_entries
     49,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     EventEnvelope_class_data_.base(),
@@ -3590,26 +3605,33 @@ EventEnvelope::_table_ = {
     ::_pbi::TcParser::GetTable<::df::plugin::EventEnvelope>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // .df.plugin.EventType type = 2 [json_name = "type"];
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(EventEnvelope, _impl_.type_), 1>(),
-     {16, 1, 0,
-      PROTOBUF_FIELD_OFFSET(EventEnvelope, _impl_.type_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // string event_id = 1 [json_name = "eventId"];
     {::_pbi::TcParser::FastUS1,
      {10, 0, 0,
       PROTOBUF_FIELD_OFFSET(EventEnvelope, _impl_.event_id_)}},
+    // .df.plugin.EventType type = 2 [json_name = "type"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(EventEnvelope, _impl_.type_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(EventEnvelope, _impl_.type_)}},
+    // bool expects_response = 3 [json_name = "expectsResponse"];
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(EventEnvelope, _impl_.expects_response_), 2>(),
+     {24, 2, 0,
+      PROTOBUF_FIELD_OFFSET(EventEnvelope, _impl_.expects_response_)}},
   }}, {{
     33, 0, 4,
-    49152, 25,
-    65535, 39,
-    31, 39,
-    65534, 50,
+    49152, 26,
+    65535, 40,
+    31, 40,
+    65534, 51,
     65535, 65535
   }}, {{
     // string event_id = 1 [json_name = "eventId"];
     {PROTOBUF_FIELD_OFFSET(EventEnvelope, _impl_.event_id_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // .df.plugin.EventType type = 2 [json_name = "type"];
     {PROTOBUF_FIELD_OFFSET(EventEnvelope, _impl_.type_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kOpenEnum)},
+    // bool expects_response = 3 [json_name = "expectsResponse"];
+    {PROTOBUF_FIELD_OFFSET(EventEnvelope, _impl_.expects_response_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
     // .df.plugin.PlayerJoinEvent player_join = 10 [json_name = "playerJoin"];
     {PROTOBUF_FIELD_OFFSET(EventEnvelope, _impl_.payload_.player_join_), _Internal::kOneofCaseOffset + 0, 0, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .df.plugin.PlayerQuitEvent player_quit = 11 [json_name = "playerQuit"];
@@ -3777,7 +3799,11 @@ PROTOBUF_NOINLINE void EventEnvelope::Clear() {
   if (CheckHasBit(cached_has_bits, 0x00000001U)) {
     _impl_.event_id_.ClearNonDefaultToEmpty();
   }
-  _impl_.type_ = 0;
+  if (BatchCheckHasBit(cached_has_bits, 0x00000006U)) {
+    ::memset(&_impl_.type_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.expects_response_) -
+        reinterpret_cast<char*>(&_impl_.type_)) + sizeof(_impl_.expects_response_));
+  }
   clear_payload();
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -3818,6 +3844,15 @@ PROTOBUF_NOINLINE void EventEnvelope::Clear() {
       target = stream->EnsureSpace(target);
       target = ::_pbi::WireFormatLite::WriteEnumToArray(
           2, this_._internal_type(), target);
+    }
+  }
+
+  // bool expects_response = 3 [json_name = "expectsResponse"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_expects_response() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          3, this_._internal_expects_response(), target);
     }
   }
 
@@ -4144,7 +4179,7 @@ PROTOBUF_NOINLINE void EventEnvelope::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
     // string event_id = 1 [json_name = "eventId"];
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       if (!this_._internal_event_id().empty()) {
@@ -4157,6 +4192,12 @@ PROTOBUF_NOINLINE void EventEnvelope::Clear() {
       if (this_._internal_type() != 0) {
         total_size += 1 +
                       ::_pbi::WireFormatLite::EnumSize(this_._internal_type());
+      }
+    }
+    // bool expects_response = 3 [json_name = "expectsResponse"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_expects_response() != 0) {
+        total_size += 2;
       }
     }
   }
@@ -4478,7 +4519,7 @@ void EventEnvelope::MergeImpl(::google::protobuf::MessageLite& to_msg,
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       if (!from._internal_event_id().empty()) {
         _this->_internal_set_event_id(from._internal_event_id());
@@ -4491,6 +4532,11 @@ void EventEnvelope::MergeImpl(::google::protobuf::MessageLite& to_msg,
     if (CheckHasBit(cached_has_bits, 0x00000002U)) {
       if (from._internal_type() != 0) {
         _this->_impl_.type_ = from._impl_.type_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_expects_response() != 0) {
+        _this->_impl_.expects_response_ = from._impl_.expects_response_;
       }
     }
   }
@@ -4922,7 +4968,12 @@ void EventEnvelope::InternalSwap(EventEnvelope* PROTOBUF_RESTRICT PROTOBUF_NONNU
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.event_id_, &other->_impl_.event_id_, arena);
-  swap(_impl_.type_, other->_impl_.type_);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(EventEnvelope, _impl_.expects_response_)
+      + sizeof(EventEnvelope::_impl_.expects_response_)
+      - PROTOBUF_FIELD_OFFSET(EventEnvelope, _impl_.type_)>(
+          reinterpret_cast<char*>(&_impl_.type_),
+          reinterpret_cast<char*>(&other->_impl_.type_));
   swap(_impl_.payload_, other->_impl_.payload_);
   swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
 }

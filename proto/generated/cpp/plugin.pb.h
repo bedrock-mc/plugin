@@ -2005,6 +2005,7 @@ class EventEnvelope final : public ::google::protobuf::Message
   enum : int {
     kEventIdFieldNumber = 1,
     kTypeFieldNumber = 2,
+    kExpectsResponseFieldNumber = 3,
     kPlayerJoinFieldNumber = 10,
     kPlayerQuitFieldNumber = 11,
     kPlayerMoveFieldNumber = 12,
@@ -2078,6 +2079,16 @@ class EventEnvelope final : public ::google::protobuf::Message
   private:
   ::df::plugin::EventType _internal_type() const;
   void _internal_set_type(::df::plugin::EventType value);
+
+  public:
+  // bool expects_response = 3 [json_name = "expectsResponse"];
+  void clear_expects_response() ;
+  bool expects_response() const;
+  void set_expects_response(bool value);
+
+  private:
+  bool _internal_expects_response() const;
+  void _internal_set_expects_response(bool value);
 
   public:
   // .df.plugin.PlayerJoinEvent player_join = 10 [json_name = "playerJoin"];
@@ -3068,7 +3079,7 @@ class EventEnvelope final : public ::google::protobuf::Message
   inline bool has_payload() const;
   inline void clear_has_payload();
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<1, 51,
+  static const ::google::protobuf::internal::TcParseTable<2, 52,
                                    49, 88,
                                    13>
       _table_;
@@ -3092,6 +3103,7 @@ class EventEnvelope final : public ::google::protobuf::Message
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::internal::ArenaStringPtr event_id_;
     int type_;
+    bool expects_response_;
     union PayloadUnion {
       constexpr PayloadUnion() : _constinit_{} {}
       ::google::protobuf::internal::ConstantInitialized _constinit_;
@@ -3996,6 +4008,31 @@ inline ::df::plugin::EventType EventEnvelope::_internal_type() const {
 inline void EventEnvelope::_internal_set_type(::df::plugin::EventType value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.type_ = value;
+}
+
+// bool expects_response = 3 [json_name = "expectsResponse"];
+inline void EventEnvelope::clear_expects_response() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.expects_response_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline bool EventEnvelope::expects_response() const {
+  // @@protoc_insertion_point(field_get:df.plugin.EventEnvelope.expects_response)
+  return _internal_expects_response();
+}
+inline void EventEnvelope::set_expects_response(bool value) {
+  _internal_set_expects_response(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:df.plugin.EventEnvelope.expects_response)
+}
+inline bool EventEnvelope::_internal_expects_response() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.expects_response_;
+}
+inline void EventEnvelope::_internal_set_expects_response(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.expects_response_ = value;
 }
 
 // .df.plugin.PlayerJoinEvent player_join = 10 [json_name = "playerJoin"];
