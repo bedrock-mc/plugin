@@ -6,6 +6,7 @@
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { ActionBatch } from "./actions.js";
+import { CustomItemDefinition } from "./common.js";
 import { EventResult } from "./mutations.js";
 import { BlockBreakEvent, ChatEvent, CommandEvent, PlayerAttackEntityEvent, PlayerBlockPickEvent, PlayerBlockPlaceEvent, PlayerChangeWorldEvent, PlayerDeathEvent, PlayerDiagnosticsEvent, PlayerExperienceGainEvent, PlayerFireExtinguishEvent, PlayerFoodLossEvent, PlayerHealEvent, PlayerHeldSlotChangeEvent, PlayerHurtEvent, PlayerItemConsumeEvent, PlayerItemDamageEvent, PlayerItemDropEvent, PlayerItemPickupEvent, PlayerItemReleaseEvent, PlayerItemUseEvent, PlayerItemUseOnBlockEvent, PlayerItemUseOnEntityEvent, PlayerJoinEvent, PlayerJumpEvent, PlayerLecternPageTurnEvent, PlayerMoveEvent, PlayerPunchAirEvent, PlayerQuitEvent, PlayerRespawnEvent, PlayerSignEditEvent, PlayerSkinChangeEvent, PlayerStartBreakEvent, PlayerTeleportEvent, PlayerToggleSneakEvent, PlayerToggleSprintEvent, PlayerTransferEvent, } from "./player_events.js";
 import { WorldBlockBurnEvent, WorldCloseEvent, WorldCropTrampleEvent, WorldEntityDespawnEvent, WorldEntitySpawnEvent, WorldExplosionEvent, WorldFireSpreadEvent, WorldLeavesDecayEvent, WorldLiquidDecayEvent, WorldLiquidFlowEvent, WorldLiquidHardenEvent, WorldSoundEvent, } from "./world_events.js";
@@ -1708,7 +1709,7 @@ export const PluginToHost = {
     },
 };
 function createBasePluginHello() {
-    return { name: "", version: "", apiVersion: "", commands: [] };
+    return { name: "", version: "", apiVersion: "", commands: [], customItems: [] };
 }
 export const PluginHello = {
     encode(message, writer = new BinaryWriter()) {
@@ -1723,6 +1724,9 @@ export const PluginHello = {
         }
         for (const v of message.commands) {
             CommandSpec.encode(v, writer.uint32(34).fork()).join();
+        }
+        for (const v of message.customItems) {
+            CustomItemDefinition.encode(v, writer.uint32(42).fork()).join();
         }
         return writer;
     },
@@ -1761,6 +1765,13 @@ export const PluginHello = {
                     message.commands.push(CommandSpec.decode(reader, reader.uint32()));
                     continue;
                 }
+                case 5: {
+                    if (tag !== 42) {
+                        break;
+                    }
+                    message.customItems.push(CustomItemDefinition.decode(reader, reader.uint32()));
+                    continue;
+                }
             }
             if ((tag & 7) === 4 || tag === 0) {
                 break;
@@ -1776,6 +1787,9 @@ export const PluginHello = {
             apiVersion: isSet(object.apiVersion) ? globalThis.String(object.apiVersion) : "",
             commands: globalThis.Array.isArray(object?.commands)
                 ? object.commands.map((e) => CommandSpec.fromJSON(e))
+                : [],
+            customItems: globalThis.Array.isArray(object?.customItems)
+                ? object.customItems.map((e) => CustomItemDefinition.fromJSON(e))
                 : [],
         };
     },
@@ -1793,6 +1807,9 @@ export const PluginHello = {
         if (message.commands?.length) {
             obj.commands = message.commands.map((e) => CommandSpec.toJSON(e));
         }
+        if (message.customItems?.length) {
+            obj.customItems = message.customItems.map((e) => CustomItemDefinition.toJSON(e));
+        }
         return obj;
     },
     create(base) {
@@ -1804,6 +1821,7 @@ export const PluginHello = {
         message.version = object.version ?? "";
         message.apiVersion = object.apiVersion ?? "";
         message.commands = object.commands?.map((e) => CommandSpec.fromPartial(e)) || [];
+        message.customItems = object.customItems?.map((e) => CustomItemDefinition.fromPartial(e)) || [];
         return message;
     },
 };

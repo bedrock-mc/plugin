@@ -9,6 +9,7 @@ use Df\Plugin\EventType;
 use Df\Plugin\PluginClient;
 use Df\Plugin\PluginHello;
 use Df\Plugin\PluginToHost;
+use Df\Plugin\CustomItemDefinition;
 use Dragonfly\PluginLib\Events\EventContext;
 use Dragonfly\PluginLib\Events\Listener;
 use Grpc\ChannelCredentials;
@@ -42,6 +43,9 @@ abstract class PluginBase {
 
     /** @var array<int, array{name: string, description: string}> */
     private array $commandSpecs = [];
+
+    /** @var CustomItemDefinition[] */
+    private array $customItems = [];
 
     public function __construct(?string $pluginId = null, ?string $serverAddress = null) {
         $this->pluginId = $pluginId ?? (getenv('DF_PLUGIN_ID') ?: 'php-plugin');
@@ -116,6 +120,40 @@ abstract class PluginBase {
 
     public function registerCommand(string $name, string $description): void {
         $this->commandSpecs[] = ['name' => $name, 'description' => $description];
+    }
+
+    /**
+     * Queue a custom item definition to be sent in PluginHello.
+     */
+    public function registerCustomItem(CustomItemDefinition $def): void {
+        $this->customItems[] = $def;
+    }
+
+    /**
+     * Helper to register a custom item from a PNG file path.
+     *
+     * @param string $id           Identifier like "example:example_item"
+     * @param string $displayName  Display name shown to players
+     * @param string $pngPath      Absolute or relative path to PNG file
+     * @param int    $category     One of \Df\Plugin\ItemCategory::* constants
+     * @param string|null $group   Optional subgroup (e.g. "sword", "food")
+     * @param int    $meta         Metadata value (default 0)
+     */
+    public function registerCustomItemFromFile(string $id, string $displayName, string $pngPath, int $category, ?string $group = null, int $meta = 0): void {
+        $data = @file_get_contents($pngPath);
+        if ($data === false) {
+            throw new \RuntimeException("Failed to read PNG file: {$pngPath}");
+        }
+        $def = new CustomItemDefinition();
+        $def->setId($id);
+        $def->setDisplayName($displayName);
+        $def->setTextureData($data);
+        $def->setCategory($category);
+        if ($group !== null && $group !== '') {
+            $def->setGroup($group);
+        }
+        $def->setMeta($meta);
+        $this->registerCustomItem($def);
     }
 
     /**
@@ -244,6 +282,9 @@ abstract class PluginBase {
                 $cmds[] = $c;
             }
             $pluginHello->setCommands($cmds);
+        }
+        if (!empty($this->customItems)) {
+            $pluginHello->setCustomItems($this->customItems);
         }
         $hello->setHello($pluginHello);
         $this->sender->enqueue($hello);

@@ -48,6 +48,13 @@ type Manager struct {
 	worldHandlerFactory  ports.WorldHandlerFactory
 }
 
+// SetServer assigns the Dragonfly server instance after the manager has started.
+// This enables starting the plugin transport before the server is created so that
+// plugins can register custom items in their Hello message ahead of server startup.
+func (m *Manager) SetServer(s *server.Server) {
+	m.srv = s
+}
+
 type commandBinding struct {
 	pluginID   string
 	command    string
@@ -84,7 +91,11 @@ func (m *Manager) Start(configPath string) error {
 		}
 		return err
 	}
+	return m.StartWithConfig(cfg)
+}
 
+// StartWithConfig starts the plugin adapter using a pre-loaded plugin config.
+func (m *Manager) StartWithConfig(cfg config.Config) error {
 	// Start gRPC server to accept plugin connections
 	address := cfg.ServerPort
 	grpcServer, err := grpc.NewServer(address, m.handlePluginConnection)
@@ -470,4 +481,58 @@ func mapSlice[T any, R any](slice []T, fn func(T) R) []R {
 func (m *Manager) generateEventID() string {
 	id := m.eventCounter.Add(1)
 	return strconv.FormatUint(id, 10)
+}
+
+// WaitForAnyHello waits until at least one connected plugin has sent a Hello,
+// or until the timeout expires. Returns true if a Hello was observed.
+// WaitForAnyPlugin waits until at least one connected plugin has sent a Hello,
+// or until the timeout expires. Returns true if a Hello was observed.
+func (m *Manager) WaitForAnyPlugin(timeout time.Duration) bool {
+	deadline := time.Now().Add(timeout)
+	for time.Now().Before(deadline) {
+		m.mu.RLock()
+		for _, proc := range m.plugins {
+			if proc.helloInfo() != nil {
+				m.mu.RUnlock()
+				return true
+			}
+		}
+		m.mu.RUnlock()
+		time.Sleep(50 * time.Millisecond)
+	}
+	return false
+}
+
+// WaitForPlugins waits until all required plugin IDs have sent Hello, or until timeout.
+// If requiredIDs is empty, it falls back to waiting for any plugin Hello.
+func (m *Manager) WaitForPlugins(requiredIDs []string, timeout time.Duration) bool {
+	if len(requiredIDs) == 0 {
+		return m.WaitForAnyPlugin(timeout)
+	}
+	need := make(map[string]struct{}, len(requiredIDs))
+	for _, id := range requiredIDs {
+		if id == "" {
+			continue
+		}
+		need[strings.ToLower(id)] = struct{}{}
+	}
+	deadline := time.Now().Add(timeout)
+	for time.Now().Before(deadline) {
+		m.mu.RLock()
+		for id, proc := range m.plugins {
+			lid := strings.ToLower(id)
+			if _, ok := need[lid]; !ok {
+				continue
+			}
+			if proc.helloInfo() != nil {
+				delete(need, lid)
+			}
+		}
+		m.mu.RUnlock()
+		if len(need) == 0 {
+			return true
+		}
+		time.Sleep(50 * time.Millisecond)
+	}
+	return false
 }

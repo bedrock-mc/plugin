@@ -339,6 +339,9 @@ func (m *Manager) handleExecuteCommand(act *pb.ExecuteCommandAction) {
 }
 
 func (m *Manager) execMethod(id uuid.UUID, method func(pl *player.Player)) {
+	if m.srv == nil {
+		return
+	}
 	if handle, ok := m.srv.Player(id); ok {
 		handle.ExecWorld(func(tx *world.Tx, e world.Entity) {
 			if pl, ok := e.(*player.Player); ok {

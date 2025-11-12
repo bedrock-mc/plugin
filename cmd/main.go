@@ -3,8 +3,10 @@ package main
 import (
 	"errors"
 	"fmt"
+	"log"
 	"log/slog"
 	"os"
+	"time"
 
 	"github.com/df-mc/dragonfly/server"
 	"github.com/df-mc/dragonfly/server/player"
@@ -14,6 +16,7 @@ import (
 	"github.com/pelletier/go-toml"
 	"github.com/secmc/plugin/plugin/adapters/handlers"
 	"github.com/secmc/plugin/plugin/adapters/plugin"
+	pcfg "github.com/secmc/plugin/plugin/config"
 	"github.com/secmc/plugin/plugin/ports"
 )
 
@@ -25,11 +28,8 @@ func main() {
 		panic(err)
 	}
 
-	srv := conf.New()
-	srv.CloseOnProgramEnd()
-
 	manager := plugin.NewManager(
-		srv,
+		nil,
 		slog.Default(),
 		func(e ports.EventManager) player.Handler {
 			return handlers.NewPlayerHandler(e)
@@ -38,9 +38,25 @@ func main() {
 			return handlers.NewWorldHandler(e)
 		},
 	)
-	if err := manager.Start("plugins/plugins.yaml"); err != nil {
-		slog.Default().Error("start plugins", "error", err)
+	cfgPlugins, err := pcfg.LoadConfig("plugins/plugins.yaml")
+	if err != nil {
+		log.Fatalf("failed loading plugin config: %v", err)
 	}
+
+	if err := manager.StartWithConfig(cfgPlugins); err != nil {
+		log.Fatalf("failed starting plugin manager: %v", err)
+	}
+	if ok := manager.WaitForPlugins(cfgPlugins.RequiredPlugins, time.Duration(cfgPlugins.HelloTimeoutMs)*time.Millisecond); !ok {
+		if len(cfgPlugins.RequiredPlugins) > 0 {
+			slog.Warn("required plugins did not prime before timeout; custom items may not be included in resource pack")
+		} else {
+			slog.Warn("no plugin hello received before timeout; custom items registered later won't reach clients until restart")
+		}
+	}
+
+	srv := conf.New()
+	srv.CloseOnProgramEnd()
+	manager.SetServer(srv)
 	manager.AttachWorld(srv.World())
 	manager.AttachWorld(srv.Nether())
 	manager.AttachWorld(srv.End())

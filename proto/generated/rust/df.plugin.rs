@@ -104,6 +104,30 @@ pub struct Address {
     #[prost(int32, tag="2")]
     pub port: i32,
 }
+/// CustomItemDefinition defines a custom (non-vanilla) item that requires
+/// a resource pack and client-side registration
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomItemDefinition {
+    /// Unique identifier for the custom item (e.g., "my_plugin:custom_sword")
+    #[prost(string, tag="1")]
+    pub id: ::prost::alloc::string::String,
+    /// Display name shown to players
+    #[prost(string, tag="2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// Texture data encoded as PNG bytes
+    #[prost(bytes="vec", tag="3")]
+    pub texture_data: ::prost::alloc::vec::Vec<u8>,
+    /// Creative inventory category
+    #[prost(enumeration="ItemCategory", tag="4")]
+    pub category: i32,
+    /// Optional subgroup within the category (e.g., "sword", "pickaxe", "food")
+    #[prost(string, optional, tag="5")]
+    pub group: ::core::option::Option<::prost::alloc::string::String>,
+    /// Metadata value for this item (defaults to 0)
+    #[prost(int32, tag="6")]
+    pub meta: i32,
+}
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum GameMode {
@@ -328,6 +352,39 @@ impl Sound {
             "ITEM_THROW" => Some(Self::ItemThrow),
             "TOTEM" => Some(Self::Totem),
             "FIRE_EXTINGUISH" => Some(Self::FireExtinguish),
+            _ => None,
+        }
+    }
+}
+/// Category for creative inventory
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum ItemCategory {
+    Construction = 0,
+    Nature = 1,
+    Equipment = 2,
+    Items = 3,
+}
+impl ItemCategory {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ItemCategory::Construction => "ITEM_CATEGORY_CONSTRUCTION",
+            ItemCategory::Nature => "ITEM_CATEGORY_NATURE",
+            ItemCategory::Equipment => "ITEM_CATEGORY_EQUIPMENT",
+            ItemCategory::Items => "ITEM_CATEGORY_ITEMS",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "ITEM_CATEGORY_CONSTRUCTION" => Some(Self::Construction),
+            "ITEM_CATEGORY_NATURE" => Some(Self::Nature),
+            "ITEM_CATEGORY_EQUIPMENT" => Some(Self::Equipment),
+            "ITEM_CATEGORY_ITEMS" => Some(Self::Items),
             _ => None,
         }
     }
@@ -1542,6 +1599,8 @@ pub struct PluginHello {
     pub api_version: ::prost::alloc::string::String,
     #[prost(message, repeated, tag="4")]
     pub commands: ::prost::alloc::vec::Vec<CommandSpec>,
+    #[prost(message, repeated, tag="5")]
+    pub custom_items: ::prost::alloc::vec::Vec<CustomItemDefinition>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]

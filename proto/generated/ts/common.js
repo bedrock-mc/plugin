@@ -397,6 +397,50 @@ export function soundToJSON(object) {
             return "UNRECOGNIZED";
     }
 }
+/** Category for creative inventory */
+export var ItemCategory;
+(function (ItemCategory) {
+    ItemCategory[ItemCategory["ITEM_CATEGORY_CONSTRUCTION"] = 0] = "ITEM_CATEGORY_CONSTRUCTION";
+    ItemCategory[ItemCategory["ITEM_CATEGORY_NATURE"] = 1] = "ITEM_CATEGORY_NATURE";
+    ItemCategory[ItemCategory["ITEM_CATEGORY_EQUIPMENT"] = 2] = "ITEM_CATEGORY_EQUIPMENT";
+    ItemCategory[ItemCategory["ITEM_CATEGORY_ITEMS"] = 3] = "ITEM_CATEGORY_ITEMS";
+    ItemCategory[ItemCategory["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+})(ItemCategory || (ItemCategory = {}));
+export function itemCategoryFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "ITEM_CATEGORY_CONSTRUCTION":
+            return ItemCategory.ITEM_CATEGORY_CONSTRUCTION;
+        case 1:
+        case "ITEM_CATEGORY_NATURE":
+            return ItemCategory.ITEM_CATEGORY_NATURE;
+        case 2:
+        case "ITEM_CATEGORY_EQUIPMENT":
+            return ItemCategory.ITEM_CATEGORY_EQUIPMENT;
+        case 3:
+        case "ITEM_CATEGORY_ITEMS":
+            return ItemCategory.ITEM_CATEGORY_ITEMS;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return ItemCategory.UNRECOGNIZED;
+    }
+}
+export function itemCategoryToJSON(object) {
+    switch (object) {
+        case ItemCategory.ITEM_CATEGORY_CONSTRUCTION:
+            return "ITEM_CATEGORY_CONSTRUCTION";
+        case ItemCategory.ITEM_CATEGORY_NATURE:
+            return "ITEM_CATEGORY_NATURE";
+        case ItemCategory.ITEM_CATEGORY_EQUIPMENT:
+            return "ITEM_CATEGORY_EQUIPMENT";
+        case ItemCategory.ITEM_CATEGORY_ITEMS:
+            return "ITEM_CATEGORY_ITEMS";
+        case ItemCategory.UNRECOGNIZED:
+        default:
+            return "UNRECOGNIZED";
+    }
+}
 function createBaseVec3() {
     return { x: 0, y: 0, z: 0 };
 }
@@ -1358,6 +1402,159 @@ export const Address = {
         return message;
     },
 };
+function createBaseCustomItemDefinition() {
+    return { id: "", displayName: "", textureData: new Uint8Array(0), category: 0, group: undefined, meta: 0 };
+}
+export const CustomItemDefinition = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.id !== "") {
+            writer.uint32(10).string(message.id);
+        }
+        if (message.displayName !== "") {
+            writer.uint32(18).string(message.displayName);
+        }
+        if (message.textureData.length !== 0) {
+            writer.uint32(26).bytes(message.textureData);
+        }
+        if (message.category !== 0) {
+            writer.uint32(32).int32(message.category);
+        }
+        if (message.group !== undefined) {
+            writer.uint32(42).string(message.group);
+        }
+        if (message.meta !== 0) {
+            writer.uint32(48).int32(message.meta);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseCustomItemDefinition();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.id = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.displayName = reader.string();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.textureData = reader.bytes();
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 32) {
+                        break;
+                    }
+                    message.category = reader.int32();
+                    continue;
+                }
+                case 5: {
+                    if (tag !== 42) {
+                        break;
+                    }
+                    message.group = reader.string();
+                    continue;
+                }
+                case 6: {
+                    if (tag !== 48) {
+                        break;
+                    }
+                    message.meta = reader.int32();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            id: isSet(object.id) ? globalThis.String(object.id) : "",
+            displayName: isSet(object.displayName) ? globalThis.String(object.displayName) : "",
+            textureData: isSet(object.textureData) ? bytesFromBase64(object.textureData) : new Uint8Array(0),
+            category: isSet(object.category) ? itemCategoryFromJSON(object.category) : 0,
+            group: isSet(object.group) ? globalThis.String(object.group) : undefined,
+            meta: isSet(object.meta) ? globalThis.Number(object.meta) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.id !== "") {
+            obj.id = message.id;
+        }
+        if (message.displayName !== "") {
+            obj.displayName = message.displayName;
+        }
+        if (message.textureData.length !== 0) {
+            obj.textureData = base64FromBytes(message.textureData);
+        }
+        if (message.category !== 0) {
+            obj.category = itemCategoryToJSON(message.category);
+        }
+        if (message.group !== undefined) {
+            obj.group = message.group;
+        }
+        if (message.meta !== 0) {
+            obj.meta = Math.round(message.meta);
+        }
+        return obj;
+    },
+    create(base) {
+        return CustomItemDefinition.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseCustomItemDefinition();
+        message.id = object.id ?? "";
+        message.displayName = object.displayName ?? "";
+        message.textureData = object.textureData ?? new Uint8Array(0);
+        message.category = object.category ?? 0;
+        message.group = object.group ?? undefined;
+        message.meta = object.meta ?? 0;
+        return message;
+    },
+};
+function bytesFromBase64(b64) {
+    if (globalThis.Buffer) {
+        return Uint8Array.from(globalThis.Buffer.from(b64, "base64"));
+    }
+    else {
+        const bin = globalThis.atob(b64);
+        const arr = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; ++i) {
+            arr[i] = bin.charCodeAt(i);
+        }
+        return arr;
+    }
+}
+function base64FromBytes(arr) {
+    if (globalThis.Buffer) {
+        return globalThis.Buffer.from(arr).toString("base64");
+    }
+    else {
+        const bin = [];
+        arr.forEach((byte) => {
+            bin.push(globalThis.String.fromCharCode(byte));
+        });
+        return globalThis.btoa(bin.join(""));
+    }
+}
 function isObject(value) {
     return typeof value === "object" && value !== null;
 }

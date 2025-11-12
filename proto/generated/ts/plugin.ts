@@ -7,6 +7,7 @@
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { ActionBatch } from "./actions.js";
+import { CustomItemDefinition } from "./common.js";
 import { EventResult } from "./mutations.js";
 import {
   BlockBreakEvent,
@@ -476,6 +477,7 @@ export interface PluginHello {
   version: string;
   apiVersion: string;
   commands: CommandSpec[];
+  customItems: CustomItemDefinition[];
 }
 
 export interface CommandSpec {
@@ -1960,7 +1962,7 @@ export const PluginToHost: MessageFns<PluginToHost> = {
 };
 
 function createBasePluginHello(): PluginHello {
-  return { name: "", version: "", apiVersion: "", commands: [] };
+  return { name: "", version: "", apiVersion: "", commands: [], customItems: [] };
 }
 
 export const PluginHello: MessageFns<PluginHello> = {
@@ -1976,6 +1978,9 @@ export const PluginHello: MessageFns<PluginHello> = {
     }
     for (const v of message.commands) {
       CommandSpec.encode(v!, writer.uint32(34).fork()).join();
+    }
+    for (const v of message.customItems) {
+      CustomItemDefinition.encode(v!, writer.uint32(42).fork()).join();
     }
     return writer;
   },
@@ -2019,6 +2024,14 @@ export const PluginHello: MessageFns<PluginHello> = {
           message.commands.push(CommandSpec.decode(reader, reader.uint32()));
           continue;
         }
+        case 5: {
+          if (tag !== 42) {
+            break;
+          }
+
+          message.customItems.push(CustomItemDefinition.decode(reader, reader.uint32()));
+          continue;
+        }
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -2035,6 +2048,9 @@ export const PluginHello: MessageFns<PluginHello> = {
       apiVersion: isSet(object.apiVersion) ? globalThis.String(object.apiVersion) : "",
       commands: globalThis.Array.isArray(object?.commands)
         ? object.commands.map((e: any) => CommandSpec.fromJSON(e))
+        : [],
+      customItems: globalThis.Array.isArray(object?.customItems)
+        ? object.customItems.map((e: any) => CustomItemDefinition.fromJSON(e))
         : [],
     };
   },
@@ -2053,6 +2069,9 @@ export const PluginHello: MessageFns<PluginHello> = {
     if (message.commands?.length) {
       obj.commands = message.commands.map((e) => CommandSpec.toJSON(e));
     }
+    if (message.customItems?.length) {
+      obj.customItems = message.customItems.map((e) => CustomItemDefinition.toJSON(e));
+    }
     return obj;
   },
 
@@ -2065,6 +2084,7 @@ export const PluginHello: MessageFns<PluginHello> = {
     message.version = object.version ?? "";
     message.apiVersion = object.apiVersion ?? "";
     message.commands = object.commands?.map((e) => CommandSpec.fromPartial(e)) || [];
+    message.customItems = object.customItems?.map((e) => CustomItemDefinition.fromPartial(e)) || [];
     return message;
   },
 };

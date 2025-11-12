@@ -1382,6 +1382,7 @@ class PluginHello final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kCommandsFieldNumber = 4,
+    kCustomItemsFieldNumber = 5,
     kNameFieldNumber = 1,
     kVersionFieldNumber = 2,
     kApiVersionFieldNumber = 3,
@@ -1403,6 +1404,23 @@ class PluginHello final : public ::google::protobuf::Message
   const ::df::plugin::CommandSpec& commands(int index) const;
   ::df::plugin::CommandSpec* PROTOBUF_NONNULL add_commands();
   const ::google::protobuf::RepeatedPtrField<::df::plugin::CommandSpec>& commands() const;
+  // repeated .df.plugin.CustomItemDefinition custom_items = 5 [json_name = "customItems"];
+  int custom_items_size() const;
+  private:
+  int _internal_custom_items_size() const;
+
+  public:
+  void clear_custom_items() ;
+  ::df::plugin::CustomItemDefinition* PROTOBUF_NONNULL mutable_custom_items(int index);
+  ::google::protobuf::RepeatedPtrField<::df::plugin::CustomItemDefinition>* PROTOBUF_NONNULL mutable_custom_items();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomItemDefinition>& _internal_custom_items() const;
+  ::google::protobuf::RepeatedPtrField<::df::plugin::CustomItemDefinition>* PROTOBUF_NONNULL _internal_mutable_custom_items();
+  public:
+  const ::df::plugin::CustomItemDefinition& custom_items(int index) const;
+  ::df::plugin::CustomItemDefinition* PROTOBUF_NONNULL add_custom_items();
+  const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomItemDefinition>& custom_items() const;
   // string name = 1 [json_name = "name"];
   void clear_name() ;
   const ::std::string& name() const;
@@ -1452,8 +1470,8 @@ class PluginHello final : public ::google::protobuf::Message
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<2, 4,
-                                   1, 52,
+  static const ::google::protobuf::internal::TcParseTable<3, 5,
+                                   2, 52,
                                    2>
       _table_;
 
@@ -1475,6 +1493,7 @@ class PluginHello final : public ::google::protobuf::Message
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::RepeatedPtrField< ::df::plugin::CommandSpec > commands_;
+    ::google::protobuf::RepeatedPtrField< ::df::plugin::CustomItemDefinition > custom_items_;
     ::google::protobuf::internal::ArenaStringPtr name_;
     ::google::protobuf::internal::ArenaStringPtr version_;
     ::google::protobuf::internal::ArenaStringPtr api_version_;
@@ -7998,7 +8017,7 @@ inline void PluginHello::clear_name() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.name_.ClearToEmpty();
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000002U);
+                  0x00000004U);
 }
 inline const ::std::string& PluginHello::name() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
@@ -8008,13 +8027,13 @@ inline const ::std::string& PluginHello::name() const
 template <typename Arg_, typename... Args_>
 PROTOBUF_ALWAYS_INLINE void PluginHello::set_name(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
   _impl_.name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:df.plugin.PluginHello.name)
 }
 inline ::std::string* PROTOBUF_NONNULL PluginHello::mutable_name()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
   ::std::string* _s = _internal_mutable_name();
   // @@protoc_insertion_point(field_mutable:df.plugin.PluginHello.name)
   return _s;
@@ -8034,10 +8053,10 @@ inline ::std::string* PROTOBUF_NONNULL PluginHello::_internal_mutable_name() {
 inline ::std::string* PROTOBUF_NULLABLE PluginHello::release_name() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:df.plugin.PluginHello.name)
-  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000002U)) {
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000004U)) {
     return nullptr;
   }
-  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
   auto* released = _impl_.name_.Release();
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
     _impl_.name_.Set("", GetArena());
@@ -8047,9 +8066,9 @@ inline ::std::string* PROTOBUF_NULLABLE PluginHello::release_name() {
 inline void PluginHello::set_allocated_name(::std::string* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000004U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
   }
   _impl_.name_.SetAllocated(value, GetArena());
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.name_.IsDefault()) {
@@ -8063,7 +8082,7 @@ inline void PluginHello::clear_version() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.version_.ClearToEmpty();
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000004U);
+                  0x00000008U);
 }
 inline const ::std::string& PluginHello::version() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
@@ -8073,13 +8092,13 @@ inline const ::std::string& PluginHello::version() const
 template <typename Arg_, typename... Args_>
 PROTOBUF_ALWAYS_INLINE void PluginHello::set_version(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
   _impl_.version_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:df.plugin.PluginHello.version)
 }
 inline ::std::string* PROTOBUF_NONNULL PluginHello::mutable_version()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
   ::std::string* _s = _internal_mutable_version();
   // @@protoc_insertion_point(field_mutable:df.plugin.PluginHello.version)
   return _s;
@@ -8099,10 +8118,10 @@ inline ::std::string* PROTOBUF_NONNULL PluginHello::_internal_mutable_version() 
 inline ::std::string* PROTOBUF_NULLABLE PluginHello::release_version() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:df.plugin.PluginHello.version)
-  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000004U)) {
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000008U)) {
     return nullptr;
   }
-  ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
   auto* released = _impl_.version_.Release();
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
     _impl_.version_.Set("", GetArena());
@@ -8112,9 +8131,9 @@ inline ::std::string* PROTOBUF_NULLABLE PluginHello::release_version() {
 inline void PluginHello::set_allocated_version(::std::string* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
   }
   _impl_.version_.SetAllocated(value, GetArena());
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.version_.IsDefault()) {
@@ -8128,7 +8147,7 @@ inline void PluginHello::clear_api_version() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.api_version_.ClearToEmpty();
   ClearHasBit(_impl_._has_bits_[0],
-                  0x00000008U);
+                  0x00000010U);
 }
 inline const ::std::string& PluginHello::api_version() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
@@ -8138,13 +8157,13 @@ inline const ::std::string& PluginHello::api_version() const
 template <typename Arg_, typename... Args_>
 PROTOBUF_ALWAYS_INLINE void PluginHello::set_api_version(Arg_&& arg, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
   _impl_.api_version_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
   // @@protoc_insertion_point(field_set:df.plugin.PluginHello.api_version)
 }
 inline ::std::string* PROTOBUF_NONNULL PluginHello::mutable_api_version()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
   ::std::string* _s = _internal_mutable_api_version();
   // @@protoc_insertion_point(field_mutable:df.plugin.PluginHello.api_version)
   return _s;
@@ -8164,10 +8183,10 @@ inline ::std::string* PROTOBUF_NONNULL PluginHello::_internal_mutable_api_versio
 inline ::std::string* PROTOBUF_NULLABLE PluginHello::release_api_version() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   // @@protoc_insertion_point(field_release:df.plugin.PluginHello.api_version)
-  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000008U)) {
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000010U)) {
     return nullptr;
   }
-  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
   auto* released = _impl_.api_version_.Release();
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
     _impl_.api_version_.Set("", GetArena());
@@ -8177,9 +8196,9 @@ inline ::std::string* PROTOBUF_NULLABLE PluginHello::release_api_version() {
 inline void PluginHello::set_allocated_api_version(::std::string* PROTOBUF_NULLABLE value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   if (value != nullptr) {
-    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
   } else {
-    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
   }
   _impl_.api_version_.SetAllocated(value, GetArena());
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.api_version_.IsDefault()) {
@@ -8242,6 +8261,56 @@ inline ::google::protobuf::RepeatedPtrField<::df::plugin::CommandSpec>* PROTOBUF
 PluginHello::_internal_mutable_commands() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.commands_;
+}
+
+// repeated .df.plugin.CustomItemDefinition custom_items = 5 [json_name = "customItems"];
+inline int PluginHello::_internal_custom_items_size() const {
+  return _internal_custom_items().size();
+}
+inline int PluginHello::custom_items_size() const {
+  return _internal_custom_items_size();
+}
+inline ::df::plugin::CustomItemDefinition* PROTOBUF_NONNULL PluginHello::mutable_custom_items(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:df.plugin.PluginHello.custom_items)
+  return _internal_mutable_custom_items()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::df::plugin::CustomItemDefinition>* PROTOBUF_NONNULL PluginHello::mutable_custom_items()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_mutable_list:df.plugin.PluginHello.custom_items)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_custom_items();
+}
+inline const ::df::plugin::CustomItemDefinition& PluginHello::custom_items(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.PluginHello.custom_items)
+  return _internal_custom_items().Get(index);
+}
+inline ::df::plugin::CustomItemDefinition* PROTOBUF_NONNULL PluginHello::add_custom_items()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::df::plugin::CustomItemDefinition* _add =
+      _internal_mutable_custom_items()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_add:df.plugin.PluginHello.custom_items)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomItemDefinition>& PluginHello::custom_items() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:df.plugin.PluginHello.custom_items)
+  return _internal_custom_items();
+}
+inline const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomItemDefinition>&
+PluginHello::_internal_custom_items() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.custom_items_;
+}
+inline ::google::protobuf::RepeatedPtrField<::df::plugin::CustomItemDefinition>* PROTOBUF_NONNULL
+PluginHello::_internal_mutable_custom_items() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.custom_items_;
 }
 
 // -------------------------------------------------------------------

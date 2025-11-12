@@ -4,6 +4,14 @@
 server_port: "unix:///tmp/dragonfly_plugin.sock"
 # Or use TCP for remote: "127.0.0.1:50050"
 
+# List of plugin IDs that must connect before server starts
+# This ensures custom items are registered before the resource pack is built
+required_plugins:
+  - example-php
+
+# Maximum time to wait for required plugins to connect (milliseconds)
+hello_timeout_ms: 5000
+
 plugins:
   # - id: example-node
   #   name: Example Node Plugin

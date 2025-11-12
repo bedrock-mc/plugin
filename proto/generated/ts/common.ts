@@ -406,6 +406,52 @@ export function soundToJSON(object: Sound): string {
   }
 }
 
+/** Category for creative inventory */
+export enum ItemCategory {
+  ITEM_CATEGORY_CONSTRUCTION = 0,
+  ITEM_CATEGORY_NATURE = 1,
+  ITEM_CATEGORY_EQUIPMENT = 2,
+  ITEM_CATEGORY_ITEMS = 3,
+  UNRECOGNIZED = -1,
+}
+
+export function itemCategoryFromJSON(object: any): ItemCategory {
+  switch (object) {
+    case 0:
+    case "ITEM_CATEGORY_CONSTRUCTION":
+      return ItemCategory.ITEM_CATEGORY_CONSTRUCTION;
+    case 1:
+    case "ITEM_CATEGORY_NATURE":
+      return ItemCategory.ITEM_CATEGORY_NATURE;
+    case 2:
+    case "ITEM_CATEGORY_EQUIPMENT":
+      return ItemCategory.ITEM_CATEGORY_EQUIPMENT;
+    case 3:
+    case "ITEM_CATEGORY_ITEMS":
+      return ItemCategory.ITEM_CATEGORY_ITEMS;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return ItemCategory.UNRECOGNIZED;
+  }
+}
+
+export function itemCategoryToJSON(object: ItemCategory): string {
+  switch (object) {
+    case ItemCategory.ITEM_CATEGORY_CONSTRUCTION:
+      return "ITEM_CATEGORY_CONSTRUCTION";
+    case ItemCategory.ITEM_CATEGORY_NATURE:
+      return "ITEM_CATEGORY_NATURE";
+    case ItemCategory.ITEM_CATEGORY_EQUIPMENT:
+      return "ITEM_CATEGORY_EQUIPMENT";
+    case ItemCategory.ITEM_CATEGORY_ITEMS:
+      return "ITEM_CATEGORY_ITEMS";
+    case ItemCategory.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+
 export interface Vec3 {
   x: number;
   y: number;
@@ -472,6 +518,27 @@ export interface HealingSource {
 export interface Address {
   host: string;
   port: number;
+}
+
+/**
+ * CustomItemDefinition defines a custom (non-vanilla) item that requires
+ * a resource pack and client-side registration
+ */
+export interface CustomItemDefinition {
+  /** Unique identifier for the custom item (e.g., "my_plugin:custom_sword") */
+  id: string;
+  /** Display name shown to players */
+  displayName: string;
+  /** Texture data encoded as PNG bytes */
+  textureData: Uint8Array;
+  /** Creative inventory category */
+  category: ItemCategory;
+  /** Optional subgroup within the category (e.g., "sword", "pickaxe", "food") */
+  group?:
+    | string
+    | undefined;
+  /** Metadata value for this item (defaults to 0) */
+  meta: number;
 }
 
 function createBaseVec3(): Vec3 {
@@ -1541,6 +1608,171 @@ export const Address: MessageFns<Address> = {
     return message;
   },
 };
+
+function createBaseCustomItemDefinition(): CustomItemDefinition {
+  return { id: "", displayName: "", textureData: new Uint8Array(0), category: 0, group: undefined, meta: 0 };
+}
+
+export const CustomItemDefinition: MessageFns<CustomItemDefinition> = {
+  encode(message: CustomItemDefinition, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.id !== "") {
+      writer.uint32(10).string(message.id);
+    }
+    if (message.displayName !== "") {
+      writer.uint32(18).string(message.displayName);
+    }
+    if (message.textureData.length !== 0) {
+      writer.uint32(26).bytes(message.textureData);
+    }
+    if (message.category !== 0) {
+      writer.uint32(32).int32(message.category);
+    }
+    if (message.group !== undefined) {
+      writer.uint32(42).string(message.group);
+    }
+    if (message.meta !== 0) {
+      writer.uint32(48).int32(message.meta);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): CustomItemDefinition {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseCustomItemDefinition();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.id = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.displayName = reader.string();
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.textureData = reader.bytes();
+          continue;
+        }
+        case 4: {
+          if (tag !== 32) {
+            break;
+          }
+
+          message.category = reader.int32() as any;
+          continue;
+        }
+        case 5: {
+          if (tag !== 42) {
+            break;
+          }
+
+          message.group = reader.string();
+          continue;
+        }
+        case 6: {
+          if (tag !== 48) {
+            break;
+          }
+
+          message.meta = reader.int32();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): CustomItemDefinition {
+    return {
+      id: isSet(object.id) ? globalThis.String(object.id) : "",
+      displayName: isSet(object.displayName) ? globalThis.String(object.displayName) : "",
+      textureData: isSet(object.textureData) ? bytesFromBase64(object.textureData) : new Uint8Array(0),
+      category: isSet(object.category) ? itemCategoryFromJSON(object.category) : 0,
+      group: isSet(object.group) ? globalThis.String(object.group) : undefined,
+      meta: isSet(object.meta) ? globalThis.Number(object.meta) : 0,
+    };
+  },
+
+  toJSON(message: CustomItemDefinition): unknown {
+    const obj: any = {};
+    if (message.id !== "") {
+      obj.id = message.id;
+    }
+    if (message.displayName !== "") {
+      obj.displayName = message.displayName;
+    }
+    if (message.textureData.length !== 0) {
+      obj.textureData = base64FromBytes(message.textureData);
+    }
+    if (message.category !== 0) {
+      obj.category = itemCategoryToJSON(message.category);
+    }
+    if (message.group !== undefined) {
+      obj.group = message.group;
+    }
+    if (message.meta !== 0) {
+      obj.meta = Math.round(message.meta);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<CustomItemDefinition>): CustomItemDefinition {
+    return CustomItemDefinition.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<CustomItemDefinition>): CustomItemDefinition {
+    const message = createBaseCustomItemDefinition();
+    message.id = object.id ?? "";
+    message.displayName = object.displayName ?? "";
+    message.textureData = object.textureData ?? new Uint8Array(0);
+    message.category = object.category ?? 0;
+    message.group = object.group ?? undefined;
+    message.meta = object.meta ?? 0;
+    return message;
+  },
+};
+
+function bytesFromBase64(b64: string): Uint8Array {
+  if ((globalThis as any).Buffer) {
+    return Uint8Array.from(globalThis.Buffer.from(b64, "base64"));
+  } else {
+    const bin = globalThis.atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; ++i) {
+      arr[i] = bin.charCodeAt(i);
+    }
+    return arr;
+  }
+}
+
+function base64FromBytes(arr: Uint8Array): string {
+  if ((globalThis as any).Buffer) {
+    return globalThis.Buffer.from(arr).toString("base64");
+  } else {
+    const bin: string[] = [];
+    arr.forEach((byte) => {
+      bin.push(globalThis.String.fromCharCode(byte));
+    });
+    return globalThis.btoa(bin.join(""));
+  }
+}
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 

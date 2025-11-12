@@ -10,6 +10,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Df\Plugin\EventType;
 use Df\Plugin\PlayerJoinEvent;
+use Df\Plugin\ItemStack;
+use Df\Plugin\ItemCategory;
 use Df\Plugin\ChatEvent;
 use Df\Plugin\CommandEvent;
 use Df\Plugin\PlayerAttackEntityEvent;
@@ -25,10 +27,25 @@ class HelloPlugin extends PluginBase implements Listener {
 
     public function onEnable(): void {
         $this->registerCommand('/cheers', 'Send a toast from PHP');
+        $this->registerCommand('/pokemon', 'Give a Pokemon item');
+        // Register custom items
+        $this->registerCustomItemFromFile(
+            'vasar:pokemon',
+            'Pokemon Item',
+            __DIR__ . '/../assets/daco.png',
+            ItemCategory::ITEM_CATEGORY_ITEMS,
+            null,
+            0
+        );
         $this->registerListener($this);
     }
 
     public function onPlayerJoin(PlayerJoinEvent $e, EventContext $ctx): void {
+        $stack = new ItemStack();
+        $stack->setName('vasar:pokemon');
+        $stack->setMeta(0);
+        $stack->setCount(1);
+        $ctx->giveItemUuid($e->getPlayerUuid(), $stack);
     }
 
     public function onChat(ChatEvent $chat, EventContext $ctx): void {
@@ -46,8 +63,18 @@ class HelloPlugin extends PluginBase implements Listener {
     }
 
     public function onCommand(CommandEvent $command, EventContext $ctx): void {
-        if ($command->getRaw() === '/cheers') {
-            $ctx->chatToUuid($command->getPlayerUuid(), '🍻 Cheers from the PHP plugin!');
+        switch ($command->getRaw()) {
+            case '/cheers':
+                $ctx->chatToUuid($command->getPlayerUuid(), 'Cheers from the PHP plugin!');
+                break;
+            case '/pokemon':
+                $ctx->chatToUuid($command->getPlayerUuid(), 'You have been given a Pokemon item!');
+                $stack = new ItemStack();
+                $stack->setName('vasar:pokemon');
+                $stack->setMeta(0);
+                $stack->setCount(1);
+                $ctx->giveItemUuid($command->getPlayerUuid(), $stack);
+                break;
         }
     }
 

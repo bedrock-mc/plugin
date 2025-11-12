@@ -30,6 +30,10 @@ class PluginHello extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .df.plugin.CommandSpec commands = 4 [json_name = "commands"];</code>
      */
     private $commands;
+    /**
+     * Generated from protobuf field <code>repeated .df.plugin.CustomItemDefinition custom_items = 5 [json_name = "customItems"];</code>
+     */
+    private $custom_items;
 
     /**
      * Constructor.
@@ -41,6 +45,7 @@ class PluginHello extends \Google\Protobuf\Internal\Message
      *     @type string $version
      *     @type string $api_version
      *     @type \Df\Plugin\CommandSpec[] $commands
+     *     @type \Df\Plugin\CustomItemDefinition[] $custom_items
      * }
      */
     public function __construct($data = NULL) {
@@ -132,6 +137,28 @@ class PluginHello extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\CommandSpec::class);
         $this->commands = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .df.plugin.CustomItemDefinition custom_items = 5 [json_name = "customItems"];</code>
+     * @return RepeatedField<\Df\Plugin\CustomItemDefinition>
+     */
+    public function getCustomItems()
+    {
+        return $this->custom_items;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .df.plugin.CustomItemDefinition custom_items = 5 [json_name = "customItems"];</code>
+     * @param \Df\Plugin\CustomItemDefinition[] $var
+     * @return $this
+     */
+    public function setCustomItems($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\CustomItemDefinition::class);
+        $this->custom_items = $arr;
 
         return $this;
     }

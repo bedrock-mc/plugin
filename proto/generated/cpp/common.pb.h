@@ -63,6 +63,8 @@ enum EffectType : int;
 extern const uint32_t EffectType_internal_data_[];
 enum GameMode : int;
 extern const uint32_t GameMode_internal_data_[];
+enum ItemCategory : int;
+extern const uint32_t ItemCategory_internal_data_[];
 enum Sound : int;
 extern const uint32_t Sound_internal_data_[];
 class Address;
@@ -81,6 +83,10 @@ class BlockState_PropertiesEntry_DoNotUse;
 struct BlockState_PropertiesEntry_DoNotUseDefaultTypeInternal;
 extern BlockState_PropertiesEntry_DoNotUseDefaultTypeInternal _BlockState_PropertiesEntry_DoNotUse_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull BlockState_PropertiesEntry_DoNotUse_class_data_;
+class CustomItemDefinition;
+struct CustomItemDefinitionDefaultTypeInternal;
+extern CustomItemDefinitionDefaultTypeInternal _CustomItemDefinition_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull CustomItemDefinition_class_data_;
 class DamageSource;
 struct DamageSourceDefaultTypeInternal;
 extern DamageSourceDefaultTypeInternal _DamageSource_default_instance_;
@@ -123,6 +129,9 @@ internal::EnumTraitsT<::df::plugin::EffectType_internal_data_>
 template <>
 internal::EnumTraitsT<::df::plugin::GameMode_internal_data_>
     internal::EnumTraitsImpl::value<::df::plugin::GameMode>;
+template <>
+internal::EnumTraitsT<::df::plugin::ItemCategory_internal_data_>
+    internal::EnumTraitsImpl::value<::df::plugin::ItemCategory>;
 template <>
 internal::EnumTraitsT<::df::plugin::Sound_internal_data_>
     internal::EnumTraitsImpl::value<::df::plugin::Sound>;
@@ -285,6 +294,44 @@ inline const ::std::string& Sound_Name(Sound value) {
 inline bool Sound_Parse(
     ::absl::string_view name, Sound* PROTOBUF_NONNULL value) {
   return ::google::protobuf::internal::ParseNamedEnum<Sound>(Sound_descriptor(), name,
+                                           value);
+}
+enum ItemCategory : int {
+  ITEM_CATEGORY_CONSTRUCTION = 0,
+  ITEM_CATEGORY_NATURE = 1,
+  ITEM_CATEGORY_EQUIPMENT = 2,
+  ITEM_CATEGORY_ITEMS = 3,
+  ItemCategory_INT_MIN_SENTINEL_DO_NOT_USE_ =
+      ::std::numeric_limits<::int32_t>::min(),
+  ItemCategory_INT_MAX_SENTINEL_DO_NOT_USE_ =
+      ::std::numeric_limits<::int32_t>::max(),
+};
+
+extern const uint32_t ItemCategory_internal_data_[];
+inline constexpr ItemCategory ItemCategory_MIN =
+    static_cast<ItemCategory>(0);
+inline constexpr ItemCategory ItemCategory_MAX =
+    static_cast<ItemCategory>(3);
+inline bool ItemCategory_IsValid(int value) {
+  return 0 <= value && value <= 3;
+}
+inline constexpr int ItemCategory_ARRAYSIZE = 3 + 1;
+const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL ItemCategory_descriptor();
+template <typename T>
+const ::std::string& ItemCategory_Name(T value) {
+  static_assert(::std::is_same<T, ItemCategory>::value ||
+                    ::std::is_integral<T>::value,
+                "Incorrect type passed to ItemCategory_Name().");
+  return ItemCategory_Name(static_cast<ItemCategory>(value));
+}
+template <>
+inline const ::std::string& ItemCategory_Name(ItemCategory value) {
+  return ::google::protobuf::internal::NameOfDenseEnum<ItemCategory_descriptor, 0, 3>(
+      static_cast<int>(value));
+}
+inline bool ItemCategory_Parse(
+    ::absl::string_view name, ItemCategory* PROTOBUF_NONNULL value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ItemCategory>(ItemCategory_descriptor(), name,
                                            value);
 }
 
@@ -1564,6 +1611,277 @@ class DamageSource final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull DamageSource_class_data_;
+// -------------------------------------------------------------------
+
+class CustomItemDefinition final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:df.plugin.CustomItemDefinition) */ {
+ public:
+  inline CustomItemDefinition() : CustomItemDefinition(nullptr) {}
+  ~CustomItemDefinition() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(CustomItemDefinition* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(CustomItemDefinition));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CustomItemDefinition(::google::protobuf::internal::ConstantInitialized);
+
+  inline CustomItemDefinition(const CustomItemDefinition& from) : CustomItemDefinition(nullptr, from) {}
+  inline CustomItemDefinition(CustomItemDefinition&& from) noexcept
+      : CustomItemDefinition(nullptr, ::std::move(from)) {}
+  inline CustomItemDefinition& operator=(const CustomItemDefinition& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CustomItemDefinition& operator=(CustomItemDefinition&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CustomItemDefinition& default_instance() {
+    return *reinterpret_cast<const CustomItemDefinition*>(
+        &_CustomItemDefinition_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 12;
+  friend void swap(CustomItemDefinition& a, CustomItemDefinition& b) { a.Swap(&b); }
+  inline void Swap(CustomItemDefinition* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CustomItemDefinition* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CustomItemDefinition* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<CustomItemDefinition>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const CustomItemDefinition& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const CustomItemDefinition& from) { CustomItemDefinition::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(CustomItemDefinition* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.CustomItemDefinition"; }
+
+  explicit CustomItemDefinition(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  CustomItemDefinition(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const CustomItemDefinition& from);
+  CustomItemDefinition(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, CustomItemDefinition&& from) noexcept
+      : CustomItemDefinition(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kIdFieldNumber = 1,
+    kDisplayNameFieldNumber = 2,
+    kTextureDataFieldNumber = 3,
+    kGroupFieldNumber = 5,
+    kCategoryFieldNumber = 4,
+    kMetaFieldNumber = 6,
+  };
+  // string id = 1 [json_name = "id"];
+  void clear_id() ;
+  const ::std::string& id() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_id(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_id();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_id();
+  void set_allocated_id(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_id() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_id(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_id();
+
+  public:
+  // string display_name = 2 [json_name = "displayName"];
+  void clear_display_name() ;
+  const ::std::string& display_name() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_display_name(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_display_name();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_display_name();
+  void set_allocated_display_name(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_display_name() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_display_name(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_display_name();
+
+  public:
+  // bytes texture_data = 3 [json_name = "textureData"];
+  void clear_texture_data() ;
+  const ::std::string& texture_data() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_texture_data(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_texture_data();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_texture_data();
+  void set_allocated_texture_data(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_texture_data() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_texture_data(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_texture_data();
+
+  public:
+  // optional string group = 5 [json_name = "group"];
+  bool has_group() const;
+  void clear_group() ;
+  const ::std::string& group() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_group(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_group();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_group();
+  void set_allocated_group(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_group() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_group(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_group();
+
+  public:
+  // .df.plugin.ItemCategory category = 4 [json_name = "category"];
+  void clear_category() ;
+  ::df::plugin::ItemCategory category() const;
+  void set_category(::df::plugin::ItemCategory value);
+
+  private:
+  ::df::plugin::ItemCategory _internal_category() const;
+  void _internal_set_category(::df::plugin::ItemCategory value);
+
+  public:
+  // int32 meta = 6 [json_name = "meta"];
+  void clear_meta() ;
+  ::int32_t meta() const;
+  void set_meta(::int32_t value);
+
+  private:
+  ::int32_t _internal_meta() const;
+  void _internal_set_meta(::int32_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:df.plugin.CustomItemDefinition)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<3, 6,
+                                   0, 58,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const CustomItemDefinition& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr id_;
+    ::google::protobuf::internal::ArenaStringPtr display_name_;
+    ::google::protobuf::internal::ArenaStringPtr texture_data_;
+    ::google::protobuf::internal::ArenaStringPtr group_;
+    int category_;
+    ::int32_t meta_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_common_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull CustomItemDefinition_class_data_;
 // -------------------------------------------------------------------
 
 class BlockState_PropertiesEntry_DoNotUse final
@@ -4309,6 +4627,324 @@ inline void Address::_internal_set_port(::int32_t value) {
   _impl_.port_ = value;
 }
 
+// -------------------------------------------------------------------
+
+// CustomItemDefinition
+
+// string id = 1 [json_name = "id"];
+inline void CustomItemDefinition::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline const ::std::string& CustomItemDefinition::id() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomItemDefinition.id)
+  return _internal_id();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomItemDefinition::set_id(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  _impl_.id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomItemDefinition.id)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomItemDefinition::mutable_id()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  ::std::string* _s = _internal_mutable_id();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomItemDefinition.id)
+  return _s;
+}
+inline const ::std::string& CustomItemDefinition::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_.Get();
+}
+inline void CustomItemDefinition::_internal_set_id(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomItemDefinition::_internal_mutable_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.id_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomItemDefinition::release_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomItemDefinition.id)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000001U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  auto* released = _impl_.id_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.id_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomItemDefinition::set_allocated_id(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  }
+  _impl_.id_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.id_.IsDefault()) {
+    _impl_.id_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomItemDefinition.id)
+}
+
+// string display_name = 2 [json_name = "displayName"];
+inline void CustomItemDefinition::clear_display_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.display_name_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline const ::std::string& CustomItemDefinition::display_name() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomItemDefinition.display_name)
+  return _internal_display_name();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomItemDefinition::set_display_name(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  _impl_.display_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomItemDefinition.display_name)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomItemDefinition::mutable_display_name()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::std::string* _s = _internal_mutable_display_name();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomItemDefinition.display_name)
+  return _s;
+}
+inline const ::std::string& CustomItemDefinition::_internal_display_name() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.display_name_.Get();
+}
+inline void CustomItemDefinition::_internal_set_display_name(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.display_name_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomItemDefinition::_internal_mutable_display_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.display_name_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomItemDefinition::release_display_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomItemDefinition.display_name)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000002U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  auto* released = _impl_.display_name_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.display_name_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomItemDefinition::set_allocated_display_name(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+  _impl_.display_name_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.display_name_.IsDefault()) {
+    _impl_.display_name_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomItemDefinition.display_name)
+}
+
+// bytes texture_data = 3 [json_name = "textureData"];
+inline void CustomItemDefinition::clear_texture_data() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.texture_data_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline const ::std::string& CustomItemDefinition::texture_data() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomItemDefinition.texture_data)
+  return _internal_texture_data();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomItemDefinition::set_texture_data(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  _impl_.texture_data_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomItemDefinition.texture_data)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomItemDefinition::mutable_texture_data()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  ::std::string* _s = _internal_mutable_texture_data();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomItemDefinition.texture_data)
+  return _s;
+}
+inline const ::std::string& CustomItemDefinition::_internal_texture_data() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.texture_data_.Get();
+}
+inline void CustomItemDefinition::_internal_set_texture_data(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.texture_data_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomItemDefinition::_internal_mutable_texture_data() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.texture_data_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomItemDefinition::release_texture_data() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomItemDefinition.texture_data)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000004U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  auto* released = _impl_.texture_data_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.texture_data_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomItemDefinition::set_allocated_texture_data(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  }
+  _impl_.texture_data_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.texture_data_.IsDefault()) {
+    _impl_.texture_data_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomItemDefinition.texture_data)
+}
+
+// .df.plugin.ItemCategory category = 4 [json_name = "category"];
+inline void CustomItemDefinition::clear_category() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.category_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline ::df::plugin::ItemCategory CustomItemDefinition::category() const {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomItemDefinition.category)
+  return _internal_category();
+}
+inline void CustomItemDefinition::set_category(::df::plugin::ItemCategory value) {
+  _internal_set_category(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  // @@protoc_insertion_point(field_set:df.plugin.CustomItemDefinition.category)
+}
+inline ::df::plugin::ItemCategory CustomItemDefinition::_internal_category() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::df::plugin::ItemCategory>(_impl_.category_);
+}
+inline void CustomItemDefinition::_internal_set_category(::df::plugin::ItemCategory value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.category_ = value;
+}
+
+// optional string group = 5 [json_name = "group"];
+inline bool CustomItemDefinition::has_group() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000008U);
+  return value;
+}
+inline void CustomItemDefinition::clear_group() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.group_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline const ::std::string& CustomItemDefinition::group() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomItemDefinition.group)
+  return _internal_group();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomItemDefinition::set_group(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  _impl_.group_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomItemDefinition.group)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomItemDefinition::mutable_group()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  ::std::string* _s = _internal_mutable_group();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomItemDefinition.group)
+  return _s;
+}
+inline const ::std::string& CustomItemDefinition::_internal_group() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.group_.Get();
+}
+inline void CustomItemDefinition::_internal_set_group(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.group_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomItemDefinition::_internal_mutable_group() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.group_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomItemDefinition::release_group() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomItemDefinition.group)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000008U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  auto* released = _impl_.group_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.group_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomItemDefinition::set_allocated_group(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  }
+  _impl_.group_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.group_.IsDefault()) {
+    _impl_.group_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomItemDefinition.group)
+}
+
+// int32 meta = 6 [json_name = "meta"];
+inline void CustomItemDefinition::clear_meta() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.meta_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000020U);
+}
+inline ::int32_t CustomItemDefinition::meta() const {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomItemDefinition.meta)
+  return _internal_meta();
+}
+inline void CustomItemDefinition::set_meta(::int32_t value) {
+  _internal_set_meta(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  // @@protoc_insertion_point(field_set:df.plugin.CustomItemDefinition.meta)
+}
+inline ::int32_t CustomItemDefinition::_internal_meta() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.meta_;
+}
+inline void CustomItemDefinition::_internal_set_meta(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.meta_ = value;
+}
+
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -4338,6 +4974,12 @@ struct is_proto_enum<::df::plugin::Sound> : std::true_type {};
 template <>
 inline const EnumDescriptor* PROTOBUF_NONNULL GetEnumDescriptor<::df::plugin::Sound>() {
   return ::df::plugin::Sound_descriptor();
+}
+template <>
+struct is_proto_enum<::df::plugin::ItemCategory> : std::true_type {};
+template <>
+inline const EnumDescriptor* PROTOBUF_NONNULL GetEnumDescriptor<::df::plugin::ItemCategory>() {
+  return ::df::plugin::ItemCategory_descriptor();
 }
 
 }  // namespace protobuf
