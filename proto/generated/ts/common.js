@@ -49,6 +49,354 @@ export function gameModeToJSON(object) {
             return "UNRECOGNIZED";
     }
 }
+/**
+ * EffectType mirrors Dragonfly's registered effect IDs for straightforward mapping.
+ * Keep numeric values aligned with dragonfly/server/entity/effect/register.go.
+ */
+export var EffectType;
+(function (EffectType) {
+    EffectType[EffectType["EFFECT_UNKNOWN"] = 0] = "EFFECT_UNKNOWN";
+    EffectType[EffectType["SPEED"] = 1] = "SPEED";
+    EffectType[EffectType["SLOWNESS"] = 2] = "SLOWNESS";
+    EffectType[EffectType["HASTE"] = 3] = "HASTE";
+    EffectType[EffectType["MINING_FATIGUE"] = 4] = "MINING_FATIGUE";
+    EffectType[EffectType["STRENGTH"] = 5] = "STRENGTH";
+    EffectType[EffectType["INSTANT_HEALTH"] = 6] = "INSTANT_HEALTH";
+    EffectType[EffectType["INSTANT_DAMAGE"] = 7] = "INSTANT_DAMAGE";
+    EffectType[EffectType["JUMP_BOOST"] = 8] = "JUMP_BOOST";
+    EffectType[EffectType["NAUSEA"] = 9] = "NAUSEA";
+    EffectType[EffectType["REGENERATION"] = 10] = "REGENERATION";
+    EffectType[EffectType["RESISTANCE"] = 11] = "RESISTANCE";
+    EffectType[EffectType["FIRE_RESISTANCE"] = 12] = "FIRE_RESISTANCE";
+    EffectType[EffectType["WATER_BREATHING"] = 13] = "WATER_BREATHING";
+    EffectType[EffectType["INVISIBILITY"] = 14] = "INVISIBILITY";
+    EffectType[EffectType["BLINDNESS"] = 15] = "BLINDNESS";
+    EffectType[EffectType["NIGHT_VISION"] = 16] = "NIGHT_VISION";
+    EffectType[EffectType["HUNGER"] = 17] = "HUNGER";
+    EffectType[EffectType["WEAKNESS"] = 18] = "WEAKNESS";
+    EffectType[EffectType["POISON"] = 19] = "POISON";
+    EffectType[EffectType["WITHER"] = 20] = "WITHER";
+    EffectType[EffectType["HEALTH_BOOST"] = 21] = "HEALTH_BOOST";
+    EffectType[EffectType["ABSORPTION"] = 22] = "ABSORPTION";
+    EffectType[EffectType["SATURATION"] = 23] = "SATURATION";
+    EffectType[EffectType["LEVITATION"] = 24] = "LEVITATION";
+    EffectType[EffectType["FATAL_POISON"] = 25] = "FATAL_POISON";
+    EffectType[EffectType["CONDUIT_POWER"] = 26] = "CONDUIT_POWER";
+    EffectType[EffectType["SLOW_FALLING"] = 27] = "SLOW_FALLING";
+    /** DARKNESS - 28, 29 intentionally omitted (Bad Omen, Hero of the Village - not implemented) */
+    EffectType[EffectType["DARKNESS"] = 30] = "DARKNESS";
+    EffectType[EffectType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+})(EffectType || (EffectType = {}));
+export function effectTypeFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "EFFECT_UNKNOWN":
+            return EffectType.EFFECT_UNKNOWN;
+        case 1:
+        case "SPEED":
+            return EffectType.SPEED;
+        case 2:
+        case "SLOWNESS":
+            return EffectType.SLOWNESS;
+        case 3:
+        case "HASTE":
+            return EffectType.HASTE;
+        case 4:
+        case "MINING_FATIGUE":
+            return EffectType.MINING_FATIGUE;
+        case 5:
+        case "STRENGTH":
+            return EffectType.STRENGTH;
+        case 6:
+        case "INSTANT_HEALTH":
+            return EffectType.INSTANT_HEALTH;
+        case 7:
+        case "INSTANT_DAMAGE":
+            return EffectType.INSTANT_DAMAGE;
+        case 8:
+        case "JUMP_BOOST":
+            return EffectType.JUMP_BOOST;
+        case 9:
+        case "NAUSEA":
+            return EffectType.NAUSEA;
+        case 10:
+        case "REGENERATION":
+            return EffectType.REGENERATION;
+        case 11:
+        case "RESISTANCE":
+            return EffectType.RESISTANCE;
+        case 12:
+        case "FIRE_RESISTANCE":
+            return EffectType.FIRE_RESISTANCE;
+        case 13:
+        case "WATER_BREATHING":
+            return EffectType.WATER_BREATHING;
+        case 14:
+        case "INVISIBILITY":
+            return EffectType.INVISIBILITY;
+        case 15:
+        case "BLINDNESS":
+            return EffectType.BLINDNESS;
+        case 16:
+        case "NIGHT_VISION":
+            return EffectType.NIGHT_VISION;
+        case 17:
+        case "HUNGER":
+            return EffectType.HUNGER;
+        case 18:
+        case "WEAKNESS":
+            return EffectType.WEAKNESS;
+        case 19:
+        case "POISON":
+            return EffectType.POISON;
+        case 20:
+        case "WITHER":
+            return EffectType.WITHER;
+        case 21:
+        case "HEALTH_BOOST":
+            return EffectType.HEALTH_BOOST;
+        case 22:
+        case "ABSORPTION":
+            return EffectType.ABSORPTION;
+        case 23:
+        case "SATURATION":
+            return EffectType.SATURATION;
+        case 24:
+        case "LEVITATION":
+            return EffectType.LEVITATION;
+        case 25:
+        case "FATAL_POISON":
+            return EffectType.FATAL_POISON;
+        case 26:
+        case "CONDUIT_POWER":
+            return EffectType.CONDUIT_POWER;
+        case 27:
+        case "SLOW_FALLING":
+            return EffectType.SLOW_FALLING;
+        case 30:
+        case "DARKNESS":
+            return EffectType.DARKNESS;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return EffectType.UNRECOGNIZED;
+    }
+}
+export function effectTypeToJSON(object) {
+    switch (object) {
+        case EffectType.EFFECT_UNKNOWN:
+            return "EFFECT_UNKNOWN";
+        case EffectType.SPEED:
+            return "SPEED";
+        case EffectType.SLOWNESS:
+            return "SLOWNESS";
+        case EffectType.HASTE:
+            return "HASTE";
+        case EffectType.MINING_FATIGUE:
+            return "MINING_FATIGUE";
+        case EffectType.STRENGTH:
+            return "STRENGTH";
+        case EffectType.INSTANT_HEALTH:
+            return "INSTANT_HEALTH";
+        case EffectType.INSTANT_DAMAGE:
+            return "INSTANT_DAMAGE";
+        case EffectType.JUMP_BOOST:
+            return "JUMP_BOOST";
+        case EffectType.NAUSEA:
+            return "NAUSEA";
+        case EffectType.REGENERATION:
+            return "REGENERATION";
+        case EffectType.RESISTANCE:
+            return "RESISTANCE";
+        case EffectType.FIRE_RESISTANCE:
+            return "FIRE_RESISTANCE";
+        case EffectType.WATER_BREATHING:
+            return "WATER_BREATHING";
+        case EffectType.INVISIBILITY:
+            return "INVISIBILITY";
+        case EffectType.BLINDNESS:
+            return "BLINDNESS";
+        case EffectType.NIGHT_VISION:
+            return "NIGHT_VISION";
+        case EffectType.HUNGER:
+            return "HUNGER";
+        case EffectType.WEAKNESS:
+            return "WEAKNESS";
+        case EffectType.POISON:
+            return "POISON";
+        case EffectType.WITHER:
+            return "WITHER";
+        case EffectType.HEALTH_BOOST:
+            return "HEALTH_BOOST";
+        case EffectType.ABSORPTION:
+            return "ABSORPTION";
+        case EffectType.SATURATION:
+            return "SATURATION";
+        case EffectType.LEVITATION:
+            return "LEVITATION";
+        case EffectType.FATAL_POISON:
+            return "FATAL_POISON";
+        case EffectType.CONDUIT_POWER:
+            return "CONDUIT_POWER";
+        case EffectType.SLOW_FALLING:
+            return "SLOW_FALLING";
+        case EffectType.DARKNESS:
+            return "DARKNESS";
+        case EffectType.UNRECOGNIZED:
+        default:
+            return "UNRECOGNIZED";
+    }
+}
+/**
+ * Sound is a curated list of common sounds that don't require extra parameters.
+ * For sounds that require additional context (e.g., BlockPlace, Note), adapters
+ * may use sensible defaults or ignore extra semantics for now.
+ */
+export var Sound;
+(function (Sound) {
+    Sound[Sound["SOUND_UNKNOWN"] = 0] = "SOUND_UNKNOWN";
+    Sound[Sound["ATTACK"] = 1] = "ATTACK";
+    Sound[Sound["DROWNING"] = 2] = "DROWNING";
+    Sound[Sound["BURNING"] = 3] = "BURNING";
+    Sound[Sound["FALL"] = 4] = "FALL";
+    Sound[Sound["BURP"] = 5] = "BURP";
+    Sound[Sound["POP"] = 6] = "POP";
+    Sound[Sound["EXPLOSION"] = 7] = "EXPLOSION";
+    Sound[Sound["THUNDER"] = 8] = "THUNDER";
+    Sound[Sound["LEVEL_UP"] = 9] = "LEVEL_UP";
+    Sound[Sound["EXPERIENCE"] = 10] = "EXPERIENCE";
+    Sound[Sound["FIREWORK_LAUNCH"] = 11] = "FIREWORK_LAUNCH";
+    Sound[Sound["FIREWORK_HUGE_BLAST"] = 12] = "FIREWORK_HUGE_BLAST";
+    Sound[Sound["FIREWORK_BLAST"] = 13] = "FIREWORK_BLAST";
+    Sound[Sound["FIREWORK_TWINKLE"] = 14] = "FIREWORK_TWINKLE";
+    Sound[Sound["TELEPORT"] = 15] = "TELEPORT";
+    Sound[Sound["ARROW_HIT"] = 16] = "ARROW_HIT";
+    Sound[Sound["ITEM_BREAK"] = 17] = "ITEM_BREAK";
+    Sound[Sound["ITEM_THROW"] = 18] = "ITEM_THROW";
+    Sound[Sound["TOTEM"] = 19] = "TOTEM";
+    Sound[Sound["FIRE_EXTINGUISH"] = 20] = "FIRE_EXTINGUISH";
+    Sound[Sound["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+})(Sound || (Sound = {}));
+export function soundFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "SOUND_UNKNOWN":
+            return Sound.SOUND_UNKNOWN;
+        case 1:
+        case "ATTACK":
+            return Sound.ATTACK;
+        case 2:
+        case "DROWNING":
+            return Sound.DROWNING;
+        case 3:
+        case "BURNING":
+            return Sound.BURNING;
+        case 4:
+        case "FALL":
+            return Sound.FALL;
+        case 5:
+        case "BURP":
+            return Sound.BURP;
+        case 6:
+        case "POP":
+            return Sound.POP;
+        case 7:
+        case "EXPLOSION":
+            return Sound.EXPLOSION;
+        case 8:
+        case "THUNDER":
+            return Sound.THUNDER;
+        case 9:
+        case "LEVEL_UP":
+            return Sound.LEVEL_UP;
+        case 10:
+        case "EXPERIENCE":
+            return Sound.EXPERIENCE;
+        case 11:
+        case "FIREWORK_LAUNCH":
+            return Sound.FIREWORK_LAUNCH;
+        case 12:
+        case "FIREWORK_HUGE_BLAST":
+            return Sound.FIREWORK_HUGE_BLAST;
+        case 13:
+        case "FIREWORK_BLAST":
+            return Sound.FIREWORK_BLAST;
+        case 14:
+        case "FIREWORK_TWINKLE":
+            return Sound.FIREWORK_TWINKLE;
+        case 15:
+        case "TELEPORT":
+            return Sound.TELEPORT;
+        case 16:
+        case "ARROW_HIT":
+            return Sound.ARROW_HIT;
+        case 17:
+        case "ITEM_BREAK":
+            return Sound.ITEM_BREAK;
+        case 18:
+        case "ITEM_THROW":
+            return Sound.ITEM_THROW;
+        case 19:
+        case "TOTEM":
+            return Sound.TOTEM;
+        case 20:
+        case "FIRE_EXTINGUISH":
+            return Sound.FIRE_EXTINGUISH;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return Sound.UNRECOGNIZED;
+    }
+}
+export function soundToJSON(object) {
+    switch (object) {
+        case Sound.SOUND_UNKNOWN:
+            return "SOUND_UNKNOWN";
+        case Sound.ATTACK:
+            return "ATTACK";
+        case Sound.DROWNING:
+            return "DROWNING";
+        case Sound.BURNING:
+            return "BURNING";
+        case Sound.FALL:
+            return "FALL";
+        case Sound.BURP:
+            return "BURP";
+        case Sound.POP:
+            return "POP";
+        case Sound.EXPLOSION:
+            return "EXPLOSION";
+        case Sound.THUNDER:
+            return "THUNDER";
+        case Sound.LEVEL_UP:
+            return "LEVEL_UP";
+        case Sound.EXPERIENCE:
+            return "EXPERIENCE";
+        case Sound.FIREWORK_LAUNCH:
+            return "FIREWORK_LAUNCH";
+        case Sound.FIREWORK_HUGE_BLAST:
+            return "FIREWORK_HUGE_BLAST";
+        case Sound.FIREWORK_BLAST:
+            return "FIREWORK_BLAST";
+        case Sound.FIREWORK_TWINKLE:
+            return "FIREWORK_TWINKLE";
+        case Sound.TELEPORT:
+            return "TELEPORT";
+        case Sound.ARROW_HIT:
+            return "ARROW_HIT";
+        case Sound.ITEM_BREAK:
+            return "ITEM_BREAK";
+        case Sound.ITEM_THROW:
+            return "ITEM_THROW";
+        case Sound.TOTEM:
+            return "TOTEM";
+        case Sound.FIRE_EXTINGUISH:
+            return "FIRE_EXTINGUISH";
+        case Sound.UNRECOGNIZED:
+        default:
+            return "UNRECOGNIZED";
+    }
+}
 function createBaseVec3() {
     return { x: 0, y: 0, z: 0 };
 }

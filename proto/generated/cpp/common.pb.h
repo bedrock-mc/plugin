@@ -59,8 +59,12 @@ extern const ::google::protobuf::internal::DescriptorTable descriptor_table_comm
 }  // extern "C"
 namespace df {
 namespace plugin {
+enum EffectType : int;
+extern const uint32_t EffectType_internal_data_[];
 enum GameMode : int;
 extern const uint32_t GameMode_internal_data_[];
+enum Sound : int;
+extern const uint32_t Sound_internal_data_[];
 class Address;
 struct AddressDefaultTypeInternal;
 extern AddressDefaultTypeInternal _Address_default_instance_;
@@ -114,8 +118,14 @@ extern const ::google::protobuf::internal::ClassDataFull WorldRef_class_data_;
 namespace google {
 namespace protobuf {
 template <>
+internal::EnumTraitsT<::df::plugin::EffectType_internal_data_>
+    internal::EnumTraitsImpl::value<::df::plugin::EffectType>;
+template <>
 internal::EnumTraitsT<::df::plugin::GameMode_internal_data_>
     internal::EnumTraitsImpl::value<::df::plugin::GameMode>;
+template <>
+internal::EnumTraitsT<::df::plugin::Sound_internal_data_>
+    internal::EnumTraitsImpl::value<::df::plugin::Sound>;
 }  // namespace protobuf
 }  // namespace google
 
@@ -157,6 +167,124 @@ inline const ::std::string& GameMode_Name(GameMode value) {
 inline bool GameMode_Parse(
     ::absl::string_view name, GameMode* PROTOBUF_NONNULL value) {
   return ::google::protobuf::internal::ParseNamedEnum<GameMode>(GameMode_descriptor(), name,
+                                           value);
+}
+enum EffectType : int {
+  EFFECT_UNKNOWN = 0,
+  SPEED = 1,
+  SLOWNESS = 2,
+  HASTE = 3,
+  MINING_FATIGUE = 4,
+  STRENGTH = 5,
+  INSTANT_HEALTH = 6,
+  INSTANT_DAMAGE = 7,
+  JUMP_BOOST = 8,
+  NAUSEA = 9,
+  REGENERATION = 10,
+  RESISTANCE = 11,
+  FIRE_RESISTANCE = 12,
+  WATER_BREATHING = 13,
+  INVISIBILITY = 14,
+  BLINDNESS = 15,
+  NIGHT_VISION = 16,
+  HUNGER = 17,
+  WEAKNESS = 18,
+  POISON = 19,
+  WITHER = 20,
+  HEALTH_BOOST = 21,
+  ABSORPTION = 22,
+  SATURATION = 23,
+  LEVITATION = 24,
+  FATAL_POISON = 25,
+  CONDUIT_POWER = 26,
+  SLOW_FALLING = 27,
+  DARKNESS = 30,
+  EffectType_INT_MIN_SENTINEL_DO_NOT_USE_ =
+      ::std::numeric_limits<::int32_t>::min(),
+  EffectType_INT_MAX_SENTINEL_DO_NOT_USE_ =
+      ::std::numeric_limits<::int32_t>::max(),
+};
+
+extern const uint32_t EffectType_internal_data_[];
+inline constexpr EffectType EffectType_MIN =
+    static_cast<EffectType>(0);
+inline constexpr EffectType EffectType_MAX =
+    static_cast<EffectType>(30);
+inline bool EffectType_IsValid(int value) {
+  return 0 <= value && value <= 30 && ((1342177279u >> value) & 1) != 0;
+}
+inline constexpr int EffectType_ARRAYSIZE = 30 + 1;
+const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL EffectType_descriptor();
+template <typename T>
+const ::std::string& EffectType_Name(T value) {
+  static_assert(::std::is_same<T, EffectType>::value ||
+                    ::std::is_integral<T>::value,
+                "Incorrect type passed to EffectType_Name().");
+  return EffectType_Name(static_cast<EffectType>(value));
+}
+template <>
+inline const ::std::string& EffectType_Name(EffectType value) {
+  return ::google::protobuf::internal::NameOfDenseEnum<EffectType_descriptor, 0, 30>(
+      static_cast<int>(value));
+}
+inline bool EffectType_Parse(
+    ::absl::string_view name, EffectType* PROTOBUF_NONNULL value) {
+  return ::google::protobuf::internal::ParseNamedEnum<EffectType>(EffectType_descriptor(), name,
+                                           value);
+}
+enum Sound : int {
+  SOUND_UNKNOWN = 0,
+  ATTACK = 1,
+  DROWNING = 2,
+  BURNING = 3,
+  FALL = 4,
+  BURP = 5,
+  POP = 6,
+  EXPLOSION = 7,
+  THUNDER = 8,
+  LEVEL_UP = 9,
+  EXPERIENCE = 10,
+  FIREWORK_LAUNCH = 11,
+  FIREWORK_HUGE_BLAST = 12,
+  FIREWORK_BLAST = 13,
+  FIREWORK_TWINKLE = 14,
+  TELEPORT = 15,
+  ARROW_HIT = 16,
+  ITEM_BREAK = 17,
+  ITEM_THROW = 18,
+  TOTEM = 19,
+  FIRE_EXTINGUISH = 20,
+  Sound_INT_MIN_SENTINEL_DO_NOT_USE_ =
+      ::std::numeric_limits<::int32_t>::min(),
+  Sound_INT_MAX_SENTINEL_DO_NOT_USE_ =
+      ::std::numeric_limits<::int32_t>::max(),
+};
+
+extern const uint32_t Sound_internal_data_[];
+inline constexpr Sound Sound_MIN =
+    static_cast<Sound>(0);
+inline constexpr Sound Sound_MAX =
+    static_cast<Sound>(20);
+inline bool Sound_IsValid(int value) {
+  return 0 <= value && value <= 20;
+}
+inline constexpr int Sound_ARRAYSIZE = 20 + 1;
+const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL Sound_descriptor();
+template <typename T>
+const ::std::string& Sound_Name(T value) {
+  static_assert(::std::is_same<T, Sound>::value ||
+                    ::std::is_integral<T>::value,
+                "Incorrect type passed to Sound_Name().");
+  return Sound_Name(static_cast<Sound>(value));
+}
+template <>
+inline const ::std::string& Sound_Name(Sound value) {
+  return ::google::protobuf::internal::NameOfDenseEnum<Sound_descriptor, 0, 20>(
+      static_cast<int>(value));
+}
+inline bool Sound_Parse(
+    ::absl::string_view name, Sound* PROTOBUF_NONNULL value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Sound>(Sound_descriptor(), name,
                                            value);
 }
 
@@ -4198,6 +4326,18 @@ struct is_proto_enum<::df::plugin::GameMode> : std::true_type {};
 template <>
 inline const EnumDescriptor* PROTOBUF_NONNULL GetEnumDescriptor<::df::plugin::GameMode>() {
   return ::df::plugin::GameMode_descriptor();
+}
+template <>
+struct is_proto_enum<::df::plugin::EffectType> : std::true_type {};
+template <>
+inline const EnumDescriptor* PROTOBUF_NONNULL GetEnumDescriptor<::df::plugin::EffectType>() {
+  return ::df::plugin::EffectType_descriptor();
+}
+template <>
+struct is_proto_enum<::df::plugin::Sound> : std::true_type {};
+template <>
+inline const EnumDescriptor* PROTOBUF_NONNULL GetEnumDescriptor<::df::plugin::Sound>() {
+  return ::df::plugin::Sound_descriptor();
 }
 
 }  // namespace protobuf

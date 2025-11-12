@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 import common_pb2 as common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\ractions.proto\x12\tdf.plugin\x1a\x0c\x63ommon.proto\":\n\x0b\x41\x63tionBatch\x12+\n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32\x11.df.plugin.ActionR\x07\x61\x63tions\"\xb3\x02\n\x06\x41\x63tion\x12*\n\x0e\x63orrelation_id\x18\x01 \x01(\tH\x01R\rcorrelationId\x88\x01\x01\x12\x38\n\tsend_chat\x18\n \x01(\x0b\x32\x19.df.plugin.SendChatActionH\x00R\x08sendChat\x12\x37\n\x08teleport\x18\x0b \x01(\x0b\x32\x19.df.plugin.TeleportActionH\x00R\x08teleport\x12+\n\x04kick\x18\x0c \x01(\x0b\x32\x15.df.plugin.KickActionH\x00R\x04kick\x12\x42\n\rset_game_mode\x18\r \x01(\x0b\x32\x1c.df.plugin.SetGameModeActionH\x00R\x0bsetGameModeB\x06\n\x04kindB\x11\n\x0f_correlation_id\"K\n\x0eSendChatAction\x12\x1f\n\x0btarget_uuid\x18\x01 \x01(\tR\ntargetUuid\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"\x8b\x01\n\x0eTeleportAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12+\n\x08position\x18\x02 \x01(\x0b\x32\x0f.df.plugin.Vec3R\x08position\x12+\n\x08rotation\x18\x03 \x01(\x0b\x32\x0f.df.plugin.Vec3R\x08rotation\"E\n\nKickAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x16\n\x06reason\x18\x02 \x01(\tR\x06reason\"f\n\x11SetGameModeAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x30\n\tgame_mode\x18\x02 \x01(\x0e\x32\x13.df.plugin.GameModeR\x08gameModeB\x8b\x01\n\rcom.df.pluginB\x0c\x41\x63tionsProtoP\x01Z\'github.com/secmc/plugin/proto/generated\xa2\x02\x03\x44PX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15\x44\x66\\Plugin\\GPBMetadata\xea\x02\nDf::Pluginb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\ractions.proto\x12\tdf.plugin\x1a\x0c\x63ommon.proto\":\n\x0b\x41\x63tionBatch\x12+\n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32\x11.df.plugin.ActionR\x07\x61\x63tions\"\xba\t\n\x06\x41\x63tion\x12*\n\x0e\x63orrelation_id\x18\x01 \x01(\tH\x01R\rcorrelationId\x88\x01\x01\x12\x38\n\tsend_chat\x18\n \x01(\x0b\x32\x19.df.plugin.SendChatActionH\x00R\x08sendChat\x12\x37\n\x08teleport\x18\x0b \x01(\x0b\x32\x19.df.plugin.TeleportActionH\x00R\x08teleport\x12+\n\x04kick\x18\x0c \x01(\x0b\x32\x15.df.plugin.KickActionH\x00R\x04kick\x12\x42\n\rset_game_mode\x18\r \x01(\x0b\x32\x1c.df.plugin.SetGameModeActionH\x00R\x0bsetGameMode\x12\x38\n\tgive_item\x18\x0e \x01(\x0b\x32\x19.df.plugin.GiveItemActionH\x00R\x08giveItem\x12J\n\x0f\x63lear_inventory\x18\x0f \x01(\x0b\x32\x1f.df.plugin.ClearInventoryActionH\x00R\x0e\x63learInventory\x12\x42\n\rset_held_item\x18\x10 \x01(\x0b\x32\x1c.df.plugin.SetHeldItemActionH\x00R\x0bsetHeldItem\x12;\n\nset_health\x18\x14 \x01(\x0b\x32\x1a.df.plugin.SetHealthActionH\x00R\tsetHealth\x12\x35\n\x08set_food\x18\x15 \x01(\x0b\x32\x18.df.plugin.SetFoodActionH\x00R\x07setFood\x12G\n\x0eset_experience\x18\x16 \x01(\x0b\x32\x1e.df.plugin.SetExperienceActionH\x00R\rsetExperience\x12\x41\n\x0cset_velocity\x18\x17 \x01(\x0b\x32\x1c.df.plugin.SetVelocityActionH\x00R\x0bsetVelocity\x12;\n\nadd_effect\x18\x1e \x01(\x0b\x32\x1a.df.plugin.AddEffectActionH\x00R\taddEffect\x12\x44\n\rremove_effect\x18\x1f \x01(\x0b\x32\x1d.df.plugin.RemoveEffectActionH\x00R\x0cremoveEffect\x12;\n\nsend_title\x18( \x01(\x0b\x32\x1a.df.plugin.SendTitleActionH\x00R\tsendTitle\x12;\n\nsend_popup\x18) \x01(\x0b\x32\x1a.df.plugin.SendPopupActionH\x00R\tsendPopup\x12\x35\n\x08send_tip\x18* \x01(\x0b\x32\x18.df.plugin.SendTipActionH\x00R\x07sendTip\x12;\n\nplay_sound\x18+ \x01(\x0b\x32\x1a.df.plugin.PlaySoundActionH\x00R\tplaySound\x12J\n\x0f\x65xecute_command\x18\x32 \x01(\x0b\x32\x1f.df.plugin.ExecuteCommandActionH\x00R\x0e\x65xecuteCommandB\x06\n\x04kindB\x11\n\x0f_correlation_id\"K\n\x0eSendChatAction\x12\x1f\n\x0btarget_uuid\x18\x01 \x01(\tR\ntargetUuid\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"\x8b\x01\n\x0eTeleportAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12+\n\x08position\x18\x02 \x01(\x0b\x32\x0f.df.plugin.Vec3R\x08position\x12+\n\x08rotation\x18\x03 \x01(\x0b\x32\x0f.df.plugin.Vec3R\x08rotation\"E\n\nKickAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x16\n\x06reason\x18\x02 \x01(\tR\x06reason\"f\n\x11SetGameModeAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x30\n\tgame_mode\x18\x02 \x01(\x0e\x32\x13.df.plugin.GameModeR\x08gameMode\"[\n\x0eGiveItemAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12(\n\x04item\x18\x02 \x01(\x0b\x32\x14.df.plugin.ItemStackR\x04item\"7\n\x14\x43learInventoryAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\"\xad\x01\n\x11SetHeldItemAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12-\n\x04main\x18\x02 \x01(\x0b\x32\x14.df.plugin.ItemStackH\x00R\x04main\x88\x01\x01\x12\x33\n\x07offhand\x18\x03 \x01(\x0b\x32\x14.df.plugin.ItemStackH\x01R\x07offhand\x88\x01\x01\x42\x07\n\x05_mainB\n\n\x08_offhand\"}\n\x0fSetHealthAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x16\n\x06health\x18\x02 \x01(\x01R\x06health\x12\"\n\nmax_health\x18\x03 \x01(\x01H\x00R\tmaxHealth\x88\x01\x01\x42\r\n\x0b_max_health\"D\n\rSetFoodAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x12\n\x04\x66ood\x18\x02 \x01(\x05R\x04\x66ood\"\xb1\x01\n\x13SetExperienceAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x19\n\x05level\x18\x02 \x01(\x05H\x00R\x05level\x88\x01\x01\x12\x1f\n\x08progress\x18\x03 \x01(\x02H\x01R\x08progress\x88\x01\x01\x12\x1b\n\x06\x61mount\x18\x04 \x01(\x05H\x02R\x06\x61mount\x88\x01\x01\x42\x08\n\x06_levelB\x0b\n\t_progressB\t\n\x07_amount\"a\n\x11SetVelocityAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12+\n\x08velocity\x18\x02 \x01(\x0b\x32\x0f.df.plugin.Vec3R\x08velocity\"\xc8\x01\n\x0f\x41\x64\x64\x45\x66\x66\x65\x63tAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x36\n\x0b\x65\x66\x66\x65\x63t_type\x18\x02 \x01(\x0e\x32\x15.df.plugin.EffectTypeR\neffectType\x12\x14\n\x05level\x18\x03 \x01(\x05R\x05level\x12\x1f\n\x0b\x64uration_ms\x18\x04 \x01(\x03R\ndurationMs\x12%\n\x0eshow_particles\x18\x05 \x01(\x08R\rshowParticles\"m\n\x12RemoveEffectAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x36\n\x0b\x65\x66\x66\x65\x63t_type\x18\x02 \x01(\x0e\x32\x15.df.plugin.EffectTypeR\neffectType\"\x93\x02\n\x0fSendTitleAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x14\n\x05title\x18\x02 \x01(\tR\x05title\x12\x1f\n\x08subtitle\x18\x03 \x01(\tH\x00R\x08subtitle\x88\x01\x01\x12!\n\nfade_in_ms\x18\x04 \x01(\x03H\x01R\x08\x66\x61\x64\x65InMs\x88\x01\x01\x12$\n\x0b\x64uration_ms\x18\x05 \x01(\x03H\x02R\ndurationMs\x88\x01\x01\x12#\n\x0b\x66\x61\x64\x65_out_ms\x18\x06 \x01(\x03H\x03R\tfadeOutMs\x88\x01\x01\x42\x0b\n\t_subtitleB\r\n\x0b_fade_in_msB\x0e\n\x0c_duration_msB\x0e\n\x0c_fade_out_ms\"L\n\x0fSendPopupAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"J\n\rSendTipAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x18\n\x07message\x18\x02 \x01(\tR\x07message\"\xe6\x01\n\x0fPlaySoundAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12&\n\x05sound\x18\x02 \x01(\x0e\x32\x10.df.plugin.SoundR\x05sound\x12\x30\n\x08position\x18\x03 \x01(\x0b\x32\x0f.df.plugin.Vec3H\x00R\x08position\x88\x01\x01\x12\x1b\n\x06volume\x18\x04 \x01(\x02H\x01R\x06volume\x88\x01\x01\x12\x19\n\x05pitch\x18\x05 \x01(\x02H\x02R\x05pitch\x88\x01\x01\x42\x0b\n\t_positionB\t\n\x07_volumeB\x08\n\x06_pitch\"Q\n\x14\x45xecuteCommandAction\x12\x1f\n\x0bplayer_uuid\x18\x01 \x01(\tR\nplayerUuid\x12\x18\n\x07\x63ommand\x18\x02 \x01(\tR\x07\x63ommandB\x8b\x01\n\rcom.df.pluginB\x0c\x41\x63tionsProtoP\x01Z\'github.com/secmc/plugin/proto/generated\xa2\x02\x03\x44PX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15\x44\x66\\Plugin\\GPBMetadata\xea\x02\nDf::Pluginb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,13 +36,41 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_ACTIONBATCH']._serialized_start=42
   _globals['_ACTIONBATCH']._serialized_end=100
   _globals['_ACTION']._serialized_start=103
-  _globals['_ACTION']._serialized_end=410
-  _globals['_SENDCHATACTION']._serialized_start=412
-  _globals['_SENDCHATACTION']._serialized_end=487
-  _globals['_TELEPORTACTION']._serialized_start=490
-  _globals['_TELEPORTACTION']._serialized_end=629
-  _globals['_KICKACTION']._serialized_start=631
-  _globals['_KICKACTION']._serialized_end=700
-  _globals['_SETGAMEMODEACTION']._serialized_start=702
-  _globals['_SETGAMEMODEACTION']._serialized_end=804
+  _globals['_ACTION']._serialized_end=1313
+  _globals['_SENDCHATACTION']._serialized_start=1315
+  _globals['_SENDCHATACTION']._serialized_end=1390
+  _globals['_TELEPORTACTION']._serialized_start=1393
+  _globals['_TELEPORTACTION']._serialized_end=1532
+  _globals['_KICKACTION']._serialized_start=1534
+  _globals['_KICKACTION']._serialized_end=1603
+  _globals['_SETGAMEMODEACTION']._serialized_start=1605
+  _globals['_SETGAMEMODEACTION']._serialized_end=1707
+  _globals['_GIVEITEMACTION']._serialized_start=1709
+  _globals['_GIVEITEMACTION']._serialized_end=1800
+  _globals['_CLEARINVENTORYACTION']._serialized_start=1802
+  _globals['_CLEARINVENTORYACTION']._serialized_end=1857
+  _globals['_SETHELDITEMACTION']._serialized_start=1860
+  _globals['_SETHELDITEMACTION']._serialized_end=2033
+  _globals['_SETHEALTHACTION']._serialized_start=2035
+  _globals['_SETHEALTHACTION']._serialized_end=2160
+  _globals['_SETFOODACTION']._serialized_start=2162
+  _globals['_SETFOODACTION']._serialized_end=2230
+  _globals['_SETEXPERIENCEACTION']._serialized_start=2233
+  _globals['_SETEXPERIENCEACTION']._serialized_end=2410
+  _globals['_SETVELOCITYACTION']._serialized_start=2412
+  _globals['_SETVELOCITYACTION']._serialized_end=2509
+  _globals['_ADDEFFECTACTION']._serialized_start=2512
+  _globals['_ADDEFFECTACTION']._serialized_end=2712
+  _globals['_REMOVEEFFECTACTION']._serialized_start=2714
+  _globals['_REMOVEEFFECTACTION']._serialized_end=2823
+  _globals['_SENDTITLEACTION']._serialized_start=2826
+  _globals['_SENDTITLEACTION']._serialized_end=3101
+  _globals['_SENDPOPUPACTION']._serialized_start=3103
+  _globals['_SENDPOPUPACTION']._serialized_end=3179
+  _globals['_SENDTIPACTION']._serialized_start=3181
+  _globals['_SENDTIPACTION']._serialized_end=3255
+  _globals['_PLAYSOUNDACTION']._serialized_start=3258
+  _globals['_PLAYSOUNDACTION']._serialized_end=3488
+  _globals['_EXECUTECOMMANDACTION']._serialized_start=3490
+  _globals['_EXECUTECOMMANDACTION']._serialized_end=3571
 # @@protoc_insertion_point(module_scope)

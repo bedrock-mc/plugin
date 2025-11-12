@@ -6,7 +6,19 @@
 
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
-import { GameMode, gameModeFromJSON, gameModeToJSON, Vec3 } from "./common.js";
+import {
+  EffectType,
+  effectTypeFromJSON,
+  effectTypeToJSON,
+  GameMode,
+  gameModeFromJSON,
+  gameModeToJSON,
+  ItemStack,
+  Sound,
+  soundFromJSON,
+  soundToJSON,
+  Vec3,
+} from "./common.js";
 
 export const protobufPackage = "df.plugin";
 
@@ -19,7 +31,36 @@ export interface Action {
   sendChat?: SendChatAction | undefined;
   teleport?: TeleportAction | undefined;
   kick?: KickAction | undefined;
-  setGameMode?: SetGameModeAction | undefined;
+  setGameMode?:
+    | SetGameModeAction
+    | undefined;
+  /** Inventory & Items */
+  giveItem?: GiveItemAction | undefined;
+  clearInventory?: ClearInventoryAction | undefined;
+  setHeldItem?:
+    | SetHeldItemAction
+    | undefined;
+  /** Player State */
+  setHealth?: SetHealthAction | undefined;
+  setFood?: SetFoodAction | undefined;
+  setExperience?: SetExperienceAction | undefined;
+  setVelocity?:
+    | SetVelocityAction
+    | undefined;
+  /** Effects & Status */
+  addEffect?: AddEffectAction | undefined;
+  removeEffect?:
+    | RemoveEffectAction
+    | undefined;
+  /** UI & Communication */
+  sendTitle?: SendTitleAction | undefined;
+  sendPopup?: SendPopupAction | undefined;
+  sendTip?: SendTipAction | undefined;
+  playSound?:
+    | PlaySoundAction
+    | undefined;
+  /** Commands */
+  executeCommand?: ExecuteCommandAction | undefined;
 }
 
 export interface SendChatAction {
@@ -47,6 +88,117 @@ export interface KickAction {
 export interface SetGameModeAction {
   playerUuid: string;
   gameMode: GameMode;
+}
+
+/** Inventory & Items */
+export interface GiveItemAction {
+  playerUuid: string;
+  item: ItemStack | undefined;
+}
+
+export interface ClearInventoryAction {
+  playerUuid: string;
+}
+
+export interface SetHeldItemAction {
+  playerUuid: string;
+  /** if set, updates main hand */
+  main?:
+    | ItemStack
+    | undefined;
+  /** if set, updates offhand */
+  offhand?: ItemStack | undefined;
+}
+
+/** Player State */
+export interface SetHealthAction {
+  playerUuid: string;
+  health: number;
+  maxHealth?: number | undefined;
+}
+
+export interface SetFoodAction {
+  playerUuid: string;
+  /** 0-20 */
+  food: number;
+}
+
+export interface SetExperienceAction {
+  playerUuid: string;
+  /** If set, the player's level is set to this value. */
+  level?:
+    | number
+    | undefined;
+  /** If set, the player's progress bar (0..1) is set to this value. */
+  progress?:
+    | number
+    | undefined;
+  /** If set, raw experience points are added (can be negative to remove). */
+  amount?: number | undefined;
+}
+
+export interface SetVelocityAction {
+  playerUuid: string;
+  velocity: Vec3 | undefined;
+}
+
+/** Effects & Status */
+export interface AddEffectAction {
+  playerUuid: string;
+  effectType: EffectType;
+  /** amplifier level (1 = level I) */
+  level: number;
+  /** duration in milliseconds */
+  durationMs: number;
+  showParticles: boolean;
+}
+
+export interface RemoveEffectAction {
+  playerUuid: string;
+  effectType: EffectType;
+}
+
+/** UI & Communication */
+export interface SendTitleAction {
+  playerUuid: string;
+  title: string;
+  subtitle?: string | undefined;
+  fadeInMs?: number | undefined;
+  durationMs?: number | undefined;
+  fadeOutMs?: number | undefined;
+}
+
+export interface SendPopupAction {
+  playerUuid: string;
+  message: string;
+}
+
+export interface SendTipAction {
+  playerUuid: string;
+  message: string;
+}
+
+/** TODO: it should probably be a world action */
+export interface PlaySoundAction {
+  playerUuid: string;
+  sound: Sound;
+  /** defaults to player position if unset */
+  position?:
+    | Vec3
+    | undefined;
+  /** default 1.0 */
+  volume?:
+    | number
+    | undefined;
+  /** default 1.0 */
+  pitch?: number | undefined;
+}
+
+/** Commands */
+export interface ExecuteCommandAction {
+  playerUuid: string;
+  /** without leading slash */
+  command: string;
 }
 
 function createBaseActionBatch(): ActionBatch {
@@ -116,6 +268,20 @@ function createBaseAction(): Action {
     teleport: undefined,
     kick: undefined,
     setGameMode: undefined,
+    giveItem: undefined,
+    clearInventory: undefined,
+    setHeldItem: undefined,
+    setHealth: undefined,
+    setFood: undefined,
+    setExperience: undefined,
+    setVelocity: undefined,
+    addEffect: undefined,
+    removeEffect: undefined,
+    sendTitle: undefined,
+    sendPopup: undefined,
+    sendTip: undefined,
+    playSound: undefined,
+    executeCommand: undefined,
   };
 }
 
@@ -135,6 +301,48 @@ export const Action: MessageFns<Action> = {
     }
     if (message.setGameMode !== undefined) {
       SetGameModeAction.encode(message.setGameMode, writer.uint32(106).fork()).join();
+    }
+    if (message.giveItem !== undefined) {
+      GiveItemAction.encode(message.giveItem, writer.uint32(114).fork()).join();
+    }
+    if (message.clearInventory !== undefined) {
+      ClearInventoryAction.encode(message.clearInventory, writer.uint32(122).fork()).join();
+    }
+    if (message.setHeldItem !== undefined) {
+      SetHeldItemAction.encode(message.setHeldItem, writer.uint32(130).fork()).join();
+    }
+    if (message.setHealth !== undefined) {
+      SetHealthAction.encode(message.setHealth, writer.uint32(162).fork()).join();
+    }
+    if (message.setFood !== undefined) {
+      SetFoodAction.encode(message.setFood, writer.uint32(170).fork()).join();
+    }
+    if (message.setExperience !== undefined) {
+      SetExperienceAction.encode(message.setExperience, writer.uint32(178).fork()).join();
+    }
+    if (message.setVelocity !== undefined) {
+      SetVelocityAction.encode(message.setVelocity, writer.uint32(186).fork()).join();
+    }
+    if (message.addEffect !== undefined) {
+      AddEffectAction.encode(message.addEffect, writer.uint32(242).fork()).join();
+    }
+    if (message.removeEffect !== undefined) {
+      RemoveEffectAction.encode(message.removeEffect, writer.uint32(250).fork()).join();
+    }
+    if (message.sendTitle !== undefined) {
+      SendTitleAction.encode(message.sendTitle, writer.uint32(322).fork()).join();
+    }
+    if (message.sendPopup !== undefined) {
+      SendPopupAction.encode(message.sendPopup, writer.uint32(330).fork()).join();
+    }
+    if (message.sendTip !== undefined) {
+      SendTipAction.encode(message.sendTip, writer.uint32(338).fork()).join();
+    }
+    if (message.playSound !== undefined) {
+      PlaySoundAction.encode(message.playSound, writer.uint32(346).fork()).join();
+    }
+    if (message.executeCommand !== undefined) {
+      ExecuteCommandAction.encode(message.executeCommand, writer.uint32(402).fork()).join();
     }
     return writer;
   },
@@ -186,6 +394,118 @@ export const Action: MessageFns<Action> = {
           message.setGameMode = SetGameModeAction.decode(reader, reader.uint32());
           continue;
         }
+        case 14: {
+          if (tag !== 114) {
+            break;
+          }
+
+          message.giveItem = GiveItemAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 15: {
+          if (tag !== 122) {
+            break;
+          }
+
+          message.clearInventory = ClearInventoryAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 16: {
+          if (tag !== 130) {
+            break;
+          }
+
+          message.setHeldItem = SetHeldItemAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 20: {
+          if (tag !== 162) {
+            break;
+          }
+
+          message.setHealth = SetHealthAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 21: {
+          if (tag !== 170) {
+            break;
+          }
+
+          message.setFood = SetFoodAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 22: {
+          if (tag !== 178) {
+            break;
+          }
+
+          message.setExperience = SetExperienceAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 23: {
+          if (tag !== 186) {
+            break;
+          }
+
+          message.setVelocity = SetVelocityAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 30: {
+          if (tag !== 242) {
+            break;
+          }
+
+          message.addEffect = AddEffectAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 31: {
+          if (tag !== 250) {
+            break;
+          }
+
+          message.removeEffect = RemoveEffectAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 40: {
+          if (tag !== 322) {
+            break;
+          }
+
+          message.sendTitle = SendTitleAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 41: {
+          if (tag !== 330) {
+            break;
+          }
+
+          message.sendPopup = SendPopupAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 42: {
+          if (tag !== 338) {
+            break;
+          }
+
+          message.sendTip = SendTipAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 43: {
+          if (tag !== 346) {
+            break;
+          }
+
+          message.playSound = PlaySoundAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 50: {
+          if (tag !== 402) {
+            break;
+          }
+
+          message.executeCommand = ExecuteCommandAction.decode(reader, reader.uint32());
+          continue;
+        }
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -202,6 +522,20 @@ export const Action: MessageFns<Action> = {
       teleport: isSet(object.teleport) ? TeleportAction.fromJSON(object.teleport) : undefined,
       kick: isSet(object.kick) ? KickAction.fromJSON(object.kick) : undefined,
       setGameMode: isSet(object.setGameMode) ? SetGameModeAction.fromJSON(object.setGameMode) : undefined,
+      giveItem: isSet(object.giveItem) ? GiveItemAction.fromJSON(object.giveItem) : undefined,
+      clearInventory: isSet(object.clearInventory) ? ClearInventoryAction.fromJSON(object.clearInventory) : undefined,
+      setHeldItem: isSet(object.setHeldItem) ? SetHeldItemAction.fromJSON(object.setHeldItem) : undefined,
+      setHealth: isSet(object.setHealth) ? SetHealthAction.fromJSON(object.setHealth) : undefined,
+      setFood: isSet(object.setFood) ? SetFoodAction.fromJSON(object.setFood) : undefined,
+      setExperience: isSet(object.setExperience) ? SetExperienceAction.fromJSON(object.setExperience) : undefined,
+      setVelocity: isSet(object.setVelocity) ? SetVelocityAction.fromJSON(object.setVelocity) : undefined,
+      addEffect: isSet(object.addEffect) ? AddEffectAction.fromJSON(object.addEffect) : undefined,
+      removeEffect: isSet(object.removeEffect) ? RemoveEffectAction.fromJSON(object.removeEffect) : undefined,
+      sendTitle: isSet(object.sendTitle) ? SendTitleAction.fromJSON(object.sendTitle) : undefined,
+      sendPopup: isSet(object.sendPopup) ? SendPopupAction.fromJSON(object.sendPopup) : undefined,
+      sendTip: isSet(object.sendTip) ? SendTipAction.fromJSON(object.sendTip) : undefined,
+      playSound: isSet(object.playSound) ? PlaySoundAction.fromJSON(object.playSound) : undefined,
+      executeCommand: isSet(object.executeCommand) ? ExecuteCommandAction.fromJSON(object.executeCommand) : undefined,
     };
   },
 
@@ -221,6 +555,48 @@ export const Action: MessageFns<Action> = {
     }
     if (message.setGameMode !== undefined) {
       obj.setGameMode = SetGameModeAction.toJSON(message.setGameMode);
+    }
+    if (message.giveItem !== undefined) {
+      obj.giveItem = GiveItemAction.toJSON(message.giveItem);
+    }
+    if (message.clearInventory !== undefined) {
+      obj.clearInventory = ClearInventoryAction.toJSON(message.clearInventory);
+    }
+    if (message.setHeldItem !== undefined) {
+      obj.setHeldItem = SetHeldItemAction.toJSON(message.setHeldItem);
+    }
+    if (message.setHealth !== undefined) {
+      obj.setHealth = SetHealthAction.toJSON(message.setHealth);
+    }
+    if (message.setFood !== undefined) {
+      obj.setFood = SetFoodAction.toJSON(message.setFood);
+    }
+    if (message.setExperience !== undefined) {
+      obj.setExperience = SetExperienceAction.toJSON(message.setExperience);
+    }
+    if (message.setVelocity !== undefined) {
+      obj.setVelocity = SetVelocityAction.toJSON(message.setVelocity);
+    }
+    if (message.addEffect !== undefined) {
+      obj.addEffect = AddEffectAction.toJSON(message.addEffect);
+    }
+    if (message.removeEffect !== undefined) {
+      obj.removeEffect = RemoveEffectAction.toJSON(message.removeEffect);
+    }
+    if (message.sendTitle !== undefined) {
+      obj.sendTitle = SendTitleAction.toJSON(message.sendTitle);
+    }
+    if (message.sendPopup !== undefined) {
+      obj.sendPopup = SendPopupAction.toJSON(message.sendPopup);
+    }
+    if (message.sendTip !== undefined) {
+      obj.sendTip = SendTipAction.toJSON(message.sendTip);
+    }
+    if (message.playSound !== undefined) {
+      obj.playSound = PlaySoundAction.toJSON(message.playSound);
+    }
+    if (message.executeCommand !== undefined) {
+      obj.executeCommand = ExecuteCommandAction.toJSON(message.executeCommand);
     }
     return obj;
   },
@@ -242,6 +618,48 @@ export const Action: MessageFns<Action> = {
       : undefined;
     message.setGameMode = (object.setGameMode !== undefined && object.setGameMode !== null)
       ? SetGameModeAction.fromPartial(object.setGameMode)
+      : undefined;
+    message.giveItem = (object.giveItem !== undefined && object.giveItem !== null)
+      ? GiveItemAction.fromPartial(object.giveItem)
+      : undefined;
+    message.clearInventory = (object.clearInventory !== undefined && object.clearInventory !== null)
+      ? ClearInventoryAction.fromPartial(object.clearInventory)
+      : undefined;
+    message.setHeldItem = (object.setHeldItem !== undefined && object.setHeldItem !== null)
+      ? SetHeldItemAction.fromPartial(object.setHeldItem)
+      : undefined;
+    message.setHealth = (object.setHealth !== undefined && object.setHealth !== null)
+      ? SetHealthAction.fromPartial(object.setHealth)
+      : undefined;
+    message.setFood = (object.setFood !== undefined && object.setFood !== null)
+      ? SetFoodAction.fromPartial(object.setFood)
+      : undefined;
+    message.setExperience = (object.setExperience !== undefined && object.setExperience !== null)
+      ? SetExperienceAction.fromPartial(object.setExperience)
+      : undefined;
+    message.setVelocity = (object.setVelocity !== undefined && object.setVelocity !== null)
+      ? SetVelocityAction.fromPartial(object.setVelocity)
+      : undefined;
+    message.addEffect = (object.addEffect !== undefined && object.addEffect !== null)
+      ? AddEffectAction.fromPartial(object.addEffect)
+      : undefined;
+    message.removeEffect = (object.removeEffect !== undefined && object.removeEffect !== null)
+      ? RemoveEffectAction.fromPartial(object.removeEffect)
+      : undefined;
+    message.sendTitle = (object.sendTitle !== undefined && object.sendTitle !== null)
+      ? SendTitleAction.fromPartial(object.sendTitle)
+      : undefined;
+    message.sendPopup = (object.sendPopup !== undefined && object.sendPopup !== null)
+      ? SendPopupAction.fromPartial(object.sendPopup)
+      : undefined;
+    message.sendTip = (object.sendTip !== undefined && object.sendTip !== null)
+      ? SendTipAction.fromPartial(object.sendTip)
+      : undefined;
+    message.playSound = (object.playSound !== undefined && object.playSound !== null)
+      ? PlaySoundAction.fromPartial(object.playSound)
+      : undefined;
+    message.executeCommand = (object.executeCommand !== undefined && object.executeCommand !== null)
+      ? ExecuteCommandAction.fromPartial(object.executeCommand)
       : undefined;
     return message;
   },
@@ -571,6 +989,1289 @@ export const SetGameModeAction: MessageFns<SetGameModeAction> = {
   },
 };
 
+function createBaseGiveItemAction(): GiveItemAction {
+  return { playerUuid: "", item: undefined };
+}
+
+export const GiveItemAction: MessageFns<GiveItemAction> = {
+  encode(message: GiveItemAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.item !== undefined) {
+      ItemStack.encode(message.item, writer.uint32(18).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): GiveItemAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseGiveItemAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.item = ItemStack.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): GiveItemAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      item: isSet(object.item) ? ItemStack.fromJSON(object.item) : undefined,
+    };
+  },
+
+  toJSON(message: GiveItemAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.item !== undefined) {
+      obj.item = ItemStack.toJSON(message.item);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<GiveItemAction>): GiveItemAction {
+    return GiveItemAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<GiveItemAction>): GiveItemAction {
+    const message = createBaseGiveItemAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.item = (object.item !== undefined && object.item !== null) ? ItemStack.fromPartial(object.item) : undefined;
+    return message;
+  },
+};
+
+function createBaseClearInventoryAction(): ClearInventoryAction {
+  return { playerUuid: "" };
+}
+
+export const ClearInventoryAction: MessageFns<ClearInventoryAction> = {
+  encode(message: ClearInventoryAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): ClearInventoryAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseClearInventoryAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): ClearInventoryAction {
+    return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+  },
+
+  toJSON(message: ClearInventoryAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<ClearInventoryAction>): ClearInventoryAction {
+    return ClearInventoryAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<ClearInventoryAction>): ClearInventoryAction {
+    const message = createBaseClearInventoryAction();
+    message.playerUuid = object.playerUuid ?? "";
+    return message;
+  },
+};
+
+function createBaseSetHeldItemAction(): SetHeldItemAction {
+  return { playerUuid: "", main: undefined, offhand: undefined };
+}
+
+export const SetHeldItemAction: MessageFns<SetHeldItemAction> = {
+  encode(message: SetHeldItemAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.main !== undefined) {
+      ItemStack.encode(message.main, writer.uint32(18).fork()).join();
+    }
+    if (message.offhand !== undefined) {
+      ItemStack.encode(message.offhand, writer.uint32(26).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): SetHeldItemAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSetHeldItemAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.main = ItemStack.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.offhand = ItemStack.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SetHeldItemAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      main: isSet(object.main) ? ItemStack.fromJSON(object.main) : undefined,
+      offhand: isSet(object.offhand) ? ItemStack.fromJSON(object.offhand) : undefined,
+    };
+  },
+
+  toJSON(message: SetHeldItemAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.main !== undefined) {
+      obj.main = ItemStack.toJSON(message.main);
+    }
+    if (message.offhand !== undefined) {
+      obj.offhand = ItemStack.toJSON(message.offhand);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<SetHeldItemAction>): SetHeldItemAction {
+    return SetHeldItemAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<SetHeldItemAction>): SetHeldItemAction {
+    const message = createBaseSetHeldItemAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.main = (object.main !== undefined && object.main !== null) ? ItemStack.fromPartial(object.main) : undefined;
+    message.offhand = (object.offhand !== undefined && object.offhand !== null)
+      ? ItemStack.fromPartial(object.offhand)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseSetHealthAction(): SetHealthAction {
+  return { playerUuid: "", health: 0, maxHealth: undefined };
+}
+
+export const SetHealthAction: MessageFns<SetHealthAction> = {
+  encode(message: SetHealthAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.health !== 0) {
+      writer.uint32(17).double(message.health);
+    }
+    if (message.maxHealth !== undefined) {
+      writer.uint32(25).double(message.maxHealth);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): SetHealthAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSetHealthAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 17) {
+            break;
+          }
+
+          message.health = reader.double();
+          continue;
+        }
+        case 3: {
+          if (tag !== 25) {
+            break;
+          }
+
+          message.maxHealth = reader.double();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SetHealthAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      health: isSet(object.health) ? globalThis.Number(object.health) : 0,
+      maxHealth: isSet(object.maxHealth) ? globalThis.Number(object.maxHealth) : undefined,
+    };
+  },
+
+  toJSON(message: SetHealthAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.health !== 0) {
+      obj.health = message.health;
+    }
+    if (message.maxHealth !== undefined) {
+      obj.maxHealth = message.maxHealth;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<SetHealthAction>): SetHealthAction {
+    return SetHealthAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<SetHealthAction>): SetHealthAction {
+    const message = createBaseSetHealthAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.health = object.health ?? 0;
+    message.maxHealth = object.maxHealth ?? undefined;
+    return message;
+  },
+};
+
+function createBaseSetFoodAction(): SetFoodAction {
+  return { playerUuid: "", food: 0 };
+}
+
+export const SetFoodAction: MessageFns<SetFoodAction> = {
+  encode(message: SetFoodAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.food !== 0) {
+      writer.uint32(16).int32(message.food);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): SetFoodAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSetFoodAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 16) {
+            break;
+          }
+
+          message.food = reader.int32();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SetFoodAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      food: isSet(object.food) ? globalThis.Number(object.food) : 0,
+    };
+  },
+
+  toJSON(message: SetFoodAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.food !== 0) {
+      obj.food = Math.round(message.food);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<SetFoodAction>): SetFoodAction {
+    return SetFoodAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<SetFoodAction>): SetFoodAction {
+    const message = createBaseSetFoodAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.food = object.food ?? 0;
+    return message;
+  },
+};
+
+function createBaseSetExperienceAction(): SetExperienceAction {
+  return { playerUuid: "", level: undefined, progress: undefined, amount: undefined };
+}
+
+export const SetExperienceAction: MessageFns<SetExperienceAction> = {
+  encode(message: SetExperienceAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.level !== undefined) {
+      writer.uint32(16).int32(message.level);
+    }
+    if (message.progress !== undefined) {
+      writer.uint32(29).float(message.progress);
+    }
+    if (message.amount !== undefined) {
+      writer.uint32(32).int32(message.amount);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): SetExperienceAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSetExperienceAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 16) {
+            break;
+          }
+
+          message.level = reader.int32();
+          continue;
+        }
+        case 3: {
+          if (tag !== 29) {
+            break;
+          }
+
+          message.progress = reader.float();
+          continue;
+        }
+        case 4: {
+          if (tag !== 32) {
+            break;
+          }
+
+          message.amount = reader.int32();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SetExperienceAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      level: isSet(object.level) ? globalThis.Number(object.level) : undefined,
+      progress: isSet(object.progress) ? globalThis.Number(object.progress) : undefined,
+      amount: isSet(object.amount) ? globalThis.Number(object.amount) : undefined,
+    };
+  },
+
+  toJSON(message: SetExperienceAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.level !== undefined) {
+      obj.level = Math.round(message.level);
+    }
+    if (message.progress !== undefined) {
+      obj.progress = message.progress;
+    }
+    if (message.amount !== undefined) {
+      obj.amount = Math.round(message.amount);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<SetExperienceAction>): SetExperienceAction {
+    return SetExperienceAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<SetExperienceAction>): SetExperienceAction {
+    const message = createBaseSetExperienceAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.level = object.level ?? undefined;
+    message.progress = object.progress ?? undefined;
+    message.amount = object.amount ?? undefined;
+    return message;
+  },
+};
+
+function createBaseSetVelocityAction(): SetVelocityAction {
+  return { playerUuid: "", velocity: undefined };
+}
+
+export const SetVelocityAction: MessageFns<SetVelocityAction> = {
+  encode(message: SetVelocityAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.velocity !== undefined) {
+      Vec3.encode(message.velocity, writer.uint32(18).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): SetVelocityAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSetVelocityAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.velocity = Vec3.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SetVelocityAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      velocity: isSet(object.velocity) ? Vec3.fromJSON(object.velocity) : undefined,
+    };
+  },
+
+  toJSON(message: SetVelocityAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.velocity !== undefined) {
+      obj.velocity = Vec3.toJSON(message.velocity);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<SetVelocityAction>): SetVelocityAction {
+    return SetVelocityAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<SetVelocityAction>): SetVelocityAction {
+    const message = createBaseSetVelocityAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.velocity = (object.velocity !== undefined && object.velocity !== null)
+      ? Vec3.fromPartial(object.velocity)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseAddEffectAction(): AddEffectAction {
+  return { playerUuid: "", effectType: 0, level: 0, durationMs: 0, showParticles: false };
+}
+
+export const AddEffectAction: MessageFns<AddEffectAction> = {
+  encode(message: AddEffectAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.effectType !== 0) {
+      writer.uint32(16).int32(message.effectType);
+    }
+    if (message.level !== 0) {
+      writer.uint32(24).int32(message.level);
+    }
+    if (message.durationMs !== 0) {
+      writer.uint32(32).int64(message.durationMs);
+    }
+    if (message.showParticles !== false) {
+      writer.uint32(40).bool(message.showParticles);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): AddEffectAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseAddEffectAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 16) {
+            break;
+          }
+
+          message.effectType = reader.int32() as any;
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.level = reader.int32();
+          continue;
+        }
+        case 4: {
+          if (tag !== 32) {
+            break;
+          }
+
+          message.durationMs = longToNumber(reader.int64());
+          continue;
+        }
+        case 5: {
+          if (tag !== 40) {
+            break;
+          }
+
+          message.showParticles = reader.bool();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): AddEffectAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      effectType: isSet(object.effectType) ? effectTypeFromJSON(object.effectType) : 0,
+      level: isSet(object.level) ? globalThis.Number(object.level) : 0,
+      durationMs: isSet(object.durationMs) ? globalThis.Number(object.durationMs) : 0,
+      showParticles: isSet(object.showParticles) ? globalThis.Boolean(object.showParticles) : false,
+    };
+  },
+
+  toJSON(message: AddEffectAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.effectType !== 0) {
+      obj.effectType = effectTypeToJSON(message.effectType);
+    }
+    if (message.level !== 0) {
+      obj.level = Math.round(message.level);
+    }
+    if (message.durationMs !== 0) {
+      obj.durationMs = Math.round(message.durationMs);
+    }
+    if (message.showParticles !== false) {
+      obj.showParticles = message.showParticles;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<AddEffectAction>): AddEffectAction {
+    return AddEffectAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<AddEffectAction>): AddEffectAction {
+    const message = createBaseAddEffectAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.effectType = object.effectType ?? 0;
+    message.level = object.level ?? 0;
+    message.durationMs = object.durationMs ?? 0;
+    message.showParticles = object.showParticles ?? false;
+    return message;
+  },
+};
+
+function createBaseRemoveEffectAction(): RemoveEffectAction {
+  return { playerUuid: "", effectType: 0 };
+}
+
+export const RemoveEffectAction: MessageFns<RemoveEffectAction> = {
+  encode(message: RemoveEffectAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.effectType !== 0) {
+      writer.uint32(16).int32(message.effectType);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): RemoveEffectAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseRemoveEffectAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 16) {
+            break;
+          }
+
+          message.effectType = reader.int32() as any;
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): RemoveEffectAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      effectType: isSet(object.effectType) ? effectTypeFromJSON(object.effectType) : 0,
+    };
+  },
+
+  toJSON(message: RemoveEffectAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.effectType !== 0) {
+      obj.effectType = effectTypeToJSON(message.effectType);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<RemoveEffectAction>): RemoveEffectAction {
+    return RemoveEffectAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<RemoveEffectAction>): RemoveEffectAction {
+    const message = createBaseRemoveEffectAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.effectType = object.effectType ?? 0;
+    return message;
+  },
+};
+
+function createBaseSendTitleAction(): SendTitleAction {
+  return {
+    playerUuid: "",
+    title: "",
+    subtitle: undefined,
+    fadeInMs: undefined,
+    durationMs: undefined,
+    fadeOutMs: undefined,
+  };
+}
+
+export const SendTitleAction: MessageFns<SendTitleAction> = {
+  encode(message: SendTitleAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.title !== "") {
+      writer.uint32(18).string(message.title);
+    }
+    if (message.subtitle !== undefined) {
+      writer.uint32(26).string(message.subtitle);
+    }
+    if (message.fadeInMs !== undefined) {
+      writer.uint32(32).int64(message.fadeInMs);
+    }
+    if (message.durationMs !== undefined) {
+      writer.uint32(40).int64(message.durationMs);
+    }
+    if (message.fadeOutMs !== undefined) {
+      writer.uint32(48).int64(message.fadeOutMs);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): SendTitleAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSendTitleAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.title = reader.string();
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.subtitle = reader.string();
+          continue;
+        }
+        case 4: {
+          if (tag !== 32) {
+            break;
+          }
+
+          message.fadeInMs = longToNumber(reader.int64());
+          continue;
+        }
+        case 5: {
+          if (tag !== 40) {
+            break;
+          }
+
+          message.durationMs = longToNumber(reader.int64());
+          continue;
+        }
+        case 6: {
+          if (tag !== 48) {
+            break;
+          }
+
+          message.fadeOutMs = longToNumber(reader.int64());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SendTitleAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      title: isSet(object.title) ? globalThis.String(object.title) : "",
+      subtitle: isSet(object.subtitle) ? globalThis.String(object.subtitle) : undefined,
+      fadeInMs: isSet(object.fadeInMs) ? globalThis.Number(object.fadeInMs) : undefined,
+      durationMs: isSet(object.durationMs) ? globalThis.Number(object.durationMs) : undefined,
+      fadeOutMs: isSet(object.fadeOutMs) ? globalThis.Number(object.fadeOutMs) : undefined,
+    };
+  },
+
+  toJSON(message: SendTitleAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.title !== "") {
+      obj.title = message.title;
+    }
+    if (message.subtitle !== undefined) {
+      obj.subtitle = message.subtitle;
+    }
+    if (message.fadeInMs !== undefined) {
+      obj.fadeInMs = Math.round(message.fadeInMs);
+    }
+    if (message.durationMs !== undefined) {
+      obj.durationMs = Math.round(message.durationMs);
+    }
+    if (message.fadeOutMs !== undefined) {
+      obj.fadeOutMs = Math.round(message.fadeOutMs);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<SendTitleAction>): SendTitleAction {
+    return SendTitleAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<SendTitleAction>): SendTitleAction {
+    const message = createBaseSendTitleAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.title = object.title ?? "";
+    message.subtitle = object.subtitle ?? undefined;
+    message.fadeInMs = object.fadeInMs ?? undefined;
+    message.durationMs = object.durationMs ?? undefined;
+    message.fadeOutMs = object.fadeOutMs ?? undefined;
+    return message;
+  },
+};
+
+function createBaseSendPopupAction(): SendPopupAction {
+  return { playerUuid: "", message: "" };
+}
+
+export const SendPopupAction: MessageFns<SendPopupAction> = {
+  encode(message: SendPopupAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.message !== "") {
+      writer.uint32(18).string(message.message);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): SendPopupAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSendPopupAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.message = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SendPopupAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      message: isSet(object.message) ? globalThis.String(object.message) : "",
+    };
+  },
+
+  toJSON(message: SendPopupAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.message !== "") {
+      obj.message = message.message;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<SendPopupAction>): SendPopupAction {
+    return SendPopupAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<SendPopupAction>): SendPopupAction {
+    const message = createBaseSendPopupAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.message = object.message ?? "";
+    return message;
+  },
+};
+
+function createBaseSendTipAction(): SendTipAction {
+  return { playerUuid: "", message: "" };
+}
+
+export const SendTipAction: MessageFns<SendTipAction> = {
+  encode(message: SendTipAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.message !== "") {
+      writer.uint32(18).string(message.message);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): SendTipAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSendTipAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.message = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SendTipAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      message: isSet(object.message) ? globalThis.String(object.message) : "",
+    };
+  },
+
+  toJSON(message: SendTipAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.message !== "") {
+      obj.message = message.message;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<SendTipAction>): SendTipAction {
+    return SendTipAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<SendTipAction>): SendTipAction {
+    const message = createBaseSendTipAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.message = object.message ?? "";
+    return message;
+  },
+};
+
+function createBasePlaySoundAction(): PlaySoundAction {
+  return { playerUuid: "", sound: 0, position: undefined, volume: undefined, pitch: undefined };
+}
+
+export const PlaySoundAction: MessageFns<PlaySoundAction> = {
+  encode(message: PlaySoundAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.sound !== 0) {
+      writer.uint32(16).int32(message.sound);
+    }
+    if (message.position !== undefined) {
+      Vec3.encode(message.position, writer.uint32(26).fork()).join();
+    }
+    if (message.volume !== undefined) {
+      writer.uint32(37).float(message.volume);
+    }
+    if (message.pitch !== undefined) {
+      writer.uint32(45).float(message.pitch);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlaySoundAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlaySoundAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 16) {
+            break;
+          }
+
+          message.sound = reader.int32() as any;
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.position = Vec3.decode(reader, reader.uint32());
+          continue;
+        }
+        case 4: {
+          if (tag !== 37) {
+            break;
+          }
+
+          message.volume = reader.float();
+          continue;
+        }
+        case 5: {
+          if (tag !== 45) {
+            break;
+          }
+
+          message.pitch = reader.float();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlaySoundAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      sound: isSet(object.sound) ? soundFromJSON(object.sound) : 0,
+      position: isSet(object.position) ? Vec3.fromJSON(object.position) : undefined,
+      volume: isSet(object.volume) ? globalThis.Number(object.volume) : undefined,
+      pitch: isSet(object.pitch) ? globalThis.Number(object.pitch) : undefined,
+    };
+  },
+
+  toJSON(message: PlaySoundAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.sound !== 0) {
+      obj.sound = soundToJSON(message.sound);
+    }
+    if (message.position !== undefined) {
+      obj.position = Vec3.toJSON(message.position);
+    }
+    if (message.volume !== undefined) {
+      obj.volume = message.volume;
+    }
+    if (message.pitch !== undefined) {
+      obj.pitch = message.pitch;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlaySoundAction>): PlaySoundAction {
+    return PlaySoundAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlaySoundAction>): PlaySoundAction {
+    const message = createBasePlaySoundAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.sound = object.sound ?? 0;
+    message.position = (object.position !== undefined && object.position !== null)
+      ? Vec3.fromPartial(object.position)
+      : undefined;
+    message.volume = object.volume ?? undefined;
+    message.pitch = object.pitch ?? undefined;
+    return message;
+  },
+};
+
+function createBaseExecuteCommandAction(): ExecuteCommandAction {
+  return { playerUuid: "", command: "" };
+}
+
+export const ExecuteCommandAction: MessageFns<ExecuteCommandAction> = {
+  encode(message: ExecuteCommandAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.command !== "") {
+      writer.uint32(18).string(message.command);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): ExecuteCommandAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseExecuteCommandAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.command = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): ExecuteCommandAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      command: isSet(object.command) ? globalThis.String(object.command) : "",
+    };
+  },
+
+  toJSON(message: ExecuteCommandAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.command !== "") {
+      obj.command = message.command;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<ExecuteCommandAction>): ExecuteCommandAction {
+    return ExecuteCommandAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<ExecuteCommandAction>): ExecuteCommandAction {
+    const message = createBaseExecuteCommandAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.command = object.command ?? "";
+    return message;
+  },
+};
+
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
 export type DeepPartial<T> = T extends Builtin ? T
@@ -578,6 +2279,17 @@ export type DeepPartial<T> = T extends Builtin ? T
   : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>>
   : T extends {} ? { [K in keyof T]?: DeepPartial<T[K]> }
   : Partial<T>;
+
+function longToNumber(int64: { toString(): string }): number {
+  const num = globalThis.Number(int64.toString());
+  if (num > globalThis.Number.MAX_SAFE_INTEGER) {
+    throw new globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+  }
+  if (num < globalThis.Number.MIN_SAFE_INTEGER) {
+    throw new globalThis.Error("Value is smaller than Number.MIN_SAFE_INTEGER");
+  }
+  return num;
+}
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;

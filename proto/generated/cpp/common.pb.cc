@@ -367,7 +367,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 }  // namespace plugin
 }  // namespace df
 static const ::_pb::EnumDescriptor* PROTOBUF_NONNULL
-    file_level_enum_descriptors_common_2eproto[1];
+    file_level_enum_descriptors_common_2eproto[3];
 static constexpr const ::_pb::ServiceDescriptor* PROTOBUF_NONNULL* PROTOBUF_NULLABLE
     file_level_service_descriptors_common_2eproto = nullptr;
 const ::uint32_t
@@ -534,17 +534,38 @@ const char descriptor_table_protodef_common_2eproto[] ABSL_ATTRIBUTE_SECTION_VAR
     "description\210\001\001B\016\n\014_description\"1\n\007Addres"
     "s\022\022\n\004host\030\001 \001(\tR\004host\022\022\n\004port\030\002 \001(\005R\004por"
     "t*D\n\010GameMode\022\014\n\010SURVIVAL\020\000\022\014\n\010CREATIVE\020"
-    "\001\022\r\n\tADVENTURE\020\002\022\r\n\tSPECTATOR\020\003B\212\001\n\rcom."
-    "df.pluginB\013CommonProtoP\001Z\'github.com/sec"
-    "mc/plugin/proto/generated\242\002\003DPX\252\002\tDf.Plu"
-    "gin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMetadata\352"
-    "\002\nDf::Pluginb\006proto3"
+    "\001\022\r\n\tADVENTURE\020\002\022\r\n\tSPECTATOR\020\003*\342\003\n\nEffe"
+    "ctType\022\022\n\016EFFECT_UNKNOWN\020\000\022\t\n\005SPEED\020\001\022\014\n"
+    "\010SLOWNESS\020\002\022\t\n\005HASTE\020\003\022\022\n\016MINING_FATIGUE"
+    "\020\004\022\014\n\010STRENGTH\020\005\022\022\n\016INSTANT_HEALTH\020\006\022\022\n\016"
+    "INSTANT_DAMAGE\020\007\022\016\n\nJUMP_BOOST\020\010\022\n\n\006NAUS"
+    "EA\020\t\022\020\n\014REGENERATION\020\n\022\016\n\nRESISTANCE\020\013\022\023"
+    "\n\017FIRE_RESISTANCE\020\014\022\023\n\017WATER_BREATHING\020\r"
+    "\022\020\n\014INVISIBILITY\020\016\022\r\n\tBLINDNESS\020\017\022\020\n\014NIG"
+    "HT_VISION\020\020\022\n\n\006HUNGER\020\021\022\014\n\010WEAKNESS\020\022\022\n\n"
+    "\006POISON\020\023\022\n\n\006WITHER\020\024\022\020\n\014HEALTH_BOOST\020\025\022"
+    "\016\n\nABSORPTION\020\026\022\016\n\nSATURATION\020\027\022\016\n\nLEVIT"
+    "ATION\020\030\022\020\n\014FATAL_POISON\020\031\022\021\n\rCONDUIT_POW"
+    "ER\020\032\022\020\n\014SLOW_FALLING\020\033\022\014\n\010DARKNESS\020\036*\315\002\n"
+    "\005Sound\022\021\n\rSOUND_UNKNOWN\020\000\022\n\n\006ATTACK\020\001\022\014\n"
+    "\010DROWNING\020\002\022\013\n\007BURNING\020\003\022\010\n\004FALL\020\004\022\010\n\004BU"
+    "RP\020\005\022\007\n\003POP\020\006\022\r\n\tEXPLOSION\020\007\022\013\n\007THUNDER\020"
+    "\010\022\014\n\010LEVEL_UP\020\t\022\016\n\nEXPERIENCE\020\n\022\023\n\017FIREW"
+    "ORK_LAUNCH\020\013\022\027\n\023FIREWORK_HUGE_BLAST\020\014\022\022\n"
+    "\016FIREWORK_BLAST\020\r\022\024\n\020FIREWORK_TWINKLE\020\016\022"
+    "\014\n\010TELEPORT\020\017\022\r\n\tARROW_HIT\020\020\022\016\n\nITEM_BRE"
+    "AK\020\021\022\016\n\nITEM_THROW\020\022\022\t\n\005TOTEM\020\023\022\023\n\017FIRE_"
+    "EXTINGUISH\020\024B\212\001\n\rcom.df.pluginB\013CommonPr"
+    "otoP\001Z\'github.com/secmc/plugin/proto/gen"
+    "erated\242\002\003DPX\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025D"
+    "f\\Plugin\\GPBMetadata\352\002\nDf::Pluginb\006proto"
+    "3"
 };
 static ::absl::once_flag descriptor_table_common_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_common_2eproto = {
     false,
     false,
-    1300,
+    2121,
     descriptor_table_protodef_common_2eproto,
     "common.proto",
     &descriptor_table_common_2eproto_once,
@@ -565,6 +586,18 @@ const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL GameMode_descriptor()
 }
 PROTOBUF_CONSTINIT const uint32_t GameMode_internal_data_[] = {
     262144u, 0u, };
+const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL EffectType_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_common_2eproto);
+  return file_level_enum_descriptors_common_2eproto[1];
+}
+PROTOBUF_CONSTINIT const uint32_t EffectType_internal_data_[] = {
+    1835008u, 32u, 4u, };
+const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL Sound_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_common_2eproto);
+  return file_level_enum_descriptors_common_2eproto[2];
+}
+PROTOBUF_CONSTINIT const uint32_t Sound_internal_data_[] = {
+    1376256u, 0u, };
 // ===================================================================
 
 class Vec3::_Internal {

@@ -31,6 +31,25 @@ class Action extends \Google\Protobuf\Internal\Message
      *     @type \Df\Plugin\TeleportAction $teleport
      *     @type \Df\Plugin\KickAction $kick
      *     @type \Df\Plugin\SetGameModeAction $set_game_mode
+     *     @type \Df\Plugin\GiveItemAction $give_item
+     *           Inventory & Items
+     *     @type \Df\Plugin\ClearInventoryAction $clear_inventory
+     *     @type \Df\Plugin\SetHeldItemAction $set_held_item
+     *     @type \Df\Plugin\SetHealthAction $set_health
+     *           Player State
+     *     @type \Df\Plugin\SetFoodAction $set_food
+     *     @type \Df\Plugin\SetExperienceAction $set_experience
+     *     @type \Df\Plugin\SetVelocityAction $set_velocity
+     *     @type \Df\Plugin\AddEffectAction $add_effect
+     *           Effects & Status
+     *     @type \Df\Plugin\RemoveEffectAction $remove_effect
+     *     @type \Df\Plugin\SendTitleAction $send_title
+     *           UI & Communication
+     *     @type \Df\Plugin\SendPopupAction $send_popup
+     *     @type \Df\Plugin\SendTipAction $send_tip
+     *     @type \Df\Plugin\PlaySoundAction $play_sound
+     *     @type \Df\Plugin\ExecuteCommandAction $execute_command
+     *           Commands
      * }
      */
     public function __construct($data = NULL) {
@@ -174,6 +193,404 @@ class Action extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Df\Plugin\SetGameModeAction::class);
         $this->writeOneof(13, $var);
+
+        return $this;
+    }
+
+    /**
+     * Inventory & Items
+     *
+     * Generated from protobuf field <code>.df.plugin.GiveItemAction give_item = 14 [json_name = "giveItem"];</code>
+     * @return \Df\Plugin\GiveItemAction|null
+     */
+    public function getGiveItem()
+    {
+        return $this->readOneof(14);
+    }
+
+    public function hasGiveItem()
+    {
+        return $this->hasOneof(14);
+    }
+
+    /**
+     * Inventory & Items
+     *
+     * Generated from protobuf field <code>.df.plugin.GiveItemAction give_item = 14 [json_name = "giveItem"];</code>
+     * @param \Df\Plugin\GiveItemAction $var
+     * @return $this
+     */
+    public function setGiveItem($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\GiveItemAction::class);
+        $this->writeOneof(14, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.ClearInventoryAction clear_inventory = 15 [json_name = "clearInventory"];</code>
+     * @return \Df\Plugin\ClearInventoryAction|null
+     */
+    public function getClearInventory()
+    {
+        return $this->readOneof(15);
+    }
+
+    public function hasClearInventory()
+    {
+        return $this->hasOneof(15);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.ClearInventoryAction clear_inventory = 15 [json_name = "clearInventory"];</code>
+     * @param \Df\Plugin\ClearInventoryAction $var
+     * @return $this
+     */
+    public function setClearInventory($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\ClearInventoryAction::class);
+        $this->writeOneof(15, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SetHeldItemAction set_held_item = 16 [json_name = "setHeldItem"];</code>
+     * @return \Df\Plugin\SetHeldItemAction|null
+     */
+    public function getSetHeldItem()
+    {
+        return $this->readOneof(16);
+    }
+
+    public function hasSetHeldItem()
+    {
+        return $this->hasOneof(16);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SetHeldItemAction set_held_item = 16 [json_name = "setHeldItem"];</code>
+     * @param \Df\Plugin\SetHeldItemAction $var
+     * @return $this
+     */
+    public function setSetHeldItem($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\SetHeldItemAction::class);
+        $this->writeOneof(16, $var);
+
+        return $this;
+    }
+
+    /**
+     * Player State
+     *
+     * Generated from protobuf field <code>.df.plugin.SetHealthAction set_health = 20 [json_name = "setHealth"];</code>
+     * @return \Df\Plugin\SetHealthAction|null
+     */
+    public function getSetHealth()
+    {
+        return $this->readOneof(20);
+    }
+
+    public function hasSetHealth()
+    {
+        return $this->hasOneof(20);
+    }
+
+    /**
+     * Player State
+     *
+     * Generated from protobuf field <code>.df.plugin.SetHealthAction set_health = 20 [json_name = "setHealth"];</code>
+     * @param \Df\Plugin\SetHealthAction $var
+     * @return $this
+     */
+    public function setSetHealth($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\SetHealthAction::class);
+        $this->writeOneof(20, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SetFoodAction set_food = 21 [json_name = "setFood"];</code>
+     * @return \Df\Plugin\SetFoodAction|null
+     */
+    public function getSetFood()
+    {
+        return $this->readOneof(21);
+    }
+
+    public function hasSetFood()
+    {
+        return $this->hasOneof(21);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SetFoodAction set_food = 21 [json_name = "setFood"];</code>
+     * @param \Df\Plugin\SetFoodAction $var
+     * @return $this
+     */
+    public function setSetFood($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\SetFoodAction::class);
+        $this->writeOneof(21, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SetExperienceAction set_experience = 22 [json_name = "setExperience"];</code>
+     * @return \Df\Plugin\SetExperienceAction|null
+     */
+    public function getSetExperience()
+    {
+        return $this->readOneof(22);
+    }
+
+    public function hasSetExperience()
+    {
+        return $this->hasOneof(22);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SetExperienceAction set_experience = 22 [json_name = "setExperience"];</code>
+     * @param \Df\Plugin\SetExperienceAction $var
+     * @return $this
+     */
+    public function setSetExperience($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\SetExperienceAction::class);
+        $this->writeOneof(22, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SetVelocityAction set_velocity = 23 [json_name = "setVelocity"];</code>
+     * @return \Df\Plugin\SetVelocityAction|null
+     */
+    public function getSetVelocity()
+    {
+        return $this->readOneof(23);
+    }
+
+    public function hasSetVelocity()
+    {
+        return $this->hasOneof(23);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SetVelocityAction set_velocity = 23 [json_name = "setVelocity"];</code>
+     * @param \Df\Plugin\SetVelocityAction $var
+     * @return $this
+     */
+    public function setSetVelocity($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\SetVelocityAction::class);
+        $this->writeOneof(23, $var);
+
+        return $this;
+    }
+
+    /**
+     * Effects & Status
+     *
+     * Generated from protobuf field <code>.df.plugin.AddEffectAction add_effect = 30 [json_name = "addEffect"];</code>
+     * @return \Df\Plugin\AddEffectAction|null
+     */
+    public function getAddEffect()
+    {
+        return $this->readOneof(30);
+    }
+
+    public function hasAddEffect()
+    {
+        return $this->hasOneof(30);
+    }
+
+    /**
+     * Effects & Status
+     *
+     * Generated from protobuf field <code>.df.plugin.AddEffectAction add_effect = 30 [json_name = "addEffect"];</code>
+     * @param \Df\Plugin\AddEffectAction $var
+     * @return $this
+     */
+    public function setAddEffect($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\AddEffectAction::class);
+        $this->writeOneof(30, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.RemoveEffectAction remove_effect = 31 [json_name = "removeEffect"];</code>
+     * @return \Df\Plugin\RemoveEffectAction|null
+     */
+    public function getRemoveEffect()
+    {
+        return $this->readOneof(31);
+    }
+
+    public function hasRemoveEffect()
+    {
+        return $this->hasOneof(31);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.RemoveEffectAction remove_effect = 31 [json_name = "removeEffect"];</code>
+     * @param \Df\Plugin\RemoveEffectAction $var
+     * @return $this
+     */
+    public function setRemoveEffect($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\RemoveEffectAction::class);
+        $this->writeOneof(31, $var);
+
+        return $this;
+    }
+
+    /**
+     * UI & Communication
+     *
+     * Generated from protobuf field <code>.df.plugin.SendTitleAction send_title = 40 [json_name = "sendTitle"];</code>
+     * @return \Df\Plugin\SendTitleAction|null
+     */
+    public function getSendTitle()
+    {
+        return $this->readOneof(40);
+    }
+
+    public function hasSendTitle()
+    {
+        return $this->hasOneof(40);
+    }
+
+    /**
+     * UI & Communication
+     *
+     * Generated from protobuf field <code>.df.plugin.SendTitleAction send_title = 40 [json_name = "sendTitle"];</code>
+     * @param \Df\Plugin\SendTitleAction $var
+     * @return $this
+     */
+    public function setSendTitle($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\SendTitleAction::class);
+        $this->writeOneof(40, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SendPopupAction send_popup = 41 [json_name = "sendPopup"];</code>
+     * @return \Df\Plugin\SendPopupAction|null
+     */
+    public function getSendPopup()
+    {
+        return $this->readOneof(41);
+    }
+
+    public function hasSendPopup()
+    {
+        return $this->hasOneof(41);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SendPopupAction send_popup = 41 [json_name = "sendPopup"];</code>
+     * @param \Df\Plugin\SendPopupAction $var
+     * @return $this
+     */
+    public function setSendPopup($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\SendPopupAction::class);
+        $this->writeOneof(41, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SendTipAction send_tip = 42 [json_name = "sendTip"];</code>
+     * @return \Df\Plugin\SendTipAction|null
+     */
+    public function getSendTip()
+    {
+        return $this->readOneof(42);
+    }
+
+    public function hasSendTip()
+    {
+        return $this->hasOneof(42);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.SendTipAction send_tip = 42 [json_name = "sendTip"];</code>
+     * @param \Df\Plugin\SendTipAction $var
+     * @return $this
+     */
+    public function setSendTip($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\SendTipAction::class);
+        $this->writeOneof(42, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlaySoundAction play_sound = 43 [json_name = "playSound"];</code>
+     * @return \Df\Plugin\PlaySoundAction|null
+     */
+    public function getPlaySound()
+    {
+        return $this->readOneof(43);
+    }
+
+    public function hasPlaySound()
+    {
+        return $this->hasOneof(43);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlaySoundAction play_sound = 43 [json_name = "playSound"];</code>
+     * @param \Df\Plugin\PlaySoundAction $var
+     * @return $this
+     */
+    public function setPlaySound($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlaySoundAction::class);
+        $this->writeOneof(43, $var);
+
+        return $this;
+    }
+
+    /**
+     * Commands
+     *
+     * Generated from protobuf field <code>.df.plugin.ExecuteCommandAction execute_command = 50 [json_name = "executeCommand"];</code>
+     * @return \Df\Plugin\ExecuteCommandAction|null
+     */
+    public function getExecuteCommand()
+    {
+        return $this->readOneof(50);
+    }
+
+    public function hasExecuteCommand()
+    {
+        return $this->hasOneof(50);
+    }
+
+    /**
+     * Commands
+     *
+     * Generated from protobuf field <code>.df.plugin.ExecuteCommandAction execute_command = 50 [json_name = "executeCommand"];</code>
+     * @param \Df\Plugin\ExecuteCommandAction $var
+     * @return $this
+     */
+    public function setExecuteCommand($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\ExecuteCommandAction::class);
+        $this->writeOneof(50, $var);
 
         return $this;
     }

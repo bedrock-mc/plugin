@@ -136,6 +136,202 @@ impl GameMode {
         }
     }
 }
+/// EffectType mirrors Dragonfly's registered effect IDs for straightforward mapping.
+/// Keep numeric values aligned with dragonfly/server/entity/effect/register.go.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum EffectType {
+    EffectUnknown = 0,
+    Speed = 1,
+    Slowness = 2,
+    Haste = 3,
+    MiningFatigue = 4,
+    Strength = 5,
+    InstantHealth = 6,
+    InstantDamage = 7,
+    JumpBoost = 8,
+    Nausea = 9,
+    Regeneration = 10,
+    Resistance = 11,
+    FireResistance = 12,
+    WaterBreathing = 13,
+    Invisibility = 14,
+    Blindness = 15,
+    NightVision = 16,
+    Hunger = 17,
+    Weakness = 18,
+    Poison = 19,
+    Wither = 20,
+    HealthBoost = 21,
+    Absorption = 22,
+    Saturation = 23,
+    Levitation = 24,
+    FatalPoison = 25,
+    ConduitPower = 26,
+    SlowFalling = 27,
+    /// 28, 29 intentionally omitted (Bad Omen, Hero of the Village - not implemented)
+    Darkness = 30,
+}
+impl EffectType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            EffectType::EffectUnknown => "EFFECT_UNKNOWN",
+            EffectType::Speed => "SPEED",
+            EffectType::Slowness => "SLOWNESS",
+            EffectType::Haste => "HASTE",
+            EffectType::MiningFatigue => "MINING_FATIGUE",
+            EffectType::Strength => "STRENGTH",
+            EffectType::InstantHealth => "INSTANT_HEALTH",
+            EffectType::InstantDamage => "INSTANT_DAMAGE",
+            EffectType::JumpBoost => "JUMP_BOOST",
+            EffectType::Nausea => "NAUSEA",
+            EffectType::Regeneration => "REGENERATION",
+            EffectType::Resistance => "RESISTANCE",
+            EffectType::FireResistance => "FIRE_RESISTANCE",
+            EffectType::WaterBreathing => "WATER_BREATHING",
+            EffectType::Invisibility => "INVISIBILITY",
+            EffectType::Blindness => "BLINDNESS",
+            EffectType::NightVision => "NIGHT_VISION",
+            EffectType::Hunger => "HUNGER",
+            EffectType::Weakness => "WEAKNESS",
+            EffectType::Poison => "POISON",
+            EffectType::Wither => "WITHER",
+            EffectType::HealthBoost => "HEALTH_BOOST",
+            EffectType::Absorption => "ABSORPTION",
+            EffectType::Saturation => "SATURATION",
+            EffectType::Levitation => "LEVITATION",
+            EffectType::FatalPoison => "FATAL_POISON",
+            EffectType::ConduitPower => "CONDUIT_POWER",
+            EffectType::SlowFalling => "SLOW_FALLING",
+            EffectType::Darkness => "DARKNESS",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "EFFECT_UNKNOWN" => Some(Self::EffectUnknown),
+            "SPEED" => Some(Self::Speed),
+            "SLOWNESS" => Some(Self::Slowness),
+            "HASTE" => Some(Self::Haste),
+            "MINING_FATIGUE" => Some(Self::MiningFatigue),
+            "STRENGTH" => Some(Self::Strength),
+            "INSTANT_HEALTH" => Some(Self::InstantHealth),
+            "INSTANT_DAMAGE" => Some(Self::InstantDamage),
+            "JUMP_BOOST" => Some(Self::JumpBoost),
+            "NAUSEA" => Some(Self::Nausea),
+            "REGENERATION" => Some(Self::Regeneration),
+            "RESISTANCE" => Some(Self::Resistance),
+            "FIRE_RESISTANCE" => Some(Self::FireResistance),
+            "WATER_BREATHING" => Some(Self::WaterBreathing),
+            "INVISIBILITY" => Some(Self::Invisibility),
+            "BLINDNESS" => Some(Self::Blindness),
+            "NIGHT_VISION" => Some(Self::NightVision),
+            "HUNGER" => Some(Self::Hunger),
+            "WEAKNESS" => Some(Self::Weakness),
+            "POISON" => Some(Self::Poison),
+            "WITHER" => Some(Self::Wither),
+            "HEALTH_BOOST" => Some(Self::HealthBoost),
+            "ABSORPTION" => Some(Self::Absorption),
+            "SATURATION" => Some(Self::Saturation),
+            "LEVITATION" => Some(Self::Levitation),
+            "FATAL_POISON" => Some(Self::FatalPoison),
+            "CONDUIT_POWER" => Some(Self::ConduitPower),
+            "SLOW_FALLING" => Some(Self::SlowFalling),
+            "DARKNESS" => Some(Self::Darkness),
+            _ => None,
+        }
+    }
+}
+/// Sound is a curated list of common sounds that don't require extra parameters.
+/// For sounds that require additional context (e.g., BlockPlace, Note), adapters
+/// may use sensible defaults or ignore extra semantics for now.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum Sound {
+    Unknown = 0,
+    Attack = 1,
+    Drowning = 2,
+    Burning = 3,
+    Fall = 4,
+    Burp = 5,
+    Pop = 6,
+    Explosion = 7,
+    Thunder = 8,
+    LevelUp = 9,
+    Experience = 10,
+    FireworkLaunch = 11,
+    FireworkHugeBlast = 12,
+    FireworkBlast = 13,
+    FireworkTwinkle = 14,
+    Teleport = 15,
+    ArrowHit = 16,
+    ItemBreak = 17,
+    ItemThrow = 18,
+    Totem = 19,
+    FireExtinguish = 20,
+}
+impl Sound {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Sound::Unknown => "SOUND_UNKNOWN",
+            Sound::Attack => "ATTACK",
+            Sound::Drowning => "DROWNING",
+            Sound::Burning => "BURNING",
+            Sound::Fall => "FALL",
+            Sound::Burp => "BURP",
+            Sound::Pop => "POP",
+            Sound::Explosion => "EXPLOSION",
+            Sound::Thunder => "THUNDER",
+            Sound::LevelUp => "LEVEL_UP",
+            Sound::Experience => "EXPERIENCE",
+            Sound::FireworkLaunch => "FIREWORK_LAUNCH",
+            Sound::FireworkHugeBlast => "FIREWORK_HUGE_BLAST",
+            Sound::FireworkBlast => "FIREWORK_BLAST",
+            Sound::FireworkTwinkle => "FIREWORK_TWINKLE",
+            Sound::Teleport => "TELEPORT",
+            Sound::ArrowHit => "ARROW_HIT",
+            Sound::ItemBreak => "ITEM_BREAK",
+            Sound::ItemThrow => "ITEM_THROW",
+            Sound::Totem => "TOTEM",
+            Sound::FireExtinguish => "FIRE_EXTINGUISH",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "SOUND_UNKNOWN" => Some(Self::Unknown),
+            "ATTACK" => Some(Self::Attack),
+            "DROWNING" => Some(Self::Drowning),
+            "BURNING" => Some(Self::Burning),
+            "FALL" => Some(Self::Fall),
+            "BURP" => Some(Self::Burp),
+            "POP" => Some(Self::Pop),
+            "EXPLOSION" => Some(Self::Explosion),
+            "THUNDER" => Some(Self::Thunder),
+            "LEVEL_UP" => Some(Self::LevelUp),
+            "EXPERIENCE" => Some(Self::Experience),
+            "FIREWORK_LAUNCH" => Some(Self::FireworkLaunch),
+            "FIREWORK_HUGE_BLAST" => Some(Self::FireworkHugeBlast),
+            "FIREWORK_BLAST" => Some(Self::FireworkBlast),
+            "FIREWORK_TWINKLE" => Some(Self::FireworkTwinkle),
+            "TELEPORT" => Some(Self::Teleport),
+            "ARROW_HIT" => Some(Self::ArrowHit),
+            "ITEM_BREAK" => Some(Self::ItemBreak),
+            "ITEM_THROW" => Some(Self::ItemThrow),
+            "TOTEM" => Some(Self::Totem),
+            "FIRE_EXTINGUISH" => Some(Self::FireExtinguish),
+            _ => None,
+        }
+    }
+}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ActionBatch {
@@ -147,7 +343,7 @@ pub struct ActionBatch {
 pub struct Action {
     #[prost(string, optional, tag="1")]
     pub correlation_id: ::core::option::Option<::prost::alloc::string::String>,
-    #[prost(oneof="action::Kind", tags="10, 11, 12, 13")]
+    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 30, 31, 40, 41, 42, 43, 50")]
     pub kind: ::core::option::Option<action::Kind>,
 }
 /// Nested message and enum types in `Action`.
@@ -163,6 +359,39 @@ pub mod action {
         Kick(super::KickAction),
         #[prost(message, tag="13")]
         SetGameMode(super::SetGameModeAction),
+        /// Inventory & Items
+        #[prost(message, tag="14")]
+        GiveItem(super::GiveItemAction),
+        #[prost(message, tag="15")]
+        ClearInventory(super::ClearInventoryAction),
+        #[prost(message, tag="16")]
+        SetHeldItem(super::SetHeldItemAction),
+        /// Player State
+        #[prost(message, tag="20")]
+        SetHealth(super::SetHealthAction),
+        #[prost(message, tag="21")]
+        SetFood(super::SetFoodAction),
+        #[prost(message, tag="22")]
+        SetExperience(super::SetExperienceAction),
+        #[prost(message, tag="23")]
+        SetVelocity(super::SetVelocityAction),
+        /// Effects & Status
+        #[prost(message, tag="30")]
+        AddEffect(super::AddEffectAction),
+        #[prost(message, tag="31")]
+        RemoveEffect(super::RemoveEffectAction),
+        /// UI & Communication
+        #[prost(message, tag="40")]
+        SendTitle(super::SendTitleAction),
+        #[prost(message, tag="41")]
+        SendPopup(super::SendPopupAction),
+        #[prost(message, tag="42")]
+        SendTip(super::SendTipAction),
+        #[prost(message, tag="43")]
+        PlaySound(super::PlaySoundAction),
+        /// Commands
+        #[prost(message, tag="50")]
+        ExecuteCommand(super::ExecuteCommandAction),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -178,16 +407,12 @@ pub struct SendChatAction {
 pub struct TeleportAction {
     #[prost(string, tag="1")]
     pub player_uuid: ::prost::alloc::string::String,
-    #[prost(double, tag="2")]
-    pub x: f64,
-    #[prost(double, tag="3")]
-    pub y: f64,
-    #[prost(double, tag="4")]
-    pub z: f64,
-    #[prost(float, tag="5")]
-    pub yaw: f32,
-    #[prost(float, tag="6")]
-    pub pitch: f32,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<Vec3>,
+    /// rotation vector mapping:
+    ///   x = pitch, y = yaw, z = head_yaw
+    #[prost(message, optional, tag="3")]
+    pub rotation: ::core::option::Option<Vec3>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -204,6 +429,162 @@ pub struct SetGameModeAction {
     pub player_uuid: ::prost::alloc::string::String,
     #[prost(enumeration="GameMode", tag="2")]
     pub game_mode: i32,
+}
+/// Inventory & Items
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct GiveItemAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub item: ::core::option::Option<ItemStack>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ClearInventoryAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SetHeldItemAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    /// if set, updates main hand
+    #[prost(message, optional, tag="2")]
+    pub main: ::core::option::Option<ItemStack>,
+    /// if set, updates offhand
+    #[prost(message, optional, tag="3")]
+    pub offhand: ::core::option::Option<ItemStack>,
+}
+/// Player State
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SetHealthAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(double, tag="2")]
+    pub health: f64,
+    #[prost(double, optional, tag="3")]
+    pub max_health: ::core::option::Option<f64>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SetFoodAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    /// 0-20
+    #[prost(int32, tag="2")]
+    pub food: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SetExperienceAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    /// If set, the player's level is set to this value.
+    #[prost(int32, optional, tag="2")]
+    pub level: ::core::option::Option<i32>,
+    /// If set, the player's progress bar (0..1) is set to this value.
+    #[prost(float, optional, tag="3")]
+    pub progress: ::core::option::Option<f32>,
+    /// If set, raw experience points are added (can be negative to remove).
+    #[prost(int32, optional, tag="4")]
+    pub amount: ::core::option::Option<i32>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SetVelocityAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub velocity: ::core::option::Option<Vec3>,
+}
+/// Effects & Status
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct AddEffectAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(enumeration="EffectType", tag="2")]
+    pub effect_type: i32,
+    /// amplifier level (1 = level I)
+    #[prost(int32, tag="3")]
+    pub level: i32,
+    /// duration in milliseconds
+    #[prost(int64, tag="4")]
+    pub duration_ms: i64,
+    #[prost(bool, tag="5")]
+    pub show_particles: bool,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct RemoveEffectAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(enumeration="EffectType", tag="2")]
+    pub effect_type: i32,
+}
+/// UI & Communication
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SendTitleAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub title: ::prost::alloc::string::String,
+    #[prost(string, optional, tag="3")]
+    pub subtitle: ::core::option::Option<::prost::alloc::string::String>,
+    #[prost(int64, optional, tag="4")]
+    pub fade_in_ms: ::core::option::Option<i64>,
+    #[prost(int64, optional, tag="5")]
+    pub duration_ms: ::core::option::Option<i64>,
+    #[prost(int64, optional, tag="6")]
+    pub fade_out_ms: ::core::option::Option<i64>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SendPopupAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub message: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct SendTipAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub message: ::prost::alloc::string::String,
+}
+/// TODO: it should probably be a world action
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlaySoundAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(enumeration="Sound", tag="2")]
+    pub sound: i32,
+    /// defaults to player position if unset
+    #[prost(message, optional, tag="3")]
+    pub position: ::core::option::Option<Vec3>,
+    /// default 1.0
+    #[prost(float, optional, tag="4")]
+    pub volume: ::core::option::Option<f32>,
+    /// default 1.0
+    #[prost(float, optional, tag="5")]
+    pub pitch: ::core::option::Option<f32>,
+}
+/// Commands
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ExecuteCommandAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    /// without leading slash
+    #[prost(string, tag="2")]
+    pub command: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
