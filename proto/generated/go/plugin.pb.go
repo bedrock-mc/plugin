@@ -221,6 +221,7 @@ type HostToPlugin struct {
 	//
 	//	*HostToPlugin_Hello
 	//	*HostToPlugin_Shutdown
+	//	*HostToPlugin_ServerInfo
 	//	*HostToPlugin_Event
 	Payload       isHostToPlugin_Payload `protobuf_oneof:"payload"`
 	unknownFields protoimpl.UnknownFields
@@ -289,6 +290,15 @@ func (x *HostToPlugin) GetShutdown() *HostShutdown {
 	return nil
 }
 
+func (x *HostToPlugin) GetServerInfo() *ServerInformationResponse {
+	if x != nil {
+		if x, ok := x.Payload.(*HostToPlugin_ServerInfo); ok {
+			return x.ServerInfo
+		}
+	}
+	return nil
+}
+
 func (x *HostToPlugin) GetEvent() *EventEnvelope {
 	if x != nil {
 		if x, ok := x.Payload.(*HostToPlugin_Event); ok {
@@ -310,6 +320,10 @@ type HostToPlugin_Shutdown struct {
 	Shutdown *HostShutdown `protobuf:"bytes,11,opt,name=shutdown,proto3,oneof"`
 }
 
+type HostToPlugin_ServerInfo struct {
+	ServerInfo *ServerInformationResponse `protobuf:"bytes,12,opt,name=server_info,json=serverInfo,proto3,oneof"`
+}
+
 type HostToPlugin_Event struct {
 	Event *EventEnvelope `protobuf:"bytes,20,opt,name=event,proto3,oneof"`
 }
@@ -318,7 +332,89 @@ func (*HostToPlugin_Hello) isHostToPlugin_Payload() {}
 
 func (*HostToPlugin_Shutdown) isHostToPlugin_Payload() {}
 
+func (*HostToPlugin_ServerInfo) isHostToPlugin_Payload() {}
+
 func (*HostToPlugin_Event) isHostToPlugin_Payload() {}
+
+type ServerInformationRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ServerInformationRequest) Reset() {
+	*x = ServerInformationRequest{}
+	mi := &file_plugin_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ServerInformationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ServerInformationRequest) ProtoMessage() {}
+
+func (x *ServerInformationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_plugin_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ServerInformationRequest.ProtoReflect.Descriptor instead.
+func (*ServerInformationRequest) Descriptor() ([]byte, []int) {
+	return file_plugin_proto_rawDescGZIP(), []int{1}
+}
+
+type ServerInformationResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Plugins       []string               `protobuf:"bytes,1,rep,name=plugins,proto3" json:"plugins,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ServerInformationResponse) Reset() {
+	*x = ServerInformationResponse{}
+	mi := &file_plugin_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ServerInformationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ServerInformationResponse) ProtoMessage() {}
+
+func (x *ServerInformationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_plugin_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ServerInformationResponse.ProtoReflect.Descriptor instead.
+func (*ServerInformationResponse) Descriptor() ([]byte, []int) {
+	return file_plugin_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ServerInformationResponse) GetPlugins() []string {
+	if x != nil {
+		return x.Plugins
+	}
+	return nil
+}
 
 type HostHello struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -329,7 +425,7 @@ type HostHello struct {
 
 func (x *HostHello) Reset() {
 	*x = HostHello{}
-	mi := &file_plugin_proto_msgTypes[1]
+	mi := &file_plugin_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -341,7 +437,7 @@ func (x *HostHello) String() string {
 func (*HostHello) ProtoMessage() {}
 
 func (x *HostHello) ProtoReflect() protoreflect.Message {
-	mi := &file_plugin_proto_msgTypes[1]
+	mi := &file_plugin_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -354,7 +450,7 @@ func (x *HostHello) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HostHello.ProtoReflect.Descriptor instead.
 func (*HostHello) Descriptor() ([]byte, []int) {
-	return file_plugin_proto_rawDescGZIP(), []int{1}
+	return file_plugin_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *HostHello) GetApiVersion() string {
@@ -373,7 +469,7 @@ type HostShutdown struct {
 
 func (x *HostShutdown) Reset() {
 	*x = HostShutdown{}
-	mi := &file_plugin_proto_msgTypes[2]
+	mi := &file_plugin_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -385,7 +481,7 @@ func (x *HostShutdown) String() string {
 func (*HostShutdown) ProtoMessage() {}
 
 func (x *HostShutdown) ProtoReflect() protoreflect.Message {
-	mi := &file_plugin_proto_msgTypes[2]
+	mi := &file_plugin_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -398,7 +494,7 @@ func (x *HostShutdown) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HostShutdown.ProtoReflect.Descriptor instead.
 func (*HostShutdown) Descriptor() ([]byte, []int) {
-	return file_plugin_proto_rawDescGZIP(), []int{2}
+	return file_plugin_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *HostShutdown) GetReason() string {
@@ -471,7 +567,7 @@ type EventEnvelope struct {
 
 func (x *EventEnvelope) Reset() {
 	*x = EventEnvelope{}
-	mi := &file_plugin_proto_msgTypes[3]
+	mi := &file_plugin_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -483,7 +579,7 @@ func (x *EventEnvelope) String() string {
 func (*EventEnvelope) ProtoMessage() {}
 
 func (x *EventEnvelope) ProtoReflect() protoreflect.Message {
-	mi := &file_plugin_proto_msgTypes[3]
+	mi := &file_plugin_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -496,7 +592,7 @@ func (x *EventEnvelope) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventEnvelope.ProtoReflect.Descriptor instead.
 func (*EventEnvelope) Descriptor() ([]byte, []int) {
-	return file_plugin_proto_rawDescGZIP(), []int{3}
+	return file_plugin_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *EventEnvelope) GetEventId() string {
@@ -1273,6 +1369,7 @@ type PluginToHost struct {
 	//
 	//	*PluginToHost_Hello
 	//	*PluginToHost_Subscribe
+	//	*PluginToHost_ServerInfo
 	//	*PluginToHost_Actions
 	//	*PluginToHost_Log
 	//	*PluginToHost_EventResult
@@ -1283,7 +1380,7 @@ type PluginToHost struct {
 
 func (x *PluginToHost) Reset() {
 	*x = PluginToHost{}
-	mi := &file_plugin_proto_msgTypes[4]
+	mi := &file_plugin_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1295,7 +1392,7 @@ func (x *PluginToHost) String() string {
 func (*PluginToHost) ProtoMessage() {}
 
 func (x *PluginToHost) ProtoReflect() protoreflect.Message {
-	mi := &file_plugin_proto_msgTypes[4]
+	mi := &file_plugin_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1308,7 +1405,7 @@ func (x *PluginToHost) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PluginToHost.ProtoReflect.Descriptor instead.
 func (*PluginToHost) Descriptor() ([]byte, []int) {
-	return file_plugin_proto_rawDescGZIP(), []int{4}
+	return file_plugin_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *PluginToHost) GetPluginId() string {
@@ -1338,6 +1435,15 @@ func (x *PluginToHost) GetSubscribe() *EventSubscribe {
 	if x != nil {
 		if x, ok := x.Payload.(*PluginToHost_Subscribe); ok {
 			return x.Subscribe
+		}
+	}
+	return nil
+}
+
+func (x *PluginToHost) GetServerInfo() *ServerInformationRequest {
+	if x != nil {
+		if x, ok := x.Payload.(*PluginToHost_ServerInfo); ok {
+			return x.ServerInfo
 		}
 	}
 	return nil
@@ -1382,6 +1488,10 @@ type PluginToHost_Subscribe struct {
 	Subscribe *EventSubscribe `protobuf:"bytes,11,opt,name=subscribe,proto3,oneof"`
 }
 
+type PluginToHost_ServerInfo struct {
+	ServerInfo *ServerInformationRequest `protobuf:"bytes,12,opt,name=server_info,json=serverInfo,proto3,oneof"`
+}
+
 type PluginToHost_Actions struct {
 	Actions *ActionBatch `protobuf:"bytes,20,opt,name=actions,proto3,oneof"`
 }
@@ -1397,6 +1507,8 @@ type PluginToHost_EventResult struct {
 func (*PluginToHost_Hello) isPluginToHost_Payload() {}
 
 func (*PluginToHost_Subscribe) isPluginToHost_Payload() {}
+
+func (*PluginToHost_ServerInfo) isPluginToHost_Payload() {}
 
 func (*PluginToHost_Actions) isPluginToHost_Payload() {}
 
@@ -1417,7 +1529,7 @@ type PluginHello struct {
 
 func (x *PluginHello) Reset() {
 	*x = PluginHello{}
-	mi := &file_plugin_proto_msgTypes[5]
+	mi := &file_plugin_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1429,7 +1541,7 @@ func (x *PluginHello) String() string {
 func (*PluginHello) ProtoMessage() {}
 
 func (x *PluginHello) ProtoReflect() protoreflect.Message {
-	mi := &file_plugin_proto_msgTypes[5]
+	mi := &file_plugin_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1442,7 +1554,7 @@ func (x *PluginHello) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PluginHello.ProtoReflect.Descriptor instead.
 func (*PluginHello) Descriptor() ([]byte, []int) {
-	return file_plugin_proto_rawDescGZIP(), []int{5}
+	return file_plugin_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *PluginHello) GetName() string {
@@ -1490,7 +1602,7 @@ type LogMessage struct {
 
 func (x *LogMessage) Reset() {
 	*x = LogMessage{}
-	mi := &file_plugin_proto_msgTypes[6]
+	mi := &file_plugin_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1502,7 +1614,7 @@ func (x *LogMessage) String() string {
 func (*LogMessage) ProtoMessage() {}
 
 func (x *LogMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_plugin_proto_msgTypes[6]
+	mi := &file_plugin_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1515,7 +1627,7 @@ func (x *LogMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LogMessage.ProtoReflect.Descriptor instead.
 func (*LogMessage) Descriptor() ([]byte, []int) {
-	return file_plugin_proto_rawDescGZIP(), []int{6}
+	return file_plugin_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *LogMessage) GetLevel() string {
@@ -1541,7 +1653,7 @@ type EventSubscribe struct {
 
 func (x *EventSubscribe) Reset() {
 	*x = EventSubscribe{}
-	mi := &file_plugin_proto_msgTypes[7]
+	mi := &file_plugin_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1553,7 +1665,7 @@ func (x *EventSubscribe) String() string {
 func (*EventSubscribe) ProtoMessage() {}
 
 func (x *EventSubscribe) ProtoReflect() protoreflect.Message {
-	mi := &file_plugin_proto_msgTypes[7]
+	mi := &file_plugin_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1566,7 +1678,7 @@ func (x *EventSubscribe) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EventSubscribe.ProtoReflect.Descriptor instead.
 func (*EventSubscribe) Descriptor() ([]byte, []int) {
-	return file_plugin_proto_rawDescGZIP(), []int{7}
+	return file_plugin_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *EventSubscribe) GetEvents() []EventType {
@@ -1580,14 +1692,19 @@ var File_plugin_proto protoreflect.FileDescriptor
 
 const file_plugin_proto_rawDesc = "" +
 	"\n" +
-	"\fplugin.proto\x12\tdf.plugin\x1a\x13player_events.proto\x1a\x12world_events.proto\x1a\rcommand.proto\x1a\ractions.proto\x1a\x0fmutations.proto\x1a\fcommon.proto\"\xcd\x01\n" +
+	"\fplugin.proto\x12\tdf.plugin\x1a\x13player_events.proto\x1a\x12world_events.proto\x1a\rcommand.proto\x1a\ractions.proto\x1a\x0fmutations.proto\x1a\fcommon.proto\"\x96\x02\n" +
 	"\fHostToPlugin\x12\x1b\n" +
 	"\tplugin_id\x18\x01 \x01(\tR\bpluginId\x12,\n" +
 	"\x05hello\x18\n" +
 	" \x01(\v2\x14.df.plugin.HostHelloH\x00R\x05hello\x125\n" +
-	"\bshutdown\x18\v \x01(\v2\x17.df.plugin.HostShutdownH\x00R\bshutdown\x120\n" +
+	"\bshutdown\x18\v \x01(\v2\x17.df.plugin.HostShutdownH\x00R\bshutdown\x12G\n" +
+	"\vserver_info\x18\f \x01(\v2$.df.plugin.ServerInformationResponseH\x00R\n" +
+	"serverInfo\x120\n" +
 	"\x05event\x18\x14 \x01(\v2\x18.df.plugin.EventEnvelopeH\x00R\x05eventB\t\n" +
-	"\apayload\",\n" +
+	"\apayload\"\x1a\n" +
+	"\x18ServerInformationRequest\"5\n" +
+	"\x19ServerInformationResponse\x12\x18\n" +
+	"\aplugins\x18\x01 \x03(\tR\aplugins\",\n" +
 	"\tHostHello\x12\x1f\n" +
 	"\vapi_version\x18\x01 \x01(\tR\n" +
 	"apiVersion\"&\n" +
@@ -1656,12 +1773,14 @@ const file_plugin_proto_rawDesc = "" +
 	"\x0fworld_explosion\x18P \x01(\v2\x1e.df.plugin.WorldExplosionEventH\x00R\x0eworldExplosion\x12=\n" +
 	"\vworld_close\x18Q \x01(\v2\x1a.df.plugin.WorldCloseEventH\x00R\n" +
 	"worldCloseB\t\n" +
-	"\apayload\"\xbd\x02\n" +
+	"\apayload\"\x85\x03\n" +
 	"\fPluginToHost\x12\x1b\n" +
 	"\tplugin_id\x18\x01 \x01(\tR\bpluginId\x12.\n" +
 	"\x05hello\x18\n" +
 	" \x01(\v2\x16.df.plugin.PluginHelloH\x00R\x05hello\x129\n" +
-	"\tsubscribe\x18\v \x01(\v2\x19.df.plugin.EventSubscribeH\x00R\tsubscribe\x122\n" +
+	"\tsubscribe\x18\v \x01(\v2\x19.df.plugin.EventSubscribeH\x00R\tsubscribe\x12F\n" +
+	"\vserver_info\x18\f \x01(\v2#.df.plugin.ServerInformationRequestH\x00R\n" +
+	"serverInfo\x122\n" +
 	"\aactions\x18\x14 \x01(\v2\x16.df.plugin.ActionBatchH\x00R\aactions\x12)\n" +
 	"\x03log\x18\x1e \x01(\v2\x15.df.plugin.LogMessageH\x00R\x03log\x12;\n" +
 	"\fevent_result\x18( \x01(\v2\x16.df.plugin.EventResultH\x00R\veventResultB\t\n" +
@@ -1750,140 +1869,144 @@ func file_plugin_proto_rawDescGZIP() []byte {
 }
 
 var file_plugin_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_plugin_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_plugin_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_plugin_proto_goTypes = []any{
 	(EventType)(0),                     // 0: df.plugin.EventType
 	(*HostToPlugin)(nil),               // 1: df.plugin.HostToPlugin
-	(*HostHello)(nil),                  // 2: df.plugin.HostHello
-	(*HostShutdown)(nil),               // 3: df.plugin.HostShutdown
-	(*EventEnvelope)(nil),              // 4: df.plugin.EventEnvelope
-	(*PluginToHost)(nil),               // 5: df.plugin.PluginToHost
-	(*PluginHello)(nil),                // 6: df.plugin.PluginHello
-	(*LogMessage)(nil),                 // 7: df.plugin.LogMessage
-	(*EventSubscribe)(nil),             // 8: df.plugin.EventSubscribe
-	(*PlayerJoinEvent)(nil),            // 9: df.plugin.PlayerJoinEvent
-	(*PlayerQuitEvent)(nil),            // 10: df.plugin.PlayerQuitEvent
-	(*PlayerMoveEvent)(nil),            // 11: df.plugin.PlayerMoveEvent
-	(*PlayerJumpEvent)(nil),            // 12: df.plugin.PlayerJumpEvent
-	(*PlayerTeleportEvent)(nil),        // 13: df.plugin.PlayerTeleportEvent
-	(*PlayerChangeWorldEvent)(nil),     // 14: df.plugin.PlayerChangeWorldEvent
-	(*PlayerToggleSprintEvent)(nil),    // 15: df.plugin.PlayerToggleSprintEvent
-	(*PlayerToggleSneakEvent)(nil),     // 16: df.plugin.PlayerToggleSneakEvent
-	(*ChatEvent)(nil),                  // 17: df.plugin.ChatEvent
-	(*PlayerFoodLossEvent)(nil),        // 18: df.plugin.PlayerFoodLossEvent
-	(*PlayerHealEvent)(nil),            // 19: df.plugin.PlayerHealEvent
-	(*PlayerHurtEvent)(nil),            // 20: df.plugin.PlayerHurtEvent
-	(*PlayerDeathEvent)(nil),           // 21: df.plugin.PlayerDeathEvent
-	(*PlayerRespawnEvent)(nil),         // 22: df.plugin.PlayerRespawnEvent
-	(*PlayerSkinChangeEvent)(nil),      // 23: df.plugin.PlayerSkinChangeEvent
-	(*PlayerFireExtinguishEvent)(nil),  // 24: df.plugin.PlayerFireExtinguishEvent
-	(*PlayerStartBreakEvent)(nil),      // 25: df.plugin.PlayerStartBreakEvent
-	(*BlockBreakEvent)(nil),            // 26: df.plugin.BlockBreakEvent
-	(*PlayerBlockPlaceEvent)(nil),      // 27: df.plugin.PlayerBlockPlaceEvent
-	(*PlayerBlockPickEvent)(nil),       // 28: df.plugin.PlayerBlockPickEvent
-	(*PlayerItemUseEvent)(nil),         // 29: df.plugin.PlayerItemUseEvent
-	(*PlayerItemUseOnBlockEvent)(nil),  // 30: df.plugin.PlayerItemUseOnBlockEvent
-	(*PlayerItemUseOnEntityEvent)(nil), // 31: df.plugin.PlayerItemUseOnEntityEvent
-	(*PlayerItemReleaseEvent)(nil),     // 32: df.plugin.PlayerItemReleaseEvent
-	(*PlayerItemConsumeEvent)(nil),     // 33: df.plugin.PlayerItemConsumeEvent
-	(*PlayerAttackEntityEvent)(nil),    // 34: df.plugin.PlayerAttackEntityEvent
-	(*PlayerExperienceGainEvent)(nil),  // 35: df.plugin.PlayerExperienceGainEvent
-	(*PlayerPunchAirEvent)(nil),        // 36: df.plugin.PlayerPunchAirEvent
-	(*PlayerSignEditEvent)(nil),        // 37: df.plugin.PlayerSignEditEvent
-	(*PlayerLecternPageTurnEvent)(nil), // 38: df.plugin.PlayerLecternPageTurnEvent
-	(*PlayerItemDamageEvent)(nil),      // 39: df.plugin.PlayerItemDamageEvent
-	(*PlayerItemPickupEvent)(nil),      // 40: df.plugin.PlayerItemPickupEvent
-	(*PlayerHeldSlotChangeEvent)(nil),  // 41: df.plugin.PlayerHeldSlotChangeEvent
-	(*PlayerItemDropEvent)(nil),        // 42: df.plugin.PlayerItemDropEvent
-	(*PlayerTransferEvent)(nil),        // 43: df.plugin.PlayerTransferEvent
-	(*CommandEvent)(nil),               // 44: df.plugin.CommandEvent
-	(*PlayerDiagnosticsEvent)(nil),     // 45: df.plugin.PlayerDiagnosticsEvent
-	(*WorldLiquidFlowEvent)(nil),       // 46: df.plugin.WorldLiquidFlowEvent
-	(*WorldLiquidDecayEvent)(nil),      // 47: df.plugin.WorldLiquidDecayEvent
-	(*WorldLiquidHardenEvent)(nil),     // 48: df.plugin.WorldLiquidHardenEvent
-	(*WorldSoundEvent)(nil),            // 49: df.plugin.WorldSoundEvent
-	(*WorldFireSpreadEvent)(nil),       // 50: df.plugin.WorldFireSpreadEvent
-	(*WorldBlockBurnEvent)(nil),        // 51: df.plugin.WorldBlockBurnEvent
-	(*WorldCropTrampleEvent)(nil),      // 52: df.plugin.WorldCropTrampleEvent
-	(*WorldLeavesDecayEvent)(nil),      // 53: df.plugin.WorldLeavesDecayEvent
-	(*WorldEntitySpawnEvent)(nil),      // 54: df.plugin.WorldEntitySpawnEvent
-	(*WorldEntityDespawnEvent)(nil),    // 55: df.plugin.WorldEntityDespawnEvent
-	(*WorldExplosionEvent)(nil),        // 56: df.plugin.WorldExplosionEvent
-	(*WorldCloseEvent)(nil),            // 57: df.plugin.WorldCloseEvent
-	(*ActionBatch)(nil),                // 58: df.plugin.ActionBatch
-	(*EventResult)(nil),                // 59: df.plugin.EventResult
-	(*CommandSpec)(nil),                // 60: df.plugin.CommandSpec
-	(*CustomItemDefinition)(nil),       // 61: df.plugin.CustomItemDefinition
+	(*ServerInformationRequest)(nil),   // 2: df.plugin.ServerInformationRequest
+	(*ServerInformationResponse)(nil),  // 3: df.plugin.ServerInformationResponse
+	(*HostHello)(nil),                  // 4: df.plugin.HostHello
+	(*HostShutdown)(nil),               // 5: df.plugin.HostShutdown
+	(*EventEnvelope)(nil),              // 6: df.plugin.EventEnvelope
+	(*PluginToHost)(nil),               // 7: df.plugin.PluginToHost
+	(*PluginHello)(nil),                // 8: df.plugin.PluginHello
+	(*LogMessage)(nil),                 // 9: df.plugin.LogMessage
+	(*EventSubscribe)(nil),             // 10: df.plugin.EventSubscribe
+	(*PlayerJoinEvent)(nil),            // 11: df.plugin.PlayerJoinEvent
+	(*PlayerQuitEvent)(nil),            // 12: df.plugin.PlayerQuitEvent
+	(*PlayerMoveEvent)(nil),            // 13: df.plugin.PlayerMoveEvent
+	(*PlayerJumpEvent)(nil),            // 14: df.plugin.PlayerJumpEvent
+	(*PlayerTeleportEvent)(nil),        // 15: df.plugin.PlayerTeleportEvent
+	(*PlayerChangeWorldEvent)(nil),     // 16: df.plugin.PlayerChangeWorldEvent
+	(*PlayerToggleSprintEvent)(nil),    // 17: df.plugin.PlayerToggleSprintEvent
+	(*PlayerToggleSneakEvent)(nil),     // 18: df.plugin.PlayerToggleSneakEvent
+	(*ChatEvent)(nil),                  // 19: df.plugin.ChatEvent
+	(*PlayerFoodLossEvent)(nil),        // 20: df.plugin.PlayerFoodLossEvent
+	(*PlayerHealEvent)(nil),            // 21: df.plugin.PlayerHealEvent
+	(*PlayerHurtEvent)(nil),            // 22: df.plugin.PlayerHurtEvent
+	(*PlayerDeathEvent)(nil),           // 23: df.plugin.PlayerDeathEvent
+	(*PlayerRespawnEvent)(nil),         // 24: df.plugin.PlayerRespawnEvent
+	(*PlayerSkinChangeEvent)(nil),      // 25: df.plugin.PlayerSkinChangeEvent
+	(*PlayerFireExtinguishEvent)(nil),  // 26: df.plugin.PlayerFireExtinguishEvent
+	(*PlayerStartBreakEvent)(nil),      // 27: df.plugin.PlayerStartBreakEvent
+	(*BlockBreakEvent)(nil),            // 28: df.plugin.BlockBreakEvent
+	(*PlayerBlockPlaceEvent)(nil),      // 29: df.plugin.PlayerBlockPlaceEvent
+	(*PlayerBlockPickEvent)(nil),       // 30: df.plugin.PlayerBlockPickEvent
+	(*PlayerItemUseEvent)(nil),         // 31: df.plugin.PlayerItemUseEvent
+	(*PlayerItemUseOnBlockEvent)(nil),  // 32: df.plugin.PlayerItemUseOnBlockEvent
+	(*PlayerItemUseOnEntityEvent)(nil), // 33: df.plugin.PlayerItemUseOnEntityEvent
+	(*PlayerItemReleaseEvent)(nil),     // 34: df.plugin.PlayerItemReleaseEvent
+	(*PlayerItemConsumeEvent)(nil),     // 35: df.plugin.PlayerItemConsumeEvent
+	(*PlayerAttackEntityEvent)(nil),    // 36: df.plugin.PlayerAttackEntityEvent
+	(*PlayerExperienceGainEvent)(nil),  // 37: df.plugin.PlayerExperienceGainEvent
+	(*PlayerPunchAirEvent)(nil),        // 38: df.plugin.PlayerPunchAirEvent
+	(*PlayerSignEditEvent)(nil),        // 39: df.plugin.PlayerSignEditEvent
+	(*PlayerLecternPageTurnEvent)(nil), // 40: df.plugin.PlayerLecternPageTurnEvent
+	(*PlayerItemDamageEvent)(nil),      // 41: df.plugin.PlayerItemDamageEvent
+	(*PlayerItemPickupEvent)(nil),      // 42: df.plugin.PlayerItemPickupEvent
+	(*PlayerHeldSlotChangeEvent)(nil),  // 43: df.plugin.PlayerHeldSlotChangeEvent
+	(*PlayerItemDropEvent)(nil),        // 44: df.plugin.PlayerItemDropEvent
+	(*PlayerTransferEvent)(nil),        // 45: df.plugin.PlayerTransferEvent
+	(*CommandEvent)(nil),               // 46: df.plugin.CommandEvent
+	(*PlayerDiagnosticsEvent)(nil),     // 47: df.plugin.PlayerDiagnosticsEvent
+	(*WorldLiquidFlowEvent)(nil),       // 48: df.plugin.WorldLiquidFlowEvent
+	(*WorldLiquidDecayEvent)(nil),      // 49: df.plugin.WorldLiquidDecayEvent
+	(*WorldLiquidHardenEvent)(nil),     // 50: df.plugin.WorldLiquidHardenEvent
+	(*WorldSoundEvent)(nil),            // 51: df.plugin.WorldSoundEvent
+	(*WorldFireSpreadEvent)(nil),       // 52: df.plugin.WorldFireSpreadEvent
+	(*WorldBlockBurnEvent)(nil),        // 53: df.plugin.WorldBlockBurnEvent
+	(*WorldCropTrampleEvent)(nil),      // 54: df.plugin.WorldCropTrampleEvent
+	(*WorldLeavesDecayEvent)(nil),      // 55: df.plugin.WorldLeavesDecayEvent
+	(*WorldEntitySpawnEvent)(nil),      // 56: df.plugin.WorldEntitySpawnEvent
+	(*WorldEntityDespawnEvent)(nil),    // 57: df.plugin.WorldEntityDespawnEvent
+	(*WorldExplosionEvent)(nil),        // 58: df.plugin.WorldExplosionEvent
+	(*WorldCloseEvent)(nil),            // 59: df.plugin.WorldCloseEvent
+	(*ActionBatch)(nil),                // 60: df.plugin.ActionBatch
+	(*EventResult)(nil),                // 61: df.plugin.EventResult
+	(*CommandSpec)(nil),                // 62: df.plugin.CommandSpec
+	(*CustomItemDefinition)(nil),       // 63: df.plugin.CustomItemDefinition
 }
 var file_plugin_proto_depIdxs = []int32{
-	2,  // 0: df.plugin.HostToPlugin.hello:type_name -> df.plugin.HostHello
-	3,  // 1: df.plugin.HostToPlugin.shutdown:type_name -> df.plugin.HostShutdown
-	4,  // 2: df.plugin.HostToPlugin.event:type_name -> df.plugin.EventEnvelope
-	0,  // 3: df.plugin.EventEnvelope.type:type_name -> df.plugin.EventType
-	9,  // 4: df.plugin.EventEnvelope.player_join:type_name -> df.plugin.PlayerJoinEvent
-	10, // 5: df.plugin.EventEnvelope.player_quit:type_name -> df.plugin.PlayerQuitEvent
-	11, // 6: df.plugin.EventEnvelope.player_move:type_name -> df.plugin.PlayerMoveEvent
-	12, // 7: df.plugin.EventEnvelope.player_jump:type_name -> df.plugin.PlayerJumpEvent
-	13, // 8: df.plugin.EventEnvelope.player_teleport:type_name -> df.plugin.PlayerTeleportEvent
-	14, // 9: df.plugin.EventEnvelope.player_change_world:type_name -> df.plugin.PlayerChangeWorldEvent
-	15, // 10: df.plugin.EventEnvelope.player_toggle_sprint:type_name -> df.plugin.PlayerToggleSprintEvent
-	16, // 11: df.plugin.EventEnvelope.player_toggle_sneak:type_name -> df.plugin.PlayerToggleSneakEvent
-	17, // 12: df.plugin.EventEnvelope.chat:type_name -> df.plugin.ChatEvent
-	18, // 13: df.plugin.EventEnvelope.player_food_loss:type_name -> df.plugin.PlayerFoodLossEvent
-	19, // 14: df.plugin.EventEnvelope.player_heal:type_name -> df.plugin.PlayerHealEvent
-	20, // 15: df.plugin.EventEnvelope.player_hurt:type_name -> df.plugin.PlayerHurtEvent
-	21, // 16: df.plugin.EventEnvelope.player_death:type_name -> df.plugin.PlayerDeathEvent
-	22, // 17: df.plugin.EventEnvelope.player_respawn:type_name -> df.plugin.PlayerRespawnEvent
-	23, // 18: df.plugin.EventEnvelope.player_skin_change:type_name -> df.plugin.PlayerSkinChangeEvent
-	24, // 19: df.plugin.EventEnvelope.player_fire_extinguish:type_name -> df.plugin.PlayerFireExtinguishEvent
-	25, // 20: df.plugin.EventEnvelope.player_start_break:type_name -> df.plugin.PlayerStartBreakEvent
-	26, // 21: df.plugin.EventEnvelope.block_break:type_name -> df.plugin.BlockBreakEvent
-	27, // 22: df.plugin.EventEnvelope.player_block_place:type_name -> df.plugin.PlayerBlockPlaceEvent
-	28, // 23: df.plugin.EventEnvelope.player_block_pick:type_name -> df.plugin.PlayerBlockPickEvent
-	29, // 24: df.plugin.EventEnvelope.player_item_use:type_name -> df.plugin.PlayerItemUseEvent
-	30, // 25: df.plugin.EventEnvelope.player_item_use_on_block:type_name -> df.plugin.PlayerItemUseOnBlockEvent
-	31, // 26: df.plugin.EventEnvelope.player_item_use_on_entity:type_name -> df.plugin.PlayerItemUseOnEntityEvent
-	32, // 27: df.plugin.EventEnvelope.player_item_release:type_name -> df.plugin.PlayerItemReleaseEvent
-	33, // 28: df.plugin.EventEnvelope.player_item_consume:type_name -> df.plugin.PlayerItemConsumeEvent
-	34, // 29: df.plugin.EventEnvelope.player_attack_entity:type_name -> df.plugin.PlayerAttackEntityEvent
-	35, // 30: df.plugin.EventEnvelope.player_experience_gain:type_name -> df.plugin.PlayerExperienceGainEvent
-	36, // 31: df.plugin.EventEnvelope.player_punch_air:type_name -> df.plugin.PlayerPunchAirEvent
-	37, // 32: df.plugin.EventEnvelope.player_sign_edit:type_name -> df.plugin.PlayerSignEditEvent
-	38, // 33: df.plugin.EventEnvelope.player_lectern_page_turn:type_name -> df.plugin.PlayerLecternPageTurnEvent
-	39, // 34: df.plugin.EventEnvelope.player_item_damage:type_name -> df.plugin.PlayerItemDamageEvent
-	40, // 35: df.plugin.EventEnvelope.player_item_pickup:type_name -> df.plugin.PlayerItemPickupEvent
-	41, // 36: df.plugin.EventEnvelope.player_held_slot_change:type_name -> df.plugin.PlayerHeldSlotChangeEvent
-	42, // 37: df.plugin.EventEnvelope.player_item_drop:type_name -> df.plugin.PlayerItemDropEvent
-	43, // 38: df.plugin.EventEnvelope.player_transfer:type_name -> df.plugin.PlayerTransferEvent
-	44, // 39: df.plugin.EventEnvelope.command:type_name -> df.plugin.CommandEvent
-	45, // 40: df.plugin.EventEnvelope.player_diagnostics:type_name -> df.plugin.PlayerDiagnosticsEvent
-	46, // 41: df.plugin.EventEnvelope.world_liquid_flow:type_name -> df.plugin.WorldLiquidFlowEvent
-	47, // 42: df.plugin.EventEnvelope.world_liquid_decay:type_name -> df.plugin.WorldLiquidDecayEvent
-	48, // 43: df.plugin.EventEnvelope.world_liquid_harden:type_name -> df.plugin.WorldLiquidHardenEvent
-	49, // 44: df.plugin.EventEnvelope.world_sound:type_name -> df.plugin.WorldSoundEvent
-	50, // 45: df.plugin.EventEnvelope.world_fire_spread:type_name -> df.plugin.WorldFireSpreadEvent
-	51, // 46: df.plugin.EventEnvelope.world_block_burn:type_name -> df.plugin.WorldBlockBurnEvent
-	52, // 47: df.plugin.EventEnvelope.world_crop_trample:type_name -> df.plugin.WorldCropTrampleEvent
-	53, // 48: df.plugin.EventEnvelope.world_leaves_decay:type_name -> df.plugin.WorldLeavesDecayEvent
-	54, // 49: df.plugin.EventEnvelope.world_entity_spawn:type_name -> df.plugin.WorldEntitySpawnEvent
-	55, // 50: df.plugin.EventEnvelope.world_entity_despawn:type_name -> df.plugin.WorldEntityDespawnEvent
-	56, // 51: df.plugin.EventEnvelope.world_explosion:type_name -> df.plugin.WorldExplosionEvent
-	57, // 52: df.plugin.EventEnvelope.world_close:type_name -> df.plugin.WorldCloseEvent
-	6,  // 53: df.plugin.PluginToHost.hello:type_name -> df.plugin.PluginHello
-	8,  // 54: df.plugin.PluginToHost.subscribe:type_name -> df.plugin.EventSubscribe
-	58, // 55: df.plugin.PluginToHost.actions:type_name -> df.plugin.ActionBatch
-	7,  // 56: df.plugin.PluginToHost.log:type_name -> df.plugin.LogMessage
-	59, // 57: df.plugin.PluginToHost.event_result:type_name -> df.plugin.EventResult
-	60, // 58: df.plugin.PluginHello.commands:type_name -> df.plugin.CommandSpec
-	61, // 59: df.plugin.PluginHello.custom_items:type_name -> df.plugin.CustomItemDefinition
-	0,  // 60: df.plugin.EventSubscribe.events:type_name -> df.plugin.EventType
-	5,  // 61: df.plugin.Plugin.EventStream:input_type -> df.plugin.PluginToHost
-	1,  // 62: df.plugin.Plugin.EventStream:output_type -> df.plugin.HostToPlugin
-	62, // [62:63] is the sub-list for method output_type
-	61, // [61:62] is the sub-list for method input_type
-	61, // [61:61] is the sub-list for extension type_name
-	61, // [61:61] is the sub-list for extension extendee
-	0,  // [0:61] is the sub-list for field type_name
+	4,  // 0: df.plugin.HostToPlugin.hello:type_name -> df.plugin.HostHello
+	5,  // 1: df.plugin.HostToPlugin.shutdown:type_name -> df.plugin.HostShutdown
+	3,  // 2: df.plugin.HostToPlugin.server_info:type_name -> df.plugin.ServerInformationResponse
+	6,  // 3: df.plugin.HostToPlugin.event:type_name -> df.plugin.EventEnvelope
+	0,  // 4: df.plugin.EventEnvelope.type:type_name -> df.plugin.EventType
+	11, // 5: df.plugin.EventEnvelope.player_join:type_name -> df.plugin.PlayerJoinEvent
+	12, // 6: df.plugin.EventEnvelope.player_quit:type_name -> df.plugin.PlayerQuitEvent
+	13, // 7: df.plugin.EventEnvelope.player_move:type_name -> df.plugin.PlayerMoveEvent
+	14, // 8: df.plugin.EventEnvelope.player_jump:type_name -> df.plugin.PlayerJumpEvent
+	15, // 9: df.plugin.EventEnvelope.player_teleport:type_name -> df.plugin.PlayerTeleportEvent
+	16, // 10: df.plugin.EventEnvelope.player_change_world:type_name -> df.plugin.PlayerChangeWorldEvent
+	17, // 11: df.plugin.EventEnvelope.player_toggle_sprint:type_name -> df.plugin.PlayerToggleSprintEvent
+	18, // 12: df.plugin.EventEnvelope.player_toggle_sneak:type_name -> df.plugin.PlayerToggleSneakEvent
+	19, // 13: df.plugin.EventEnvelope.chat:type_name -> df.plugin.ChatEvent
+	20, // 14: df.plugin.EventEnvelope.player_food_loss:type_name -> df.plugin.PlayerFoodLossEvent
+	21, // 15: df.plugin.EventEnvelope.player_heal:type_name -> df.plugin.PlayerHealEvent
+	22, // 16: df.plugin.EventEnvelope.player_hurt:type_name -> df.plugin.PlayerHurtEvent
+	23, // 17: df.plugin.EventEnvelope.player_death:type_name -> df.plugin.PlayerDeathEvent
+	24, // 18: df.plugin.EventEnvelope.player_respawn:type_name -> df.plugin.PlayerRespawnEvent
+	25, // 19: df.plugin.EventEnvelope.player_skin_change:type_name -> df.plugin.PlayerSkinChangeEvent
+	26, // 20: df.plugin.EventEnvelope.player_fire_extinguish:type_name -> df.plugin.PlayerFireExtinguishEvent
+	27, // 21: df.plugin.EventEnvelope.player_start_break:type_name -> df.plugin.PlayerStartBreakEvent
+	28, // 22: df.plugin.EventEnvelope.block_break:type_name -> df.plugin.BlockBreakEvent
+	29, // 23: df.plugin.EventEnvelope.player_block_place:type_name -> df.plugin.PlayerBlockPlaceEvent
+	30, // 24: df.plugin.EventEnvelope.player_block_pick:type_name -> df.plugin.PlayerBlockPickEvent
+	31, // 25: df.plugin.EventEnvelope.player_item_use:type_name -> df.plugin.PlayerItemUseEvent
+	32, // 26: df.plugin.EventEnvelope.player_item_use_on_block:type_name -> df.plugin.PlayerItemUseOnBlockEvent
+	33, // 27: df.plugin.EventEnvelope.player_item_use_on_entity:type_name -> df.plugin.PlayerItemUseOnEntityEvent
+	34, // 28: df.plugin.EventEnvelope.player_item_release:type_name -> df.plugin.PlayerItemReleaseEvent
+	35, // 29: df.plugin.EventEnvelope.player_item_consume:type_name -> df.plugin.PlayerItemConsumeEvent
+	36, // 30: df.plugin.EventEnvelope.player_attack_entity:type_name -> df.plugin.PlayerAttackEntityEvent
+	37, // 31: df.plugin.EventEnvelope.player_experience_gain:type_name -> df.plugin.PlayerExperienceGainEvent
+	38, // 32: df.plugin.EventEnvelope.player_punch_air:type_name -> df.plugin.PlayerPunchAirEvent
+	39, // 33: df.plugin.EventEnvelope.player_sign_edit:type_name -> df.plugin.PlayerSignEditEvent
+	40, // 34: df.plugin.EventEnvelope.player_lectern_page_turn:type_name -> df.plugin.PlayerLecternPageTurnEvent
+	41, // 35: df.plugin.EventEnvelope.player_item_damage:type_name -> df.plugin.PlayerItemDamageEvent
+	42, // 36: df.plugin.EventEnvelope.player_item_pickup:type_name -> df.plugin.PlayerItemPickupEvent
+	43, // 37: df.plugin.EventEnvelope.player_held_slot_change:type_name -> df.plugin.PlayerHeldSlotChangeEvent
+	44, // 38: df.plugin.EventEnvelope.player_item_drop:type_name -> df.plugin.PlayerItemDropEvent
+	45, // 39: df.plugin.EventEnvelope.player_transfer:type_name -> df.plugin.PlayerTransferEvent
+	46, // 40: df.plugin.EventEnvelope.command:type_name -> df.plugin.CommandEvent
+	47, // 41: df.plugin.EventEnvelope.player_diagnostics:type_name -> df.plugin.PlayerDiagnosticsEvent
+	48, // 42: df.plugin.EventEnvelope.world_liquid_flow:type_name -> df.plugin.WorldLiquidFlowEvent
+	49, // 43: df.plugin.EventEnvelope.world_liquid_decay:type_name -> df.plugin.WorldLiquidDecayEvent
+	50, // 44: df.plugin.EventEnvelope.world_liquid_harden:type_name -> df.plugin.WorldLiquidHardenEvent
+	51, // 45: df.plugin.EventEnvelope.world_sound:type_name -> df.plugin.WorldSoundEvent
+	52, // 46: df.plugin.EventEnvelope.world_fire_spread:type_name -> df.plugin.WorldFireSpreadEvent
+	53, // 47: df.plugin.EventEnvelope.world_block_burn:type_name -> df.plugin.WorldBlockBurnEvent
+	54, // 48: df.plugin.EventEnvelope.world_crop_trample:type_name -> df.plugin.WorldCropTrampleEvent
+	55, // 49: df.plugin.EventEnvelope.world_leaves_decay:type_name -> df.plugin.WorldLeavesDecayEvent
+	56, // 50: df.plugin.EventEnvelope.world_entity_spawn:type_name -> df.plugin.WorldEntitySpawnEvent
+	57, // 51: df.plugin.EventEnvelope.world_entity_despawn:type_name -> df.plugin.WorldEntityDespawnEvent
+	58, // 52: df.plugin.EventEnvelope.world_explosion:type_name -> df.plugin.WorldExplosionEvent
+	59, // 53: df.plugin.EventEnvelope.world_close:type_name -> df.plugin.WorldCloseEvent
+	8,  // 54: df.plugin.PluginToHost.hello:type_name -> df.plugin.PluginHello
+	10, // 55: df.plugin.PluginToHost.subscribe:type_name -> df.plugin.EventSubscribe
+	2,  // 56: df.plugin.PluginToHost.server_info:type_name -> df.plugin.ServerInformationRequest
+	60, // 57: df.plugin.PluginToHost.actions:type_name -> df.plugin.ActionBatch
+	9,  // 58: df.plugin.PluginToHost.log:type_name -> df.plugin.LogMessage
+	61, // 59: df.plugin.PluginToHost.event_result:type_name -> df.plugin.EventResult
+	62, // 60: df.plugin.PluginHello.commands:type_name -> df.plugin.CommandSpec
+	63, // 61: df.plugin.PluginHello.custom_items:type_name -> df.plugin.CustomItemDefinition
+	0,  // 62: df.plugin.EventSubscribe.events:type_name -> df.plugin.EventType
+	7,  // 63: df.plugin.Plugin.EventStream:input_type -> df.plugin.PluginToHost
+	1,  // 64: df.plugin.Plugin.EventStream:output_type -> df.plugin.HostToPlugin
+	64, // [64:65] is the sub-list for method output_type
+	63, // [63:64] is the sub-list for method input_type
+	63, // [63:63] is the sub-list for extension type_name
+	63, // [63:63] is the sub-list for extension extendee
+	0,  // [0:63] is the sub-list for field type_name
 }
 
 func init() { file_plugin_proto_init() }
@@ -1900,9 +2023,10 @@ func file_plugin_proto_init() {
 	file_plugin_proto_msgTypes[0].OneofWrappers = []any{
 		(*HostToPlugin_Hello)(nil),
 		(*HostToPlugin_Shutdown)(nil),
+		(*HostToPlugin_ServerInfo)(nil),
 		(*HostToPlugin_Event)(nil),
 	}
-	file_plugin_proto_msgTypes[3].OneofWrappers = []any{
+	file_plugin_proto_msgTypes[5].OneofWrappers = []any{
 		(*EventEnvelope_PlayerJoin)(nil),
 		(*EventEnvelope_PlayerQuit)(nil),
 		(*EventEnvelope_PlayerMove)(nil),
@@ -1953,9 +2077,10 @@ func file_plugin_proto_init() {
 		(*EventEnvelope_WorldExplosion)(nil),
 		(*EventEnvelope_WorldClose)(nil),
 	}
-	file_plugin_proto_msgTypes[4].OneofWrappers = []any{
+	file_plugin_proto_msgTypes[6].OneofWrappers = []any{
 		(*PluginToHost_Hello)(nil),
 		(*PluginToHost_Subscribe)(nil),
+		(*PluginToHost_ServerInfo)(nil),
 		(*PluginToHost_Actions)(nil),
 		(*PluginToHost_Log)(nil),
 		(*PluginToHost_EventResult)(nil),
@@ -1966,7 +2091,7 @@ func file_plugin_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_plugin_proto_rawDesc), len(file_plugin_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   8,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

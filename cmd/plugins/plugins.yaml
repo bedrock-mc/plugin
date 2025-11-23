@@ -50,7 +50,7 @@ plugins:
     work_dir:
       git:
         enabled: true
-        persistent: false # persistent can be set to true if you don't
+        #persistent: true # persistent can be set to true if you don't
         # want the plugin to be cloned at every startup
-        version: tags/v0.0.1 # can also specify commit hashes
+        #version: tags/v0.0.1 # can also specify commit hashes
       path: https://github.com/secmc/plugin-go
