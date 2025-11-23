@@ -12,7 +12,7 @@ import (
 	"github.com/df-mc/dragonfly/server/session"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/go-gl/mathgl/mgl64"
-	pb "github.com/secmc/plugin/proto/generated"
+	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 type cancelContext interface {
@@ -272,4 +272,3 @@ func worldFromContext(ctx *world.Context) *world.World {
 	}
 	return tx.World()
 }
-

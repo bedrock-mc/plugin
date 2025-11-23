@@ -5,8 +5,13 @@ managed:
     - file_option: go_package_prefix
       value: github.com/secmc/plugin/proto/generated
 plugins:
+  # Go
   - local: protoc-gen-go
-    out: generated
+    out: generated/go
+    opt:
+      - paths=source_relative
+  - local: protoc-gen-go-grpc
+    out: generated/go
     opt:
       - paths=source_relative
   # C++

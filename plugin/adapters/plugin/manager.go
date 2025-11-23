@@ -22,7 +22,7 @@ import (
 	"github.com/secmc/plugin/plugin/adapters/grpc"
 	"github.com/secmc/plugin/plugin/config"
 	"github.com/secmc/plugin/plugin/ports"
-	pb "github.com/secmc/plugin/proto/generated"
+	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 type Manager struct {

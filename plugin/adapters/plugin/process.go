@@ -18,7 +18,7 @@ import (
 
 	"github.com/secmc/plugin/plugin/adapters/grpc"
 	"github.com/secmc/plugin/plugin/config"
-	pb "github.com/secmc/plugin/proto/generated"
+	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 const (
