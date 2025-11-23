@@ -29,6 +29,7 @@ class HostToPlugin extends \Google\Protobuf\Internal\Message
      *     @type string $plugin_id
      *     @type \Df\Plugin\HostHello $hello
      *     @type \Df\Plugin\HostShutdown $shutdown
+     *     @type \Df\Plugin\ServerInformationResponse $server_info
      *     @type \Df\Plugin\EventEnvelope $event
      * }
      */
@@ -109,6 +110,33 @@ class HostToPlugin extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Df\Plugin\HostShutdown::class);
         $this->writeOneof(11, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.ServerInformationResponse server_info = 12 [json_name = "serverInfo"];</code>
+     * @return \Df\Plugin\ServerInformationResponse|null
+     */
+    public function getServerInfo()
+    {
+        return $this->readOneof(12);
+    }
+
+    public function hasServerInfo()
+    {
+        return $this->hasOneof(12);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.ServerInformationResponse server_info = 12 [json_name = "serverInfo"];</code>
+     * @param \Df\Plugin\ServerInformationResponse $var
+     * @return $this
+     */
+    public function setServerInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\ServerInformationResponse::class);
+        $this->writeOneof(12, $var);
 
         return $this;
     }

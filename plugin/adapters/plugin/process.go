@@ -171,6 +171,22 @@ func (p *pluginProcess) consumeOutput(r io.Reader) {
 	}
 }
 
+func (p *pluginProcess) sendServerInfo(plugins []string) error {
+	msg := &pb.HostToPlugin{
+		PluginId: p.id,
+		Payload: &pb.HostToPlugin_ServerInfo{
+			ServerInfo: &pb.ServerInformationResponse{
+				Plugins: plugins,
+			},
+		},
+	}
+	payload, err := proto.Marshal(msg)
+	if err != nil {
+		return err
+	}
+	return p.stream.Send(payload)
+}
+
 func (p *pluginProcess) sendHello() error {
 	msg := &pb.HostToPlugin{
 		PluginId: p.id,

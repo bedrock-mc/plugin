@@ -1488,7 +1488,7 @@ pub struct WorldCloseEvent {
 pub struct HostToPlugin {
     #[prost(string, tag="1")]
     pub plugin_id: ::prost::alloc::string::String,
-    #[prost(oneof="host_to_plugin::Payload", tags="10, 11, 20")]
+    #[prost(oneof="host_to_plugin::Payload", tags="10, 11, 12, 20")]
     pub payload: ::core::option::Option<host_to_plugin::Payload>,
 }
 /// Nested message and enum types in `HostToPlugin`.
@@ -1500,9 +1500,21 @@ pub mod host_to_plugin {
         Hello(super::HostHello),
         #[prost(message, tag="11")]
         Shutdown(super::HostShutdown),
+        #[prost(message, tag="12")]
+        ServerInfo(super::ServerInformationResponse),
         #[prost(message, tag="20")]
         Event(super::EventEnvelope),
     }
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, Copy, PartialEq, ::prost::Message)]
+pub struct ServerInformationRequest {
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ServerInformationResponse {
+    #[prost(string, repeated, tag="1")]
+    pub plugins: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1639,7 +1651,7 @@ pub mod event_envelope {
 pub struct PluginToHost {
     #[prost(string, tag="1")]
     pub plugin_id: ::prost::alloc::string::String,
-    #[prost(oneof="plugin_to_host::Payload", tags="10, 11, 20, 30, 40")]
+    #[prost(oneof="plugin_to_host::Payload", tags="10, 11, 12, 20, 30, 40")]
     pub payload: ::core::option::Option<plugin_to_host::Payload>,
 }
 /// Nested message and enum types in `PluginToHost`.
@@ -1651,6 +1663,8 @@ pub mod plugin_to_host {
         Hello(super::PluginHello),
         #[prost(message, tag="11")]
         Subscribe(super::EventSubscribe),
+        #[prost(message, tag="12")]
+        ServerInfo(super::ServerInformationRequest),
         #[prost(message, tag="20")]
         Actions(super::ActionBatch),
         #[prost(message, tag="30")]

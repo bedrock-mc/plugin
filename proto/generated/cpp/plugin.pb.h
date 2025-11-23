@@ -20,6 +20,7 @@
 #include "google/protobuf/io/coded_stream.h"
 #include "google/protobuf/arena.h"
 #include "google/protobuf/arenastring.h"
+#include "google/protobuf/generated_message_bases.h"
 #include "google/protobuf/generated_message_tctable_decl.h"
 #include "google/protobuf/generated_message_util.h"
 #include "google/protobuf/metadata_lite.h"
@@ -95,6 +96,14 @@ class PluginToHost;
 struct PluginToHostDefaultTypeInternal;
 extern PluginToHostDefaultTypeInternal _PluginToHost_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull PluginToHost_class_data_;
+class ServerInformationRequest;
+struct ServerInformationRequestDefaultTypeInternal;
+extern ServerInformationRequestDefaultTypeInternal _ServerInformationRequest_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull ServerInformationRequest_class_data_;
+class ServerInformationResponse;
+struct ServerInformationResponseDefaultTypeInternal;
+extern ServerInformationResponseDefaultTypeInternal _ServerInformationResponse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull ServerInformationResponse_class_data_;
 }  // namespace plugin
 }  // namespace df
 namespace google {
@@ -198,6 +207,342 @@ inline bool EventType_Parse(
 
 // -------------------------------------------------------------------
 
+class ServerInformationResponse final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:df.plugin.ServerInformationResponse) */ {
+ public:
+  inline ServerInformationResponse() : ServerInformationResponse(nullptr) {}
+  ~ServerInformationResponse() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(ServerInformationResponse* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ServerInformationResponse));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ServerInformationResponse(::google::protobuf::internal::ConstantInitialized);
+
+  inline ServerInformationResponse(const ServerInformationResponse& from) : ServerInformationResponse(nullptr, from) {}
+  inline ServerInformationResponse(ServerInformationResponse&& from) noexcept
+      : ServerInformationResponse(nullptr, ::std::move(from)) {}
+  inline ServerInformationResponse& operator=(const ServerInformationResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ServerInformationResponse& operator=(ServerInformationResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ServerInformationResponse& default_instance() {
+    return *reinterpret_cast<const ServerInformationResponse*>(
+        &_ServerInformationResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 2;
+  friend void swap(ServerInformationResponse& a, ServerInformationResponse& b) { a.Swap(&b); }
+  inline void Swap(ServerInformationResponse* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ServerInformationResponse* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ServerInformationResponse* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<ServerInformationResponse>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const ServerInformationResponse& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const ServerInformationResponse& from) { ServerInformationResponse::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(ServerInformationResponse* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.ServerInformationResponse"; }
+
+  explicit ServerInformationResponse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  ServerInformationResponse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const ServerInformationResponse& from);
+  ServerInformationResponse(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, ServerInformationResponse&& from) noexcept
+      : ServerInformationResponse(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kPluginsFieldNumber = 1,
+  };
+  // repeated string plugins = 1 [json_name = "plugins"];
+  int plugins_size() const;
+  private:
+  int _internal_plugins_size() const;
+
+  public:
+  void clear_plugins() ;
+  const ::std::string& plugins(int index) const;
+  ::std::string* PROTOBUF_NONNULL mutable_plugins(int index);
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_plugins(int index, Arg_&& value, Args_... args);
+  ::std::string* PROTOBUF_NONNULL add_plugins();
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void add_plugins(Arg_&& value, Args_... args);
+  const ::google::protobuf::RepeatedPtrField<::std::string>& plugins() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL mutable_plugins();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::std::string>& _internal_plugins() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL _internal_mutable_plugins();
+
+  public:
+  // @@protoc_insertion_point(class_scope:df.plugin.ServerInformationResponse)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<0, 1,
+                                   0, 51,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const ServerInformationResponse& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField<::std::string> plugins_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_plugin_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull ServerInformationResponse_class_data_;
+// -------------------------------------------------------------------
+
+class ServerInformationRequest final : public ::google::protobuf::internal::ZeroFieldsBase
+/* @@protoc_insertion_point(class_definition:df.plugin.ServerInformationRequest) */ {
+ public:
+  inline ServerInformationRequest() : ServerInformationRequest(nullptr) {}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(ServerInformationRequest* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ServerInformationRequest));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ServerInformationRequest(::google::protobuf::internal::ConstantInitialized);
+
+  inline ServerInformationRequest(const ServerInformationRequest& from) : ServerInformationRequest(nullptr, from) {}
+  inline ServerInformationRequest(ServerInformationRequest&& from) noexcept
+      : ServerInformationRequest(nullptr, ::std::move(from)) {}
+  inline ServerInformationRequest& operator=(const ServerInformationRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ServerInformationRequest& operator=(ServerInformationRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ServerInformationRequest& default_instance() {
+    return *reinterpret_cast<const ServerInformationRequest*>(
+        &_ServerInformationRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 1;
+  friend void swap(ServerInformationRequest& a, ServerInformationRequest& b) { a.Swap(&b); }
+  inline void Swap(ServerInformationRequest* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ServerInformationRequest* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ServerInformationRequest* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<ServerInformationRequest>(arena);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const ServerInformationRequest& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const ServerInformationRequest& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.ServerInformationRequest"; }
+
+  explicit ServerInformationRequest(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  ServerInformationRequest(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const ServerInformationRequest& from);
+  ServerInformationRequest(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, ServerInformationRequest&& from) noexcept
+      : ServerInformationRequest(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  // @@protoc_insertion_point(class_scope:df.plugin.ServerInformationRequest)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<0, 0,
+                                   0, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  friend struct ::TableStruct_plugin_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull ServerInformationRequest_class_data_;
+// -------------------------------------------------------------------
+
 class LogMessage final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:df.plugin.LogMessage) */ {
  public:
@@ -253,7 +598,7 @@ class LogMessage final : public ::google::protobuf::Message
     return *reinterpret_cast<const LogMessage*>(
         &_LogMessage_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 6;
+  static constexpr int kIndexInFileMessages = 8;
   friend void swap(LogMessage& a, LogMessage& b) { a.Swap(&b); }
   inline void Swap(LogMessage* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -465,7 +810,7 @@ class HostShutdown final : public ::google::protobuf::Message
     return *reinterpret_cast<const HostShutdown*>(
         &_HostShutdown_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 2;
+  static constexpr int kIndexInFileMessages = 4;
   friend void swap(HostShutdown& a, HostShutdown& b) { a.Swap(&b); }
   inline void Swap(HostShutdown* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -660,7 +1005,7 @@ class HostHello final : public ::google::protobuf::Message
     return *reinterpret_cast<const HostHello*>(
         &_HostHello_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 1;
+  static constexpr int kIndexInFileMessages = 3;
   friend void swap(HostHello& a, HostHello& b) { a.Swap(&b); }
   inline void Swap(HostHello* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -855,7 +1200,7 @@ class EventSubscribe final : public ::google::protobuf::Message
     return *reinterpret_cast<const EventSubscribe*>(
         &_EventSubscribe_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 7;
+  static constexpr int kIndexInFileMessages = 9;
   friend void swap(EventSubscribe& a, EventSubscribe& b) { a.Swap(&b); }
   inline void Swap(EventSubscribe* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1055,7 +1400,7 @@ class PluginHello final : public ::google::protobuf::Message
     return *reinterpret_cast<const PluginHello*>(
         &_PluginHello_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 5;
+  static constexpr int kIndexInFileMessages = 7;
   friend void swap(PluginHello& a, PluginHello& b) { a.Swap(&b); }
   inline void Swap(PluginHello* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1325,12 +1670,13 @@ class PluginToHost final : public ::google::protobuf::Message
   enum PayloadCase {
     kHello = 10,
     kSubscribe = 11,
+    kServerInfo = 12,
     kActions = 20,
     kLog = 30,
     kEventResult = 40,
     PAYLOAD_NOT_SET = 0,
   };
-  static constexpr int kIndexInFileMessages = 4;
+  static constexpr int kIndexInFileMessages = 6;
   friend void swap(PluginToHost& a, PluginToHost& b) { a.Swap(&b); }
   inline void Swap(PluginToHost* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -1420,6 +1766,7 @@ class PluginToHost final : public ::google::protobuf::Message
     kPluginIdFieldNumber = 1,
     kHelloFieldNumber = 10,
     kSubscribeFieldNumber = 11,
+    kServerInfoFieldNumber = 12,
     kActionsFieldNumber = 20,
     kLogFieldNumber = 30,
     kEventResultFieldNumber = 40,
@@ -1475,6 +1822,25 @@ class PluginToHost final : public ::google::protobuf::Message
   private:
   const ::df::plugin::EventSubscribe& _internal_subscribe() const;
   ::df::plugin::EventSubscribe* PROTOBUF_NONNULL _internal_mutable_subscribe();
+
+  public:
+  // .df.plugin.ServerInformationRequest server_info = 12 [json_name = "serverInfo"];
+  bool has_server_info() const;
+  private:
+  bool _internal_has_server_info() const;
+
+  public:
+  void clear_server_info() ;
+  const ::df::plugin::ServerInformationRequest& server_info() const;
+  [[nodiscard]] ::df::plugin::ServerInformationRequest* PROTOBUF_NULLABLE release_server_info();
+  ::df::plugin::ServerInformationRequest* PROTOBUF_NONNULL mutable_server_info();
+  void set_allocated_server_info(::df::plugin::ServerInformationRequest* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_server_info(::df::plugin::ServerInformationRequest* PROTOBUF_NULLABLE value);
+  ::df::plugin::ServerInformationRequest* PROTOBUF_NULLABLE unsafe_arena_release_server_info();
+
+  private:
+  const ::df::plugin::ServerInformationRequest& _internal_server_info() const;
+  ::df::plugin::ServerInformationRequest* PROTOBUF_NONNULL _internal_mutable_server_info();
 
   public:
   // .df.plugin.ActionBatch actions = 20 [json_name = "actions"];
@@ -1541,14 +1907,15 @@ class PluginToHost final : public ::google::protobuf::Message
   class _Internal;
   void set_has_hello();
   void set_has_subscribe();
+  void set_has_server_info();
   void set_has_actions();
   void set_has_log();
   void set_has_event_result();
   inline bool has_payload() const;
   inline void clear_has_payload();
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<0, 6,
-                                   5, 40,
+  static const ::google::protobuf::internal::TcParseTable<0, 7,
+                                   6, 40,
                                    7>
       _table_;
 
@@ -1575,6 +1942,7 @@ class PluginToHost final : public ::google::protobuf::Message
       ::google::protobuf::internal::ConstantInitialized _constinit_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE hello_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE subscribe_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE server_info_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE actions_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE log_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE event_result_;
@@ -1696,7 +2064,7 @@ class EventEnvelope final : public ::google::protobuf::Message
     kWorldClose = 81,
     PAYLOAD_NOT_SET = 0,
   };
-  static constexpr int kIndexInFileMessages = 3;
+  static constexpr int kIndexInFileMessages = 5;
   friend void swap(EventEnvelope& a, EventEnvelope& b) { a.Swap(&b); }
   inline void Swap(EventEnvelope* PROTOBUF_NONNULL other) {
     if (other == this) return;
@@ -3005,6 +3373,7 @@ class HostToPlugin final : public ::google::protobuf::Message
   enum PayloadCase {
     kHello = 10,
     kShutdown = 11,
+    kServerInfo = 12,
     kEvent = 20,
     PAYLOAD_NOT_SET = 0,
   };
@@ -3098,6 +3467,7 @@ class HostToPlugin final : public ::google::protobuf::Message
     kPluginIdFieldNumber = 1,
     kHelloFieldNumber = 10,
     kShutdownFieldNumber = 11,
+    kServerInfoFieldNumber = 12,
     kEventFieldNumber = 20,
   };
   // string plugin_id = 1 [json_name = "pluginId"];
@@ -3153,6 +3523,25 @@ class HostToPlugin final : public ::google::protobuf::Message
   ::df::plugin::HostShutdown* PROTOBUF_NONNULL _internal_mutable_shutdown();
 
   public:
+  // .df.plugin.ServerInformationResponse server_info = 12 [json_name = "serverInfo"];
+  bool has_server_info() const;
+  private:
+  bool _internal_has_server_info() const;
+
+  public:
+  void clear_server_info() ;
+  const ::df::plugin::ServerInformationResponse& server_info() const;
+  [[nodiscard]] ::df::plugin::ServerInformationResponse* PROTOBUF_NULLABLE release_server_info();
+  ::df::plugin::ServerInformationResponse* PROTOBUF_NONNULL mutable_server_info();
+  void set_allocated_server_info(::df::plugin::ServerInformationResponse* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_server_info(::df::plugin::ServerInformationResponse* PROTOBUF_NULLABLE value);
+  ::df::plugin::ServerInformationResponse* PROTOBUF_NULLABLE unsafe_arena_release_server_info();
+
+  private:
+  const ::df::plugin::ServerInformationResponse& _internal_server_info() const;
+  ::df::plugin::ServerInformationResponse* PROTOBUF_NONNULL _internal_mutable_server_info();
+
+  public:
   // .df.plugin.EventEnvelope event = 20 [json_name = "event"];
   bool has_event() const;
   private:
@@ -3179,12 +3568,13 @@ class HostToPlugin final : public ::google::protobuf::Message
   class _Internal;
   void set_has_hello();
   void set_has_shutdown();
+  void set_has_server_info();
   void set_has_event();
   inline bool has_payload() const;
   inline void clear_has_payload();
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<0, 4,
-                                   3, 40,
+  static const ::google::protobuf::internal::TcParseTable<0, 5,
+                                   4, 40,
                                    2>
       _table_;
 
@@ -3211,6 +3601,7 @@ class HostToPlugin final : public ::google::protobuf::Message
       ::google::protobuf::internal::ConstantInitialized _constinit_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE hello_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE shutdown_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE server_info_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE event_;
     } payload_;
     ::uint32_t _oneof_case_[1];
@@ -3467,6 +3858,88 @@ inline ::df::plugin::HostShutdown* PROTOBUF_NONNULL HostToPlugin::mutable_shutdo
   return _msg;
 }
 
+// .df.plugin.ServerInformationResponse server_info = 12 [json_name = "serverInfo"];
+inline bool HostToPlugin::has_server_info() const {
+  return payload_case() == kServerInfo;
+}
+inline bool HostToPlugin::_internal_has_server_info() const {
+  return payload_case() == kServerInfo;
+}
+inline void HostToPlugin::set_has_server_info() {
+  _impl_._oneof_case_[0] = kServerInfo;
+}
+inline void HostToPlugin::clear_server_info() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (payload_case() == kServerInfo) {
+    if (GetArena() == nullptr) {
+      delete _impl_.payload_.server_info_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.payload_.server_info_);
+    }
+    clear_has_payload();
+  }
+}
+inline ::df::plugin::ServerInformationResponse* PROTOBUF_NULLABLE HostToPlugin::release_server_info() {
+  // @@protoc_insertion_point(field_release:df.plugin.HostToPlugin.server_info)
+  if (payload_case() == kServerInfo) {
+    clear_has_payload();
+    auto* temp = reinterpret_cast<::df::plugin::ServerInformationResponse*>(_impl_.payload_.server_info_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.payload_.server_info_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::ServerInformationResponse& HostToPlugin::_internal_server_info() const {
+  return payload_case() == kServerInfo ? static_cast<const ::df::plugin::ServerInformationResponse&>(*reinterpret_cast<::df::plugin::ServerInformationResponse*>(_impl_.payload_.server_info_))
+                     : reinterpret_cast<const ::df::plugin::ServerInformationResponse&>(::df::plugin::_ServerInformationResponse_default_instance_);
+}
+inline const ::df::plugin::ServerInformationResponse& HostToPlugin::server_info() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.HostToPlugin.server_info)
+  return _internal_server_info();
+}
+inline ::df::plugin::ServerInformationResponse* PROTOBUF_NULLABLE HostToPlugin::unsafe_arena_release_server_info() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.HostToPlugin.server_info)
+  if (payload_case() == kServerInfo) {
+    clear_has_payload();
+    auto* temp = reinterpret_cast<::df::plugin::ServerInformationResponse*>(_impl_.payload_.server_info_);
+    _impl_.payload_.server_info_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void HostToPlugin::unsafe_arena_set_allocated_server_info(
+    ::df::plugin::ServerInformationResponse* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_payload();
+  if (value) {
+    set_has_server_info();
+    _impl_.payload_.server_info_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.HostToPlugin.server_info)
+}
+inline ::df::plugin::ServerInformationResponse* PROTOBUF_NONNULL HostToPlugin::_internal_mutable_server_info() {
+  if (payload_case() != kServerInfo) {
+    clear_payload();
+    set_has_server_info();
+    _impl_.payload_.server_info_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::ServerInformationResponse>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::ServerInformationResponse*>(_impl_.payload_.server_info_);
+}
+inline ::df::plugin::ServerInformationResponse* PROTOBUF_NONNULL HostToPlugin::mutable_server_info()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::ServerInformationResponse* _msg = _internal_mutable_server_info();
+  // @@protoc_insertion_point(field_mutable:df.plugin.HostToPlugin.server_info)
+  return _msg;
+}
+
 // .df.plugin.EventEnvelope event = 20 [json_name = "event"];
 inline bool HostToPlugin::has_event() const {
   return payload_case() == kEvent;
@@ -3558,6 +4031,86 @@ inline void HostToPlugin::clear_has_payload() {
 inline HostToPlugin::PayloadCase HostToPlugin::payload_case() const {
   return HostToPlugin::PayloadCase(_impl_._oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// ServerInformationRequest
+
+// -------------------------------------------------------------------
+
+// ServerInformationResponse
+
+// repeated string plugins = 1 [json_name = "plugins"];
+inline int ServerInformationResponse::_internal_plugins_size() const {
+  return _internal_plugins().size();
+}
+inline int ServerInformationResponse::plugins_size() const {
+  return _internal_plugins_size();
+}
+inline void ServerInformationResponse::clear_plugins() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.plugins_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::std::string* PROTOBUF_NONNULL ServerInformationResponse::add_plugins()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::std::string* _s =
+      _internal_mutable_plugins()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add_mutable:df.plugin.ServerInformationResponse.plugins)
+  return _s;
+}
+inline const ::std::string& ServerInformationResponse::plugins(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.ServerInformationResponse.plugins)
+  return _internal_plugins().Get(index);
+}
+inline ::std::string* PROTOBUF_NONNULL ServerInformationResponse::mutable_plugins(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:df.plugin.ServerInformationResponse.plugins)
+  return _internal_mutable_plugins()->Mutable(index);
+}
+template <typename Arg_, typename... Args_>
+inline void ServerInformationResponse::set_plugins(int index, Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::AssignToString(*_internal_mutable_plugins()->Mutable(index), ::std::forward<Arg_>(value),
+                        args... );
+  // @@protoc_insertion_point(field_set:df.plugin.ServerInformationResponse.plugins)
+}
+template <typename Arg_, typename... Args_>
+inline void ServerInformationResponse::add_plugins(Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::google::protobuf::internal::AddToRepeatedPtrField(
+      ::google::protobuf::MessageLite::internal_visibility(), GetArena(),
+      *_internal_mutable_plugins(), ::std::forward<Arg_>(value),
+      args... );
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:df.plugin.ServerInformationResponse.plugins)
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>& ServerInformationResponse::plugins()
+    const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:df.plugin.ServerInformationResponse.plugins)
+  return _internal_plugins();
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL
+ServerInformationResponse::mutable_plugins() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:df.plugin.ServerInformationResponse.plugins)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_plugins();
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>&
+ServerInformationResponse::_internal_plugins() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.plugins_;
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL
+ServerInformationResponse::_internal_mutable_plugins() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.plugins_;
+}
+
 // -------------------------------------------------------------------
 
 // HostHello
@@ -7533,6 +8086,88 @@ inline ::df::plugin::EventSubscribe* PROTOBUF_NONNULL PluginToHost::mutable_subs
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::df::plugin::EventSubscribe* _msg = _internal_mutable_subscribe();
   // @@protoc_insertion_point(field_mutable:df.plugin.PluginToHost.subscribe)
+  return _msg;
+}
+
+// .df.plugin.ServerInformationRequest server_info = 12 [json_name = "serverInfo"];
+inline bool PluginToHost::has_server_info() const {
+  return payload_case() == kServerInfo;
+}
+inline bool PluginToHost::_internal_has_server_info() const {
+  return payload_case() == kServerInfo;
+}
+inline void PluginToHost::set_has_server_info() {
+  _impl_._oneof_case_[0] = kServerInfo;
+}
+inline void PluginToHost::clear_server_info() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (payload_case() == kServerInfo) {
+    if (GetArena() == nullptr) {
+      delete _impl_.payload_.server_info_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.payload_.server_info_);
+    }
+    clear_has_payload();
+  }
+}
+inline ::df::plugin::ServerInformationRequest* PROTOBUF_NULLABLE PluginToHost::release_server_info() {
+  // @@protoc_insertion_point(field_release:df.plugin.PluginToHost.server_info)
+  if (payload_case() == kServerInfo) {
+    clear_has_payload();
+    auto* temp = reinterpret_cast<::df::plugin::ServerInformationRequest*>(_impl_.payload_.server_info_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.payload_.server_info_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::ServerInformationRequest& PluginToHost::_internal_server_info() const {
+  return payload_case() == kServerInfo ? static_cast<const ::df::plugin::ServerInformationRequest&>(*reinterpret_cast<::df::plugin::ServerInformationRequest*>(_impl_.payload_.server_info_))
+                     : reinterpret_cast<const ::df::plugin::ServerInformationRequest&>(::df::plugin::_ServerInformationRequest_default_instance_);
+}
+inline const ::df::plugin::ServerInformationRequest& PluginToHost::server_info() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.PluginToHost.server_info)
+  return _internal_server_info();
+}
+inline ::df::plugin::ServerInformationRequest* PROTOBUF_NULLABLE PluginToHost::unsafe_arena_release_server_info() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.PluginToHost.server_info)
+  if (payload_case() == kServerInfo) {
+    clear_has_payload();
+    auto* temp = reinterpret_cast<::df::plugin::ServerInformationRequest*>(_impl_.payload_.server_info_);
+    _impl_.payload_.server_info_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void PluginToHost::unsafe_arena_set_allocated_server_info(
+    ::df::plugin::ServerInformationRequest* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_payload();
+  if (value) {
+    set_has_server_info();
+    _impl_.payload_.server_info_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.PluginToHost.server_info)
+}
+inline ::df::plugin::ServerInformationRequest* PROTOBUF_NONNULL PluginToHost::_internal_mutable_server_info() {
+  if (payload_case() != kServerInfo) {
+    clear_payload();
+    set_has_server_info();
+    _impl_.payload_.server_info_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::ServerInformationRequest>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::ServerInformationRequest*>(_impl_.payload_.server_info_);
+}
+inline ::df::plugin::ServerInformationRequest* PROTOBUF_NONNULL PluginToHost::mutable_server_info()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::ServerInformationRequest* _msg = _internal_mutable_server_info();
+  // @@protoc_insertion_point(field_mutable:df.plugin.PluginToHost.server_info)
   return _msg;
 }
 

@@ -338,7 +338,7 @@ export function eventTypeToJSON(object) {
     }
 }
 function createBaseHostToPlugin() {
-    return { pluginId: "", hello: undefined, shutdown: undefined, event: undefined };
+    return { pluginId: "", hello: undefined, shutdown: undefined, serverInfo: undefined, event: undefined };
 }
 export const HostToPlugin = {
     encode(message, writer = new BinaryWriter()) {
@@ -350,6 +350,9 @@ export const HostToPlugin = {
         }
         if (message.shutdown !== undefined) {
             HostShutdown.encode(message.shutdown, writer.uint32(90).fork()).join();
+        }
+        if (message.serverInfo !== undefined) {
+            ServerInformationResponse.encode(message.serverInfo, writer.uint32(98).fork()).join();
         }
         if (message.event !== undefined) {
             EventEnvelope.encode(message.event, writer.uint32(162).fork()).join();
@@ -384,6 +387,13 @@ export const HostToPlugin = {
                     message.shutdown = HostShutdown.decode(reader, reader.uint32());
                     continue;
                 }
+                case 12: {
+                    if (tag !== 98) {
+                        break;
+                    }
+                    message.serverInfo = ServerInformationResponse.decode(reader, reader.uint32());
+                    continue;
+                }
                 case 20: {
                     if (tag !== 162) {
                         break;
@@ -404,6 +414,7 @@ export const HostToPlugin = {
             pluginId: isSet(object.pluginId) ? globalThis.String(object.pluginId) : "",
             hello: isSet(object.hello) ? HostHello.fromJSON(object.hello) : undefined,
             shutdown: isSet(object.shutdown) ? HostShutdown.fromJSON(object.shutdown) : undefined,
+            serverInfo: isSet(object.serverInfo) ? ServerInformationResponse.fromJSON(object.serverInfo) : undefined,
             event: isSet(object.event) ? EventEnvelope.fromJSON(object.event) : undefined,
         };
     },
@@ -417,6 +428,9 @@ export const HostToPlugin = {
         }
         if (message.shutdown !== undefined) {
             obj.shutdown = HostShutdown.toJSON(message.shutdown);
+        }
+        if (message.serverInfo !== undefined) {
+            obj.serverInfo = ServerInformationResponse.toJSON(message.serverInfo);
         }
         if (message.event !== undefined) {
             obj.event = EventEnvelope.toJSON(message.event);
@@ -435,9 +449,102 @@ export const HostToPlugin = {
         message.shutdown = (object.shutdown !== undefined && object.shutdown !== null)
             ? HostShutdown.fromPartial(object.shutdown)
             : undefined;
+        message.serverInfo = (object.serverInfo !== undefined && object.serverInfo !== null)
+            ? ServerInformationResponse.fromPartial(object.serverInfo)
+            : undefined;
         message.event = (object.event !== undefined && object.event !== null)
             ? EventEnvelope.fromPartial(object.event)
             : undefined;
+        return message;
+    },
+};
+function createBaseServerInformationRequest() {
+    return {};
+}
+export const ServerInformationRequest = {
+    encode(_, writer = new BinaryWriter()) {
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseServerInformationRequest();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(_) {
+        return {};
+    },
+    toJSON(_) {
+        const obj = {};
+        return obj;
+    },
+    create(base) {
+        return ServerInformationRequest.fromPartial(base ?? {});
+    },
+    fromPartial(_) {
+        const message = createBaseServerInformationRequest();
+        return message;
+    },
+};
+function createBaseServerInformationResponse() {
+    return { plugins: [] };
+}
+export const ServerInformationResponse = {
+    encode(message, writer = new BinaryWriter()) {
+        for (const v of message.plugins) {
+            writer.uint32(10).string(v);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseServerInformationResponse();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.plugins.push(reader.string());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            plugins: globalThis.Array.isArray(object?.plugins) ? object.plugins.map((e) => globalThis.String(e)) : [],
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.plugins?.length) {
+            obj.plugins = message.plugins;
+        }
+        return obj;
+    },
+    create(base) {
+        return ServerInformationResponse.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseServerInformationResponse();
+        message.plugins = object.plugins?.map((e) => e) || [];
         return message;
     },
 };
@@ -1571,6 +1678,7 @@ function createBasePluginToHost() {
         pluginId: "",
         hello: undefined,
         subscribe: undefined,
+        serverInfo: undefined,
         actions: undefined,
         log: undefined,
         eventResult: undefined,
@@ -1586,6 +1694,9 @@ export const PluginToHost = {
         }
         if (message.subscribe !== undefined) {
             EventSubscribe.encode(message.subscribe, writer.uint32(90).fork()).join();
+        }
+        if (message.serverInfo !== undefined) {
+            ServerInformationRequest.encode(message.serverInfo, writer.uint32(98).fork()).join();
         }
         if (message.actions !== undefined) {
             ActionBatch.encode(message.actions, writer.uint32(162).fork()).join();
@@ -1626,6 +1737,13 @@ export const PluginToHost = {
                     message.subscribe = EventSubscribe.decode(reader, reader.uint32());
                     continue;
                 }
+                case 12: {
+                    if (tag !== 98) {
+                        break;
+                    }
+                    message.serverInfo = ServerInformationRequest.decode(reader, reader.uint32());
+                    continue;
+                }
                 case 20: {
                     if (tag !== 162) {
                         break;
@@ -1660,6 +1778,7 @@ export const PluginToHost = {
             pluginId: isSet(object.pluginId) ? globalThis.String(object.pluginId) : "",
             hello: isSet(object.hello) ? PluginHello.fromJSON(object.hello) : undefined,
             subscribe: isSet(object.subscribe) ? EventSubscribe.fromJSON(object.subscribe) : undefined,
+            serverInfo: isSet(object.serverInfo) ? ServerInformationRequest.fromJSON(object.serverInfo) : undefined,
             actions: isSet(object.actions) ? ActionBatch.fromJSON(object.actions) : undefined,
             log: isSet(object.log) ? LogMessage.fromJSON(object.log) : undefined,
             eventResult: isSet(object.eventResult) ? EventResult.fromJSON(object.eventResult) : undefined,
@@ -1675,6 +1794,9 @@ export const PluginToHost = {
         }
         if (message.subscribe !== undefined) {
             obj.subscribe = EventSubscribe.toJSON(message.subscribe);
+        }
+        if (message.serverInfo !== undefined) {
+            obj.serverInfo = ServerInformationRequest.toJSON(message.serverInfo);
         }
         if (message.actions !== undefined) {
             obj.actions = ActionBatch.toJSON(message.actions);
@@ -1698,6 +1820,9 @@ export const PluginToHost = {
             : undefined;
         message.subscribe = (object.subscribe !== undefined && object.subscribe !== null)
             ? EventSubscribe.fromPartial(object.subscribe)
+            : undefined;
+        message.serverInfo = (object.serverInfo !== undefined && object.serverInfo !== null)
+            ? ServerInformationRequest.fromPartial(object.serverInfo)
             : undefined;
         message.actions = (object.actions !== undefined && object.actions !== null)
             ? ActionBatch.fromPartial(object.actions)
