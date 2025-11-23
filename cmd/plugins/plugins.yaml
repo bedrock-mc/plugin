@@ -25,7 +25,8 @@ plugins:
     #args: ["../examples/plugins/typescript/dist/index.js"]
     command: "npm"
     args: ["run", "dev"]
-    work_dir: "../examples/plugins/typescript"
+    work_dir:
+      path: "../examples/plugins/typescript"
     env:
       NODE_ENV: production
   - id: example-php
@@ -41,3 +42,11 @@ plugins:
     #   - "--abort-on-container-exit"
     env:
       PHP_ENV: production
+
+  - id: example-go
+    name: Example Go Plugin
+    command: "go"
+    args: ["run", "cmd/main.go"]
+    work_dir:
+      remote_git: true
+      path: https://github.com/secmc/plugin-go

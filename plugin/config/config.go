@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 
 	"gopkg.in/yaml.v2"
@@ -20,11 +21,14 @@ type Config struct {
 }
 
 type PluginConfig struct {
-	ID      string            `yaml:"id"`
-	Name    string            `yaml:"name"`
-	Command string            `yaml:"command"`
-	Args    []string          `yaml:"args"`
-	WorkDir string            `yaml:"work_dir"`
+	ID      string   `yaml:"id"`
+	Name    string   `yaml:"name"`
+	Command string   `yaml:"command"`
+	Args    []string `yaml:"args"`
+	WorkDir struct {
+		RemoteGit bool   `yaml:"remote_git"`
+		Path      string `yaml:"path"`
+	} `yaml:"work_dir"`
 	Env     map[string]string `yaml:"env"`
 	Address string            `yaml:"address"`
 }
@@ -53,12 +57,32 @@ func LoadConfig(path string) (Config, error) {
 		cfg.HelloTimeoutMs = 2000
 	}
 	for i := range cfg.Plugins {
-		if cfg.Plugins[i].ID == "" {
-			cfg.Plugins[i].ID = fmt.Sprintf("plugin-%d", i+1)
+		pl := &cfg.Plugins[i]
+		if pl.ID == "" {
+			pl.ID = fmt.Sprintf("plugin-%d", i+1)
 		}
-		if cfg.Plugins[i].Command != "" && cfg.Plugins[i].WorkDir != "" {
-			if !filepath.IsAbs(cfg.Plugins[i].WorkDir) {
-				cfg.Plugins[i].WorkDir = filepath.Clean(cfg.Plugins[i].WorkDir)
+		if pl.Command != "" && pl.WorkDir.Path != "" {
+			if pl.WorkDir.RemoteGit {
+				path := "/tmp/" + pl.ID
+				err := os.RemoveAll(path)
+				if err != nil {
+					return cfg, err
+				}
+
+				cmd := exec.Command("git", "clone", pl.WorkDir.Path, path, "--depth=1")
+				cmd.Stdout = os.Stdout
+				cmd.Stderr = os.Stderr
+
+				err = cmd.Run()
+				if err != nil {
+					return cfg, err
+				}
+
+				pl.WorkDir.Path = path
+			}
+
+			if !filepath.IsAbs(pl.WorkDir.Path) {
+				pl.WorkDir.Path = filepath.Clean(pl.WorkDir.Path)
 			}
 		}
 	}

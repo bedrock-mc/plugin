@@ -110,8 +110,8 @@ func (p *pluginProcess) launchProcess(ctx context.Context, serverAddress string)
 	}
 
 	cmd := exec.CommandContext(ctx, p.cfg.Command, p.cfg.Args...)
-	if p.cfg.WorkDir != "" {
-		cmd.Dir = p.cfg.WorkDir
+	if p.cfg.WorkDir.Path != "" {
+		cmd.Dir = p.cfg.WorkDir.Path
 	}
 	env := os.Environ()
 	env = append(env, fmt.Sprintf("DF_PLUGIN_ID=%s", p.id))
