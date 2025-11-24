@@ -488,11 +488,9 @@ func (m *Manager) worldFromRef(ref *pb.WorldRef) *world.World {
 }
 
 func (m *Manager) handlePluginMessage(p *pluginProcess, msg *pb.PluginToHost) {
-	if result := msg.GetEventResult(); result != nil {
-		p.deliverEventResult(result)
-	}
-
 	switch payload := msg.GetPayload().(type) {
+	case *pb.PluginToHost_EventResult:
+		p.deliverEventResult(payload.EventResult)
 	case *pb.PluginToHost_Hello:
 		hello := payload.Hello
 		cmdNames := mapSlice(hello.Commands, func(cmd *pb.CommandSpec) string {

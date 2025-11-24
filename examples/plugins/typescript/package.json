@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "postinstall": "cd ../../../proto/generated/ts && npm install",
-    "prebuild": "cd ../../../proto/generated/ts && npm install",
+    "postinstall": "cd ../../../packages/node && npm install",
+    "prebuild": "cd ../../../packages/node && npm install",
     "build": "tsc",
-    "predev": "cd ../../../proto/generated/ts && npm install",
+    "predev": "cd ../../../packages/node && npm install",
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.14.1",
     "@bufbuild/protobuf": "^2.2.2",
-    "@dragonfly/proto": "file:../../../proto/generated/ts"
+    "@dragonfly/proto": "file:../../../packages/node"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
