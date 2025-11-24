@@ -1,0 +1,37 @@
+syntax = "proto3";
+package df.plugin;
+
+option go_package = "github.com/secmc/plugin/proto/generated";
+
+import "common.proto";
+
+message ActionResult {
+    string correlation_id = 1;
+    optional ActionStatus status = 2;
+    oneof result {
+        WorldEntitiesResult world_entities = 10;
+        WorldPlayersResult world_players = 11;
+        WorldEntitiesWithinResult world_entities_within = 12;
+    }
+}
+
+message ActionStatus {
+    bool ok = 1;
+    optional string error = 2;
+}
+
+message WorldEntitiesResult {
+    WorldRef world = 1;
+    repeated EntityRef entities = 2;
+}
+
+message WorldEntitiesWithinResult {
+    WorldRef world = 1;
+    BBox box = 2;
+    repeated EntityRef entities = 3;
+}
+
+message WorldPlayersResult {
+    WorldRef world = 1;
+    repeated EntityRef players = 2;
+}

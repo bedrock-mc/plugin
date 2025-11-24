@@ -25,8 +25,19 @@ use Df\Plugin\SetHealthAction;
 use Df\Plugin\SetHeldItemAction;
 use Df\Plugin\SetVelocityAction;
 use Df\Plugin\Vec3;
-use Df\Plugin\EffectType;
-use Df\Plugin\Sound;
+use Df\Plugin\WorldSetDefaultGameModeAction;
+use Df\Plugin\WorldSetDifficultyAction;
+use Df\Plugin\WorldSetTickRangeAction;
+use Df\Plugin\WorldSetBlockAction;
+use Df\Plugin\WorldPlaySoundAction;
+use Df\Plugin\WorldAddParticleAction;
+use Df\Plugin\WorldQueryEntitiesAction;
+use Df\Plugin\WorldQueryPlayersAction;
+use Df\Plugin\WorldQueryEntitiesWithinAction;
+use Df\Plugin\WorldRef;
+use Df\Plugin\BlockPos;
+use Df\Plugin\BlockState;
+use Df\Plugin\BBox;
 use Dragonfly\PluginLib\StreamSender;
 
 final class Actions {
@@ -248,6 +259,105 @@ final class Actions {
         $msg->setPlayerUuid($playerUuid);
         $msg->setCommand($command);
         $action->setExecuteCommand($msg);
+        $this->sendAction($action);
+    }
+
+    public function worldSetDefaultGameMode(WorldRef $world, int $gameMode): void {
+        $action = new Action();
+        $msg = new WorldSetDefaultGameModeAction();
+        $msg->setWorld($world);
+        $msg->setGameMode($gameMode);
+        $action->setWorldSetDefaultGameMode($msg);
+        $this->sendAction($action);
+    }
+
+    public function worldSetDifficulty(WorldRef $world, int $difficulty): void {
+        $action = new Action();
+        $msg = new WorldSetDifficultyAction();
+        $msg->setWorld($world);
+        $msg->setDifficulty($difficulty);
+        $action->setWorldSetDifficulty($msg);
+        $this->sendAction($action);
+    }
+
+    public function worldSetTickRange(WorldRef $world, int $tickRange): void {
+        $action = new Action();
+        $msg = new WorldSetTickRangeAction();
+        $msg->setWorld($world);
+        $msg->setTickRange($tickRange);
+        $action->setWorldSetTickRange($msg);
+        $this->sendAction($action);
+    }
+
+    public function worldSetBlock(WorldRef $world, BlockPos $position, ?BlockState $block = null): void {
+        $action = new Action();
+        $msg = new WorldSetBlockAction();
+        $msg->setWorld($world);
+        $msg->setPosition($position);
+        if ($block !== null) {
+            $msg->setBlock($block);
+        }
+        $action->setWorldSetBlock($msg);
+        $this->sendAction($action);
+    }
+
+    public function worldPlaySound(WorldRef $world, int $sound, Vec3 $position): void {
+        $action = new Action();
+        $msg = new WorldPlaySoundAction();
+        $msg->setWorld($world);
+        $msg->setSound($sound);
+        $msg->setPosition($position);
+        $action->setWorldPlaySound($msg);
+        $this->sendAction($action);
+    }
+
+    public function worldAddParticle(WorldRef $world, Vec3 $position, int $particle, ?BlockState $block = null, ?int $face = null): void {
+        $action = new Action();
+        $msg = new WorldAddParticleAction();
+        $msg->setWorld($world);
+        $msg->setPosition($position);
+        $msg->setParticle($particle);
+        if ($block !== null) {
+            $msg->setBlock($block);
+        }
+        if ($face !== null) {
+            $msg->setFace($face);
+        }
+        $action->setWorldAddParticle($msg);
+        $this->sendAction($action);
+    }
+
+    public function worldQueryEntities(WorldRef $world, ?string $correlationId = null): void {
+        $action = new Action();
+        if ($correlationId !== null) {
+            $action->setCorrelationId($correlationId);
+        }
+        $msg = new WorldQueryEntitiesAction();
+        $msg->setWorld($world);
+        $action->setWorldQueryEntities($msg);
+        $this->sendAction($action);
+    }
+
+    public function worldQueryPlayers(WorldRef $world, ?string $correlationId = null): void {
+        $action = new Action();
+        if ($correlationId !== null) {
+            $action->setCorrelationId($correlationId);
+        }
+        $msg = new WorldQueryPlayersAction();
+        $msg->setWorld($world);
+        $action->setWorldQueryPlayers($msg);
+        $this->sendAction($action);
+    }
+
+    public function worldQueryEntitiesWithin(WorldRef $world, BBox $box, ?string $correlationId = null): void {
+        $action = new Action();
+        if ($correlationId !== null) {
+            $action->setCorrelationId($correlationId);
+        }
+        $msg = new WorldQueryEntitiesWithinAction();
+        $msg->setWorld($world);
+        $msg->setBox($box);
+        $action->setWorldQueryEntitiesWithin($msg);
         $this->sendAction($action);
     }
 }

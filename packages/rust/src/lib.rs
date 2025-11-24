@@ -49,7 +49,6 @@ async fn connect_to_server(
             } else {
                 addr.to_string()
             };
-
             // Create a lazy channel that uses Unix sockets.
             // Lazy is required so the hello message gets sent as part of stream
             // establishment, avoiding a deadlock with the Go server which waits

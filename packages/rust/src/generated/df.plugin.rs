@@ -431,6 +431,63 @@ impl ItemCategory {
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ActionResult {
+    #[prost(string, tag="1")]
+    pub correlation_id: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub status: ::core::option::Option<ActionStatus>,
+    #[prost(oneof="action_result::Result", tags="10, 11, 12")]
+    pub result: ::core::option::Option<action_result::Result>,
+}
+/// Nested message and enum types in `ActionResult`.
+pub mod action_result {
+    #[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Oneof)]
+    pub enum Result {
+        #[prost(message, tag="10")]
+        WorldEntities(super::WorldEntitiesResult),
+        #[prost(message, tag="11")]
+        WorldPlayers(super::WorldPlayersResult),
+        #[prost(message, tag="12")]
+        WorldEntitiesWithin(super::WorldEntitiesWithinResult),
+    }
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct ActionStatus {
+    #[prost(bool, tag="1")]
+    pub ok: bool,
+    #[prost(string, optional, tag="2")]
+    pub error: ::core::option::Option<::prost::alloc::string::String>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldEntitiesResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, repeated, tag="2")]
+    pub entities: ::prost::alloc::vec::Vec<EntityRef>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldEntitiesWithinResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub r#box: ::core::option::Option<BBox>,
+    #[prost(message, repeated, tag="3")]
+    pub entities: ::prost::alloc::vec::Vec<EntityRef>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldPlayersResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, repeated, tag="2")]
+    pub players: ::prost::alloc::vec::Vec<EntityRef>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ActionBatch {
     #[prost(message, repeated, tag="1")]
     pub actions: ::prost::alloc::vec::Vec<Action>,
@@ -784,63 +841,6 @@ pub struct WorldQueryEntitiesWithinAction {
     #[prost(message, optional, tag="2")]
     pub r#box: ::core::option::Option<BBox>,
 }
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ActionStatus {
-    #[prost(bool, tag="1")]
-    pub ok: bool,
-    #[prost(string, optional, tag="2")]
-    pub error: ::core::option::Option<::prost::alloc::string::String>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WorldEntitiesResult {
-    #[prost(message, optional, tag="1")]
-    pub world: ::core::option::Option<WorldRef>,
-    #[prost(message, repeated, tag="2")]
-    pub entities: ::prost::alloc::vec::Vec<EntityRef>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WorldEntitiesWithinResult {
-    #[prost(message, optional, tag="1")]
-    pub world: ::core::option::Option<WorldRef>,
-    #[prost(message, optional, tag="2")]
-    pub r#box: ::core::option::Option<BBox>,
-    #[prost(message, repeated, tag="3")]
-    pub entities: ::prost::alloc::vec::Vec<EntityRef>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct WorldPlayersResult {
-    #[prost(message, optional, tag="1")]
-    pub world: ::core::option::Option<WorldRef>,
-    #[prost(message, repeated, tag="2")]
-    pub players: ::prost::alloc::vec::Vec<EntityRef>,
-}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct ActionResult {
-    #[prost(string, tag="1")]
-    pub correlation_id: ::prost::alloc::string::String,
-    #[prost(message, optional, tag="2")]
-    pub status: ::core::option::Option<ActionStatus>,
-    #[prost(oneof="action_result::Result", tags="10, 11, 12")]
-    pub result: ::core::option::Option<action_result::Result>,
-}
-/// Nested message and enum types in `ActionResult`.
-pub mod action_result {
-    #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Result {
-        #[prost(message, tag="10")]
-        WorldEntities(super::WorldEntitiesResult),
-        #[prost(message, tag="11")]
-        WorldPlayers(super::WorldPlayersResult),
-        #[prost(message, tag="12")]
-        WorldEntitiesWithin(super::WorldEntitiesWithinResult),
-    }
-}
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum ParticleType {
@@ -1169,6 +1169,8 @@ pub struct PlayerJoinEvent {
     pub player_uuid: ::prost::alloc::string::String,
     #[prost(string, tag="2")]
     pub name: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="3")]
+    pub world: ::core::option::Option<WorldRef>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]

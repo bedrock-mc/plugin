@@ -9,7 +9,6 @@ namespace ExamplePhp;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Df\Plugin\EventType;
 use Df\Plugin\PlayerJoinEvent;
 use Df\Plugin\ItemStack;
 use Df\Plugin\ItemCategory;
@@ -17,10 +16,13 @@ use Df\Plugin\ChatEvent;
 use Df\Plugin\CommandEvent;
 use Df\Plugin\PlayerAttackEntityEvent;
 use Df\Plugin\PlayerAttackEntityMutation;
+use Df\Plugin\PlayerJumpEvent;
+use Df\Plugin\Sound;
 use Dragonfly\PluginLib\PluginBase;
 use Dragonfly\PluginLib\Events\EventContext;
 use Dragonfly\PluginLib\Events\Listener;
 use ExamplePhp\EffectCommand;
+use ExamplePhp\CircleCommand;
 
 class HelloPlugin extends PluginBase implements Listener {
 
@@ -29,6 +31,7 @@ class HelloPlugin extends PluginBase implements Listener {
 
     public function onEnable(): void {
         $this->registerCommandClass(new EffectCommand());
+        $this->registerCommandClass(new CircleCommand());
         $this->registerCommand('/cheers', 'Send a toast from PHP');
         $this->registerCommand('/pokemon', 'Give a Pokemon item');
         // Register custom items
@@ -44,11 +47,12 @@ class HelloPlugin extends PluginBase implements Listener {
     }
 
     public function onPlayerJoin(PlayerJoinEvent $e, EventContext $ctx): void {
+        $player = $ctx->getPlayer();
         $stack = new ItemStack();
         $stack->setName('vasar:pokemon');
         $stack->setMeta(0);
         $stack->setCount(1);
-        $ctx->giveItemUuid($e->getPlayerUuid(), $stack);
+        $player->giveItem($stack);
     }
 
     public function onChat(ChatEvent $chat, EventContext $ctx): void {
@@ -60,23 +64,24 @@ class HelloPlugin extends PluginBase implements Listener {
         }
 
         if (str_starts_with($text, '!cheer ')) {
-            $ctx->chat('🥂 ' . substr($text, 7));
+            $ctx->getPlayer()->sendMessage('🥂 ' . substr($text, 7));
             return;
         }
     }
 
     public function onCommand(CommandEvent $command, EventContext $ctx): void {
+        $player = $ctx->getPlayer();
         switch ($command->getRaw()) {
             case '/cheers':
-                $ctx->chatToUuid($command->getPlayerUuid(), 'Cheers from the PHP plugin!');
+                $player->sendMessage('Cheers from the PHP plugin!');
                 break;
             case '/pokemon':
-                $ctx->chatToUuid($command->getPlayerUuid(), 'You have been given a Pokemon item!');
+                $player->sendMessage('You have been given a Pokemon item!');
                 $stack = new ItemStack();
                 $stack->setName('vasar:pokemon');
                 $stack->setMeta(0);
                 $stack->setCount(1);
-                $ctx->giveItemUuid($command->getPlayerUuid(), $stack);
+                $player->giveItem($stack);
                 break;
         }
     }
@@ -87,6 +92,13 @@ class HelloPlugin extends PluginBase implements Listener {
         $mutation->setHeight(0.6);
         $ctx->playerAttackEntity($mutation);
     }
+
+    public function onPlayerJump(PlayerJumpEvent $e, EventContext $ctx): void {
+        $player = $ctx->getPlayer();
+        $position = $e->getPosition();
+        $player->playSound(Sound::EXPLOSION, $position, 1.0, 1.0);
+    }
+
 }
 
 $plugin = new HelloPlugin();

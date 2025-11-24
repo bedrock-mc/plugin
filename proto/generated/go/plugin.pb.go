@@ -1708,7 +1708,7 @@ var File_plugin_proto protoreflect.FileDescriptor
 
 const file_plugin_proto_rawDesc = "" +
 	"\n" +
-	"\fplugin.proto\x12\tdf.plugin\x1a\x13player_events.proto\x1a\x12world_events.proto\x1a\rcommand.proto\x1a\ractions.proto\x1a\x0fmutations.proto\x1a\fcommon.proto\"\xd6\x02\n" +
+	"\fplugin.proto\x12\tdf.plugin\x1a\x13player_events.proto\x1a\x12world_events.proto\x1a\rcommand.proto\x1a\ractions.proto\x1a\x0fmutations.proto\x1a\fcommon.proto\x1a\x14action_results.proto\"\xd6\x02\n" +
 	"\fHostToPlugin\x12\x1b\n" +
 	"\tplugin_id\x18\x01 \x01(\tR\bpluginId\x12,\n" +
 	"\x05hello\x18\n" +
@@ -2039,6 +2039,7 @@ func file_plugin_proto_init() {
 	file_actions_proto_init()
 	file_mutations_proto_init()
 	file_common_proto_init()
+	file_action_results_proto_init()
 	file_plugin_proto_msgTypes[0].OneofWrappers = []any{
 		(*HostToPlugin_Hello)(nil),
 		(*HostToPlugin_Shutdown)(nil),

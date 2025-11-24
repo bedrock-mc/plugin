@@ -5,7 +5,8 @@
 // source: plugin.proto
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
-import { ActionBatch, ActionResult } from "./actions.js";
+import { ActionResult } from "./action_results.js";
+import { ActionBatch } from "./actions.js";
 import { CommandEvent, CommandSpec } from "./command.js";
 import { CustomItemDefinition } from "./common.js";
 import { EventResult } from "./mutations.js";

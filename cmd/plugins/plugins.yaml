@@ -1,0 +1,56 @@
+# Plugin Server Configuration
+# Dragonfly runs a gRPC server that plugins connect to
+# Use Unix socket for best performance
+server_port: "unix:///tmp/dragonfly_plugin.sock"
+# Or use TCP for remote: "127.0.0.1:50050"
+
+# List of plugin IDs that must connect before server starts
+# This ensures custom items are registered before the resource pack is built
+required_plugins:
+  - example-php
+
+# Maximum time to wait for required plugins to connect (milliseconds)
+hello_timeout_ms: 5000
+
+plugins:
+  # - id: example-node
+  #   name: Example Node Plugin
+  #   command: "node"
+  #   args: ["../examples/plugins/node/hello.js"]
+  #   env:
+  #     NODE_ENV: development
+  # - id: example-typescript
+  #   name: Example TypeScript Plugin
+  #   #command: "node"
+  #   #args: ["../examples/plugins/typescript/dist/index.js"]
+  #   command: "npm"
+  #   args: ["run", "dev"]
+  #   work_dir:
+  #     path: "../examples/plugins/typescript"
+  #   env:
+  #     NODE_ENV: production
+  - id: example-php
+    name: Example PHP Plugin
+    command: "../examples/plugins/php/bin/php7/bin/php"
+    args: ["../examples/plugins/php/src/HelloPlugin.php"]
+    # command: "docker"
+    # args:
+    #   - "compose"
+    #   - "-f"
+    #   - "../examples/plugins/php/docker-compose.yml"
+    #   - "up"
+    #   - "--abort-on-container-exit"
+    env:
+      PHP_ENV: production
+
+  # - id: example-go
+  #   name: Example Go Plugin
+  #   command: "go"
+  #   args: ["run", "cmd/main.go"]
+  #   work_dir:
+  #     git:
+  #       enabled: true
+  #       #persistent: true # persistent can be set to true if you don't
+  #       # want the plugin to be cloned at every startup
+  #       #version: tags/v0.0.1 # can also specify commit hashes
+  #     path: https://github.com/secmc/plugin-go

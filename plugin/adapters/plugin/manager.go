@@ -296,9 +296,66 @@ func (m *Manager) dispatchEvent(envelope *pb.EventEnvelope, expectResult bool) [
 	return results
 }
 
+// dispatchEventParallel broadcasts an event to all subscribed plugins concurrently and collects results.
+func (m *Manager) dispatchEventParallel(envelope *pb.EventEnvelope, expectResult bool) []*pb.EventResult {
+	if envelope == nil {
+		return nil
+	}
+	if envelope.EventId == "" {
+		envelope.EventId = m.generateEventID()
+	}
+
+	eventType := envelope.Type
+	m.mu.RLock()
+	procs := make([]*pluginProcess, 0, len(m.plugins))
+	for _, proc := range m.plugins {
+		if !proc.HasSubscription(eventType) {
+			continue
+		}
+		procs = append(procs, proc)
+	}
+	m.mu.RUnlock()
+
+	if len(procs) == 0 {
+		return nil
+	}
+
+	results := make([]*pb.EventResult, len(procs))
+	var wg sync.WaitGroup
+	for idx, proc := range procs {
+		wg.Go(func() {
+			var waitCh chan *pb.EventResult
+			if expectResult {
+				waitCh = proc.expectEventResult(envelope.EventId)
+			}
+			proc.queue(&pb.HostToPlugin{
+				PluginId: proc.id,
+				Payload: &pb.HostToPlugin_Event{
+					Event: envelope,
+				},
+			})
+			if !expectResult {
+				return
+			}
+			res, err := proc.waitEventResult(waitCh, eventResponseTimeout)
+			if err != nil {
+				if errors.Is(err, context.DeadlineExceeded) {
+					proc.log.Warn("plugin did not respond to event", "event_id", envelope.EventId, "type", envelope.Type.String())
+				}
+				proc.discardEventResult(envelope.EventId)
+				return
+			}
+			results[idx] = res
+		})
+	}
+	wg.Wait()
+	return results
+}
+
 func (m *Manager) emitCancellable(ctx cancelContext, envelope *pb.EventEnvelope) []*pb.EventResult {
 	envelope.ExpectsResponse = true
-	results := m.dispatchEvent(envelope, true)
+	// Fire all at once and wait for all responses.
+	results := m.dispatchEventParallel(envelope, true)
 	cancelled := false
 	for _, res := range results {
 		if res != nil && res.Cancel != nil && *res.Cancel {
@@ -307,6 +364,10 @@ func (m *Manager) emitCancellable(ctx cancelContext, envelope *pb.EventEnvelope)
 	}
 	if cancelled && ctx != nil {
 		ctx.Cancel()
+	}
+	// If any plugin cancelled, do not apply any mutations.
+	if cancelled {
+		return nil
 	}
 	return results
 }
@@ -427,11 +488,9 @@ func (m *Manager) worldFromRef(ref *pb.WorldRef) *world.World {
 }
 
 func (m *Manager) handlePluginMessage(p *pluginProcess, msg *pb.PluginToHost) {
-	if result := msg.GetEventResult(); result != nil {
-		p.deliverEventResult(result)
-	}
-
 	switch payload := msg.GetPayload().(type) {
+	case *pb.PluginToHost_EventResult:
+		p.deliverEventResult(payload.EventResult)
 	case *pb.PluginToHost_Hello:
 		hello := payload.Hello
 		cmdNames := mapSlice(hello.Commands, func(cmd *pb.CommandSpec) string {

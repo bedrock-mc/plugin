@@ -2,15 +2,15 @@
   "name": "@dragonfly/proto",
   "version": "0.1.0",
   "type": "module",
-  "main": "index.js",
+  "main": "src/generated/plugin.js",
   "exports": {
     "./*": {
-      "types": "./*.ts",
-      "import": "./*.js"
+      "types": "./src/generated/*.ts",
+      "import": "./src/generated/*.js"
     },
     ".": {
-      "types": "./plugin.ts",
-      "import": "./plugin.js"
+      "types": "./src/generated/plugin.ts",
+      "import": "./src/generated/plugin.js"
     }
   },
   "scripts": {

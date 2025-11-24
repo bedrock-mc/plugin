@@ -14,6 +14,9 @@ import (
 	"sync/atomic"
 	"time"
 
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
+
 	"google.golang.org/protobuf/proto"
 
 	"github.com/secmc/plugin/plugin/adapters/grpc"
@@ -217,7 +220,14 @@ func (p *pluginProcess) sendLoop() {
 				continue
 			}
 			if err := p.stream.Send(data); err != nil {
-				p.log.Error("send message", "error", err)
+				// Treat expected shutdown conditions as non-errors.
+				if st, ok := status.FromError(err); ok && (st.Code() == codes.Canceled || st.Code() == codes.Unavailable) {
+					p.log.Info("connection closed", "reason", st.Code().String())
+				} else if errors.Is(err, io.EOF) || errors.Is(err, context.Canceled) {
+					p.log.Info("connection closed", "reason", "canceled")
+				} else {
+					p.log.Error("send message", "error", err)
+				}
 				p.Stop()
 				return
 			}
@@ -230,7 +240,16 @@ func (p *pluginProcess) recvLoop() {
 	for {
 		data, err := p.stream.Recv()
 		if err != nil {
-			if !errors.Is(err, io.EOF) && !errors.Is(err, context.Canceled) {
+			if st, ok := status.FromError(err); ok {
+				switch st.Code() {
+				case codes.Canceled, codes.Unavailable:
+					p.log.Info("connection closed", "reason", st.Code().String())
+				default:
+					p.log.Error("receive message", "error", err)
+				}
+			} else if errors.Is(err, io.EOF) || errors.Is(err, context.Canceled) {
+				p.log.Info("connection closed", "reason", "canceled")
+			} else {
 				p.log.Error("receive message", "error", err)
 			}
 			p.Stop()

@@ -5,6 +5,10 @@ namespace Dragonfly\PluginLib\Actions;
 use Df\Plugin\Action;
 use Df\Plugin\Vec3;
 use Df\Plugin\ItemStack;
+use Df\Plugin\WorldRef;
+use Df\Plugin\BlockPos;
+use Df\Plugin\BlockState;
+use Df\Plugin\BBox;
 
 trait ActionsTrait {
     abstract protected function getActions(): Actions;
@@ -83,5 +87,41 @@ trait ActionsTrait {
 
     public function executeCommandUuid(string $playerUuid, string $command): void {
         $this->getActions()->executeCommandUuid($playerUuid, $command);
+    }
+
+    public function worldSetDefaultGameMode(WorldRef $world, int $gameMode): void {
+        $this->getActions()->worldSetDefaultGameMode($world, $gameMode);
+    }
+
+    public function worldSetDifficulty(WorldRef $world, int $difficulty): void {
+        $this->getActions()->worldSetDifficulty($world, $difficulty);
+    }
+
+    public function worldSetTickRange(WorldRef $world, int $tickRange): void {
+        $this->getActions()->worldSetTickRange($world, $tickRange);
+    }
+
+    public function worldSetBlock(WorldRef $world, BlockPos $position, ?BlockState $block = null): void {
+        $this->getActions()->worldSetBlock($world, $position, $block);
+    }
+
+    public function worldPlaySound(WorldRef $world, int $sound, Vec3 $position): void {
+        $this->getActions()->worldPlaySound($world, $sound, $position);
+    }
+
+    public function worldAddParticle(WorldRef $world, Vec3 $position, int $particle, ?BlockState $block = null, ?int $face = null): void {
+        $this->getActions()->worldAddParticle($world, $position, $particle, $block, $face);
+    }
+
+    public function worldQueryEntities(WorldRef $world, ?string $correlationId = null): void {
+        $this->getActions()->worldQueryEntities($world, $correlationId);
+    }
+
+    public function worldQueryPlayers(WorldRef $world, ?string $correlationId = null): void {
+        $this->getActions()->worldQueryPlayers($world, $correlationId);
+    }
+
+    public function worldQueryEntitiesWithin(WorldRef $world, BBox $box, ?string $correlationId = null): void {
+        $this->getActions()->worldQueryEntitiesWithin($world, $box, $correlationId);
     }
 }

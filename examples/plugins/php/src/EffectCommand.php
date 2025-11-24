@@ -3,8 +3,9 @@
 namespace ExamplePhp;
 
 use Dragonfly\PluginLib\Commands\Command;
-use Dragonfly\PluginLib\Commands\Optional;
 use Dragonfly\PluginLib\Commands\CommandSender;
+use Dragonfly\PluginLib\Commands\Optional;
+use Dragonfly\PluginLib\Entity\Player;
 use Dragonfly\PluginLib\Events\EventContext;
 use Df\Plugin\EffectType;
 use Dragonfly\PluginLib\Util\EnumResolver;
@@ -22,9 +23,14 @@ class EffectCommand extends Command {
     public Optional $showParticles;
 
     public function execute(CommandSender $sender, EventContext $ctx): void {
+        if (!$sender instanceof Player) {
+            $sender->sendMessage("§cThis command can only be run by a player.");
+            return;
+        }
+
         $effectId = $this->resolveEffectId($this->effect);
         if ($effectId === null) {
-            $ctx->chatToUuid($sender->uuid, "§cUnknown effect: {$this->effect}");
+            $sender->sendMessage("§cUnknown effect: {$this->effect}");
             return;
         }
         
@@ -33,8 +39,8 @@ class EffectCommand extends Command {
         $show = $this->showParticles->getOr(true);
         $durationMs = $seconds * 1000;
 
-        $ctx->addEffectUuid($sender->uuid, $effectId, $level, $durationMs, $show);
-        $ctx->chatToUuid($sender->uuid, "Applied effect " . $this->enumName($effectId) . " (id {$effectId}) level {$level} for {$seconds}s" . ($show ? '' : ' (hidden)'));
+        $sender->addEffect($effectId, $level, $durationMs, $show);
+        $sender->sendMessage("Applied effect " . $this->enumName($effectId) . " (id {$effectId}) level {$level} for {$seconds}s" . ($show ? '' : ' (hidden)'));
     }
 
     /**

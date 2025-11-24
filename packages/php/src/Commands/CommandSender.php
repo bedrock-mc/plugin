@@ -2,9 +2,10 @@
 
 namespace Dragonfly\PluginLib\Commands;
 
-class CommandSender {
-    public function __construct(
-        public string $uuid,
-        public string $name,
-    ) {}
+/**
+ * Interface for anything that can execute commands (players, console, etc.)
+ */
+interface CommandSender {
+    public function sendMessage(string $message): void;
+    public function getName(): string;
 }
