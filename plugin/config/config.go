@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 
 	"gopkg.in/yaml.v2"
@@ -20,11 +21,18 @@ type Config struct {
 }
 
 type PluginConfig struct {
-	ID      string            `yaml:"id"`
-	Name    string            `yaml:"name"`
-	Command string            `yaml:"command"`
-	Args    []string          `yaml:"args"`
-	WorkDir string            `yaml:"work_dir"`
+	ID      string   `yaml:"id"`
+	Name    string   `yaml:"name"`
+	Command string   `yaml:"command"`
+	Args    []string `yaml:"args"`
+	WorkDir struct {
+		Git struct {
+			Enabled    bool   `yaml:"enabled"`
+			Persistent bool   `yaml:"persistent"`
+			Version    string `yaml:"version"`
+		} `yaml:"git"`
+		Path string `yaml:"path"`
+	} `yaml:"work_dir"`
 	Env     map[string]string `yaml:"env"`
 	Address string            `yaml:"address"`
 }
@@ -53,14 +61,61 @@ func LoadConfig(path string) (Config, error) {
 		cfg.HelloTimeoutMs = 2000
 	}
 	for i := range cfg.Plugins {
-		if cfg.Plugins[i].ID == "" {
-			cfg.Plugins[i].ID = fmt.Sprintf("plugin-%d", i+1)
+		pl := &cfg.Plugins[i]
+		if pl.ID == "" {
+			pl.ID = fmt.Sprintf("plugin-%d", i+1)
 		}
-		if cfg.Plugins[i].Command != "" && cfg.Plugins[i].WorkDir != "" {
-			if !filepath.IsAbs(cfg.Plugins[i].WorkDir) {
-				cfg.Plugins[i].WorkDir = filepath.Clean(cfg.Plugins[i].WorkDir)
+		if pl.Command == "" || pl.WorkDir.Path == "" {
+			continue
+		}
+
+		if pl.WorkDir.Git.Enabled {
+			path := filepath.Join(os.TempDir(), pl.ID)
+			remote := pl.WorkDir.Path
+
+			needClone := true
+			if pl.WorkDir.Git.Persistent {
+				if _, err := os.Stat(path); err == nil {
+					needClone = false
+				} else if !errors.Is(err, os.ErrNotExist) {
+					return cfg, fmt.Errorf("stat remote plugin %q: %w", pl.ID, err)
+				}
+			} else {
+				if err := os.RemoveAll(path); err != nil {
+					return cfg, fmt.Errorf("reset remote plugin %q: %w", pl.ID, err)
+				}
 			}
+
+			if needClone {
+				if err := run("git", "", "clone", remote, path, "--depth=1"); err != nil {
+					return cfg, fmt.Errorf("clone remote plugin %q: %w", pl.ID, err)
+				}
+
+				if pl.WorkDir.Git.Version != "" {
+					if err := run("git", path, "checkout", "--detach", pl.WorkDir.Git.Version); err != nil {
+						return cfg, err
+					}
+				}
+			}
+
+			pl.WorkDir.Path = path
+		}
+
+		if !filepath.IsAbs(pl.WorkDir.Path) {
+			pl.WorkDir.Path = filepath.Clean(pl.WorkDir.Path)
 		}
 	}
 	return cfg, nil
+}
+
+func run(bin string, path string, args ...string) error {
+	cmd := exec.Command(bin, args...)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	if path != "" {
+		cmd.Dir = path
+	}
+
+	return cmd.Run()
 }

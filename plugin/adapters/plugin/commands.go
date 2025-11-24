@@ -6,7 +6,7 @@ import (
 	"github.com/df-mc/dragonfly/server/cmd"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/world"
-	pb "github.com/secmc/plugin/proto/generated"
+	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 func (m *Manager) registerCommands(p *pluginProcess, specs []*pb.CommandSpec) {

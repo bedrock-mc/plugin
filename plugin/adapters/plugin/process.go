@@ -18,7 +18,7 @@ import (
 
 	"github.com/secmc/plugin/plugin/adapters/grpc"
 	"github.com/secmc/plugin/plugin/config"
-	pb "github.com/secmc/plugin/proto/generated"
+	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 const (
@@ -110,8 +110,8 @@ func (p *pluginProcess) launchProcess(ctx context.Context, serverAddress string)
 	}
 
 	cmd := exec.CommandContext(ctx, p.cfg.Command, p.cfg.Args...)
-	if p.cfg.WorkDir != "" {
-		cmd.Dir = p.cfg.WorkDir
+	if p.cfg.WorkDir.Path != "" {
+		cmd.Dir = p.cfg.WorkDir.Path
 	}
 	env := os.Environ()
 	env = append(env, fmt.Sprintf("DF_PLUGIN_ID=%s", p.id))
@@ -169,6 +169,22 @@ func (p *pluginProcess) consumeOutput(r io.Reader) {
 	if err := scanner.Err(); err != nil && !p.closed.Load() {
 		p.log.Error("output scanner error", "error", err)
 	}
+}
+
+func (p *pluginProcess) sendServerInfo(plugins []string) error {
+	msg := &pb.HostToPlugin{
+		PluginId: p.id,
+		Payload: &pb.HostToPlugin_ServerInfo{
+			ServerInfo: &pb.ServerInformationResponse{
+				Plugins: plugins,
+			},
+		},
+	}
+	payload, err := proto.Marshal(msg)
+	if err != nil {
+		return err
+	}
+	return p.stream.Send(payload)
 }
 
 func (p *pluginProcess) sendHello() error {

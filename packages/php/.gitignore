@@ -1,0 +1,16 @@
+# Composer dependencies
+vendor/
+
+# Composer lock (optional for libraries, but keeping it allows reproducible builds)
+# composer.lock
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+

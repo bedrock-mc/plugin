@@ -1,0 +1,14 @@
+[package]
+name = "dragonfly-plugin"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/secmc/dragonfly-plugins"
+description = "Dragonfly gRPC plugin SDK for Rust"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+prost = "0.13"
+tonic = { version = "0.12", features = ["transport"] }

@@ -10,4 +10,3 @@ lint:
 breaking:
   use:
     - FILE
-

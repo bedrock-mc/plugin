@@ -20,9 +20,15 @@ message HostToPlugin {
   oneof payload {
     HostHello hello = 10;
     HostShutdown shutdown = 11;
+    ServerInformationResponse server_info = 12;
     EventEnvelope event = 20;
     ActionResult action_result = 21;
   }
+}
+
+message ServerInformationRequest {}
+message ServerInformationResponse {
+    repeated string plugins = 1;
 }
 
 message HostHello {
@@ -95,6 +101,7 @@ message PluginToHost {
   oneof payload {
     PluginHello hello = 10;
     EventSubscribe subscribe = 11;
+    ServerInformationRequest server_info = 12;
     ActionBatch actions = 20;
     LogMessage log = 30;
     EventResult event_result = 40;

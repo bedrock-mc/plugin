@@ -22,7 +22,7 @@ import (
 	"github.com/secmc/plugin/plugin/adapters/grpc"
 	"github.com/secmc/plugin/plugin/config"
 	"github.com/secmc/plugin/plugin/ports"
-	pb "github.com/secmc/plugin/proto/generated"
+	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 type Manager struct {
@@ -430,7 +430,10 @@ func (m *Manager) handlePluginMessage(p *pluginProcess, msg *pb.PluginToHost) {
 	if result := msg.GetEventResult(); result != nil {
 		p.deliverEventResult(result)
 	}
-	if hello := msg.GetHello(); hello != nil {
+
+	switch payload := msg.GetPayload().(type) {
+	case *pb.PluginToHost_Hello:
+		hello := payload.Hello
 		cmdNames := mapSlice(hello.Commands, func(cmd *pb.CommandSpec) string {
 			if len(cmd.Aliases) > 0 {
 				return fmt.Sprintf("%s (aliases: %v)", cmd.Name, cmd.Aliases)
@@ -441,8 +444,8 @@ func (m *Manager) handlePluginMessage(p *pluginProcess, msg *pb.PluginToHost) {
 		p.setHello(hello)
 		m.registerCommands(p, hello.Commands)
 		m.registerCustomItems(p, hello.CustomItems)
-	}
-	if subscribe := msg.GetSubscribe(); subscribe != nil {
+	case *pb.PluginToHost_Subscribe:
+		subscribe := payload.Subscribe
 		eventNames := mapSlice(subscribe.Events, func(evt pb.EventType) string {
 			return evt.String()
 		})
@@ -452,11 +455,10 @@ func (m *Manager) handlePluginMessage(p *pluginProcess, msg *pb.PluginToHost) {
 		}
 		m.log.Info(fmt.Sprintf("  %s subscribed to %d events", pluginName, len(eventNames)), "events", eventNames)
 		p.updateSubscriptions(subscribe.Events)
-	}
-	if actions := msg.GetActions(); actions != nil {
-		m.applyActions(p, actions)
-	}
-	if logMsg := msg.GetLog(); logMsg != nil {
+	case *pb.PluginToHost_Actions:
+		m.applyActions(p, payload.Actions)
+	case *pb.PluginToHost_Log:
+		logMsg := payload.Log
 		level := strings.ToLower(logMsg.Level)
 		switch level {
 		case "warn", "warning":
@@ -466,6 +468,15 @@ func (m *Manager) handlePluginMessage(p *pluginProcess, msg *pb.PluginToHost) {
 		default:
 			p.log.Info(logMsg.Message)
 		}
+	case *pb.PluginToHost_ServerInfo:
+		var pluginNames []string
+
+		for _, pl := range m.plugins {
+			pluginNames = append(pluginNames, pl.cfg.Name)
+		}
+		p.sendServerInfo(pluginNames)
+	default:
+		p.log.Info(fmt.Sprintf("unhandled event: %#v", payload))
 	}
 }
 

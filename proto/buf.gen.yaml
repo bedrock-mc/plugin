@@ -5,40 +5,47 @@ managed:
     - file_option: go_package_prefix
       value: github.com/secmc/plugin/proto/generated
 plugins:
+  # Go
   - local: protoc-gen-go
-    out: generated
+    out: generated/go
     opt:
       - paths=source_relative
+  # Go GRPC client
+  - remote: buf.build/grpc/go
+    out: generated/go
+    opt:
+      - paths=source_relative
+
   # C++
   - remote: buf.build/protocolbuffers/cpp
-    out: generated/cpp
+    out: ../packages/cpp/src/generated
   - remote: buf.build/grpc/cpp
-    out: generated/cpp
+    out: ../packages/cpp/src/generated
 
   # Php
   - remote: buf.build/protocolbuffers/php
-    out: generated/php
+    out: ../packages/php/src/generated
   - remote: buf.build/grpc/php
-    out: generated/php
+    out: ../packages/php/src/generated
 
   # Python
   - remote: buf.build/protocolbuffers/python
-    out: generated/python
+    out: ../packages/python/src/generated
   - remote: buf.build/grpc/python
-    out: generated/python
+    out: ../packages/python/src/generated
 
   # Rust
   - remote: buf.build/community/neoeinstein-prost
-    out: generated/rust
+    out: ../packages/rust/src/generated
   - remote: buf.build/community/neoeinstein-tonic
-    out: generated/rust
+    out: ../packages/rust/src/generated
     opt:
       - compile_well_known_types
       - extern_path=.google.protobuf=::pbjson_types
 
   # Typescript
   - remote: buf.build/community/stephenh-ts-proto
-    out: generated/ts
+    out: ../packages/node/src/generated
     opt:
       - esModuleInterop=true
       - outputServices=generic-definitions
