@@ -1,0 +1,44 @@
+{
+  "name": "dragonfly/plugin-sdk",
+  "description": "Official PHP SDK for creating Dragonfly Minecraft Bedrock server plugins.",
+  "type": "library",
+  "license": "MIT",
+  "keywords": ["minecraft", "bedrock", "dragonfly", "plugin", "grpc", "server", "mcpe", "minecraft-bedrock"],
+  "homepage": "https://github.com/secmc/dragonfly-php-sdk",
+  "require": {
+    "php": ">=8.1",
+    "grpc/grpc": "^1.74.0",
+    "google/protobuf": "^3.25",
+    "ext-grpc": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "phpstan/phpstan": "^1.10",
+    "friendsofphp/php-cs-fixer": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dragonfly\\PluginLib\\": "src/",
+      "Df\\": "src/generated/",
+      "GPBMetadata\\": "src/generated/GPBMetadata/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Dragonfly\\PluginLib\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "analyse": "phpstan analyse src tests --level=8",
+    "format": "php-cs-fixer fix"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
