@@ -12,11 +12,11 @@ use Df\Plugin\PluginToHost;
 use Df\Plugin\CustomItemDefinition;
 use Df\Plugin\ParamSpec as PbParamSpec;
 use Df\Plugin\ParamType as PbParamType;
+use Dragonfly\PluginLib\Actions\Actions;
 use Dragonfly\PluginLib\Commands\Command;
-use Dragonfly\PluginLib\Commands\CommandSender;
 use Dragonfly\PluginLib\Events\EventContext;
 use Dragonfly\PluginLib\Events\Listener;
-use Grpc\ChannelCredentials;
+use Dragonfly\PluginLib\Server\Server;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionNamedType;
@@ -42,6 +42,8 @@ abstract class PluginBase {
     private $call;
 
     private StreamSender $sender;
+
+    private Server $server;
 
     private bool $running = false;
 
@@ -82,6 +84,13 @@ abstract class PluginBase {
     // Lifecycle hooks
     public function onEnable(): void {}
     public function onDisable(): void {}
+
+    /**
+     * Get the Server instance for accessing online players.
+     */
+    public function getServer(): Server {
+        return $this->server;
+    }
 
     // Registration APIs
     public function subscribe(array $eventTypes): void {
@@ -198,13 +207,14 @@ abstract class PluginBase {
      * Register a listener object.
      * Public, non-static methods with:
      *  - first parameter typed to a payload class under \Df\Plugin\... ending with "Event"
-     *  - optional second parameter typed to HandlerContext
+     *  - optional second parameter typed to EventContext
      * are auto-registered. Method names are arbitrary.
      *
      * The handler is invoked as either:
      *  - (TypedPayload $payload)
-     *  - (TypedPayload $payload, HandlerContext $ctx)
+     *  - (TypedPayload $payload, EventContext $ctx)
      *
+     * Use $ctx->getPlayer() to get the Player wrapper for events that have a player.
      * The context auto-ACKs if the handler returns without respond/cancel.
      */
     public function registerListener(object $listener): void {
@@ -239,7 +249,7 @@ abstract class PluginBase {
             $wantsContext = $method->getNumberOfParameters() >= 2;
             $this->addEventHandler($eventType, function (string $eventId, EventEnvelope $event) use ($listener, $methodName, $getter, $wantsContext): void {
                 $payload = $event->{$getter}();
-                $ctx = new EventContext($this->pluginId, $eventId, $this->sender, $event->getExpectsResponse());
+                $ctx = new EventContext($this->pluginId, $eventId, $this->sender, $this->server, $event->getExpectsResponse(), $payload);
                 try {
                     if ($wantsContext) {
                         $listener->{$methodName}($payload, $ctx);
@@ -291,12 +301,21 @@ abstract class PluginBase {
         }
         fwrite(STDOUT, "[php] connecting to {$this->serverAddress}...\n");
 
-        $this->client = new PluginClient($this->serverAddress, [
-            'credentials' => ChannelCredentials::createInsecure(),
-        ]);
+        $credClass = '\\Grpc\\ChannelCredentials';
+        $options = [];
+        if (\class_exists($credClass)) {
+            /** @var callable $factory */
+            $factory = [$credClass, 'createInsecure'];
+            $options['credentials'] = \call_user_func($factory);
+        }
+        $this->client = new PluginClient($this->serverAddress, $options);
         $this->call = $this->client->EventStream();
         $this->sender = new StreamSender($this->call);
+        $this->server = new Server(new Actions($this->sender, $this->pluginId));
         $this->running = true;
+
+        // Register internal handlers to track online players
+        $this->registerPlayerTracking();
 
         // Allow plugin to register handlers/subscriptions/commands
         $this->onEnable();
@@ -408,7 +427,7 @@ abstract class PluginBase {
                     }
 
                     // Default ack when unhandled
-                    (new EventContext($this->pluginId, $eventId, $this->sender, $event->getExpectsResponse()))->ackIfUnhandled();
+                    (new EventContext($this->pluginId, $eventId, $this->sender, $this->server, $event->getExpectsResponse()))->ackIfUnhandled();
                     continue;
                 }
 
@@ -460,8 +479,8 @@ abstract class PluginBase {
 
             $senderUuid = $cmdEvt->getPlayerUuid();
             $senderName = $cmdEvt->getName();
-            $sender = new CommandSender($senderUuid, $senderName);
-            $ctx = new EventContext($this->pluginId, $eventId, $this->sender, $event->getExpectsResponse());
+            $ctx = new EventContext($this->pluginId, $eventId, $this->sender, $this->server, $event->getExpectsResponse());
+            $sender = $ctx->commandSender($senderUuid, $senderName);
 
             try {
                 $argsField = $cmdEvt->getArgs();
@@ -491,6 +510,25 @@ abstract class PluginBase {
             }
         });
     }
+
+    /**
+     * Register internal handlers to track online players via join/quit events.
+     */
+    private function registerPlayerTracking(): void {
+        // Track player joins
+        $this->addEventHandler(EventType::PLAYER_JOIN, function (string $eventId, EventEnvelope $event): void {
+            $payload = $event->getPlayerJoin();
+            if ($payload !== null) {
+                $this->server->addPlayer($payload->getPlayerUuid(), $payload->getName());
+            }
+        });
+
+        // Track player quits
+        $this->addEventHandler(EventType::PLAYER_QUIT, function (string $eventId, EventEnvelope $event): void {
+            $payload = $event->getPlayerQuit();
+            if ($payload !== null) {
+                $this->server->removePlayer($payload->getPlayerUuid());
+            }
+        });
+    }
 }
-
-

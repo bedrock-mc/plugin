@@ -24,7 +24,7 @@ class EffectCommand extends Command {
     public function execute(CommandSender $sender, EventContext $ctx): void {
         $effectId = $this->resolveEffectId($this->effect);
         if ($effectId === null) {
-            $ctx->chatToUuid($sender->uuid, "§cUnknown effect: {$this->effect}");
+            $sender->sendMessage("§cUnknown effect: {$this->effect}");
             return;
         }
         
@@ -33,8 +33,8 @@ class EffectCommand extends Command {
         $show = $this->showParticles->getOr(true);
         $durationMs = $seconds * 1000;
 
-        $ctx->addEffectUuid($sender->uuid, $effectId, $level, $durationMs, $show);
-        $ctx->chatToUuid($sender->uuid, "Applied effect " . $this->enumName($effectId) . " (id {$effectId}) level {$level} for {$seconds}s" . ($show ? '' : ' (hidden)'));
+        $sender->addEffect($effectId, $level, $durationMs, $show);
+        $sender->sendMessage("Applied effect " . $this->enumName($effectId) . " (id {$effectId}) level {$level} for {$seconds}s" . ($show ? '' : ' (hidden)'));
     }
 
     /**

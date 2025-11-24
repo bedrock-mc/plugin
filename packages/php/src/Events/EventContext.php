@@ -3,9 +3,11 @@
 namespace Dragonfly\PluginLib\Events;
 
 use Df\Plugin\EventResult;
-use Df\Plugin\EventType;
 use Dragonfly\PluginLib\Actions\Actions;
 use Dragonfly\PluginLib\Actions\ActionsTrait;
+use Dragonfly\PluginLib\Commands\CommandSender;
+use Dragonfly\PluginLib\Entity\Player;
+use Dragonfly\PluginLib\Server\Server;
 use Dragonfly\PluginLib\StreamSender;
 
 final class EventContext {
@@ -14,12 +16,15 @@ final class EventContext {
 
     private bool $handled = false;
     private ?Actions $actions = null;
+    private ?Player $player = null;
 
     public function __construct(
         private string $pluginId,
         private string $eventId,
         private StreamSender $sender,
+        private Server $server,
         private bool $expectsResponse,
+        private ?object $payload = null,
     ) {}
 
     protected function getActions(): Actions {
@@ -82,5 +87,37 @@ final class EventContext {
      */
     public function onActionResult(string $correlationId, callable $handler): void {
         $this->sender->onActionResult($correlationId, $handler);
+    }
+
+    public function player(string $uuid, string $name = ''): Player {
+        return new Player($uuid, $name, $this->getActions());
+    }
+
+    public function commandSender(string $uuid, string $name): CommandSender {
+        return new CommandSender($uuid, $name, $this->getActions());
+    }
+
+    /**
+     * Get the Server instance for accessing online players.
+     */
+    public function getServer(): Server {
+        return $this->server;
+    }
+
+    /**
+     * Get the player associated with this event.
+     * Returns null if the event doesn't have a player (e.g., world events).
+     */
+    public function getPlayer(): ?Player {
+        if ($this->player !== null) {
+            return $this->player;
+        }
+        if ($this->payload === null || !method_exists($this->payload, 'getPlayerUuid')) {
+            return null;
+        }
+        $uuid = $this->payload->getPlayerUuid();
+        $name = method_exists($this->payload, 'getName') ? $this->payload->getName() : '';
+        $this->player = new Player($uuid, $name, $this->getActions());
+        return $this->player;
     }
 }
