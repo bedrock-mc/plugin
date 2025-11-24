@@ -86,9 +86,10 @@ func (p *pluginProcess) start(ctx context.Context, serverAddress string) {
 // attachStream attaches an incoming stream to this plugin process
 func (p *pluginProcess) attachStream(stream *grpc.GrpcStream) error {
 	p.streamMu.Lock()
+	// Allow replacing a stale/closed stream to support plugin hot-reload reconnections.
 	if p.stream != nil {
-		p.streamMu.Unlock()
-		return errors.New("stream already attached")
+		_ = p.stream.Close()
+		p.stream = nil
 	}
 	p.stream = stream
 	p.streamMu.Unlock()
@@ -105,6 +106,19 @@ func (p *pluginProcess) attachStream(stream *grpc.GrpcStream) error {
 	go p.sendLoop()
 	go p.recvLoop()
 	return nil
+}
+
+// clearStream drops the current gRPC stream and marks the plugin as disconnected,
+// without killing the underlying process. This enables external hot-reload
+// wrappers to restart the plugin and reconnect cleanly.
+func (p *pluginProcess) clearStream() {
+	p.streamMu.Lock()
+	if p.stream != nil {
+		_ = p.stream.Close()
+		p.stream = nil
+	}
+	p.streamMu.Unlock()
+	p.connected.Store(false)
 }
 
 func (p *pluginProcess) launchProcess(ctx context.Context, serverAddress string) error {
@@ -228,7 +242,8 @@ func (p *pluginProcess) sendLoop() {
 				} else {
 					p.log.Error("send message", "error", err)
 				}
-				p.Stop()
+				// Do not kill the process on transient stream errors; allow reconnection.
+				p.clearStream()
 				return
 			}
 		}
@@ -252,7 +267,8 @@ func (p *pluginProcess) recvLoop() {
 			} else {
 				p.log.Error("receive message", "error", err)
 			}
-			p.Stop()
+			// Do not kill the process on transient stream errors; allow reconnection.
+			p.clearStream()
 			return
 		}
 		msg := &pb.PluginToHost{}
