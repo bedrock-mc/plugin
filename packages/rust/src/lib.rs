@@ -26,7 +26,52 @@ pub use async_trait::async_trait;
 pub use event::PluginEventHandler;
 use tokio::sync::mpsc;
 use tokio_stream::{wrappers::ReceiverStream, StreamExt};
+use tower::service_fn;
 // TODO: pub use rust_plugin_macro::bedrock_plugin;
+
+#[cfg(unix)]
+use tokio::net::UnixStream;
+#[cfg(unix)]
+use hyper_util::rt::TokioIo;
+
+/// Helper function to connect to the server, supporting both Unix sockets and TCP.
+async fn connect_to_server(addr: &str) -> Result<types::PluginClient<tonic::transport::Channel>, Box<dyn Error>> {
+    // Check if it's a Unix socket address (starts with "unix:" or is a path starting with "/")
+    if addr.starts_with("unix:") || addr.starts_with('/') {
+        #[cfg(unix)]
+        {
+            // Extract the path and convert to owned String for the closure
+            let path: String = if addr.starts_with("unix://") {
+                addr[7..].to_string()
+            } else if addr.starts_with("unix:") {
+                addr[5..].to_string()
+            } else {
+                addr.to_string()
+            };
+            
+            // Create a lazy channel that uses Unix sockets.
+            // Lazy is required so the hello message gets sent as part of stream
+            // establishment, avoiding a deadlock with the Go server which waits
+            // for the hello before sending response headers.
+            let channel = tonic::transport::Endpoint::try_from("http://[::1]:50051")?
+                .connect_with_connector_lazy(service_fn(move |_: tonic::transport::Uri| {
+                    let path = path.clone();
+                    async move {
+                        let stream = UnixStream::connect(&path).await?;
+                        Ok::<_, std::io::Error>(TokioIo::new(stream))
+                    }
+                }));
+            Ok(types::PluginClient::new(channel))
+        }
+        #[cfg(not(unix))]
+        {
+            Err("Unix sockets are not supported on this platform".into())
+        }
+    } else {
+        // Regular TCP connection
+        Ok(types::PluginClient::connect(addr.to_string()).await?)
+    }
+}
 
 pub struct Plugin {
     id: String,
@@ -46,31 +91,18 @@ impl Plugin {
     }
 
     /// Runs the plugin, connecting to the server and starting the event loop.
-    pub async fn run<A>(
+    pub async fn run(
         self,
         handler: impl PluginEventHandler + PluginSubscriptions + 'static,
-        addr: A,
-    ) -> Result<(), Box<dyn Error>>
-    where
-        // Yeah this was AI, but holy hell is it good at doing dynamic type stuff.
-        A: TryInto<tonic::transport::Endpoint>,
-        A::Error: Into<Box<dyn Error + Send + Sync>>,
-    {
-        let mut raw_client = types::PluginClient::connect(addr)
-            .await
-            .map_err(|e| Box::new(e) as Box<dyn Error>)?;
+        addr: &str,
+    ) -> Result<(), Box<dyn Error>> {
+        let mut raw_client = connect_to_server(addr).await?;
 
         let (tx, rx) = mpsc::channel(128);
 
-        let request_stream = ReceiverStream::new(rx);
-
-        let mut event_stream = raw_client.event_stream(request_stream).await?.into_inner();
-
-        let server = Server {
-            plugin_id: self.id.clone(),
-            sender: tx.clone(),
-        };
-
+        // Pre-buffer the hello message so it's sent immediately when stream opens.
+        // This is required because the Go server blocks on Recv() waiting for the
+        // hello before sending response headers.
         let hello_msg = types::PluginToHost {
             plugin_id: self.id.clone(),
             payload: Some(types::PluginPayload::Hello(types::PluginHello {
@@ -82,6 +114,14 @@ impl Plugin {
             })),
         };
         tx.send(hello_msg).await?;
+
+        let request_stream = ReceiverStream::new(rx);
+        let mut event_stream = raw_client.event_stream(request_stream).await?.into_inner();
+
+        let server = Server {
+            plugin_id: self.id.clone(),
+            sender: tx.clone(),
+        };
 
         let events = handler.get_subscriptions();
         if !events.is_empty() {
