@@ -37,6 +37,7 @@
 #include "actions.pb.h"
 #include "mutations.pb.h"
 #include "common.pb.h"
+#include "action_results.pb.h"
 // @@protoc_insertion_point(includes)
 
 // Must be included last.

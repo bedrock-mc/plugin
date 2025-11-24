@@ -2210,336 +2210,6 @@ func (x *WorldQueryEntitiesWithinAction) GetBox() *BBox {
 	return nil
 }
 
-type ActionStatus struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Ok            bool                   `protobuf:"varint,1,opt,name=ok,proto3" json:"ok,omitempty"`
-	Error         *string                `protobuf:"bytes,2,opt,name=error,proto3,oneof" json:"error,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ActionStatus) Reset() {
-	*x = ActionStatus{}
-	mi := &file_actions_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ActionStatus) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ActionStatus) ProtoMessage() {}
-
-func (x *ActionStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_actions_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ActionStatus.ProtoReflect.Descriptor instead.
-func (*ActionStatus) Descriptor() ([]byte, []int) {
-	return file_actions_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *ActionStatus) GetOk() bool {
-	if x != nil {
-		return x.Ok
-	}
-	return false
-}
-
-func (x *ActionStatus) GetError() string {
-	if x != nil && x.Error != nil {
-		return *x.Error
-	}
-	return ""
-}
-
-type WorldEntitiesResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
-	Entities      []*EntityRef           `protobuf:"bytes,2,rep,name=entities,proto3" json:"entities,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WorldEntitiesResult) Reset() {
-	*x = WorldEntitiesResult{}
-	mi := &file_actions_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WorldEntitiesResult) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WorldEntitiesResult) ProtoMessage() {}
-
-func (x *WorldEntitiesResult) ProtoReflect() protoreflect.Message {
-	mi := &file_actions_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WorldEntitiesResult.ProtoReflect.Descriptor instead.
-func (*WorldEntitiesResult) Descriptor() ([]byte, []int) {
-	return file_actions_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *WorldEntitiesResult) GetWorld() *WorldRef {
-	if x != nil {
-		return x.World
-	}
-	return nil
-}
-
-func (x *WorldEntitiesResult) GetEntities() []*EntityRef {
-	if x != nil {
-		return x.Entities
-	}
-	return nil
-}
-
-type WorldEntitiesWithinResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
-	Box           *BBox                  `protobuf:"bytes,2,opt,name=box,proto3" json:"box,omitempty"`
-	Entities      []*EntityRef           `protobuf:"bytes,3,rep,name=entities,proto3" json:"entities,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WorldEntitiesWithinResult) Reset() {
-	*x = WorldEntitiesWithinResult{}
-	mi := &file_actions_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WorldEntitiesWithinResult) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WorldEntitiesWithinResult) ProtoMessage() {}
-
-func (x *WorldEntitiesWithinResult) ProtoReflect() protoreflect.Message {
-	mi := &file_actions_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WorldEntitiesWithinResult.ProtoReflect.Descriptor instead.
-func (*WorldEntitiesWithinResult) Descriptor() ([]byte, []int) {
-	return file_actions_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *WorldEntitiesWithinResult) GetWorld() *WorldRef {
-	if x != nil {
-		return x.World
-	}
-	return nil
-}
-
-func (x *WorldEntitiesWithinResult) GetBox() *BBox {
-	if x != nil {
-		return x.Box
-	}
-	return nil
-}
-
-func (x *WorldEntitiesWithinResult) GetEntities() []*EntityRef {
-	if x != nil {
-		return x.Entities
-	}
-	return nil
-}
-
-type WorldPlayersResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
-	Players       []*EntityRef           `protobuf:"bytes,2,rep,name=players,proto3" json:"players,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *WorldPlayersResult) Reset() {
-	*x = WorldPlayersResult{}
-	mi := &file_actions_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *WorldPlayersResult) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*WorldPlayersResult) ProtoMessage() {}
-
-func (x *WorldPlayersResult) ProtoReflect() protoreflect.Message {
-	mi := &file_actions_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use WorldPlayersResult.ProtoReflect.Descriptor instead.
-func (*WorldPlayersResult) Descriptor() ([]byte, []int) {
-	return file_actions_proto_rawDescGZIP(), []int{32}
-}
-
-func (x *WorldPlayersResult) GetWorld() *WorldRef {
-	if x != nil {
-		return x.World
-	}
-	return nil
-}
-
-func (x *WorldPlayersResult) GetPlayers() []*EntityRef {
-	if x != nil {
-		return x.Players
-	}
-	return nil
-}
-
-type ActionResult struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	CorrelationId string                 `protobuf:"bytes,1,opt,name=correlation_id,json=correlationId,proto3" json:"correlation_id,omitempty"`
-	Status        *ActionStatus          `protobuf:"bytes,2,opt,name=status,proto3,oneof" json:"status,omitempty"`
-	// Types that are valid to be assigned to Result:
-	//
-	//	*ActionResult_WorldEntities
-	//	*ActionResult_WorldPlayers
-	//	*ActionResult_WorldEntitiesWithin
-	Result        isActionResult_Result `protobuf_oneof:"result"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ActionResult) Reset() {
-	*x = ActionResult{}
-	mi := &file_actions_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ActionResult) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ActionResult) ProtoMessage() {}
-
-func (x *ActionResult) ProtoReflect() protoreflect.Message {
-	mi := &file_actions_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ActionResult.ProtoReflect.Descriptor instead.
-func (*ActionResult) Descriptor() ([]byte, []int) {
-	return file_actions_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *ActionResult) GetCorrelationId() string {
-	if x != nil {
-		return x.CorrelationId
-	}
-	return ""
-}
-
-func (x *ActionResult) GetStatus() *ActionStatus {
-	if x != nil {
-		return x.Status
-	}
-	return nil
-}
-
-func (x *ActionResult) GetResult() isActionResult_Result {
-	if x != nil {
-		return x.Result
-	}
-	return nil
-}
-
-func (x *ActionResult) GetWorldEntities() *WorldEntitiesResult {
-	if x != nil {
-		if x, ok := x.Result.(*ActionResult_WorldEntities); ok {
-			return x.WorldEntities
-		}
-	}
-	return nil
-}
-
-func (x *ActionResult) GetWorldPlayers() *WorldPlayersResult {
-	if x != nil {
-		if x, ok := x.Result.(*ActionResult_WorldPlayers); ok {
-			return x.WorldPlayers
-		}
-	}
-	return nil
-}
-
-func (x *ActionResult) GetWorldEntitiesWithin() *WorldEntitiesWithinResult {
-	if x != nil {
-		if x, ok := x.Result.(*ActionResult_WorldEntitiesWithin); ok {
-			return x.WorldEntitiesWithin
-		}
-	}
-	return nil
-}
-
-type isActionResult_Result interface {
-	isActionResult_Result()
-}
-
-type ActionResult_WorldEntities struct {
-	WorldEntities *WorldEntitiesResult `protobuf:"bytes,10,opt,name=world_entities,json=worldEntities,proto3,oneof"`
-}
-
-type ActionResult_WorldPlayers struct {
-	WorldPlayers *WorldPlayersResult `protobuf:"bytes,11,opt,name=world_players,json=worldPlayers,proto3,oneof"`
-}
-
-type ActionResult_WorldEntitiesWithin struct {
-	WorldEntitiesWithin *WorldEntitiesWithinResult `protobuf:"bytes,12,opt,name=world_entities_within,json=worldEntitiesWithin,proto3,oneof"`
-}
-
-func (*ActionResult_WorldEntities) isActionResult_Result() {}
-
-func (*ActionResult_WorldPlayers) isActionResult_Result() {}
-
-func (*ActionResult_WorldEntitiesWithin) isActionResult_Result() {}
-
 var File_actions_proto protoreflect.FileDescriptor
 
 const file_actions_proto_rawDesc = "" +
@@ -2726,30 +2396,7 @@ const file_actions_proto_rawDesc = "" +
 	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\"n\n" +
 	"\x1eWorldQueryEntitiesWithinAction\x12)\n" +
 	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12!\n" +
-	"\x03box\x18\x02 \x01(\v2\x0f.df.plugin.BBoxR\x03box\"C\n" +
-	"\fActionStatus\x12\x0e\n" +
-	"\x02ok\x18\x01 \x01(\bR\x02ok\x12\x19\n" +
-	"\x05error\x18\x02 \x01(\tH\x00R\x05error\x88\x01\x01B\b\n" +
-	"\x06_error\"r\n" +
-	"\x13WorldEntitiesResult\x12)\n" +
-	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x120\n" +
-	"\bentities\x18\x02 \x03(\v2\x14.df.plugin.EntityRefR\bentities\"\x9b\x01\n" +
-	"\x19WorldEntitiesWithinResult\x12)\n" +
-	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12!\n" +
-	"\x03box\x18\x02 \x01(\v2\x0f.df.plugin.BBoxR\x03box\x120\n" +
-	"\bentities\x18\x03 \x03(\v2\x14.df.plugin.EntityRefR\bentities\"o\n" +
-	"\x12WorldPlayersResult\x12)\n" +
-	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12.\n" +
-	"\aplayers\x18\x02 \x03(\v2\x14.df.plugin.EntityRefR\aplayers\"\xeb\x02\n" +
-	"\fActionResult\x12%\n" +
-	"\x0ecorrelation_id\x18\x01 \x01(\tR\rcorrelationId\x124\n" +
-	"\x06status\x18\x02 \x01(\v2\x17.df.plugin.ActionStatusH\x01R\x06status\x88\x01\x01\x12G\n" +
-	"\x0eworld_entities\x18\n" +
-	" \x01(\v2\x1e.df.plugin.WorldEntitiesResultH\x00R\rworldEntities\x12D\n" +
-	"\rworld_players\x18\v \x01(\v2\x1d.df.plugin.WorldPlayersResultH\x00R\fworldPlayers\x12Z\n" +
-	"\x15world_entities_within\x18\f \x01(\v2$.df.plugin.WorldEntitiesWithinResultH\x00R\x13worldEntitiesWithinB\b\n" +
-	"\x06resultB\t\n" +
-	"\a_status*\xeb\x03\n" +
+	"\x03box\x18\x02 \x01(\v2\x0f.df.plugin.BBoxR\x03box*\xeb\x03\n" +
 	"\fParticleType\x12\x1d\n" +
 	"\x19PARTICLE_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17PARTICLE_HUGE_EXPLOSION\x10\x01\x12\x1e\n" +
@@ -2787,7 +2434,7 @@ func file_actions_proto_rawDescGZIP() []byte {
 }
 
 var file_actions_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_actions_proto_msgTypes = make([]protoimpl.MessageInfo, 34)
+var file_actions_proto_msgTypes = make([]protoimpl.MessageInfo, 29)
 var file_actions_proto_goTypes = []any{
 	(ParticleType)(0),                      // 0: df.plugin.ParticleType
 	(*ActionBatch)(nil),                    // 1: df.plugin.ActionBatch
@@ -2819,22 +2466,16 @@ var file_actions_proto_goTypes = []any{
 	(*WorldQueryEntitiesAction)(nil),       // 27: df.plugin.WorldQueryEntitiesAction
 	(*WorldQueryPlayersAction)(nil),        // 28: df.plugin.WorldQueryPlayersAction
 	(*WorldQueryEntitiesWithinAction)(nil), // 29: df.plugin.WorldQueryEntitiesWithinAction
-	(*ActionStatus)(nil),                   // 30: df.plugin.ActionStatus
-	(*WorldEntitiesResult)(nil),            // 31: df.plugin.WorldEntitiesResult
-	(*WorldEntitiesWithinResult)(nil),      // 32: df.plugin.WorldEntitiesWithinResult
-	(*WorldPlayersResult)(nil),             // 33: df.plugin.WorldPlayersResult
-	(*ActionResult)(nil),                   // 34: df.plugin.ActionResult
-	(*Vec3)(nil),                           // 35: df.plugin.Vec3
-	(GameMode)(0),                          // 36: df.plugin.GameMode
-	(*ItemStack)(nil),                      // 37: df.plugin.ItemStack
-	(EffectType)(0),                        // 38: df.plugin.EffectType
-	(Sound)(0),                             // 39: df.plugin.Sound
-	(*WorldRef)(nil),                       // 40: df.plugin.WorldRef
-	(Difficulty)(0),                        // 41: df.plugin.Difficulty
-	(*BlockPos)(nil),                       // 42: df.plugin.BlockPos
-	(*BlockState)(nil),                     // 43: df.plugin.BlockState
-	(*BBox)(nil),                           // 44: df.plugin.BBox
-	(*EntityRef)(nil),                      // 45: df.plugin.EntityRef
+	(*Vec3)(nil),                           // 30: df.plugin.Vec3
+	(GameMode)(0),                          // 31: df.plugin.GameMode
+	(*ItemStack)(nil),                      // 32: df.plugin.ItemStack
+	(EffectType)(0),                        // 33: df.plugin.EffectType
+	(Sound)(0),                             // 34: df.plugin.Sound
+	(*WorldRef)(nil),                       // 35: df.plugin.WorldRef
+	(Difficulty)(0),                        // 36: df.plugin.Difficulty
+	(*BlockPos)(nil),                       // 37: df.plugin.BlockPos
+	(*BlockState)(nil),                     // 38: df.plugin.BlockState
+	(*BBox)(nil),                           // 39: df.plugin.BBox
 }
 var file_actions_proto_depIdxs = []int32{
 	2,  // 0: df.plugin.ActionBatch.actions:type_name -> df.plugin.Action
@@ -2865,52 +2506,41 @@ var file_actions_proto_depIdxs = []int32{
 	27, // 25: df.plugin.Action.world_query_entities:type_name -> df.plugin.WorldQueryEntitiesAction
 	28, // 26: df.plugin.Action.world_query_players:type_name -> df.plugin.WorldQueryPlayersAction
 	29, // 27: df.plugin.Action.world_query_entities_within:type_name -> df.plugin.WorldQueryEntitiesWithinAction
-	35, // 28: df.plugin.TeleportAction.position:type_name -> df.plugin.Vec3
-	35, // 29: df.plugin.TeleportAction.rotation:type_name -> df.plugin.Vec3
-	36, // 30: df.plugin.SetGameModeAction.game_mode:type_name -> df.plugin.GameMode
-	37, // 31: df.plugin.GiveItemAction.item:type_name -> df.plugin.ItemStack
-	37, // 32: df.plugin.SetHeldItemAction.main:type_name -> df.plugin.ItemStack
-	37, // 33: df.plugin.SetHeldItemAction.offhand:type_name -> df.plugin.ItemStack
-	35, // 34: df.plugin.SetVelocityAction.velocity:type_name -> df.plugin.Vec3
-	38, // 35: df.plugin.AddEffectAction.effect_type:type_name -> df.plugin.EffectType
-	38, // 36: df.plugin.RemoveEffectAction.effect_type:type_name -> df.plugin.EffectType
-	39, // 37: df.plugin.PlaySoundAction.sound:type_name -> df.plugin.Sound
-	35, // 38: df.plugin.PlaySoundAction.position:type_name -> df.plugin.Vec3
-	40, // 39: df.plugin.WorldSetDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
-	36, // 40: df.plugin.WorldSetDefaultGameModeAction.game_mode:type_name -> df.plugin.GameMode
-	40, // 41: df.plugin.WorldSetDifficultyAction.world:type_name -> df.plugin.WorldRef
-	41, // 42: df.plugin.WorldSetDifficultyAction.difficulty:type_name -> df.plugin.Difficulty
-	40, // 43: df.plugin.WorldSetTickRangeAction.world:type_name -> df.plugin.WorldRef
-	40, // 44: df.plugin.WorldSetBlockAction.world:type_name -> df.plugin.WorldRef
-	42, // 45: df.plugin.WorldSetBlockAction.position:type_name -> df.plugin.BlockPos
-	43, // 46: df.plugin.WorldSetBlockAction.block:type_name -> df.plugin.BlockState
-	40, // 47: df.plugin.WorldPlaySoundAction.world:type_name -> df.plugin.WorldRef
-	39, // 48: df.plugin.WorldPlaySoundAction.sound:type_name -> df.plugin.Sound
-	35, // 49: df.plugin.WorldPlaySoundAction.position:type_name -> df.plugin.Vec3
-	40, // 50: df.plugin.WorldAddParticleAction.world:type_name -> df.plugin.WorldRef
-	35, // 51: df.plugin.WorldAddParticleAction.position:type_name -> df.plugin.Vec3
+	30, // 28: df.plugin.TeleportAction.position:type_name -> df.plugin.Vec3
+	30, // 29: df.plugin.TeleportAction.rotation:type_name -> df.plugin.Vec3
+	31, // 30: df.plugin.SetGameModeAction.game_mode:type_name -> df.plugin.GameMode
+	32, // 31: df.plugin.GiveItemAction.item:type_name -> df.plugin.ItemStack
+	32, // 32: df.plugin.SetHeldItemAction.main:type_name -> df.plugin.ItemStack
+	32, // 33: df.plugin.SetHeldItemAction.offhand:type_name -> df.plugin.ItemStack
+	30, // 34: df.plugin.SetVelocityAction.velocity:type_name -> df.plugin.Vec3
+	33, // 35: df.plugin.AddEffectAction.effect_type:type_name -> df.plugin.EffectType
+	33, // 36: df.plugin.RemoveEffectAction.effect_type:type_name -> df.plugin.EffectType
+	34, // 37: df.plugin.PlaySoundAction.sound:type_name -> df.plugin.Sound
+	30, // 38: df.plugin.PlaySoundAction.position:type_name -> df.plugin.Vec3
+	35, // 39: df.plugin.WorldSetDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
+	31, // 40: df.plugin.WorldSetDefaultGameModeAction.game_mode:type_name -> df.plugin.GameMode
+	35, // 41: df.plugin.WorldSetDifficultyAction.world:type_name -> df.plugin.WorldRef
+	36, // 42: df.plugin.WorldSetDifficultyAction.difficulty:type_name -> df.plugin.Difficulty
+	35, // 43: df.plugin.WorldSetTickRangeAction.world:type_name -> df.plugin.WorldRef
+	35, // 44: df.plugin.WorldSetBlockAction.world:type_name -> df.plugin.WorldRef
+	37, // 45: df.plugin.WorldSetBlockAction.position:type_name -> df.plugin.BlockPos
+	38, // 46: df.plugin.WorldSetBlockAction.block:type_name -> df.plugin.BlockState
+	35, // 47: df.plugin.WorldPlaySoundAction.world:type_name -> df.plugin.WorldRef
+	34, // 48: df.plugin.WorldPlaySoundAction.sound:type_name -> df.plugin.Sound
+	30, // 49: df.plugin.WorldPlaySoundAction.position:type_name -> df.plugin.Vec3
+	35, // 50: df.plugin.WorldAddParticleAction.world:type_name -> df.plugin.WorldRef
+	30, // 51: df.plugin.WorldAddParticleAction.position:type_name -> df.plugin.Vec3
 	0,  // 52: df.plugin.WorldAddParticleAction.particle:type_name -> df.plugin.ParticleType
-	43, // 53: df.plugin.WorldAddParticleAction.block:type_name -> df.plugin.BlockState
-	40, // 54: df.plugin.WorldQueryEntitiesAction.world:type_name -> df.plugin.WorldRef
-	40, // 55: df.plugin.WorldQueryPlayersAction.world:type_name -> df.plugin.WorldRef
-	40, // 56: df.plugin.WorldQueryEntitiesWithinAction.world:type_name -> df.plugin.WorldRef
-	44, // 57: df.plugin.WorldQueryEntitiesWithinAction.box:type_name -> df.plugin.BBox
-	40, // 58: df.plugin.WorldEntitiesResult.world:type_name -> df.plugin.WorldRef
-	45, // 59: df.plugin.WorldEntitiesResult.entities:type_name -> df.plugin.EntityRef
-	40, // 60: df.plugin.WorldEntitiesWithinResult.world:type_name -> df.plugin.WorldRef
-	44, // 61: df.plugin.WorldEntitiesWithinResult.box:type_name -> df.plugin.BBox
-	45, // 62: df.plugin.WorldEntitiesWithinResult.entities:type_name -> df.plugin.EntityRef
-	40, // 63: df.plugin.WorldPlayersResult.world:type_name -> df.plugin.WorldRef
-	45, // 64: df.plugin.WorldPlayersResult.players:type_name -> df.plugin.EntityRef
-	30, // 65: df.plugin.ActionResult.status:type_name -> df.plugin.ActionStatus
-	31, // 66: df.plugin.ActionResult.world_entities:type_name -> df.plugin.WorldEntitiesResult
-	33, // 67: df.plugin.ActionResult.world_players:type_name -> df.plugin.WorldPlayersResult
-	32, // 68: df.plugin.ActionResult.world_entities_within:type_name -> df.plugin.WorldEntitiesWithinResult
-	69, // [69:69] is the sub-list for method output_type
-	69, // [69:69] is the sub-list for method input_type
-	69, // [69:69] is the sub-list for extension type_name
-	69, // [69:69] is the sub-list for extension extendee
-	0,  // [0:69] is the sub-list for field type_name
+	38, // 53: df.plugin.WorldAddParticleAction.block:type_name -> df.plugin.BlockState
+	35, // 54: df.plugin.WorldQueryEntitiesAction.world:type_name -> df.plugin.WorldRef
+	35, // 55: df.plugin.WorldQueryPlayersAction.world:type_name -> df.plugin.WorldRef
+	35, // 56: df.plugin.WorldQueryEntitiesWithinAction.world:type_name -> df.plugin.WorldRef
+	39, // 57: df.plugin.WorldQueryEntitiesWithinAction.box:type_name -> df.plugin.BBox
+	58, // [58:58] is the sub-list for method output_type
+	58, // [58:58] is the sub-list for method input_type
+	58, // [58:58] is the sub-list for extension type_name
+	58, // [58:58] is the sub-list for extension extendee
+	0,  // [0:58] is the sub-list for field type_name
 }
 
 func init() { file_actions_proto_init() }
@@ -2955,19 +2585,13 @@ func file_actions_proto_init() {
 	file_actions_proto_msgTypes[18].OneofWrappers = []any{}
 	file_actions_proto_msgTypes[23].OneofWrappers = []any{}
 	file_actions_proto_msgTypes[25].OneofWrappers = []any{}
-	file_actions_proto_msgTypes[29].OneofWrappers = []any{}
-	file_actions_proto_msgTypes[33].OneofWrappers = []any{
-		(*ActionResult_WorldEntities)(nil),
-		(*ActionResult_WorldPlayers)(nil),
-		(*ActionResult_WorldEntitiesWithin)(nil),
-	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_actions_proto_rawDesc), len(file_actions_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   34,
+			NumMessages:   29,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

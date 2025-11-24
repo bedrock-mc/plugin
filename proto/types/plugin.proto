@@ -10,6 +10,7 @@ import "command.proto";
 import "actions.proto";
 import "mutations.proto";
 import "common.proto";
+import "action_results.proto";
 
 service Plugin {
   rpc EventStream(stream PluginToHost) returns (stream HostToPlugin);
