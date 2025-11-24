@@ -82,10 +82,10 @@ impl PluginSubscriptions for MyExamplePlugin {
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 1. Define the plugin's metadata
     let plugin = Plugin::new(
-        "example-rust",      // A unique ID for your plugin (matches plugins.yaml)
+        "example-rust",        // A unique ID for your plugin (matches plugins.yaml)
         "Example Rust Plugin", // A human-readable name
-        "1.0.0",             // Your plugin's version
-        "1.0.0",             // The API version you're built against
+        "1.0.0",               // Your plugin's version
+        "1.0.0",               // The API version you're built against
     );
 
     // 2. Connect to the server and run the plugin
@@ -93,8 +93,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     plugin
         .run(
-            MyExamplePlugin,                         // Pass in an instance of our handler
-            "unix:///tmp/dragonfly_plugin.sock",     // The server address (Unix socket)
+            MyExamplePlugin,         // Pass in an instance of our handler
+            "tcp://127.0.0.1:50050", // The server address (Unix socket)
         )
         .await
 }
