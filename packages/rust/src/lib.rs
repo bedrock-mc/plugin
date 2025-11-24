@@ -19,8 +19,7 @@ pub mod server;
 
 use std::error::Error;
 
-// internal uses.
-pub(crate) use server::*;
+pub use server::*;
 
 // main usage stuff for plugin devs:
 pub use async_trait::async_trait;
