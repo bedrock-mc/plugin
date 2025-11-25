@@ -648,7 +648,7 @@ pub struct ActionBatch {
 pub struct Action {
     #[prost(string, optional, tag="1")]
     pub correlation_id: ::core::option::Option<::prost::alloc::string::String>,
-    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 30, 31, 40, 41, 42, 43, 50, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 90, 91, 92")]
+    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 30, 31, 40, 41, 42, 43, 50, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 90, 91, 92, 93")]
     pub kind: ::core::option::Option<action::Kind>,
 }
 /// Nested message and enum types in `Action`.
@@ -756,6 +756,8 @@ pub mod action {
         WorldSetLiquid(super::WorldSetLiquidAction),
         #[prost(message, tag="92")]
         WorldScheduleBlockUpdate(super::WorldScheduleBlockUpdateAction),
+        #[prost(message, tag="93")]
+        WorldBuildStructure(super::WorldBuildStructureAction),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1189,6 +1191,47 @@ pub struct WorldScheduleBlockUpdateAction {
     /// delay in milliseconds
     #[prost(int64, tag="4")]
     pub delay_ms: i64,
+}
+/// Structure building
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StructureVoxel {
+    #[prost(int32, tag="1")]
+    pub x: i32,
+    #[prost(int32, tag="2")]
+    pub y: i32,
+    #[prost(int32, tag="3")]
+    pub z: i32,
+    /// use "minecraft:air" to explicitly clear
+    #[prost(message, optional, tag="4")]
+    pub block: ::core::option::Option<BlockState>,
+    /// optional second layer
+    #[prost(message, optional, tag="5")]
+    pub liquid: ::core::option::Option<LiquidState>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StructureDef {
+    #[prost(int32, tag="1")]
+    pub width: i32,
+    #[prost(int32, tag="2")]
+    pub height: i32,
+    #[prost(int32, tag="3")]
+    pub length: i32,
+    /// sparse set; omit positions for "no change"
+    #[prost(message, repeated, tag="10")]
+    pub voxels: ::prost::alloc::vec::Vec<StructureVoxel>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldBuildStructureAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    /// world-space base position
+    #[prost(message, optional, tag="2")]
+    pub origin: ::core::option::Option<BlockPos>,
+    #[prost(message, optional, tag="3")]
+    pub structure: ::core::option::Option<StructureDef>,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]

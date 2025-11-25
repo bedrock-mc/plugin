@@ -66,6 +66,7 @@ message Action {
         WorldSetBiomeAction world_set_biome = 90;
         WorldSetLiquidAction world_set_liquid = 91;
         WorldScheduleBlockUpdateAction world_schedule_block_update = 92;
+        WorldBuildStructureAction world_build_structure = 93;
     }
 }
 
@@ -348,4 +349,26 @@ message WorldScheduleBlockUpdateAction {
     BlockPos position = 2;
     BlockState block = 3;
     int64 delay_ms = 4; // delay in milliseconds
+}
+
+// Structure building
+message StructureVoxel {
+    int32 x = 1;
+    int32 y = 2;
+    int32 z = 3;
+    BlockState block = 4;             // use "minecraft:air" to explicitly clear
+    optional LiquidState liquid = 5;  // optional second layer
+}
+
+message StructureDef {
+    int32 width = 1;
+    int32 height = 2;
+    int32 length = 3;
+    repeated StructureVoxel voxels = 10; // sparse set; omit positions for "no change"
+}
+
+message WorldBuildStructureAction {
+    WorldRef world = 1;
+    BlockPos origin = 2;      // world-space base position
+    StructureDef structure = 3;
 }

@@ -122,6 +122,8 @@ func (m *Manager) applyActions(p *pluginProcess, batch *pb.ActionBatch) {
 			m.handleWorldSetLiquid(p, correlationID, kind.WorldSetLiquid)
 		case *pb.Action_WorldScheduleBlockUpdate:
 			m.handleWorldScheduleBlockUpdate(p, correlationID, kind.WorldScheduleBlockUpdate)
+		case *pb.Action_WorldBuildStructure:
+			m.handleWorldBuildStructure(p, correlationID, kind.WorldBuildStructure)
 		}
 	}
 }
@@ -410,6 +412,32 @@ func (m *Manager) handleWorldSetDefaultGameMode(p *pluginProcess, correlationID 
 		return
 	}
 	w.SetDefaultGameMode(mode)
+	m.sendActionOK(p, correlationID)
+}
+
+func (m *Manager) handleWorldBuildStructure(p *pluginProcess, correlationID string, act *pb.WorldBuildStructureAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Origin == nil {
+		m.sendActionError(p, correlationID, "missing origin")
+		return
+	}
+	if act.Structure == nil {
+		m.sendActionError(p, correlationID, "missing structure")
+		return
+	}
+	ps, err := buildProtoStructure(act.Structure)
+	if err != nil {
+		m.sendActionError(p, correlationID, err.Error())
+		return
+	}
+	origin := cube.Pos{int(act.Origin.X), int(act.Origin.Y), int(act.Origin.Z)}
+	<-w.Exec(func(tx *world.Tx) {
+		tx.BuildStructure(origin, ps)
+	})
 	m.sendActionOK(p, correlationID)
 }
 

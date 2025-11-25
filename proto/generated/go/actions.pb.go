@@ -213,6 +213,7 @@ type Action struct {
 	//	*Action_WorldSetBiome
 	//	*Action_WorldSetLiquid
 	//	*Action_WorldScheduleBlockUpdate
+	//	*Action_WorldBuildStructure
 	Kind          isAction_Kind `protobuf_oneof:"kind"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -676,6 +677,15 @@ func (x *Action) GetWorldScheduleBlockUpdate() *WorldScheduleBlockUpdateAction {
 	return nil
 }
 
+func (x *Action) GetWorldBuildStructure() *WorldBuildStructureAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldBuildStructure); ok {
+			return x.WorldBuildStructure
+		}
+	}
+	return nil
+}
+
 type isAction_Kind interface {
 	isAction_Kind()
 }
@@ -872,6 +882,10 @@ type Action_WorldScheduleBlockUpdate struct {
 	WorldScheduleBlockUpdate *WorldScheduleBlockUpdateAction `protobuf:"bytes,92,opt,name=world_schedule_block_update,json=worldScheduleBlockUpdate,proto3,oneof"`
 }
 
+type Action_WorldBuildStructure struct {
+	WorldBuildStructure *WorldBuildStructureAction `protobuf:"bytes,93,opt,name=world_build_structure,json=worldBuildStructure,proto3,oneof"`
+}
+
 func (*Action_SendChat) isAction_Kind() {}
 
 func (*Action_Teleport) isAction_Kind() {}
@@ -963,6 +977,8 @@ func (*Action_WorldSetBiome) isAction_Kind() {}
 func (*Action_WorldSetLiquid) isAction_Kind() {}
 
 func (*Action_WorldScheduleBlockUpdate) isAction_Kind() {}
+
+func (*Action_WorldBuildStructure) isAction_Kind() {}
 
 type SendChatAction struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -3519,13 +3535,218 @@ func (x *WorldScheduleBlockUpdateAction) GetDelayMs() int64 {
 	return 0
 }
 
+// Structure building
+type StructureVoxel struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	X             int32                  `protobuf:"varint,1,opt,name=x,proto3" json:"x,omitempty"`
+	Y             int32                  `protobuf:"varint,2,opt,name=y,proto3" json:"y,omitempty"`
+	Z             int32                  `protobuf:"varint,3,opt,name=z,proto3" json:"z,omitempty"`
+	Block         *BlockState            `protobuf:"bytes,4,opt,name=block,proto3" json:"block,omitempty"`         // use "minecraft:air" to explicitly clear
+	Liquid        *LiquidState           `protobuf:"bytes,5,opt,name=liquid,proto3,oneof" json:"liquid,omitempty"` // optional second layer
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StructureVoxel) Reset() {
+	*x = StructureVoxel{}
+	mi := &file_actions_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StructureVoxel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StructureVoxel) ProtoMessage() {}
+
+func (x *StructureVoxel) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StructureVoxel.ProtoReflect.Descriptor instead.
+func (*StructureVoxel) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *StructureVoxel) GetX() int32 {
+	if x != nil {
+		return x.X
+	}
+	return 0
+}
+
+func (x *StructureVoxel) GetY() int32 {
+	if x != nil {
+		return x.Y
+	}
+	return 0
+}
+
+func (x *StructureVoxel) GetZ() int32 {
+	if x != nil {
+		return x.Z
+	}
+	return 0
+}
+
+func (x *StructureVoxel) GetBlock() *BlockState {
+	if x != nil {
+		return x.Block
+	}
+	return nil
+}
+
+func (x *StructureVoxel) GetLiquid() *LiquidState {
+	if x != nil {
+		return x.Liquid
+	}
+	return nil
+}
+
+type StructureDef struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Width         int32                  `protobuf:"varint,1,opt,name=width,proto3" json:"width,omitempty"`
+	Height        int32                  `protobuf:"varint,2,opt,name=height,proto3" json:"height,omitempty"`
+	Length        int32                  `protobuf:"varint,3,opt,name=length,proto3" json:"length,omitempty"`
+	Voxels        []*StructureVoxel      `protobuf:"bytes,10,rep,name=voxels,proto3" json:"voxels,omitempty"` // sparse set; omit positions for "no change"
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StructureDef) Reset() {
+	*x = StructureDef{}
+	mi := &file_actions_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StructureDef) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StructureDef) ProtoMessage() {}
+
+func (x *StructureDef) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StructureDef.ProtoReflect.Descriptor instead.
+func (*StructureDef) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *StructureDef) GetWidth() int32 {
+	if x != nil {
+		return x.Width
+	}
+	return 0
+}
+
+func (x *StructureDef) GetHeight() int32 {
+	if x != nil {
+		return x.Height
+	}
+	return 0
+}
+
+func (x *StructureDef) GetLength() int32 {
+	if x != nil {
+		return x.Length
+	}
+	return 0
+}
+
+func (x *StructureDef) GetVoxels() []*StructureVoxel {
+	if x != nil {
+		return x.Voxels
+	}
+	return nil
+}
+
+type WorldBuildStructureAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Origin        *BlockPos              `protobuf:"bytes,2,opt,name=origin,proto3" json:"origin,omitempty"` // world-space base position
+	Structure     *StructureDef          `protobuf:"bytes,3,opt,name=structure,proto3" json:"structure,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldBuildStructureAction) Reset() {
+	*x = WorldBuildStructureAction{}
+	mi := &file_actions_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldBuildStructureAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldBuildStructureAction) ProtoMessage() {}
+
+func (x *WorldBuildStructureAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldBuildStructureAction.ProtoReflect.Descriptor instead.
+func (*WorldBuildStructureAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *WorldBuildStructureAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldBuildStructureAction) GetOrigin() *BlockPos {
+	if x != nil {
+		return x.Origin
+	}
+	return nil
+}
+
+func (x *WorldBuildStructureAction) GetStructure() *StructureDef {
+	if x != nil {
+		return x.Structure
+	}
+	return nil
+}
+
 var File_actions_proto protoreflect.FileDescriptor
 
 const file_actions_proto_rawDesc = "" +
 	"\n" +
 	"\ractions.proto\x12\tdf.plugin\x1a\fcommon.proto\":\n" +
 	"\vActionBatch\x12+\n" +
-	"\aactions\x18\x01 \x03(\v2\x11.df.plugin.ActionR\aactions\"\xdc\x1c\n" +
+	"\aactions\x18\x01 \x03(\v2\x11.df.plugin.ActionR\aactions\"\xb8\x1d\n" +
 	"\x06Action\x12*\n" +
 	"\x0ecorrelation_id\x18\x01 \x01(\tH\x01R\rcorrelationId\x88\x01\x01\x128\n" +
 	"\tsend_chat\x18\n" +
@@ -3579,7 +3800,8 @@ const file_actions_proto_rawDesc = "" +
 	"\x12world_query_liquid\x18T \x01(\v2!.df.plugin.WorldQueryLiquidActionH\x00R\x10worldQueryLiquid\x12H\n" +
 	"\x0fworld_set_biome\x18Z \x01(\v2\x1e.df.plugin.WorldSetBiomeActionH\x00R\rworldSetBiome\x12K\n" +
 	"\x10world_set_liquid\x18[ \x01(\v2\x1f.df.plugin.WorldSetLiquidActionH\x00R\x0eworldSetLiquid\x12j\n" +
-	"\x1bworld_schedule_block_update\x18\\ \x01(\v2).df.plugin.WorldScheduleBlockUpdateActionH\x00R\x18worldScheduleBlockUpdateB\x06\n" +
+	"\x1bworld_schedule_block_update\x18\\ \x01(\v2).df.plugin.WorldScheduleBlockUpdateActionH\x00R\x18worldScheduleBlockUpdate\x12Z\n" +
+	"\x15world_build_structure\x18] \x01(\v2$.df.plugin.WorldBuildStructureActionH\x00R\x13worldBuildStructureB\x06\n" +
 	"\x04kindB\x11\n" +
 	"\x0f_correlation_id\"K\n" +
 	"\x0eSendChatAction\x12\x1f\n" +
@@ -3785,7 +4007,24 @@ const file_actions_proto_rawDesc = "" +
 	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
 	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12+\n" +
 	"\x05block\x18\x03 \x01(\v2\x15.df.plugin.BlockStateR\x05block\x12\x19\n" +
-	"\bdelay_ms\x18\x04 \x01(\x03R\adelayMs*\xeb\x03\n" +
+	"\bdelay_ms\x18\x04 \x01(\x03R\adelayMs\"\xa7\x01\n" +
+	"\x0eStructureVoxel\x12\f\n" +
+	"\x01x\x18\x01 \x01(\x05R\x01x\x12\f\n" +
+	"\x01y\x18\x02 \x01(\x05R\x01y\x12\f\n" +
+	"\x01z\x18\x03 \x01(\x05R\x01z\x12+\n" +
+	"\x05block\x18\x04 \x01(\v2\x15.df.plugin.BlockStateR\x05block\x123\n" +
+	"\x06liquid\x18\x05 \x01(\v2\x16.df.plugin.LiquidStateH\x00R\x06liquid\x88\x01\x01B\t\n" +
+	"\a_liquid\"\x87\x01\n" +
+	"\fStructureDef\x12\x14\n" +
+	"\x05width\x18\x01 \x01(\x05R\x05width\x12\x16\n" +
+	"\x06height\x18\x02 \x01(\x05R\x06height\x12\x16\n" +
+	"\x06length\x18\x03 \x01(\x05R\x06length\x121\n" +
+	"\x06voxels\x18\n" +
+	" \x03(\v2\x19.df.plugin.StructureVoxelR\x06voxels\"\xaa\x01\n" +
+	"\x19WorldBuildStructureAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12+\n" +
+	"\x06origin\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\x06origin\x125\n" +
+	"\tstructure\x18\x03 \x01(\v2\x17.df.plugin.StructureDefR\tstructure*\xeb\x03\n" +
 	"\fParticleType\x12\x1d\n" +
 	"\x19PARTICLE_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17PARTICLE_HUGE_EXPLOSION\x10\x01\x12\x1e\n" +
@@ -3823,7 +4062,7 @@ func file_actions_proto_rawDescGZIP() []byte {
 }
 
 var file_actions_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_actions_proto_msgTypes = make([]protoimpl.MessageInfo, 48)
+var file_actions_proto_msgTypes = make([]protoimpl.MessageInfo, 51)
 var file_actions_proto_goTypes = []any{
 	(ParticleType)(0),                       // 0: df.plugin.ParticleType
 	(*ActionBatch)(nil),                     // 1: df.plugin.ActionBatch
@@ -3874,17 +4113,20 @@ var file_actions_proto_goTypes = []any{
 	(*WorldSetBiomeAction)(nil),             // 46: df.plugin.WorldSetBiomeAction
 	(*WorldSetLiquidAction)(nil),            // 47: df.plugin.WorldSetLiquidAction
 	(*WorldScheduleBlockUpdateAction)(nil),  // 48: df.plugin.WorldScheduleBlockUpdateAction
-	(*Vec3)(nil),                            // 49: df.plugin.Vec3
-	(GameMode)(0),                           // 50: df.plugin.GameMode
-	(*ItemStack)(nil),                       // 51: df.plugin.ItemStack
-	(EffectType)(0),                         // 52: df.plugin.EffectType
-	(Sound)(0),                              // 53: df.plugin.Sound
-	(*WorldRef)(nil),                        // 54: df.plugin.WorldRef
-	(Difficulty)(0),                         // 55: df.plugin.Difficulty
-	(*BlockPos)(nil),                        // 56: df.plugin.BlockPos
-	(*BlockState)(nil),                      // 57: df.plugin.BlockState
-	(*BBox)(nil),                            // 58: df.plugin.BBox
-	(*LiquidState)(nil),                     // 59: df.plugin.LiquidState
+	(*StructureVoxel)(nil),                  // 49: df.plugin.StructureVoxel
+	(*StructureDef)(nil),                    // 50: df.plugin.StructureDef
+	(*WorldBuildStructureAction)(nil),       // 51: df.plugin.WorldBuildStructureAction
+	(*Vec3)(nil),                            // 52: df.plugin.Vec3
+	(GameMode)(0),                           // 53: df.plugin.GameMode
+	(*ItemStack)(nil),                       // 54: df.plugin.ItemStack
+	(EffectType)(0),                         // 55: df.plugin.EffectType
+	(Sound)(0),                              // 56: df.plugin.Sound
+	(*WorldRef)(nil),                        // 57: df.plugin.WorldRef
+	(Difficulty)(0),                         // 58: df.plugin.Difficulty
+	(*BlockPos)(nil),                        // 59: df.plugin.BlockPos
+	(*BlockState)(nil),                      // 60: df.plugin.BlockState
+	(*BBox)(nil),                            // 61: df.plugin.BBox
+	(*LiquidState)(nil),                     // 62: df.plugin.LiquidState
 }
 var file_actions_proto_depIdxs = []int32{
 	2,   // 0: df.plugin.ActionBatch.actions:type_name -> df.plugin.Action
@@ -3934,75 +4176,82 @@ var file_actions_proto_depIdxs = []int32{
 	46,  // 44: df.plugin.Action.world_set_biome:type_name -> df.plugin.WorldSetBiomeAction
 	47,  // 45: df.plugin.Action.world_set_liquid:type_name -> df.plugin.WorldSetLiquidAction
 	48,  // 46: df.plugin.Action.world_schedule_block_update:type_name -> df.plugin.WorldScheduleBlockUpdateAction
-	49,  // 47: df.plugin.TeleportAction.position:type_name -> df.plugin.Vec3
-	49,  // 48: df.plugin.TeleportAction.rotation:type_name -> df.plugin.Vec3
-	50,  // 49: df.plugin.SetGameModeAction.game_mode:type_name -> df.plugin.GameMode
-	51,  // 50: df.plugin.GiveItemAction.item:type_name -> df.plugin.ItemStack
-	51,  // 51: df.plugin.SetHeldItemAction.main:type_name -> df.plugin.ItemStack
-	51,  // 52: df.plugin.SetHeldItemAction.offhand:type_name -> df.plugin.ItemStack
-	49,  // 53: df.plugin.SetVelocityAction.velocity:type_name -> df.plugin.Vec3
-	52,  // 54: df.plugin.AddEffectAction.effect_type:type_name -> df.plugin.EffectType
-	52,  // 55: df.plugin.RemoveEffectAction.effect_type:type_name -> df.plugin.EffectType
-	53,  // 56: df.plugin.PlaySoundAction.sound:type_name -> df.plugin.Sound
-	49,  // 57: df.plugin.PlaySoundAction.position:type_name -> df.plugin.Vec3
-	54,  // 58: df.plugin.WorldSetDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
-	50,  // 59: df.plugin.WorldSetDefaultGameModeAction.game_mode:type_name -> df.plugin.GameMode
-	54,  // 60: df.plugin.WorldSetDifficultyAction.world:type_name -> df.plugin.WorldRef
-	55,  // 61: df.plugin.WorldSetDifficultyAction.difficulty:type_name -> df.plugin.Difficulty
-	54,  // 62: df.plugin.WorldSetTickRangeAction.world:type_name -> df.plugin.WorldRef
-	54,  // 63: df.plugin.WorldSetBlockAction.world:type_name -> df.plugin.WorldRef
-	56,  // 64: df.plugin.WorldSetBlockAction.position:type_name -> df.plugin.BlockPos
-	57,  // 65: df.plugin.WorldSetBlockAction.block:type_name -> df.plugin.BlockState
-	54,  // 66: df.plugin.WorldPlaySoundAction.world:type_name -> df.plugin.WorldRef
-	53,  // 67: df.plugin.WorldPlaySoundAction.sound:type_name -> df.plugin.Sound
-	49,  // 68: df.plugin.WorldPlaySoundAction.position:type_name -> df.plugin.Vec3
-	54,  // 69: df.plugin.WorldAddParticleAction.world:type_name -> df.plugin.WorldRef
-	49,  // 70: df.plugin.WorldAddParticleAction.position:type_name -> df.plugin.Vec3
-	0,   // 71: df.plugin.WorldAddParticleAction.particle:type_name -> df.plugin.ParticleType
-	57,  // 72: df.plugin.WorldAddParticleAction.block:type_name -> df.plugin.BlockState
-	54,  // 73: df.plugin.WorldSetTimeAction.world:type_name -> df.plugin.WorldRef
-	54,  // 74: df.plugin.WorldStopTimeAction.world:type_name -> df.plugin.WorldRef
-	54,  // 75: df.plugin.WorldStartTimeAction.world:type_name -> df.plugin.WorldRef
-	54,  // 76: df.plugin.WorldSetSpawnAction.world:type_name -> df.plugin.WorldRef
-	56,  // 77: df.plugin.WorldSetSpawnAction.spawn:type_name -> df.plugin.BlockPos
-	54,  // 78: df.plugin.WorldQueryDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
-	54,  // 79: df.plugin.WorldQueryPlayerSpawnAction.world:type_name -> df.plugin.WorldRef
-	54,  // 80: df.plugin.WorldQueryEntitiesAction.world:type_name -> df.plugin.WorldRef
-	54,  // 81: df.plugin.WorldQueryPlayersAction.world:type_name -> df.plugin.WorldRef
-	54,  // 82: df.plugin.WorldQueryEntitiesWithinAction.world:type_name -> df.plugin.WorldRef
-	58,  // 83: df.plugin.WorldQueryEntitiesWithinAction.box:type_name -> df.plugin.BBox
-	54,  // 84: df.plugin.WorldQueryBlockAction.world:type_name -> df.plugin.WorldRef
-	56,  // 85: df.plugin.WorldQueryBlockAction.position:type_name -> df.plugin.BlockPos
-	54,  // 86: df.plugin.WorldQueryBiomeAction.world:type_name -> df.plugin.WorldRef
-	56,  // 87: df.plugin.WorldQueryBiomeAction.position:type_name -> df.plugin.BlockPos
-	54,  // 88: df.plugin.WorldQueryLightAction.world:type_name -> df.plugin.WorldRef
-	56,  // 89: df.plugin.WorldQueryLightAction.position:type_name -> df.plugin.BlockPos
-	54,  // 90: df.plugin.WorldQuerySkyLightAction.world:type_name -> df.plugin.WorldRef
-	56,  // 91: df.plugin.WorldQuerySkyLightAction.position:type_name -> df.plugin.BlockPos
-	54,  // 92: df.plugin.WorldQueryTemperatureAction.world:type_name -> df.plugin.WorldRef
-	56,  // 93: df.plugin.WorldQueryTemperatureAction.position:type_name -> df.plugin.BlockPos
-	54,  // 94: df.plugin.WorldQueryHighestBlockAction.world:type_name -> df.plugin.WorldRef
-	54,  // 95: df.plugin.WorldQueryRainingAtAction.world:type_name -> df.plugin.WorldRef
-	56,  // 96: df.plugin.WorldQueryRainingAtAction.position:type_name -> df.plugin.BlockPos
-	54,  // 97: df.plugin.WorldQuerySnowingAtAction.world:type_name -> df.plugin.WorldRef
-	56,  // 98: df.plugin.WorldQuerySnowingAtAction.position:type_name -> df.plugin.BlockPos
-	54,  // 99: df.plugin.WorldQueryThunderingAtAction.world:type_name -> df.plugin.WorldRef
-	56,  // 100: df.plugin.WorldQueryThunderingAtAction.position:type_name -> df.plugin.BlockPos
-	54,  // 101: df.plugin.WorldQueryLiquidAction.world:type_name -> df.plugin.WorldRef
-	56,  // 102: df.plugin.WorldQueryLiquidAction.position:type_name -> df.plugin.BlockPos
-	54,  // 103: df.plugin.WorldSetBiomeAction.world:type_name -> df.plugin.WorldRef
-	56,  // 104: df.plugin.WorldSetBiomeAction.position:type_name -> df.plugin.BlockPos
-	54,  // 105: df.plugin.WorldSetLiquidAction.world:type_name -> df.plugin.WorldRef
-	56,  // 106: df.plugin.WorldSetLiquidAction.position:type_name -> df.plugin.BlockPos
-	59,  // 107: df.plugin.WorldSetLiquidAction.liquid:type_name -> df.plugin.LiquidState
-	54,  // 108: df.plugin.WorldScheduleBlockUpdateAction.world:type_name -> df.plugin.WorldRef
-	56,  // 109: df.plugin.WorldScheduleBlockUpdateAction.position:type_name -> df.plugin.BlockPos
-	57,  // 110: df.plugin.WorldScheduleBlockUpdateAction.block:type_name -> df.plugin.BlockState
-	111, // [111:111] is the sub-list for method output_type
-	111, // [111:111] is the sub-list for method input_type
-	111, // [111:111] is the sub-list for extension type_name
-	111, // [111:111] is the sub-list for extension extendee
-	0,   // [0:111] is the sub-list for field type_name
+	51,  // 47: df.plugin.Action.world_build_structure:type_name -> df.plugin.WorldBuildStructureAction
+	52,  // 48: df.plugin.TeleportAction.position:type_name -> df.plugin.Vec3
+	52,  // 49: df.plugin.TeleportAction.rotation:type_name -> df.plugin.Vec3
+	53,  // 50: df.plugin.SetGameModeAction.game_mode:type_name -> df.plugin.GameMode
+	54,  // 51: df.plugin.GiveItemAction.item:type_name -> df.plugin.ItemStack
+	54,  // 52: df.plugin.SetHeldItemAction.main:type_name -> df.plugin.ItemStack
+	54,  // 53: df.plugin.SetHeldItemAction.offhand:type_name -> df.plugin.ItemStack
+	52,  // 54: df.plugin.SetVelocityAction.velocity:type_name -> df.plugin.Vec3
+	55,  // 55: df.plugin.AddEffectAction.effect_type:type_name -> df.plugin.EffectType
+	55,  // 56: df.plugin.RemoveEffectAction.effect_type:type_name -> df.plugin.EffectType
+	56,  // 57: df.plugin.PlaySoundAction.sound:type_name -> df.plugin.Sound
+	52,  // 58: df.plugin.PlaySoundAction.position:type_name -> df.plugin.Vec3
+	57,  // 59: df.plugin.WorldSetDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
+	53,  // 60: df.plugin.WorldSetDefaultGameModeAction.game_mode:type_name -> df.plugin.GameMode
+	57,  // 61: df.plugin.WorldSetDifficultyAction.world:type_name -> df.plugin.WorldRef
+	58,  // 62: df.plugin.WorldSetDifficultyAction.difficulty:type_name -> df.plugin.Difficulty
+	57,  // 63: df.plugin.WorldSetTickRangeAction.world:type_name -> df.plugin.WorldRef
+	57,  // 64: df.plugin.WorldSetBlockAction.world:type_name -> df.plugin.WorldRef
+	59,  // 65: df.plugin.WorldSetBlockAction.position:type_name -> df.plugin.BlockPos
+	60,  // 66: df.plugin.WorldSetBlockAction.block:type_name -> df.plugin.BlockState
+	57,  // 67: df.plugin.WorldPlaySoundAction.world:type_name -> df.plugin.WorldRef
+	56,  // 68: df.plugin.WorldPlaySoundAction.sound:type_name -> df.plugin.Sound
+	52,  // 69: df.plugin.WorldPlaySoundAction.position:type_name -> df.plugin.Vec3
+	57,  // 70: df.plugin.WorldAddParticleAction.world:type_name -> df.plugin.WorldRef
+	52,  // 71: df.plugin.WorldAddParticleAction.position:type_name -> df.plugin.Vec3
+	0,   // 72: df.plugin.WorldAddParticleAction.particle:type_name -> df.plugin.ParticleType
+	60,  // 73: df.plugin.WorldAddParticleAction.block:type_name -> df.plugin.BlockState
+	57,  // 74: df.plugin.WorldSetTimeAction.world:type_name -> df.plugin.WorldRef
+	57,  // 75: df.plugin.WorldStopTimeAction.world:type_name -> df.plugin.WorldRef
+	57,  // 76: df.plugin.WorldStartTimeAction.world:type_name -> df.plugin.WorldRef
+	57,  // 77: df.plugin.WorldSetSpawnAction.world:type_name -> df.plugin.WorldRef
+	59,  // 78: df.plugin.WorldSetSpawnAction.spawn:type_name -> df.plugin.BlockPos
+	57,  // 79: df.plugin.WorldQueryDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
+	57,  // 80: df.plugin.WorldQueryPlayerSpawnAction.world:type_name -> df.plugin.WorldRef
+	57,  // 81: df.plugin.WorldQueryEntitiesAction.world:type_name -> df.plugin.WorldRef
+	57,  // 82: df.plugin.WorldQueryPlayersAction.world:type_name -> df.plugin.WorldRef
+	57,  // 83: df.plugin.WorldQueryEntitiesWithinAction.world:type_name -> df.plugin.WorldRef
+	61,  // 84: df.plugin.WorldQueryEntitiesWithinAction.box:type_name -> df.plugin.BBox
+	57,  // 85: df.plugin.WorldQueryBlockAction.world:type_name -> df.plugin.WorldRef
+	59,  // 86: df.plugin.WorldQueryBlockAction.position:type_name -> df.plugin.BlockPos
+	57,  // 87: df.plugin.WorldQueryBiomeAction.world:type_name -> df.plugin.WorldRef
+	59,  // 88: df.plugin.WorldQueryBiomeAction.position:type_name -> df.plugin.BlockPos
+	57,  // 89: df.plugin.WorldQueryLightAction.world:type_name -> df.plugin.WorldRef
+	59,  // 90: df.plugin.WorldQueryLightAction.position:type_name -> df.plugin.BlockPos
+	57,  // 91: df.plugin.WorldQuerySkyLightAction.world:type_name -> df.plugin.WorldRef
+	59,  // 92: df.plugin.WorldQuerySkyLightAction.position:type_name -> df.plugin.BlockPos
+	57,  // 93: df.plugin.WorldQueryTemperatureAction.world:type_name -> df.plugin.WorldRef
+	59,  // 94: df.plugin.WorldQueryTemperatureAction.position:type_name -> df.plugin.BlockPos
+	57,  // 95: df.plugin.WorldQueryHighestBlockAction.world:type_name -> df.plugin.WorldRef
+	57,  // 96: df.plugin.WorldQueryRainingAtAction.world:type_name -> df.plugin.WorldRef
+	59,  // 97: df.plugin.WorldQueryRainingAtAction.position:type_name -> df.plugin.BlockPos
+	57,  // 98: df.plugin.WorldQuerySnowingAtAction.world:type_name -> df.plugin.WorldRef
+	59,  // 99: df.plugin.WorldQuerySnowingAtAction.position:type_name -> df.plugin.BlockPos
+	57,  // 100: df.plugin.WorldQueryThunderingAtAction.world:type_name -> df.plugin.WorldRef
+	59,  // 101: df.plugin.WorldQueryThunderingAtAction.position:type_name -> df.plugin.BlockPos
+	57,  // 102: df.plugin.WorldQueryLiquidAction.world:type_name -> df.plugin.WorldRef
+	59,  // 103: df.plugin.WorldQueryLiquidAction.position:type_name -> df.plugin.BlockPos
+	57,  // 104: df.plugin.WorldSetBiomeAction.world:type_name -> df.plugin.WorldRef
+	59,  // 105: df.plugin.WorldSetBiomeAction.position:type_name -> df.plugin.BlockPos
+	57,  // 106: df.plugin.WorldSetLiquidAction.world:type_name -> df.plugin.WorldRef
+	59,  // 107: df.plugin.WorldSetLiquidAction.position:type_name -> df.plugin.BlockPos
+	62,  // 108: df.plugin.WorldSetLiquidAction.liquid:type_name -> df.plugin.LiquidState
+	57,  // 109: df.plugin.WorldScheduleBlockUpdateAction.world:type_name -> df.plugin.WorldRef
+	59,  // 110: df.plugin.WorldScheduleBlockUpdateAction.position:type_name -> df.plugin.BlockPos
+	60,  // 111: df.plugin.WorldScheduleBlockUpdateAction.block:type_name -> df.plugin.BlockState
+	60,  // 112: df.plugin.StructureVoxel.block:type_name -> df.plugin.BlockState
+	62,  // 113: df.plugin.StructureVoxel.liquid:type_name -> df.plugin.LiquidState
+	49,  // 114: df.plugin.StructureDef.voxels:type_name -> df.plugin.StructureVoxel
+	57,  // 115: df.plugin.WorldBuildStructureAction.world:type_name -> df.plugin.WorldRef
+	59,  // 116: df.plugin.WorldBuildStructureAction.origin:type_name -> df.plugin.BlockPos
+	50,  // 117: df.plugin.WorldBuildStructureAction.structure:type_name -> df.plugin.StructureDef
+	118, // [118:118] is the sub-list for method output_type
+	118, // [118:118] is the sub-list for method input_type
+	118, // [118:118] is the sub-list for extension type_name
+	118, // [118:118] is the sub-list for extension extendee
+	0,   // [0:118] is the sub-list for field type_name
 }
 
 func init() { file_actions_proto_init() }
@@ -4058,6 +4307,7 @@ func file_actions_proto_init() {
 		(*Action_WorldSetBiome)(nil),
 		(*Action_WorldSetLiquid)(nil),
 		(*Action_WorldScheduleBlockUpdate)(nil),
+		(*Action_WorldBuildStructure)(nil),
 	}
 	file_actions_proto_msgTypes[8].OneofWrappers = []any{}
 	file_actions_proto_msgTypes[9].OneofWrappers = []any{}
@@ -4067,13 +4317,14 @@ func file_actions_proto_init() {
 	file_actions_proto_msgTypes[23].OneofWrappers = []any{}
 	file_actions_proto_msgTypes[25].OneofWrappers = []any{}
 	file_actions_proto_msgTypes[46].OneofWrappers = []any{}
+	file_actions_proto_msgTypes[48].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_actions_proto_rawDesc), len(file_actions_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   48,
+			NumMessages:   51,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

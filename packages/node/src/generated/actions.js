@@ -242,6 +242,7 @@ function createBaseAction() {
         worldSetBiome: undefined,
         worldSetLiquid: undefined,
         worldScheduleBlockUpdate: undefined,
+        worldBuildStructure: undefined,
     };
 }
 export const Action = {
@@ -386,6 +387,9 @@ export const Action = {
         }
         if (message.worldScheduleBlockUpdate !== undefined) {
             WorldScheduleBlockUpdateAction.encode(message.worldScheduleBlockUpdate, writer.uint32(738).fork()).join();
+        }
+        if (message.worldBuildStructure !== undefined) {
+            WorldBuildStructureAction.encode(message.worldBuildStructure, writer.uint32(746).fork()).join();
         }
         return writer;
     },
@@ -725,6 +729,13 @@ export const Action = {
                     message.worldScheduleBlockUpdate = WorldScheduleBlockUpdateAction.decode(reader, reader.uint32());
                     continue;
                 }
+                case 93: {
+                    if (tag !== 746) {
+                        break;
+                    }
+                    message.worldBuildStructure = WorldBuildStructureAction.decode(reader, reader.uint32());
+                    continue;
+                }
             }
             if ((tag & 7) === 4 || tag === 0) {
                 break;
@@ -821,6 +832,9 @@ export const Action = {
             worldSetLiquid: isSet(object.worldSetLiquid) ? WorldSetLiquidAction.fromJSON(object.worldSetLiquid) : undefined,
             worldScheduleBlockUpdate: isSet(object.worldScheduleBlockUpdate)
                 ? WorldScheduleBlockUpdateAction.fromJSON(object.worldScheduleBlockUpdate)
+                : undefined,
+            worldBuildStructure: isSet(object.worldBuildStructure)
+                ? WorldBuildStructureAction.fromJSON(object.worldBuildStructure)
                 : undefined,
         };
     },
@@ -966,6 +980,9 @@ export const Action = {
         }
         if (message.worldScheduleBlockUpdate !== undefined) {
             obj.worldScheduleBlockUpdate = WorldScheduleBlockUpdateAction.toJSON(message.worldScheduleBlockUpdate);
+        }
+        if (message.worldBuildStructure !== undefined) {
+            obj.worldBuildStructure = WorldBuildStructureAction.toJSON(message.worldBuildStructure);
         }
         return obj;
     },
@@ -1121,6 +1138,9 @@ export const Action = {
             (object.worldScheduleBlockUpdate !== undefined && object.worldScheduleBlockUpdate !== null)
                 ? WorldScheduleBlockUpdateAction.fromPartial(object.worldScheduleBlockUpdate)
                 : undefined;
+        message.worldBuildStructure = (object.worldBuildStructure !== undefined && object.worldBuildStructure !== null)
+            ? WorldBuildStructureAction.fromPartial(object.worldBuildStructure)
+            : undefined;
         return message;
     },
 };
@@ -4635,6 +4655,310 @@ export const WorldScheduleBlockUpdateAction = {
             ? BlockState.fromPartial(object.block)
             : undefined;
         message.delayMs = object.delayMs ?? 0;
+        return message;
+    },
+};
+function createBaseStructureVoxel() {
+    return { x: 0, y: 0, z: 0, block: undefined, liquid: undefined };
+}
+export const StructureVoxel = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.x !== 0) {
+            writer.uint32(8).int32(message.x);
+        }
+        if (message.y !== 0) {
+            writer.uint32(16).int32(message.y);
+        }
+        if (message.z !== 0) {
+            writer.uint32(24).int32(message.z);
+        }
+        if (message.block !== undefined) {
+            BlockState.encode(message.block, writer.uint32(34).fork()).join();
+        }
+        if (message.liquid !== undefined) {
+            LiquidState.encode(message.liquid, writer.uint32(42).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseStructureVoxel();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 8) {
+                        break;
+                    }
+                    message.x = reader.int32();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.y = reader.int32();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 24) {
+                        break;
+                    }
+                    message.z = reader.int32();
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 34) {
+                        break;
+                    }
+                    message.block = BlockState.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 5: {
+                    if (tag !== 42) {
+                        break;
+                    }
+                    message.liquid = LiquidState.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            x: isSet(object.x) ? globalThis.Number(object.x) : 0,
+            y: isSet(object.y) ? globalThis.Number(object.y) : 0,
+            z: isSet(object.z) ? globalThis.Number(object.z) : 0,
+            block: isSet(object.block) ? BlockState.fromJSON(object.block) : undefined,
+            liquid: isSet(object.liquid) ? LiquidState.fromJSON(object.liquid) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.x !== 0) {
+            obj.x = Math.round(message.x);
+        }
+        if (message.y !== 0) {
+            obj.y = Math.round(message.y);
+        }
+        if (message.z !== 0) {
+            obj.z = Math.round(message.z);
+        }
+        if (message.block !== undefined) {
+            obj.block = BlockState.toJSON(message.block);
+        }
+        if (message.liquid !== undefined) {
+            obj.liquid = LiquidState.toJSON(message.liquid);
+        }
+        return obj;
+    },
+    create(base) {
+        return StructureVoxel.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseStructureVoxel();
+        message.x = object.x ?? 0;
+        message.y = object.y ?? 0;
+        message.z = object.z ?? 0;
+        message.block = (object.block !== undefined && object.block !== null)
+            ? BlockState.fromPartial(object.block)
+            : undefined;
+        message.liquid = (object.liquid !== undefined && object.liquid !== null)
+            ? LiquidState.fromPartial(object.liquid)
+            : undefined;
+        return message;
+    },
+};
+function createBaseStructureDef() {
+    return { width: 0, height: 0, length: 0, voxels: [] };
+}
+export const StructureDef = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.width !== 0) {
+            writer.uint32(8).int32(message.width);
+        }
+        if (message.height !== 0) {
+            writer.uint32(16).int32(message.height);
+        }
+        if (message.length !== 0) {
+            writer.uint32(24).int32(message.length);
+        }
+        for (const v of message.voxels) {
+            StructureVoxel.encode(v, writer.uint32(82).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseStructureDef();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 8) {
+                        break;
+                    }
+                    message.width = reader.int32();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.height = reader.int32();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 24) {
+                        break;
+                    }
+                    message.length = reader.int32();
+                    continue;
+                }
+                case 10: {
+                    if (tag !== 82) {
+                        break;
+                    }
+                    message.voxels.push(StructureVoxel.decode(reader, reader.uint32()));
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            width: isSet(object.width) ? globalThis.Number(object.width) : 0,
+            height: isSet(object.height) ? globalThis.Number(object.height) : 0,
+            length: isSet(object.length) ? globalThis.Number(object.length) : 0,
+            voxels: globalThis.Array.isArray(object?.voxels) ? object.voxels.map((e) => StructureVoxel.fromJSON(e)) : [],
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.width !== 0) {
+            obj.width = Math.round(message.width);
+        }
+        if (message.height !== 0) {
+            obj.height = Math.round(message.height);
+        }
+        if (message.length !== 0) {
+            obj.length = Math.round(message.length);
+        }
+        if (message.voxels?.length) {
+            obj.voxels = message.voxels.map((e) => StructureVoxel.toJSON(e));
+        }
+        return obj;
+    },
+    create(base) {
+        return StructureDef.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseStructureDef();
+        message.width = object.width ?? 0;
+        message.height = object.height ?? 0;
+        message.length = object.length ?? 0;
+        message.voxels = object.voxels?.map((e) => StructureVoxel.fromPartial(e)) || [];
+        return message;
+    },
+};
+function createBaseWorldBuildStructureAction() {
+    return { world: undefined, origin: undefined, structure: undefined };
+}
+export const WorldBuildStructureAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.origin !== undefined) {
+            BlockPos.encode(message.origin, writer.uint32(18).fork()).join();
+        }
+        if (message.structure !== undefined) {
+            StructureDef.encode(message.structure, writer.uint32(26).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldBuildStructureAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.origin = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.structure = StructureDef.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            origin: isSet(object.origin) ? BlockPos.fromJSON(object.origin) : undefined,
+            structure: isSet(object.structure) ? StructureDef.fromJSON(object.structure) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.origin !== undefined) {
+            obj.origin = BlockPos.toJSON(message.origin);
+        }
+        if (message.structure !== undefined) {
+            obj.structure = StructureDef.toJSON(message.structure);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldBuildStructureAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldBuildStructureAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.origin = (object.origin !== undefined && object.origin !== null)
+            ? BlockPos.fromPartial(object.origin)
+            : undefined;
+        message.structure = (object.structure !== undefined && object.structure !== null)
+            ? StructureDef.fromPartial(object.structure)
+            : undefined;
         return message;
     },
 };

@@ -81,6 +81,7 @@ class Action extends \Google\Protobuf\Internal\Message
      *           World mutations (additional)
      *     @type \Df\Plugin\WorldSetLiquidAction $world_set_liquid
      *     @type \Df\Plugin\WorldScheduleBlockUpdateAction $world_schedule_block_update
+     *     @type \Df\Plugin\WorldBuildStructureAction $world_build_structure
      * }
      */
     public function __construct($data = NULL) {
@@ -1390,6 +1391,33 @@ class Action extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Df\Plugin\WorldScheduleBlockUpdateAction::class);
         $this->writeOneof(92, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldBuildStructureAction world_build_structure = 93 [json_name = "worldBuildStructure"];</code>
+     * @return \Df\Plugin\WorldBuildStructureAction|null
+     */
+    public function getWorldBuildStructure()
+    {
+        return $this->readOneof(93);
+    }
+
+    public function hasWorldBuildStructure()
+    {
+        return $this->hasOneof(93);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldBuildStructureAction world_build_structure = 93 [json_name = "worldBuildStructure"];</code>
+     * @param \Df\Plugin\WorldBuildStructureAction $var
+     * @return $this
+     */
+    public function setWorldBuildStructure($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldBuildStructureAction::class);
+        $this->writeOneof(93, $var);
 
         return $this;
     }

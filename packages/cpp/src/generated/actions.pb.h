@@ -134,6 +134,14 @@ class SetVelocityAction;
 struct SetVelocityActionDefaultTypeInternal;
 extern SetVelocityActionDefaultTypeInternal _SetVelocityAction_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull SetVelocityAction_class_data_;
+class StructureDef;
+struct StructureDefDefaultTypeInternal;
+extern StructureDefDefaultTypeInternal _StructureDef_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull StructureDef_class_data_;
+class StructureVoxel;
+struct StructureVoxelDefaultTypeInternal;
+extern StructureVoxelDefaultTypeInternal _StructureVoxel_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull StructureVoxel_class_data_;
 class TeleportAction;
 struct TeleportActionDefaultTypeInternal;
 extern TeleportActionDefaultTypeInternal _TeleportAction_default_instance_;
@@ -142,6 +150,10 @@ class WorldAddParticleAction;
 struct WorldAddParticleActionDefaultTypeInternal;
 extern WorldAddParticleActionDefaultTypeInternal _WorldAddParticleAction_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull WorldAddParticleAction_class_data_;
+class WorldBuildStructureAction;
+struct WorldBuildStructureActionDefaultTypeInternal;
+extern WorldBuildStructureActionDefaultTypeInternal _WorldBuildStructureAction_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull WorldBuildStructureAction_class_data_;
 class WorldPlaySoundAction;
 struct WorldPlaySoundActionDefaultTypeInternal;
 extern WorldPlaySoundActionDefaultTypeInternal _WorldPlaySoundAction_default_instance_;
@@ -10267,6 +10279,716 @@ class WorldSetLiquidAction final : public ::google::protobuf::Message
 extern const ::google::protobuf::internal::ClassDataFull WorldSetLiquidAction_class_data_;
 // -------------------------------------------------------------------
 
+class StructureVoxel final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:df.plugin.StructureVoxel) */ {
+ public:
+  inline StructureVoxel() : StructureVoxel(nullptr) {}
+  ~StructureVoxel() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(StructureVoxel* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(StructureVoxel));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR StructureVoxel(::google::protobuf::internal::ConstantInitialized);
+
+  inline StructureVoxel(const StructureVoxel& from) : StructureVoxel(nullptr, from) {}
+  inline StructureVoxel(StructureVoxel&& from) noexcept
+      : StructureVoxel(nullptr, ::std::move(from)) {}
+  inline StructureVoxel& operator=(const StructureVoxel& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StructureVoxel& operator=(StructureVoxel&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StructureVoxel& default_instance() {
+    return *reinterpret_cast<const StructureVoxel*>(
+        &_StructureVoxel_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 48;
+  friend void swap(StructureVoxel& a, StructureVoxel& b) { a.Swap(&b); }
+  inline void Swap(StructureVoxel* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StructureVoxel* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StructureVoxel* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<StructureVoxel>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const StructureVoxel& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const StructureVoxel& from) { StructureVoxel::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(StructureVoxel* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.StructureVoxel"; }
+
+  explicit StructureVoxel(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  StructureVoxel(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StructureVoxel& from);
+  StructureVoxel(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, StructureVoxel&& from) noexcept
+      : StructureVoxel(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kBlockFieldNumber = 4,
+    kLiquidFieldNumber = 5,
+    kXFieldNumber = 1,
+    kYFieldNumber = 2,
+    kZFieldNumber = 3,
+  };
+  // .df.plugin.BlockState block = 4 [json_name = "block"];
+  bool has_block() const;
+  void clear_block() ;
+  const ::df::plugin::BlockState& block() const;
+  [[nodiscard]] ::df::plugin::BlockState* PROTOBUF_NULLABLE release_block();
+  ::df::plugin::BlockState* PROTOBUF_NONNULL mutable_block();
+  void set_allocated_block(::df::plugin::BlockState* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_block(::df::plugin::BlockState* PROTOBUF_NULLABLE value);
+  ::df::plugin::BlockState* PROTOBUF_NULLABLE unsafe_arena_release_block();
+
+  private:
+  const ::df::plugin::BlockState& _internal_block() const;
+  ::df::plugin::BlockState* PROTOBUF_NONNULL _internal_mutable_block();
+
+  public:
+  // optional .df.plugin.LiquidState liquid = 5 [json_name = "liquid"];
+  bool has_liquid() const;
+  void clear_liquid() ;
+  const ::df::plugin::LiquidState& liquid() const;
+  [[nodiscard]] ::df::plugin::LiquidState* PROTOBUF_NULLABLE release_liquid();
+  ::df::plugin::LiquidState* PROTOBUF_NONNULL mutable_liquid();
+  void set_allocated_liquid(::df::plugin::LiquidState* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_liquid(::df::plugin::LiquidState* PROTOBUF_NULLABLE value);
+  ::df::plugin::LiquidState* PROTOBUF_NULLABLE unsafe_arena_release_liquid();
+
+  private:
+  const ::df::plugin::LiquidState& _internal_liquid() const;
+  ::df::plugin::LiquidState* PROTOBUF_NONNULL _internal_mutable_liquid();
+
+  public:
+  // int32 x = 1 [json_name = "x"];
+  void clear_x() ;
+  ::int32_t x() const;
+  void set_x(::int32_t value);
+
+  private:
+  ::int32_t _internal_x() const;
+  void _internal_set_x(::int32_t value);
+
+  public:
+  // int32 y = 2 [json_name = "y"];
+  void clear_y() ;
+  ::int32_t y() const;
+  void set_y(::int32_t value);
+
+  private:
+  ::int32_t _internal_y() const;
+  void _internal_set_y(::int32_t value);
+
+  public:
+  // int32 z = 3 [json_name = "z"];
+  void clear_z() ;
+  ::int32_t z() const;
+  void set_z(::int32_t value);
+
+  private:
+  ::int32_t _internal_z() const;
+  void _internal_set_z(::int32_t value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:df.plugin.StructureVoxel)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<3, 5,
+                                   2, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const StructureVoxel& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::df::plugin::BlockState* PROTOBUF_NULLABLE block_;
+    ::df::plugin::LiquidState* PROTOBUF_NULLABLE liquid_;
+    ::int32_t x_;
+    ::int32_t y_;
+    ::int32_t z_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_actions_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull StructureVoxel_class_data_;
+// -------------------------------------------------------------------
+
+class StructureDef final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:df.plugin.StructureDef) */ {
+ public:
+  inline StructureDef() : StructureDef(nullptr) {}
+  ~StructureDef() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(StructureDef* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(StructureDef));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR StructureDef(::google::protobuf::internal::ConstantInitialized);
+
+  inline StructureDef(const StructureDef& from) : StructureDef(nullptr, from) {}
+  inline StructureDef(StructureDef&& from) noexcept
+      : StructureDef(nullptr, ::std::move(from)) {}
+  inline StructureDef& operator=(const StructureDef& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StructureDef& operator=(StructureDef&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const StructureDef& default_instance() {
+    return *reinterpret_cast<const StructureDef*>(
+        &_StructureDef_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 49;
+  friend void swap(StructureDef& a, StructureDef& b) { a.Swap(&b); }
+  inline void Swap(StructureDef* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StructureDef* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  StructureDef* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<StructureDef>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const StructureDef& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const StructureDef& from) { StructureDef::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(StructureDef* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.StructureDef"; }
+
+  explicit StructureDef(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  StructureDef(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const StructureDef& from);
+  StructureDef(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, StructureDef&& from) noexcept
+      : StructureDef(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kWidthFieldNumber = 1,
+    kHeightFieldNumber = 2,
+    kLengthFieldNumber = 3,
+    kVoxelsFieldNumber = 10,
+  };
+  // int32 width = 1 [json_name = "width"];
+  void clear_width() ;
+  ::int32_t width() const;
+  void set_width(::int32_t value);
+
+  private:
+  ::int32_t _internal_width() const;
+  void _internal_set_width(::int32_t value);
+
+  public:
+  // int32 height = 2 [json_name = "height"];
+  void clear_height() ;
+  ::int32_t height() const;
+  void set_height(::int32_t value);
+
+  private:
+  ::int32_t _internal_height() const;
+  void _internal_set_height(::int32_t value);
+
+  public:
+  // int32 length = 3 [json_name = "length"];
+  void clear_length() ;
+  ::int32_t length() const;
+  void set_length(::int32_t value);
+
+  private:
+  ::int32_t _internal_length() const;
+  void _internal_set_length(::int32_t value);
+
+  public:
+  // repeated .df.plugin.StructureVoxel voxels = 10 [json_name = "voxels"];
+  int voxels_size() const;
+  private:
+  int _internal_voxels_size() const;
+
+  public:
+  void clear_voxels() ;
+  ::df::plugin::StructureVoxel* PROTOBUF_NONNULL mutable_voxels(int index);
+  ::google::protobuf::RepeatedPtrField<::df::plugin::StructureVoxel>* PROTOBUF_NONNULL mutable_voxels();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::df::plugin::StructureVoxel>& _internal_voxels() const;
+  ::google::protobuf::RepeatedPtrField<::df::plugin::StructureVoxel>* PROTOBUF_NONNULL _internal_mutable_voxels();
+  public:
+  const ::df::plugin::StructureVoxel& voxels(int index) const;
+  ::df::plugin::StructureVoxel* PROTOBUF_NONNULL add_voxels();
+  const ::google::protobuf::RepeatedPtrField<::df::plugin::StructureVoxel>& voxels() const;
+  // @@protoc_insertion_point(class_scope:df.plugin.StructureDef)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<2, 4,
+                                   1, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const StructureDef& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::int32_t width_;
+    ::int32_t height_;
+    ::int32_t length_;
+    ::google::protobuf::RepeatedPtrField< ::df::plugin::StructureVoxel > voxels_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_actions_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull StructureDef_class_data_;
+// -------------------------------------------------------------------
+
+class WorldBuildStructureAction final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:df.plugin.WorldBuildStructureAction) */ {
+ public:
+  inline WorldBuildStructureAction() : WorldBuildStructureAction(nullptr) {}
+  ~WorldBuildStructureAction() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(WorldBuildStructureAction* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(WorldBuildStructureAction));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR WorldBuildStructureAction(::google::protobuf::internal::ConstantInitialized);
+
+  inline WorldBuildStructureAction(const WorldBuildStructureAction& from) : WorldBuildStructureAction(nullptr, from) {}
+  inline WorldBuildStructureAction(WorldBuildStructureAction&& from) noexcept
+      : WorldBuildStructureAction(nullptr, ::std::move(from)) {}
+  inline WorldBuildStructureAction& operator=(const WorldBuildStructureAction& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline WorldBuildStructureAction& operator=(WorldBuildStructureAction&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const WorldBuildStructureAction& default_instance() {
+    return *reinterpret_cast<const WorldBuildStructureAction*>(
+        &_WorldBuildStructureAction_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 50;
+  friend void swap(WorldBuildStructureAction& a, WorldBuildStructureAction& b) { a.Swap(&b); }
+  inline void Swap(WorldBuildStructureAction* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(WorldBuildStructureAction* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  WorldBuildStructureAction* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<WorldBuildStructureAction>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const WorldBuildStructureAction& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const WorldBuildStructureAction& from) { WorldBuildStructureAction::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(WorldBuildStructureAction* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.WorldBuildStructureAction"; }
+
+  explicit WorldBuildStructureAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  WorldBuildStructureAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const WorldBuildStructureAction& from);
+  WorldBuildStructureAction(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, WorldBuildStructureAction&& from) noexcept
+      : WorldBuildStructureAction(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kWorldFieldNumber = 1,
+    kOriginFieldNumber = 2,
+    kStructureFieldNumber = 3,
+  };
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  bool has_world() const;
+  void clear_world() ;
+  const ::df::plugin::WorldRef& world() const;
+  [[nodiscard]] ::df::plugin::WorldRef* PROTOBUF_NULLABLE release_world();
+  ::df::plugin::WorldRef* PROTOBUF_NONNULL mutable_world();
+  void set_allocated_world(::df::plugin::WorldRef* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world(::df::plugin::WorldRef* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldRef* PROTOBUF_NULLABLE unsafe_arena_release_world();
+
+  private:
+  const ::df::plugin::WorldRef& _internal_world() const;
+  ::df::plugin::WorldRef* PROTOBUF_NONNULL _internal_mutable_world();
+
+  public:
+  // .df.plugin.BlockPos origin = 2 [json_name = "origin"];
+  bool has_origin() const;
+  void clear_origin() ;
+  const ::df::plugin::BlockPos& origin() const;
+  [[nodiscard]] ::df::plugin::BlockPos* PROTOBUF_NULLABLE release_origin();
+  ::df::plugin::BlockPos* PROTOBUF_NONNULL mutable_origin();
+  void set_allocated_origin(::df::plugin::BlockPos* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_origin(::df::plugin::BlockPos* PROTOBUF_NULLABLE value);
+  ::df::plugin::BlockPos* PROTOBUF_NULLABLE unsafe_arena_release_origin();
+
+  private:
+  const ::df::plugin::BlockPos& _internal_origin() const;
+  ::df::plugin::BlockPos* PROTOBUF_NONNULL _internal_mutable_origin();
+
+  public:
+  // .df.plugin.StructureDef structure = 3 [json_name = "structure"];
+  bool has_structure() const;
+  void clear_structure() ;
+  const ::df::plugin::StructureDef& structure() const;
+  [[nodiscard]] ::df::plugin::StructureDef* PROTOBUF_NULLABLE release_structure();
+  ::df::plugin::StructureDef* PROTOBUF_NONNULL mutable_structure();
+  void set_allocated_structure(::df::plugin::StructureDef* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_structure(::df::plugin::StructureDef* PROTOBUF_NULLABLE value);
+  ::df::plugin::StructureDef* PROTOBUF_NULLABLE unsafe_arena_release_structure();
+
+  private:
+  const ::df::plugin::StructureDef& _internal_structure() const;
+  ::df::plugin::StructureDef* PROTOBUF_NONNULL _internal_mutable_structure();
+
+  public:
+  // @@protoc_insertion_point(class_scope:df.plugin.WorldBuildStructureAction)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<2, 3,
+                                   3, 0,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const WorldBuildStructureAction& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::df::plugin::WorldRef* PROTOBUF_NULLABLE world_;
+    ::df::plugin::BlockPos* PROTOBUF_NULLABLE origin_;
+    ::df::plugin::StructureDef* PROTOBUF_NULLABLE structure_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_actions_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull WorldBuildStructureAction_class_data_;
+// -------------------------------------------------------------------
+
 class Action final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:df.plugin.Action) */ {
  public:
@@ -10369,6 +11091,7 @@ class Action final : public ::google::protobuf::Message
     kWorldSetBiome = 90,
     kWorldSetLiquid = 91,
     kWorldScheduleBlockUpdate = 92,
+    kWorldBuildStructure = 93,
     KIND_NOT_SET = 0,
   };
   static constexpr int kIndexInFileMessages = 1;
@@ -10505,6 +11228,7 @@ class Action final : public ::google::protobuf::Message
     kWorldSetBiomeFieldNumber = 90,
     kWorldSetLiquidFieldNumber = 91,
     kWorldScheduleBlockUpdateFieldNumber = 92,
+    kWorldBuildStructureFieldNumber = 93,
   };
   // optional string correlation_id = 1 [json_name = "correlationId"];
   bool has_correlation_id() const;
@@ -11396,6 +12120,25 @@ class Action final : public ::google::protobuf::Message
   ::df::plugin::WorldScheduleBlockUpdateAction* PROTOBUF_NONNULL _internal_mutable_world_schedule_block_update();
 
   public:
+  // .df.plugin.WorldBuildStructureAction world_build_structure = 93 [json_name = "worldBuildStructure"];
+  bool has_world_build_structure() const;
+  private:
+  bool _internal_has_world_build_structure() const;
+
+  public:
+  void clear_world_build_structure() ;
+  const ::df::plugin::WorldBuildStructureAction& world_build_structure() const;
+  [[nodiscard]] ::df::plugin::WorldBuildStructureAction* PROTOBUF_NULLABLE release_world_build_structure();
+  ::df::plugin::WorldBuildStructureAction* PROTOBUF_NONNULL mutable_world_build_structure();
+  void set_allocated_world_build_structure(::df::plugin::WorldBuildStructureAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_build_structure(::df::plugin::WorldBuildStructureAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldBuildStructureAction* PROTOBUF_NULLABLE unsafe_arena_release_world_build_structure();
+
+  private:
+  const ::df::plugin::WorldBuildStructureAction& _internal_world_build_structure() const;
+  ::df::plugin::WorldBuildStructureAction* PROTOBUF_NONNULL _internal_mutable_world_build_structure();
+
+  public:
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:df.plugin.Action)
@@ -11447,11 +12190,12 @@ class Action final : public ::google::protobuf::Message
   void set_has_world_set_biome();
   void set_has_world_set_liquid();
   void set_has_world_schedule_block_update();
+  void set_has_world_build_structure();
   inline bool has_kind() const;
   inline void clear_has_kind();
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<0, 47,
-                                   46, 79,
+  static const ::google::protobuf::internal::TcParseTable<0, 48,
+                                   47, 87,
                                    13>
       _table_;
 
@@ -11522,6 +12266,7 @@ class Action final : public ::google::protobuf::Message
       ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_biome_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_liquid_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE world_schedule_block_update_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_build_structure_;
     } kind_;
     ::uint32_t _oneof_case_[1];
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -15643,6 +16388,88 @@ inline ::df::plugin::WorldScheduleBlockUpdateAction* PROTOBUF_NONNULL Action::mu
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::df::plugin::WorldScheduleBlockUpdateAction* _msg = _internal_mutable_world_schedule_block_update();
   // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_schedule_block_update)
+  return _msg;
+}
+
+// .df.plugin.WorldBuildStructureAction world_build_structure = 93 [json_name = "worldBuildStructure"];
+inline bool Action::has_world_build_structure() const {
+  return kind_case() == kWorldBuildStructure;
+}
+inline bool Action::_internal_has_world_build_structure() const {
+  return kind_case() == kWorldBuildStructure;
+}
+inline void Action::set_has_world_build_structure() {
+  _impl_._oneof_case_[0] = kWorldBuildStructure;
+}
+inline void Action::clear_world_build_structure() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldBuildStructure) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_build_structure_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_build_structure_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldBuildStructureAction* PROTOBUF_NULLABLE Action::release_world_build_structure() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_build_structure)
+  if (kind_case() == kWorldBuildStructure) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldBuildStructureAction*>(_impl_.kind_.world_build_structure_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_build_structure_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldBuildStructureAction& Action::_internal_world_build_structure() const {
+  return kind_case() == kWorldBuildStructure ? static_cast<const ::df::plugin::WorldBuildStructureAction&>(*reinterpret_cast<::df::plugin::WorldBuildStructureAction*>(_impl_.kind_.world_build_structure_))
+                     : reinterpret_cast<const ::df::plugin::WorldBuildStructureAction&>(::df::plugin::_WorldBuildStructureAction_default_instance_);
+}
+inline const ::df::plugin::WorldBuildStructureAction& Action::world_build_structure() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_build_structure)
+  return _internal_world_build_structure();
+}
+inline ::df::plugin::WorldBuildStructureAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_build_structure() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_build_structure)
+  if (kind_case() == kWorldBuildStructure) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldBuildStructureAction*>(_impl_.kind_.world_build_structure_);
+    _impl_.kind_.world_build_structure_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_build_structure(
+    ::df::plugin::WorldBuildStructureAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_build_structure();
+    _impl_.kind_.world_build_structure_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_build_structure)
+}
+inline ::df::plugin::WorldBuildStructureAction* PROTOBUF_NONNULL Action::_internal_mutable_world_build_structure() {
+  if (kind_case() != kWorldBuildStructure) {
+    clear_kind();
+    set_has_world_build_structure();
+    _impl_.kind_.world_build_structure_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldBuildStructureAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldBuildStructureAction*>(_impl_.kind_.world_build_structure_);
+}
+inline ::df::plugin::WorldBuildStructureAction* PROTOBUF_NONNULL Action::mutable_world_build_structure()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldBuildStructureAction* _msg = _internal_mutable_world_build_structure();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_build_structure)
   return _msg;
 }
 
@@ -23544,6 +24371,695 @@ inline ::int64_t WorldScheduleBlockUpdateAction::_internal_delay_ms() const {
 inline void WorldScheduleBlockUpdateAction::_internal_set_delay_ms(::int64_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.delay_ms_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// StructureVoxel
+
+// int32 x = 1 [json_name = "x"];
+inline void StructureVoxel::clear_x() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.x_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline ::int32_t StructureVoxel::x() const {
+  // @@protoc_insertion_point(field_get:df.plugin.StructureVoxel.x)
+  return _internal_x();
+}
+inline void StructureVoxel::set_x(::int32_t value) {
+  _internal_set_x(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:df.plugin.StructureVoxel.x)
+}
+inline ::int32_t StructureVoxel::_internal_x() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.x_;
+}
+inline void StructureVoxel::_internal_set_x(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.x_ = value;
+}
+
+// int32 y = 2 [json_name = "y"];
+inline void StructureVoxel::clear_y() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.y_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline ::int32_t StructureVoxel::y() const {
+  // @@protoc_insertion_point(field_get:df.plugin.StructureVoxel.y)
+  return _internal_y();
+}
+inline void StructureVoxel::set_y(::int32_t value) {
+  _internal_set_y(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_set:df.plugin.StructureVoxel.y)
+}
+inline ::int32_t StructureVoxel::_internal_y() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.y_;
+}
+inline void StructureVoxel::_internal_set_y(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.y_ = value;
+}
+
+// int32 z = 3 [json_name = "z"];
+inline void StructureVoxel::clear_z() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.z_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline ::int32_t StructureVoxel::z() const {
+  // @@protoc_insertion_point(field_get:df.plugin.StructureVoxel.z)
+  return _internal_z();
+}
+inline void StructureVoxel::set_z(::int32_t value) {
+  _internal_set_z(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  // @@protoc_insertion_point(field_set:df.plugin.StructureVoxel.z)
+}
+inline ::int32_t StructureVoxel::_internal_z() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.z_;
+}
+inline void StructureVoxel::_internal_set_z(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.z_ = value;
+}
+
+// .df.plugin.BlockState block = 4 [json_name = "block"];
+inline bool StructureVoxel::has_block() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000001U);
+  PROTOBUF_ASSUME(!value || _impl_.block_ != nullptr);
+  return value;
+}
+inline const ::df::plugin::BlockState& StructureVoxel::_internal_block() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::BlockState* p = _impl_.block_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::BlockState&>(::df::plugin::_BlockState_default_instance_);
+}
+inline const ::df::plugin::BlockState& StructureVoxel::block() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.StructureVoxel.block)
+  return _internal_block();
+}
+inline void StructureVoxel::unsafe_arena_set_allocated_block(
+    ::df::plugin::BlockState* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.block_);
+  }
+  _impl_.block_ = reinterpret_cast<::df::plugin::BlockState*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.StructureVoxel.block)
+}
+inline ::df::plugin::BlockState* PROTOBUF_NULLABLE StructureVoxel::release_block() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  ::df::plugin::BlockState* released = _impl_.block_;
+  _impl_.block_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::BlockState* PROTOBUF_NULLABLE StructureVoxel::unsafe_arena_release_block() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.StructureVoxel.block)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  ::df::plugin::BlockState* temp = _impl_.block_;
+  _impl_.block_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::BlockState* PROTOBUF_NONNULL StructureVoxel::_internal_mutable_block() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.block_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::BlockState>(GetArena());
+    _impl_.block_ = reinterpret_cast<::df::plugin::BlockState*>(p);
+  }
+  return _impl_.block_;
+}
+inline ::df::plugin::BlockState* PROTOBUF_NONNULL StructureVoxel::mutable_block()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  ::df::plugin::BlockState* _msg = _internal_mutable_block();
+  // @@protoc_insertion_point(field_mutable:df.plugin.StructureVoxel.block)
+  return _msg;
+}
+inline void StructureVoxel::set_allocated_block(::df::plugin::BlockState* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.block_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::Message*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  }
+
+  _impl_.block_ = reinterpret_cast<::df::plugin::BlockState*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.StructureVoxel.block)
+}
+
+// optional .df.plugin.LiquidState liquid = 5 [json_name = "liquid"];
+inline bool StructureVoxel::has_liquid() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000002U);
+  PROTOBUF_ASSUME(!value || _impl_.liquid_ != nullptr);
+  return value;
+}
+inline const ::df::plugin::LiquidState& StructureVoxel::_internal_liquid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::LiquidState* p = _impl_.liquid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::LiquidState&>(::df::plugin::_LiquidState_default_instance_);
+}
+inline const ::df::plugin::LiquidState& StructureVoxel::liquid() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.StructureVoxel.liquid)
+  return _internal_liquid();
+}
+inline void StructureVoxel::unsafe_arena_set_allocated_liquid(
+    ::df::plugin::LiquidState* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.liquid_);
+  }
+  _impl_.liquid_ = reinterpret_cast<::df::plugin::LiquidState*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.StructureVoxel.liquid)
+}
+inline ::df::plugin::LiquidState* PROTOBUF_NULLABLE StructureVoxel::release_liquid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::df::plugin::LiquidState* released = _impl_.liquid_;
+  _impl_.liquid_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::LiquidState* PROTOBUF_NULLABLE StructureVoxel::unsafe_arena_release_liquid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.StructureVoxel.liquid)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::df::plugin::LiquidState* temp = _impl_.liquid_;
+  _impl_.liquid_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::LiquidState* PROTOBUF_NONNULL StructureVoxel::_internal_mutable_liquid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.liquid_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::LiquidState>(GetArena());
+    _impl_.liquid_ = reinterpret_cast<::df::plugin::LiquidState*>(p);
+  }
+  return _impl_.liquid_;
+}
+inline ::df::plugin::LiquidState* PROTOBUF_NONNULL StructureVoxel::mutable_liquid()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::df::plugin::LiquidState* _msg = _internal_mutable_liquid();
+  // @@protoc_insertion_point(field_mutable:df.plugin.StructureVoxel.liquid)
+  return _msg;
+}
+inline void StructureVoxel::set_allocated_liquid(::df::plugin::LiquidState* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.liquid_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::Message*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+
+  _impl_.liquid_ = reinterpret_cast<::df::plugin::LiquidState*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.StructureVoxel.liquid)
+}
+
+// -------------------------------------------------------------------
+
+// StructureDef
+
+// int32 width = 1 [json_name = "width"];
+inline void StructureDef::clear_width() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.width_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::int32_t StructureDef::width() const {
+  // @@protoc_insertion_point(field_get:df.plugin.StructureDef.width)
+  return _internal_width();
+}
+inline void StructureDef::set_width(::int32_t value) {
+  _internal_set_width(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_set:df.plugin.StructureDef.width)
+}
+inline ::int32_t StructureDef::_internal_width() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.width_;
+}
+inline void StructureDef::_internal_set_width(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.width_ = value;
+}
+
+// int32 height = 2 [json_name = "height"];
+inline void StructureDef::clear_height() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.height_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline ::int32_t StructureDef::height() const {
+  // @@protoc_insertion_point(field_get:df.plugin.StructureDef.height)
+  return _internal_height();
+}
+inline void StructureDef::set_height(::int32_t value) {
+  _internal_set_height(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  // @@protoc_insertion_point(field_set:df.plugin.StructureDef.height)
+}
+inline ::int32_t StructureDef::_internal_height() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.height_;
+}
+inline void StructureDef::_internal_set_height(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.height_ = value;
+}
+
+// int32 length = 3 [json_name = "length"];
+inline void StructureDef::clear_length() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.length_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline ::int32_t StructureDef::length() const {
+  // @@protoc_insertion_point(field_get:df.plugin.StructureDef.length)
+  return _internal_length();
+}
+inline void StructureDef::set_length(::int32_t value) {
+  _internal_set_length(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:df.plugin.StructureDef.length)
+}
+inline ::int32_t StructureDef::_internal_length() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.length_;
+}
+inline void StructureDef::_internal_set_length(::int32_t value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.length_ = value;
+}
+
+// repeated .df.plugin.StructureVoxel voxels = 10 [json_name = "voxels"];
+inline int StructureDef::_internal_voxels_size() const {
+  return _internal_voxels().size();
+}
+inline int StructureDef::voxels_size() const {
+  return _internal_voxels_size();
+}
+inline void StructureDef::clear_voxels() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.voxels_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline ::df::plugin::StructureVoxel* PROTOBUF_NONNULL StructureDef::mutable_voxels(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:df.plugin.StructureDef.voxels)
+  return _internal_mutable_voxels()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::df::plugin::StructureVoxel>* PROTOBUF_NONNULL StructureDef::mutable_voxels()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_mutable_list:df.plugin.StructureDef.voxels)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_voxels();
+}
+inline const ::df::plugin::StructureVoxel& StructureDef::voxels(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.StructureDef.voxels)
+  return _internal_voxels().Get(index);
+}
+inline ::df::plugin::StructureVoxel* PROTOBUF_NONNULL StructureDef::add_voxels()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::df::plugin::StructureVoxel* _add =
+      _internal_mutable_voxels()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_add:df.plugin.StructureDef.voxels)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::df::plugin::StructureVoxel>& StructureDef::voxels() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:df.plugin.StructureDef.voxels)
+  return _internal_voxels();
+}
+inline const ::google::protobuf::RepeatedPtrField<::df::plugin::StructureVoxel>&
+StructureDef::_internal_voxels() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.voxels_;
+}
+inline ::google::protobuf::RepeatedPtrField<::df::plugin::StructureVoxel>* PROTOBUF_NONNULL
+StructureDef::_internal_mutable_voxels() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.voxels_;
+}
+
+// -------------------------------------------------------------------
+
+// WorldBuildStructureAction
+
+// .df.plugin.WorldRef world = 1 [json_name = "world"];
+inline bool WorldBuildStructureAction::has_world() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000001U);
+  PROTOBUF_ASSUME(!value || _impl_.world_ != nullptr);
+  return value;
+}
+inline const ::df::plugin::WorldRef& WorldBuildStructureAction::_internal_world() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::WorldRef* p = _impl_.world_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::WorldRef&>(::df::plugin::_WorldRef_default_instance_);
+}
+inline const ::df::plugin::WorldRef& WorldBuildStructureAction::world() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.WorldBuildStructureAction.world)
+  return _internal_world();
+}
+inline void WorldBuildStructureAction::unsafe_arena_set_allocated_world(
+    ::df::plugin::WorldRef* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.world_);
+  }
+  _impl_.world_ = reinterpret_cast<::df::plugin::WorldRef*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.WorldBuildStructureAction.world)
+}
+inline ::df::plugin::WorldRef* PROTOBUF_NULLABLE WorldBuildStructureAction::release_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  ::df::plugin::WorldRef* released = _impl_.world_;
+  _impl_.world_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::WorldRef* PROTOBUF_NULLABLE WorldBuildStructureAction::unsafe_arena_release_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.WorldBuildStructureAction.world)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  ::df::plugin::WorldRef* temp = _impl_.world_;
+  _impl_.world_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::WorldRef* PROTOBUF_NONNULL WorldBuildStructureAction::_internal_mutable_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldRef>(GetArena());
+    _impl_.world_ = reinterpret_cast<::df::plugin::WorldRef*>(p);
+  }
+  return _impl_.world_;
+}
+inline ::df::plugin::WorldRef* PROTOBUF_NONNULL WorldBuildStructureAction::mutable_world()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  ::df::plugin::WorldRef* _msg = _internal_mutable_world();
+  // @@protoc_insertion_point(field_mutable:df.plugin.WorldBuildStructureAction.world)
+  return _msg;
+}
+inline void WorldBuildStructureAction::set_allocated_world(::df::plugin::WorldRef* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.world_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::Message*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  }
+
+  _impl_.world_ = reinterpret_cast<::df::plugin::WorldRef*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.WorldBuildStructureAction.world)
+}
+
+// .df.plugin.BlockPos origin = 2 [json_name = "origin"];
+inline bool WorldBuildStructureAction::has_origin() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000002U);
+  PROTOBUF_ASSUME(!value || _impl_.origin_ != nullptr);
+  return value;
+}
+inline const ::df::plugin::BlockPos& WorldBuildStructureAction::_internal_origin() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::BlockPos* p = _impl_.origin_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::BlockPos&>(::df::plugin::_BlockPos_default_instance_);
+}
+inline const ::df::plugin::BlockPos& WorldBuildStructureAction::origin() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.WorldBuildStructureAction.origin)
+  return _internal_origin();
+}
+inline void WorldBuildStructureAction::unsafe_arena_set_allocated_origin(
+    ::df::plugin::BlockPos* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.origin_);
+  }
+  _impl_.origin_ = reinterpret_cast<::df::plugin::BlockPos*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.WorldBuildStructureAction.origin)
+}
+inline ::df::plugin::BlockPos* PROTOBUF_NULLABLE WorldBuildStructureAction::release_origin() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::df::plugin::BlockPos* released = _impl_.origin_;
+  _impl_.origin_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::BlockPos* PROTOBUF_NULLABLE WorldBuildStructureAction::unsafe_arena_release_origin() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.WorldBuildStructureAction.origin)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::df::plugin::BlockPos* temp = _impl_.origin_;
+  _impl_.origin_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::BlockPos* PROTOBUF_NONNULL WorldBuildStructureAction::_internal_mutable_origin() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.origin_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::BlockPos>(GetArena());
+    _impl_.origin_ = reinterpret_cast<::df::plugin::BlockPos*>(p);
+  }
+  return _impl_.origin_;
+}
+inline ::df::plugin::BlockPos* PROTOBUF_NONNULL WorldBuildStructureAction::mutable_origin()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::df::plugin::BlockPos* _msg = _internal_mutable_origin();
+  // @@protoc_insertion_point(field_mutable:df.plugin.WorldBuildStructureAction.origin)
+  return _msg;
+}
+inline void WorldBuildStructureAction::set_allocated_origin(::df::plugin::BlockPos* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.origin_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = reinterpret_cast<::google::protobuf::Message*>(value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+
+  _impl_.origin_ = reinterpret_cast<::df::plugin::BlockPos*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.WorldBuildStructureAction.origin)
+}
+
+// .df.plugin.StructureDef structure = 3 [json_name = "structure"];
+inline bool WorldBuildStructureAction::has_structure() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000004U);
+  PROTOBUF_ASSUME(!value || _impl_.structure_ != nullptr);
+  return value;
+}
+inline void WorldBuildStructureAction::clear_structure() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.structure_ != nullptr) _impl_.structure_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline const ::df::plugin::StructureDef& WorldBuildStructureAction::_internal_structure() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::StructureDef* p = _impl_.structure_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::StructureDef&>(::df::plugin::_StructureDef_default_instance_);
+}
+inline const ::df::plugin::StructureDef& WorldBuildStructureAction::structure() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.WorldBuildStructureAction.structure)
+  return _internal_structure();
+}
+inline void WorldBuildStructureAction::unsafe_arena_set_allocated_structure(
+    ::df::plugin::StructureDef* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.structure_);
+  }
+  _impl_.structure_ = reinterpret_cast<::df::plugin::StructureDef*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.WorldBuildStructureAction.structure)
+}
+inline ::df::plugin::StructureDef* PROTOBUF_NULLABLE WorldBuildStructureAction::release_structure() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  ::df::plugin::StructureDef* released = _impl_.structure_;
+  _impl_.structure_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::StructureDef* PROTOBUF_NULLABLE WorldBuildStructureAction::unsafe_arena_release_structure() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.WorldBuildStructureAction.structure)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  ::df::plugin::StructureDef* temp = _impl_.structure_;
+  _impl_.structure_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::StructureDef* PROTOBUF_NONNULL WorldBuildStructureAction::_internal_mutable_structure() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.structure_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::StructureDef>(GetArena());
+    _impl_.structure_ = reinterpret_cast<::df::plugin::StructureDef*>(p);
+  }
+  return _impl_.structure_;
+}
+inline ::df::plugin::StructureDef* PROTOBUF_NONNULL WorldBuildStructureAction::mutable_structure()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  ::df::plugin::StructureDef* _msg = _internal_mutable_structure();
+  // @@protoc_insertion_point(field_mutable:df.plugin.WorldBuildStructureAction.structure)
+  return _msg;
+}
+inline void WorldBuildStructureAction::set_allocated_structure(::df::plugin::StructureDef* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.structure_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  }
+
+  _impl_.structure_ = reinterpret_cast<::df::plugin::StructureDef*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.WorldBuildStructureAction.structure)
 }
 
 #ifdef __GNUC__
