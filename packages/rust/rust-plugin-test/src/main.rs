@@ -6,6 +6,7 @@ use dragonfly_plugin::{
     event::{EventContext, PluginEventHandler},
     types, // All the raw prost/tonic types
 };
+use rust_plugin_macro::bedrock_plugin;
 
 // --- 2. Define a struct for your plugin's state ---
 // It can be empty, or it can hold databases, configs, etc.
@@ -22,6 +23,7 @@ struct MyExamplePlugin;
 // * We add `#[async_trait]` because the trait uses async functions.
 
 #[async_trait]
+#[bedrock_plugin]
 impl PluginEventHandler for MyExamplePlugin {
     /// This handler runs when a player joins the server.
     /// We'll use it to send our "hello world" message.
@@ -68,13 +70,6 @@ impl PluginEventHandler for MyExamplePlugin {
 
     // We don't implement `on_player_hurt`, `on_block_break`, etc.,
     // so the `#[bedrock_plugin]` macro will not subscribe to them.
-}
-
-// THIS IS AN OPTIONAL THING USUALLY USE the proc macro.
-impl PluginSubscriptions for MyExamplePlugin {
-    fn get_subscriptions(&self) -> Vec<types::EventType> {
-        vec![types::EventType::Chat]
-    }
 }
 
 // --- 4. The main function to run the plugin ---
