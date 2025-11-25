@@ -77,12 +77,24 @@ func (m *Manager) applyActions(p *pluginProcess, batch *pb.ActionBatch) {
 			m.handleWorldPlaySound(p, correlationID, kind.WorldPlaySound)
 		case *pb.Action_WorldAddParticle:
 			m.handleWorldAddParticle(p, correlationID, kind.WorldAddParticle)
+		case *pb.Action_WorldSetTime:
+			m.handleWorldSetTime(p, correlationID, kind.WorldSetTime)
+		case *pb.Action_WorldStopTime:
+			m.handleWorldStopTime(p, correlationID, kind.WorldStopTime)
+		case *pb.Action_WorldStartTime:
+			m.handleWorldStartTime(p, correlationID, kind.WorldStartTime)
+		case *pb.Action_WorldSetSpawn:
+			m.handleWorldSetSpawn(p, correlationID, kind.WorldSetSpawn)
 		case *pb.Action_WorldQueryEntities:
 			m.handleWorldQueryEntities(p, correlationID, kind.WorldQueryEntities)
 		case *pb.Action_WorldQueryPlayers:
 			m.handleWorldQueryPlayers(p, correlationID, kind.WorldQueryPlayers)
 		case *pb.Action_WorldQueryEntitiesWithin:
 			m.handleWorldQueryEntitiesWithin(p, correlationID, kind.WorldQueryEntitiesWithin)
+		case *pb.Action_WorldQueryDefaultGameMode:
+			m.handleWorldQueryDefaultGameMode(p, correlationID, kind.WorldQueryDefaultGameMode)
+		case *pb.Action_WorldQueryPlayerSpawn:
+			m.handleWorldQueryPlayerSpawn(p, correlationID, kind.WorldQueryPlayerSpawn)
 		}
 	}
 }
@@ -469,6 +481,51 @@ func (m *Manager) handleWorldAddParticle(p *pluginProcess, correlationID string,
 	m.sendActionOK(p, correlationID)
 }
 
+func (m *Manager) handleWorldSetTime(p *pluginProcess, correlationID string, act *pb.WorldSetTimeAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	w.SetTime(int(act.Time))
+	m.sendActionOK(p, correlationID)
+}
+
+func (m *Manager) handleWorldStopTime(p *pluginProcess, correlationID string, act *pb.WorldStopTimeAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	w.StopTime()
+	m.sendActionOK(p, correlationID)
+}
+
+func (m *Manager) handleWorldStartTime(p *pluginProcess, correlationID string, act *pb.WorldStartTimeAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	w.StartTime()
+	m.sendActionOK(p, correlationID)
+}
+
+func (m *Manager) handleWorldSetSpawn(p *pluginProcess, correlationID string, act *pb.WorldSetSpawnAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Spawn == nil {
+		m.sendActionError(p, correlationID, "missing spawn position")
+		return
+	}
+	pos := cube.Pos{int(act.Spawn.X), int(act.Spawn.Y), int(act.Spawn.Z)}
+	w.SetSpawn(pos)
+	m.sendActionOK(p, correlationID)
+}
+
 func (m *Manager) handleWorldQueryEntities(p *pluginProcess, correlationID string, act *pb.WorldQueryEntitiesAction) {
 	w := m.worldFromRef(act.GetWorld())
 	if w == nil {
@@ -537,6 +594,50 @@ func (m *Manager) handleWorldQueryEntitiesWithin(p *pluginProcess, correlationID
 			World:    protoWorldRef(w),
 			Box:      protoBBox(box),
 			Entities: protoEntityRefs(entities),
+		}},
+	})
+}
+
+func (m *Manager) handleWorldQueryDefaultGameMode(p *pluginProcess, correlationID string, act *pb.WorldQueryDefaultGameModeAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	mode := w.DefaultGameMode()
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldDefaultGameMode{WorldDefaultGameMode: &pb.WorldDefaultGameModeResult{
+			World:    protoWorldRef(w),
+			GameMode: func() pb.GameMode { id, _ := world.GameModeID(mode); return pb.GameMode(id) }(),
+		}},
+	})
+}
+
+func (m *Manager) handleWorldQueryPlayerSpawn(p *pluginProcess, correlationID string, act *pb.WorldQueryPlayerSpawnAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.PlayerUuid == "" {
+		m.sendActionError(p, correlationID, "missing player_uuid")
+		return
+	}
+	id, err := uuid.Parse(act.PlayerUuid)
+	if err != nil {
+		m.sendActionError(p, correlationID, "invalid player_uuid")
+		return
+	}
+	spawn := w.PlayerSpawn(id)
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldPlayerSpawn{WorldPlayerSpawn: &pb.WorldPlayerSpawnResult{
+			World:      protoWorldRef(w),
+			PlayerUuid: act.PlayerUuid,
+			Spawn:      protoBlockPos(spawn),
 		}},
 	})
 }

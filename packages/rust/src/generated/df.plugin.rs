@@ -73,6 +73,9 @@ pub struct WorldRef {
     pub name: ::prost::alloc::string::String,
     #[prost(string, tag="2")]
     pub dimension: ::prost::alloc::string::String,
+    /// This is a runtime id. it changes across server restarts.
+    #[prost(string, tag="3")]
+    pub id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -436,7 +439,7 @@ pub struct ActionResult {
     pub correlation_id: ::prost::alloc::string::String,
     #[prost(message, optional, tag="2")]
     pub status: ::core::option::Option<ActionStatus>,
-    #[prost(oneof="action_result::Result", tags="10, 11, 12")]
+    #[prost(oneof="action_result::Result", tags="10, 11, 12, 13, 14")]
     pub result: ::core::option::Option<action_result::Result>,
 }
 /// Nested message and enum types in `ActionResult`.
@@ -450,6 +453,10 @@ pub mod action_result {
         WorldPlayers(super::WorldPlayersResult),
         #[prost(message, tag="12")]
         WorldEntitiesWithin(super::WorldEntitiesWithinResult),
+        #[prost(message, tag="13")]
+        WorldDefaultGameMode(super::WorldDefaultGameModeResult),
+        #[prost(message, tag="14")]
+        WorldPlayerSpawn(super::WorldPlayerSpawnResult),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -488,6 +495,24 @@ pub struct WorldPlayersResult {
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldDefaultGameModeResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(enumeration="GameMode", tag="2")]
+    pub game_mode: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldPlayerSpawnResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(string, tag="2")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="3")]
+    pub spawn: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ActionBatch {
     #[prost(message, repeated, tag="1")]
     pub actions: ::prost::alloc::vec::Vec<Action>,
@@ -497,7 +522,7 @@ pub struct ActionBatch {
 pub struct Action {
     #[prost(string, optional, tag="1")]
     pub correlation_id: ::core::option::Option<::prost::alloc::string::String>,
-    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 30, 31, 40, 41, 42, 43, 50, 60, 61, 62, 63, 64, 65, 70, 71, 72")]
+    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 30, 31, 40, 41, 42, 43, 50, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74")]
     pub kind: ::core::option::Option<action::Kind>,
 }
 /// Nested message and enum types in `Action`.
@@ -559,6 +584,14 @@ pub mod action {
         WorldPlaySound(super::WorldPlaySoundAction),
         #[prost(message, tag="65")]
         WorldAddParticle(super::WorldAddParticleAction),
+        #[prost(message, tag="66")]
+        WorldSetTime(super::WorldSetTimeAction),
+        #[prost(message, tag="67")]
+        WorldStopTime(super::WorldStopTimeAction),
+        #[prost(message, tag="68")]
+        WorldStartTime(super::WorldStartTimeAction),
+        #[prost(message, tag="69")]
+        WorldSetSpawn(super::WorldSetSpawnAction),
         /// World queries
         #[prost(message, tag="70")]
         WorldQueryEntities(super::WorldQueryEntitiesAction),
@@ -566,6 +599,10 @@ pub mod action {
         WorldQueryPlayers(super::WorldQueryPlayersAction),
         #[prost(message, tag="72")]
         WorldQueryEntitiesWithin(super::WorldQueryEntitiesWithinAction),
+        #[prost(message, tag="73")]
+        WorldQueryDefaultGameMode(super::WorldQueryDefaultGameModeAction),
+        #[prost(message, tag="74")]
+        WorldQueryPlayerSpawn(super::WorldQueryPlayerSpawnAction),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -820,6 +857,48 @@ pub struct WorldAddParticleAction {
     /// used for punch_block when provided
     #[prost(int32, optional, tag="5")]
     pub face: ::core::option::Option<i32>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSetTimeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(int32, tag="2")]
+    pub time: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldStopTimeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldStartTimeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSetSpawnAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub spawn: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryDefaultGameModeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryPlayerSpawnAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(string, tag="2")]
+    pub player_uuid: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]

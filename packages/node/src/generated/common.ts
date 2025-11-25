@@ -545,6 +545,8 @@ export interface LiquidState {
 export interface WorldRef {
   name: string;
   dimension: string;
+  /** This is a runtime id. it changes across server restarts. */
+  id: string;
 }
 
 export interface EntityRef {
@@ -1304,7 +1306,7 @@ export const LiquidState: MessageFns<LiquidState> = {
 };
 
 function createBaseWorldRef(): WorldRef {
-  return { name: "", dimension: "" };
+  return { name: "", dimension: "", id: "" };
 }
 
 export const WorldRef: MessageFns<WorldRef> = {
@@ -1314,6 +1316,9 @@ export const WorldRef: MessageFns<WorldRef> = {
     }
     if (message.dimension !== "") {
       writer.uint32(18).string(message.dimension);
+    }
+    if (message.id !== "") {
+      writer.uint32(26).string(message.id);
     }
     return writer;
   },
@@ -1341,6 +1346,14 @@ export const WorldRef: MessageFns<WorldRef> = {
           message.dimension = reader.string();
           continue;
         }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.id = reader.string();
+          continue;
+        }
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -1354,6 +1367,7 @@ export const WorldRef: MessageFns<WorldRef> = {
     return {
       name: isSet(object.name) ? globalThis.String(object.name) : "",
       dimension: isSet(object.dimension) ? globalThis.String(object.dimension) : "",
+      id: isSet(object.id) ? globalThis.String(object.id) : "",
     };
   },
 
@@ -1365,6 +1379,9 @@ export const WorldRef: MessageFns<WorldRef> = {
     if (message.dimension !== "") {
       obj.dimension = message.dimension;
     }
+    if (message.id !== "") {
+      obj.id = message.id;
+    }
     return obj;
   },
 
@@ -1375,6 +1392,7 @@ export const WorldRef: MessageFns<WorldRef> = {
     const message = createBaseWorldRef();
     message.name = object.name ?? "";
     message.dimension = object.dimension ?? "";
+    message.id = object.id ?? "";
     return message;
   },
 };

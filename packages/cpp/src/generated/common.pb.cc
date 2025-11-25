@@ -35,6 +35,9 @@ inline constexpr WorldRef::Impl_::Impl_(
             ::_pbi::ConstantInitialized()),
         dimension_(
             &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()) {}
 
 template <typename>
@@ -505,11 +508,13 @@ const ::uint32_t
         0,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::df::plugin::WorldRef, _impl_._has_bits_),
-        5, // hasbit index offset
+        6, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::df::plugin::WorldRef, _impl_.name_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::WorldRef, _impl_.dimension_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldRef, _impl_.id_),
         0,
         1,
+        2,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::df::plugin::EntityRef, _impl_._has_bits_),
         8, // hasbit index offset
@@ -572,11 +577,11 @@ static const ::_pbi::MigrationSchema
         {48, sizeof(::df::plugin::BlockState)},
         {55, sizeof(::df::plugin::LiquidState)},
         {66, sizeof(::df::plugin::WorldRef)},
-        {73, sizeof(::df::plugin::EntityRef)},
-        {86, sizeof(::df::plugin::DamageSource)},
-        {93, sizeof(::df::plugin::HealingSource)},
-        {100, sizeof(::df::plugin::Address)},
-        {107, sizeof(::df::plugin::CustomItemDefinition)},
+        {75, sizeof(::df::plugin::EntityRef)},
+        {88, sizeof(::df::plugin::DamageSource)},
+        {95, sizeof(::df::plugin::HealingSource)},
+        {102, sizeof(::df::plugin::Address)},
+        {109, sizeof(::df::plugin::CustomItemDefinition)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::df::plugin::_Vec3_default_instance_._instance,
@@ -612,62 +617,62 @@ const char descriptor_table_protodef_common_2eproto[] ABSL_ATTRIBUTE_SECTION_VAR
     "+\n\005block\030\001 \001(\0132\025.df.plugin.BlockStateR\005b"
     "lock\022\024\n\005depth\030\002 \001(\005R\005depth\022\030\n\007falling\030\003 "
     "\001(\010R\007falling\022\037\n\013liquid_type\030\004 \001(\tR\nliqui"
-    "dType\"<\n\010WorldRef\022\022\n\004name\030\001 \001(\tR\004name\022\034\n"
-    "\tdimension\030\002 \001(\tR\tdimension\"\327\001\n\tEntityRe"
-    "f\022\022\n\004uuid\030\001 \001(\tR\004uuid\022\022\n\004type\030\002 \001(\tR\004typ"
-    "e\022\027\n\004name\030\003 \001(\tH\000R\004name\210\001\001\0220\n\010position\030\004"
-    " \001(\0132\017.df.plugin.Vec3H\001R\010position\210\001\001\0224\n\010"
-    "rotation\030\005 \001(\0132\023.df.plugin.RotationH\002R\010r"
-    "otation\210\001\001B\007\n\005_nameB\013\n\t_positionB\013\n\t_rot"
-    "ation\"Y\n\014DamageSource\022\022\n\004type\030\001 \001(\tR\004typ"
-    "e\022%\n\013description\030\002 \001(\tH\000R\013description\210\001\001"
-    "B\016\n\014_description\"Z\n\rHealingSource\022\022\n\004typ"
-    "e\030\001 \001(\tR\004type\022%\n\013description\030\002 \001(\tH\000R\013de"
-    "scription\210\001\001B\016\n\014_description\"1\n\007Address\022"
-    "\022\n\004host\030\001 \001(\tR\004host\022\022\n\004port\030\002 \001(\005R\004port\""
-    "\332\001\n\024CustomItemDefinition\022\016\n\002id\030\001 \001(\tR\002id"
-    "\022!\n\014display_name\030\002 \001(\tR\013displayName\022!\n\014t"
-    "exture_data\030\003 \001(\014R\013textureData\0223\n\010catego"
-    "ry\030\004 \001(\0162\027.df.plugin.ItemCategoryR\010categ"
-    "ory\022\031\n\005group\030\005 \001(\tH\000R\005group\210\001\001\022\022\n\004meta\030\006"
-    " \001(\005R\004metaB\010\n\006_group*D\n\010GameMode\022\014\n\010SURV"
-    "IVAL\020\000\022\014\n\010CREATIVE\020\001\022\r\n\tADVENTURE\020\002\022\r\n\tS"
-    "PECTATOR\020\003*:\n\nDifficulty\022\014\n\010PEACEFUL\020\000\022\010"
-    "\n\004EASY\020\001\022\n\n\006NORMAL\020\002\022\010\n\004HARD\020\003*\342\003\n\nEffec"
-    "tType\022\022\n\016EFFECT_UNKNOWN\020\000\022\t\n\005SPEED\020\001\022\014\n\010"
-    "SLOWNESS\020\002\022\t\n\005HASTE\020\003\022\022\n\016MINING_FATIGUE\020"
-    "\004\022\014\n\010STRENGTH\020\005\022\022\n\016INSTANT_HEALTH\020\006\022\022\n\016I"
-    "NSTANT_DAMAGE\020\007\022\016\n\nJUMP_BOOST\020\010\022\n\n\006NAUSE"
-    "A\020\t\022\020\n\014REGENERATION\020\n\022\016\n\nRESISTANCE\020\013\022\023\n"
-    "\017FIRE_RESISTANCE\020\014\022\023\n\017WATER_BREATHING\020\r\022"
-    "\020\n\014INVISIBILITY\020\016\022\r\n\tBLINDNESS\020\017\022\020\n\014NIGH"
-    "T_VISION\020\020\022\n\n\006HUNGER\020\021\022\014\n\010WEAKNESS\020\022\022\n\n\006"
-    "POISON\020\023\022\n\n\006WITHER\020\024\022\020\n\014HEALTH_BOOST\020\025\022\016"
-    "\n\nABSORPTION\020\026\022\016\n\nSATURATION\020\027\022\016\n\nLEVITA"
-    "TION\020\030\022\020\n\014FATAL_POISON\020\031\022\021\n\rCONDUIT_POWE"
-    "R\020\032\022\020\n\014SLOW_FALLING\020\033\022\014\n\010DARKNESS\020\036*\315\002\n\005"
-    "Sound\022\021\n\rSOUND_UNKNOWN\020\000\022\n\n\006ATTACK\020\001\022\014\n\010"
-    "DROWNING\020\002\022\013\n\007BURNING\020\003\022\010\n\004FALL\020\004\022\010\n\004BUR"
-    "P\020\005\022\007\n\003POP\020\006\022\r\n\tEXPLOSION\020\007\022\013\n\007THUNDER\020\010"
-    "\022\014\n\010LEVEL_UP\020\t\022\016\n\nEXPERIENCE\020\n\022\023\n\017FIREWO"
-    "RK_LAUNCH\020\013\022\027\n\023FIREWORK_HUGE_BLAST\020\014\022\022\n\016"
-    "FIREWORK_BLAST\020\r\022\024\n\020FIREWORK_TWINKLE\020\016\022\014"
-    "\n\010TELEPORT\020\017\022\r\n\tARROW_HIT\020\020\022\016\n\nITEM_BREA"
-    "K\020\021\022\016\n\nITEM_THROW\020\022\022\t\n\005TOTEM\020\023\022\023\n\017FIRE_E"
-    "XTINGUISH\020\024*~\n\014ItemCategory\022\036\n\032ITEM_CATE"
-    "GORY_CONSTRUCTION\020\000\022\030\n\024ITEM_CATEGORY_NAT"
-    "URE\020\001\022\033\n\027ITEM_CATEGORY_EQUIPMENT\020\002\022\027\n\023IT"
-    "EM_CATEGORY_ITEMS\020\003B\212\001\n\rcom.df.pluginB\013C"
-    "ommonProtoP\001Z\'github.com/secmc/plugin/pr"
-    "oto/generated\242\002\003DPX\252\002\tDf.Plugin\312\002\tDf\\Plu"
-    "gin\342\002\025Df\\Plugin\\GPBMetadata\352\002\nDf::Plugin"
-    "b\006proto3"
+    "dType\"L\n\010WorldRef\022\022\n\004name\030\001 \001(\tR\004name\022\034\n"
+    "\tdimension\030\002 \001(\tR\tdimension\022\016\n\002id\030\003 \001(\tR"
+    "\002id\"\327\001\n\tEntityRef\022\022\n\004uuid\030\001 \001(\tR\004uuid\022\022\n"
+    "\004type\030\002 \001(\tR\004type\022\027\n\004name\030\003 \001(\tH\000R\004name\210"
+    "\001\001\0220\n\010position\030\004 \001(\0132\017.df.plugin.Vec3H\001R"
+    "\010position\210\001\001\0224\n\010rotation\030\005 \001(\0132\023.df.plug"
+    "in.RotationH\002R\010rotation\210\001\001B\007\n\005_nameB\013\n\t_"
+    "positionB\013\n\t_rotation\"Y\n\014DamageSource\022\022\n"
+    "\004type\030\001 \001(\tR\004type\022%\n\013description\030\002 \001(\tH\000"
+    "R\013description\210\001\001B\016\n\014_description\"Z\n\rHeal"
+    "ingSource\022\022\n\004type\030\001 \001(\tR\004type\022%\n\013descrip"
+    "tion\030\002 \001(\tH\000R\013description\210\001\001B\016\n\014_descrip"
+    "tion\"1\n\007Address\022\022\n\004host\030\001 \001(\tR\004host\022\022\n\004p"
+    "ort\030\002 \001(\005R\004port\"\332\001\n\024CustomItemDefinition"
+    "\022\016\n\002id\030\001 \001(\tR\002id\022!\n\014display_name\030\002 \001(\tR\013"
+    "displayName\022!\n\014texture_data\030\003 \001(\014R\013textu"
+    "reData\0223\n\010category\030\004 \001(\0162\027.df.plugin.Ite"
+    "mCategoryR\010category\022\031\n\005group\030\005 \001(\tH\000R\005gr"
+    "oup\210\001\001\022\022\n\004meta\030\006 \001(\005R\004metaB\010\n\006_group*D\n\010"
+    "GameMode\022\014\n\010SURVIVAL\020\000\022\014\n\010CREATIVE\020\001\022\r\n\t"
+    "ADVENTURE\020\002\022\r\n\tSPECTATOR\020\003*:\n\nDifficulty"
+    "\022\014\n\010PEACEFUL\020\000\022\010\n\004EASY\020\001\022\n\n\006NORMAL\020\002\022\010\n\004"
+    "HARD\020\003*\342\003\n\nEffectType\022\022\n\016EFFECT_UNKNOWN\020"
+    "\000\022\t\n\005SPEED\020\001\022\014\n\010SLOWNESS\020\002\022\t\n\005HASTE\020\003\022\022\n"
+    "\016MINING_FATIGUE\020\004\022\014\n\010STRENGTH\020\005\022\022\n\016INSTA"
+    "NT_HEALTH\020\006\022\022\n\016INSTANT_DAMAGE\020\007\022\016\n\nJUMP_"
+    "BOOST\020\010\022\n\n\006NAUSEA\020\t\022\020\n\014REGENERATION\020\n\022\016\n"
+    "\nRESISTANCE\020\013\022\023\n\017FIRE_RESISTANCE\020\014\022\023\n\017WA"
+    "TER_BREATHING\020\r\022\020\n\014INVISIBILITY\020\016\022\r\n\tBLI"
+    "NDNESS\020\017\022\020\n\014NIGHT_VISION\020\020\022\n\n\006HUNGER\020\021\022\014"
+    "\n\010WEAKNESS\020\022\022\n\n\006POISON\020\023\022\n\n\006WITHER\020\024\022\020\n\014"
+    "HEALTH_BOOST\020\025\022\016\n\nABSORPTION\020\026\022\016\n\nSATURA"
+    "TION\020\027\022\016\n\nLEVITATION\020\030\022\020\n\014FATAL_POISON\020\031"
+    "\022\021\n\rCONDUIT_POWER\020\032\022\020\n\014SLOW_FALLING\020\033\022\014\n"
+    "\010DARKNESS\020\036*\315\002\n\005Sound\022\021\n\rSOUND_UNKNOWN\020\000"
+    "\022\n\n\006ATTACK\020\001\022\014\n\010DROWNING\020\002\022\013\n\007BURNING\020\003\022"
+    "\010\n\004FALL\020\004\022\010\n\004BURP\020\005\022\007\n\003POP\020\006\022\r\n\tEXPLOSIO"
+    "N\020\007\022\013\n\007THUNDER\020\010\022\014\n\010LEVEL_UP\020\t\022\016\n\nEXPERI"
+    "ENCE\020\n\022\023\n\017FIREWORK_LAUNCH\020\013\022\027\n\023FIREWORK_"
+    "HUGE_BLAST\020\014\022\022\n\016FIREWORK_BLAST\020\r\022\024\n\020FIRE"
+    "WORK_TWINKLE\020\016\022\014\n\010TELEPORT\020\017\022\r\n\tARROW_HI"
+    "T\020\020\022\016\n\nITEM_BREAK\020\021\022\016\n\nITEM_THROW\020\022\022\t\n\005T"
+    "OTEM\020\023\022\023\n\017FIRE_EXTINGUISH\020\024*~\n\014ItemCateg"
+    "ory\022\036\n\032ITEM_CATEGORY_CONSTRUCTION\020\000\022\030\n\024I"
+    "TEM_CATEGORY_NATURE\020\001\022\033\n\027ITEM_CATEGORY_E"
+    "QUIPMENT\020\002\022\027\n\023ITEM_CATEGORY_ITEMS\020\003B\212\001\n\r"
+    "com.df.pluginB\013CommonProtoP\001Z\'github.com"
+    "/secmc/plugin/proto/generated\242\002\003DPX\252\002\tDf"
+    ".Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMetad"
+    "ata\352\002\nDf::Pluginb\006proto3"
 };
 static ::absl::once_flag descriptor_table_common_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_common_2eproto = {
     false,
     false,
-    2608,
+    2624,
     descriptor_table_protodef_common_2eproto,
     "common.proto",
     &descriptor_table_common_2eproto_once,
@@ -3191,7 +3196,8 @@ PROTOBUF_NDEBUG_INLINE WorldRef::Impl_::Impl_(
       : _has_bits_{from._has_bits_},
         _cached_size_{0},
         name_(arena, from.name_),
-        dimension_(arena, from.dimension_) {}
+        dimension_(arena, from.dimension_),
+        id_(arena, from.id_) {}
 
 WorldRef::WorldRef(
     ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
@@ -3214,7 +3220,8 @@ PROTOBUF_NDEBUG_INLINE WorldRef::Impl_::Impl_(
     [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
       : _cached_size_{0},
         name_(arena),
-        dimension_(arena) {}
+        dimension_(arena),
+        id_(arena) {}
 
 inline void WorldRef::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -3232,6 +3239,7 @@ inline void WorldRef::SharedDtor(MessageLite& self) {
   ABSL_DCHECK(this_.GetArena() == nullptr);
   this_._impl_.name_.Destroy();
   this_._impl_.dimension_.Destroy();
+  this_._impl_.id_.Destroy();
   this_._impl_.~Impl_();
 }
 
@@ -3278,16 +3286,16 @@ WorldRef::GetClassData() const {
   return WorldRef_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 40, 2>
+const ::_pbi::TcParseTable<2, 3, 0, 42, 2>
 WorldRef::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(WorldRef, _impl_._has_bits_),
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    3, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
+    3,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     WorldRef_class_data_.base(),
@@ -3297,14 +3305,19 @@ WorldRef::_table_ = {
     ::_pbi::TcParser::GetTable<::df::plugin::WorldRef>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // string dimension = 2 [json_name = "dimension"];
-    {::_pbi::TcParser::FastUS1,
-     {18, 1, 0,
-      PROTOBUF_FIELD_OFFSET(WorldRef, _impl_.dimension_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // string name = 1 [json_name = "name"];
     {::_pbi::TcParser::FastUS1,
      {10, 0, 0,
       PROTOBUF_FIELD_OFFSET(WorldRef, _impl_.name_)}},
+    // string dimension = 2 [json_name = "dimension"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(WorldRef, _impl_.dimension_)}},
+    // string id = 3 [json_name = "id"];
+    {::_pbi::TcParser::FastUS1,
+     {26, 2, 0,
+      PROTOBUF_FIELD_OFFSET(WorldRef, _impl_.id_)}},
   }}, {{
     65535, 65535
   }}, {{
@@ -3312,13 +3325,16 @@ WorldRef::_table_ = {
     {PROTOBUF_FIELD_OFFSET(WorldRef, _impl_.name_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string dimension = 2 [json_name = "dimension"];
     {PROTOBUF_FIELD_OFFSET(WorldRef, _impl_.dimension_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string id = 3 [json_name = "id"];
+    {PROTOBUF_FIELD_OFFSET(WorldRef, _impl_.id_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\22\4\11\0\0\0\0\0"
+    "\22\4\11\2\0\0\0\0"
     "df.plugin.WorldRef"
     "name"
     "dimension"
+    "id"
   }},
 };
 PROTOBUF_NOINLINE void WorldRef::Clear() {
@@ -3329,12 +3345,15 @@ PROTOBUF_NOINLINE void WorldRef::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       _impl_.name_.ClearNonDefaultToEmpty();
     }
     if (CheckHasBit(cached_has_bits, 0x00000002U)) {
       _impl_.dimension_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _impl_.id_.ClearNonDefaultToEmpty();
     }
   }
   _impl_._has_bits_.Clear();
@@ -3380,6 +3399,16 @@ PROTOBUF_NOINLINE void WorldRef::Clear() {
     }
   }
 
+  // string id = 3 [json_name = "id"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_id().empty()) {
+      const ::std::string& _s = this_._internal_id();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.WorldRef.id");
+      target = stream->WriteStringMaybeAliased(3, _s, target);
+    }
+  }
+
   if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -3405,7 +3434,7 @@ PROTOBUF_NOINLINE void WorldRef::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
     // string name = 1 [json_name = "name"];
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       if (!this_._internal_name().empty()) {
@@ -3418,6 +3447,13 @@ PROTOBUF_NOINLINE void WorldRef::Clear() {
       if (!this_._internal_dimension().empty()) {
         total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                         this_._internal_dimension());
+      }
+    }
+    // string id = 3 [json_name = "id"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!this_._internal_id().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_id());
       }
     }
   }
@@ -3439,7 +3475,7 @@ void WorldRef::MergeImpl(::google::protobuf::MessageLite& to_msg,
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
     if (CheckHasBit(cached_has_bits, 0x00000001U)) {
       if (!from._internal_name().empty()) {
         _this->_internal_set_name(from._internal_name());
@@ -3455,6 +3491,15 @@ void WorldRef::MergeImpl(::google::protobuf::MessageLite& to_msg,
       } else {
         if (_this->_impl_.dimension_.IsDefault()) {
           _this->_internal_set_dimension("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!from._internal_id().empty()) {
+        _this->_internal_set_id(from._internal_id());
+      } else {
+        if (_this->_impl_.id_.IsDefault()) {
+          _this->_internal_set_id("");
         }
       }
     }
@@ -3480,6 +3525,7 @@ void WorldRef::InternalSwap(WorldRef* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) 
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.dimension_, &other->_impl_.dimension_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.id_, &other->_impl_.id_, arena);
 }
 
 ::google::protobuf::Metadata WorldRef::GetMetadata() const {

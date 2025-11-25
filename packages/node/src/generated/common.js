@@ -1125,7 +1125,7 @@ export const LiquidState = {
     },
 };
 function createBaseWorldRef() {
-    return { name: "", dimension: "" };
+    return { name: "", dimension: "", id: "" };
 }
 export const WorldRef = {
     encode(message, writer = new BinaryWriter()) {
@@ -1134,6 +1134,9 @@ export const WorldRef = {
         }
         if (message.dimension !== "") {
             writer.uint32(18).string(message.dimension);
+        }
+        if (message.id !== "") {
+            writer.uint32(26).string(message.id);
         }
         return writer;
     },
@@ -1158,6 +1161,13 @@ export const WorldRef = {
                     message.dimension = reader.string();
                     continue;
                 }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.id = reader.string();
+                    continue;
+                }
             }
             if ((tag & 7) === 4 || tag === 0) {
                 break;
@@ -1170,6 +1180,7 @@ export const WorldRef = {
         return {
             name: isSet(object.name) ? globalThis.String(object.name) : "",
             dimension: isSet(object.dimension) ? globalThis.String(object.dimension) : "",
+            id: isSet(object.id) ? globalThis.String(object.id) : "",
         };
     },
     toJSON(message) {
@@ -1180,6 +1191,9 @@ export const WorldRef = {
         if (message.dimension !== "") {
             obj.dimension = message.dimension;
         }
+        if (message.id !== "") {
+            obj.id = message.id;
+        }
         return obj;
     },
     create(base) {
@@ -1189,6 +1203,7 @@ export const WorldRef = {
         const message = createBaseWorldRef();
         message.name = object.name ?? "";
         message.dimension = object.dimension ?? "";
+        message.id = object.id ?? "";
         return message;
     },
 };

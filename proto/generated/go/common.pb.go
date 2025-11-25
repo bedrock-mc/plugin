@@ -822,6 +822,7 @@ type WorldRef struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Dimension     string                 `protobuf:"bytes,2,opt,name=dimension,proto3" json:"dimension,omitempty"`
+	Id            string                 `protobuf:"bytes,3,opt,name=id,proto3" json:"id,omitempty"` // This is a runtime id. it changes across server restarts.
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -866,6 +867,13 @@ func (x *WorldRef) GetName() string {
 func (x *WorldRef) GetDimension() string {
 	if x != nil {
 		return x.Dimension
+	}
+	return ""
+}
+
+func (x *WorldRef) GetId() string {
+	if x != nil {
+		return x.Id
 	}
 	return ""
 }
@@ -1225,10 +1233,11 @@ const file_common_proto_rawDesc = "" +
 	"\x05depth\x18\x02 \x01(\x05R\x05depth\x12\x18\n" +
 	"\afalling\x18\x03 \x01(\bR\afalling\x12\x1f\n" +
 	"\vliquid_type\x18\x04 \x01(\tR\n" +
-	"liquidType\"<\n" +
+	"liquidType\"L\n" +
 	"\bWorldRef\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1c\n" +
-	"\tdimension\x18\x02 \x01(\tR\tdimension\"\xd7\x01\n" +
+	"\tdimension\x18\x02 \x01(\tR\tdimension\x12\x0e\n" +
+	"\x02id\x18\x03 \x01(\tR\x02id\"\xd7\x01\n" +
 	"\tEntityRef\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x12\n" +
 	"\x04type\x18\x02 \x01(\tR\x04type\x12\x17\n" +

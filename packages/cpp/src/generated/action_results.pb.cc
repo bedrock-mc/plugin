@@ -55,6 +55,61 @@ struct ActionStatusDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActionStatusDefaultTypeInternal _ActionStatus_default_instance_;
 
+inline constexpr WorldPlayerSpawnResult::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        world_{nullptr},
+        spawn_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldPlayerSpawnResult::WorldPlayerSpawnResult(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldPlayerSpawnResult_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldPlayerSpawnResultDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldPlayerSpawnResultDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldPlayerSpawnResultDefaultTypeInternal() {}
+  union {
+    WorldPlayerSpawnResult _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldPlayerSpawnResultDefaultTypeInternal _WorldPlayerSpawnResult_default_instance_;
+
+inline constexpr WorldDefaultGameModeResult::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        game_mode_{static_cast< ::df::plugin::GameMode >(0)} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldDefaultGameModeResult::WorldDefaultGameModeResult(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldDefaultGameModeResult_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldDefaultGameModeResultDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldDefaultGameModeResultDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldDefaultGameModeResultDefaultTypeInternal() {}
+  union {
+    WorldDefaultGameModeResult _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldDefaultGameModeResultDefaultTypeInternal _WorldDefaultGameModeResult_default_instance_;
+
 inline constexpr WorldPlayersResult::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -175,15 +230,19 @@ const ::uint32_t
         0x085, // bitmap
         PROTOBUF_FIELD_OFFSET(::df::plugin::ActionResult, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::ActionResult, _impl_._oneof_case_[0]),
-        10, // hasbit index offset
+        12, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::df::plugin::ActionResult, _impl_.correlation_id_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::ActionResult, _impl_.status_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::ActionResult, _impl_.result_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::ActionResult, _impl_.result_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::ActionResult, _impl_.result_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::ActionResult, _impl_.result_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::ActionResult, _impl_.result_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::ActionResult, _impl_.result_),
         0,
         1,
+        ~0u,
+        ~0u,
         ~0u,
         ~0u,
         ~0u,
@@ -217,15 +276,33 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::df::plugin::WorldPlayersResult, _impl_.players_),
         1,
         0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldDefaultGameModeResult, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldDefaultGameModeResult, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldDefaultGameModeResult, _impl_.game_mode_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldPlayerSpawnResult, _impl_._has_bits_),
+        6, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldPlayerSpawnResult, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldPlayerSpawnResult, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldPlayerSpawnResult, _impl_.spawn_),
+        1,
+        0,
+        2,
 };
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, sizeof(::df::plugin::ActionResult)},
-        {15, sizeof(::df::plugin::ActionStatus)},
-        {22, sizeof(::df::plugin::WorldEntitiesResult)},
-        {29, sizeof(::df::plugin::WorldEntitiesWithinResult)},
-        {38, sizeof(::df::plugin::WorldPlayersResult)},
+        {19, sizeof(::df::plugin::ActionStatus)},
+        {26, sizeof(::df::plugin::WorldEntitiesResult)},
+        {33, sizeof(::df::plugin::WorldEntitiesWithinResult)},
+        {42, sizeof(::df::plugin::WorldPlayersResult)},
+        {49, sizeof(::df::plugin::WorldDefaultGameModeResult)},
+        {56, sizeof(::df::plugin::WorldPlayerSpawnResult)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::df::plugin::_ActionResult_default_instance_._instance,
@@ -233,11 +310,13 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::df::plugin::_WorldEntitiesResult_default_instance_._instance,
     &::df::plugin::_WorldEntitiesWithinResult_default_instance_._instance,
     &::df::plugin::_WorldPlayersResult_default_instance_._instance,
+    &::df::plugin::_WorldDefaultGameModeResult_default_instance_._instance,
+    &::df::plugin::_WorldPlayerSpawnResult_default_instance_._instance,
 };
 const char descriptor_table_protodef_action_5fresults_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n\024action_results.proto\022\tdf.plugin\032\014commo"
-    "n.proto\"\353\002\n\014ActionResult\022%\n\016correlation_"
+    "n.proto\"\236\004\n\014ActionResult\022%\n\016correlation_"
     "id\030\001 \001(\tR\rcorrelationId\0224\n\006status\030\002 \001(\0132"
     "\027.df.plugin.ActionStatusH\001R\006status\210\001\001\022G\n"
     "\016world_entities\030\n \001(\0132\036.df.plugin.WorldE"
@@ -245,23 +324,34 @@ const char descriptor_table_protodef_action_5fresults_2eproto[] ABSL_ATTRIBUTE_S
     "players\030\013 \001(\0132\035.df.plugin.WorldPlayersRe"
     "sultH\000R\014worldPlayers\022Z\n\025world_entities_w"
     "ithin\030\014 \001(\0132$.df.plugin.WorldEntitiesWit"
-    "hinResultH\000R\023worldEntitiesWithinB\010\n\006resu"
-    "ltB\t\n\007_status\"C\n\014ActionStatus\022\016\n\002ok\030\001 \001("
-    "\010R\002ok\022\031\n\005error\030\002 \001(\tH\000R\005error\210\001\001B\010\n\006_err"
-    "or\"r\n\023WorldEntitiesResult\022)\n\005world\030\001 \001(\013"
-    "2\023.df.plugin.WorldRefR\005world\0220\n\010entities"
-    "\030\002 \003(\0132\024.df.plugin.EntityRefR\010entities\"\233"
-    "\001\n\031WorldEntitiesWithinResult\022)\n\005world\030\001 "
-    "\001(\0132\023.df.plugin.WorldRefR\005world\022!\n\003box\030\002"
-    " \001(\0132\017.df.plugin.BBoxR\003box\0220\n\010entities\030\003"
-    " \003(\0132\024.df.plugin.EntityRefR\010entities\"o\n\022"
-    "WorldPlayersResult\022)\n\005world\030\001 \001(\0132\023.df.p"
-    "lugin.WorldRefR\005world\022.\n\007players\030\002 \003(\0132\024"
-    ".df.plugin.EntityRefR\007playersB\221\001\n\rcom.df"
-    ".pluginB\022ActionResultsProtoP\001Z\'github.co"
-    "m/secmc/plugin/proto/generated\242\002\003DPX\252\002\tD"
-    "f.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMeta"
-    "data\352\002\nDf::Pluginb\006proto3"
+    "hinResultH\000R\023worldEntitiesWithin\022^\n\027worl"
+    "d_default_game_mode\030\r \001(\0132%.df.plugin.Wo"
+    "rldDefaultGameModeResultH\000R\024worldDefault"
+    "GameMode\022Q\n\022world_player_spawn\030\016 \001(\0132!.d"
+    "f.plugin.WorldPlayerSpawnResultH\000R\020world"
+    "PlayerSpawnB\010\n\006resultB\t\n\007_status\"C\n\014Acti"
+    "onStatus\022\016\n\002ok\030\001 \001(\010R\002ok\022\031\n\005error\030\002 \001(\tH"
+    "\000R\005error\210\001\001B\010\n\006_error\"r\n\023WorldEntitiesRe"
+    "sult\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldRef"
+    "R\005world\0220\n\010entities\030\002 \003(\0132\024.df.plugin.En"
+    "tityRefR\010entities\"\233\001\n\031WorldEntitiesWithi"
+    "nResult\022)\n\005world\030\001 \001(\0132\023.df.plugin.World"
+    "RefR\005world\022!\n\003box\030\002 \001(\0132\017.df.plugin.BBox"
+    "R\003box\0220\n\010entities\030\003 \003(\0132\024.df.plugin.Enti"
+    "tyRefR\010entities\"o\n\022WorldPlayersResult\022)\n"
+    "\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005world"
+    "\022.\n\007players\030\002 \003(\0132\024.df.plugin.EntityRefR"
+    "\007players\"y\n\032WorldDefaultGameModeResult\022)"
+    "\n\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005worl"
+    "d\0220\n\tgame_mode\030\002 \001(\0162\023.df.plugin.GameMod"
+    "eR\010gameMode\"\217\001\n\026WorldPlayerSpawnResult\022)"
+    "\n\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005worl"
+    "d\022\037\n\013player_uuid\030\002 \001(\tR\nplayerUuid\022)\n\005sp"
+    "awn\030\003 \001(\0132\023.df.plugin.BlockPosR\005spawnB\221\001"
+    "\n\rcom.df.pluginB\022ActionResultsProtoP\001Z\'g"
+    "ithub.com/secmc/plugin/proto/generated\242\002"
+    "\003DPX\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin"
+    "\\GPBMetadata\352\002\nDf::Pluginb\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_action_5fresults_2eproto_deps[1] = {
@@ -271,13 +361,13 @@ static ::absl::once_flag descriptor_table_action_5fresults_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_action_5fresults_2eproto = {
     false,
     false,
-    1025,
+    1473,
     descriptor_table_protodef_action_5fresults_2eproto,
     "action_results.proto",
     &descriptor_table_action_5fresults_2eproto_once,
     descriptor_table_action_5fresults_2eproto_deps,
     1,
-    5,
+    7,
     schemas,
     file_default_instances,
     TableStruct_action_5fresults_2eproto::offsets,
@@ -337,6 +427,32 @@ void ActionResult::set_allocated_world_entities_within(::df::plugin::WorldEntiti
   }
   // @@protoc_insertion_point(field_set_allocated:df.plugin.ActionResult.world_entities_within)
 }
+void ActionResult::set_allocated_world_default_game_mode(::df::plugin::WorldDefaultGameModeResult* PROTOBUF_NULLABLE world_default_game_mode) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_result();
+  if (world_default_game_mode) {
+    ::google::protobuf::Arena* submessage_arena = world_default_game_mode->GetArena();
+    if (message_arena != submessage_arena) {
+      world_default_game_mode = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_default_game_mode, submessage_arena);
+    }
+    set_has_world_default_game_mode();
+    _impl_.result_.world_default_game_mode_ = world_default_game_mode;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.ActionResult.world_default_game_mode)
+}
+void ActionResult::set_allocated_world_player_spawn(::df::plugin::WorldPlayerSpawnResult* PROTOBUF_NULLABLE world_player_spawn) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_result();
+  if (world_player_spawn) {
+    ::google::protobuf::Arena* submessage_arena = world_player_spawn->GetArena();
+    if (message_arena != submessage_arena) {
+      world_player_spawn = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_player_spawn, submessage_arena);
+    }
+    set_has_world_player_spawn();
+    _impl_.result_.world_player_spawn_ = world_player_spawn;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.ActionResult.world_player_spawn)
+}
 ActionResult::ActionResult(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, ActionResult_class_data_.base()) {
@@ -384,6 +500,12 @@ ActionResult::ActionResult(
         break;
       case kWorldEntitiesWithin:
         _impl_.result_.world_entities_within_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.result_.world_entities_within_);
+        break;
+      case kWorldDefaultGameMode:
+        _impl_.result_.world_default_game_mode_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.result_.world_default_game_mode_);
+        break;
+      case kWorldPlayerSpawn:
+        _impl_.result_.world_player_spawn_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.result_.world_player_spawn_);
         break;
   }
 
@@ -448,6 +570,22 @@ void ActionResult::clear_result() {
       }
       break;
     }
+    case kWorldDefaultGameMode: {
+      if (GetArena() == nullptr) {
+        delete _impl_.result_.world_default_game_mode_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.result_.world_default_game_mode_);
+      }
+      break;
+    }
+    case kWorldPlayerSpawn: {
+      if (GetArena() == nullptr) {
+        delete _impl_.result_.world_player_spawn_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.result_.world_player_spawn_);
+      }
+      break;
+    }
     case RESULT_NOT_SET: {
       break;
     }
@@ -499,17 +637,17 @@ ActionResult::GetClassData() const {
   return ActionResult_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 5, 4, 45, 2>
+const ::_pbi::TcParseTable<1, 7, 6, 45, 2>
 ActionResult::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(ActionResult, _impl_._has_bits_),
     0, // no _extensions_
-    12, 8,  // max_field_number, fast_idx_mask
+    14, 8,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294963708,  // skipmap
+    4294951420,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    5,  // num_field_entries
-    4,  // num_aux_entries
+    7,  // num_field_entries
+    6,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     ActionResult_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -539,12 +677,18 @@ ActionResult::_table_ = {
     {PROTOBUF_FIELD_OFFSET(ActionResult, _impl_.result_.world_players_), _Internal::kOneofCaseOffset + 0, 2, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .df.plugin.WorldEntitiesWithinResult world_entities_within = 12 [json_name = "worldEntitiesWithin"];
     {PROTOBUF_FIELD_OFFSET(ActionResult, _impl_.result_.world_entities_within_), _Internal::kOneofCaseOffset + 0, 3, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldDefaultGameModeResult world_default_game_mode = 13 [json_name = "worldDefaultGameMode"];
+    {PROTOBUF_FIELD_OFFSET(ActionResult, _impl_.result_.world_default_game_mode_), _Internal::kOneofCaseOffset + 0, 4, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldPlayerSpawnResult world_player_spawn = 14 [json_name = "worldPlayerSpawn"];
+    {PROTOBUF_FIELD_OFFSET(ActionResult, _impl_.result_.world_player_spawn_), _Internal::kOneofCaseOffset + 0, 5, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::df::plugin::ActionStatus>()},
       {::_pbi::TcParser::GetTable<::df::plugin::WorldEntitiesResult>()},
       {::_pbi::TcParser::GetTable<::df::plugin::WorldPlayersResult>()},
       {::_pbi::TcParser::GetTable<::df::plugin::WorldEntitiesWithinResult>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldDefaultGameModeResult>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldPlayerSpawnResult>()},
   }},
   {{
     "\26\16\0\0\0\0\0\0"
@@ -629,6 +773,18 @@ PROTOBUF_NOINLINE void ActionResult::Clear() {
           stream);
       break;
     }
+    case kWorldDefaultGameMode: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          13, *this_._impl_.result_.world_default_game_mode_, this_._impl_.result_.world_default_game_mode_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldPlayerSpawn: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          14, *this_._impl_.result_.world_player_spawn_, this_._impl_.result_.world_player_spawn_->GetCachedSize(), target,
+          stream);
+      break;
+    }
     default:
       break;
   }
@@ -688,6 +844,18 @@ PROTOBUF_NOINLINE void ActionResult::Clear() {
     case kWorldEntitiesWithin: {
       total_size += 1 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.result_.world_entities_within_);
+      break;
+    }
+    // .df.plugin.WorldDefaultGameModeResult world_default_game_mode = 13 [json_name = "worldDefaultGameMode"];
+    case kWorldDefaultGameMode: {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.result_.world_default_game_mode_);
+      break;
+    }
+    // .df.plugin.WorldPlayerSpawnResult world_player_spawn = 14 [json_name = "worldPlayerSpawn"];
+    case kWorldPlayerSpawn: {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.result_.world_player_spawn_);
       break;
     }
     case RESULT_NOT_SET: {
@@ -766,6 +934,22 @@ void ActionResult::MergeImpl(::google::protobuf::MessageLite& to_msg,
           _this->_impl_.result_.world_entities_within_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.result_.world_entities_within_);
         } else {
           _this->_impl_.result_.world_entities_within_->MergeFrom(*from._impl_.result_.world_entities_within_);
+        }
+        break;
+      }
+      case kWorldDefaultGameMode: {
+        if (oneof_needs_init) {
+          _this->_impl_.result_.world_default_game_mode_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.result_.world_default_game_mode_);
+        } else {
+          _this->_impl_.result_.world_default_game_mode_->MergeFrom(*from._impl_.result_.world_default_game_mode_);
+        }
+        break;
+      }
+      case kWorldPlayerSpawn: {
+        if (oneof_needs_init) {
+          _this->_impl_.result_.world_player_spawn_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.result_.world_player_spawn_);
+        } else {
+          _this->_impl_.result_.world_player_spawn_->MergeFrom(*from._impl_.result_.world_player_spawn_);
         }
         break;
       }
@@ -2162,6 +2346,703 @@ void WorldPlayersResult::InternalSwap(WorldPlayersResult* PROTOBUF_RESTRICT PROT
 }
 
 ::google::protobuf::Metadata WorldPlayersResult::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldDefaultGameModeResult::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldDefaultGameModeResult>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldDefaultGameModeResult, _impl_._has_bits_);
+};
+
+void WorldDefaultGameModeResult::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+WorldDefaultGameModeResult::WorldDefaultGameModeResult(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldDefaultGameModeResult_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldDefaultGameModeResult)
+}
+PROTOBUF_NDEBUG_INLINE WorldDefaultGameModeResult::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldDefaultGameModeResult& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldDefaultGameModeResult::WorldDefaultGameModeResult(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldDefaultGameModeResult& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldDefaultGameModeResult_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldDefaultGameModeResult* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.game_mode_ = from._impl_.game_mode_;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldDefaultGameModeResult)
+}
+PROTOBUF_NDEBUG_INLINE WorldDefaultGameModeResult::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldDefaultGameModeResult::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, game_mode_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::game_mode_));
+}
+WorldDefaultGameModeResult::~WorldDefaultGameModeResult() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldDefaultGameModeResult)
+  SharedDtor(*this);
+}
+inline void WorldDefaultGameModeResult::SharedDtor(MessageLite& self) {
+  WorldDefaultGameModeResult& this_ = static_cast<WorldDefaultGameModeResult&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldDefaultGameModeResult::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldDefaultGameModeResult(arena);
+}
+constexpr auto WorldDefaultGameModeResult::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldDefaultGameModeResult),
+                                            alignof(WorldDefaultGameModeResult));
+}
+constexpr auto WorldDefaultGameModeResult::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldDefaultGameModeResult_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldDefaultGameModeResult::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldDefaultGameModeResult>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldDefaultGameModeResult::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldDefaultGameModeResult>(), &WorldDefaultGameModeResult::ByteSizeLong,
+              &WorldDefaultGameModeResult::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldDefaultGameModeResult, _impl_._cached_size_),
+          false,
+      },
+      &WorldDefaultGameModeResult::kDescriptorMethods,
+      &descriptor_table_action_5fresults_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldDefaultGameModeResult_class_data_ =
+        WorldDefaultGameModeResult::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldDefaultGameModeResult::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldDefaultGameModeResult_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldDefaultGameModeResult_class_data_.tc_table);
+  return WorldDefaultGameModeResult_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 0, 2>
+WorldDefaultGameModeResult::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldDefaultGameModeResult, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldDefaultGameModeResult_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldDefaultGameModeResult>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.GameMode game_mode = 2 [json_name = "gameMode"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(WorldDefaultGameModeResult, _impl_.game_mode_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(WorldDefaultGameModeResult, _impl_.game_mode_)}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldDefaultGameModeResult, _impl_.world_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldDefaultGameModeResult, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.GameMode game_mode = 2 [json_name = "gameMode"];
+    {PROTOBUF_FIELD_OFFSET(WorldDefaultGameModeResult, _impl_.game_mode_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kOpenEnum)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldDefaultGameModeResult::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldDefaultGameModeResult)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    ABSL_DCHECK(_impl_.world_ != nullptr);
+    _impl_.world_->Clear();
+  }
+  _impl_.game_mode_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldDefaultGameModeResult::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldDefaultGameModeResult& this_ = static_cast<const WorldDefaultGameModeResult&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldDefaultGameModeResult::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldDefaultGameModeResult& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldDefaultGameModeResult)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.GameMode game_mode = 2 [json_name = "gameMode"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_game_mode() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteEnumToArray(
+          2, this_._internal_game_mode(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldDefaultGameModeResult)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldDefaultGameModeResult::ByteSizeLong(const MessageLite& base) {
+  const WorldDefaultGameModeResult& this_ = static_cast<const WorldDefaultGameModeResult&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldDefaultGameModeResult::ByteSizeLong() const {
+  const WorldDefaultGameModeResult& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldDefaultGameModeResult)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.GameMode game_mode = 2 [json_name = "gameMode"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_game_mode() != 0) {
+        total_size += 1 +
+                      ::_pbi::WireFormatLite::EnumSize(this_._internal_game_mode());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldDefaultGameModeResult::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldDefaultGameModeResult*>(&to_msg);
+  auto& from = static_cast<const WorldDefaultGameModeResult&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldDefaultGameModeResult)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_game_mode() != 0) {
+        _this->_impl_.game_mode_ = from._impl_.game_mode_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldDefaultGameModeResult::CopyFrom(const WorldDefaultGameModeResult& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldDefaultGameModeResult)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldDefaultGameModeResult::InternalSwap(WorldDefaultGameModeResult* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldDefaultGameModeResult, _impl_.game_mode_)
+      + sizeof(WorldDefaultGameModeResult::_impl_.game_mode_)
+      - PROTOBUF_FIELD_OFFSET(WorldDefaultGameModeResult, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldDefaultGameModeResult::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldPlayerSpawnResult::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldPlayerSpawnResult>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldPlayerSpawnResult, _impl_._has_bits_);
+};
+
+void WorldPlayerSpawnResult::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+void WorldPlayerSpawnResult::clear_spawn() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.spawn_ != nullptr) _impl_.spawn_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+WorldPlayerSpawnResult::WorldPlayerSpawnResult(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldPlayerSpawnResult_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldPlayerSpawnResult)
+}
+PROTOBUF_NDEBUG_INLINE WorldPlayerSpawnResult::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldPlayerSpawnResult& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+WorldPlayerSpawnResult::WorldPlayerSpawnResult(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldPlayerSpawnResult& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldPlayerSpawnResult_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldPlayerSpawnResult* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.spawn_ = (CheckHasBit(cached_has_bits, 0x00000004U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.spawn_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldPlayerSpawnResult)
+}
+PROTOBUF_NDEBUG_INLINE WorldPlayerSpawnResult::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void WorldPlayerSpawnResult::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, spawn_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::spawn_));
+}
+WorldPlayerSpawnResult::~WorldPlayerSpawnResult() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldPlayerSpawnResult)
+  SharedDtor(*this);
+}
+inline void WorldPlayerSpawnResult::SharedDtor(MessageLite& self) {
+  WorldPlayerSpawnResult& this_ = static_cast<WorldPlayerSpawnResult&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  delete this_._impl_.world_;
+  delete this_._impl_.spawn_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldPlayerSpawnResult::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldPlayerSpawnResult(arena);
+}
+constexpr auto WorldPlayerSpawnResult::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(WorldPlayerSpawnResult),
+                                            alignof(WorldPlayerSpawnResult));
+}
+constexpr auto WorldPlayerSpawnResult::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldPlayerSpawnResult_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldPlayerSpawnResult::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldPlayerSpawnResult>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldPlayerSpawnResult::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldPlayerSpawnResult>(), &WorldPlayerSpawnResult::ByteSizeLong,
+              &WorldPlayerSpawnResult::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldPlayerSpawnResult, _impl_._cached_size_),
+          false,
+      },
+      &WorldPlayerSpawnResult::kDescriptorMethods,
+      &descriptor_table_action_5fresults_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldPlayerSpawnResult_class_data_ =
+        WorldPlayerSpawnResult::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldPlayerSpawnResult::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldPlayerSpawnResult_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldPlayerSpawnResult_class_data_.tc_table);
+  return WorldPlayerSpawnResult_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 2, 52, 2>
+WorldPlayerSpawnResult::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldPlayerSpawnResult, _impl_._has_bits_),
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldPlayerSpawnResult_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldPlayerSpawnResult>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 1, 0,
+      PROTOBUF_FIELD_OFFSET(WorldPlayerSpawnResult, _impl_.world_)}},
+    // string player_uuid = 2 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldPlayerSpawnResult, _impl_.player_uuid_)}},
+    // .df.plugin.BlockPos spawn = 3 [json_name = "spawn"];
+    {::_pbi::TcParser::FastMtS1,
+     {26, 2, 1,
+      PROTOBUF_FIELD_OFFSET(WorldPlayerSpawnResult, _impl_.spawn_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldPlayerSpawnResult, _impl_.world_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // string player_uuid = 2 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(WorldPlayerSpawnResult, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .df.plugin.BlockPos spawn = 3 [json_name = "spawn"];
+    {PROTOBUF_FIELD_OFFSET(WorldPlayerSpawnResult, _impl_.spawn_), _Internal::kHasBitsOffset + 2, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+    "\40\0\13\0\0\0\0\0"
+    "df.plugin.WorldPlayerSpawnResult"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void WorldPlayerSpawnResult::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldPlayerSpawnResult)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      ABSL_DCHECK(_impl_.spawn_ != nullptr);
+      _impl_.spawn_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldPlayerSpawnResult::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldPlayerSpawnResult& this_ = static_cast<const WorldPlayerSpawnResult&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldPlayerSpawnResult::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldPlayerSpawnResult& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldPlayerSpawnResult)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // string player_uuid = 2 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.WorldPlayerSpawnResult.player_uuid");
+      target = stream->WriteStringMaybeAliased(2, _s, target);
+    }
+  }
+
+  // .df.plugin.BlockPos spawn = 3 [json_name = "spawn"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        3, *this_._impl_.spawn_, this_._impl_.spawn_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldPlayerSpawnResult)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldPlayerSpawnResult::ByteSizeLong(const MessageLite& base) {
+  const WorldPlayerSpawnResult& this_ = static_cast<const WorldPlayerSpawnResult&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldPlayerSpawnResult::ByteSizeLong() const {
+  const WorldPlayerSpawnResult& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldPlayerSpawnResult)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    // string player_uuid = 2 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos spawn = 3 [json_name = "spawn"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.spawn_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldPlayerSpawnResult::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldPlayerSpawnResult*>(&to_msg);
+  auto& from = static_cast<const WorldPlayerSpawnResult&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldPlayerSpawnResult)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      ABSL_DCHECK(from._impl_.spawn_ != nullptr);
+      if (_this->_impl_.spawn_ == nullptr) {
+        _this->_impl_.spawn_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.spawn_);
+      } else {
+        _this->_impl_.spawn_->MergeFrom(*from._impl_.spawn_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldPlayerSpawnResult::CopyFrom(const WorldPlayerSpawnResult& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldPlayerSpawnResult)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldPlayerSpawnResult::InternalSwap(WorldPlayerSpawnResult* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldPlayerSpawnResult, _impl_.spawn_)
+      + sizeof(WorldPlayerSpawnResult::_impl_.spawn_)
+      - PROTOBUF_FIELD_OFFSET(WorldPlayerSpawnResult, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldPlayerSpawnResult::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

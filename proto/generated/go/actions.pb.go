@@ -191,9 +191,15 @@ type Action struct {
 	//	*Action_WorldSetBlock
 	//	*Action_WorldPlaySound
 	//	*Action_WorldAddParticle
+	//	*Action_WorldSetTime
+	//	*Action_WorldStopTime
+	//	*Action_WorldStartTime
+	//	*Action_WorldSetSpawn
 	//	*Action_WorldQueryEntities
 	//	*Action_WorldQueryPlayers
 	//	*Action_WorldQueryEntitiesWithin
+	//	*Action_WorldQueryDefaultGameMode
+	//	*Action_WorldQueryPlayerSpawn
 	Kind          isAction_Kind `protobuf_oneof:"kind"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -459,6 +465,42 @@ func (x *Action) GetWorldAddParticle() *WorldAddParticleAction {
 	return nil
 }
 
+func (x *Action) GetWorldSetTime() *WorldSetTimeAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldSetTime); ok {
+			return x.WorldSetTime
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldStopTime() *WorldStopTimeAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldStopTime); ok {
+			return x.WorldStopTime
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldStartTime() *WorldStartTimeAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldStartTime); ok {
+			return x.WorldStartTime
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldSetSpawn() *WorldSetSpawnAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldSetSpawn); ok {
+			return x.WorldSetSpawn
+		}
+	}
+	return nil
+}
+
 func (x *Action) GetWorldQueryEntities() *WorldQueryEntitiesAction {
 	if x != nil {
 		if x, ok := x.Kind.(*Action_WorldQueryEntities); ok {
@@ -481,6 +523,24 @@ func (x *Action) GetWorldQueryEntitiesWithin() *WorldQueryEntitiesWithinAction {
 	if x != nil {
 		if x, ok := x.Kind.(*Action_WorldQueryEntitiesWithin); ok {
 			return x.WorldQueryEntitiesWithin
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldQueryDefaultGameMode() *WorldQueryDefaultGameModeAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQueryDefaultGameMode); ok {
+			return x.WorldQueryDefaultGameMode
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldQueryPlayerSpawn() *WorldQueryPlayerSpawnAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQueryPlayerSpawn); ok {
+			return x.WorldQueryPlayerSpawn
 		}
 	}
 	return nil
@@ -592,6 +652,22 @@ type Action_WorldAddParticle struct {
 	WorldAddParticle *WorldAddParticleAction `protobuf:"bytes,65,opt,name=world_add_particle,json=worldAddParticle,proto3,oneof"`
 }
 
+type Action_WorldSetTime struct {
+	WorldSetTime *WorldSetTimeAction `protobuf:"bytes,66,opt,name=world_set_time,json=worldSetTime,proto3,oneof"`
+}
+
+type Action_WorldStopTime struct {
+	WorldStopTime *WorldStopTimeAction `protobuf:"bytes,67,opt,name=world_stop_time,json=worldStopTime,proto3,oneof"`
+}
+
+type Action_WorldStartTime struct {
+	WorldStartTime *WorldStartTimeAction `protobuf:"bytes,68,opt,name=world_start_time,json=worldStartTime,proto3,oneof"`
+}
+
+type Action_WorldSetSpawn struct {
+	WorldSetSpawn *WorldSetSpawnAction `protobuf:"bytes,69,opt,name=world_set_spawn,json=worldSetSpawn,proto3,oneof"`
+}
+
 type Action_WorldQueryEntities struct {
 	// World queries
 	WorldQueryEntities *WorldQueryEntitiesAction `protobuf:"bytes,70,opt,name=world_query_entities,json=worldQueryEntities,proto3,oneof"`
@@ -603,6 +679,14 @@ type Action_WorldQueryPlayers struct {
 
 type Action_WorldQueryEntitiesWithin struct {
 	WorldQueryEntitiesWithin *WorldQueryEntitiesWithinAction `protobuf:"bytes,72,opt,name=world_query_entities_within,json=worldQueryEntitiesWithin,proto3,oneof"`
+}
+
+type Action_WorldQueryDefaultGameMode struct {
+	WorldQueryDefaultGameMode *WorldQueryDefaultGameModeAction `protobuf:"bytes,73,opt,name=world_query_default_game_mode,json=worldQueryDefaultGameMode,proto3,oneof"`
+}
+
+type Action_WorldQueryPlayerSpawn struct {
+	WorldQueryPlayerSpawn *WorldQueryPlayerSpawnAction `protobuf:"bytes,74,opt,name=world_query_player_spawn,json=worldQueryPlayerSpawn,proto3,oneof"`
 }
 
 func (*Action_SendChat) isAction_Kind() {}
@@ -653,11 +737,23 @@ func (*Action_WorldPlaySound) isAction_Kind() {}
 
 func (*Action_WorldAddParticle) isAction_Kind() {}
 
+func (*Action_WorldSetTime) isAction_Kind() {}
+
+func (*Action_WorldStopTime) isAction_Kind() {}
+
+func (*Action_WorldStartTime) isAction_Kind() {}
+
+func (*Action_WorldSetSpawn) isAction_Kind() {}
+
 func (*Action_WorldQueryEntities) isAction_Kind() {}
 
 func (*Action_WorldQueryPlayers) isAction_Kind() {}
 
 func (*Action_WorldQueryEntitiesWithin) isAction_Kind() {}
+
+func (*Action_WorldQueryDefaultGameMode) isAction_Kind() {}
+
+func (*Action_WorldQueryPlayerSpawn) isAction_Kind() {}
 
 type SendChatAction struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -2070,6 +2166,294 @@ func (x *WorldAddParticleAction) GetFace() int32 {
 	return 0
 }
 
+type WorldSetTimeAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Time          int32                  `protobuf:"varint,2,opt,name=time,proto3" json:"time,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldSetTimeAction) Reset() {
+	*x = WorldSetTimeAction{}
+	mi := &file_actions_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldSetTimeAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldSetTimeAction) ProtoMessage() {}
+
+func (x *WorldSetTimeAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldSetTimeAction.ProtoReflect.Descriptor instead.
+func (*WorldSetTimeAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *WorldSetTimeAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldSetTimeAction) GetTime() int32 {
+	if x != nil {
+		return x.Time
+	}
+	return 0
+}
+
+type WorldStopTimeAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldStopTimeAction) Reset() {
+	*x = WorldStopTimeAction{}
+	mi := &file_actions_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldStopTimeAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldStopTimeAction) ProtoMessage() {}
+
+func (x *WorldStopTimeAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldStopTimeAction.ProtoReflect.Descriptor instead.
+func (*WorldStopTimeAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *WorldStopTimeAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+type WorldStartTimeAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldStartTimeAction) Reset() {
+	*x = WorldStartTimeAction{}
+	mi := &file_actions_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldStartTimeAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldStartTimeAction) ProtoMessage() {}
+
+func (x *WorldStartTimeAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldStartTimeAction.ProtoReflect.Descriptor instead.
+func (*WorldStartTimeAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *WorldStartTimeAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+type WorldSetSpawnAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Spawn         *BlockPos              `protobuf:"bytes,2,opt,name=spawn,proto3" json:"spawn,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldSetSpawnAction) Reset() {
+	*x = WorldSetSpawnAction{}
+	mi := &file_actions_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldSetSpawnAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldSetSpawnAction) ProtoMessage() {}
+
+func (x *WorldSetSpawnAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldSetSpawnAction.ProtoReflect.Descriptor instead.
+func (*WorldSetSpawnAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *WorldSetSpawnAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldSetSpawnAction) GetSpawn() *BlockPos {
+	if x != nil {
+		return x.Spawn
+	}
+	return nil
+}
+
+type WorldQueryDefaultGameModeAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQueryDefaultGameModeAction) Reset() {
+	*x = WorldQueryDefaultGameModeAction{}
+	mi := &file_actions_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQueryDefaultGameModeAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQueryDefaultGameModeAction) ProtoMessage() {}
+
+func (x *WorldQueryDefaultGameModeAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQueryDefaultGameModeAction.ProtoReflect.Descriptor instead.
+func (*WorldQueryDefaultGameModeAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *WorldQueryDefaultGameModeAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+type WorldQueryPlayerSpawnAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	PlayerUuid    string                 `protobuf:"bytes,2,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQueryPlayerSpawnAction) Reset() {
+	*x = WorldQueryPlayerSpawnAction{}
+	mi := &file_actions_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQueryPlayerSpawnAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQueryPlayerSpawnAction) ProtoMessage() {}
+
+func (x *WorldQueryPlayerSpawnAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQueryPlayerSpawnAction.ProtoReflect.Descriptor instead.
+func (*WorldQueryPlayerSpawnAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *WorldQueryPlayerSpawnAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldQueryPlayerSpawnAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
 type WorldQueryEntitiesAction struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
@@ -2079,7 +2463,7 @@ type WorldQueryEntitiesAction struct {
 
 func (x *WorldQueryEntitiesAction) Reset() {
 	*x = WorldQueryEntitiesAction{}
-	mi := &file_actions_proto_msgTypes[26]
+	mi := &file_actions_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2091,7 +2475,7 @@ func (x *WorldQueryEntitiesAction) String() string {
 func (*WorldQueryEntitiesAction) ProtoMessage() {}
 
 func (x *WorldQueryEntitiesAction) ProtoReflect() protoreflect.Message {
-	mi := &file_actions_proto_msgTypes[26]
+	mi := &file_actions_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2104,7 +2488,7 @@ func (x *WorldQueryEntitiesAction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorldQueryEntitiesAction.ProtoReflect.Descriptor instead.
 func (*WorldQueryEntitiesAction) Descriptor() ([]byte, []int) {
-	return file_actions_proto_rawDescGZIP(), []int{26}
+	return file_actions_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *WorldQueryEntitiesAction) GetWorld() *WorldRef {
@@ -2123,7 +2507,7 @@ type WorldQueryPlayersAction struct {
 
 func (x *WorldQueryPlayersAction) Reset() {
 	*x = WorldQueryPlayersAction{}
-	mi := &file_actions_proto_msgTypes[27]
+	mi := &file_actions_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2135,7 +2519,7 @@ func (x *WorldQueryPlayersAction) String() string {
 func (*WorldQueryPlayersAction) ProtoMessage() {}
 
 func (x *WorldQueryPlayersAction) ProtoReflect() protoreflect.Message {
-	mi := &file_actions_proto_msgTypes[27]
+	mi := &file_actions_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2148,7 +2532,7 @@ func (x *WorldQueryPlayersAction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorldQueryPlayersAction.ProtoReflect.Descriptor instead.
 func (*WorldQueryPlayersAction) Descriptor() ([]byte, []int) {
-	return file_actions_proto_rawDescGZIP(), []int{27}
+	return file_actions_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *WorldQueryPlayersAction) GetWorld() *WorldRef {
@@ -2168,7 +2552,7 @@ type WorldQueryEntitiesWithinAction struct {
 
 func (x *WorldQueryEntitiesWithinAction) Reset() {
 	*x = WorldQueryEntitiesWithinAction{}
-	mi := &file_actions_proto_msgTypes[28]
+	mi := &file_actions_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2180,7 +2564,7 @@ func (x *WorldQueryEntitiesWithinAction) String() string {
 func (*WorldQueryEntitiesWithinAction) ProtoMessage() {}
 
 func (x *WorldQueryEntitiesWithinAction) ProtoReflect() protoreflect.Message {
-	mi := &file_actions_proto_msgTypes[28]
+	mi := &file_actions_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2193,7 +2577,7 @@ func (x *WorldQueryEntitiesWithinAction) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WorldQueryEntitiesWithinAction.ProtoReflect.Descriptor instead.
 func (*WorldQueryEntitiesWithinAction) Descriptor() ([]byte, []int) {
-	return file_actions_proto_rawDescGZIP(), []int{28}
+	return file_actions_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *WorldQueryEntitiesWithinAction) GetWorld() *WorldRef {
@@ -2216,7 +2600,7 @@ const file_actions_proto_rawDesc = "" +
 	"\n" +
 	"\ractions.proto\x12\tdf.plugin\x1a\fcommon.proto\":\n" +
 	"\vActionBatch\x12+\n" +
-	"\aactions\x18\x01 \x03(\v2\x11.df.plugin.ActionR\aactions\"\xd9\x0f\n" +
+	"\aactions\x18\x01 \x03(\v2\x11.df.plugin.ActionR\aactions\"\xd4\x13\n" +
 	"\x06Action\x12*\n" +
 	"\x0ecorrelation_id\x18\x01 \x01(\tH\x01R\rcorrelationId\x88\x01\x01\x128\n" +
 	"\tsend_chat\x18\n" +
@@ -2248,10 +2632,16 @@ const file_actions_proto_rawDesc = "" +
 	"\x14world_set_tick_range\x18> \x01(\v2\".df.plugin.WorldSetTickRangeActionH\x00R\x11worldSetTickRange\x12H\n" +
 	"\x0fworld_set_block\x18? \x01(\v2\x1e.df.plugin.WorldSetBlockActionH\x00R\rworldSetBlock\x12K\n" +
 	"\x10world_play_sound\x18@ \x01(\v2\x1f.df.plugin.WorldPlaySoundActionH\x00R\x0eworldPlaySound\x12Q\n" +
-	"\x12world_add_particle\x18A \x01(\v2!.df.plugin.WorldAddParticleActionH\x00R\x10worldAddParticle\x12W\n" +
+	"\x12world_add_particle\x18A \x01(\v2!.df.plugin.WorldAddParticleActionH\x00R\x10worldAddParticle\x12E\n" +
+	"\x0eworld_set_time\x18B \x01(\v2\x1d.df.plugin.WorldSetTimeActionH\x00R\fworldSetTime\x12H\n" +
+	"\x0fworld_stop_time\x18C \x01(\v2\x1e.df.plugin.WorldStopTimeActionH\x00R\rworldStopTime\x12K\n" +
+	"\x10world_start_time\x18D \x01(\v2\x1f.df.plugin.WorldStartTimeActionH\x00R\x0eworldStartTime\x12H\n" +
+	"\x0fworld_set_spawn\x18E \x01(\v2\x1e.df.plugin.WorldSetSpawnActionH\x00R\rworldSetSpawn\x12W\n" +
 	"\x14world_query_entities\x18F \x01(\v2#.df.plugin.WorldQueryEntitiesActionH\x00R\x12worldQueryEntities\x12T\n" +
 	"\x13world_query_players\x18G \x01(\v2\".df.plugin.WorldQueryPlayersActionH\x00R\x11worldQueryPlayers\x12j\n" +
-	"\x1bworld_query_entities_within\x18H \x01(\v2).df.plugin.WorldQueryEntitiesWithinActionH\x00R\x18worldQueryEntitiesWithinB\x06\n" +
+	"\x1bworld_query_entities_within\x18H \x01(\v2).df.plugin.WorldQueryEntitiesWithinActionH\x00R\x18worldQueryEntitiesWithin\x12n\n" +
+	"\x1dworld_query_default_game_mode\x18I \x01(\v2*.df.plugin.WorldQueryDefaultGameModeActionH\x00R\x19worldQueryDefaultGameMode\x12a\n" +
+	"\x18world_query_player_spawn\x18J \x01(\v2&.df.plugin.WorldQueryPlayerSpawnActionH\x00R\x15worldQueryPlayerSpawnB\x06\n" +
 	"\x04kindB\x11\n" +
 	"\x0f_correlation_id\"K\n" +
 	"\x0eSendChatAction\x12\x1f\n" +
@@ -2389,7 +2779,23 @@ const file_actions_proto_rawDesc = "" +
 	"\x05block\x18\x04 \x01(\v2\x15.df.plugin.BlockStateH\x00R\x05block\x88\x01\x01\x12\x17\n" +
 	"\x04face\x18\x05 \x01(\x05H\x01R\x04face\x88\x01\x01B\b\n" +
 	"\x06_blockB\a\n" +
-	"\x05_face\"E\n" +
+	"\x05_face\"S\n" +
+	"\x12WorldSetTimeAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12\x12\n" +
+	"\x04time\x18\x02 \x01(\x05R\x04time\"@\n" +
+	"\x13WorldStopTimeAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\"A\n" +
+	"\x14WorldStartTimeAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\"k\n" +
+	"\x13WorldSetSpawnAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12)\n" +
+	"\x05spawn\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\x05spawn\"L\n" +
+	"\x1fWorldQueryDefaultGameModeAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\"i\n" +
+	"\x1bWorldQueryPlayerSpawnAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12\x1f\n" +
+	"\vplayer_uuid\x18\x02 \x01(\tR\n" +
+	"playerUuid\"E\n" +
 	"\x18WorldQueryEntitiesAction\x12)\n" +
 	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\"D\n" +
 	"\x17WorldQueryPlayersAction\x12)\n" +
@@ -2434,48 +2840,54 @@ func file_actions_proto_rawDescGZIP() []byte {
 }
 
 var file_actions_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_actions_proto_msgTypes = make([]protoimpl.MessageInfo, 29)
+var file_actions_proto_msgTypes = make([]protoimpl.MessageInfo, 35)
 var file_actions_proto_goTypes = []any{
-	(ParticleType)(0),                      // 0: df.plugin.ParticleType
-	(*ActionBatch)(nil),                    // 1: df.plugin.ActionBatch
-	(*Action)(nil),                         // 2: df.plugin.Action
-	(*SendChatAction)(nil),                 // 3: df.plugin.SendChatAction
-	(*TeleportAction)(nil),                 // 4: df.plugin.TeleportAction
-	(*KickAction)(nil),                     // 5: df.plugin.KickAction
-	(*SetGameModeAction)(nil),              // 6: df.plugin.SetGameModeAction
-	(*GiveItemAction)(nil),                 // 7: df.plugin.GiveItemAction
-	(*ClearInventoryAction)(nil),           // 8: df.plugin.ClearInventoryAction
-	(*SetHeldItemAction)(nil),              // 9: df.plugin.SetHeldItemAction
-	(*SetHealthAction)(nil),                // 10: df.plugin.SetHealthAction
-	(*SetFoodAction)(nil),                  // 11: df.plugin.SetFoodAction
-	(*SetExperienceAction)(nil),            // 12: df.plugin.SetExperienceAction
-	(*SetVelocityAction)(nil),              // 13: df.plugin.SetVelocityAction
-	(*AddEffectAction)(nil),                // 14: df.plugin.AddEffectAction
-	(*RemoveEffectAction)(nil),             // 15: df.plugin.RemoveEffectAction
-	(*SendTitleAction)(nil),                // 16: df.plugin.SendTitleAction
-	(*SendPopupAction)(nil),                // 17: df.plugin.SendPopupAction
-	(*SendTipAction)(nil),                  // 18: df.plugin.SendTipAction
-	(*PlaySoundAction)(nil),                // 19: df.plugin.PlaySoundAction
-	(*ExecuteCommandAction)(nil),           // 20: df.plugin.ExecuteCommandAction
-	(*WorldSetDefaultGameModeAction)(nil),  // 21: df.plugin.WorldSetDefaultGameModeAction
-	(*WorldSetDifficultyAction)(nil),       // 22: df.plugin.WorldSetDifficultyAction
-	(*WorldSetTickRangeAction)(nil),        // 23: df.plugin.WorldSetTickRangeAction
-	(*WorldSetBlockAction)(nil),            // 24: df.plugin.WorldSetBlockAction
-	(*WorldPlaySoundAction)(nil),           // 25: df.plugin.WorldPlaySoundAction
-	(*WorldAddParticleAction)(nil),         // 26: df.plugin.WorldAddParticleAction
-	(*WorldQueryEntitiesAction)(nil),       // 27: df.plugin.WorldQueryEntitiesAction
-	(*WorldQueryPlayersAction)(nil),        // 28: df.plugin.WorldQueryPlayersAction
-	(*WorldQueryEntitiesWithinAction)(nil), // 29: df.plugin.WorldQueryEntitiesWithinAction
-	(*Vec3)(nil),                           // 30: df.plugin.Vec3
-	(GameMode)(0),                          // 31: df.plugin.GameMode
-	(*ItemStack)(nil),                      // 32: df.plugin.ItemStack
-	(EffectType)(0),                        // 33: df.plugin.EffectType
-	(Sound)(0),                             // 34: df.plugin.Sound
-	(*WorldRef)(nil),                       // 35: df.plugin.WorldRef
-	(Difficulty)(0),                        // 36: df.plugin.Difficulty
-	(*BlockPos)(nil),                       // 37: df.plugin.BlockPos
-	(*BlockState)(nil),                     // 38: df.plugin.BlockState
-	(*BBox)(nil),                           // 39: df.plugin.BBox
+	(ParticleType)(0),                       // 0: df.plugin.ParticleType
+	(*ActionBatch)(nil),                     // 1: df.plugin.ActionBatch
+	(*Action)(nil),                          // 2: df.plugin.Action
+	(*SendChatAction)(nil),                  // 3: df.plugin.SendChatAction
+	(*TeleportAction)(nil),                  // 4: df.plugin.TeleportAction
+	(*KickAction)(nil),                      // 5: df.plugin.KickAction
+	(*SetGameModeAction)(nil),               // 6: df.plugin.SetGameModeAction
+	(*GiveItemAction)(nil),                  // 7: df.plugin.GiveItemAction
+	(*ClearInventoryAction)(nil),            // 8: df.plugin.ClearInventoryAction
+	(*SetHeldItemAction)(nil),               // 9: df.plugin.SetHeldItemAction
+	(*SetHealthAction)(nil),                 // 10: df.plugin.SetHealthAction
+	(*SetFoodAction)(nil),                   // 11: df.plugin.SetFoodAction
+	(*SetExperienceAction)(nil),             // 12: df.plugin.SetExperienceAction
+	(*SetVelocityAction)(nil),               // 13: df.plugin.SetVelocityAction
+	(*AddEffectAction)(nil),                 // 14: df.plugin.AddEffectAction
+	(*RemoveEffectAction)(nil),              // 15: df.plugin.RemoveEffectAction
+	(*SendTitleAction)(nil),                 // 16: df.plugin.SendTitleAction
+	(*SendPopupAction)(nil),                 // 17: df.plugin.SendPopupAction
+	(*SendTipAction)(nil),                   // 18: df.plugin.SendTipAction
+	(*PlaySoundAction)(nil),                 // 19: df.plugin.PlaySoundAction
+	(*ExecuteCommandAction)(nil),            // 20: df.plugin.ExecuteCommandAction
+	(*WorldSetDefaultGameModeAction)(nil),   // 21: df.plugin.WorldSetDefaultGameModeAction
+	(*WorldSetDifficultyAction)(nil),        // 22: df.plugin.WorldSetDifficultyAction
+	(*WorldSetTickRangeAction)(nil),         // 23: df.plugin.WorldSetTickRangeAction
+	(*WorldSetBlockAction)(nil),             // 24: df.plugin.WorldSetBlockAction
+	(*WorldPlaySoundAction)(nil),            // 25: df.plugin.WorldPlaySoundAction
+	(*WorldAddParticleAction)(nil),          // 26: df.plugin.WorldAddParticleAction
+	(*WorldSetTimeAction)(nil),              // 27: df.plugin.WorldSetTimeAction
+	(*WorldStopTimeAction)(nil),             // 28: df.plugin.WorldStopTimeAction
+	(*WorldStartTimeAction)(nil),            // 29: df.plugin.WorldStartTimeAction
+	(*WorldSetSpawnAction)(nil),             // 30: df.plugin.WorldSetSpawnAction
+	(*WorldQueryDefaultGameModeAction)(nil), // 31: df.plugin.WorldQueryDefaultGameModeAction
+	(*WorldQueryPlayerSpawnAction)(nil),     // 32: df.plugin.WorldQueryPlayerSpawnAction
+	(*WorldQueryEntitiesAction)(nil),        // 33: df.plugin.WorldQueryEntitiesAction
+	(*WorldQueryPlayersAction)(nil),         // 34: df.plugin.WorldQueryPlayersAction
+	(*WorldQueryEntitiesWithinAction)(nil),  // 35: df.plugin.WorldQueryEntitiesWithinAction
+	(*Vec3)(nil),                            // 36: df.plugin.Vec3
+	(GameMode)(0),                           // 37: df.plugin.GameMode
+	(*ItemStack)(nil),                       // 38: df.plugin.ItemStack
+	(EffectType)(0),                         // 39: df.plugin.EffectType
+	(Sound)(0),                              // 40: df.plugin.Sound
+	(*WorldRef)(nil),                        // 41: df.plugin.WorldRef
+	(Difficulty)(0),                         // 42: df.plugin.Difficulty
+	(*BlockPos)(nil),                        // 43: df.plugin.BlockPos
+	(*BlockState)(nil),                      // 44: df.plugin.BlockState
+	(*BBox)(nil),                            // 45: df.plugin.BBox
 }
 var file_actions_proto_depIdxs = []int32{
 	2,  // 0: df.plugin.ActionBatch.actions:type_name -> df.plugin.Action
@@ -2503,44 +2915,57 @@ var file_actions_proto_depIdxs = []int32{
 	24, // 22: df.plugin.Action.world_set_block:type_name -> df.plugin.WorldSetBlockAction
 	25, // 23: df.plugin.Action.world_play_sound:type_name -> df.plugin.WorldPlaySoundAction
 	26, // 24: df.plugin.Action.world_add_particle:type_name -> df.plugin.WorldAddParticleAction
-	27, // 25: df.plugin.Action.world_query_entities:type_name -> df.plugin.WorldQueryEntitiesAction
-	28, // 26: df.plugin.Action.world_query_players:type_name -> df.plugin.WorldQueryPlayersAction
-	29, // 27: df.plugin.Action.world_query_entities_within:type_name -> df.plugin.WorldQueryEntitiesWithinAction
-	30, // 28: df.plugin.TeleportAction.position:type_name -> df.plugin.Vec3
-	30, // 29: df.plugin.TeleportAction.rotation:type_name -> df.plugin.Vec3
-	31, // 30: df.plugin.SetGameModeAction.game_mode:type_name -> df.plugin.GameMode
-	32, // 31: df.plugin.GiveItemAction.item:type_name -> df.plugin.ItemStack
-	32, // 32: df.plugin.SetHeldItemAction.main:type_name -> df.plugin.ItemStack
-	32, // 33: df.plugin.SetHeldItemAction.offhand:type_name -> df.plugin.ItemStack
-	30, // 34: df.plugin.SetVelocityAction.velocity:type_name -> df.plugin.Vec3
-	33, // 35: df.plugin.AddEffectAction.effect_type:type_name -> df.plugin.EffectType
-	33, // 36: df.plugin.RemoveEffectAction.effect_type:type_name -> df.plugin.EffectType
-	34, // 37: df.plugin.PlaySoundAction.sound:type_name -> df.plugin.Sound
-	30, // 38: df.plugin.PlaySoundAction.position:type_name -> df.plugin.Vec3
-	35, // 39: df.plugin.WorldSetDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
-	31, // 40: df.plugin.WorldSetDefaultGameModeAction.game_mode:type_name -> df.plugin.GameMode
-	35, // 41: df.plugin.WorldSetDifficultyAction.world:type_name -> df.plugin.WorldRef
-	36, // 42: df.plugin.WorldSetDifficultyAction.difficulty:type_name -> df.plugin.Difficulty
-	35, // 43: df.plugin.WorldSetTickRangeAction.world:type_name -> df.plugin.WorldRef
-	35, // 44: df.plugin.WorldSetBlockAction.world:type_name -> df.plugin.WorldRef
-	37, // 45: df.plugin.WorldSetBlockAction.position:type_name -> df.plugin.BlockPos
-	38, // 46: df.plugin.WorldSetBlockAction.block:type_name -> df.plugin.BlockState
-	35, // 47: df.plugin.WorldPlaySoundAction.world:type_name -> df.plugin.WorldRef
-	34, // 48: df.plugin.WorldPlaySoundAction.sound:type_name -> df.plugin.Sound
-	30, // 49: df.plugin.WorldPlaySoundAction.position:type_name -> df.plugin.Vec3
-	35, // 50: df.plugin.WorldAddParticleAction.world:type_name -> df.plugin.WorldRef
-	30, // 51: df.plugin.WorldAddParticleAction.position:type_name -> df.plugin.Vec3
-	0,  // 52: df.plugin.WorldAddParticleAction.particle:type_name -> df.plugin.ParticleType
-	38, // 53: df.plugin.WorldAddParticleAction.block:type_name -> df.plugin.BlockState
-	35, // 54: df.plugin.WorldQueryEntitiesAction.world:type_name -> df.plugin.WorldRef
-	35, // 55: df.plugin.WorldQueryPlayersAction.world:type_name -> df.plugin.WorldRef
-	35, // 56: df.plugin.WorldQueryEntitiesWithinAction.world:type_name -> df.plugin.WorldRef
-	39, // 57: df.plugin.WorldQueryEntitiesWithinAction.box:type_name -> df.plugin.BBox
-	58, // [58:58] is the sub-list for method output_type
-	58, // [58:58] is the sub-list for method input_type
-	58, // [58:58] is the sub-list for extension type_name
-	58, // [58:58] is the sub-list for extension extendee
-	0,  // [0:58] is the sub-list for field type_name
+	27, // 25: df.plugin.Action.world_set_time:type_name -> df.plugin.WorldSetTimeAction
+	28, // 26: df.plugin.Action.world_stop_time:type_name -> df.plugin.WorldStopTimeAction
+	29, // 27: df.plugin.Action.world_start_time:type_name -> df.plugin.WorldStartTimeAction
+	30, // 28: df.plugin.Action.world_set_spawn:type_name -> df.plugin.WorldSetSpawnAction
+	33, // 29: df.plugin.Action.world_query_entities:type_name -> df.plugin.WorldQueryEntitiesAction
+	34, // 30: df.plugin.Action.world_query_players:type_name -> df.plugin.WorldQueryPlayersAction
+	35, // 31: df.plugin.Action.world_query_entities_within:type_name -> df.plugin.WorldQueryEntitiesWithinAction
+	31, // 32: df.plugin.Action.world_query_default_game_mode:type_name -> df.plugin.WorldQueryDefaultGameModeAction
+	32, // 33: df.plugin.Action.world_query_player_spawn:type_name -> df.plugin.WorldQueryPlayerSpawnAction
+	36, // 34: df.plugin.TeleportAction.position:type_name -> df.plugin.Vec3
+	36, // 35: df.plugin.TeleportAction.rotation:type_name -> df.plugin.Vec3
+	37, // 36: df.plugin.SetGameModeAction.game_mode:type_name -> df.plugin.GameMode
+	38, // 37: df.plugin.GiveItemAction.item:type_name -> df.plugin.ItemStack
+	38, // 38: df.plugin.SetHeldItemAction.main:type_name -> df.plugin.ItemStack
+	38, // 39: df.plugin.SetHeldItemAction.offhand:type_name -> df.plugin.ItemStack
+	36, // 40: df.plugin.SetVelocityAction.velocity:type_name -> df.plugin.Vec3
+	39, // 41: df.plugin.AddEffectAction.effect_type:type_name -> df.plugin.EffectType
+	39, // 42: df.plugin.RemoveEffectAction.effect_type:type_name -> df.plugin.EffectType
+	40, // 43: df.plugin.PlaySoundAction.sound:type_name -> df.plugin.Sound
+	36, // 44: df.plugin.PlaySoundAction.position:type_name -> df.plugin.Vec3
+	41, // 45: df.plugin.WorldSetDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
+	37, // 46: df.plugin.WorldSetDefaultGameModeAction.game_mode:type_name -> df.plugin.GameMode
+	41, // 47: df.plugin.WorldSetDifficultyAction.world:type_name -> df.plugin.WorldRef
+	42, // 48: df.plugin.WorldSetDifficultyAction.difficulty:type_name -> df.plugin.Difficulty
+	41, // 49: df.plugin.WorldSetTickRangeAction.world:type_name -> df.plugin.WorldRef
+	41, // 50: df.plugin.WorldSetBlockAction.world:type_name -> df.plugin.WorldRef
+	43, // 51: df.plugin.WorldSetBlockAction.position:type_name -> df.plugin.BlockPos
+	44, // 52: df.plugin.WorldSetBlockAction.block:type_name -> df.plugin.BlockState
+	41, // 53: df.plugin.WorldPlaySoundAction.world:type_name -> df.plugin.WorldRef
+	40, // 54: df.plugin.WorldPlaySoundAction.sound:type_name -> df.plugin.Sound
+	36, // 55: df.plugin.WorldPlaySoundAction.position:type_name -> df.plugin.Vec3
+	41, // 56: df.plugin.WorldAddParticleAction.world:type_name -> df.plugin.WorldRef
+	36, // 57: df.plugin.WorldAddParticleAction.position:type_name -> df.plugin.Vec3
+	0,  // 58: df.plugin.WorldAddParticleAction.particle:type_name -> df.plugin.ParticleType
+	44, // 59: df.plugin.WorldAddParticleAction.block:type_name -> df.plugin.BlockState
+	41, // 60: df.plugin.WorldSetTimeAction.world:type_name -> df.plugin.WorldRef
+	41, // 61: df.plugin.WorldStopTimeAction.world:type_name -> df.plugin.WorldRef
+	41, // 62: df.plugin.WorldStartTimeAction.world:type_name -> df.plugin.WorldRef
+	41, // 63: df.plugin.WorldSetSpawnAction.world:type_name -> df.plugin.WorldRef
+	43, // 64: df.plugin.WorldSetSpawnAction.spawn:type_name -> df.plugin.BlockPos
+	41, // 65: df.plugin.WorldQueryDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
+	41, // 66: df.plugin.WorldQueryPlayerSpawnAction.world:type_name -> df.plugin.WorldRef
+	41, // 67: df.plugin.WorldQueryEntitiesAction.world:type_name -> df.plugin.WorldRef
+	41, // 68: df.plugin.WorldQueryPlayersAction.world:type_name -> df.plugin.WorldRef
+	41, // 69: df.plugin.WorldQueryEntitiesWithinAction.world:type_name -> df.plugin.WorldRef
+	45, // 70: df.plugin.WorldQueryEntitiesWithinAction.box:type_name -> df.plugin.BBox
+	71, // [71:71] is the sub-list for method output_type
+	71, // [71:71] is the sub-list for method input_type
+	71, // [71:71] is the sub-list for extension type_name
+	71, // [71:71] is the sub-list for extension extendee
+	0,  // [0:71] is the sub-list for field type_name
 }
 
 func init() { file_actions_proto_init() }
@@ -2574,9 +2999,15 @@ func file_actions_proto_init() {
 		(*Action_WorldSetBlock)(nil),
 		(*Action_WorldPlaySound)(nil),
 		(*Action_WorldAddParticle)(nil),
+		(*Action_WorldSetTime)(nil),
+		(*Action_WorldStopTime)(nil),
+		(*Action_WorldStartTime)(nil),
+		(*Action_WorldSetSpawn)(nil),
 		(*Action_WorldQueryEntities)(nil),
 		(*Action_WorldQueryPlayers)(nil),
 		(*Action_WorldQueryEntitiesWithin)(nil),
+		(*Action_WorldQueryDefaultGameMode)(nil),
+		(*Action_WorldQueryPlayerSpawn)(nil),
 	}
 	file_actions_proto_msgTypes[8].OneofWrappers = []any{}
 	file_actions_proto_msgTypes[9].OneofWrappers = []any{}
@@ -2591,7 +3022,7 @@ func file_actions_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_actions_proto_rawDesc), len(file_actions_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   29,
+			NumMessages:   35,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -211,13 +211,19 @@ export interface Action {
   worldSetTickRange?: WorldSetTickRangeAction | undefined;
   worldSetBlock?: WorldSetBlockAction | undefined;
   worldPlaySound?: WorldPlaySoundAction | undefined;
-  worldAddParticle?:
-    | WorldAddParticleAction
+  worldAddParticle?: WorldAddParticleAction | undefined;
+  worldSetTime?: WorldSetTimeAction | undefined;
+  worldStopTime?: WorldStopTimeAction | undefined;
+  worldStartTime?: WorldStartTimeAction | undefined;
+  worldSetSpawn?:
+    | WorldSetSpawnAction
     | undefined;
   /** World queries */
   worldQueryEntities?: WorldQueryEntitiesAction | undefined;
   worldQueryPlayers?: WorldQueryPlayersAction | undefined;
   worldQueryEntitiesWithin?: WorldQueryEntitiesWithinAction | undefined;
+  worldQueryDefaultGameMode?: WorldQueryDefaultGameModeAction | undefined;
+  worldQueryPlayerSpawn?: WorldQueryPlayerSpawnAction | undefined;
 }
 
 export interface SendChatAction {
@@ -400,6 +406,33 @@ export interface WorldAddParticleAction {
   face?: number | undefined;
 }
 
+export interface WorldSetTimeAction {
+  world: WorldRef | undefined;
+  time: number;
+}
+
+export interface WorldStopTimeAction {
+  world: WorldRef | undefined;
+}
+
+export interface WorldStartTimeAction {
+  world: WorldRef | undefined;
+}
+
+export interface WorldSetSpawnAction {
+  world: WorldRef | undefined;
+  spawn: BlockPos | undefined;
+}
+
+export interface WorldQueryDefaultGameModeAction {
+  world: WorldRef | undefined;
+}
+
+export interface WorldQueryPlayerSpawnAction {
+  world: WorldRef | undefined;
+  playerUuid: string;
+}
+
 export interface WorldQueryEntitiesAction {
   world: WorldRef | undefined;
 }
@@ -500,9 +533,15 @@ function createBaseAction(): Action {
     worldSetBlock: undefined,
     worldPlaySound: undefined,
     worldAddParticle: undefined,
+    worldSetTime: undefined,
+    worldStopTime: undefined,
+    worldStartTime: undefined,
+    worldSetSpawn: undefined,
     worldQueryEntities: undefined,
     worldQueryPlayers: undefined,
     worldQueryEntitiesWithin: undefined,
+    worldQueryDefaultGameMode: undefined,
+    worldQueryPlayerSpawn: undefined,
   };
 }
 
@@ -583,6 +622,18 @@ export const Action: MessageFns<Action> = {
     if (message.worldAddParticle !== undefined) {
       WorldAddParticleAction.encode(message.worldAddParticle, writer.uint32(522).fork()).join();
     }
+    if (message.worldSetTime !== undefined) {
+      WorldSetTimeAction.encode(message.worldSetTime, writer.uint32(530).fork()).join();
+    }
+    if (message.worldStopTime !== undefined) {
+      WorldStopTimeAction.encode(message.worldStopTime, writer.uint32(538).fork()).join();
+    }
+    if (message.worldStartTime !== undefined) {
+      WorldStartTimeAction.encode(message.worldStartTime, writer.uint32(546).fork()).join();
+    }
+    if (message.worldSetSpawn !== undefined) {
+      WorldSetSpawnAction.encode(message.worldSetSpawn, writer.uint32(554).fork()).join();
+    }
     if (message.worldQueryEntities !== undefined) {
       WorldQueryEntitiesAction.encode(message.worldQueryEntities, writer.uint32(562).fork()).join();
     }
@@ -591,6 +642,12 @@ export const Action: MessageFns<Action> = {
     }
     if (message.worldQueryEntitiesWithin !== undefined) {
       WorldQueryEntitiesWithinAction.encode(message.worldQueryEntitiesWithin, writer.uint32(578).fork()).join();
+    }
+    if (message.worldQueryDefaultGameMode !== undefined) {
+      WorldQueryDefaultGameModeAction.encode(message.worldQueryDefaultGameMode, writer.uint32(586).fork()).join();
+    }
+    if (message.worldQueryPlayerSpawn !== undefined) {
+      WorldQueryPlayerSpawnAction.encode(message.worldQueryPlayerSpawn, writer.uint32(594).fork()).join();
     }
     return writer;
   },
@@ -802,6 +859,38 @@ export const Action: MessageFns<Action> = {
           message.worldAddParticle = WorldAddParticleAction.decode(reader, reader.uint32());
           continue;
         }
+        case 66: {
+          if (tag !== 530) {
+            break;
+          }
+
+          message.worldSetTime = WorldSetTimeAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 67: {
+          if (tag !== 538) {
+            break;
+          }
+
+          message.worldStopTime = WorldStopTimeAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 68: {
+          if (tag !== 546) {
+            break;
+          }
+
+          message.worldStartTime = WorldStartTimeAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 69: {
+          if (tag !== 554) {
+            break;
+          }
+
+          message.worldSetSpawn = WorldSetSpawnAction.decode(reader, reader.uint32());
+          continue;
+        }
         case 70: {
           if (tag !== 562) {
             break;
@@ -824,6 +913,22 @@ export const Action: MessageFns<Action> = {
           }
 
           message.worldQueryEntitiesWithin = WorldQueryEntitiesWithinAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 73: {
+          if (tag !== 586) {
+            break;
+          }
+
+          message.worldQueryDefaultGameMode = WorldQueryDefaultGameModeAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 74: {
+          if (tag !== 594) {
+            break;
+          }
+
+          message.worldQueryPlayerSpawn = WorldQueryPlayerSpawnAction.decode(reader, reader.uint32());
           continue;
         }
       }
@@ -870,6 +975,10 @@ export const Action: MessageFns<Action> = {
       worldAddParticle: isSet(object.worldAddParticle)
         ? WorldAddParticleAction.fromJSON(object.worldAddParticle)
         : undefined,
+      worldSetTime: isSet(object.worldSetTime) ? WorldSetTimeAction.fromJSON(object.worldSetTime) : undefined,
+      worldStopTime: isSet(object.worldStopTime) ? WorldStopTimeAction.fromJSON(object.worldStopTime) : undefined,
+      worldStartTime: isSet(object.worldStartTime) ? WorldStartTimeAction.fromJSON(object.worldStartTime) : undefined,
+      worldSetSpawn: isSet(object.worldSetSpawn) ? WorldSetSpawnAction.fromJSON(object.worldSetSpawn) : undefined,
       worldQueryEntities: isSet(object.worldQueryEntities)
         ? WorldQueryEntitiesAction.fromJSON(object.worldQueryEntities)
         : undefined,
@@ -878,6 +987,12 @@ export const Action: MessageFns<Action> = {
         : undefined,
       worldQueryEntitiesWithin: isSet(object.worldQueryEntitiesWithin)
         ? WorldQueryEntitiesWithinAction.fromJSON(object.worldQueryEntitiesWithin)
+        : undefined,
+      worldQueryDefaultGameMode: isSet(object.worldQueryDefaultGameMode)
+        ? WorldQueryDefaultGameModeAction.fromJSON(object.worldQueryDefaultGameMode)
+        : undefined,
+      worldQueryPlayerSpawn: isSet(object.worldQueryPlayerSpawn)
+        ? WorldQueryPlayerSpawnAction.fromJSON(object.worldQueryPlayerSpawn)
         : undefined,
     };
   },
@@ -959,6 +1074,18 @@ export const Action: MessageFns<Action> = {
     if (message.worldAddParticle !== undefined) {
       obj.worldAddParticle = WorldAddParticleAction.toJSON(message.worldAddParticle);
     }
+    if (message.worldSetTime !== undefined) {
+      obj.worldSetTime = WorldSetTimeAction.toJSON(message.worldSetTime);
+    }
+    if (message.worldStopTime !== undefined) {
+      obj.worldStopTime = WorldStopTimeAction.toJSON(message.worldStopTime);
+    }
+    if (message.worldStartTime !== undefined) {
+      obj.worldStartTime = WorldStartTimeAction.toJSON(message.worldStartTime);
+    }
+    if (message.worldSetSpawn !== undefined) {
+      obj.worldSetSpawn = WorldSetSpawnAction.toJSON(message.worldSetSpawn);
+    }
     if (message.worldQueryEntities !== undefined) {
       obj.worldQueryEntities = WorldQueryEntitiesAction.toJSON(message.worldQueryEntities);
     }
@@ -967,6 +1094,12 @@ export const Action: MessageFns<Action> = {
     }
     if (message.worldQueryEntitiesWithin !== undefined) {
       obj.worldQueryEntitiesWithin = WorldQueryEntitiesWithinAction.toJSON(message.worldQueryEntitiesWithin);
+    }
+    if (message.worldQueryDefaultGameMode !== undefined) {
+      obj.worldQueryDefaultGameMode = WorldQueryDefaultGameModeAction.toJSON(message.worldQueryDefaultGameMode);
+    }
+    if (message.worldQueryPlayerSpawn !== undefined) {
+      obj.worldQueryPlayerSpawn = WorldQueryPlayerSpawnAction.toJSON(message.worldQueryPlayerSpawn);
     }
     return obj;
   },
@@ -1050,6 +1183,18 @@ export const Action: MessageFns<Action> = {
     message.worldAddParticle = (object.worldAddParticle !== undefined && object.worldAddParticle !== null)
       ? WorldAddParticleAction.fromPartial(object.worldAddParticle)
       : undefined;
+    message.worldSetTime = (object.worldSetTime !== undefined && object.worldSetTime !== null)
+      ? WorldSetTimeAction.fromPartial(object.worldSetTime)
+      : undefined;
+    message.worldStopTime = (object.worldStopTime !== undefined && object.worldStopTime !== null)
+      ? WorldStopTimeAction.fromPartial(object.worldStopTime)
+      : undefined;
+    message.worldStartTime = (object.worldStartTime !== undefined && object.worldStartTime !== null)
+      ? WorldStartTimeAction.fromPartial(object.worldStartTime)
+      : undefined;
+    message.worldSetSpawn = (object.worldSetSpawn !== undefined && object.worldSetSpawn !== null)
+      ? WorldSetSpawnAction.fromPartial(object.worldSetSpawn)
+      : undefined;
     message.worldQueryEntities = (object.worldQueryEntities !== undefined && object.worldQueryEntities !== null)
       ? WorldQueryEntitiesAction.fromPartial(object.worldQueryEntities)
       : undefined;
@@ -1059,6 +1204,14 @@ export const Action: MessageFns<Action> = {
     message.worldQueryEntitiesWithin =
       (object.worldQueryEntitiesWithin !== undefined && object.worldQueryEntitiesWithin !== null)
         ? WorldQueryEntitiesWithinAction.fromPartial(object.worldQueryEntitiesWithin)
+        : undefined;
+    message.worldQueryDefaultGameMode =
+      (object.worldQueryDefaultGameMode !== undefined && object.worldQueryDefaultGameMode !== null)
+        ? WorldQueryDefaultGameModeAction.fromPartial(object.worldQueryDefaultGameMode)
+        : undefined;
+    message.worldQueryPlayerSpawn =
+      (object.worldQueryPlayerSpawn !== undefined && object.worldQueryPlayerSpawn !== null)
+        ? WorldQueryPlayerSpawnAction.fromPartial(object.worldQueryPlayerSpawn)
         : undefined;
     return message;
   },
@@ -3225,6 +3378,422 @@ export const WorldAddParticleAction: MessageFns<WorldAddParticleAction> = {
       ? BlockState.fromPartial(object.block)
       : undefined;
     message.face = object.face ?? undefined;
+    return message;
+  },
+};
+
+function createBaseWorldSetTimeAction(): WorldSetTimeAction {
+  return { world: undefined, time: 0 };
+}
+
+export const WorldSetTimeAction: MessageFns<WorldSetTimeAction> = {
+  encode(message: WorldSetTimeAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.time !== 0) {
+      writer.uint32(16).int32(message.time);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldSetTimeAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldSetTimeAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 16) {
+            break;
+          }
+
+          message.time = reader.int32();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldSetTimeAction {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      time: isSet(object.time) ? globalThis.Number(object.time) : 0,
+    };
+  },
+
+  toJSON(message: WorldSetTimeAction): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.time !== 0) {
+      obj.time = Math.round(message.time);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldSetTimeAction>): WorldSetTimeAction {
+    return WorldSetTimeAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldSetTimeAction>): WorldSetTimeAction {
+    const message = createBaseWorldSetTimeAction();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.time = object.time ?? 0;
+    return message;
+  },
+};
+
+function createBaseWorldStopTimeAction(): WorldStopTimeAction {
+  return { world: undefined };
+}
+
+export const WorldStopTimeAction: MessageFns<WorldStopTimeAction> = {
+  encode(message: WorldStopTimeAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldStopTimeAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldStopTimeAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldStopTimeAction {
+    return { world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined };
+  },
+
+  toJSON(message: WorldStopTimeAction): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldStopTimeAction>): WorldStopTimeAction {
+    return WorldStopTimeAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldStopTimeAction>): WorldStopTimeAction {
+    const message = createBaseWorldStopTimeAction();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseWorldStartTimeAction(): WorldStartTimeAction {
+  return { world: undefined };
+}
+
+export const WorldStartTimeAction: MessageFns<WorldStartTimeAction> = {
+  encode(message: WorldStartTimeAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldStartTimeAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldStartTimeAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldStartTimeAction {
+    return { world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined };
+  },
+
+  toJSON(message: WorldStartTimeAction): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldStartTimeAction>): WorldStartTimeAction {
+    return WorldStartTimeAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldStartTimeAction>): WorldStartTimeAction {
+    const message = createBaseWorldStartTimeAction();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseWorldSetSpawnAction(): WorldSetSpawnAction {
+  return { world: undefined, spawn: undefined };
+}
+
+export const WorldSetSpawnAction: MessageFns<WorldSetSpawnAction> = {
+  encode(message: WorldSetSpawnAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.spawn !== undefined) {
+      BlockPos.encode(message.spawn, writer.uint32(18).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldSetSpawnAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldSetSpawnAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.spawn = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldSetSpawnAction {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      spawn: isSet(object.spawn) ? BlockPos.fromJSON(object.spawn) : undefined,
+    };
+  },
+
+  toJSON(message: WorldSetSpawnAction): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.spawn !== undefined) {
+      obj.spawn = BlockPos.toJSON(message.spawn);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldSetSpawnAction>): WorldSetSpawnAction {
+    return WorldSetSpawnAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldSetSpawnAction>): WorldSetSpawnAction {
+    const message = createBaseWorldSetSpawnAction();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.spawn = (object.spawn !== undefined && object.spawn !== null)
+      ? BlockPos.fromPartial(object.spawn)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseWorldQueryDefaultGameModeAction(): WorldQueryDefaultGameModeAction {
+  return { world: undefined };
+}
+
+export const WorldQueryDefaultGameModeAction: MessageFns<WorldQueryDefaultGameModeAction> = {
+  encode(message: WorldQueryDefaultGameModeAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldQueryDefaultGameModeAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldQueryDefaultGameModeAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldQueryDefaultGameModeAction {
+    return { world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined };
+  },
+
+  toJSON(message: WorldQueryDefaultGameModeAction): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldQueryDefaultGameModeAction>): WorldQueryDefaultGameModeAction {
+    return WorldQueryDefaultGameModeAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldQueryDefaultGameModeAction>): WorldQueryDefaultGameModeAction {
+    const message = createBaseWorldQueryDefaultGameModeAction();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseWorldQueryPlayerSpawnAction(): WorldQueryPlayerSpawnAction {
+  return { world: undefined, playerUuid: "" };
+}
+
+export const WorldQueryPlayerSpawnAction: MessageFns<WorldQueryPlayerSpawnAction> = {
+  encode(message: WorldQueryPlayerSpawnAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.playerUuid !== "") {
+      writer.uint32(18).string(message.playerUuid);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldQueryPlayerSpawnAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldQueryPlayerSpawnAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldQueryPlayerSpawnAction {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+    };
+  },
+
+  toJSON(message: WorldQueryPlayerSpawnAction): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldQueryPlayerSpawnAction>): WorldQueryPlayerSpawnAction {
+    return WorldQueryPlayerSpawnAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldQueryPlayerSpawnAction>): WorldQueryPlayerSpawnAction {
+    const message = createBaseWorldQueryPlayerSpawnAction();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.playerUuid = object.playerUuid ?? "";
     return message;
   },
 };

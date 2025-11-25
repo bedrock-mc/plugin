@@ -30,6 +30,8 @@ type ActionResult struct {
 	//	*ActionResult_WorldEntities
 	//	*ActionResult_WorldPlayers
 	//	*ActionResult_WorldEntitiesWithin
+	//	*ActionResult_WorldDefaultGameMode
+	//	*ActionResult_WorldPlayerSpawn
 	Result        isActionResult_Result `protobuf_oneof:"result"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -113,6 +115,24 @@ func (x *ActionResult) GetWorldEntitiesWithin() *WorldEntitiesWithinResult {
 	return nil
 }
 
+func (x *ActionResult) GetWorldDefaultGameMode() *WorldDefaultGameModeResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldDefaultGameMode); ok {
+			return x.WorldDefaultGameMode
+		}
+	}
+	return nil
+}
+
+func (x *ActionResult) GetWorldPlayerSpawn() *WorldPlayerSpawnResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldPlayerSpawn); ok {
+			return x.WorldPlayerSpawn
+		}
+	}
+	return nil
+}
+
 type isActionResult_Result interface {
 	isActionResult_Result()
 }
@@ -129,11 +149,23 @@ type ActionResult_WorldEntitiesWithin struct {
 	WorldEntitiesWithin *WorldEntitiesWithinResult `protobuf:"bytes,12,opt,name=world_entities_within,json=worldEntitiesWithin,proto3,oneof"`
 }
 
+type ActionResult_WorldDefaultGameMode struct {
+	WorldDefaultGameMode *WorldDefaultGameModeResult `protobuf:"bytes,13,opt,name=world_default_game_mode,json=worldDefaultGameMode,proto3,oneof"`
+}
+
+type ActionResult_WorldPlayerSpawn struct {
+	WorldPlayerSpawn *WorldPlayerSpawnResult `protobuf:"bytes,14,opt,name=world_player_spawn,json=worldPlayerSpawn,proto3,oneof"`
+}
+
 func (*ActionResult_WorldEntities) isActionResult_Result() {}
 
 func (*ActionResult_WorldPlayers) isActionResult_Result() {}
 
 func (*ActionResult_WorldEntitiesWithin) isActionResult_Result() {}
+
+func (*ActionResult_WorldDefaultGameMode) isActionResult_Result() {}
+
+func (*ActionResult_WorldPlayerSpawn) isActionResult_Result() {}
 
 type ActionStatus struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -351,18 +383,132 @@ func (x *WorldPlayersResult) GetPlayers() []*EntityRef {
 	return nil
 }
 
+type WorldDefaultGameModeResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	GameMode      GameMode               `protobuf:"varint,2,opt,name=game_mode,json=gameMode,proto3,enum=df.plugin.GameMode" json:"game_mode,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldDefaultGameModeResult) Reset() {
+	*x = WorldDefaultGameModeResult{}
+	mi := &file_action_results_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldDefaultGameModeResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldDefaultGameModeResult) ProtoMessage() {}
+
+func (x *WorldDefaultGameModeResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldDefaultGameModeResult.ProtoReflect.Descriptor instead.
+func (*WorldDefaultGameModeResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *WorldDefaultGameModeResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldDefaultGameModeResult) GetGameMode() GameMode {
+	if x != nil {
+		return x.GameMode
+	}
+	return GameMode_SURVIVAL
+}
+
+type WorldPlayerSpawnResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	PlayerUuid    string                 `protobuf:"bytes,2,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Spawn         *BlockPos              `protobuf:"bytes,3,opt,name=spawn,proto3" json:"spawn,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldPlayerSpawnResult) Reset() {
+	*x = WorldPlayerSpawnResult{}
+	mi := &file_action_results_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldPlayerSpawnResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldPlayerSpawnResult) ProtoMessage() {}
+
+func (x *WorldPlayerSpawnResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldPlayerSpawnResult.ProtoReflect.Descriptor instead.
+func (*WorldPlayerSpawnResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *WorldPlayerSpawnResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldPlayerSpawnResult) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *WorldPlayerSpawnResult) GetSpawn() *BlockPos {
+	if x != nil {
+		return x.Spawn
+	}
+	return nil
+}
+
 var File_action_results_proto protoreflect.FileDescriptor
 
 const file_action_results_proto_rawDesc = "" +
 	"\n" +
-	"\x14action_results.proto\x12\tdf.plugin\x1a\fcommon.proto\"\xeb\x02\n" +
+	"\x14action_results.proto\x12\tdf.plugin\x1a\fcommon.proto\"\x9e\x04\n" +
 	"\fActionResult\x12%\n" +
 	"\x0ecorrelation_id\x18\x01 \x01(\tR\rcorrelationId\x124\n" +
 	"\x06status\x18\x02 \x01(\v2\x17.df.plugin.ActionStatusH\x01R\x06status\x88\x01\x01\x12G\n" +
 	"\x0eworld_entities\x18\n" +
 	" \x01(\v2\x1e.df.plugin.WorldEntitiesResultH\x00R\rworldEntities\x12D\n" +
 	"\rworld_players\x18\v \x01(\v2\x1d.df.plugin.WorldPlayersResultH\x00R\fworldPlayers\x12Z\n" +
-	"\x15world_entities_within\x18\f \x01(\v2$.df.plugin.WorldEntitiesWithinResultH\x00R\x13worldEntitiesWithinB\b\n" +
+	"\x15world_entities_within\x18\f \x01(\v2$.df.plugin.WorldEntitiesWithinResultH\x00R\x13worldEntitiesWithin\x12^\n" +
+	"\x17world_default_game_mode\x18\r \x01(\v2%.df.plugin.WorldDefaultGameModeResultH\x00R\x14worldDefaultGameMode\x12Q\n" +
+	"\x12world_player_spawn\x18\x0e \x01(\v2!.df.plugin.WorldPlayerSpawnResultH\x00R\x10worldPlayerSpawnB\b\n" +
 	"\x06resultB\t\n" +
 	"\a_status\"C\n" +
 	"\fActionStatus\x12\x0e\n" +
@@ -378,7 +524,15 @@ const file_action_results_proto_rawDesc = "" +
 	"\bentities\x18\x03 \x03(\v2\x14.df.plugin.EntityRefR\bentities\"o\n" +
 	"\x12WorldPlayersResult\x12)\n" +
 	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12.\n" +
-	"\aplayers\x18\x02 \x03(\v2\x14.df.plugin.EntityRefR\aplayersB\x91\x01\n" +
+	"\aplayers\x18\x02 \x03(\v2\x14.df.plugin.EntityRefR\aplayers\"y\n" +
+	"\x1aWorldDefaultGameModeResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x120\n" +
+	"\tgame_mode\x18\x02 \x01(\x0e2\x13.df.plugin.GameModeR\bgameMode\"\x8f\x01\n" +
+	"\x16WorldPlayerSpawnResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12\x1f\n" +
+	"\vplayer_uuid\x18\x02 \x01(\tR\n" +
+	"playerUuid\x12)\n" +
+	"\x05spawn\x18\x03 \x01(\v2\x13.df.plugin.BlockPosR\x05spawnB\x91\x01\n" +
 	"\rcom.df.pluginB\x12ActionResultsProtoP\x01Z'github.com/secmc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
 	"Df::Pluginb\x06proto3"
 
@@ -394,34 +548,44 @@ func file_action_results_proto_rawDescGZIP() []byte {
 	return file_action_results_proto_rawDescData
 }
 
-var file_action_results_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_action_results_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_action_results_proto_goTypes = []any{
-	(*ActionResult)(nil),              // 0: df.plugin.ActionResult
-	(*ActionStatus)(nil),              // 1: df.plugin.ActionStatus
-	(*WorldEntitiesResult)(nil),       // 2: df.plugin.WorldEntitiesResult
-	(*WorldEntitiesWithinResult)(nil), // 3: df.plugin.WorldEntitiesWithinResult
-	(*WorldPlayersResult)(nil),        // 4: df.plugin.WorldPlayersResult
-	(*WorldRef)(nil),                  // 5: df.plugin.WorldRef
-	(*EntityRef)(nil),                 // 6: df.plugin.EntityRef
-	(*BBox)(nil),                      // 7: df.plugin.BBox
+	(*ActionResult)(nil),               // 0: df.plugin.ActionResult
+	(*ActionStatus)(nil),               // 1: df.plugin.ActionStatus
+	(*WorldEntitiesResult)(nil),        // 2: df.plugin.WorldEntitiesResult
+	(*WorldEntitiesWithinResult)(nil),  // 3: df.plugin.WorldEntitiesWithinResult
+	(*WorldPlayersResult)(nil),         // 4: df.plugin.WorldPlayersResult
+	(*WorldDefaultGameModeResult)(nil), // 5: df.plugin.WorldDefaultGameModeResult
+	(*WorldPlayerSpawnResult)(nil),     // 6: df.plugin.WorldPlayerSpawnResult
+	(*WorldRef)(nil),                   // 7: df.plugin.WorldRef
+	(*EntityRef)(nil),                  // 8: df.plugin.EntityRef
+	(*BBox)(nil),                       // 9: df.plugin.BBox
+	(GameMode)(0),                      // 10: df.plugin.GameMode
+	(*BlockPos)(nil),                   // 11: df.plugin.BlockPos
 }
 var file_action_results_proto_depIdxs = []int32{
 	1,  // 0: df.plugin.ActionResult.status:type_name -> df.plugin.ActionStatus
 	2,  // 1: df.plugin.ActionResult.world_entities:type_name -> df.plugin.WorldEntitiesResult
 	4,  // 2: df.plugin.ActionResult.world_players:type_name -> df.plugin.WorldPlayersResult
 	3,  // 3: df.plugin.ActionResult.world_entities_within:type_name -> df.plugin.WorldEntitiesWithinResult
-	5,  // 4: df.plugin.WorldEntitiesResult.world:type_name -> df.plugin.WorldRef
-	6,  // 5: df.plugin.WorldEntitiesResult.entities:type_name -> df.plugin.EntityRef
-	5,  // 6: df.plugin.WorldEntitiesWithinResult.world:type_name -> df.plugin.WorldRef
-	7,  // 7: df.plugin.WorldEntitiesWithinResult.box:type_name -> df.plugin.BBox
-	6,  // 8: df.plugin.WorldEntitiesWithinResult.entities:type_name -> df.plugin.EntityRef
-	5,  // 9: df.plugin.WorldPlayersResult.world:type_name -> df.plugin.WorldRef
-	6,  // 10: df.plugin.WorldPlayersResult.players:type_name -> df.plugin.EntityRef
-	11, // [11:11] is the sub-list for method output_type
-	11, // [11:11] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	5,  // 4: df.plugin.ActionResult.world_default_game_mode:type_name -> df.plugin.WorldDefaultGameModeResult
+	6,  // 5: df.plugin.ActionResult.world_player_spawn:type_name -> df.plugin.WorldPlayerSpawnResult
+	7,  // 6: df.plugin.WorldEntitiesResult.world:type_name -> df.plugin.WorldRef
+	8,  // 7: df.plugin.WorldEntitiesResult.entities:type_name -> df.plugin.EntityRef
+	7,  // 8: df.plugin.WorldEntitiesWithinResult.world:type_name -> df.plugin.WorldRef
+	9,  // 9: df.plugin.WorldEntitiesWithinResult.box:type_name -> df.plugin.BBox
+	8,  // 10: df.plugin.WorldEntitiesWithinResult.entities:type_name -> df.plugin.EntityRef
+	7,  // 11: df.plugin.WorldPlayersResult.world:type_name -> df.plugin.WorldRef
+	8,  // 12: df.plugin.WorldPlayersResult.players:type_name -> df.plugin.EntityRef
+	7,  // 13: df.plugin.WorldDefaultGameModeResult.world:type_name -> df.plugin.WorldRef
+	10, // 14: df.plugin.WorldDefaultGameModeResult.game_mode:type_name -> df.plugin.GameMode
+	7,  // 15: df.plugin.WorldPlayerSpawnResult.world:type_name -> df.plugin.WorldRef
+	11, // 16: df.plugin.WorldPlayerSpawnResult.spawn:type_name -> df.plugin.BlockPos
+	17, // [17:17] is the sub-list for method output_type
+	17, // [17:17] is the sub-list for method input_type
+	17, // [17:17] is the sub-list for extension type_name
+	17, // [17:17] is the sub-list for extension extendee
+	0,  // [0:17] is the sub-list for field type_name
 }
 
 func init() { file_action_results_proto_init() }
@@ -434,6 +598,8 @@ func file_action_results_proto_init() {
 		(*ActionResult_WorldEntities)(nil),
 		(*ActionResult_WorldPlayers)(nil),
 		(*ActionResult_WorldEntitiesWithin)(nil),
+		(*ActionResult_WorldDefaultGameMode)(nil),
+		(*ActionResult_WorldPlayerSpawn)(nil),
 	}
 	file_action_results_proto_msgTypes[1].OneofWrappers = []any{}
 	type x struct{}
@@ -442,7 +608,7 @@ func file_action_results_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_action_results_proto_rawDesc), len(file_action_results_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

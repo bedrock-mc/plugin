@@ -57,10 +57,16 @@ class Action extends \Google\Protobuf\Internal\Message
      *     @type \Df\Plugin\WorldSetBlockAction $world_set_block
      *     @type \Df\Plugin\WorldPlaySoundAction $world_play_sound
      *     @type \Df\Plugin\WorldAddParticleAction $world_add_particle
+     *     @type \Df\Plugin\WorldSetTimeAction $world_set_time
+     *     @type \Df\Plugin\WorldStopTimeAction $world_stop_time
+     *     @type \Df\Plugin\WorldStartTimeAction $world_start_time
+     *     @type \Df\Plugin\WorldSetSpawnAction $world_set_spawn
      *     @type \Df\Plugin\WorldQueryEntitiesAction $world_query_entities
      *           World queries
      *     @type \Df\Plugin\WorldQueryPlayersAction $world_query_players
      *     @type \Df\Plugin\WorldQueryEntitiesWithinAction $world_query_entities_within
+     *     @type \Df\Plugin\WorldQueryDefaultGameModeAction $world_query_default_game_mode
+     *     @type \Df\Plugin\WorldQueryPlayerSpawnAction $world_query_player_spawn
      * }
      */
     public function __construct($data = NULL) {
@@ -773,6 +779,114 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Generated from protobuf field <code>.df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];</code>
+     * @return \Df\Plugin\WorldSetTimeAction|null
+     */
+    public function getWorldSetTime()
+    {
+        return $this->readOneof(66);
+    }
+
+    public function hasWorldSetTime()
+    {
+        return $this->hasOneof(66);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];</code>
+     * @param \Df\Plugin\WorldSetTimeAction $var
+     * @return $this
+     */
+    public function setWorldSetTime($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetTimeAction::class);
+        $this->writeOneof(66, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];</code>
+     * @return \Df\Plugin\WorldStopTimeAction|null
+     */
+    public function getWorldStopTime()
+    {
+        return $this->readOneof(67);
+    }
+
+    public function hasWorldStopTime()
+    {
+        return $this->hasOneof(67);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];</code>
+     * @param \Df\Plugin\WorldStopTimeAction $var
+     * @return $this
+     */
+    public function setWorldStopTime($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldStopTimeAction::class);
+        $this->writeOneof(67, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];</code>
+     * @return \Df\Plugin\WorldStartTimeAction|null
+     */
+    public function getWorldStartTime()
+    {
+        return $this->readOneof(68);
+    }
+
+    public function hasWorldStartTime()
+    {
+        return $this->hasOneof(68);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];</code>
+     * @param \Df\Plugin\WorldStartTimeAction $var
+     * @return $this
+     */
+    public function setWorldStartTime($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldStartTimeAction::class);
+        $this->writeOneof(68, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldSetSpawnAction world_set_spawn = 69 [json_name = "worldSetSpawn"];</code>
+     * @return \Df\Plugin\WorldSetSpawnAction|null
+     */
+    public function getWorldSetSpawn()
+    {
+        return $this->readOneof(69);
+    }
+
+    public function hasWorldSetSpawn()
+    {
+        return $this->hasOneof(69);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldSetSpawnAction world_set_spawn = 69 [json_name = "worldSetSpawn"];</code>
+     * @param \Df\Plugin\WorldSetSpawnAction $var
+     * @return $this
+     */
+    public function setWorldSetSpawn($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetSpawnAction::class);
+        $this->writeOneof(69, $var);
+
+        return $this;
+    }
+
+    /**
      * World queries
      *
      * Generated from protobuf field <code>.df.plugin.WorldQueryEntitiesAction world_query_entities = 70 [json_name = "worldQueryEntities"];</code>
@@ -853,6 +967,60 @@ class Action extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryEntitiesWithinAction::class);
         $this->writeOneof(72, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];</code>
+     * @return \Df\Plugin\WorldQueryDefaultGameModeAction|null
+     */
+    public function getWorldQueryDefaultGameMode()
+    {
+        return $this->readOneof(73);
+    }
+
+    public function hasWorldQueryDefaultGameMode()
+    {
+        return $this->hasOneof(73);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];</code>
+     * @param \Df\Plugin\WorldQueryDefaultGameModeAction $var
+     * @return $this
+     */
+    public function setWorldQueryDefaultGameMode($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryDefaultGameModeAction::class);
+        $this->writeOneof(73, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];</code>
+     * @return \Df\Plugin\WorldQueryPlayerSpawnAction|null
+     */
+    public function getWorldQueryPlayerSpawn()
+    {
+        return $this->readOneof(74);
+    }
+
+    public function hasWorldQueryPlayerSpawn()
+    {
+        return $this->hasOneof(74);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];</code>
+     * @param \Df\Plugin\WorldQueryPlayerSpawnAction $var
+     * @return $this
+     */
+    public function setWorldQueryPlayerSpawn($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryPlayerSpawnAction::class);
+        $this->writeOneof(74, $var);
 
         return $this;
     }

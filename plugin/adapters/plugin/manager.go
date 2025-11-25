@@ -41,6 +41,10 @@ type Manager struct {
 
 	worldMu sync.RWMutex
 	worlds  map[string]*world.World
+	// worldsByDim maps lowercased dimension name ("overworld","nether","end") to the world instance.
+	worldsByDim map[string]*world.World
+	// worldsByID maps a runtime-stable world ID (assigned by host) to the world.
+	worldsByID map[string]*world.World
 
 	eventCounter atomic.Uint64
 
@@ -79,6 +83,8 @@ func NewManager(srv *server.Server, log *slog.Logger, playerHandlerFactory ports
 		players:              make(map[uuid.UUID]*player.Player),
 		commands:             make(map[string]commandBinding),
 		worlds:               make(map[string]*world.World),
+		worldsByDim:          make(map[string]*world.World),
+		worldsByID:           make(map[string]*world.World),
 		playerHandlerFactory: playerHandlerFactory,
 		worldHandlerFactory:  worldHandlerFactory,
 		bootID:               uuid.NewString(),
@@ -444,8 +450,18 @@ func (m *Manager) registerWorld(w *world.World) {
 		return
 	}
 	name := strings.ToLower(w.Name())
+	dim := strings.ToLower(fmt.Sprint(w.Dimension()))
+	id := fmt.Sprintf("%p", w)
 	m.worldMu.Lock()
 	m.worlds[name] = w
+	if m.worldsByDim == nil {
+		m.worldsByDim = make(map[string]*world.World)
+	}
+	m.worldsByDim[dim] = w
+	if m.worldsByID == nil {
+		m.worldsByID = make(map[string]*world.World)
+	}
+	m.worldsByID[id] = w
 	m.worldMu.Unlock()
 }
 
@@ -454,9 +470,21 @@ func (m *Manager) unregisterWorld(w *world.World) {
 		return
 	}
 	name := strings.ToLower(w.Name())
+	dim := strings.ToLower(fmt.Sprint(w.Dimension()))
+	id := fmt.Sprintf("%p", w)
 	m.worldMu.Lock()
 	if existing, ok := m.worlds[name]; ok && existing == w {
 		delete(m.worlds, name)
+	}
+	if m.worldsByDim != nil {
+		if existing, ok := m.worldsByDim[dim]; ok && existing == w {
+			delete(m.worldsByDim, dim)
+		}
+	}
+	if m.worldsByID != nil {
+		if existing, ok := m.worldsByID[id]; ok && existing == w {
+			delete(m.worldsByID, id)
+		}
 	}
 	m.worldMu.Unlock()
 }
@@ -469,21 +497,30 @@ func (m *Manager) worldFromRef(ref *pb.WorldRef) *world.World {
 	m.worldMu.RLock()
 	defer m.worldMu.RUnlock()
 
-	// Try by name first
+	// Prefer lookup by host-assigned ID when provided.
+	if ref.Id != "" {
+		if m.worldsByID != nil {
+			if w := m.worldsByID[ref.Id]; w != nil {
+				return w
+			}
+		}
+	}
+
+	// Prefer dimension lookup to disambiguate worlds that may share the same name (e.g., "World").
+	if ref.Dimension != "" {
+		dim := strings.ToLower(ref.Dimension)
+		if m.worldsByDim != nil {
+			if w := m.worldsByDim[dim]; w != nil {
+				return w
+			}
+		}
+	}
+
+	// Fallback to name lookup.
 	if ref.Name != "" {
 		name := strings.ToLower(ref.Name)
 		if w := m.worlds[name]; w != nil {
 			return w
-		}
-	}
-
-	// Fallback to dimension lookup
-	if ref.Dimension != "" {
-		dim := strings.ToLower(ref.Dimension)
-		for _, candidate := range m.worlds {
-			if worldDimension(candidate) == dim {
-				return candidate
-			}
 		}
 	}
 

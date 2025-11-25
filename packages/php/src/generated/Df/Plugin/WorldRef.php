@@ -22,6 +22,12 @@ class WorldRef extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string dimension = 2 [json_name = "dimension"];</code>
      */
     protected $dimension = '';
+    /**
+     * This is a runtime id. it changes across server restarts.
+     *
+     * Generated from protobuf field <code>string id = 3 [json_name = "id"];</code>
+     */
+    protected $id = '';
 
     /**
      * Constructor.
@@ -31,6 +37,8 @@ class WorldRef extends \Google\Protobuf\Internal\Message
      *
      *     @type string $name
      *     @type string $dimension
+     *     @type string $id
+     *           This is a runtime id. it changes across server restarts.
      * }
      */
     public function __construct($data = NULL) {
@@ -78,6 +86,32 @@ class WorldRef extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->dimension = $var;
+
+        return $this;
+    }
+
+    /**
+     * This is a runtime id. it changes across server restarts.
+     *
+     * Generated from protobuf field <code>string id = 3 [json_name = "id"];</code>
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * This is a runtime id. it changes across server restarts.
+     *
+     * Generated from protobuf field <code>string id = 3 [json_name = "id"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->id = $var;
 
         return $this;
     }

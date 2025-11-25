@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 import common_pb2 as common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x61\x63tion_results.proto\x12\tdf.plugin\x1a\x0c\x63ommon.proto\"\xeb\x02\n\x0c\x41\x63tionResult\x12%\n\x0e\x63orrelation_id\x18\x01 \x01(\tR\rcorrelationId\x12\x34\n\x06status\x18\x02 \x01(\x0b\x32\x17.df.plugin.ActionStatusH\x01R\x06status\x88\x01\x01\x12G\n\x0eworld_entities\x18\n \x01(\x0b\x32\x1e.df.plugin.WorldEntitiesResultH\x00R\rworldEntities\x12\x44\n\rworld_players\x18\x0b \x01(\x0b\x32\x1d.df.plugin.WorldPlayersResultH\x00R\x0cworldPlayers\x12Z\n\x15world_entities_within\x18\x0c \x01(\x0b\x32$.df.plugin.WorldEntitiesWithinResultH\x00R\x13worldEntitiesWithinB\x08\n\x06resultB\t\n\x07_status\"C\n\x0c\x41\x63tionStatus\x12\x0e\n\x02ok\x18\x01 \x01(\x08R\x02ok\x12\x19\n\x05\x65rror\x18\x02 \x01(\tH\x00R\x05\x65rror\x88\x01\x01\x42\x08\n\x06_error\"r\n\x13WorldEntitiesResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\x30\n\x08\x65ntities\x18\x02 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x08\x65ntities\"\x9b\x01\n\x19WorldEntitiesWithinResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12!\n\x03\x62ox\x18\x02 \x01(\x0b\x32\x0f.df.plugin.BBoxR\x03\x62ox\x12\x30\n\x08\x65ntities\x18\x03 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x08\x65ntities\"o\n\x12WorldPlayersResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12.\n\x07players\x18\x02 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x07playersB\x91\x01\n\rcom.df.pluginB\x12\x41\x63tionResultsProtoP\x01Z\'github.com/secmc/plugin/proto/generated\xa2\x02\x03\x44PX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15\x44\x66\\Plugin\\GPBMetadata\xea\x02\nDf::Pluginb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x61\x63tion_results.proto\x12\tdf.plugin\x1a\x0c\x63ommon.proto\"\x9e\x04\n\x0c\x41\x63tionResult\x12%\n\x0e\x63orrelation_id\x18\x01 \x01(\tR\rcorrelationId\x12\x34\n\x06status\x18\x02 \x01(\x0b\x32\x17.df.plugin.ActionStatusH\x01R\x06status\x88\x01\x01\x12G\n\x0eworld_entities\x18\n \x01(\x0b\x32\x1e.df.plugin.WorldEntitiesResultH\x00R\rworldEntities\x12\x44\n\rworld_players\x18\x0b \x01(\x0b\x32\x1d.df.plugin.WorldPlayersResultH\x00R\x0cworldPlayers\x12Z\n\x15world_entities_within\x18\x0c \x01(\x0b\x32$.df.plugin.WorldEntitiesWithinResultH\x00R\x13worldEntitiesWithin\x12^\n\x17world_default_game_mode\x18\r \x01(\x0b\x32%.df.plugin.WorldDefaultGameModeResultH\x00R\x14worldDefaultGameMode\x12Q\n\x12world_player_spawn\x18\x0e \x01(\x0b\x32!.df.plugin.WorldPlayerSpawnResultH\x00R\x10worldPlayerSpawnB\x08\n\x06resultB\t\n\x07_status\"C\n\x0c\x41\x63tionStatus\x12\x0e\n\x02ok\x18\x01 \x01(\x08R\x02ok\x12\x19\n\x05\x65rror\x18\x02 \x01(\tH\x00R\x05\x65rror\x88\x01\x01\x42\x08\n\x06_error\"r\n\x13WorldEntitiesResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\x30\n\x08\x65ntities\x18\x02 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x08\x65ntities\"\x9b\x01\n\x19WorldEntitiesWithinResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12!\n\x03\x62ox\x18\x02 \x01(\x0b\x32\x0f.df.plugin.BBoxR\x03\x62ox\x12\x30\n\x08\x65ntities\x18\x03 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x08\x65ntities\"o\n\x12WorldPlayersResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12.\n\x07players\x18\x02 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x07players\"y\n\x1aWorldDefaultGameModeResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\x30\n\tgame_mode\x18\x02 \x01(\x0e\x32\x13.df.plugin.GameModeR\x08gameMode\"\x8f\x01\n\x16WorldPlayerSpawnResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\x1f\n\x0bplayer_uuid\x18\x02 \x01(\tR\nplayerUuid\x12)\n\x05spawn\x18\x03 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x05spawnB\x91\x01\n\rcom.df.pluginB\x12\x41\x63tionResultsProtoP\x01Z\'github.com/secmc/plugin/proto/generated\xa2\x02\x03\x44PX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15\x44\x66\\Plugin\\GPBMetadata\xea\x02\nDf::Pluginb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,13 +34,17 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\rcom.df.pluginB\022ActionResultsProtoP\001Z\'github.com/secmc/plugin/proto/generated\242\002\003DPX\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMetadata\352\002\nDf::Plugin'
   _globals['_ACTIONRESULT']._serialized_start=50
-  _globals['_ACTIONRESULT']._serialized_end=413
-  _globals['_ACTIONSTATUS']._serialized_start=415
-  _globals['_ACTIONSTATUS']._serialized_end=482
-  _globals['_WORLDENTITIESRESULT']._serialized_start=484
-  _globals['_WORLDENTITIESRESULT']._serialized_end=598
-  _globals['_WORLDENTITIESWITHINRESULT']._serialized_start=601
-  _globals['_WORLDENTITIESWITHINRESULT']._serialized_end=756
-  _globals['_WORLDPLAYERSRESULT']._serialized_start=758
-  _globals['_WORLDPLAYERSRESULT']._serialized_end=869
+  _globals['_ACTIONRESULT']._serialized_end=592
+  _globals['_ACTIONSTATUS']._serialized_start=594
+  _globals['_ACTIONSTATUS']._serialized_end=661
+  _globals['_WORLDENTITIESRESULT']._serialized_start=663
+  _globals['_WORLDENTITIESRESULT']._serialized_end=777
+  _globals['_WORLDENTITIESWITHINRESULT']._serialized_start=780
+  _globals['_WORLDENTITIESWITHINRESULT']._serialized_end=935
+  _globals['_WORLDPLAYERSRESULT']._serialized_start=937
+  _globals['_WORLDPLAYERSRESULT']._serialized_end=1048
+  _globals['_WORLDDEFAULTGAMEMODERESULT']._serialized_start=1050
+  _globals['_WORLDDEFAULTGAMEMODERESULT']._serialized_end=1171
+  _globals['_WORLDPLAYERSPAWNRESULT']._serialized_start=1174
+  _globals['_WORLDPLAYERSPAWNRESULT']._serialized_end=1317
 # @@protoc_insertion_point(module_scope)

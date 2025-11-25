@@ -121,6 +121,7 @@ message LiquidState {
 message WorldRef {
     string name = 1;
     string dimension = 2;
+    string id = 3; // This is a runtime id. it changes across server restarts.
 }
 
 message EntityRef {

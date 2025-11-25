@@ -35,6 +35,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      *     @type \Df\Plugin\WorldEntitiesResult $world_entities
      *     @type \Df\Plugin\WorldPlayersResult $world_players
      *     @type \Df\Plugin\WorldEntitiesWithinResult $world_entities_within
+     *     @type \Df\Plugin\WorldDefaultGameModeResult $world_default_game_mode
+     *     @type \Df\Plugin\WorldPlayerSpawnResult $world_player_spawn
      * }
      */
     public function __construct($data = NULL) {
@@ -173,6 +175,60 @@ class ActionResult extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Df\Plugin\WorldEntitiesWithinResult::class);
         $this->writeOneof(12, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldDefaultGameModeResult world_default_game_mode = 13 [json_name = "worldDefaultGameMode"];</code>
+     * @return \Df\Plugin\WorldDefaultGameModeResult|null
+     */
+    public function getWorldDefaultGameMode()
+    {
+        return $this->readOneof(13);
+    }
+
+    public function hasWorldDefaultGameMode()
+    {
+        return $this->hasOneof(13);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldDefaultGameModeResult world_default_game_mode = 13 [json_name = "worldDefaultGameMode"];</code>
+     * @param \Df\Plugin\WorldDefaultGameModeResult $var
+     * @return $this
+     */
+    public function setWorldDefaultGameMode($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldDefaultGameModeResult::class);
+        $this->writeOneof(13, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldPlayerSpawnResult world_player_spawn = 14 [json_name = "worldPlayerSpawn"];</code>
+     * @return \Df\Plugin\WorldPlayerSpawnResult|null
+     */
+    public function getWorldPlayerSpawn()
+    {
+        return $this->readOneof(14);
+    }
+
+    public function hasWorldPlayerSpawn()
+    {
+        return $this->hasOneof(14);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldPlayerSpawnResult world_player_spawn = 14 [json_name = "worldPlayerSpawn"];</code>
+     * @param \Df\Plugin\WorldPlayerSpawnResult $var
+     * @return $this
+     */
+    public function setWorldPlayerSpawn($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldPlayerSpawnResult::class);
+        $this->writeOneof(14, $var);
 
         return $this;
     }

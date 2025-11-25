@@ -12,6 +12,8 @@ message ActionResult {
         WorldEntitiesResult world_entities = 10;
         WorldPlayersResult world_players = 11;
         WorldEntitiesWithinResult world_entities_within = 12;
+        WorldDefaultGameModeResult world_default_game_mode = 13;
+        WorldPlayerSpawnResult world_player_spawn = 14;
     }
 }
 
@@ -34,4 +36,15 @@ message WorldEntitiesWithinResult {
 message WorldPlayersResult {
     WorldRef world = 1;
     repeated EntityRef players = 2;
+}
+
+message WorldDefaultGameModeResult {
+    WorldRef world = 1;
+    GameMode game_mode = 2;
+}
+
+message WorldPlayerSpawnResult {
+    WorldRef world = 1;
+    string player_uuid = 2;
+    BlockPos spawn = 3;
 }

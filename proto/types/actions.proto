@@ -42,10 +42,16 @@ message Action {
         WorldSetBlockAction world_set_block = 63;
         WorldPlaySoundAction world_play_sound = 64;
         WorldAddParticleAction world_add_particle = 65;
+        WorldSetTimeAction world_set_time = 66;
+        WorldStopTimeAction world_stop_time = 67;
+        WorldStartTimeAction world_start_time = 68;
+        WorldSetSpawnAction world_set_spawn = 69;
         // World queries
         WorldQueryEntitiesAction world_query_entities = 70;
         WorldQueryPlayersAction world_query_players = 71;
         WorldQueryEntitiesWithinAction world_query_entities_within = 72;
+        WorldQueryDefaultGameModeAction world_query_default_game_mode = 73;
+        WorldQueryPlayerSpawnAction world_query_player_spawn = 74;
     }
 }
 
@@ -196,6 +202,33 @@ message WorldAddParticleAction {
     ParticleType particle = 3;
     optional BlockState block = 4; // used for block-based particles when provided
     optional int32 face = 5; // used for punch_block when provided
+}
+
+message WorldSetTimeAction {
+    WorldRef world = 1;
+    int32 time = 2;
+}
+
+message WorldStopTimeAction {
+    WorldRef world = 1;
+}
+
+message WorldStartTimeAction {
+    WorldRef world = 1;
+}
+
+message WorldSetSpawnAction {
+    WorldRef world = 1;
+    BlockPos spawn = 2;
+}
+
+message WorldQueryDefaultGameModeAction {
+    WorldRef world = 1;
+}
+
+message WorldQueryPlayerSpawnAction {
+    WorldRef world = 1;
+    string player_uuid = 2;
 }
 
 enum ParticleType {

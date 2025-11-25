@@ -5,7 +5,7 @@
 // source: action_results.proto
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
-import { BBox, EntityRef, WorldRef } from "./common.js";
+import { BBox, BlockPos, EntityRef, gameModeFromJSON, gameModeToJSON, WorldRef } from "./common.js";
 export const protobufPackage = "df.plugin";
 function createBaseActionResult() {
     return {
@@ -14,6 +14,8 @@ function createBaseActionResult() {
         worldEntities: undefined,
         worldPlayers: undefined,
         worldEntitiesWithin: undefined,
+        worldDefaultGameMode: undefined,
+        worldPlayerSpawn: undefined,
     };
 }
 export const ActionResult = {
@@ -32,6 +34,12 @@ export const ActionResult = {
         }
         if (message.worldEntitiesWithin !== undefined) {
             WorldEntitiesWithinResult.encode(message.worldEntitiesWithin, writer.uint32(98).fork()).join();
+        }
+        if (message.worldDefaultGameMode !== undefined) {
+            WorldDefaultGameModeResult.encode(message.worldDefaultGameMode, writer.uint32(106).fork()).join();
+        }
+        if (message.worldPlayerSpawn !== undefined) {
+            WorldPlayerSpawnResult.encode(message.worldPlayerSpawn, writer.uint32(114).fork()).join();
         }
         return writer;
     },
@@ -77,6 +85,20 @@ export const ActionResult = {
                     message.worldEntitiesWithin = WorldEntitiesWithinResult.decode(reader, reader.uint32());
                     continue;
                 }
+                case 13: {
+                    if (tag !== 106) {
+                        break;
+                    }
+                    message.worldDefaultGameMode = WorldDefaultGameModeResult.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 14: {
+                    if (tag !== 114) {
+                        break;
+                    }
+                    message.worldPlayerSpawn = WorldPlayerSpawnResult.decode(reader, reader.uint32());
+                    continue;
+                }
             }
             if ((tag & 7) === 4 || tag === 0) {
                 break;
@@ -93,6 +115,12 @@ export const ActionResult = {
             worldPlayers: isSet(object.worldPlayers) ? WorldPlayersResult.fromJSON(object.worldPlayers) : undefined,
             worldEntitiesWithin: isSet(object.worldEntitiesWithin)
                 ? WorldEntitiesWithinResult.fromJSON(object.worldEntitiesWithin)
+                : undefined,
+            worldDefaultGameMode: isSet(object.worldDefaultGameMode)
+                ? WorldDefaultGameModeResult.fromJSON(object.worldDefaultGameMode)
+                : undefined,
+            worldPlayerSpawn: isSet(object.worldPlayerSpawn)
+                ? WorldPlayerSpawnResult.fromJSON(object.worldPlayerSpawn)
                 : undefined,
         };
     },
@@ -113,6 +141,12 @@ export const ActionResult = {
         if (message.worldEntitiesWithin !== undefined) {
             obj.worldEntitiesWithin = WorldEntitiesWithinResult.toJSON(message.worldEntitiesWithin);
         }
+        if (message.worldDefaultGameMode !== undefined) {
+            obj.worldDefaultGameMode = WorldDefaultGameModeResult.toJSON(message.worldDefaultGameMode);
+        }
+        if (message.worldPlayerSpawn !== undefined) {
+            obj.worldPlayerSpawn = WorldPlayerSpawnResult.toJSON(message.worldPlayerSpawn);
+        }
         return obj;
     },
     create(base) {
@@ -132,6 +166,12 @@ export const ActionResult = {
             : undefined;
         message.worldEntitiesWithin = (object.worldEntitiesWithin !== undefined && object.worldEntitiesWithin !== null)
             ? WorldEntitiesWithinResult.fromPartial(object.worldEntitiesWithin)
+            : undefined;
+        message.worldDefaultGameMode = (object.worldDefaultGameMode !== undefined && object.worldDefaultGameMode !== null)
+            ? WorldDefaultGameModeResult.fromPartial(object.worldDefaultGameMode)
+            : undefined;
+        message.worldPlayerSpawn = (object.worldPlayerSpawn !== undefined && object.worldPlayerSpawn !== null)
+            ? WorldPlayerSpawnResult.fromPartial(object.worldPlayerSpawn)
             : undefined;
         return message;
     },
@@ -430,6 +470,163 @@ export const WorldPlayersResult = {
             ? WorldRef.fromPartial(object.world)
             : undefined;
         message.players = object.players?.map((e) => EntityRef.fromPartial(e)) || [];
+        return message;
+    },
+};
+function createBaseWorldDefaultGameModeResult() {
+    return { world: undefined, gameMode: 0 };
+}
+export const WorldDefaultGameModeResult = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.gameMode !== 0) {
+            writer.uint32(16).int32(message.gameMode);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldDefaultGameModeResult();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.gameMode = reader.int32();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            gameMode: isSet(object.gameMode) ? gameModeFromJSON(object.gameMode) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.gameMode !== 0) {
+            obj.gameMode = gameModeToJSON(message.gameMode);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldDefaultGameModeResult.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldDefaultGameModeResult();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.gameMode = object.gameMode ?? 0;
+        return message;
+    },
+};
+function createBaseWorldPlayerSpawnResult() {
+    return { world: undefined, playerUuid: "", spawn: undefined };
+}
+export const WorldPlayerSpawnResult = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.playerUuid !== "") {
+            writer.uint32(18).string(message.playerUuid);
+        }
+        if (message.spawn !== undefined) {
+            BlockPos.encode(message.spawn, writer.uint32(26).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldPlayerSpawnResult();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.spawn = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            spawn: isSet(object.spawn) ? BlockPos.fromJSON(object.spawn) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.spawn !== undefined) {
+            obj.spawn = BlockPos.toJSON(message.spawn);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldPlayerSpawnResult.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldPlayerSpawnResult();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.playerUuid = object.playerUuid ?? "";
+        message.spawn = (object.spawn !== undefined && object.spawn !== null)
+            ? BlockPos.fromPartial(object.spawn)
+            : undefined;
         return message;
     },
 };
