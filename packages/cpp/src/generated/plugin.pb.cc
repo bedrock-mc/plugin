@@ -249,35 +249,6 @@ struct EventEnvelopeDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 EventEnvelopeDefaultTypeInternal _EventEnvelope_default_instance_;
 
-inline constexpr PluginToHost::Impl_::Impl_(
-    ::_pbi::ConstantInitialized) noexcept
-      : _cached_size_{0},
-        plugin_id_(
-            &::google::protobuf::internal::fixed_address_empty_string,
-            ::_pbi::ConstantInitialized()),
-        payload_{},
-        _oneof_case_{} {}
-
-template <typename>
-PROTOBUF_CONSTEXPR PluginToHost::PluginToHost(::_pbi::ConstantInitialized)
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-    : ::google::protobuf::Message(PluginToHost_class_data_.base()),
-#else   // PROTOBUF_CUSTOM_VTABLE
-    : ::google::protobuf::Message(),
-#endif  // PROTOBUF_CUSTOM_VTABLE
-      _impl_(::_pbi::ConstantInitialized()) {
-}
-struct PluginToHostDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PluginToHostDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
-  ~PluginToHostDefaultTypeInternal() {}
-  union {
-    PluginToHost _instance;
-  };
-};
-
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
-    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PluginToHostDefaultTypeInternal _PluginToHost_default_instance_;
-
 inline constexpr HostToPlugin::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -306,6 +277,35 @@ struct HostToPluginDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HostToPluginDefaultTypeInternal _HostToPlugin_default_instance_;
+
+inline constexpr PluginToHost::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        plugin_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        payload_{},
+        _oneof_case_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PluginToHost::PluginToHost(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PluginToHost_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PluginToHostDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PluginToHostDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PluginToHostDefaultTypeInternal() {}
+  union {
+    PluginToHost _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PluginToHostDefaultTypeInternal _PluginToHost_default_instance_;
 }  // namespace plugin
 }  // namespace df
 static const ::_pb::EnumDescriptor* PROTOBUF_NONNULL

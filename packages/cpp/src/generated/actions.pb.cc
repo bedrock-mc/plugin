@@ -594,6 +594,165 @@ struct WorldSetDefaultGameModeActionDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldSetDefaultGameModeActionDefaultTypeInternal _WorldSetDefaultGameModeAction_default_instance_;
 
+inline constexpr WorldSetBiomeAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        biome_id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        world_{nullptr},
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldSetBiomeAction::WorldSetBiomeAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldSetBiomeAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldSetBiomeActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldSetBiomeActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldSetBiomeActionDefaultTypeInternal() {}
+  union {
+    WorldSetBiomeAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldSetBiomeActionDefaultTypeInternal _WorldSetBiomeAction_default_instance_;
+
+inline constexpr WorldQueryThunderingAtAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldQueryThunderingAtAction::WorldQueryThunderingAtAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldQueryThunderingAtAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldQueryThunderingAtActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldQueryThunderingAtActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldQueryThunderingAtActionDefaultTypeInternal() {}
+  union {
+    WorldQueryThunderingAtAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQueryThunderingAtActionDefaultTypeInternal _WorldQueryThunderingAtAction_default_instance_;
+
+inline constexpr WorldQueryTemperatureAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldQueryTemperatureAction::WorldQueryTemperatureAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldQueryTemperatureAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldQueryTemperatureActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldQueryTemperatureActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldQueryTemperatureActionDefaultTypeInternal() {}
+  union {
+    WorldQueryTemperatureAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQueryTemperatureActionDefaultTypeInternal _WorldQueryTemperatureAction_default_instance_;
+
+inline constexpr WorldQuerySnowingAtAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldQuerySnowingAtAction::WorldQuerySnowingAtAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldQuerySnowingAtAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldQuerySnowingAtActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldQuerySnowingAtActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldQuerySnowingAtActionDefaultTypeInternal() {}
+  union {
+    WorldQuerySnowingAtAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQuerySnowingAtActionDefaultTypeInternal _WorldQuerySnowingAtAction_default_instance_;
+
+inline constexpr WorldQuerySkyLightAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldQuerySkyLightAction::WorldQuerySkyLightAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldQuerySkyLightAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldQuerySkyLightActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldQuerySkyLightActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldQuerySkyLightActionDefaultTypeInternal() {}
+  union {
+    WorldQuerySkyLightAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQuerySkyLightActionDefaultTypeInternal _WorldQuerySkyLightAction_default_instance_;
+
+inline constexpr WorldQueryRainingAtAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldQueryRainingAtAction::WorldQueryRainingAtAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldQueryRainingAtAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldQueryRainingAtActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldQueryRainingAtActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldQueryRainingAtActionDefaultTypeInternal() {}
+  union {
+    WorldQueryRainingAtAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQueryRainingAtActionDefaultTypeInternal _WorldQueryRainingAtAction_default_instance_;
+
 inline constexpr WorldQueryPlayersAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -647,6 +806,85 @@ struct WorldQueryPlayerSpawnActionDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQueryPlayerSpawnActionDefaultTypeInternal _WorldQueryPlayerSpawnAction_default_instance_;
 
+inline constexpr WorldQueryLiquidAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldQueryLiquidAction::WorldQueryLiquidAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldQueryLiquidAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldQueryLiquidActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldQueryLiquidActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldQueryLiquidActionDefaultTypeInternal() {}
+  union {
+    WorldQueryLiquidAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQueryLiquidActionDefaultTypeInternal _WorldQueryLiquidAction_default_instance_;
+
+inline constexpr WorldQueryLightAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldQueryLightAction::WorldQueryLightAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldQueryLightAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldQueryLightActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldQueryLightActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldQueryLightActionDefaultTypeInternal() {}
+  union {
+    WorldQueryLightAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQueryLightActionDefaultTypeInternal _WorldQueryLightAction_default_instance_;
+
+inline constexpr WorldQueryHighestBlockAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        x_{0},
+        z_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldQueryHighestBlockAction::WorldQueryHighestBlockAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldQueryHighestBlockAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldQueryHighestBlockActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldQueryHighestBlockActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldQueryHighestBlockActionDefaultTypeInternal() {}
+  union {
+    WorldQueryHighestBlockAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQueryHighestBlockActionDefaultTypeInternal _WorldQueryHighestBlockAction_default_instance_;
+
 inline constexpr WorldQueryEntitiesAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -696,6 +934,58 @@ struct WorldQueryDefaultGameModeActionDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQueryDefaultGameModeActionDefaultTypeInternal _WorldQueryDefaultGameModeAction_default_instance_;
+
+inline constexpr WorldQueryBlockAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldQueryBlockAction::WorldQueryBlockAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldQueryBlockAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldQueryBlockActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldQueryBlockActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldQueryBlockActionDefaultTypeInternal() {}
+  union {
+    WorldQueryBlockAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQueryBlockActionDefaultTypeInternal _WorldQueryBlockAction_default_instance_;
+
+inline constexpr WorldQueryBiomeAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldQueryBiomeAction::WorldQueryBiomeAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldQueryBiomeAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldQueryBiomeActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldQueryBiomeActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldQueryBiomeActionDefaultTypeInternal() {}
+  union {
+    WorldQueryBiomeAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldQueryBiomeActionDefaultTypeInternal _WorldQueryBiomeAction_default_instance_;
 
 inline constexpr WorldPlaySoundAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -896,6 +1186,34 @@ struct WorldSetBlockActionDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldSetBlockActionDefaultTypeInternal _WorldSetBlockAction_default_instance_;
 
+inline constexpr WorldScheduleBlockUpdateAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        position_{nullptr},
+        block_{nullptr},
+        delay_ms_{::int64_t{0}} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldScheduleBlockUpdateAction::WorldScheduleBlockUpdateAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldScheduleBlockUpdateAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldScheduleBlockUpdateActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldScheduleBlockUpdateActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldScheduleBlockUpdateActionDefaultTypeInternal() {}
+  union {
+    WorldScheduleBlockUpdateAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldScheduleBlockUpdateActionDefaultTypeInternal _WorldScheduleBlockUpdateAction_default_instance_;
+
 inline constexpr WorldQueryEntitiesWithinAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -950,6 +1268,33 @@ struct WorldAddParticleActionDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldAddParticleActionDefaultTypeInternal _WorldAddParticleAction_default_instance_;
+
+inline constexpr WorldSetLiquidAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        world_{nullptr},
+        position_{nullptr},
+        liquid_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR WorldSetLiquidAction::WorldSetLiquidAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(WorldSetLiquidAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct WorldSetLiquidActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WorldSetLiquidActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WorldSetLiquidActionDefaultTypeInternal() {}
+  union {
+    WorldSetLiquidAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorldSetLiquidActionDefaultTypeInternal _WorldSetLiquidAction_default_instance_;
 
 inline constexpr Action::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1021,7 +1366,7 @@ const ::uint32_t
         0x085, // bitmap
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_._oneof_case_[0]),
-        39, // hasbit index offset
+        52, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.correlation_id_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
@@ -1057,7 +1402,33 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
         0,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
         ~0u,
         ~0u,
         ~0u,
@@ -1350,45 +1721,159 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryEntitiesWithinAction, _impl_.box_),
         0,
         1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryBlockAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryBlockAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryBlockAction, _impl_.position_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryBiomeAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryBiomeAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryBiomeAction, _impl_.position_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryLightAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryLightAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryLightAction, _impl_.position_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQuerySkyLightAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQuerySkyLightAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQuerySkyLightAction, _impl_.position_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryTemperatureAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryTemperatureAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryTemperatureAction, _impl_.position_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryHighestBlockAction, _impl_._has_bits_),
+        6, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryHighestBlockAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryHighestBlockAction, _impl_.x_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryHighestBlockAction, _impl_.z_),
+        0,
+        1,
+        2,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryRainingAtAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryRainingAtAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryRainingAtAction, _impl_.position_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQuerySnowingAtAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQuerySnowingAtAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQuerySnowingAtAction, _impl_.position_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryThunderingAtAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryThunderingAtAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryThunderingAtAction, _impl_.position_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryLiquidAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryLiquidAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldQueryLiquidAction, _impl_.position_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldSetBiomeAction, _impl_._has_bits_),
+        6, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldSetBiomeAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldSetBiomeAction, _impl_.position_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldSetBiomeAction, _impl_.biome_id_),
+        1,
+        2,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldSetLiquidAction, _impl_._has_bits_),
+        6, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldSetLiquidAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldSetLiquidAction, _impl_.position_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldSetLiquidAction, _impl_.liquid_),
+        0,
+        1,
+        2,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldScheduleBlockUpdateAction, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldScheduleBlockUpdateAction, _impl_.world_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldScheduleBlockUpdateAction, _impl_.position_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldScheduleBlockUpdateAction, _impl_.block_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::WorldScheduleBlockUpdateAction, _impl_.delay_ms_),
+        0,
+        1,
+        2,
+        3,
 };
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, sizeof(::df::plugin::ActionBatch)},
         {5, sizeof(::df::plugin::Action)},
-        {78, sizeof(::df::plugin::SendChatAction)},
-        {85, sizeof(::df::plugin::TeleportAction)},
-        {94, sizeof(::df::plugin::KickAction)},
-        {101, sizeof(::df::plugin::SetGameModeAction)},
-        {108, sizeof(::df::plugin::GiveItemAction)},
-        {115, sizeof(::df::plugin::ClearInventoryAction)},
-        {120, sizeof(::df::plugin::SetHeldItemAction)},
-        {129, sizeof(::df::plugin::SetHealthAction)},
-        {138, sizeof(::df::plugin::SetFoodAction)},
-        {145, sizeof(::df::plugin::SetExperienceAction)},
-        {156, sizeof(::df::plugin::SetVelocityAction)},
-        {163, sizeof(::df::plugin::AddEffectAction)},
-        {176, sizeof(::df::plugin::RemoveEffectAction)},
-        {183, sizeof(::df::plugin::SendTitleAction)},
-        {198, sizeof(::df::plugin::SendPopupAction)},
-        {205, sizeof(::df::plugin::SendTipAction)},
-        {212, sizeof(::df::plugin::PlaySoundAction)},
-        {225, sizeof(::df::plugin::ExecuteCommandAction)},
-        {232, sizeof(::df::plugin::WorldSetDefaultGameModeAction)},
-        {239, sizeof(::df::plugin::WorldSetDifficultyAction)},
-        {246, sizeof(::df::plugin::WorldSetTickRangeAction)},
-        {253, sizeof(::df::plugin::WorldSetBlockAction)},
-        {262, sizeof(::df::plugin::WorldPlaySoundAction)},
-        {271, sizeof(::df::plugin::WorldAddParticleAction)},
-        {284, sizeof(::df::plugin::WorldSetTimeAction)},
-        {291, sizeof(::df::plugin::WorldStopTimeAction)},
-        {296, sizeof(::df::plugin::WorldStartTimeAction)},
-        {301, sizeof(::df::plugin::WorldSetSpawnAction)},
-        {308, sizeof(::df::plugin::WorldQueryDefaultGameModeAction)},
-        {313, sizeof(::df::plugin::WorldQueryPlayerSpawnAction)},
-        {320, sizeof(::df::plugin::WorldQueryEntitiesAction)},
-        {325, sizeof(::df::plugin::WorldQueryPlayersAction)},
-        {330, sizeof(::df::plugin::WorldQueryEntitiesWithinAction)},
+        {104, sizeof(::df::plugin::SendChatAction)},
+        {111, sizeof(::df::plugin::TeleportAction)},
+        {120, sizeof(::df::plugin::KickAction)},
+        {127, sizeof(::df::plugin::SetGameModeAction)},
+        {134, sizeof(::df::plugin::GiveItemAction)},
+        {141, sizeof(::df::plugin::ClearInventoryAction)},
+        {146, sizeof(::df::plugin::SetHeldItemAction)},
+        {155, sizeof(::df::plugin::SetHealthAction)},
+        {164, sizeof(::df::plugin::SetFoodAction)},
+        {171, sizeof(::df::plugin::SetExperienceAction)},
+        {182, sizeof(::df::plugin::SetVelocityAction)},
+        {189, sizeof(::df::plugin::AddEffectAction)},
+        {202, sizeof(::df::plugin::RemoveEffectAction)},
+        {209, sizeof(::df::plugin::SendTitleAction)},
+        {224, sizeof(::df::plugin::SendPopupAction)},
+        {231, sizeof(::df::plugin::SendTipAction)},
+        {238, sizeof(::df::plugin::PlaySoundAction)},
+        {251, sizeof(::df::plugin::ExecuteCommandAction)},
+        {258, sizeof(::df::plugin::WorldSetDefaultGameModeAction)},
+        {265, sizeof(::df::plugin::WorldSetDifficultyAction)},
+        {272, sizeof(::df::plugin::WorldSetTickRangeAction)},
+        {279, sizeof(::df::plugin::WorldSetBlockAction)},
+        {288, sizeof(::df::plugin::WorldPlaySoundAction)},
+        {297, sizeof(::df::plugin::WorldAddParticleAction)},
+        {310, sizeof(::df::plugin::WorldSetTimeAction)},
+        {317, sizeof(::df::plugin::WorldStopTimeAction)},
+        {322, sizeof(::df::plugin::WorldStartTimeAction)},
+        {327, sizeof(::df::plugin::WorldSetSpawnAction)},
+        {334, sizeof(::df::plugin::WorldQueryDefaultGameModeAction)},
+        {339, sizeof(::df::plugin::WorldQueryPlayerSpawnAction)},
+        {346, sizeof(::df::plugin::WorldQueryEntitiesAction)},
+        {351, sizeof(::df::plugin::WorldQueryPlayersAction)},
+        {356, sizeof(::df::plugin::WorldQueryEntitiesWithinAction)},
+        {363, sizeof(::df::plugin::WorldQueryBlockAction)},
+        {370, sizeof(::df::plugin::WorldQueryBiomeAction)},
+        {377, sizeof(::df::plugin::WorldQueryLightAction)},
+        {384, sizeof(::df::plugin::WorldQuerySkyLightAction)},
+        {391, sizeof(::df::plugin::WorldQueryTemperatureAction)},
+        {398, sizeof(::df::plugin::WorldQueryHighestBlockAction)},
+        {407, sizeof(::df::plugin::WorldQueryRainingAtAction)},
+        {414, sizeof(::df::plugin::WorldQuerySnowingAtAction)},
+        {421, sizeof(::df::plugin::WorldQueryThunderingAtAction)},
+        {428, sizeof(::df::plugin::WorldQueryLiquidAction)},
+        {435, sizeof(::df::plugin::WorldSetBiomeAction)},
+        {444, sizeof(::df::plugin::WorldSetLiquidAction)},
+        {453, sizeof(::df::plugin::WorldScheduleBlockUpdateAction)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::df::plugin::_ActionBatch_default_instance_._instance,
@@ -1426,12 +1911,25 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::df::plugin::_WorldQueryEntitiesAction_default_instance_._instance,
     &::df::plugin::_WorldQueryPlayersAction_default_instance_._instance,
     &::df::plugin::_WorldQueryEntitiesWithinAction_default_instance_._instance,
+    &::df::plugin::_WorldQueryBlockAction_default_instance_._instance,
+    &::df::plugin::_WorldQueryBiomeAction_default_instance_._instance,
+    &::df::plugin::_WorldQueryLightAction_default_instance_._instance,
+    &::df::plugin::_WorldQuerySkyLightAction_default_instance_._instance,
+    &::df::plugin::_WorldQueryTemperatureAction_default_instance_._instance,
+    &::df::plugin::_WorldQueryHighestBlockAction_default_instance_._instance,
+    &::df::plugin::_WorldQueryRainingAtAction_default_instance_._instance,
+    &::df::plugin::_WorldQuerySnowingAtAction_default_instance_._instance,
+    &::df::plugin::_WorldQueryThunderingAtAction_default_instance_._instance,
+    &::df::plugin::_WorldQueryLiquidAction_default_instance_._instance,
+    &::df::plugin::_WorldSetBiomeAction_default_instance_._instance,
+    &::df::plugin::_WorldSetLiquidAction_default_instance_._instance,
+    &::df::plugin::_WorldScheduleBlockUpdateAction_default_instance_._instance,
 };
 const char descriptor_table_protodef_actions_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n\ractions.proto\022\tdf.plugin\032\014common.proto"
     "\":\n\013ActionBatch\022+\n\007actions\030\001 \003(\0132\021.df.pl"
-    "ugin.ActionR\007actions\"\324\023\n\006Action\022*\n\016corre"
+    "ugin.ActionR\007actions\"\334\034\n\006Action\022*\n\016corre"
     "lation_id\030\001 \001(\tH\001R\rcorrelationId\210\001\001\0228\n\ts"
     "end_chat\030\n \001(\0132\031.df.plugin.SendChatActio"
     "nH\000R\010sendChat\0227\n\010teleport\030\013 \001(\0132\031.df.plu"
@@ -1493,7 +1991,36 @@ const char descriptor_table_protodef_actions_2eproto[] ABSL_ATTRIBUTE_SECTION_VA
     "eryDefaultGameModeActionH\000R\031worldQueryDe"
     "faultGameMode\022a\n\030world_query_player_spaw"
     "n\030J \001(\0132&.df.plugin.WorldQueryPlayerSpaw"
-    "nActionH\000R\025worldQueryPlayerSpawnB\006\n\004kind"
+    "nActionH\000R\025worldQueryPlayerSpawn\022N\n\021worl"
+    "d_query_block\030K \001(\0132 .df.plugin.WorldQue"
+    "ryBlockActionH\000R\017worldQueryBlock\022N\n\021worl"
+    "d_query_biome\030L \001(\0132 .df.plugin.WorldQue"
+    "ryBiomeActionH\000R\017worldQueryBiome\022N\n\021worl"
+    "d_query_light\030M \001(\0132 .df.plugin.WorldQue"
+    "ryLightActionH\000R\017worldQueryLight\022X\n\025worl"
+    "d_query_sky_light\030N \001(\0132#.df.plugin.Worl"
+    "dQuerySkyLightActionH\000R\022worldQuerySkyLig"
+    "ht\022`\n\027world_query_temperature\030O \001(\0132&.df"
+    ".plugin.WorldQueryTemperatureActionH\000R\025w"
+    "orldQueryTemperature\022d\n\031world_query_high"
+    "est_block\030P \001(\0132\'.df.plugin.WorldQueryHi"
+    "ghestBlockActionH\000R\026worldQueryHighestBlo"
+    "ck\022[\n\026world_query_raining_at\030Q \001(\0132$.df."
+    "plugin.WorldQueryRainingAtActionH\000R\023worl"
+    "dQueryRainingAt\022[\n\026world_query_snowing_a"
+    "t\030R \001(\0132$.df.plugin.WorldQuerySnowingAtA"
+    "ctionH\000R\023worldQuerySnowingAt\022d\n\031world_qu"
+    "ery_thundering_at\030S \001(\0132\'.df.plugin.Worl"
+    "dQueryThunderingAtActionH\000R\026worldQueryTh"
+    "underingAt\022Q\n\022world_query_liquid\030T \001(\0132!"
+    ".df.plugin.WorldQueryLiquidActionH\000R\020wor"
+    "ldQueryLiquid\022H\n\017world_set_biome\030Z \001(\0132\036"
+    ".df.plugin.WorldSetBiomeActionH\000R\rworldS"
+    "etBiome\022K\n\020world_set_liquid\030[ \001(\0132\037.df.p"
+    "lugin.WorldSetLiquidActionH\000R\016worldSetLi"
+    "quid\022j\n\033world_schedule_block_update\030\\ \001("
+    "\0132).df.plugin.WorldScheduleBlockUpdateAc"
+    "tionH\000R\030worldScheduleBlockUpdateB\006\n\004kind"
     "B\021\n\017_correlation_id\"K\n\016SendChatAction\022\037\n"
     "\013target_uuid\030\001 \001(\tR\ntargetUuid\022\030\n\007messag"
     "e\030\002 \001(\tR\007message\"\213\001\n\016TeleportAction\022\037\n\013p"
@@ -1593,23 +2120,66 @@ const char descriptor_table_protodef_actions_2eproto[] ABSL_ATTRIBUTE_SECTION_VA
     "\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\"n\n\036Wo"
     "rldQueryEntitiesWithinAction\022)\n\005world\030\001 "
     "\001(\0132\023.df.plugin.WorldRefR\005world\022!\n\003box\030\002"
-    " \001(\0132\017.df.plugin.BBoxR\003box*\353\003\n\014ParticleT"
-    "ype\022\035\n\031PARTICLE_TYPE_UNSPECIFIED\020\000\022\033\n\027PA"
-    "RTICLE_HUGE_EXPLOSION\020\001\022\036\n\032PARTICLE_ENDE"
-    "RMAN_TELEPORT\020\002\022\032\n\026PARTICLE_SNOWBALL_POO"
-    "F\020\003\022\026\n\022PARTICLE_EGG_SMASH\020\004\022\023\n\017PARTICLE_"
-    "SPLASH\020\005\022\023\n\017PARTICLE_EFFECT\020\006\022\031\n\025PARTICL"
-    "E_ENTITY_FLAME\020\007\022\022\n\016PARTICLE_FLAME\020\010\022\021\n\r"
-    "PARTICLE_DUST\020\t\022\036\n\032PARTICLE_BLOCK_FORCE_"
-    "FIELD\020\n\022\026\n\022PARTICLE_BONE_MEAL\020\013\022\026\n\022PARTI"
-    "CLE_EVAPORATE\020\014\022\027\n\023PARTICLE_WATER_DRIP\020\r"
-    "\022\026\n\022PARTICLE_LAVA_DRIP\020\016\022\021\n\rPARTICLE_LAV"
-    "A\020\017\022\027\n\023PARTICLE_DUST_PLUME\020\020\022\030\n\024PARTICLE"
-    "_BLOCK_BREAK\020\021\022\030\n\024PARTICLE_PUNCH_BLOCK\020\022"
-    "B\213\001\n\rcom.df.pluginB\014ActionsProtoP\001Z\'gith"
-    "ub.com/secmc/plugin/proto/generated\242\002\003DP"
-    "X\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GP"
-    "BMetadata\352\002\nDf::Pluginb\006proto3"
+    " \001(\0132\017.df.plugin.BBoxR\003box\"s\n\025WorldQuery"
+    "BlockAction\022)\n\005world\030\001 \001(\0132\023.df.plugin.W"
+    "orldRefR\005world\022/\n\010position\030\002 \001(\0132\023.df.pl"
+    "ugin.BlockPosR\010position\"s\n\025WorldQueryBio"
+    "meAction\022)\n\005world\030\001 \001(\0132\023.df.plugin.Worl"
+    "dRefR\005world\022/\n\010position\030\002 \001(\0132\023.df.plugi"
+    "n.BlockPosR\010position\"s\n\025WorldQueryLightA"
+    "ction\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldRe"
+    "fR\005world\022/\n\010position\030\002 \001(\0132\023.df.plugin.B"
+    "lockPosR\010position\"v\n\030WorldQuerySkyLightA"
+    "ction\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldRe"
+    "fR\005world\022/\n\010position\030\002 \001(\0132\023.df.plugin.B"
+    "lockPosR\010position\"y\n\033WorldQueryTemperatu"
+    "reAction\022)\n\005world\030\001 \001(\0132\023.df.plugin.Worl"
+    "dRefR\005world\022/\n\010position\030\002 \001(\0132\023.df.plugi"
+    "n.BlockPosR\010position\"e\n\034WorldQueryHighes"
+    "tBlockAction\022)\n\005world\030\001 \001(\0132\023.df.plugin."
+    "WorldRefR\005world\022\014\n\001x\030\002 \001(\005R\001x\022\014\n\001z\030\003 \001(\005"
+    "R\001z\"w\n\031WorldQueryRainingAtAction\022)\n\005worl"
+    "d\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\022/\n\010p"
+    "osition\030\002 \001(\0132\023.df.plugin.BlockPosR\010posi"
+    "tion\"w\n\031WorldQuerySnowingAtAction\022)\n\005wor"
+    "ld\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\022/\n\010"
+    "position\030\002 \001(\0132\023.df.plugin.BlockPosR\010pos"
+    "ition\"z\n\034WorldQueryThunderingAtAction\022)\n"
+    "\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005world"
+    "\022/\n\010position\030\002 \001(\0132\023.df.plugin.BlockPosR"
+    "\010position\"t\n\026WorldQueryLiquidAction\022)\n\005w"
+    "orld\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\022/"
+    "\n\010position\030\002 \001(\0132\023.df.plugin.BlockPosR\010p"
+    "osition\"\214\001\n\023WorldSetBiomeAction\022)\n\005world"
+    "\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\022/\n\010po"
+    "sition\030\002 \001(\0132\023.df.plugin.BlockPosR\010posit"
+    "ion\022\031\n\010biome_id\030\003 \001(\tR\007biomeId\"\262\001\n\024World"
+    "SetLiquidAction\022)\n\005world\030\001 \001(\0132\023.df.plug"
+    "in.WorldRefR\005world\022/\n\010position\030\002 \001(\0132\023.d"
+    "f.plugin.BlockPosR\010position\0223\n\006liquid\030\003 "
+    "\001(\0132\026.df.plugin.LiquidStateH\000R\006liquid\210\001\001"
+    "B\t\n\007_liquid\"\304\001\n\036WorldScheduleBlockUpdate"
+    "Action\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldR"
+    "efR\005world\022/\n\010position\030\002 \001(\0132\023.df.plugin."
+    "BlockPosR\010position\022+\n\005block\030\003 \001(\0132\025.df.p"
+    "lugin.BlockStateR\005block\022\031\n\010delay_ms\030\004 \001("
+    "\003R\007delayMs*\353\003\n\014ParticleType\022\035\n\031PARTICLE_"
+    "TYPE_UNSPECIFIED\020\000\022\033\n\027PARTICLE_HUGE_EXPL"
+    "OSION\020\001\022\036\n\032PARTICLE_ENDERMAN_TELEPORT\020\002\022"
+    "\032\n\026PARTICLE_SNOWBALL_POOF\020\003\022\026\n\022PARTICLE_"
+    "EGG_SMASH\020\004\022\023\n\017PARTICLE_SPLASH\020\005\022\023\n\017PART"
+    "ICLE_EFFECT\020\006\022\031\n\025PARTICLE_ENTITY_FLAME\020\007"
+    "\022\022\n\016PARTICLE_FLAME\020\010\022\021\n\rPARTICLE_DUST\020\t\022"
+    "\036\n\032PARTICLE_BLOCK_FORCE_FIELD\020\n\022\026\n\022PARTI"
+    "CLE_BONE_MEAL\020\013\022\026\n\022PARTICLE_EVAPORATE\020\014\022"
+    "\027\n\023PARTICLE_WATER_DRIP\020\r\022\026\n\022PARTICLE_LAV"
+    "A_DRIP\020\016\022\021\n\rPARTICLE_LAVA\020\017\022\027\n\023PARTICLE_"
+    "DUST_PLUME\020\020\022\030\n\024PARTICLE_BLOCK_BREAK\020\021\022\030"
+    "\n\024PARTICLE_PUNCH_BLOCK\020\022B\213\001\n\rcom.df.plug"
+    "inB\014ActionsProtoP\001Z\'github.com/secmc/plu"
+    "gin/proto/generated\242\002\003DPX\252\002\tDf.Plugin\312\002\t"
+    "Df\\Plugin\342\002\025Df\\Plugin\\GPBMetadata\352\002\nDf::"
+    "Pluginb\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_actions_2eproto_deps[1] = {
@@ -1619,13 +2189,13 @@ static ::absl::once_flag descriptor_table_actions_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_actions_2eproto = {
     false,
     false,
-    7230,
+    10094,
     descriptor_table_protodef_actions_2eproto,
     "actions.proto",
     &descriptor_table_actions_2eproto_once,
     descriptor_table_actions_2eproto_deps,
     1,
-    35,
+    48,
     schemas,
     file_default_instances,
     TableStruct_actions_2eproto::offsets,
@@ -2365,6 +2935,175 @@ void Action::set_allocated_world_query_player_spawn(::df::plugin::WorldQueryPlay
   }
   // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_player_spawn)
 }
+void Action::set_allocated_world_query_block(::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE world_query_block) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_block) {
+    ::google::protobuf::Arena* submessage_arena = world_query_block->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_block = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_block, submessage_arena);
+    }
+    set_has_world_query_block();
+    _impl_.kind_.world_query_block_ = world_query_block;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_block)
+}
+void Action::set_allocated_world_query_biome(::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE world_query_biome) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_biome) {
+    ::google::protobuf::Arena* submessage_arena = world_query_biome->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_biome = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_biome, submessage_arena);
+    }
+    set_has_world_query_biome();
+    _impl_.kind_.world_query_biome_ = world_query_biome;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_biome)
+}
+void Action::set_allocated_world_query_light(::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE world_query_light) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_light) {
+    ::google::protobuf::Arena* submessage_arena = world_query_light->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_light = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_light, submessage_arena);
+    }
+    set_has_world_query_light();
+    _impl_.kind_.world_query_light_ = world_query_light;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_light)
+}
+void Action::set_allocated_world_query_sky_light(::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE world_query_sky_light) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_sky_light) {
+    ::google::protobuf::Arena* submessage_arena = world_query_sky_light->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_sky_light = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_sky_light, submessage_arena);
+    }
+    set_has_world_query_sky_light();
+    _impl_.kind_.world_query_sky_light_ = world_query_sky_light;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_sky_light)
+}
+void Action::set_allocated_world_query_temperature(::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE world_query_temperature) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_temperature) {
+    ::google::protobuf::Arena* submessage_arena = world_query_temperature->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_temperature = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_temperature, submessage_arena);
+    }
+    set_has_world_query_temperature();
+    _impl_.kind_.world_query_temperature_ = world_query_temperature;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_temperature)
+}
+void Action::set_allocated_world_query_highest_block(::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE world_query_highest_block) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_highest_block) {
+    ::google::protobuf::Arena* submessage_arena = world_query_highest_block->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_highest_block = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_highest_block, submessage_arena);
+    }
+    set_has_world_query_highest_block();
+    _impl_.kind_.world_query_highest_block_ = world_query_highest_block;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_highest_block)
+}
+void Action::set_allocated_world_query_raining_at(::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE world_query_raining_at) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_raining_at) {
+    ::google::protobuf::Arena* submessage_arena = world_query_raining_at->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_raining_at = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_raining_at, submessage_arena);
+    }
+    set_has_world_query_raining_at();
+    _impl_.kind_.world_query_raining_at_ = world_query_raining_at;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_raining_at)
+}
+void Action::set_allocated_world_query_snowing_at(::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE world_query_snowing_at) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_snowing_at) {
+    ::google::protobuf::Arena* submessage_arena = world_query_snowing_at->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_snowing_at = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_snowing_at, submessage_arena);
+    }
+    set_has_world_query_snowing_at();
+    _impl_.kind_.world_query_snowing_at_ = world_query_snowing_at;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_snowing_at)
+}
+void Action::set_allocated_world_query_thundering_at(::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE world_query_thundering_at) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_thundering_at) {
+    ::google::protobuf::Arena* submessage_arena = world_query_thundering_at->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_thundering_at = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_thundering_at, submessage_arena);
+    }
+    set_has_world_query_thundering_at();
+    _impl_.kind_.world_query_thundering_at_ = world_query_thundering_at;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_thundering_at)
+}
+void Action::set_allocated_world_query_liquid(::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE world_query_liquid) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_liquid) {
+    ::google::protobuf::Arena* submessage_arena = world_query_liquid->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_liquid = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_liquid, submessage_arena);
+    }
+    set_has_world_query_liquid();
+    _impl_.kind_.world_query_liquid_ = world_query_liquid;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_liquid)
+}
+void Action::set_allocated_world_set_biome(::df::plugin::WorldSetBiomeAction* PROTOBUF_NULLABLE world_set_biome) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_set_biome) {
+    ::google::protobuf::Arena* submessage_arena = world_set_biome->GetArena();
+    if (message_arena != submessage_arena) {
+      world_set_biome = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_set_biome, submessage_arena);
+    }
+    set_has_world_set_biome();
+    _impl_.kind_.world_set_biome_ = world_set_biome;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_set_biome)
+}
+void Action::set_allocated_world_set_liquid(::df::plugin::WorldSetLiquidAction* PROTOBUF_NULLABLE world_set_liquid) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_set_liquid) {
+    ::google::protobuf::Arena* submessage_arena = world_set_liquid->GetArena();
+    if (message_arena != submessage_arena) {
+      world_set_liquid = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_set_liquid, submessage_arena);
+    }
+    set_has_world_set_liquid();
+    _impl_.kind_.world_set_liquid_ = world_set_liquid;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_set_liquid)
+}
+void Action::set_allocated_world_schedule_block_update(::df::plugin::WorldScheduleBlockUpdateAction* PROTOBUF_NULLABLE world_schedule_block_update) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_schedule_block_update) {
+    ::google::protobuf::Arena* submessage_arena = world_schedule_block_update->GetArena();
+    if (message_arena != submessage_arena) {
+      world_schedule_block_update = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_schedule_block_update, submessage_arena);
+    }
+    set_has_world_schedule_block_update();
+    _impl_.kind_.world_schedule_block_update_ = world_schedule_block_update;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_schedule_block_update)
+}
 Action::Action(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, Action_class_data_.base()) {
@@ -2498,6 +3237,45 @@ Action::Action(
         break;
       case kWorldQueryPlayerSpawn:
         _impl_.kind_.world_query_player_spawn_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_player_spawn_);
+        break;
+      case kWorldQueryBlock:
+        _impl_.kind_.world_query_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_block_);
+        break;
+      case kWorldQueryBiome:
+        _impl_.kind_.world_query_biome_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_biome_);
+        break;
+      case kWorldQueryLight:
+        _impl_.kind_.world_query_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_light_);
+        break;
+      case kWorldQuerySkyLight:
+        _impl_.kind_.world_query_sky_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_sky_light_);
+        break;
+      case kWorldQueryTemperature:
+        _impl_.kind_.world_query_temperature_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_temperature_);
+        break;
+      case kWorldQueryHighestBlock:
+        _impl_.kind_.world_query_highest_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_highest_block_);
+        break;
+      case kWorldQueryRainingAt:
+        _impl_.kind_.world_query_raining_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_raining_at_);
+        break;
+      case kWorldQuerySnowingAt:
+        _impl_.kind_.world_query_snowing_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_snowing_at_);
+        break;
+      case kWorldQueryThunderingAt:
+        _impl_.kind_.world_query_thundering_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_thundering_at_);
+        break;
+      case kWorldQueryLiquid:
+        _impl_.kind_.world_query_liquid_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_liquid_);
+        break;
+      case kWorldSetBiome:
+        _impl_.kind_.world_set_biome_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_biome_);
+        break;
+      case kWorldSetLiquid:
+        _impl_.kind_.world_set_liquid_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_liquid_);
+        break;
+      case kWorldScheduleBlockUpdate:
+        _impl_.kind_.world_schedule_block_update_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_schedule_block_update_);
         break;
   }
 
@@ -2800,6 +3578,110 @@ void Action::clear_kind() {
       }
       break;
     }
+    case kWorldQueryBlock: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_block_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_block_);
+      }
+      break;
+    }
+    case kWorldQueryBiome: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_biome_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_biome_);
+      }
+      break;
+    }
+    case kWorldQueryLight: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_light_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_light_);
+      }
+      break;
+    }
+    case kWorldQuerySkyLight: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_sky_light_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_sky_light_);
+      }
+      break;
+    }
+    case kWorldQueryTemperature: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_temperature_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_temperature_);
+      }
+      break;
+    }
+    case kWorldQueryHighestBlock: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_highest_block_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_highest_block_);
+      }
+      break;
+    }
+    case kWorldQueryRainingAt: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_raining_at_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_raining_at_);
+      }
+      break;
+    }
+    case kWorldQuerySnowingAt: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_snowing_at_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_snowing_at_);
+      }
+      break;
+    }
+    case kWorldQueryThunderingAt: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_thundering_at_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_thundering_at_);
+      }
+      break;
+    }
+    case kWorldQueryLiquid: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_liquid_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_liquid_);
+      }
+      break;
+    }
+    case kWorldSetBiome: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_set_biome_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_set_biome_);
+      }
+      break;
+    }
+    case kWorldSetLiquid: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_set_liquid_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_set_liquid_);
+      }
+      break;
+    }
+    case kWorldScheduleBlockUpdate: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_schedule_block_update_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_schedule_block_update_);
+      }
+      break;
+    }
     case KIND_NOT_SET: {
       break;
     }
@@ -2851,17 +3733,17 @@ Action::GetClassData() const {
   return Action_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 34, 33, 71, 11>
+const ::_pbi::TcParseTable<0, 47, 46, 79, 13>
 Action::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Action, _impl_._has_bits_),
     0, // no _extensions_
-    74, 0,  // max_field_number, fast_idx_mask
+    92, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
     2676425214,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    34,  // num_field_entries
-    33,  // num_aux_entries
+    47,  // num_field_entries
+    46,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     Action_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -2875,10 +3757,11 @@ Action::_table_ = {
      {10, 0, 0,
       PROTOBUF_FIELD_OFFSET(Action, _impl_.correlation_id_)}},
   }}, {{
-    40, 0, 3,
+    40, 0, 4,
     64496, 14,
     15, 19,
-    65528, 31,
+    57344, 31,
+    65507, 44,
     65535, 65535
   }}, {{
     // optional string correlation_id = 1 [json_name = "correlationId"];
@@ -2949,6 +3832,32 @@ Action::_table_ = {
     {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_default_game_mode_), _Internal::kOneofCaseOffset + 0, 31, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];
     {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_player_spawn_), _Internal::kOneofCaseOffset + 0, 32, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_block_), _Internal::kOneofCaseOffset + 0, 33, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_biome_), _Internal::kOneofCaseOffset + 0, 34, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_light_), _Internal::kOneofCaseOffset + 0, 35, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_sky_light_), _Internal::kOneofCaseOffset + 0, 36, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_temperature_), _Internal::kOneofCaseOffset + 0, 37, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_highest_block_), _Internal::kOneofCaseOffset + 0, 38, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_raining_at_), _Internal::kOneofCaseOffset + 0, 39, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_snowing_at_), _Internal::kOneofCaseOffset + 0, 40, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_thundering_at_), _Internal::kOneofCaseOffset + 0, 41, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_query_liquid_), _Internal::kOneofCaseOffset + 0, 42, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldSetBiomeAction world_set_biome = 90 [json_name = "worldSetBiome"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_set_biome_), _Internal::kOneofCaseOffset + 0, 43, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldSetLiquidAction world_set_liquid = 91 [json_name = "worldSetLiquid"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_set_liquid_), _Internal::kOneofCaseOffset + 0, 44, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.WorldScheduleBlockUpdateAction world_schedule_block_update = 92 [json_name = "worldScheduleBlockUpdate"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.world_schedule_block_update_), _Internal::kOneofCaseOffset + 0, 45, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::df::plugin::SendChatAction>()},
@@ -2984,9 +3893,22 @@ Action::_table_ = {
       {::_pbi::TcParser::GetTable<::df::plugin::WorldQueryEntitiesWithinAction>()},
       {::_pbi::TcParser::GetTable<::df::plugin::WorldQueryDefaultGameModeAction>()},
       {::_pbi::TcParser::GetTable<::df::plugin::WorldQueryPlayerSpawnAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldQueryBlockAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldQueryBiomeAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldQueryLightAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldQuerySkyLightAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldQueryTemperatureAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldQueryHighestBlockAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldQueryRainingAtAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldQuerySnowingAtAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldQueryThunderingAtAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldQueryLiquidAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldSetBiomeAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldSetLiquidAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldScheduleBlockUpdateAction>()},
   }},
   {{
-    "\20\16\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
+    "\20\16\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
     "df.plugin.Action"
     "correlation_id"
   }},
@@ -3233,6 +4155,84 @@ PROTOBUF_NOINLINE void Action::Clear() {
           stream);
       break;
     }
+    case kWorldQueryBlock: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          75, *this_._impl_.kind_.world_query_block_, this_._impl_.kind_.world_query_block_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldQueryBiome: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          76, *this_._impl_.kind_.world_query_biome_, this_._impl_.kind_.world_query_biome_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldQueryLight: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          77, *this_._impl_.kind_.world_query_light_, this_._impl_.kind_.world_query_light_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldQuerySkyLight: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          78, *this_._impl_.kind_.world_query_sky_light_, this_._impl_.kind_.world_query_sky_light_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldQueryTemperature: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          79, *this_._impl_.kind_.world_query_temperature_, this_._impl_.kind_.world_query_temperature_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldQueryHighestBlock: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          80, *this_._impl_.kind_.world_query_highest_block_, this_._impl_.kind_.world_query_highest_block_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldQueryRainingAt: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          81, *this_._impl_.kind_.world_query_raining_at_, this_._impl_.kind_.world_query_raining_at_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldQuerySnowingAt: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          82, *this_._impl_.kind_.world_query_snowing_at_, this_._impl_.kind_.world_query_snowing_at_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldQueryThunderingAt: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          83, *this_._impl_.kind_.world_query_thundering_at_, this_._impl_.kind_.world_query_thundering_at_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldQueryLiquid: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          84, *this_._impl_.kind_.world_query_liquid_, this_._impl_.kind_.world_query_liquid_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldSetBiome: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          90, *this_._impl_.kind_.world_set_biome_, this_._impl_.kind_.world_set_biome_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldSetLiquid: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          91, *this_._impl_.kind_.world_set_liquid_, this_._impl_.kind_.world_set_liquid_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kWorldScheduleBlockUpdate: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          92, *this_._impl_.kind_.world_schedule_block_update_, this_._impl_.kind_.world_schedule_block_update_->GetCachedSize(), target,
+          stream);
+      break;
+    }
     default:
       break;
   }
@@ -3464,6 +4464,84 @@ PROTOBUF_NOINLINE void Action::Clear() {
     case kWorldQueryPlayerSpawn: {
       total_size += 2 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_player_spawn_);
+      break;
+    }
+    // .df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];
+    case kWorldQueryBlock: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_block_);
+      break;
+    }
+    // .df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];
+    case kWorldQueryBiome: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_biome_);
+      break;
+    }
+    // .df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];
+    case kWorldQueryLight: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_light_);
+      break;
+    }
+    // .df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];
+    case kWorldQuerySkyLight: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_sky_light_);
+      break;
+    }
+    // .df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];
+    case kWorldQueryTemperature: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_temperature_);
+      break;
+    }
+    // .df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];
+    case kWorldQueryHighestBlock: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_highest_block_);
+      break;
+    }
+    // .df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];
+    case kWorldQueryRainingAt: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_raining_at_);
+      break;
+    }
+    // .df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];
+    case kWorldQuerySnowingAt: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_snowing_at_);
+      break;
+    }
+    // .df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];
+    case kWorldQueryThunderingAt: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_thundering_at_);
+      break;
+    }
+    // .df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];
+    case kWorldQueryLiquid: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_liquid_);
+      break;
+    }
+    // .df.plugin.WorldSetBiomeAction world_set_biome = 90 [json_name = "worldSetBiome"];
+    case kWorldSetBiome: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_set_biome_);
+      break;
+    }
+    // .df.plugin.WorldSetLiquidAction world_set_liquid = 91 [json_name = "worldSetLiquid"];
+    case kWorldSetLiquid: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_set_liquid_);
+      break;
+    }
+    // .df.plugin.WorldScheduleBlockUpdateAction world_schedule_block_update = 92 [json_name = "worldScheduleBlockUpdate"];
+    case kWorldScheduleBlockUpdate: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_schedule_block_update_);
       break;
     }
     case KIND_NOT_SET: {
@@ -3766,6 +4844,110 @@ void Action::MergeImpl(::google::protobuf::MessageLite& to_msg,
           _this->_impl_.kind_.world_query_player_spawn_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_player_spawn_);
         } else {
           _this->_impl_.kind_.world_query_player_spawn_->MergeFrom(*from._impl_.kind_.world_query_player_spawn_);
+        }
+        break;
+      }
+      case kWorldQueryBlock: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_block_);
+        } else {
+          _this->_impl_.kind_.world_query_block_->MergeFrom(*from._impl_.kind_.world_query_block_);
+        }
+        break;
+      }
+      case kWorldQueryBiome: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_biome_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_biome_);
+        } else {
+          _this->_impl_.kind_.world_query_biome_->MergeFrom(*from._impl_.kind_.world_query_biome_);
+        }
+        break;
+      }
+      case kWorldQueryLight: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_light_);
+        } else {
+          _this->_impl_.kind_.world_query_light_->MergeFrom(*from._impl_.kind_.world_query_light_);
+        }
+        break;
+      }
+      case kWorldQuerySkyLight: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_sky_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_sky_light_);
+        } else {
+          _this->_impl_.kind_.world_query_sky_light_->MergeFrom(*from._impl_.kind_.world_query_sky_light_);
+        }
+        break;
+      }
+      case kWorldQueryTemperature: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_temperature_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_temperature_);
+        } else {
+          _this->_impl_.kind_.world_query_temperature_->MergeFrom(*from._impl_.kind_.world_query_temperature_);
+        }
+        break;
+      }
+      case kWorldQueryHighestBlock: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_highest_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_highest_block_);
+        } else {
+          _this->_impl_.kind_.world_query_highest_block_->MergeFrom(*from._impl_.kind_.world_query_highest_block_);
+        }
+        break;
+      }
+      case kWorldQueryRainingAt: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_raining_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_raining_at_);
+        } else {
+          _this->_impl_.kind_.world_query_raining_at_->MergeFrom(*from._impl_.kind_.world_query_raining_at_);
+        }
+        break;
+      }
+      case kWorldQuerySnowingAt: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_snowing_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_snowing_at_);
+        } else {
+          _this->_impl_.kind_.world_query_snowing_at_->MergeFrom(*from._impl_.kind_.world_query_snowing_at_);
+        }
+        break;
+      }
+      case kWorldQueryThunderingAt: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_thundering_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_thundering_at_);
+        } else {
+          _this->_impl_.kind_.world_query_thundering_at_->MergeFrom(*from._impl_.kind_.world_query_thundering_at_);
+        }
+        break;
+      }
+      case kWorldQueryLiquid: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_liquid_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_liquid_);
+        } else {
+          _this->_impl_.kind_.world_query_liquid_->MergeFrom(*from._impl_.kind_.world_query_liquid_);
+        }
+        break;
+      }
+      case kWorldSetBiome: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_set_biome_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_biome_);
+        } else {
+          _this->_impl_.kind_.world_set_biome_->MergeFrom(*from._impl_.kind_.world_set_biome_);
+        }
+        break;
+      }
+      case kWorldSetLiquid: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_set_liquid_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_liquid_);
+        } else {
+          _this->_impl_.kind_.world_set_liquid_->MergeFrom(*from._impl_.kind_.world_set_liquid_);
+        }
+        break;
+      }
+      case kWorldScheduleBlockUpdate: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_schedule_block_update_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_schedule_block_update_);
+        } else {
+          _this->_impl_.kind_.world_schedule_block_update_->MergeFrom(*from._impl_.kind_.world_schedule_block_update_);
         }
         break;
       }
@@ -14804,6 +15986,4516 @@ void WorldQueryEntitiesWithinAction::InternalSwap(WorldQueryEntitiesWithinAction
 }
 
 ::google::protobuf::Metadata WorldQueryEntitiesWithinAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldQueryBlockAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldQueryBlockAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldQueryBlockAction, _impl_._has_bits_);
+};
+
+void WorldQueryBlockAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+void WorldQueryBlockAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+WorldQueryBlockAction::WorldQueryBlockAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryBlockAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldQueryBlockAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryBlockAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldQueryBlockAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldQueryBlockAction::WorldQueryBlockAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldQueryBlockAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryBlockAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldQueryBlockAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldQueryBlockAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryBlockAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldQueryBlockAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, position_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::position_));
+}
+WorldQueryBlockAction::~WorldQueryBlockAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldQueryBlockAction)
+  SharedDtor(*this);
+}
+inline void WorldQueryBlockAction::SharedDtor(MessageLite& self) {
+  WorldQueryBlockAction& this_ = static_cast<WorldQueryBlockAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldQueryBlockAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldQueryBlockAction(arena);
+}
+constexpr auto WorldQueryBlockAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldQueryBlockAction),
+                                            alignof(WorldQueryBlockAction));
+}
+constexpr auto WorldQueryBlockAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldQueryBlockAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldQueryBlockAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldQueryBlockAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldQueryBlockAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldQueryBlockAction>(), &WorldQueryBlockAction::ByteSizeLong,
+              &WorldQueryBlockAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldQueryBlockAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldQueryBlockAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldQueryBlockAction_class_data_ =
+        WorldQueryBlockAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldQueryBlockAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldQueryBlockAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldQueryBlockAction_class_data_.tc_table);
+  return WorldQueryBlockAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2>
+WorldQueryBlockAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldQueryBlockAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldQueryBlockAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldQueryBlockAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 1,
+      PROTOBUF_FIELD_OFFSET(WorldQueryBlockAction, _impl_.position_)}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQueryBlockAction, _impl_.world_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryBlockAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryBlockAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldQueryBlockAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldQueryBlockAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldQueryBlockAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldQueryBlockAction& this_ = static_cast<const WorldQueryBlockAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldQueryBlockAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldQueryBlockAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldQueryBlockAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldQueryBlockAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldQueryBlockAction::ByteSizeLong(const MessageLite& base) {
+  const WorldQueryBlockAction& this_ = static_cast<const WorldQueryBlockAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldQueryBlockAction::ByteSizeLong() const {
+  const WorldQueryBlockAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldQueryBlockAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldQueryBlockAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldQueryBlockAction*>(&to_msg);
+  auto& from = static_cast<const WorldQueryBlockAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldQueryBlockAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldQueryBlockAction::CopyFrom(const WorldQueryBlockAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldQueryBlockAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldQueryBlockAction::InternalSwap(WorldQueryBlockAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldQueryBlockAction, _impl_.position_)
+      + sizeof(WorldQueryBlockAction::_impl_.position_)
+      - PROTOBUF_FIELD_OFFSET(WorldQueryBlockAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldQueryBlockAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldQueryBiomeAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldQueryBiomeAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldQueryBiomeAction, _impl_._has_bits_);
+};
+
+void WorldQueryBiomeAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+void WorldQueryBiomeAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+WorldQueryBiomeAction::WorldQueryBiomeAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryBiomeAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldQueryBiomeAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryBiomeAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldQueryBiomeAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldQueryBiomeAction::WorldQueryBiomeAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldQueryBiomeAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryBiomeAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldQueryBiomeAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldQueryBiomeAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryBiomeAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldQueryBiomeAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, position_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::position_));
+}
+WorldQueryBiomeAction::~WorldQueryBiomeAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldQueryBiomeAction)
+  SharedDtor(*this);
+}
+inline void WorldQueryBiomeAction::SharedDtor(MessageLite& self) {
+  WorldQueryBiomeAction& this_ = static_cast<WorldQueryBiomeAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldQueryBiomeAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldQueryBiomeAction(arena);
+}
+constexpr auto WorldQueryBiomeAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldQueryBiomeAction),
+                                            alignof(WorldQueryBiomeAction));
+}
+constexpr auto WorldQueryBiomeAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldQueryBiomeAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldQueryBiomeAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldQueryBiomeAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldQueryBiomeAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldQueryBiomeAction>(), &WorldQueryBiomeAction::ByteSizeLong,
+              &WorldQueryBiomeAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldQueryBiomeAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldQueryBiomeAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldQueryBiomeAction_class_data_ =
+        WorldQueryBiomeAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldQueryBiomeAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldQueryBiomeAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldQueryBiomeAction_class_data_.tc_table);
+  return WorldQueryBiomeAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2>
+WorldQueryBiomeAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldQueryBiomeAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldQueryBiomeAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldQueryBiomeAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 1,
+      PROTOBUF_FIELD_OFFSET(WorldQueryBiomeAction, _impl_.position_)}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQueryBiomeAction, _impl_.world_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryBiomeAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryBiomeAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldQueryBiomeAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldQueryBiomeAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldQueryBiomeAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldQueryBiomeAction& this_ = static_cast<const WorldQueryBiomeAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldQueryBiomeAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldQueryBiomeAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldQueryBiomeAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldQueryBiomeAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldQueryBiomeAction::ByteSizeLong(const MessageLite& base) {
+  const WorldQueryBiomeAction& this_ = static_cast<const WorldQueryBiomeAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldQueryBiomeAction::ByteSizeLong() const {
+  const WorldQueryBiomeAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldQueryBiomeAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldQueryBiomeAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldQueryBiomeAction*>(&to_msg);
+  auto& from = static_cast<const WorldQueryBiomeAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldQueryBiomeAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldQueryBiomeAction::CopyFrom(const WorldQueryBiomeAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldQueryBiomeAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldQueryBiomeAction::InternalSwap(WorldQueryBiomeAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldQueryBiomeAction, _impl_.position_)
+      + sizeof(WorldQueryBiomeAction::_impl_.position_)
+      - PROTOBUF_FIELD_OFFSET(WorldQueryBiomeAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldQueryBiomeAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldQueryLightAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldQueryLightAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldQueryLightAction, _impl_._has_bits_);
+};
+
+void WorldQueryLightAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+void WorldQueryLightAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+WorldQueryLightAction::WorldQueryLightAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryLightAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldQueryLightAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryLightAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldQueryLightAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldQueryLightAction::WorldQueryLightAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldQueryLightAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryLightAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldQueryLightAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldQueryLightAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryLightAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldQueryLightAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, position_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::position_));
+}
+WorldQueryLightAction::~WorldQueryLightAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldQueryLightAction)
+  SharedDtor(*this);
+}
+inline void WorldQueryLightAction::SharedDtor(MessageLite& self) {
+  WorldQueryLightAction& this_ = static_cast<WorldQueryLightAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldQueryLightAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldQueryLightAction(arena);
+}
+constexpr auto WorldQueryLightAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldQueryLightAction),
+                                            alignof(WorldQueryLightAction));
+}
+constexpr auto WorldQueryLightAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldQueryLightAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldQueryLightAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldQueryLightAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldQueryLightAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldQueryLightAction>(), &WorldQueryLightAction::ByteSizeLong,
+              &WorldQueryLightAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldQueryLightAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldQueryLightAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldQueryLightAction_class_data_ =
+        WorldQueryLightAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldQueryLightAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldQueryLightAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldQueryLightAction_class_data_.tc_table);
+  return WorldQueryLightAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2>
+WorldQueryLightAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldQueryLightAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldQueryLightAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldQueryLightAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 1,
+      PROTOBUF_FIELD_OFFSET(WorldQueryLightAction, _impl_.position_)}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQueryLightAction, _impl_.world_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryLightAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryLightAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldQueryLightAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldQueryLightAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldQueryLightAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldQueryLightAction& this_ = static_cast<const WorldQueryLightAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldQueryLightAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldQueryLightAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldQueryLightAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldQueryLightAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldQueryLightAction::ByteSizeLong(const MessageLite& base) {
+  const WorldQueryLightAction& this_ = static_cast<const WorldQueryLightAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldQueryLightAction::ByteSizeLong() const {
+  const WorldQueryLightAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldQueryLightAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldQueryLightAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldQueryLightAction*>(&to_msg);
+  auto& from = static_cast<const WorldQueryLightAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldQueryLightAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldQueryLightAction::CopyFrom(const WorldQueryLightAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldQueryLightAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldQueryLightAction::InternalSwap(WorldQueryLightAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldQueryLightAction, _impl_.position_)
+      + sizeof(WorldQueryLightAction::_impl_.position_)
+      - PROTOBUF_FIELD_OFFSET(WorldQueryLightAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldQueryLightAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldQuerySkyLightAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldQuerySkyLightAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldQuerySkyLightAction, _impl_._has_bits_);
+};
+
+void WorldQuerySkyLightAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+void WorldQuerySkyLightAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+WorldQuerySkyLightAction::WorldQuerySkyLightAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQuerySkyLightAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldQuerySkyLightAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQuerySkyLightAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldQuerySkyLightAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldQuerySkyLightAction::WorldQuerySkyLightAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldQuerySkyLightAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQuerySkyLightAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldQuerySkyLightAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldQuerySkyLightAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQuerySkyLightAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldQuerySkyLightAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, position_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::position_));
+}
+WorldQuerySkyLightAction::~WorldQuerySkyLightAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldQuerySkyLightAction)
+  SharedDtor(*this);
+}
+inline void WorldQuerySkyLightAction::SharedDtor(MessageLite& self) {
+  WorldQuerySkyLightAction& this_ = static_cast<WorldQuerySkyLightAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldQuerySkyLightAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldQuerySkyLightAction(arena);
+}
+constexpr auto WorldQuerySkyLightAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldQuerySkyLightAction),
+                                            alignof(WorldQuerySkyLightAction));
+}
+constexpr auto WorldQuerySkyLightAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldQuerySkyLightAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldQuerySkyLightAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldQuerySkyLightAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldQuerySkyLightAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldQuerySkyLightAction>(), &WorldQuerySkyLightAction::ByteSizeLong,
+              &WorldQuerySkyLightAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldQuerySkyLightAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldQuerySkyLightAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldQuerySkyLightAction_class_data_ =
+        WorldQuerySkyLightAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldQuerySkyLightAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldQuerySkyLightAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldQuerySkyLightAction_class_data_.tc_table);
+  return WorldQuerySkyLightAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2>
+WorldQuerySkyLightAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldQuerySkyLightAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldQuerySkyLightAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldQuerySkyLightAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 1,
+      PROTOBUF_FIELD_OFFSET(WorldQuerySkyLightAction, _impl_.position_)}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQuerySkyLightAction, _impl_.world_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldQuerySkyLightAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldQuerySkyLightAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldQuerySkyLightAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldQuerySkyLightAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldQuerySkyLightAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldQuerySkyLightAction& this_ = static_cast<const WorldQuerySkyLightAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldQuerySkyLightAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldQuerySkyLightAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldQuerySkyLightAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldQuerySkyLightAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldQuerySkyLightAction::ByteSizeLong(const MessageLite& base) {
+  const WorldQuerySkyLightAction& this_ = static_cast<const WorldQuerySkyLightAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldQuerySkyLightAction::ByteSizeLong() const {
+  const WorldQuerySkyLightAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldQuerySkyLightAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldQuerySkyLightAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldQuerySkyLightAction*>(&to_msg);
+  auto& from = static_cast<const WorldQuerySkyLightAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldQuerySkyLightAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldQuerySkyLightAction::CopyFrom(const WorldQuerySkyLightAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldQuerySkyLightAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldQuerySkyLightAction::InternalSwap(WorldQuerySkyLightAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldQuerySkyLightAction, _impl_.position_)
+      + sizeof(WorldQuerySkyLightAction::_impl_.position_)
+      - PROTOBUF_FIELD_OFFSET(WorldQuerySkyLightAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldQuerySkyLightAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldQueryTemperatureAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldQueryTemperatureAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldQueryTemperatureAction, _impl_._has_bits_);
+};
+
+void WorldQueryTemperatureAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+void WorldQueryTemperatureAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+WorldQueryTemperatureAction::WorldQueryTemperatureAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryTemperatureAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldQueryTemperatureAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryTemperatureAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldQueryTemperatureAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldQueryTemperatureAction::WorldQueryTemperatureAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldQueryTemperatureAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryTemperatureAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldQueryTemperatureAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldQueryTemperatureAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryTemperatureAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldQueryTemperatureAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, position_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::position_));
+}
+WorldQueryTemperatureAction::~WorldQueryTemperatureAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldQueryTemperatureAction)
+  SharedDtor(*this);
+}
+inline void WorldQueryTemperatureAction::SharedDtor(MessageLite& self) {
+  WorldQueryTemperatureAction& this_ = static_cast<WorldQueryTemperatureAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldQueryTemperatureAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldQueryTemperatureAction(arena);
+}
+constexpr auto WorldQueryTemperatureAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldQueryTemperatureAction),
+                                            alignof(WorldQueryTemperatureAction));
+}
+constexpr auto WorldQueryTemperatureAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldQueryTemperatureAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldQueryTemperatureAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldQueryTemperatureAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldQueryTemperatureAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldQueryTemperatureAction>(), &WorldQueryTemperatureAction::ByteSizeLong,
+              &WorldQueryTemperatureAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldQueryTemperatureAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldQueryTemperatureAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldQueryTemperatureAction_class_data_ =
+        WorldQueryTemperatureAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldQueryTemperatureAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldQueryTemperatureAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldQueryTemperatureAction_class_data_.tc_table);
+  return WorldQueryTemperatureAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2>
+WorldQueryTemperatureAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldQueryTemperatureAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldQueryTemperatureAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldQueryTemperatureAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 1,
+      PROTOBUF_FIELD_OFFSET(WorldQueryTemperatureAction, _impl_.position_)}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQueryTemperatureAction, _impl_.world_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryTemperatureAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryTemperatureAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldQueryTemperatureAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldQueryTemperatureAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldQueryTemperatureAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldQueryTemperatureAction& this_ = static_cast<const WorldQueryTemperatureAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldQueryTemperatureAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldQueryTemperatureAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldQueryTemperatureAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldQueryTemperatureAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldQueryTemperatureAction::ByteSizeLong(const MessageLite& base) {
+  const WorldQueryTemperatureAction& this_ = static_cast<const WorldQueryTemperatureAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldQueryTemperatureAction::ByteSizeLong() const {
+  const WorldQueryTemperatureAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldQueryTemperatureAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldQueryTemperatureAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldQueryTemperatureAction*>(&to_msg);
+  auto& from = static_cast<const WorldQueryTemperatureAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldQueryTemperatureAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldQueryTemperatureAction::CopyFrom(const WorldQueryTemperatureAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldQueryTemperatureAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldQueryTemperatureAction::InternalSwap(WorldQueryTemperatureAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldQueryTemperatureAction, _impl_.position_)
+      + sizeof(WorldQueryTemperatureAction::_impl_.position_)
+      - PROTOBUF_FIELD_OFFSET(WorldQueryTemperatureAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldQueryTemperatureAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldQueryHighestBlockAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldQueryHighestBlockAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldQueryHighestBlockAction, _impl_._has_bits_);
+};
+
+void WorldQueryHighestBlockAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+WorldQueryHighestBlockAction::WorldQueryHighestBlockAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryHighestBlockAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldQueryHighestBlockAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryHighestBlockAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldQueryHighestBlockAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldQueryHighestBlockAction::WorldQueryHighestBlockAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldQueryHighestBlockAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryHighestBlockAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldQueryHighestBlockAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, x_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, x_),
+           offsetof(Impl_, z_) -
+               offsetof(Impl_, x_) +
+               sizeof(Impl_::z_));
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldQueryHighestBlockAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryHighestBlockAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldQueryHighestBlockAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, z_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::z_));
+}
+WorldQueryHighestBlockAction::~WorldQueryHighestBlockAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldQueryHighestBlockAction)
+  SharedDtor(*this);
+}
+inline void WorldQueryHighestBlockAction::SharedDtor(MessageLite& self) {
+  WorldQueryHighestBlockAction& this_ = static_cast<WorldQueryHighestBlockAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldQueryHighestBlockAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldQueryHighestBlockAction(arena);
+}
+constexpr auto WorldQueryHighestBlockAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldQueryHighestBlockAction),
+                                            alignof(WorldQueryHighestBlockAction));
+}
+constexpr auto WorldQueryHighestBlockAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldQueryHighestBlockAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldQueryHighestBlockAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldQueryHighestBlockAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldQueryHighestBlockAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldQueryHighestBlockAction>(), &WorldQueryHighestBlockAction::ByteSizeLong,
+              &WorldQueryHighestBlockAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldQueryHighestBlockAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldQueryHighestBlockAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldQueryHighestBlockAction_class_data_ =
+        WorldQueryHighestBlockAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldQueryHighestBlockAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldQueryHighestBlockAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldQueryHighestBlockAction_class_data_.tc_table);
+  return WorldQueryHighestBlockAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 1, 0, 2>
+WorldQueryHighestBlockAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldQueryHighestBlockAction, _impl_._has_bits_),
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldQueryHighestBlockAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldQueryHighestBlockAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQueryHighestBlockAction, _impl_.world_)}},
+    // int32 x = 2 [json_name = "x"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(WorldQueryHighestBlockAction, _impl_.x_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQueryHighestBlockAction, _impl_.x_)}},
+    // int32 z = 3 [json_name = "z"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(WorldQueryHighestBlockAction, _impl_.z_), 2>(),
+     {24, 2, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQueryHighestBlockAction, _impl_.z_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryHighestBlockAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // int32 x = 2 [json_name = "x"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryHighestBlockAction, _impl_.x_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+    // int32 z = 3 [json_name = "z"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryHighestBlockAction, _impl_.z_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldQueryHighestBlockAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldQueryHighestBlockAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    ABSL_DCHECK(_impl_.world_ != nullptr);
+    _impl_.world_->Clear();
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x00000006U)) {
+    ::memset(&_impl_.x_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.z_) -
+        reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.z_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldQueryHighestBlockAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldQueryHighestBlockAction& this_ = static_cast<const WorldQueryHighestBlockAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldQueryHighestBlockAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldQueryHighestBlockAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldQueryHighestBlockAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // int32 x = 2 [json_name = "x"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_x() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<2>(
+              stream, this_._internal_x(), target);
+    }
+  }
+
+  // int32 z = 3 [json_name = "z"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_z() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<3>(
+              stream, this_._internal_z(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldQueryHighestBlockAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldQueryHighestBlockAction::ByteSizeLong(const MessageLite& base) {
+  const WorldQueryHighestBlockAction& this_ = static_cast<const WorldQueryHighestBlockAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldQueryHighestBlockAction::ByteSizeLong() const {
+  const WorldQueryHighestBlockAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldQueryHighestBlockAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // int32 x = 2 [json_name = "x"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_x() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_x());
+      }
+    }
+    // int32 z = 3 [json_name = "z"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_z() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_z());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldQueryHighestBlockAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldQueryHighestBlockAction*>(&to_msg);
+  auto& from = static_cast<const WorldQueryHighestBlockAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldQueryHighestBlockAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_x() != 0) {
+        _this->_impl_.x_ = from._impl_.x_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_z() != 0) {
+        _this->_impl_.z_ = from._impl_.z_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldQueryHighestBlockAction::CopyFrom(const WorldQueryHighestBlockAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldQueryHighestBlockAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldQueryHighestBlockAction::InternalSwap(WorldQueryHighestBlockAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldQueryHighestBlockAction, _impl_.z_)
+      + sizeof(WorldQueryHighestBlockAction::_impl_.z_)
+      - PROTOBUF_FIELD_OFFSET(WorldQueryHighestBlockAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldQueryHighestBlockAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldQueryRainingAtAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldQueryRainingAtAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldQueryRainingAtAction, _impl_._has_bits_);
+};
+
+void WorldQueryRainingAtAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+void WorldQueryRainingAtAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+WorldQueryRainingAtAction::WorldQueryRainingAtAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryRainingAtAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldQueryRainingAtAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryRainingAtAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldQueryRainingAtAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldQueryRainingAtAction::WorldQueryRainingAtAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldQueryRainingAtAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryRainingAtAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldQueryRainingAtAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldQueryRainingAtAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryRainingAtAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldQueryRainingAtAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, position_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::position_));
+}
+WorldQueryRainingAtAction::~WorldQueryRainingAtAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldQueryRainingAtAction)
+  SharedDtor(*this);
+}
+inline void WorldQueryRainingAtAction::SharedDtor(MessageLite& self) {
+  WorldQueryRainingAtAction& this_ = static_cast<WorldQueryRainingAtAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldQueryRainingAtAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldQueryRainingAtAction(arena);
+}
+constexpr auto WorldQueryRainingAtAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldQueryRainingAtAction),
+                                            alignof(WorldQueryRainingAtAction));
+}
+constexpr auto WorldQueryRainingAtAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldQueryRainingAtAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldQueryRainingAtAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldQueryRainingAtAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldQueryRainingAtAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldQueryRainingAtAction>(), &WorldQueryRainingAtAction::ByteSizeLong,
+              &WorldQueryRainingAtAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldQueryRainingAtAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldQueryRainingAtAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldQueryRainingAtAction_class_data_ =
+        WorldQueryRainingAtAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldQueryRainingAtAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldQueryRainingAtAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldQueryRainingAtAction_class_data_.tc_table);
+  return WorldQueryRainingAtAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2>
+WorldQueryRainingAtAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldQueryRainingAtAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldQueryRainingAtAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldQueryRainingAtAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 1,
+      PROTOBUF_FIELD_OFFSET(WorldQueryRainingAtAction, _impl_.position_)}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQueryRainingAtAction, _impl_.world_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryRainingAtAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryRainingAtAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldQueryRainingAtAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldQueryRainingAtAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldQueryRainingAtAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldQueryRainingAtAction& this_ = static_cast<const WorldQueryRainingAtAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldQueryRainingAtAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldQueryRainingAtAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldQueryRainingAtAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldQueryRainingAtAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldQueryRainingAtAction::ByteSizeLong(const MessageLite& base) {
+  const WorldQueryRainingAtAction& this_ = static_cast<const WorldQueryRainingAtAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldQueryRainingAtAction::ByteSizeLong() const {
+  const WorldQueryRainingAtAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldQueryRainingAtAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldQueryRainingAtAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldQueryRainingAtAction*>(&to_msg);
+  auto& from = static_cast<const WorldQueryRainingAtAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldQueryRainingAtAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldQueryRainingAtAction::CopyFrom(const WorldQueryRainingAtAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldQueryRainingAtAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldQueryRainingAtAction::InternalSwap(WorldQueryRainingAtAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldQueryRainingAtAction, _impl_.position_)
+      + sizeof(WorldQueryRainingAtAction::_impl_.position_)
+      - PROTOBUF_FIELD_OFFSET(WorldQueryRainingAtAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldQueryRainingAtAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldQuerySnowingAtAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldQuerySnowingAtAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldQuerySnowingAtAction, _impl_._has_bits_);
+};
+
+void WorldQuerySnowingAtAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+void WorldQuerySnowingAtAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+WorldQuerySnowingAtAction::WorldQuerySnowingAtAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQuerySnowingAtAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldQuerySnowingAtAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQuerySnowingAtAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldQuerySnowingAtAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldQuerySnowingAtAction::WorldQuerySnowingAtAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldQuerySnowingAtAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQuerySnowingAtAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldQuerySnowingAtAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldQuerySnowingAtAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQuerySnowingAtAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldQuerySnowingAtAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, position_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::position_));
+}
+WorldQuerySnowingAtAction::~WorldQuerySnowingAtAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldQuerySnowingAtAction)
+  SharedDtor(*this);
+}
+inline void WorldQuerySnowingAtAction::SharedDtor(MessageLite& self) {
+  WorldQuerySnowingAtAction& this_ = static_cast<WorldQuerySnowingAtAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldQuerySnowingAtAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldQuerySnowingAtAction(arena);
+}
+constexpr auto WorldQuerySnowingAtAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldQuerySnowingAtAction),
+                                            alignof(WorldQuerySnowingAtAction));
+}
+constexpr auto WorldQuerySnowingAtAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldQuerySnowingAtAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldQuerySnowingAtAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldQuerySnowingAtAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldQuerySnowingAtAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldQuerySnowingAtAction>(), &WorldQuerySnowingAtAction::ByteSizeLong,
+              &WorldQuerySnowingAtAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldQuerySnowingAtAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldQuerySnowingAtAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldQuerySnowingAtAction_class_data_ =
+        WorldQuerySnowingAtAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldQuerySnowingAtAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldQuerySnowingAtAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldQuerySnowingAtAction_class_data_.tc_table);
+  return WorldQuerySnowingAtAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2>
+WorldQuerySnowingAtAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldQuerySnowingAtAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldQuerySnowingAtAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldQuerySnowingAtAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 1,
+      PROTOBUF_FIELD_OFFSET(WorldQuerySnowingAtAction, _impl_.position_)}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQuerySnowingAtAction, _impl_.world_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldQuerySnowingAtAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldQuerySnowingAtAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldQuerySnowingAtAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldQuerySnowingAtAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldQuerySnowingAtAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldQuerySnowingAtAction& this_ = static_cast<const WorldQuerySnowingAtAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldQuerySnowingAtAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldQuerySnowingAtAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldQuerySnowingAtAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldQuerySnowingAtAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldQuerySnowingAtAction::ByteSizeLong(const MessageLite& base) {
+  const WorldQuerySnowingAtAction& this_ = static_cast<const WorldQuerySnowingAtAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldQuerySnowingAtAction::ByteSizeLong() const {
+  const WorldQuerySnowingAtAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldQuerySnowingAtAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldQuerySnowingAtAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldQuerySnowingAtAction*>(&to_msg);
+  auto& from = static_cast<const WorldQuerySnowingAtAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldQuerySnowingAtAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldQuerySnowingAtAction::CopyFrom(const WorldQuerySnowingAtAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldQuerySnowingAtAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldQuerySnowingAtAction::InternalSwap(WorldQuerySnowingAtAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldQuerySnowingAtAction, _impl_.position_)
+      + sizeof(WorldQuerySnowingAtAction::_impl_.position_)
+      - PROTOBUF_FIELD_OFFSET(WorldQuerySnowingAtAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldQuerySnowingAtAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldQueryThunderingAtAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldQueryThunderingAtAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldQueryThunderingAtAction, _impl_._has_bits_);
+};
+
+void WorldQueryThunderingAtAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+void WorldQueryThunderingAtAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+WorldQueryThunderingAtAction::WorldQueryThunderingAtAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryThunderingAtAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldQueryThunderingAtAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryThunderingAtAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldQueryThunderingAtAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldQueryThunderingAtAction::WorldQueryThunderingAtAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldQueryThunderingAtAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryThunderingAtAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldQueryThunderingAtAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldQueryThunderingAtAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryThunderingAtAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldQueryThunderingAtAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, position_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::position_));
+}
+WorldQueryThunderingAtAction::~WorldQueryThunderingAtAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldQueryThunderingAtAction)
+  SharedDtor(*this);
+}
+inline void WorldQueryThunderingAtAction::SharedDtor(MessageLite& self) {
+  WorldQueryThunderingAtAction& this_ = static_cast<WorldQueryThunderingAtAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldQueryThunderingAtAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldQueryThunderingAtAction(arena);
+}
+constexpr auto WorldQueryThunderingAtAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldQueryThunderingAtAction),
+                                            alignof(WorldQueryThunderingAtAction));
+}
+constexpr auto WorldQueryThunderingAtAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldQueryThunderingAtAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldQueryThunderingAtAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldQueryThunderingAtAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldQueryThunderingAtAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldQueryThunderingAtAction>(), &WorldQueryThunderingAtAction::ByteSizeLong,
+              &WorldQueryThunderingAtAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldQueryThunderingAtAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldQueryThunderingAtAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldQueryThunderingAtAction_class_data_ =
+        WorldQueryThunderingAtAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldQueryThunderingAtAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldQueryThunderingAtAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldQueryThunderingAtAction_class_data_.tc_table);
+  return WorldQueryThunderingAtAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2>
+WorldQueryThunderingAtAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldQueryThunderingAtAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldQueryThunderingAtAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldQueryThunderingAtAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 1,
+      PROTOBUF_FIELD_OFFSET(WorldQueryThunderingAtAction, _impl_.position_)}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQueryThunderingAtAction, _impl_.world_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryThunderingAtAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryThunderingAtAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldQueryThunderingAtAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldQueryThunderingAtAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldQueryThunderingAtAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldQueryThunderingAtAction& this_ = static_cast<const WorldQueryThunderingAtAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldQueryThunderingAtAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldQueryThunderingAtAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldQueryThunderingAtAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldQueryThunderingAtAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldQueryThunderingAtAction::ByteSizeLong(const MessageLite& base) {
+  const WorldQueryThunderingAtAction& this_ = static_cast<const WorldQueryThunderingAtAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldQueryThunderingAtAction::ByteSizeLong() const {
+  const WorldQueryThunderingAtAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldQueryThunderingAtAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldQueryThunderingAtAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldQueryThunderingAtAction*>(&to_msg);
+  auto& from = static_cast<const WorldQueryThunderingAtAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldQueryThunderingAtAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldQueryThunderingAtAction::CopyFrom(const WorldQueryThunderingAtAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldQueryThunderingAtAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldQueryThunderingAtAction::InternalSwap(WorldQueryThunderingAtAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldQueryThunderingAtAction, _impl_.position_)
+      + sizeof(WorldQueryThunderingAtAction::_impl_.position_)
+      - PROTOBUF_FIELD_OFFSET(WorldQueryThunderingAtAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldQueryThunderingAtAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldQueryLiquidAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldQueryLiquidAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldQueryLiquidAction, _impl_._has_bits_);
+};
+
+void WorldQueryLiquidAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+void WorldQueryLiquidAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+WorldQueryLiquidAction::WorldQueryLiquidAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryLiquidAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldQueryLiquidAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryLiquidAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldQueryLiquidAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldQueryLiquidAction::WorldQueryLiquidAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldQueryLiquidAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldQueryLiquidAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldQueryLiquidAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldQueryLiquidAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldQueryLiquidAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldQueryLiquidAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, position_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::position_));
+}
+WorldQueryLiquidAction::~WorldQueryLiquidAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldQueryLiquidAction)
+  SharedDtor(*this);
+}
+inline void WorldQueryLiquidAction::SharedDtor(MessageLite& self) {
+  WorldQueryLiquidAction& this_ = static_cast<WorldQueryLiquidAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldQueryLiquidAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldQueryLiquidAction(arena);
+}
+constexpr auto WorldQueryLiquidAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldQueryLiquidAction),
+                                            alignof(WorldQueryLiquidAction));
+}
+constexpr auto WorldQueryLiquidAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldQueryLiquidAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldQueryLiquidAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldQueryLiquidAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldQueryLiquidAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldQueryLiquidAction>(), &WorldQueryLiquidAction::ByteSizeLong,
+              &WorldQueryLiquidAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldQueryLiquidAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldQueryLiquidAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldQueryLiquidAction_class_data_ =
+        WorldQueryLiquidAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldQueryLiquidAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldQueryLiquidAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldQueryLiquidAction_class_data_.tc_table);
+  return WorldQueryLiquidAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 2, 0, 2>
+WorldQueryLiquidAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldQueryLiquidAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldQueryLiquidAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldQueryLiquidAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 1,
+      PROTOBUF_FIELD_OFFSET(WorldQueryLiquidAction, _impl_.position_)}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldQueryLiquidAction, _impl_.world_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryLiquidAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldQueryLiquidAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldQueryLiquidAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldQueryLiquidAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldQueryLiquidAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldQueryLiquidAction& this_ = static_cast<const WorldQueryLiquidAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldQueryLiquidAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldQueryLiquidAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldQueryLiquidAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldQueryLiquidAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldQueryLiquidAction::ByteSizeLong(const MessageLite& base) {
+  const WorldQueryLiquidAction& this_ = static_cast<const WorldQueryLiquidAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldQueryLiquidAction::ByteSizeLong() const {
+  const WorldQueryLiquidAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldQueryLiquidAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldQueryLiquidAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldQueryLiquidAction*>(&to_msg);
+  auto& from = static_cast<const WorldQueryLiquidAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldQueryLiquidAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldQueryLiquidAction::CopyFrom(const WorldQueryLiquidAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldQueryLiquidAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldQueryLiquidAction::InternalSwap(WorldQueryLiquidAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldQueryLiquidAction, _impl_.position_)
+      + sizeof(WorldQueryLiquidAction::_impl_.position_)
+      - PROTOBUF_FIELD_OFFSET(WorldQueryLiquidAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldQueryLiquidAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldSetBiomeAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldSetBiomeAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldSetBiomeAction, _impl_._has_bits_);
+};
+
+void WorldSetBiomeAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+void WorldSetBiomeAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+WorldSetBiomeAction::WorldSetBiomeAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldSetBiomeAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldSetBiomeAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldSetBiomeAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldSetBiomeAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        biome_id_(arena, from.biome_id_) {}
+
+WorldSetBiomeAction::WorldSetBiomeAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldSetBiomeAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldSetBiomeAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldSetBiomeAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000004U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldSetBiomeAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldSetBiomeAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        biome_id_(arena) {}
+
+inline void WorldSetBiomeAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, position_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::position_));
+}
+WorldSetBiomeAction::~WorldSetBiomeAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldSetBiomeAction)
+  SharedDtor(*this);
+}
+inline void WorldSetBiomeAction::SharedDtor(MessageLite& self) {
+  WorldSetBiomeAction& this_ = static_cast<WorldSetBiomeAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.biome_id_.Destroy();
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldSetBiomeAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldSetBiomeAction(arena);
+}
+constexpr auto WorldSetBiomeAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(WorldSetBiomeAction),
+                                            alignof(WorldSetBiomeAction));
+}
+constexpr auto WorldSetBiomeAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldSetBiomeAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldSetBiomeAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldSetBiomeAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldSetBiomeAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldSetBiomeAction>(), &WorldSetBiomeAction::ByteSizeLong,
+              &WorldSetBiomeAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldSetBiomeAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldSetBiomeAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldSetBiomeAction_class_data_ =
+        WorldSetBiomeAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldSetBiomeAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldSetBiomeAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldSetBiomeAction_class_data_.tc_table);
+  return WorldSetBiomeAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 2, 46, 2>
+WorldSetBiomeAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldSetBiomeAction, _impl_._has_bits_),
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldSetBiomeAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldSetBiomeAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 1, 0,
+      PROTOBUF_FIELD_OFFSET(WorldSetBiomeAction, _impl_.world_)}},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 2, 1,
+      PROTOBUF_FIELD_OFFSET(WorldSetBiomeAction, _impl_.position_)}},
+    // string biome_id = 3 [json_name = "biomeId"];
+    {::_pbi::TcParser::FastUS1,
+     {26, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldSetBiomeAction, _impl_.biome_id_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldSetBiomeAction, _impl_.world_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldSetBiomeAction, _impl_.position_), _Internal::kHasBitsOffset + 2, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // string biome_id = 3 [json_name = "biomeId"];
+    {PROTOBUF_FIELD_OFFSET(WorldSetBiomeAction, _impl_.biome_id_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+    "\35\0\0\10\0\0\0\0"
+    "df.plugin.WorldSetBiomeAction"
+    "biome_id"
+  }},
+};
+PROTOBUF_NOINLINE void WorldSetBiomeAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldSetBiomeAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.biome_id_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldSetBiomeAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldSetBiomeAction& this_ = static_cast<const WorldSetBiomeAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldSetBiomeAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldSetBiomeAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldSetBiomeAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  // string biome_id = 3 [json_name = "biomeId"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_biome_id().empty()) {
+      const ::std::string& _s = this_._internal_biome_id();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.WorldSetBiomeAction.biome_id");
+      target = stream->WriteStringMaybeAliased(3, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldSetBiomeAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldSetBiomeAction::ByteSizeLong(const MessageLite& base) {
+  const WorldSetBiomeAction& this_ = static_cast<const WorldSetBiomeAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldSetBiomeAction::ByteSizeLong() const {
+  const WorldSetBiomeAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldSetBiomeAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    // string biome_id = 3 [json_name = "biomeId"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_biome_id().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_biome_id());
+      }
+    }
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldSetBiomeAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldSetBiomeAction*>(&to_msg);
+  auto& from = static_cast<const WorldSetBiomeAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldSetBiomeAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_biome_id().empty()) {
+        _this->_internal_set_biome_id(from._internal_biome_id());
+      } else {
+        if (_this->_impl_.biome_id_.IsDefault()) {
+          _this->_internal_set_biome_id("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldSetBiomeAction::CopyFrom(const WorldSetBiomeAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldSetBiomeAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldSetBiomeAction::InternalSwap(WorldSetBiomeAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.biome_id_, &other->_impl_.biome_id_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldSetBiomeAction, _impl_.position_)
+      + sizeof(WorldSetBiomeAction::_impl_.position_)
+      - PROTOBUF_FIELD_OFFSET(WorldSetBiomeAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldSetBiomeAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldSetLiquidAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldSetLiquidAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldSetLiquidAction, _impl_._has_bits_);
+};
+
+void WorldSetLiquidAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+void WorldSetLiquidAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+void WorldSetLiquidAction::clear_liquid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.liquid_ != nullptr) _impl_.liquid_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+WorldSetLiquidAction::WorldSetLiquidAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldSetLiquidAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldSetLiquidAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldSetLiquidAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldSetLiquidAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldSetLiquidAction::WorldSetLiquidAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldSetLiquidAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldSetLiquidAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldSetLiquidAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+  _impl_.liquid_ = (CheckHasBit(cached_has_bits, 0x00000004U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.liquid_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldSetLiquidAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldSetLiquidAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldSetLiquidAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, liquid_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::liquid_));
+}
+WorldSetLiquidAction::~WorldSetLiquidAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldSetLiquidAction)
+  SharedDtor(*this);
+}
+inline void WorldSetLiquidAction::SharedDtor(MessageLite& self) {
+  WorldSetLiquidAction& this_ = static_cast<WorldSetLiquidAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  delete this_._impl_.liquid_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldSetLiquidAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldSetLiquidAction(arena);
+}
+constexpr auto WorldSetLiquidAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldSetLiquidAction),
+                                            alignof(WorldSetLiquidAction));
+}
+constexpr auto WorldSetLiquidAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldSetLiquidAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldSetLiquidAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldSetLiquidAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldSetLiquidAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldSetLiquidAction>(), &WorldSetLiquidAction::ByteSizeLong,
+              &WorldSetLiquidAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldSetLiquidAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldSetLiquidAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldSetLiquidAction_class_data_ =
+        WorldSetLiquidAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldSetLiquidAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldSetLiquidAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldSetLiquidAction_class_data_.tc_table);
+  return WorldSetLiquidAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 3, 0, 2>
+WorldSetLiquidAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldSetLiquidAction, _impl_._has_bits_),
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    3,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldSetLiquidAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldSetLiquidAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldSetLiquidAction, _impl_.world_)}},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 1,
+      PROTOBUF_FIELD_OFFSET(WorldSetLiquidAction, _impl_.position_)}},
+    // optional .df.plugin.LiquidState liquid = 3 [json_name = "liquid"];
+    {::_pbi::TcParser::FastMtS1,
+     {26, 2, 2,
+      PROTOBUF_FIELD_OFFSET(WorldSetLiquidAction, _impl_.liquid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldSetLiquidAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldSetLiquidAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // optional .df.plugin.LiquidState liquid = 3 [json_name = "liquid"];
+    {PROTOBUF_FIELD_OFFSET(WorldSetLiquidAction, _impl_.liquid_), _Internal::kHasBitsOffset + 2, 2, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::LiquidState>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldSetLiquidAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldSetLiquidAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      ABSL_DCHECK(_impl_.liquid_ != nullptr);
+      _impl_.liquid_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldSetLiquidAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldSetLiquidAction& this_ = static_cast<const WorldSetLiquidAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldSetLiquidAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldSetLiquidAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldSetLiquidAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  // optional .df.plugin.LiquidState liquid = 3 [json_name = "liquid"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        3, *this_._impl_.liquid_, this_._impl_.liquid_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldSetLiquidAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldSetLiquidAction::ByteSizeLong(const MessageLite& base) {
+  const WorldSetLiquidAction& this_ = static_cast<const WorldSetLiquidAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldSetLiquidAction::ByteSizeLong() const {
+  const WorldSetLiquidAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldSetLiquidAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+    // optional .df.plugin.LiquidState liquid = 3 [json_name = "liquid"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.liquid_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldSetLiquidAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldSetLiquidAction*>(&to_msg);
+  auto& from = static_cast<const WorldSetLiquidAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldSetLiquidAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      ABSL_DCHECK(from._impl_.liquid_ != nullptr);
+      if (_this->_impl_.liquid_ == nullptr) {
+        _this->_impl_.liquid_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.liquid_);
+      } else {
+        _this->_impl_.liquid_->MergeFrom(*from._impl_.liquid_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldSetLiquidAction::CopyFrom(const WorldSetLiquidAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldSetLiquidAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldSetLiquidAction::InternalSwap(WorldSetLiquidAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldSetLiquidAction, _impl_.liquid_)
+      + sizeof(WorldSetLiquidAction::_impl_.liquid_)
+      - PROTOBUF_FIELD_OFFSET(WorldSetLiquidAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldSetLiquidAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class WorldScheduleBlockUpdateAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<WorldScheduleBlockUpdateAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_._has_bits_);
+};
+
+void WorldScheduleBlockUpdateAction::clear_world() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.world_ != nullptr) _impl_.world_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+void WorldScheduleBlockUpdateAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+void WorldScheduleBlockUpdateAction::clear_block() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.block_ != nullptr) _impl_.block_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+WorldScheduleBlockUpdateAction::WorldScheduleBlockUpdateAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldScheduleBlockUpdateAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.WorldScheduleBlockUpdateAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldScheduleBlockUpdateAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::WorldScheduleBlockUpdateAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0} {}
+
+WorldScheduleBlockUpdateAction::WorldScheduleBlockUpdateAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const WorldScheduleBlockUpdateAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, WorldScheduleBlockUpdateAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  WorldScheduleBlockUpdateAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.world_ = (CheckHasBit(cached_has_bits, 0x00000001U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_)
+                : nullptr;
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+  _impl_.block_ = (CheckHasBit(cached_has_bits, 0x00000004U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.block_)
+                : nullptr;
+  _impl_.delay_ms_ = from._impl_.delay_ms_;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.WorldScheduleBlockUpdateAction)
+}
+PROTOBUF_NDEBUG_INLINE WorldScheduleBlockUpdateAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0} {}
+
+inline void WorldScheduleBlockUpdateAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, world_),
+           0,
+           offsetof(Impl_, delay_ms_) -
+               offsetof(Impl_, world_) +
+               sizeof(Impl_::delay_ms_));
+}
+WorldScheduleBlockUpdateAction::~WorldScheduleBlockUpdateAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.WorldScheduleBlockUpdateAction)
+  SharedDtor(*this);
+}
+inline void WorldScheduleBlockUpdateAction::SharedDtor(MessageLite& self) {
+  WorldScheduleBlockUpdateAction& this_ = static_cast<WorldScheduleBlockUpdateAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  delete this_._impl_.world_;
+  delete this_._impl_.position_;
+  delete this_._impl_.block_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL WorldScheduleBlockUpdateAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) WorldScheduleBlockUpdateAction(arena);
+}
+constexpr auto WorldScheduleBlockUpdateAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(WorldScheduleBlockUpdateAction),
+                                            alignof(WorldScheduleBlockUpdateAction));
+}
+constexpr auto WorldScheduleBlockUpdateAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_WorldScheduleBlockUpdateAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &WorldScheduleBlockUpdateAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<WorldScheduleBlockUpdateAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &WorldScheduleBlockUpdateAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<WorldScheduleBlockUpdateAction>(), &WorldScheduleBlockUpdateAction::ByteSizeLong,
+              &WorldScheduleBlockUpdateAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_._cached_size_),
+          false,
+      },
+      &WorldScheduleBlockUpdateAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull WorldScheduleBlockUpdateAction_class_data_ =
+        WorldScheduleBlockUpdateAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+WorldScheduleBlockUpdateAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&WorldScheduleBlockUpdateAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(WorldScheduleBlockUpdateAction_class_data_.tc_table);
+  return WorldScheduleBlockUpdateAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 4, 3, 0, 2>
+WorldScheduleBlockUpdateAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_._has_bits_),
+    0, // no _extensions_
+    4, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    3,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    WorldScheduleBlockUpdateAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::WorldScheduleBlockUpdateAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // int64 delay_ms = 4 [json_name = "delayMs"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(WorldScheduleBlockUpdateAction, _impl_.delay_ms_), 3>(),
+     {32, 3, 0,
+      PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_.delay_ms_)}},
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_.world_)}},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 1,
+      PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_.position_)}},
+    // .df.plugin.BlockState block = 3 [json_name = "block"];
+    {::_pbi::TcParser::FastMtS1,
+     {26, 2, 2,
+      PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_.block_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    {PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_.world_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.BlockState block = 3 [json_name = "block"];
+    {PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_.block_), _Internal::kHasBitsOffset + 2, 2, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // int64 delay_ms = 4 [json_name = "delayMs"];
+    {PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_.delay_ms_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::WorldRef>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockState>()},
+  }},
+  {{
+  }},
+};
+PROTOBUF_NOINLINE void WorldScheduleBlockUpdateAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.WorldScheduleBlockUpdateAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(_impl_.world_ != nullptr);
+      _impl_.world_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      ABSL_DCHECK(_impl_.block_ != nullptr);
+      _impl_.block_->Clear();
+    }
+  }
+  _impl_.delay_ms_ = ::int64_t{0};
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL WorldScheduleBlockUpdateAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const WorldScheduleBlockUpdateAction& this_ = static_cast<const WorldScheduleBlockUpdateAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL WorldScheduleBlockUpdateAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const WorldScheduleBlockUpdateAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.WorldScheduleBlockUpdateAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // .df.plugin.WorldRef world = 1 [json_name = "world"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.world_, this_._impl_.world_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  // .df.plugin.BlockState block = 3 [json_name = "block"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        3, *this_._impl_.block_, this_._impl_.block_->GetCachedSize(), target,
+        stream);
+  }
+
+  // int64 delay_ms = 4 [json_name = "delayMs"];
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (this_._internal_delay_ms() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt64ToArrayWithField<4>(
+              stream, this_._internal_delay_ms(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.WorldScheduleBlockUpdateAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t WorldScheduleBlockUpdateAction::ByteSizeLong(const MessageLite& base) {
+  const WorldScheduleBlockUpdateAction& this_ = static_cast<const WorldScheduleBlockUpdateAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t WorldScheduleBlockUpdateAction::ByteSizeLong() const {
+  const WorldScheduleBlockUpdateAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.WorldScheduleBlockUpdateAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    // .df.plugin.WorldRef world = 1 [json_name = "world"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.world_);
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+    // .df.plugin.BlockState block = 3 [json_name = "block"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.block_);
+    }
+    // int64 delay_ms = 4 [json_name = "delayMs"];
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (this_._internal_delay_ms() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+            this_._internal_delay_ms());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void WorldScheduleBlockUpdateAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<WorldScheduleBlockUpdateAction*>(&to_msg);
+  auto& from = static_cast<const WorldScheduleBlockUpdateAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.WorldScheduleBlockUpdateAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      ABSL_DCHECK(from._impl_.world_ != nullptr);
+      if (_this->_impl_.world_ == nullptr) {
+        _this->_impl_.world_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.world_);
+      } else {
+        _this->_impl_.world_->MergeFrom(*from._impl_.world_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      ABSL_DCHECK(from._impl_.block_ != nullptr);
+      if (_this->_impl_.block_ == nullptr) {
+        _this->_impl_.block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.block_);
+      } else {
+        _this->_impl_.block_->MergeFrom(*from._impl_.block_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (from._internal_delay_ms() != 0) {
+        _this->_impl_.delay_ms_ = from._impl_.delay_ms_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void WorldScheduleBlockUpdateAction::CopyFrom(const WorldScheduleBlockUpdateAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.WorldScheduleBlockUpdateAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void WorldScheduleBlockUpdateAction::InternalSwap(WorldScheduleBlockUpdateAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_.delay_ms_)
+      + sizeof(WorldScheduleBlockUpdateAction::_impl_.delay_ms_)
+      - PROTOBUF_FIELD_OFFSET(WorldScheduleBlockUpdateAction, _impl_.world_)>(
+          reinterpret_cast<char*>(&_impl_.world_),
+          reinterpret_cast<char*>(&other->_impl_.world_));
+}
+
+::google::protobuf::Metadata WorldScheduleBlockUpdateAction::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

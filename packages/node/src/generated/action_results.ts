@@ -6,7 +6,17 @@
 
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
-import { BBox, BlockPos, EntityRef, GameMode, gameModeFromJSON, gameModeToJSON, WorldRef } from "./common.js";
+import {
+  BBox,
+  BlockPos,
+  BlockState,
+  EntityRef,
+  GameMode,
+  gameModeFromJSON,
+  gameModeToJSON,
+  LiquidState,
+  WorldRef,
+} from "./common.js";
 
 export const protobufPackage = "df.plugin";
 
@@ -18,6 +28,16 @@ export interface ActionResult {
   worldEntitiesWithin?: WorldEntitiesWithinResult | undefined;
   worldDefaultGameMode?: WorldDefaultGameModeResult | undefined;
   worldPlayerSpawn?: WorldPlayerSpawnResult | undefined;
+  worldBlock?: WorldBlockResult | undefined;
+  worldBiome?: WorldBiomeResult | undefined;
+  worldLight?: WorldLightResult | undefined;
+  worldSkyLight?: WorldSkyLightResult | undefined;
+  worldTemperature?: WorldTemperatureResult | undefined;
+  worldHighestBlock?: WorldHighestBlockResult | undefined;
+  worldRainingAt?: WorldRainingAtResult | undefined;
+  worldSnowingAt?: WorldSnowingAtResult | undefined;
+  worldThunderingAt?: WorldThunderingAtResult | undefined;
+  worldLiquid?: WorldLiquidResult | undefined;
 }
 
 export interface ActionStatus {
@@ -52,6 +72,77 @@ export interface WorldPlayerSpawnResult {
   spawn: BlockPos | undefined;
 }
 
+export interface WorldBlockResult {
+  world: WorldRef | undefined;
+  position: BlockPos | undefined;
+  block: BlockState | undefined;
+}
+
+export interface WorldBiomeResult {
+  world: WorldRef | undefined;
+  position: BlockPos | undefined;
+  biomeId: string;
+}
+
+export interface WorldLightResult {
+  world: WorldRef | undefined;
+  position:
+    | BlockPos
+    | undefined;
+  /** 0-15 */
+  lightLevel: number;
+}
+
+export interface WorldSkyLightResult {
+  world: WorldRef | undefined;
+  position:
+    | BlockPos
+    | undefined;
+  /** 0-15 */
+  skyLightLevel: number;
+}
+
+export interface WorldTemperatureResult {
+  world: WorldRef | undefined;
+  position: BlockPos | undefined;
+  temperature: number;
+}
+
+export interface WorldHighestBlockResult {
+  world: WorldRef | undefined;
+  x: number;
+  z: number;
+  /** highest block Y coordinate */
+  y: number;
+}
+
+export interface WorldRainingAtResult {
+  world: WorldRef | undefined;
+  position: BlockPos | undefined;
+  raining: boolean;
+}
+
+export interface WorldSnowingAtResult {
+  world: WorldRef | undefined;
+  position: BlockPos | undefined;
+  snowing: boolean;
+}
+
+export interface WorldThunderingAtResult {
+  world: WorldRef | undefined;
+  position: BlockPos | undefined;
+  thundering: boolean;
+}
+
+export interface WorldLiquidResult {
+  world: WorldRef | undefined;
+  position:
+    | BlockPos
+    | undefined;
+  /** nil if no liquid present */
+  liquid?: LiquidState | undefined;
+}
+
 function createBaseActionResult(): ActionResult {
   return {
     correlationId: "",
@@ -61,6 +152,16 @@ function createBaseActionResult(): ActionResult {
     worldEntitiesWithin: undefined,
     worldDefaultGameMode: undefined,
     worldPlayerSpawn: undefined,
+    worldBlock: undefined,
+    worldBiome: undefined,
+    worldLight: undefined,
+    worldSkyLight: undefined,
+    worldTemperature: undefined,
+    worldHighestBlock: undefined,
+    worldRainingAt: undefined,
+    worldSnowingAt: undefined,
+    worldThunderingAt: undefined,
+    worldLiquid: undefined,
   };
 }
 
@@ -86,6 +187,36 @@ export const ActionResult: MessageFns<ActionResult> = {
     }
     if (message.worldPlayerSpawn !== undefined) {
       WorldPlayerSpawnResult.encode(message.worldPlayerSpawn, writer.uint32(114).fork()).join();
+    }
+    if (message.worldBlock !== undefined) {
+      WorldBlockResult.encode(message.worldBlock, writer.uint32(122).fork()).join();
+    }
+    if (message.worldBiome !== undefined) {
+      WorldBiomeResult.encode(message.worldBiome, writer.uint32(130).fork()).join();
+    }
+    if (message.worldLight !== undefined) {
+      WorldLightResult.encode(message.worldLight, writer.uint32(138).fork()).join();
+    }
+    if (message.worldSkyLight !== undefined) {
+      WorldSkyLightResult.encode(message.worldSkyLight, writer.uint32(146).fork()).join();
+    }
+    if (message.worldTemperature !== undefined) {
+      WorldTemperatureResult.encode(message.worldTemperature, writer.uint32(154).fork()).join();
+    }
+    if (message.worldHighestBlock !== undefined) {
+      WorldHighestBlockResult.encode(message.worldHighestBlock, writer.uint32(162).fork()).join();
+    }
+    if (message.worldRainingAt !== undefined) {
+      WorldRainingAtResult.encode(message.worldRainingAt, writer.uint32(170).fork()).join();
+    }
+    if (message.worldSnowingAt !== undefined) {
+      WorldSnowingAtResult.encode(message.worldSnowingAt, writer.uint32(178).fork()).join();
+    }
+    if (message.worldThunderingAt !== undefined) {
+      WorldThunderingAtResult.encode(message.worldThunderingAt, writer.uint32(186).fork()).join();
+    }
+    if (message.worldLiquid !== undefined) {
+      WorldLiquidResult.encode(message.worldLiquid, writer.uint32(194).fork()).join();
     }
     return writer;
   },
@@ -153,6 +284,86 @@ export const ActionResult: MessageFns<ActionResult> = {
           message.worldPlayerSpawn = WorldPlayerSpawnResult.decode(reader, reader.uint32());
           continue;
         }
+        case 15: {
+          if (tag !== 122) {
+            break;
+          }
+
+          message.worldBlock = WorldBlockResult.decode(reader, reader.uint32());
+          continue;
+        }
+        case 16: {
+          if (tag !== 130) {
+            break;
+          }
+
+          message.worldBiome = WorldBiomeResult.decode(reader, reader.uint32());
+          continue;
+        }
+        case 17: {
+          if (tag !== 138) {
+            break;
+          }
+
+          message.worldLight = WorldLightResult.decode(reader, reader.uint32());
+          continue;
+        }
+        case 18: {
+          if (tag !== 146) {
+            break;
+          }
+
+          message.worldSkyLight = WorldSkyLightResult.decode(reader, reader.uint32());
+          continue;
+        }
+        case 19: {
+          if (tag !== 154) {
+            break;
+          }
+
+          message.worldTemperature = WorldTemperatureResult.decode(reader, reader.uint32());
+          continue;
+        }
+        case 20: {
+          if (tag !== 162) {
+            break;
+          }
+
+          message.worldHighestBlock = WorldHighestBlockResult.decode(reader, reader.uint32());
+          continue;
+        }
+        case 21: {
+          if (tag !== 170) {
+            break;
+          }
+
+          message.worldRainingAt = WorldRainingAtResult.decode(reader, reader.uint32());
+          continue;
+        }
+        case 22: {
+          if (tag !== 178) {
+            break;
+          }
+
+          message.worldSnowingAt = WorldSnowingAtResult.decode(reader, reader.uint32());
+          continue;
+        }
+        case 23: {
+          if (tag !== 186) {
+            break;
+          }
+
+          message.worldThunderingAt = WorldThunderingAtResult.decode(reader, reader.uint32());
+          continue;
+        }
+        case 24: {
+          if (tag !== 194) {
+            break;
+          }
+
+          message.worldLiquid = WorldLiquidResult.decode(reader, reader.uint32());
+          continue;
+        }
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -177,6 +388,22 @@ export const ActionResult: MessageFns<ActionResult> = {
       worldPlayerSpawn: isSet(object.worldPlayerSpawn)
         ? WorldPlayerSpawnResult.fromJSON(object.worldPlayerSpawn)
         : undefined,
+      worldBlock: isSet(object.worldBlock) ? WorldBlockResult.fromJSON(object.worldBlock) : undefined,
+      worldBiome: isSet(object.worldBiome) ? WorldBiomeResult.fromJSON(object.worldBiome) : undefined,
+      worldLight: isSet(object.worldLight) ? WorldLightResult.fromJSON(object.worldLight) : undefined,
+      worldSkyLight: isSet(object.worldSkyLight) ? WorldSkyLightResult.fromJSON(object.worldSkyLight) : undefined,
+      worldTemperature: isSet(object.worldTemperature)
+        ? WorldTemperatureResult.fromJSON(object.worldTemperature)
+        : undefined,
+      worldHighestBlock: isSet(object.worldHighestBlock)
+        ? WorldHighestBlockResult.fromJSON(object.worldHighestBlock)
+        : undefined,
+      worldRainingAt: isSet(object.worldRainingAt) ? WorldRainingAtResult.fromJSON(object.worldRainingAt) : undefined,
+      worldSnowingAt: isSet(object.worldSnowingAt) ? WorldSnowingAtResult.fromJSON(object.worldSnowingAt) : undefined,
+      worldThunderingAt: isSet(object.worldThunderingAt)
+        ? WorldThunderingAtResult.fromJSON(object.worldThunderingAt)
+        : undefined,
+      worldLiquid: isSet(object.worldLiquid) ? WorldLiquidResult.fromJSON(object.worldLiquid) : undefined,
     };
   },
 
@@ -202,6 +429,36 @@ export const ActionResult: MessageFns<ActionResult> = {
     }
     if (message.worldPlayerSpawn !== undefined) {
       obj.worldPlayerSpawn = WorldPlayerSpawnResult.toJSON(message.worldPlayerSpawn);
+    }
+    if (message.worldBlock !== undefined) {
+      obj.worldBlock = WorldBlockResult.toJSON(message.worldBlock);
+    }
+    if (message.worldBiome !== undefined) {
+      obj.worldBiome = WorldBiomeResult.toJSON(message.worldBiome);
+    }
+    if (message.worldLight !== undefined) {
+      obj.worldLight = WorldLightResult.toJSON(message.worldLight);
+    }
+    if (message.worldSkyLight !== undefined) {
+      obj.worldSkyLight = WorldSkyLightResult.toJSON(message.worldSkyLight);
+    }
+    if (message.worldTemperature !== undefined) {
+      obj.worldTemperature = WorldTemperatureResult.toJSON(message.worldTemperature);
+    }
+    if (message.worldHighestBlock !== undefined) {
+      obj.worldHighestBlock = WorldHighestBlockResult.toJSON(message.worldHighestBlock);
+    }
+    if (message.worldRainingAt !== undefined) {
+      obj.worldRainingAt = WorldRainingAtResult.toJSON(message.worldRainingAt);
+    }
+    if (message.worldSnowingAt !== undefined) {
+      obj.worldSnowingAt = WorldSnowingAtResult.toJSON(message.worldSnowingAt);
+    }
+    if (message.worldThunderingAt !== undefined) {
+      obj.worldThunderingAt = WorldThunderingAtResult.toJSON(message.worldThunderingAt);
+    }
+    if (message.worldLiquid !== undefined) {
+      obj.worldLiquid = WorldLiquidResult.toJSON(message.worldLiquid);
     }
     return obj;
   },
@@ -229,6 +486,36 @@ export const ActionResult: MessageFns<ActionResult> = {
       : undefined;
     message.worldPlayerSpawn = (object.worldPlayerSpawn !== undefined && object.worldPlayerSpawn !== null)
       ? WorldPlayerSpawnResult.fromPartial(object.worldPlayerSpawn)
+      : undefined;
+    message.worldBlock = (object.worldBlock !== undefined && object.worldBlock !== null)
+      ? WorldBlockResult.fromPartial(object.worldBlock)
+      : undefined;
+    message.worldBiome = (object.worldBiome !== undefined && object.worldBiome !== null)
+      ? WorldBiomeResult.fromPartial(object.worldBiome)
+      : undefined;
+    message.worldLight = (object.worldLight !== undefined && object.worldLight !== null)
+      ? WorldLightResult.fromPartial(object.worldLight)
+      : undefined;
+    message.worldSkyLight = (object.worldSkyLight !== undefined && object.worldSkyLight !== null)
+      ? WorldSkyLightResult.fromPartial(object.worldSkyLight)
+      : undefined;
+    message.worldTemperature = (object.worldTemperature !== undefined && object.worldTemperature !== null)
+      ? WorldTemperatureResult.fromPartial(object.worldTemperature)
+      : undefined;
+    message.worldHighestBlock = (object.worldHighestBlock !== undefined && object.worldHighestBlock !== null)
+      ? WorldHighestBlockResult.fromPartial(object.worldHighestBlock)
+      : undefined;
+    message.worldRainingAt = (object.worldRainingAt !== undefined && object.worldRainingAt !== null)
+      ? WorldRainingAtResult.fromPartial(object.worldRainingAt)
+      : undefined;
+    message.worldSnowingAt = (object.worldSnowingAt !== undefined && object.worldSnowingAt !== null)
+      ? WorldSnowingAtResult.fromPartial(object.worldSnowingAt)
+      : undefined;
+    message.worldThunderingAt = (object.worldThunderingAt !== undefined && object.worldThunderingAt !== null)
+      ? WorldThunderingAtResult.fromPartial(object.worldThunderingAt)
+      : undefined;
+    message.worldLiquid = (object.worldLiquid !== undefined && object.worldLiquid !== null)
+      ? WorldLiquidResult.fromPartial(object.worldLiquid)
       : undefined;
     return message;
   },
@@ -733,6 +1020,984 @@ export const WorldPlayerSpawnResult: MessageFns<WorldPlayerSpawnResult> = {
     message.playerUuid = object.playerUuid ?? "";
     message.spawn = (object.spawn !== undefined && object.spawn !== null)
       ? BlockPos.fromPartial(object.spawn)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseWorldBlockResult(): WorldBlockResult {
+  return { world: undefined, position: undefined, block: undefined };
+}
+
+export const WorldBlockResult: MessageFns<WorldBlockResult> = {
+  encode(message: WorldBlockResult, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.block !== undefined) {
+      BlockState.encode(message.block, writer.uint32(26).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldBlockResult {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldBlockResult();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.block = BlockState.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldBlockResult {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      block: isSet(object.block) ? BlockState.fromJSON(object.block) : undefined,
+    };
+  },
+
+  toJSON(message: WorldBlockResult): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.block !== undefined) {
+      obj.block = BlockState.toJSON(message.block);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldBlockResult>): WorldBlockResult {
+    return WorldBlockResult.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldBlockResult>): WorldBlockResult {
+    const message = createBaseWorldBlockResult();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.block = (object.block !== undefined && object.block !== null)
+      ? BlockState.fromPartial(object.block)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseWorldBiomeResult(): WorldBiomeResult {
+  return { world: undefined, position: undefined, biomeId: "" };
+}
+
+export const WorldBiomeResult: MessageFns<WorldBiomeResult> = {
+  encode(message: WorldBiomeResult, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.biomeId !== "") {
+      writer.uint32(26).string(message.biomeId);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldBiomeResult {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldBiomeResult();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.biomeId = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldBiomeResult {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      biomeId: isSet(object.biomeId) ? globalThis.String(object.biomeId) : "",
+    };
+  },
+
+  toJSON(message: WorldBiomeResult): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.biomeId !== "") {
+      obj.biomeId = message.biomeId;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldBiomeResult>): WorldBiomeResult {
+    return WorldBiomeResult.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldBiomeResult>): WorldBiomeResult {
+    const message = createBaseWorldBiomeResult();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.biomeId = object.biomeId ?? "";
+    return message;
+  },
+};
+
+function createBaseWorldLightResult(): WorldLightResult {
+  return { world: undefined, position: undefined, lightLevel: 0 };
+}
+
+export const WorldLightResult: MessageFns<WorldLightResult> = {
+  encode(message: WorldLightResult, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.lightLevel !== 0) {
+      writer.uint32(24).int32(message.lightLevel);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldLightResult {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldLightResult();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.lightLevel = reader.int32();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldLightResult {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      lightLevel: isSet(object.lightLevel) ? globalThis.Number(object.lightLevel) : 0,
+    };
+  },
+
+  toJSON(message: WorldLightResult): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.lightLevel !== 0) {
+      obj.lightLevel = Math.round(message.lightLevel);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldLightResult>): WorldLightResult {
+    return WorldLightResult.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldLightResult>): WorldLightResult {
+    const message = createBaseWorldLightResult();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.lightLevel = object.lightLevel ?? 0;
+    return message;
+  },
+};
+
+function createBaseWorldSkyLightResult(): WorldSkyLightResult {
+  return { world: undefined, position: undefined, skyLightLevel: 0 };
+}
+
+export const WorldSkyLightResult: MessageFns<WorldSkyLightResult> = {
+  encode(message: WorldSkyLightResult, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.skyLightLevel !== 0) {
+      writer.uint32(24).int32(message.skyLightLevel);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldSkyLightResult {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldSkyLightResult();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.skyLightLevel = reader.int32();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldSkyLightResult {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      skyLightLevel: isSet(object.skyLightLevel) ? globalThis.Number(object.skyLightLevel) : 0,
+    };
+  },
+
+  toJSON(message: WorldSkyLightResult): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.skyLightLevel !== 0) {
+      obj.skyLightLevel = Math.round(message.skyLightLevel);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldSkyLightResult>): WorldSkyLightResult {
+    return WorldSkyLightResult.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldSkyLightResult>): WorldSkyLightResult {
+    const message = createBaseWorldSkyLightResult();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.skyLightLevel = object.skyLightLevel ?? 0;
+    return message;
+  },
+};
+
+function createBaseWorldTemperatureResult(): WorldTemperatureResult {
+  return { world: undefined, position: undefined, temperature: 0 };
+}
+
+export const WorldTemperatureResult: MessageFns<WorldTemperatureResult> = {
+  encode(message: WorldTemperatureResult, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.temperature !== 0) {
+      writer.uint32(25).double(message.temperature);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldTemperatureResult {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldTemperatureResult();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 25) {
+            break;
+          }
+
+          message.temperature = reader.double();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldTemperatureResult {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      temperature: isSet(object.temperature) ? globalThis.Number(object.temperature) : 0,
+    };
+  },
+
+  toJSON(message: WorldTemperatureResult): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.temperature !== 0) {
+      obj.temperature = message.temperature;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldTemperatureResult>): WorldTemperatureResult {
+    return WorldTemperatureResult.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldTemperatureResult>): WorldTemperatureResult {
+    const message = createBaseWorldTemperatureResult();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.temperature = object.temperature ?? 0;
+    return message;
+  },
+};
+
+function createBaseWorldHighestBlockResult(): WorldHighestBlockResult {
+  return { world: undefined, x: 0, z: 0, y: 0 };
+}
+
+export const WorldHighestBlockResult: MessageFns<WorldHighestBlockResult> = {
+  encode(message: WorldHighestBlockResult, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.x !== 0) {
+      writer.uint32(16).int32(message.x);
+    }
+    if (message.z !== 0) {
+      writer.uint32(24).int32(message.z);
+    }
+    if (message.y !== 0) {
+      writer.uint32(32).int32(message.y);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldHighestBlockResult {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldHighestBlockResult();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 16) {
+            break;
+          }
+
+          message.x = reader.int32();
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.z = reader.int32();
+          continue;
+        }
+        case 4: {
+          if (tag !== 32) {
+            break;
+          }
+
+          message.y = reader.int32();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldHighestBlockResult {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      x: isSet(object.x) ? globalThis.Number(object.x) : 0,
+      z: isSet(object.z) ? globalThis.Number(object.z) : 0,
+      y: isSet(object.y) ? globalThis.Number(object.y) : 0,
+    };
+  },
+
+  toJSON(message: WorldHighestBlockResult): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.x !== 0) {
+      obj.x = Math.round(message.x);
+    }
+    if (message.z !== 0) {
+      obj.z = Math.round(message.z);
+    }
+    if (message.y !== 0) {
+      obj.y = Math.round(message.y);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldHighestBlockResult>): WorldHighestBlockResult {
+    return WorldHighestBlockResult.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldHighestBlockResult>): WorldHighestBlockResult {
+    const message = createBaseWorldHighestBlockResult();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.x = object.x ?? 0;
+    message.z = object.z ?? 0;
+    message.y = object.y ?? 0;
+    return message;
+  },
+};
+
+function createBaseWorldRainingAtResult(): WorldRainingAtResult {
+  return { world: undefined, position: undefined, raining: false };
+}
+
+export const WorldRainingAtResult: MessageFns<WorldRainingAtResult> = {
+  encode(message: WorldRainingAtResult, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.raining !== false) {
+      writer.uint32(24).bool(message.raining);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldRainingAtResult {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldRainingAtResult();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.raining = reader.bool();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldRainingAtResult {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      raining: isSet(object.raining) ? globalThis.Boolean(object.raining) : false,
+    };
+  },
+
+  toJSON(message: WorldRainingAtResult): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.raining !== false) {
+      obj.raining = message.raining;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldRainingAtResult>): WorldRainingAtResult {
+    return WorldRainingAtResult.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldRainingAtResult>): WorldRainingAtResult {
+    const message = createBaseWorldRainingAtResult();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.raining = object.raining ?? false;
+    return message;
+  },
+};
+
+function createBaseWorldSnowingAtResult(): WorldSnowingAtResult {
+  return { world: undefined, position: undefined, snowing: false };
+}
+
+export const WorldSnowingAtResult: MessageFns<WorldSnowingAtResult> = {
+  encode(message: WorldSnowingAtResult, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.snowing !== false) {
+      writer.uint32(24).bool(message.snowing);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldSnowingAtResult {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldSnowingAtResult();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.snowing = reader.bool();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldSnowingAtResult {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      snowing: isSet(object.snowing) ? globalThis.Boolean(object.snowing) : false,
+    };
+  },
+
+  toJSON(message: WorldSnowingAtResult): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.snowing !== false) {
+      obj.snowing = message.snowing;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldSnowingAtResult>): WorldSnowingAtResult {
+    return WorldSnowingAtResult.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldSnowingAtResult>): WorldSnowingAtResult {
+    const message = createBaseWorldSnowingAtResult();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.snowing = object.snowing ?? false;
+    return message;
+  },
+};
+
+function createBaseWorldThunderingAtResult(): WorldThunderingAtResult {
+  return { world: undefined, position: undefined, thundering: false };
+}
+
+export const WorldThunderingAtResult: MessageFns<WorldThunderingAtResult> = {
+  encode(message: WorldThunderingAtResult, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.thundering !== false) {
+      writer.uint32(24).bool(message.thundering);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldThunderingAtResult {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldThunderingAtResult();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.thundering = reader.bool();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldThunderingAtResult {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      thundering: isSet(object.thundering) ? globalThis.Boolean(object.thundering) : false,
+    };
+  },
+
+  toJSON(message: WorldThunderingAtResult): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.thundering !== false) {
+      obj.thundering = message.thundering;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldThunderingAtResult>): WorldThunderingAtResult {
+    return WorldThunderingAtResult.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldThunderingAtResult>): WorldThunderingAtResult {
+    const message = createBaseWorldThunderingAtResult();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.thundering = object.thundering ?? false;
+    return message;
+  },
+};
+
+function createBaseWorldLiquidResult(): WorldLiquidResult {
+  return { world: undefined, position: undefined, liquid: undefined };
+}
+
+export const WorldLiquidResult: MessageFns<WorldLiquidResult> = {
+  encode(message: WorldLiquidResult, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.world !== undefined) {
+      WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.liquid !== undefined) {
+      LiquidState.encode(message.liquid, writer.uint32(26).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): WorldLiquidResult {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseWorldLiquidResult();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.world = WorldRef.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.liquid = LiquidState.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): WorldLiquidResult {
+    return {
+      world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      liquid: isSet(object.liquid) ? LiquidState.fromJSON(object.liquid) : undefined,
+    };
+  },
+
+  toJSON(message: WorldLiquidResult): unknown {
+    const obj: any = {};
+    if (message.world !== undefined) {
+      obj.world = WorldRef.toJSON(message.world);
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.liquid !== undefined) {
+      obj.liquid = LiquidState.toJSON(message.liquid);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<WorldLiquidResult>): WorldLiquidResult {
+    return WorldLiquidResult.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<WorldLiquidResult>): WorldLiquidResult {
+    const message = createBaseWorldLiquidResult();
+    message.world = (object.world !== undefined && object.world !== null)
+      ? WorldRef.fromPartial(object.world)
+      : undefined;
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.liquid = (object.liquid !== undefined && object.liquid !== null)
+      ? LiquidState.fromPartial(object.liquid)
       : undefined;
     return message;
   },

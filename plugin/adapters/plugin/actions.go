@@ -1,6 +1,7 @@
 package plugin
 
 import (
+	"fmt"
 	"strings"
 	"time"
 
@@ -95,6 +96,32 @@ func (m *Manager) applyActions(p *pluginProcess, batch *pb.ActionBatch) {
 			m.handleWorldQueryDefaultGameMode(p, correlationID, kind.WorldQueryDefaultGameMode)
 		case *pb.Action_WorldQueryPlayerSpawn:
 			m.handleWorldQueryPlayerSpawn(p, correlationID, kind.WorldQueryPlayerSpawn)
+		case *pb.Action_WorldQueryBlock:
+			m.handleWorldQueryBlock(p, correlationID, kind.WorldQueryBlock)
+		case *pb.Action_WorldQueryBiome:
+			m.handleWorldQueryBiome(p, correlationID, kind.WorldQueryBiome)
+		case *pb.Action_WorldQueryLight:
+			m.handleWorldQueryLight(p, correlationID, kind.WorldQueryLight)
+		case *pb.Action_WorldQuerySkyLight:
+			m.handleWorldQuerySkyLight(p, correlationID, kind.WorldQuerySkyLight)
+		case *pb.Action_WorldQueryTemperature:
+			m.handleWorldQueryTemperature(p, correlationID, kind.WorldQueryTemperature)
+		case *pb.Action_WorldQueryHighestBlock:
+			m.handleWorldQueryHighestBlock(p, correlationID, kind.WorldQueryHighestBlock)
+		case *pb.Action_WorldQueryRainingAt:
+			m.handleWorldQueryRainingAt(p, correlationID, kind.WorldQueryRainingAt)
+		case *pb.Action_WorldQuerySnowingAt:
+			m.handleWorldQuerySnowingAt(p, correlationID, kind.WorldQuerySnowingAt)
+		case *pb.Action_WorldQueryThunderingAt:
+			m.handleWorldQueryThunderingAt(p, correlationID, kind.WorldQueryThunderingAt)
+		case *pb.Action_WorldQueryLiquid:
+			m.handleWorldQueryLiquid(p, correlationID, kind.WorldQueryLiquid)
+		case *pb.Action_WorldSetBiome:
+			m.handleWorldSetBiome(p, correlationID, kind.WorldSetBiome)
+		case *pb.Action_WorldSetLiquid:
+			m.handleWorldSetLiquid(p, correlationID, kind.WorldSetLiquid)
+		case *pb.Action_WorldScheduleBlockUpdate:
+			m.handleWorldScheduleBlockUpdate(p, correlationID, kind.WorldScheduleBlockUpdate)
 		}
 	}
 }
@@ -795,4 +822,364 @@ func playerTitleFromAction(act *pb.SendTitleAction) title.Title {
 		t = t.WithFadeOutDuration(time.Duration(*act.FadeOutMs) * time.Millisecond)
 	}
 	return t
+}
+
+// World query handlers
+
+func (m *Manager) handleWorldQueryBlock(p *pluginProcess, correlationID string, act *pb.WorldQueryBlockAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	var block world.Block
+	<-w.Exec(func(tx *world.Tx) {
+		block = tx.Block(pos)
+	})
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldBlock{WorldBlock: &pb.WorldBlockResult{
+			World:    protoWorldRef(w),
+			Position: act.Position,
+			Block:    protoBlockState(block),
+		}},
+	})
+}
+
+func (m *Manager) handleWorldQueryBiome(p *pluginProcess, correlationID string, act *pb.WorldQueryBiomeAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	var biome world.Biome
+	<-w.Exec(func(tx *world.Tx) {
+		biome = tx.Biome(pos)
+	})
+	biomeID := fmt.Sprintf("%d", biome.EncodeBiome())
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldBiome{WorldBiome: &pb.WorldBiomeResult{
+			World:    protoWorldRef(w),
+			Position: act.Position,
+			BiomeId:  biomeID,
+		}},
+	})
+}
+
+func (m *Manager) handleWorldQueryLight(p *pluginProcess, correlationID string, act *pb.WorldQueryLightAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	var lightLevel uint8
+	<-w.Exec(func(tx *world.Tx) {
+		lightLevel = tx.Light(pos)
+	})
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldLight{WorldLight: &pb.WorldLightResult{
+			World:      protoWorldRef(w),
+			Position:   act.Position,
+			LightLevel: int32(lightLevel),
+		}},
+	})
+}
+
+func (m *Manager) handleWorldQuerySkyLight(p *pluginProcess, correlationID string, act *pb.WorldQuerySkyLightAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	var skyLightLevel uint8
+	<-w.Exec(func(tx *world.Tx) {
+		skyLightLevel = tx.SkyLight(pos)
+	})
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldSkyLight{WorldSkyLight: &pb.WorldSkyLightResult{
+			World:         protoWorldRef(w),
+			Position:      act.Position,
+			SkyLightLevel: int32(skyLightLevel),
+		}},
+	})
+}
+
+func (m *Manager) handleWorldQueryTemperature(p *pluginProcess, correlationID string, act *pb.WorldQueryTemperatureAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	var temperature float64
+	<-w.Exec(func(tx *world.Tx) {
+		temperature = tx.Temperature(pos)
+	})
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldTemperature{WorldTemperature: &pb.WorldTemperatureResult{
+			World:       protoWorldRef(w),
+			Position:    act.Position,
+			Temperature: temperature,
+		}},
+	})
+}
+
+func (m *Manager) handleWorldQueryHighestBlock(p *pluginProcess, correlationID string, act *pb.WorldQueryHighestBlockAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	var y int
+	<-w.Exec(func(tx *world.Tx) {
+		y = tx.HighestBlock(int(act.X), int(act.Z))
+	})
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldHighestBlock{WorldHighestBlock: &pb.WorldHighestBlockResult{
+			World: protoWorldRef(w),
+			X:     act.X,
+			Z:     act.Z,
+			Y:     int32(y),
+		}},
+	})
+}
+
+func (m *Manager) handleWorldQueryRainingAt(p *pluginProcess, correlationID string, act *pb.WorldQueryRainingAtAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	var raining bool
+	<-w.Exec(func(tx *world.Tx) {
+		raining = tx.RainingAt(pos)
+	})
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldRainingAt{WorldRainingAt: &pb.WorldRainingAtResult{
+			World:    protoWorldRef(w),
+			Position: act.Position,
+			Raining:  raining,
+		}},
+	})
+}
+
+func (m *Manager) handleWorldQuerySnowingAt(p *pluginProcess, correlationID string, act *pb.WorldQuerySnowingAtAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	var snowing bool
+	<-w.Exec(func(tx *world.Tx) {
+		snowing = tx.SnowingAt(pos)
+	})
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldSnowingAt{WorldSnowingAt: &pb.WorldSnowingAtResult{
+			World:    protoWorldRef(w),
+			Position: act.Position,
+			Snowing:  snowing,
+		}},
+	})
+}
+
+func (m *Manager) handleWorldQueryThunderingAt(p *pluginProcess, correlationID string, act *pb.WorldQueryThunderingAtAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	var thundering bool
+	<-w.Exec(func(tx *world.Tx) {
+		thundering = tx.ThunderingAt(pos)
+	})
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldThunderingAt{WorldThunderingAt: &pb.WorldThunderingAtResult{
+			World:      protoWorldRef(w),
+			Position:   act.Position,
+			Thundering: thundering,
+		}},
+	})
+}
+
+func (m *Manager) handleWorldQueryLiquid(p *pluginProcess, correlationID string, act *pb.WorldQueryLiquidAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	var liquidState *pb.LiquidState
+	<-w.Exec(func(tx *world.Tx) {
+		if liq, ok := tx.Liquid(pos); ok {
+			liquidState = protoLiquidState(liq)
+		}
+	})
+	m.sendActionResult(p, &pb.ActionResult{
+		CorrelationId: correlationID,
+		Status:        &pb.ActionStatus{Ok: true},
+		Result: &pb.ActionResult_WorldLiquid{WorldLiquid: &pb.WorldLiquidResult{
+			World:    protoWorldRef(w),
+			Position: act.Position,
+			Liquid:   liquidState,
+		}},
+	})
+}
+
+// World mutation handlers
+
+func (m *Manager) handleWorldSetBiome(p *pluginProcess, correlationID string, act *pb.WorldSetBiomeAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	if act.BiomeId == "" {
+		m.sendActionError(p, correlationID, "missing biome_id")
+		return
+	}
+	// Parse biome ID - can be numeric ID or canonical biome name
+	var biome world.Biome
+	var biomeID int
+	if _, err := fmt.Sscanf(act.BiomeId, "%d", &biomeID); err == nil {
+		var ok bool
+		biome, ok = world.BiomeByID(biomeID)
+		if !ok {
+			m.sendActionError(p, correlationID, "unknown biome ID")
+			return
+		}
+	} else {
+		var ok bool
+		biome, ok = world.BiomeByName(act.BiomeId)
+		if !ok {
+			m.sendActionError(p, correlationID, "unknown biome name")
+			return
+		}
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	<-w.Exec(func(tx *world.Tx) {
+		tx.SetBiome(pos, biome)
+	})
+	m.sendActionOK(p, correlationID)
+}
+
+func (m *Manager) handleWorldSetLiquid(p *pluginProcess, correlationID string, act *pb.WorldSetLiquidAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	var liquid world.Liquid
+	if act.Liquid != nil && act.Liquid.Block != nil {
+		if blk, ok := blockFromProto(act.Liquid.Block); ok {
+			if liq, ok := blk.(world.Liquid); ok {
+				liquid = liq
+			} else {
+				m.sendActionError(p, correlationID, "block is not a liquid")
+				return
+			}
+		} else {
+			m.sendActionError(p, correlationID, "unknown liquid block")
+			return
+		}
+	}
+	<-w.Exec(func(tx *world.Tx) {
+		tx.SetLiquid(pos, liquid)
+	})
+	m.sendActionOK(p, correlationID)
+}
+
+func (m *Manager) handleWorldScheduleBlockUpdate(p *pluginProcess, correlationID string, act *pb.WorldScheduleBlockUpdateAction) {
+	w := m.worldFromRef(act.GetWorld())
+	if w == nil {
+		m.sendActionError(p, correlationID, "world not found")
+		return
+	}
+	if act.Position == nil {
+		m.sendActionError(p, correlationID, "missing position")
+		return
+	}
+	if act.Block == nil {
+		m.sendActionError(p, correlationID, "missing block")
+		return
+	}
+	blk, ok := blockFromProto(act.Block)
+	if !ok {
+		m.sendActionError(p, correlationID, "unknown block")
+		return
+	}
+	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
+	delay := time.Duration(act.DelayMs) * time.Millisecond
+	<-w.Exec(func(tx *world.Tx) {
+		tx.ScheduleBlockUpdate(pos, blk, delay)
+	})
+	m.sendActionOK(p, correlationID)
 }

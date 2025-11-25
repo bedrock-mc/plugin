@@ -32,6 +32,16 @@ type ActionResult struct {
 	//	*ActionResult_WorldEntitiesWithin
 	//	*ActionResult_WorldDefaultGameMode
 	//	*ActionResult_WorldPlayerSpawn
+	//	*ActionResult_WorldBlock
+	//	*ActionResult_WorldBiome
+	//	*ActionResult_WorldLight
+	//	*ActionResult_WorldSkyLight
+	//	*ActionResult_WorldTemperature
+	//	*ActionResult_WorldHighestBlock
+	//	*ActionResult_WorldRainingAt
+	//	*ActionResult_WorldSnowingAt
+	//	*ActionResult_WorldThunderingAt
+	//	*ActionResult_WorldLiquid
 	Result        isActionResult_Result `protobuf_oneof:"result"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -133,6 +143,96 @@ func (x *ActionResult) GetWorldPlayerSpawn() *WorldPlayerSpawnResult {
 	return nil
 }
 
+func (x *ActionResult) GetWorldBlock() *WorldBlockResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldBlock); ok {
+			return x.WorldBlock
+		}
+	}
+	return nil
+}
+
+func (x *ActionResult) GetWorldBiome() *WorldBiomeResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldBiome); ok {
+			return x.WorldBiome
+		}
+	}
+	return nil
+}
+
+func (x *ActionResult) GetWorldLight() *WorldLightResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldLight); ok {
+			return x.WorldLight
+		}
+	}
+	return nil
+}
+
+func (x *ActionResult) GetWorldSkyLight() *WorldSkyLightResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldSkyLight); ok {
+			return x.WorldSkyLight
+		}
+	}
+	return nil
+}
+
+func (x *ActionResult) GetWorldTemperature() *WorldTemperatureResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldTemperature); ok {
+			return x.WorldTemperature
+		}
+	}
+	return nil
+}
+
+func (x *ActionResult) GetWorldHighestBlock() *WorldHighestBlockResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldHighestBlock); ok {
+			return x.WorldHighestBlock
+		}
+	}
+	return nil
+}
+
+func (x *ActionResult) GetWorldRainingAt() *WorldRainingAtResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldRainingAt); ok {
+			return x.WorldRainingAt
+		}
+	}
+	return nil
+}
+
+func (x *ActionResult) GetWorldSnowingAt() *WorldSnowingAtResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldSnowingAt); ok {
+			return x.WorldSnowingAt
+		}
+	}
+	return nil
+}
+
+func (x *ActionResult) GetWorldThunderingAt() *WorldThunderingAtResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldThunderingAt); ok {
+			return x.WorldThunderingAt
+		}
+	}
+	return nil
+}
+
+func (x *ActionResult) GetWorldLiquid() *WorldLiquidResult {
+	if x != nil {
+		if x, ok := x.Result.(*ActionResult_WorldLiquid); ok {
+			return x.WorldLiquid
+		}
+	}
+	return nil
+}
+
 type isActionResult_Result interface {
 	isActionResult_Result()
 }
@@ -157,6 +257,46 @@ type ActionResult_WorldPlayerSpawn struct {
 	WorldPlayerSpawn *WorldPlayerSpawnResult `protobuf:"bytes,14,opt,name=world_player_spawn,json=worldPlayerSpawn,proto3,oneof"`
 }
 
+type ActionResult_WorldBlock struct {
+	WorldBlock *WorldBlockResult `protobuf:"bytes,15,opt,name=world_block,json=worldBlock,proto3,oneof"`
+}
+
+type ActionResult_WorldBiome struct {
+	WorldBiome *WorldBiomeResult `protobuf:"bytes,16,opt,name=world_biome,json=worldBiome,proto3,oneof"`
+}
+
+type ActionResult_WorldLight struct {
+	WorldLight *WorldLightResult `protobuf:"bytes,17,opt,name=world_light,json=worldLight,proto3,oneof"`
+}
+
+type ActionResult_WorldSkyLight struct {
+	WorldSkyLight *WorldSkyLightResult `protobuf:"bytes,18,opt,name=world_sky_light,json=worldSkyLight,proto3,oneof"`
+}
+
+type ActionResult_WorldTemperature struct {
+	WorldTemperature *WorldTemperatureResult `protobuf:"bytes,19,opt,name=world_temperature,json=worldTemperature,proto3,oneof"`
+}
+
+type ActionResult_WorldHighestBlock struct {
+	WorldHighestBlock *WorldHighestBlockResult `protobuf:"bytes,20,opt,name=world_highest_block,json=worldHighestBlock,proto3,oneof"`
+}
+
+type ActionResult_WorldRainingAt struct {
+	WorldRainingAt *WorldRainingAtResult `protobuf:"bytes,21,opt,name=world_raining_at,json=worldRainingAt,proto3,oneof"`
+}
+
+type ActionResult_WorldSnowingAt struct {
+	WorldSnowingAt *WorldSnowingAtResult `protobuf:"bytes,22,opt,name=world_snowing_at,json=worldSnowingAt,proto3,oneof"`
+}
+
+type ActionResult_WorldThunderingAt struct {
+	WorldThunderingAt *WorldThunderingAtResult `protobuf:"bytes,23,opt,name=world_thundering_at,json=worldThunderingAt,proto3,oneof"`
+}
+
+type ActionResult_WorldLiquid struct {
+	WorldLiquid *WorldLiquidResult `protobuf:"bytes,24,opt,name=world_liquid,json=worldLiquid,proto3,oneof"`
+}
+
 func (*ActionResult_WorldEntities) isActionResult_Result() {}
 
 func (*ActionResult_WorldPlayers) isActionResult_Result() {}
@@ -166,6 +306,26 @@ func (*ActionResult_WorldEntitiesWithin) isActionResult_Result() {}
 func (*ActionResult_WorldDefaultGameMode) isActionResult_Result() {}
 
 func (*ActionResult_WorldPlayerSpawn) isActionResult_Result() {}
+
+func (*ActionResult_WorldBlock) isActionResult_Result() {}
+
+func (*ActionResult_WorldBiome) isActionResult_Result() {}
+
+func (*ActionResult_WorldLight) isActionResult_Result() {}
+
+func (*ActionResult_WorldSkyLight) isActionResult_Result() {}
+
+func (*ActionResult_WorldTemperature) isActionResult_Result() {}
+
+func (*ActionResult_WorldHighestBlock) isActionResult_Result() {}
+
+func (*ActionResult_WorldRainingAt) isActionResult_Result() {}
+
+func (*ActionResult_WorldSnowingAt) isActionResult_Result() {}
+
+func (*ActionResult_WorldThunderingAt) isActionResult_Result() {}
+
+func (*ActionResult_WorldLiquid) isActionResult_Result() {}
 
 type ActionStatus struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -495,11 +655,620 @@ func (x *WorldPlayerSpawnResult) GetSpawn() *BlockPos {
 	return nil
 }
 
+type WorldBlockResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	Block         *BlockState            `protobuf:"bytes,3,opt,name=block,proto3" json:"block,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldBlockResult) Reset() {
+	*x = WorldBlockResult{}
+	mi := &file_action_results_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldBlockResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldBlockResult) ProtoMessage() {}
+
+func (x *WorldBlockResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldBlockResult.ProtoReflect.Descriptor instead.
+func (*WorldBlockResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *WorldBlockResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldBlockResult) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldBlockResult) GetBlock() *BlockState {
+	if x != nil {
+		return x.Block
+	}
+	return nil
+}
+
+type WorldBiomeResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	BiomeId       string                 `protobuf:"bytes,3,opt,name=biome_id,json=biomeId,proto3" json:"biome_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldBiomeResult) Reset() {
+	*x = WorldBiomeResult{}
+	mi := &file_action_results_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldBiomeResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldBiomeResult) ProtoMessage() {}
+
+func (x *WorldBiomeResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldBiomeResult.ProtoReflect.Descriptor instead.
+func (*WorldBiomeResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *WorldBiomeResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldBiomeResult) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldBiomeResult) GetBiomeId() string {
+	if x != nil {
+		return x.BiomeId
+	}
+	return ""
+}
+
+type WorldLightResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	LightLevel    int32                  `protobuf:"varint,3,opt,name=light_level,json=lightLevel,proto3" json:"light_level,omitempty"` // 0-15
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldLightResult) Reset() {
+	*x = WorldLightResult{}
+	mi := &file_action_results_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldLightResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldLightResult) ProtoMessage() {}
+
+func (x *WorldLightResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldLightResult.ProtoReflect.Descriptor instead.
+func (*WorldLightResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *WorldLightResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldLightResult) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldLightResult) GetLightLevel() int32 {
+	if x != nil {
+		return x.LightLevel
+	}
+	return 0
+}
+
+type WorldSkyLightResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	SkyLightLevel int32                  `protobuf:"varint,3,opt,name=sky_light_level,json=skyLightLevel,proto3" json:"sky_light_level,omitempty"` // 0-15
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldSkyLightResult) Reset() {
+	*x = WorldSkyLightResult{}
+	mi := &file_action_results_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldSkyLightResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldSkyLightResult) ProtoMessage() {}
+
+func (x *WorldSkyLightResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldSkyLightResult.ProtoReflect.Descriptor instead.
+func (*WorldSkyLightResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *WorldSkyLightResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldSkyLightResult) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldSkyLightResult) GetSkyLightLevel() int32 {
+	if x != nil {
+		return x.SkyLightLevel
+	}
+	return 0
+}
+
+type WorldTemperatureResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	Temperature   float64                `protobuf:"fixed64,3,opt,name=temperature,proto3" json:"temperature,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldTemperatureResult) Reset() {
+	*x = WorldTemperatureResult{}
+	mi := &file_action_results_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldTemperatureResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldTemperatureResult) ProtoMessage() {}
+
+func (x *WorldTemperatureResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldTemperatureResult.ProtoReflect.Descriptor instead.
+func (*WorldTemperatureResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *WorldTemperatureResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldTemperatureResult) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldTemperatureResult) GetTemperature() float64 {
+	if x != nil {
+		return x.Temperature
+	}
+	return 0
+}
+
+type WorldHighestBlockResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	X             int32                  `protobuf:"varint,2,opt,name=x,proto3" json:"x,omitempty"`
+	Z             int32                  `protobuf:"varint,3,opt,name=z,proto3" json:"z,omitempty"`
+	Y             int32                  `protobuf:"varint,4,opt,name=y,proto3" json:"y,omitempty"` // highest block Y coordinate
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldHighestBlockResult) Reset() {
+	*x = WorldHighestBlockResult{}
+	mi := &file_action_results_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldHighestBlockResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldHighestBlockResult) ProtoMessage() {}
+
+func (x *WorldHighestBlockResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldHighestBlockResult.ProtoReflect.Descriptor instead.
+func (*WorldHighestBlockResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *WorldHighestBlockResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldHighestBlockResult) GetX() int32 {
+	if x != nil {
+		return x.X
+	}
+	return 0
+}
+
+func (x *WorldHighestBlockResult) GetZ() int32 {
+	if x != nil {
+		return x.Z
+	}
+	return 0
+}
+
+func (x *WorldHighestBlockResult) GetY() int32 {
+	if x != nil {
+		return x.Y
+	}
+	return 0
+}
+
+type WorldRainingAtResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	Raining       bool                   `protobuf:"varint,3,opt,name=raining,proto3" json:"raining,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldRainingAtResult) Reset() {
+	*x = WorldRainingAtResult{}
+	mi := &file_action_results_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldRainingAtResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldRainingAtResult) ProtoMessage() {}
+
+func (x *WorldRainingAtResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldRainingAtResult.ProtoReflect.Descriptor instead.
+func (*WorldRainingAtResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *WorldRainingAtResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldRainingAtResult) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldRainingAtResult) GetRaining() bool {
+	if x != nil {
+		return x.Raining
+	}
+	return false
+}
+
+type WorldSnowingAtResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	Snowing       bool                   `protobuf:"varint,3,opt,name=snowing,proto3" json:"snowing,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldSnowingAtResult) Reset() {
+	*x = WorldSnowingAtResult{}
+	mi := &file_action_results_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldSnowingAtResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldSnowingAtResult) ProtoMessage() {}
+
+func (x *WorldSnowingAtResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldSnowingAtResult.ProtoReflect.Descriptor instead.
+func (*WorldSnowingAtResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *WorldSnowingAtResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldSnowingAtResult) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldSnowingAtResult) GetSnowing() bool {
+	if x != nil {
+		return x.Snowing
+	}
+	return false
+}
+
+type WorldThunderingAtResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	Thundering    bool                   `protobuf:"varint,3,opt,name=thundering,proto3" json:"thundering,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldThunderingAtResult) Reset() {
+	*x = WorldThunderingAtResult{}
+	mi := &file_action_results_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldThunderingAtResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldThunderingAtResult) ProtoMessage() {}
+
+func (x *WorldThunderingAtResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldThunderingAtResult.ProtoReflect.Descriptor instead.
+func (*WorldThunderingAtResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *WorldThunderingAtResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldThunderingAtResult) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldThunderingAtResult) GetThundering() bool {
+	if x != nil {
+		return x.Thundering
+	}
+	return false
+}
+
+type WorldLiquidResult struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	Liquid        *LiquidState           `protobuf:"bytes,3,opt,name=liquid,proto3,oneof" json:"liquid,omitempty"` // nil if no liquid present
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldLiquidResult) Reset() {
+	*x = WorldLiquidResult{}
+	mi := &file_action_results_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldLiquidResult) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldLiquidResult) ProtoMessage() {}
+
+func (x *WorldLiquidResult) ProtoReflect() protoreflect.Message {
+	mi := &file_action_results_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldLiquidResult.ProtoReflect.Descriptor instead.
+func (*WorldLiquidResult) Descriptor() ([]byte, []int) {
+	return file_action_results_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *WorldLiquidResult) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldLiquidResult) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldLiquidResult) GetLiquid() *LiquidState {
+	if x != nil {
+		return x.Liquid
+	}
+	return nil
+}
+
 var File_action_results_proto protoreflect.FileDescriptor
 
 const file_action_results_proto_rawDesc = "" +
 	"\n" +
-	"\x14action_results.proto\x12\tdf.plugin\x1a\fcommon.proto\"\x9e\x04\n" +
+	"\x14action_results.proto\x12\tdf.plugin\x1a\fcommon.proto\"\x83\n" +
+	"\n" +
 	"\fActionResult\x12%\n" +
 	"\x0ecorrelation_id\x18\x01 \x01(\tR\rcorrelationId\x124\n" +
 	"\x06status\x18\x02 \x01(\v2\x17.df.plugin.ActionStatusH\x01R\x06status\x88\x01\x01\x12G\n" +
@@ -508,7 +1277,20 @@ const file_action_results_proto_rawDesc = "" +
 	"\rworld_players\x18\v \x01(\v2\x1d.df.plugin.WorldPlayersResultH\x00R\fworldPlayers\x12Z\n" +
 	"\x15world_entities_within\x18\f \x01(\v2$.df.plugin.WorldEntitiesWithinResultH\x00R\x13worldEntitiesWithin\x12^\n" +
 	"\x17world_default_game_mode\x18\r \x01(\v2%.df.plugin.WorldDefaultGameModeResultH\x00R\x14worldDefaultGameMode\x12Q\n" +
-	"\x12world_player_spawn\x18\x0e \x01(\v2!.df.plugin.WorldPlayerSpawnResultH\x00R\x10worldPlayerSpawnB\b\n" +
+	"\x12world_player_spawn\x18\x0e \x01(\v2!.df.plugin.WorldPlayerSpawnResultH\x00R\x10worldPlayerSpawn\x12>\n" +
+	"\vworld_block\x18\x0f \x01(\v2\x1b.df.plugin.WorldBlockResultH\x00R\n" +
+	"worldBlock\x12>\n" +
+	"\vworld_biome\x18\x10 \x01(\v2\x1b.df.plugin.WorldBiomeResultH\x00R\n" +
+	"worldBiome\x12>\n" +
+	"\vworld_light\x18\x11 \x01(\v2\x1b.df.plugin.WorldLightResultH\x00R\n" +
+	"worldLight\x12H\n" +
+	"\x0fworld_sky_light\x18\x12 \x01(\v2\x1e.df.plugin.WorldSkyLightResultH\x00R\rworldSkyLight\x12P\n" +
+	"\x11world_temperature\x18\x13 \x01(\v2!.df.plugin.WorldTemperatureResultH\x00R\x10worldTemperature\x12T\n" +
+	"\x13world_highest_block\x18\x14 \x01(\v2\".df.plugin.WorldHighestBlockResultH\x00R\x11worldHighestBlock\x12K\n" +
+	"\x10world_raining_at\x18\x15 \x01(\v2\x1f.df.plugin.WorldRainingAtResultH\x00R\x0eworldRainingAt\x12K\n" +
+	"\x10world_snowing_at\x18\x16 \x01(\v2\x1f.df.plugin.WorldSnowingAtResultH\x00R\x0eworldSnowingAt\x12T\n" +
+	"\x13world_thundering_at\x18\x17 \x01(\v2\".df.plugin.WorldThunderingAtResultH\x00R\x11worldThunderingAt\x12A\n" +
+	"\fworld_liquid\x18\x18 \x01(\v2\x1c.df.plugin.WorldLiquidResultH\x00R\vworldLiquidB\b\n" +
 	"\x06resultB\t\n" +
 	"\a_status\"C\n" +
 	"\fActionStatus\x12\x0e\n" +
@@ -532,7 +1314,52 @@ const file_action_results_proto_rawDesc = "" +
 	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12\x1f\n" +
 	"\vplayer_uuid\x18\x02 \x01(\tR\n" +
 	"playerUuid\x12)\n" +
-	"\x05spawn\x18\x03 \x01(\v2\x13.df.plugin.BlockPosR\x05spawnB\x91\x01\n" +
+	"\x05spawn\x18\x03 \x01(\v2\x13.df.plugin.BlockPosR\x05spawn\"\x9b\x01\n" +
+	"\x10WorldBlockResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12+\n" +
+	"\x05block\x18\x03 \x01(\v2\x15.df.plugin.BlockStateR\x05block\"\x89\x01\n" +
+	"\x10WorldBiomeResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12\x19\n" +
+	"\bbiome_id\x18\x03 \x01(\tR\abiomeId\"\x8f\x01\n" +
+	"\x10WorldLightResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12\x1f\n" +
+	"\vlight_level\x18\x03 \x01(\x05R\n" +
+	"lightLevel\"\x99\x01\n" +
+	"\x13WorldSkyLightResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12&\n" +
+	"\x0fsky_light_level\x18\x03 \x01(\x05R\rskyLightLevel\"\x96\x01\n" +
+	"\x16WorldTemperatureResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12 \n" +
+	"\vtemperature\x18\x03 \x01(\x01R\vtemperature\"n\n" +
+	"\x17WorldHighestBlockResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12\f\n" +
+	"\x01x\x18\x02 \x01(\x05R\x01x\x12\f\n" +
+	"\x01z\x18\x03 \x01(\x05R\x01z\x12\f\n" +
+	"\x01y\x18\x04 \x01(\x05R\x01y\"\x8c\x01\n" +
+	"\x14WorldRainingAtResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12\x18\n" +
+	"\araining\x18\x03 \x01(\bR\araining\"\x8c\x01\n" +
+	"\x14WorldSnowingAtResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12\x18\n" +
+	"\asnowing\x18\x03 \x01(\bR\asnowing\"\x95\x01\n" +
+	"\x17WorldThunderingAtResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12\x1e\n" +
+	"\n" +
+	"thundering\x18\x03 \x01(\bR\n" +
+	"thundering\"\xaf\x01\n" +
+	"\x11WorldLiquidResult\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x123\n" +
+	"\x06liquid\x18\x03 \x01(\v2\x16.df.plugin.LiquidStateH\x00R\x06liquid\x88\x01\x01B\t\n" +
+	"\a_liquidB\x91\x01\n" +
 	"\rcom.df.pluginB\x12ActionResultsProtoP\x01Z'github.com/secmc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
 	"Df::Pluginb\x06proto3"
 
@@ -548,7 +1375,7 @@ func file_action_results_proto_rawDescGZIP() []byte {
 	return file_action_results_proto_rawDescData
 }
 
-var file_action_results_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_action_results_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
 var file_action_results_proto_goTypes = []any{
 	(*ActionResult)(nil),               // 0: df.plugin.ActionResult
 	(*ActionStatus)(nil),               // 1: df.plugin.ActionStatus
@@ -557,11 +1384,23 @@ var file_action_results_proto_goTypes = []any{
 	(*WorldPlayersResult)(nil),         // 4: df.plugin.WorldPlayersResult
 	(*WorldDefaultGameModeResult)(nil), // 5: df.plugin.WorldDefaultGameModeResult
 	(*WorldPlayerSpawnResult)(nil),     // 6: df.plugin.WorldPlayerSpawnResult
-	(*WorldRef)(nil),                   // 7: df.plugin.WorldRef
-	(*EntityRef)(nil),                  // 8: df.plugin.EntityRef
-	(*BBox)(nil),                       // 9: df.plugin.BBox
-	(GameMode)(0),                      // 10: df.plugin.GameMode
-	(*BlockPos)(nil),                   // 11: df.plugin.BlockPos
+	(*WorldBlockResult)(nil),           // 7: df.plugin.WorldBlockResult
+	(*WorldBiomeResult)(nil),           // 8: df.plugin.WorldBiomeResult
+	(*WorldLightResult)(nil),           // 9: df.plugin.WorldLightResult
+	(*WorldSkyLightResult)(nil),        // 10: df.plugin.WorldSkyLightResult
+	(*WorldTemperatureResult)(nil),     // 11: df.plugin.WorldTemperatureResult
+	(*WorldHighestBlockResult)(nil),    // 12: df.plugin.WorldHighestBlockResult
+	(*WorldRainingAtResult)(nil),       // 13: df.plugin.WorldRainingAtResult
+	(*WorldSnowingAtResult)(nil),       // 14: df.plugin.WorldSnowingAtResult
+	(*WorldThunderingAtResult)(nil),    // 15: df.plugin.WorldThunderingAtResult
+	(*WorldLiquidResult)(nil),          // 16: df.plugin.WorldLiquidResult
+	(*WorldRef)(nil),                   // 17: df.plugin.WorldRef
+	(*EntityRef)(nil),                  // 18: df.plugin.EntityRef
+	(*BBox)(nil),                       // 19: df.plugin.BBox
+	(GameMode)(0),                      // 20: df.plugin.GameMode
+	(*BlockPos)(nil),                   // 21: df.plugin.BlockPos
+	(*BlockState)(nil),                 // 22: df.plugin.BlockState
+	(*LiquidState)(nil),                // 23: df.plugin.LiquidState
 }
 var file_action_results_proto_depIdxs = []int32{
 	1,  // 0: df.plugin.ActionResult.status:type_name -> df.plugin.ActionStatus
@@ -570,22 +1409,53 @@ var file_action_results_proto_depIdxs = []int32{
 	3,  // 3: df.plugin.ActionResult.world_entities_within:type_name -> df.plugin.WorldEntitiesWithinResult
 	5,  // 4: df.plugin.ActionResult.world_default_game_mode:type_name -> df.plugin.WorldDefaultGameModeResult
 	6,  // 5: df.plugin.ActionResult.world_player_spawn:type_name -> df.plugin.WorldPlayerSpawnResult
-	7,  // 6: df.plugin.WorldEntitiesResult.world:type_name -> df.plugin.WorldRef
-	8,  // 7: df.plugin.WorldEntitiesResult.entities:type_name -> df.plugin.EntityRef
-	7,  // 8: df.plugin.WorldEntitiesWithinResult.world:type_name -> df.plugin.WorldRef
-	9,  // 9: df.plugin.WorldEntitiesWithinResult.box:type_name -> df.plugin.BBox
-	8,  // 10: df.plugin.WorldEntitiesWithinResult.entities:type_name -> df.plugin.EntityRef
-	7,  // 11: df.plugin.WorldPlayersResult.world:type_name -> df.plugin.WorldRef
-	8,  // 12: df.plugin.WorldPlayersResult.players:type_name -> df.plugin.EntityRef
-	7,  // 13: df.plugin.WorldDefaultGameModeResult.world:type_name -> df.plugin.WorldRef
-	10, // 14: df.plugin.WorldDefaultGameModeResult.game_mode:type_name -> df.plugin.GameMode
-	7,  // 15: df.plugin.WorldPlayerSpawnResult.world:type_name -> df.plugin.WorldRef
-	11, // 16: df.plugin.WorldPlayerSpawnResult.spawn:type_name -> df.plugin.BlockPos
-	17, // [17:17] is the sub-list for method output_type
-	17, // [17:17] is the sub-list for method input_type
-	17, // [17:17] is the sub-list for extension type_name
-	17, // [17:17] is the sub-list for extension extendee
-	0,  // [0:17] is the sub-list for field type_name
+	7,  // 6: df.plugin.ActionResult.world_block:type_name -> df.plugin.WorldBlockResult
+	8,  // 7: df.plugin.ActionResult.world_biome:type_name -> df.plugin.WorldBiomeResult
+	9,  // 8: df.plugin.ActionResult.world_light:type_name -> df.plugin.WorldLightResult
+	10, // 9: df.plugin.ActionResult.world_sky_light:type_name -> df.plugin.WorldSkyLightResult
+	11, // 10: df.plugin.ActionResult.world_temperature:type_name -> df.plugin.WorldTemperatureResult
+	12, // 11: df.plugin.ActionResult.world_highest_block:type_name -> df.plugin.WorldHighestBlockResult
+	13, // 12: df.plugin.ActionResult.world_raining_at:type_name -> df.plugin.WorldRainingAtResult
+	14, // 13: df.plugin.ActionResult.world_snowing_at:type_name -> df.plugin.WorldSnowingAtResult
+	15, // 14: df.plugin.ActionResult.world_thundering_at:type_name -> df.plugin.WorldThunderingAtResult
+	16, // 15: df.plugin.ActionResult.world_liquid:type_name -> df.plugin.WorldLiquidResult
+	17, // 16: df.plugin.WorldEntitiesResult.world:type_name -> df.plugin.WorldRef
+	18, // 17: df.plugin.WorldEntitiesResult.entities:type_name -> df.plugin.EntityRef
+	17, // 18: df.plugin.WorldEntitiesWithinResult.world:type_name -> df.plugin.WorldRef
+	19, // 19: df.plugin.WorldEntitiesWithinResult.box:type_name -> df.plugin.BBox
+	18, // 20: df.plugin.WorldEntitiesWithinResult.entities:type_name -> df.plugin.EntityRef
+	17, // 21: df.plugin.WorldPlayersResult.world:type_name -> df.plugin.WorldRef
+	18, // 22: df.plugin.WorldPlayersResult.players:type_name -> df.plugin.EntityRef
+	17, // 23: df.plugin.WorldDefaultGameModeResult.world:type_name -> df.plugin.WorldRef
+	20, // 24: df.plugin.WorldDefaultGameModeResult.game_mode:type_name -> df.plugin.GameMode
+	17, // 25: df.plugin.WorldPlayerSpawnResult.world:type_name -> df.plugin.WorldRef
+	21, // 26: df.plugin.WorldPlayerSpawnResult.spawn:type_name -> df.plugin.BlockPos
+	17, // 27: df.plugin.WorldBlockResult.world:type_name -> df.plugin.WorldRef
+	21, // 28: df.plugin.WorldBlockResult.position:type_name -> df.plugin.BlockPos
+	22, // 29: df.plugin.WorldBlockResult.block:type_name -> df.plugin.BlockState
+	17, // 30: df.plugin.WorldBiomeResult.world:type_name -> df.plugin.WorldRef
+	21, // 31: df.plugin.WorldBiomeResult.position:type_name -> df.plugin.BlockPos
+	17, // 32: df.plugin.WorldLightResult.world:type_name -> df.plugin.WorldRef
+	21, // 33: df.plugin.WorldLightResult.position:type_name -> df.plugin.BlockPos
+	17, // 34: df.plugin.WorldSkyLightResult.world:type_name -> df.plugin.WorldRef
+	21, // 35: df.plugin.WorldSkyLightResult.position:type_name -> df.plugin.BlockPos
+	17, // 36: df.plugin.WorldTemperatureResult.world:type_name -> df.plugin.WorldRef
+	21, // 37: df.plugin.WorldTemperatureResult.position:type_name -> df.plugin.BlockPos
+	17, // 38: df.plugin.WorldHighestBlockResult.world:type_name -> df.plugin.WorldRef
+	17, // 39: df.plugin.WorldRainingAtResult.world:type_name -> df.plugin.WorldRef
+	21, // 40: df.plugin.WorldRainingAtResult.position:type_name -> df.plugin.BlockPos
+	17, // 41: df.plugin.WorldSnowingAtResult.world:type_name -> df.plugin.WorldRef
+	21, // 42: df.plugin.WorldSnowingAtResult.position:type_name -> df.plugin.BlockPos
+	17, // 43: df.plugin.WorldThunderingAtResult.world:type_name -> df.plugin.WorldRef
+	21, // 44: df.plugin.WorldThunderingAtResult.position:type_name -> df.plugin.BlockPos
+	17, // 45: df.plugin.WorldLiquidResult.world:type_name -> df.plugin.WorldRef
+	21, // 46: df.plugin.WorldLiquidResult.position:type_name -> df.plugin.BlockPos
+	23, // 47: df.plugin.WorldLiquidResult.liquid:type_name -> df.plugin.LiquidState
+	48, // [48:48] is the sub-list for method output_type
+	48, // [48:48] is the sub-list for method input_type
+	48, // [48:48] is the sub-list for extension type_name
+	48, // [48:48] is the sub-list for extension extendee
+	0,  // [0:48] is the sub-list for field type_name
 }
 
 func init() { file_action_results_proto_init() }
@@ -600,15 +1470,26 @@ func file_action_results_proto_init() {
 		(*ActionResult_WorldEntitiesWithin)(nil),
 		(*ActionResult_WorldDefaultGameMode)(nil),
 		(*ActionResult_WorldPlayerSpawn)(nil),
+		(*ActionResult_WorldBlock)(nil),
+		(*ActionResult_WorldBiome)(nil),
+		(*ActionResult_WorldLight)(nil),
+		(*ActionResult_WorldSkyLight)(nil),
+		(*ActionResult_WorldTemperature)(nil),
+		(*ActionResult_WorldHighestBlock)(nil),
+		(*ActionResult_WorldRainingAt)(nil),
+		(*ActionResult_WorldSnowingAt)(nil),
+		(*ActionResult_WorldThunderingAt)(nil),
+		(*ActionResult_WorldLiquid)(nil),
 	}
 	file_action_results_proto_msgTypes[1].OneofWrappers = []any{}
+	file_action_results_proto_msgTypes[16].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_action_results_proto_rawDesc), len(file_action_results_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -439,7 +439,7 @@ pub struct ActionResult {
     pub correlation_id: ::prost::alloc::string::String,
     #[prost(message, optional, tag="2")]
     pub status: ::core::option::Option<ActionStatus>,
-    #[prost(oneof="action_result::Result", tags="10, 11, 12, 13, 14")]
+    #[prost(oneof="action_result::Result", tags="10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24")]
     pub result: ::core::option::Option<action_result::Result>,
 }
 /// Nested message and enum types in `ActionResult`.
@@ -457,6 +457,26 @@ pub mod action_result {
         WorldDefaultGameMode(super::WorldDefaultGameModeResult),
         #[prost(message, tag="14")]
         WorldPlayerSpawn(super::WorldPlayerSpawnResult),
+        #[prost(message, tag="15")]
+        WorldBlock(super::WorldBlockResult),
+        #[prost(message, tag="16")]
+        WorldBiome(super::WorldBiomeResult),
+        #[prost(message, tag="17")]
+        WorldLight(super::WorldLightResult),
+        #[prost(message, tag="18")]
+        WorldSkyLight(super::WorldSkyLightResult),
+        #[prost(message, tag="19")]
+        WorldTemperature(super::WorldTemperatureResult),
+        #[prost(message, tag="20")]
+        WorldHighestBlock(super::WorldHighestBlockResult),
+        #[prost(message, tag="21")]
+        WorldRainingAt(super::WorldRainingAtResult),
+        #[prost(message, tag="22")]
+        WorldSnowingAt(super::WorldSnowingAtResult),
+        #[prost(message, tag="23")]
+        WorldThunderingAt(super::WorldThunderingAtResult),
+        #[prost(message, tag="24")]
+        WorldLiquid(super::WorldLiquidResult),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -513,6 +533,112 @@ pub struct WorldPlayerSpawnResult {
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldBlockResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(message, optional, tag="3")]
+    pub block: ::core::option::Option<BlockState>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldBiomeResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(string, tag="3")]
+    pub biome_id: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldLightResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    /// 0-15
+    #[prost(int32, tag="3")]
+    pub light_level: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSkyLightResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    /// 0-15
+    #[prost(int32, tag="3")]
+    pub sky_light_level: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldTemperatureResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(double, tag="3")]
+    pub temperature: f64,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldHighestBlockResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(int32, tag="2")]
+    pub x: i32,
+    #[prost(int32, tag="3")]
+    pub z: i32,
+    /// highest block Y coordinate
+    #[prost(int32, tag="4")]
+    pub y: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldRainingAtResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(bool, tag="3")]
+    pub raining: bool,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSnowingAtResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(bool, tag="3")]
+    pub snowing: bool,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldThunderingAtResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(bool, tag="3")]
+    pub thundering: bool,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldLiquidResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    /// nil if no liquid present
+    #[prost(message, optional, tag="3")]
+    pub liquid: ::core::option::Option<LiquidState>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ActionBatch {
     #[prost(message, repeated, tag="1")]
     pub actions: ::prost::alloc::vec::Vec<Action>,
@@ -522,7 +648,7 @@ pub struct ActionBatch {
 pub struct Action {
     #[prost(string, optional, tag="1")]
     pub correlation_id: ::core::option::Option<::prost::alloc::string::String>,
-    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 30, 31, 40, 41, 42, 43, 50, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74")]
+    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 30, 31, 40, 41, 42, 43, 50, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 90, 91, 92")]
     pub kind: ::core::option::Option<action::Kind>,
 }
 /// Nested message and enum types in `Action`.
@@ -603,6 +729,33 @@ pub mod action {
         WorldQueryDefaultGameMode(super::WorldQueryDefaultGameModeAction),
         #[prost(message, tag="74")]
         WorldQueryPlayerSpawn(super::WorldQueryPlayerSpawnAction),
+        #[prost(message, tag="75")]
+        WorldQueryBlock(super::WorldQueryBlockAction),
+        #[prost(message, tag="76")]
+        WorldQueryBiome(super::WorldQueryBiomeAction),
+        #[prost(message, tag="77")]
+        WorldQueryLight(super::WorldQueryLightAction),
+        #[prost(message, tag="78")]
+        WorldQuerySkyLight(super::WorldQuerySkyLightAction),
+        #[prost(message, tag="79")]
+        WorldQueryTemperature(super::WorldQueryTemperatureAction),
+        #[prost(message, tag="80")]
+        WorldQueryHighestBlock(super::WorldQueryHighestBlockAction),
+        #[prost(message, tag="81")]
+        WorldQueryRainingAt(super::WorldQueryRainingAtAction),
+        #[prost(message, tag="82")]
+        WorldQuerySnowingAt(super::WorldQuerySnowingAtAction),
+        #[prost(message, tag="83")]
+        WorldQueryThunderingAt(super::WorldQueryThunderingAtAction),
+        #[prost(message, tag="84")]
+        WorldQueryLiquid(super::WorldQueryLiquidAction),
+        /// World mutations (additional)
+        #[prost(message, tag="90")]
+        WorldSetBiome(super::WorldSetBiomeAction),
+        #[prost(message, tag="91")]
+        WorldSetLiquid(super::WorldSetLiquidAction),
+        #[prost(message, tag="92")]
+        WorldScheduleBlockUpdate(super::WorldScheduleBlockUpdateAction),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -919,6 +1072,123 @@ pub struct WorldQueryEntitiesWithinAction {
     pub world: ::core::option::Option<WorldRef>,
     #[prost(message, optional, tag="2")]
     pub r#box: ::core::option::Option<BBox>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryBlockAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryBiomeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryLightAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQuerySkyLightAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryTemperatureAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryHighestBlockAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(int32, tag="2")]
+    pub x: i32,
+    #[prost(int32, tag="3")]
+    pub z: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryRainingAtAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQuerySnowingAtAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryThunderingAtAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryLiquidAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSetBiomeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    /// e.g., "plains", "desert", "ocean"
+    #[prost(string, tag="3")]
+    pub biome_id: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSetLiquidAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    /// nil to remove liquid
+    #[prost(message, optional, tag="3")]
+    pub liquid: ::core::option::Option<LiquidState>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldScheduleBlockUpdateAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(message, optional, tag="3")]
+    pub block: ::core::option::Option<BlockState>,
+    /// delay in milliseconds
+    #[prost(int64, tag="4")]
+    pub delay_ms: i64,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]

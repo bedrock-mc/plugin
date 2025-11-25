@@ -52,6 +52,20 @@ message Action {
         WorldQueryEntitiesWithinAction world_query_entities_within = 72;
         WorldQueryDefaultGameModeAction world_query_default_game_mode = 73;
         WorldQueryPlayerSpawnAction world_query_player_spawn = 74;
+        WorldQueryBlockAction world_query_block = 75;
+        WorldQueryBiomeAction world_query_biome = 76;
+        WorldQueryLightAction world_query_light = 77;
+        WorldQuerySkyLightAction world_query_sky_light = 78;
+        WorldQueryTemperatureAction world_query_temperature = 79;
+        WorldQueryHighestBlockAction world_query_highest_block = 80;
+        WorldQueryRainingAtAction world_query_raining_at = 81;
+        WorldQuerySnowingAtAction world_query_snowing_at = 82;
+        WorldQueryThunderingAtAction world_query_thundering_at = 83;
+        WorldQueryLiquidAction world_query_liquid = 84;
+        // World mutations (additional)
+        WorldSetBiomeAction world_set_biome = 90;
+        WorldSetLiquidAction world_set_liquid = 91;
+        WorldScheduleBlockUpdateAction world_schedule_block_update = 92;
     }
 }
 
@@ -264,4 +278,74 @@ message WorldQueryPlayersAction {
 message WorldQueryEntitiesWithinAction {
     WorldRef world = 1;
     BBox box = 2;
+}
+
+message WorldQueryBlockAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+}
+
+message WorldQueryBiomeAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+}
+
+message WorldQueryLightAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+}
+
+message WorldQuerySkyLightAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+}
+
+message WorldQueryTemperatureAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+}
+
+message WorldQueryHighestBlockAction {
+    WorldRef world = 1;
+    int32 x = 2;
+    int32 z = 3;
+}
+
+message WorldQueryRainingAtAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+}
+
+message WorldQuerySnowingAtAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+}
+
+message WorldQueryThunderingAtAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+}
+
+message WorldQueryLiquidAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+}
+
+message WorldSetBiomeAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    string biome_id = 3; // e.g., "plains", "desert", "ocean"
+}
+
+message WorldSetLiquidAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    optional LiquidState liquid = 3; // nil to remove liquid
+}
+
+message WorldScheduleBlockUpdateAction {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    BlockState block = 3;
+    int64 delay_ms = 4; // delay in milliseconds
 }

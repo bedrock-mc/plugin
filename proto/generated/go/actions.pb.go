@@ -200,6 +200,19 @@ type Action struct {
 	//	*Action_WorldQueryEntitiesWithin
 	//	*Action_WorldQueryDefaultGameMode
 	//	*Action_WorldQueryPlayerSpawn
+	//	*Action_WorldQueryBlock
+	//	*Action_WorldQueryBiome
+	//	*Action_WorldQueryLight
+	//	*Action_WorldQuerySkyLight
+	//	*Action_WorldQueryTemperature
+	//	*Action_WorldQueryHighestBlock
+	//	*Action_WorldQueryRainingAt
+	//	*Action_WorldQuerySnowingAt
+	//	*Action_WorldQueryThunderingAt
+	//	*Action_WorldQueryLiquid
+	//	*Action_WorldSetBiome
+	//	*Action_WorldSetLiquid
+	//	*Action_WorldScheduleBlockUpdate
 	Kind          isAction_Kind `protobuf_oneof:"kind"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -546,6 +559,123 @@ func (x *Action) GetWorldQueryPlayerSpawn() *WorldQueryPlayerSpawnAction {
 	return nil
 }
 
+func (x *Action) GetWorldQueryBlock() *WorldQueryBlockAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQueryBlock); ok {
+			return x.WorldQueryBlock
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldQueryBiome() *WorldQueryBiomeAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQueryBiome); ok {
+			return x.WorldQueryBiome
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldQueryLight() *WorldQueryLightAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQueryLight); ok {
+			return x.WorldQueryLight
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldQuerySkyLight() *WorldQuerySkyLightAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQuerySkyLight); ok {
+			return x.WorldQuerySkyLight
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldQueryTemperature() *WorldQueryTemperatureAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQueryTemperature); ok {
+			return x.WorldQueryTemperature
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldQueryHighestBlock() *WorldQueryHighestBlockAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQueryHighestBlock); ok {
+			return x.WorldQueryHighestBlock
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldQueryRainingAt() *WorldQueryRainingAtAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQueryRainingAt); ok {
+			return x.WorldQueryRainingAt
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldQuerySnowingAt() *WorldQuerySnowingAtAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQuerySnowingAt); ok {
+			return x.WorldQuerySnowingAt
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldQueryThunderingAt() *WorldQueryThunderingAtAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQueryThunderingAt); ok {
+			return x.WorldQueryThunderingAt
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldQueryLiquid() *WorldQueryLiquidAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldQueryLiquid); ok {
+			return x.WorldQueryLiquid
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldSetBiome() *WorldSetBiomeAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldSetBiome); ok {
+			return x.WorldSetBiome
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldSetLiquid() *WorldSetLiquidAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldSetLiquid); ok {
+			return x.WorldSetLiquid
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetWorldScheduleBlockUpdate() *WorldScheduleBlockUpdateAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_WorldScheduleBlockUpdate); ok {
+			return x.WorldScheduleBlockUpdate
+		}
+	}
+	return nil
+}
+
 type isAction_Kind interface {
 	isAction_Kind()
 }
@@ -689,6 +819,59 @@ type Action_WorldQueryPlayerSpawn struct {
 	WorldQueryPlayerSpawn *WorldQueryPlayerSpawnAction `protobuf:"bytes,74,opt,name=world_query_player_spawn,json=worldQueryPlayerSpawn,proto3,oneof"`
 }
 
+type Action_WorldQueryBlock struct {
+	WorldQueryBlock *WorldQueryBlockAction `protobuf:"bytes,75,opt,name=world_query_block,json=worldQueryBlock,proto3,oneof"`
+}
+
+type Action_WorldQueryBiome struct {
+	WorldQueryBiome *WorldQueryBiomeAction `protobuf:"bytes,76,opt,name=world_query_biome,json=worldQueryBiome,proto3,oneof"`
+}
+
+type Action_WorldQueryLight struct {
+	WorldQueryLight *WorldQueryLightAction `protobuf:"bytes,77,opt,name=world_query_light,json=worldQueryLight,proto3,oneof"`
+}
+
+type Action_WorldQuerySkyLight struct {
+	WorldQuerySkyLight *WorldQuerySkyLightAction `protobuf:"bytes,78,opt,name=world_query_sky_light,json=worldQuerySkyLight,proto3,oneof"`
+}
+
+type Action_WorldQueryTemperature struct {
+	WorldQueryTemperature *WorldQueryTemperatureAction `protobuf:"bytes,79,opt,name=world_query_temperature,json=worldQueryTemperature,proto3,oneof"`
+}
+
+type Action_WorldQueryHighestBlock struct {
+	WorldQueryHighestBlock *WorldQueryHighestBlockAction `protobuf:"bytes,80,opt,name=world_query_highest_block,json=worldQueryHighestBlock,proto3,oneof"`
+}
+
+type Action_WorldQueryRainingAt struct {
+	WorldQueryRainingAt *WorldQueryRainingAtAction `protobuf:"bytes,81,opt,name=world_query_raining_at,json=worldQueryRainingAt,proto3,oneof"`
+}
+
+type Action_WorldQuerySnowingAt struct {
+	WorldQuerySnowingAt *WorldQuerySnowingAtAction `protobuf:"bytes,82,opt,name=world_query_snowing_at,json=worldQuerySnowingAt,proto3,oneof"`
+}
+
+type Action_WorldQueryThunderingAt struct {
+	WorldQueryThunderingAt *WorldQueryThunderingAtAction `protobuf:"bytes,83,opt,name=world_query_thundering_at,json=worldQueryThunderingAt,proto3,oneof"`
+}
+
+type Action_WorldQueryLiquid struct {
+	WorldQueryLiquid *WorldQueryLiquidAction `protobuf:"bytes,84,opt,name=world_query_liquid,json=worldQueryLiquid,proto3,oneof"`
+}
+
+type Action_WorldSetBiome struct {
+	// World mutations (additional)
+	WorldSetBiome *WorldSetBiomeAction `protobuf:"bytes,90,opt,name=world_set_biome,json=worldSetBiome,proto3,oneof"`
+}
+
+type Action_WorldSetLiquid struct {
+	WorldSetLiquid *WorldSetLiquidAction `protobuf:"bytes,91,opt,name=world_set_liquid,json=worldSetLiquid,proto3,oneof"`
+}
+
+type Action_WorldScheduleBlockUpdate struct {
+	WorldScheduleBlockUpdate *WorldScheduleBlockUpdateAction `protobuf:"bytes,92,opt,name=world_schedule_block_update,json=worldScheduleBlockUpdate,proto3,oneof"`
+}
+
 func (*Action_SendChat) isAction_Kind() {}
 
 func (*Action_Teleport) isAction_Kind() {}
@@ -754,6 +937,32 @@ func (*Action_WorldQueryEntitiesWithin) isAction_Kind() {}
 func (*Action_WorldQueryDefaultGameMode) isAction_Kind() {}
 
 func (*Action_WorldQueryPlayerSpawn) isAction_Kind() {}
+
+func (*Action_WorldQueryBlock) isAction_Kind() {}
+
+func (*Action_WorldQueryBiome) isAction_Kind() {}
+
+func (*Action_WorldQueryLight) isAction_Kind() {}
+
+func (*Action_WorldQuerySkyLight) isAction_Kind() {}
+
+func (*Action_WorldQueryTemperature) isAction_Kind() {}
+
+func (*Action_WorldQueryHighestBlock) isAction_Kind() {}
+
+func (*Action_WorldQueryRainingAt) isAction_Kind() {}
+
+func (*Action_WorldQuerySnowingAt) isAction_Kind() {}
+
+func (*Action_WorldQueryThunderingAt) isAction_Kind() {}
+
+func (*Action_WorldQueryLiquid) isAction_Kind() {}
+
+func (*Action_WorldSetBiome) isAction_Kind() {}
+
+func (*Action_WorldSetLiquid) isAction_Kind() {}
+
+func (*Action_WorldScheduleBlockUpdate) isAction_Kind() {}
 
 type SendChatAction struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -2594,13 +2803,729 @@ func (x *WorldQueryEntitiesWithinAction) GetBox() *BBox {
 	return nil
 }
 
+type WorldQueryBlockAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQueryBlockAction) Reset() {
+	*x = WorldQueryBlockAction{}
+	mi := &file_actions_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQueryBlockAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQueryBlockAction) ProtoMessage() {}
+
+func (x *WorldQueryBlockAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQueryBlockAction.ProtoReflect.Descriptor instead.
+func (*WorldQueryBlockAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *WorldQueryBlockAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldQueryBlockAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+type WorldQueryBiomeAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQueryBiomeAction) Reset() {
+	*x = WorldQueryBiomeAction{}
+	mi := &file_actions_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQueryBiomeAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQueryBiomeAction) ProtoMessage() {}
+
+func (x *WorldQueryBiomeAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQueryBiomeAction.ProtoReflect.Descriptor instead.
+func (*WorldQueryBiomeAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *WorldQueryBiomeAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldQueryBiomeAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+type WorldQueryLightAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQueryLightAction) Reset() {
+	*x = WorldQueryLightAction{}
+	mi := &file_actions_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQueryLightAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQueryLightAction) ProtoMessage() {}
+
+func (x *WorldQueryLightAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQueryLightAction.ProtoReflect.Descriptor instead.
+func (*WorldQueryLightAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *WorldQueryLightAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldQueryLightAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+type WorldQuerySkyLightAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQuerySkyLightAction) Reset() {
+	*x = WorldQuerySkyLightAction{}
+	mi := &file_actions_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQuerySkyLightAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQuerySkyLightAction) ProtoMessage() {}
+
+func (x *WorldQuerySkyLightAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQuerySkyLightAction.ProtoReflect.Descriptor instead.
+func (*WorldQuerySkyLightAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *WorldQuerySkyLightAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldQuerySkyLightAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+type WorldQueryTemperatureAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQueryTemperatureAction) Reset() {
+	*x = WorldQueryTemperatureAction{}
+	mi := &file_actions_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQueryTemperatureAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQueryTemperatureAction) ProtoMessage() {}
+
+func (x *WorldQueryTemperatureAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQueryTemperatureAction.ProtoReflect.Descriptor instead.
+func (*WorldQueryTemperatureAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *WorldQueryTemperatureAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldQueryTemperatureAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+type WorldQueryHighestBlockAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	X             int32                  `protobuf:"varint,2,opt,name=x,proto3" json:"x,omitempty"`
+	Z             int32                  `protobuf:"varint,3,opt,name=z,proto3" json:"z,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQueryHighestBlockAction) Reset() {
+	*x = WorldQueryHighestBlockAction{}
+	mi := &file_actions_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQueryHighestBlockAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQueryHighestBlockAction) ProtoMessage() {}
+
+func (x *WorldQueryHighestBlockAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQueryHighestBlockAction.ProtoReflect.Descriptor instead.
+func (*WorldQueryHighestBlockAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *WorldQueryHighestBlockAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldQueryHighestBlockAction) GetX() int32 {
+	if x != nil {
+		return x.X
+	}
+	return 0
+}
+
+func (x *WorldQueryHighestBlockAction) GetZ() int32 {
+	if x != nil {
+		return x.Z
+	}
+	return 0
+}
+
+type WorldQueryRainingAtAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQueryRainingAtAction) Reset() {
+	*x = WorldQueryRainingAtAction{}
+	mi := &file_actions_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQueryRainingAtAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQueryRainingAtAction) ProtoMessage() {}
+
+func (x *WorldQueryRainingAtAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQueryRainingAtAction.ProtoReflect.Descriptor instead.
+func (*WorldQueryRainingAtAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *WorldQueryRainingAtAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldQueryRainingAtAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+type WorldQuerySnowingAtAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQuerySnowingAtAction) Reset() {
+	*x = WorldQuerySnowingAtAction{}
+	mi := &file_actions_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQuerySnowingAtAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQuerySnowingAtAction) ProtoMessage() {}
+
+func (x *WorldQuerySnowingAtAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQuerySnowingAtAction.ProtoReflect.Descriptor instead.
+func (*WorldQuerySnowingAtAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *WorldQuerySnowingAtAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldQuerySnowingAtAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+type WorldQueryThunderingAtAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQueryThunderingAtAction) Reset() {
+	*x = WorldQueryThunderingAtAction{}
+	mi := &file_actions_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQueryThunderingAtAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQueryThunderingAtAction) ProtoMessage() {}
+
+func (x *WorldQueryThunderingAtAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQueryThunderingAtAction.ProtoReflect.Descriptor instead.
+func (*WorldQueryThunderingAtAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *WorldQueryThunderingAtAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldQueryThunderingAtAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+type WorldQueryLiquidAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldQueryLiquidAction) Reset() {
+	*x = WorldQueryLiquidAction{}
+	mi := &file_actions_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldQueryLiquidAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldQueryLiquidAction) ProtoMessage() {}
+
+func (x *WorldQueryLiquidAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldQueryLiquidAction.ProtoReflect.Descriptor instead.
+func (*WorldQueryLiquidAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *WorldQueryLiquidAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldQueryLiquidAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+type WorldSetBiomeAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	BiomeId       string                 `protobuf:"bytes,3,opt,name=biome_id,json=biomeId,proto3" json:"biome_id,omitempty"` // e.g., "plains", "desert", "ocean"
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldSetBiomeAction) Reset() {
+	*x = WorldSetBiomeAction{}
+	mi := &file_actions_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldSetBiomeAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldSetBiomeAction) ProtoMessage() {}
+
+func (x *WorldSetBiomeAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldSetBiomeAction.ProtoReflect.Descriptor instead.
+func (*WorldSetBiomeAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *WorldSetBiomeAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldSetBiomeAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldSetBiomeAction) GetBiomeId() string {
+	if x != nil {
+		return x.BiomeId
+	}
+	return ""
+}
+
+type WorldSetLiquidAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	Liquid        *LiquidState           `protobuf:"bytes,3,opt,name=liquid,proto3,oneof" json:"liquid,omitempty"` // nil to remove liquid
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldSetLiquidAction) Reset() {
+	*x = WorldSetLiquidAction{}
+	mi := &file_actions_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldSetLiquidAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldSetLiquidAction) ProtoMessage() {}
+
+func (x *WorldSetLiquidAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldSetLiquidAction.ProtoReflect.Descriptor instead.
+func (*WorldSetLiquidAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *WorldSetLiquidAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldSetLiquidAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldSetLiquidAction) GetLiquid() *LiquidState {
+	if x != nil {
+		return x.Liquid
+	}
+	return nil
+}
+
+type WorldScheduleBlockUpdateAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	World         *WorldRef              `protobuf:"bytes,1,opt,name=world,proto3" json:"world,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	Block         *BlockState            `protobuf:"bytes,3,opt,name=block,proto3" json:"block,omitempty"`
+	DelayMs       int64                  `protobuf:"varint,4,opt,name=delay_ms,json=delayMs,proto3" json:"delay_ms,omitempty"` // delay in milliseconds
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WorldScheduleBlockUpdateAction) Reset() {
+	*x = WorldScheduleBlockUpdateAction{}
+	mi := &file_actions_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WorldScheduleBlockUpdateAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WorldScheduleBlockUpdateAction) ProtoMessage() {}
+
+func (x *WorldScheduleBlockUpdateAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WorldScheduleBlockUpdateAction.ProtoReflect.Descriptor instead.
+func (*WorldScheduleBlockUpdateAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *WorldScheduleBlockUpdateAction) GetWorld() *WorldRef {
+	if x != nil {
+		return x.World
+	}
+	return nil
+}
+
+func (x *WorldScheduleBlockUpdateAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *WorldScheduleBlockUpdateAction) GetBlock() *BlockState {
+	if x != nil {
+		return x.Block
+	}
+	return nil
+}
+
+func (x *WorldScheduleBlockUpdateAction) GetDelayMs() int64 {
+	if x != nil {
+		return x.DelayMs
+	}
+	return 0
+}
+
 var File_actions_proto protoreflect.FileDescriptor
 
 const file_actions_proto_rawDesc = "" +
 	"\n" +
 	"\ractions.proto\x12\tdf.plugin\x1a\fcommon.proto\":\n" +
 	"\vActionBatch\x12+\n" +
-	"\aactions\x18\x01 \x03(\v2\x11.df.plugin.ActionR\aactions\"\xd4\x13\n" +
+	"\aactions\x18\x01 \x03(\v2\x11.df.plugin.ActionR\aactions\"\xdc\x1c\n" +
 	"\x06Action\x12*\n" +
 	"\x0ecorrelation_id\x18\x01 \x01(\tH\x01R\rcorrelationId\x88\x01\x01\x128\n" +
 	"\tsend_chat\x18\n" +
@@ -2641,7 +3566,20 @@ const file_actions_proto_rawDesc = "" +
 	"\x13world_query_players\x18G \x01(\v2\".df.plugin.WorldQueryPlayersActionH\x00R\x11worldQueryPlayers\x12j\n" +
 	"\x1bworld_query_entities_within\x18H \x01(\v2).df.plugin.WorldQueryEntitiesWithinActionH\x00R\x18worldQueryEntitiesWithin\x12n\n" +
 	"\x1dworld_query_default_game_mode\x18I \x01(\v2*.df.plugin.WorldQueryDefaultGameModeActionH\x00R\x19worldQueryDefaultGameMode\x12a\n" +
-	"\x18world_query_player_spawn\x18J \x01(\v2&.df.plugin.WorldQueryPlayerSpawnActionH\x00R\x15worldQueryPlayerSpawnB\x06\n" +
+	"\x18world_query_player_spawn\x18J \x01(\v2&.df.plugin.WorldQueryPlayerSpawnActionH\x00R\x15worldQueryPlayerSpawn\x12N\n" +
+	"\x11world_query_block\x18K \x01(\v2 .df.plugin.WorldQueryBlockActionH\x00R\x0fworldQueryBlock\x12N\n" +
+	"\x11world_query_biome\x18L \x01(\v2 .df.plugin.WorldQueryBiomeActionH\x00R\x0fworldQueryBiome\x12N\n" +
+	"\x11world_query_light\x18M \x01(\v2 .df.plugin.WorldQueryLightActionH\x00R\x0fworldQueryLight\x12X\n" +
+	"\x15world_query_sky_light\x18N \x01(\v2#.df.plugin.WorldQuerySkyLightActionH\x00R\x12worldQuerySkyLight\x12`\n" +
+	"\x17world_query_temperature\x18O \x01(\v2&.df.plugin.WorldQueryTemperatureActionH\x00R\x15worldQueryTemperature\x12d\n" +
+	"\x19world_query_highest_block\x18P \x01(\v2'.df.plugin.WorldQueryHighestBlockActionH\x00R\x16worldQueryHighestBlock\x12[\n" +
+	"\x16world_query_raining_at\x18Q \x01(\v2$.df.plugin.WorldQueryRainingAtActionH\x00R\x13worldQueryRainingAt\x12[\n" +
+	"\x16world_query_snowing_at\x18R \x01(\v2$.df.plugin.WorldQuerySnowingAtActionH\x00R\x13worldQuerySnowingAt\x12d\n" +
+	"\x19world_query_thundering_at\x18S \x01(\v2'.df.plugin.WorldQueryThunderingAtActionH\x00R\x16worldQueryThunderingAt\x12Q\n" +
+	"\x12world_query_liquid\x18T \x01(\v2!.df.plugin.WorldQueryLiquidActionH\x00R\x10worldQueryLiquid\x12H\n" +
+	"\x0fworld_set_biome\x18Z \x01(\v2\x1e.df.plugin.WorldSetBiomeActionH\x00R\rworldSetBiome\x12K\n" +
+	"\x10world_set_liquid\x18[ \x01(\v2\x1f.df.plugin.WorldSetLiquidActionH\x00R\x0eworldSetLiquid\x12j\n" +
+	"\x1bworld_schedule_block_update\x18\\ \x01(\v2).df.plugin.WorldScheduleBlockUpdateActionH\x00R\x18worldScheduleBlockUpdateB\x06\n" +
 	"\x04kindB\x11\n" +
 	"\x0f_correlation_id\"K\n" +
 	"\x0eSendChatAction\x12\x1f\n" +
@@ -2802,7 +3740,52 @@ const file_actions_proto_rawDesc = "" +
 	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\"n\n" +
 	"\x1eWorldQueryEntitiesWithinAction\x12)\n" +
 	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12!\n" +
-	"\x03box\x18\x02 \x01(\v2\x0f.df.plugin.BBoxR\x03box*\xeb\x03\n" +
+	"\x03box\x18\x02 \x01(\v2\x0f.df.plugin.BBoxR\x03box\"s\n" +
+	"\x15WorldQueryBlockAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\"s\n" +
+	"\x15WorldQueryBiomeAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\"s\n" +
+	"\x15WorldQueryLightAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\"v\n" +
+	"\x18WorldQuerySkyLightAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\"y\n" +
+	"\x1bWorldQueryTemperatureAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\"e\n" +
+	"\x1cWorldQueryHighestBlockAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12\f\n" +
+	"\x01x\x18\x02 \x01(\x05R\x01x\x12\f\n" +
+	"\x01z\x18\x03 \x01(\x05R\x01z\"w\n" +
+	"\x19WorldQueryRainingAtAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\"w\n" +
+	"\x19WorldQuerySnowingAtAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\"z\n" +
+	"\x1cWorldQueryThunderingAtAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\"t\n" +
+	"\x16WorldQueryLiquidAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\"\x8c\x01\n" +
+	"\x13WorldSetBiomeAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12\x19\n" +
+	"\bbiome_id\x18\x03 \x01(\tR\abiomeId\"\xb2\x01\n" +
+	"\x14WorldSetLiquidAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x123\n" +
+	"\x06liquid\x18\x03 \x01(\v2\x16.df.plugin.LiquidStateH\x00R\x06liquid\x88\x01\x01B\t\n" +
+	"\a_liquid\"\xc4\x01\n" +
+	"\x1eWorldScheduleBlockUpdateAction\x12)\n" +
+	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12+\n" +
+	"\x05block\x18\x03 \x01(\v2\x15.df.plugin.BlockStateR\x05block\x12\x19\n" +
+	"\bdelay_ms\x18\x04 \x01(\x03R\adelayMs*\xeb\x03\n" +
 	"\fParticleType\x12\x1d\n" +
 	"\x19PARTICLE_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17PARTICLE_HUGE_EXPLOSION\x10\x01\x12\x1e\n" +
@@ -2840,7 +3823,7 @@ func file_actions_proto_rawDescGZIP() []byte {
 }
 
 var file_actions_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_actions_proto_msgTypes = make([]protoimpl.MessageInfo, 35)
+var file_actions_proto_msgTypes = make([]protoimpl.MessageInfo, 48)
 var file_actions_proto_goTypes = []any{
 	(ParticleType)(0),                       // 0: df.plugin.ParticleType
 	(*ActionBatch)(nil),                     // 1: df.plugin.ActionBatch
@@ -2878,94 +3861,148 @@ var file_actions_proto_goTypes = []any{
 	(*WorldQueryEntitiesAction)(nil),        // 33: df.plugin.WorldQueryEntitiesAction
 	(*WorldQueryPlayersAction)(nil),         // 34: df.plugin.WorldQueryPlayersAction
 	(*WorldQueryEntitiesWithinAction)(nil),  // 35: df.plugin.WorldQueryEntitiesWithinAction
-	(*Vec3)(nil),                            // 36: df.plugin.Vec3
-	(GameMode)(0),                           // 37: df.plugin.GameMode
-	(*ItemStack)(nil),                       // 38: df.plugin.ItemStack
-	(EffectType)(0),                         // 39: df.plugin.EffectType
-	(Sound)(0),                              // 40: df.plugin.Sound
-	(*WorldRef)(nil),                        // 41: df.plugin.WorldRef
-	(Difficulty)(0),                         // 42: df.plugin.Difficulty
-	(*BlockPos)(nil),                        // 43: df.plugin.BlockPos
-	(*BlockState)(nil),                      // 44: df.plugin.BlockState
-	(*BBox)(nil),                            // 45: df.plugin.BBox
+	(*WorldQueryBlockAction)(nil),           // 36: df.plugin.WorldQueryBlockAction
+	(*WorldQueryBiomeAction)(nil),           // 37: df.plugin.WorldQueryBiomeAction
+	(*WorldQueryLightAction)(nil),           // 38: df.plugin.WorldQueryLightAction
+	(*WorldQuerySkyLightAction)(nil),        // 39: df.plugin.WorldQuerySkyLightAction
+	(*WorldQueryTemperatureAction)(nil),     // 40: df.plugin.WorldQueryTemperatureAction
+	(*WorldQueryHighestBlockAction)(nil),    // 41: df.plugin.WorldQueryHighestBlockAction
+	(*WorldQueryRainingAtAction)(nil),       // 42: df.plugin.WorldQueryRainingAtAction
+	(*WorldQuerySnowingAtAction)(nil),       // 43: df.plugin.WorldQuerySnowingAtAction
+	(*WorldQueryThunderingAtAction)(nil),    // 44: df.plugin.WorldQueryThunderingAtAction
+	(*WorldQueryLiquidAction)(nil),          // 45: df.plugin.WorldQueryLiquidAction
+	(*WorldSetBiomeAction)(nil),             // 46: df.plugin.WorldSetBiomeAction
+	(*WorldSetLiquidAction)(nil),            // 47: df.plugin.WorldSetLiquidAction
+	(*WorldScheduleBlockUpdateAction)(nil),  // 48: df.plugin.WorldScheduleBlockUpdateAction
+	(*Vec3)(nil),                            // 49: df.plugin.Vec3
+	(GameMode)(0),                           // 50: df.plugin.GameMode
+	(*ItemStack)(nil),                       // 51: df.plugin.ItemStack
+	(EffectType)(0),                         // 52: df.plugin.EffectType
+	(Sound)(0),                              // 53: df.plugin.Sound
+	(*WorldRef)(nil),                        // 54: df.plugin.WorldRef
+	(Difficulty)(0),                         // 55: df.plugin.Difficulty
+	(*BlockPos)(nil),                        // 56: df.plugin.BlockPos
+	(*BlockState)(nil),                      // 57: df.plugin.BlockState
+	(*BBox)(nil),                            // 58: df.plugin.BBox
+	(*LiquidState)(nil),                     // 59: df.plugin.LiquidState
 }
 var file_actions_proto_depIdxs = []int32{
-	2,  // 0: df.plugin.ActionBatch.actions:type_name -> df.plugin.Action
-	3,  // 1: df.plugin.Action.send_chat:type_name -> df.plugin.SendChatAction
-	4,  // 2: df.plugin.Action.teleport:type_name -> df.plugin.TeleportAction
-	5,  // 3: df.plugin.Action.kick:type_name -> df.plugin.KickAction
-	6,  // 4: df.plugin.Action.set_game_mode:type_name -> df.plugin.SetGameModeAction
-	7,  // 5: df.plugin.Action.give_item:type_name -> df.plugin.GiveItemAction
-	8,  // 6: df.plugin.Action.clear_inventory:type_name -> df.plugin.ClearInventoryAction
-	9,  // 7: df.plugin.Action.set_held_item:type_name -> df.plugin.SetHeldItemAction
-	10, // 8: df.plugin.Action.set_health:type_name -> df.plugin.SetHealthAction
-	11, // 9: df.plugin.Action.set_food:type_name -> df.plugin.SetFoodAction
-	12, // 10: df.plugin.Action.set_experience:type_name -> df.plugin.SetExperienceAction
-	13, // 11: df.plugin.Action.set_velocity:type_name -> df.plugin.SetVelocityAction
-	14, // 12: df.plugin.Action.add_effect:type_name -> df.plugin.AddEffectAction
-	15, // 13: df.plugin.Action.remove_effect:type_name -> df.plugin.RemoveEffectAction
-	16, // 14: df.plugin.Action.send_title:type_name -> df.plugin.SendTitleAction
-	17, // 15: df.plugin.Action.send_popup:type_name -> df.plugin.SendPopupAction
-	18, // 16: df.plugin.Action.send_tip:type_name -> df.plugin.SendTipAction
-	19, // 17: df.plugin.Action.play_sound:type_name -> df.plugin.PlaySoundAction
-	20, // 18: df.plugin.Action.execute_command:type_name -> df.plugin.ExecuteCommandAction
-	21, // 19: df.plugin.Action.world_set_default_game_mode:type_name -> df.plugin.WorldSetDefaultGameModeAction
-	22, // 20: df.plugin.Action.world_set_difficulty:type_name -> df.plugin.WorldSetDifficultyAction
-	23, // 21: df.plugin.Action.world_set_tick_range:type_name -> df.plugin.WorldSetTickRangeAction
-	24, // 22: df.plugin.Action.world_set_block:type_name -> df.plugin.WorldSetBlockAction
-	25, // 23: df.plugin.Action.world_play_sound:type_name -> df.plugin.WorldPlaySoundAction
-	26, // 24: df.plugin.Action.world_add_particle:type_name -> df.plugin.WorldAddParticleAction
-	27, // 25: df.plugin.Action.world_set_time:type_name -> df.plugin.WorldSetTimeAction
-	28, // 26: df.plugin.Action.world_stop_time:type_name -> df.plugin.WorldStopTimeAction
-	29, // 27: df.plugin.Action.world_start_time:type_name -> df.plugin.WorldStartTimeAction
-	30, // 28: df.plugin.Action.world_set_spawn:type_name -> df.plugin.WorldSetSpawnAction
-	33, // 29: df.plugin.Action.world_query_entities:type_name -> df.plugin.WorldQueryEntitiesAction
-	34, // 30: df.plugin.Action.world_query_players:type_name -> df.plugin.WorldQueryPlayersAction
-	35, // 31: df.plugin.Action.world_query_entities_within:type_name -> df.plugin.WorldQueryEntitiesWithinAction
-	31, // 32: df.plugin.Action.world_query_default_game_mode:type_name -> df.plugin.WorldQueryDefaultGameModeAction
-	32, // 33: df.plugin.Action.world_query_player_spawn:type_name -> df.plugin.WorldQueryPlayerSpawnAction
-	36, // 34: df.plugin.TeleportAction.position:type_name -> df.plugin.Vec3
-	36, // 35: df.plugin.TeleportAction.rotation:type_name -> df.plugin.Vec3
-	37, // 36: df.plugin.SetGameModeAction.game_mode:type_name -> df.plugin.GameMode
-	38, // 37: df.plugin.GiveItemAction.item:type_name -> df.plugin.ItemStack
-	38, // 38: df.plugin.SetHeldItemAction.main:type_name -> df.plugin.ItemStack
-	38, // 39: df.plugin.SetHeldItemAction.offhand:type_name -> df.plugin.ItemStack
-	36, // 40: df.plugin.SetVelocityAction.velocity:type_name -> df.plugin.Vec3
-	39, // 41: df.plugin.AddEffectAction.effect_type:type_name -> df.plugin.EffectType
-	39, // 42: df.plugin.RemoveEffectAction.effect_type:type_name -> df.plugin.EffectType
-	40, // 43: df.plugin.PlaySoundAction.sound:type_name -> df.plugin.Sound
-	36, // 44: df.plugin.PlaySoundAction.position:type_name -> df.plugin.Vec3
-	41, // 45: df.plugin.WorldSetDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
-	37, // 46: df.plugin.WorldSetDefaultGameModeAction.game_mode:type_name -> df.plugin.GameMode
-	41, // 47: df.plugin.WorldSetDifficultyAction.world:type_name -> df.plugin.WorldRef
-	42, // 48: df.plugin.WorldSetDifficultyAction.difficulty:type_name -> df.plugin.Difficulty
-	41, // 49: df.plugin.WorldSetTickRangeAction.world:type_name -> df.plugin.WorldRef
-	41, // 50: df.plugin.WorldSetBlockAction.world:type_name -> df.plugin.WorldRef
-	43, // 51: df.plugin.WorldSetBlockAction.position:type_name -> df.plugin.BlockPos
-	44, // 52: df.plugin.WorldSetBlockAction.block:type_name -> df.plugin.BlockState
-	41, // 53: df.plugin.WorldPlaySoundAction.world:type_name -> df.plugin.WorldRef
-	40, // 54: df.plugin.WorldPlaySoundAction.sound:type_name -> df.plugin.Sound
-	36, // 55: df.plugin.WorldPlaySoundAction.position:type_name -> df.plugin.Vec3
-	41, // 56: df.plugin.WorldAddParticleAction.world:type_name -> df.plugin.WorldRef
-	36, // 57: df.plugin.WorldAddParticleAction.position:type_name -> df.plugin.Vec3
-	0,  // 58: df.plugin.WorldAddParticleAction.particle:type_name -> df.plugin.ParticleType
-	44, // 59: df.plugin.WorldAddParticleAction.block:type_name -> df.plugin.BlockState
-	41, // 60: df.plugin.WorldSetTimeAction.world:type_name -> df.plugin.WorldRef
-	41, // 61: df.plugin.WorldStopTimeAction.world:type_name -> df.plugin.WorldRef
-	41, // 62: df.plugin.WorldStartTimeAction.world:type_name -> df.plugin.WorldRef
-	41, // 63: df.plugin.WorldSetSpawnAction.world:type_name -> df.plugin.WorldRef
-	43, // 64: df.plugin.WorldSetSpawnAction.spawn:type_name -> df.plugin.BlockPos
-	41, // 65: df.plugin.WorldQueryDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
-	41, // 66: df.plugin.WorldQueryPlayerSpawnAction.world:type_name -> df.plugin.WorldRef
-	41, // 67: df.plugin.WorldQueryEntitiesAction.world:type_name -> df.plugin.WorldRef
-	41, // 68: df.plugin.WorldQueryPlayersAction.world:type_name -> df.plugin.WorldRef
-	41, // 69: df.plugin.WorldQueryEntitiesWithinAction.world:type_name -> df.plugin.WorldRef
-	45, // 70: df.plugin.WorldQueryEntitiesWithinAction.box:type_name -> df.plugin.BBox
-	71, // [71:71] is the sub-list for method output_type
-	71, // [71:71] is the sub-list for method input_type
-	71, // [71:71] is the sub-list for extension type_name
-	71, // [71:71] is the sub-list for extension extendee
-	0,  // [0:71] is the sub-list for field type_name
+	2,   // 0: df.plugin.ActionBatch.actions:type_name -> df.plugin.Action
+	3,   // 1: df.plugin.Action.send_chat:type_name -> df.plugin.SendChatAction
+	4,   // 2: df.plugin.Action.teleport:type_name -> df.plugin.TeleportAction
+	5,   // 3: df.plugin.Action.kick:type_name -> df.plugin.KickAction
+	6,   // 4: df.plugin.Action.set_game_mode:type_name -> df.plugin.SetGameModeAction
+	7,   // 5: df.plugin.Action.give_item:type_name -> df.plugin.GiveItemAction
+	8,   // 6: df.plugin.Action.clear_inventory:type_name -> df.plugin.ClearInventoryAction
+	9,   // 7: df.plugin.Action.set_held_item:type_name -> df.plugin.SetHeldItemAction
+	10,  // 8: df.plugin.Action.set_health:type_name -> df.plugin.SetHealthAction
+	11,  // 9: df.plugin.Action.set_food:type_name -> df.plugin.SetFoodAction
+	12,  // 10: df.plugin.Action.set_experience:type_name -> df.plugin.SetExperienceAction
+	13,  // 11: df.plugin.Action.set_velocity:type_name -> df.plugin.SetVelocityAction
+	14,  // 12: df.plugin.Action.add_effect:type_name -> df.plugin.AddEffectAction
+	15,  // 13: df.plugin.Action.remove_effect:type_name -> df.plugin.RemoveEffectAction
+	16,  // 14: df.plugin.Action.send_title:type_name -> df.plugin.SendTitleAction
+	17,  // 15: df.plugin.Action.send_popup:type_name -> df.plugin.SendPopupAction
+	18,  // 16: df.plugin.Action.send_tip:type_name -> df.plugin.SendTipAction
+	19,  // 17: df.plugin.Action.play_sound:type_name -> df.plugin.PlaySoundAction
+	20,  // 18: df.plugin.Action.execute_command:type_name -> df.plugin.ExecuteCommandAction
+	21,  // 19: df.plugin.Action.world_set_default_game_mode:type_name -> df.plugin.WorldSetDefaultGameModeAction
+	22,  // 20: df.plugin.Action.world_set_difficulty:type_name -> df.plugin.WorldSetDifficultyAction
+	23,  // 21: df.plugin.Action.world_set_tick_range:type_name -> df.plugin.WorldSetTickRangeAction
+	24,  // 22: df.plugin.Action.world_set_block:type_name -> df.plugin.WorldSetBlockAction
+	25,  // 23: df.plugin.Action.world_play_sound:type_name -> df.plugin.WorldPlaySoundAction
+	26,  // 24: df.plugin.Action.world_add_particle:type_name -> df.plugin.WorldAddParticleAction
+	27,  // 25: df.plugin.Action.world_set_time:type_name -> df.plugin.WorldSetTimeAction
+	28,  // 26: df.plugin.Action.world_stop_time:type_name -> df.plugin.WorldStopTimeAction
+	29,  // 27: df.plugin.Action.world_start_time:type_name -> df.plugin.WorldStartTimeAction
+	30,  // 28: df.plugin.Action.world_set_spawn:type_name -> df.plugin.WorldSetSpawnAction
+	33,  // 29: df.plugin.Action.world_query_entities:type_name -> df.plugin.WorldQueryEntitiesAction
+	34,  // 30: df.plugin.Action.world_query_players:type_name -> df.plugin.WorldQueryPlayersAction
+	35,  // 31: df.plugin.Action.world_query_entities_within:type_name -> df.plugin.WorldQueryEntitiesWithinAction
+	31,  // 32: df.plugin.Action.world_query_default_game_mode:type_name -> df.plugin.WorldQueryDefaultGameModeAction
+	32,  // 33: df.plugin.Action.world_query_player_spawn:type_name -> df.plugin.WorldQueryPlayerSpawnAction
+	36,  // 34: df.plugin.Action.world_query_block:type_name -> df.plugin.WorldQueryBlockAction
+	37,  // 35: df.plugin.Action.world_query_biome:type_name -> df.plugin.WorldQueryBiomeAction
+	38,  // 36: df.plugin.Action.world_query_light:type_name -> df.plugin.WorldQueryLightAction
+	39,  // 37: df.plugin.Action.world_query_sky_light:type_name -> df.plugin.WorldQuerySkyLightAction
+	40,  // 38: df.plugin.Action.world_query_temperature:type_name -> df.plugin.WorldQueryTemperatureAction
+	41,  // 39: df.plugin.Action.world_query_highest_block:type_name -> df.plugin.WorldQueryHighestBlockAction
+	42,  // 40: df.plugin.Action.world_query_raining_at:type_name -> df.plugin.WorldQueryRainingAtAction
+	43,  // 41: df.plugin.Action.world_query_snowing_at:type_name -> df.plugin.WorldQuerySnowingAtAction
+	44,  // 42: df.plugin.Action.world_query_thundering_at:type_name -> df.plugin.WorldQueryThunderingAtAction
+	45,  // 43: df.plugin.Action.world_query_liquid:type_name -> df.plugin.WorldQueryLiquidAction
+	46,  // 44: df.plugin.Action.world_set_biome:type_name -> df.plugin.WorldSetBiomeAction
+	47,  // 45: df.plugin.Action.world_set_liquid:type_name -> df.plugin.WorldSetLiquidAction
+	48,  // 46: df.plugin.Action.world_schedule_block_update:type_name -> df.plugin.WorldScheduleBlockUpdateAction
+	49,  // 47: df.plugin.TeleportAction.position:type_name -> df.plugin.Vec3
+	49,  // 48: df.plugin.TeleportAction.rotation:type_name -> df.plugin.Vec3
+	50,  // 49: df.plugin.SetGameModeAction.game_mode:type_name -> df.plugin.GameMode
+	51,  // 50: df.plugin.GiveItemAction.item:type_name -> df.plugin.ItemStack
+	51,  // 51: df.plugin.SetHeldItemAction.main:type_name -> df.plugin.ItemStack
+	51,  // 52: df.plugin.SetHeldItemAction.offhand:type_name -> df.plugin.ItemStack
+	49,  // 53: df.plugin.SetVelocityAction.velocity:type_name -> df.plugin.Vec3
+	52,  // 54: df.plugin.AddEffectAction.effect_type:type_name -> df.plugin.EffectType
+	52,  // 55: df.plugin.RemoveEffectAction.effect_type:type_name -> df.plugin.EffectType
+	53,  // 56: df.plugin.PlaySoundAction.sound:type_name -> df.plugin.Sound
+	49,  // 57: df.plugin.PlaySoundAction.position:type_name -> df.plugin.Vec3
+	54,  // 58: df.plugin.WorldSetDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
+	50,  // 59: df.plugin.WorldSetDefaultGameModeAction.game_mode:type_name -> df.plugin.GameMode
+	54,  // 60: df.plugin.WorldSetDifficultyAction.world:type_name -> df.plugin.WorldRef
+	55,  // 61: df.plugin.WorldSetDifficultyAction.difficulty:type_name -> df.plugin.Difficulty
+	54,  // 62: df.plugin.WorldSetTickRangeAction.world:type_name -> df.plugin.WorldRef
+	54,  // 63: df.plugin.WorldSetBlockAction.world:type_name -> df.plugin.WorldRef
+	56,  // 64: df.plugin.WorldSetBlockAction.position:type_name -> df.plugin.BlockPos
+	57,  // 65: df.plugin.WorldSetBlockAction.block:type_name -> df.plugin.BlockState
+	54,  // 66: df.plugin.WorldPlaySoundAction.world:type_name -> df.plugin.WorldRef
+	53,  // 67: df.plugin.WorldPlaySoundAction.sound:type_name -> df.plugin.Sound
+	49,  // 68: df.plugin.WorldPlaySoundAction.position:type_name -> df.plugin.Vec3
+	54,  // 69: df.plugin.WorldAddParticleAction.world:type_name -> df.plugin.WorldRef
+	49,  // 70: df.plugin.WorldAddParticleAction.position:type_name -> df.plugin.Vec3
+	0,   // 71: df.plugin.WorldAddParticleAction.particle:type_name -> df.plugin.ParticleType
+	57,  // 72: df.plugin.WorldAddParticleAction.block:type_name -> df.plugin.BlockState
+	54,  // 73: df.plugin.WorldSetTimeAction.world:type_name -> df.plugin.WorldRef
+	54,  // 74: df.plugin.WorldStopTimeAction.world:type_name -> df.plugin.WorldRef
+	54,  // 75: df.plugin.WorldStartTimeAction.world:type_name -> df.plugin.WorldRef
+	54,  // 76: df.plugin.WorldSetSpawnAction.world:type_name -> df.plugin.WorldRef
+	56,  // 77: df.plugin.WorldSetSpawnAction.spawn:type_name -> df.plugin.BlockPos
+	54,  // 78: df.plugin.WorldQueryDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
+	54,  // 79: df.plugin.WorldQueryPlayerSpawnAction.world:type_name -> df.plugin.WorldRef
+	54,  // 80: df.plugin.WorldQueryEntitiesAction.world:type_name -> df.plugin.WorldRef
+	54,  // 81: df.plugin.WorldQueryPlayersAction.world:type_name -> df.plugin.WorldRef
+	54,  // 82: df.plugin.WorldQueryEntitiesWithinAction.world:type_name -> df.plugin.WorldRef
+	58,  // 83: df.plugin.WorldQueryEntitiesWithinAction.box:type_name -> df.plugin.BBox
+	54,  // 84: df.plugin.WorldQueryBlockAction.world:type_name -> df.plugin.WorldRef
+	56,  // 85: df.plugin.WorldQueryBlockAction.position:type_name -> df.plugin.BlockPos
+	54,  // 86: df.plugin.WorldQueryBiomeAction.world:type_name -> df.plugin.WorldRef
+	56,  // 87: df.plugin.WorldQueryBiomeAction.position:type_name -> df.plugin.BlockPos
+	54,  // 88: df.plugin.WorldQueryLightAction.world:type_name -> df.plugin.WorldRef
+	56,  // 89: df.plugin.WorldQueryLightAction.position:type_name -> df.plugin.BlockPos
+	54,  // 90: df.plugin.WorldQuerySkyLightAction.world:type_name -> df.plugin.WorldRef
+	56,  // 91: df.plugin.WorldQuerySkyLightAction.position:type_name -> df.plugin.BlockPos
+	54,  // 92: df.plugin.WorldQueryTemperatureAction.world:type_name -> df.plugin.WorldRef
+	56,  // 93: df.plugin.WorldQueryTemperatureAction.position:type_name -> df.plugin.BlockPos
+	54,  // 94: df.plugin.WorldQueryHighestBlockAction.world:type_name -> df.plugin.WorldRef
+	54,  // 95: df.plugin.WorldQueryRainingAtAction.world:type_name -> df.plugin.WorldRef
+	56,  // 96: df.plugin.WorldQueryRainingAtAction.position:type_name -> df.plugin.BlockPos
+	54,  // 97: df.plugin.WorldQuerySnowingAtAction.world:type_name -> df.plugin.WorldRef
+	56,  // 98: df.plugin.WorldQuerySnowingAtAction.position:type_name -> df.plugin.BlockPos
+	54,  // 99: df.plugin.WorldQueryThunderingAtAction.world:type_name -> df.plugin.WorldRef
+	56,  // 100: df.plugin.WorldQueryThunderingAtAction.position:type_name -> df.plugin.BlockPos
+	54,  // 101: df.plugin.WorldQueryLiquidAction.world:type_name -> df.plugin.WorldRef
+	56,  // 102: df.plugin.WorldQueryLiquidAction.position:type_name -> df.plugin.BlockPos
+	54,  // 103: df.plugin.WorldSetBiomeAction.world:type_name -> df.plugin.WorldRef
+	56,  // 104: df.plugin.WorldSetBiomeAction.position:type_name -> df.plugin.BlockPos
+	54,  // 105: df.plugin.WorldSetLiquidAction.world:type_name -> df.plugin.WorldRef
+	56,  // 106: df.plugin.WorldSetLiquidAction.position:type_name -> df.plugin.BlockPos
+	59,  // 107: df.plugin.WorldSetLiquidAction.liquid:type_name -> df.plugin.LiquidState
+	54,  // 108: df.plugin.WorldScheduleBlockUpdateAction.world:type_name -> df.plugin.WorldRef
+	56,  // 109: df.plugin.WorldScheduleBlockUpdateAction.position:type_name -> df.plugin.BlockPos
+	57,  // 110: df.plugin.WorldScheduleBlockUpdateAction.block:type_name -> df.plugin.BlockState
+	111, // [111:111] is the sub-list for method output_type
+	111, // [111:111] is the sub-list for method input_type
+	111, // [111:111] is the sub-list for extension type_name
+	111, // [111:111] is the sub-list for extension extendee
+	0,   // [0:111] is the sub-list for field type_name
 }
 
 func init() { file_actions_proto_init() }
@@ -3008,6 +4045,19 @@ func file_actions_proto_init() {
 		(*Action_WorldQueryEntitiesWithin)(nil),
 		(*Action_WorldQueryDefaultGameMode)(nil),
 		(*Action_WorldQueryPlayerSpawn)(nil),
+		(*Action_WorldQueryBlock)(nil),
+		(*Action_WorldQueryBiome)(nil),
+		(*Action_WorldQueryLight)(nil),
+		(*Action_WorldQuerySkyLight)(nil),
+		(*Action_WorldQueryTemperature)(nil),
+		(*Action_WorldQueryHighestBlock)(nil),
+		(*Action_WorldQueryRainingAt)(nil),
+		(*Action_WorldQuerySnowingAt)(nil),
+		(*Action_WorldQueryThunderingAt)(nil),
+		(*Action_WorldQueryLiquid)(nil),
+		(*Action_WorldSetBiome)(nil),
+		(*Action_WorldSetLiquid)(nil),
+		(*Action_WorldScheduleBlockUpdate)(nil),
 	}
 	file_actions_proto_msgTypes[8].OneofWrappers = []any{}
 	file_actions_proto_msgTypes[9].OneofWrappers = []any{}
@@ -3016,13 +4066,14 @@ func file_actions_proto_init() {
 	file_actions_proto_msgTypes[18].OneofWrappers = []any{}
 	file_actions_proto_msgTypes[23].OneofWrappers = []any{}
 	file_actions_proto_msgTypes[25].OneofWrappers = []any{}
+	file_actions_proto_msgTypes[46].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_actions_proto_rawDesc), len(file_actions_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   35,
+			NumMessages:   48,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
