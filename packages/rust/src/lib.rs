@@ -1,5 +1,4 @@
-#![allow(clippy::all)]
-
+#[doc = include_str!("../README.md")]
 #[path = "generated/df.plugin.rs"]
 mod df_plugin;
 
@@ -22,8 +21,8 @@ use std::error::Error;
 pub use server::*;
 
 // main usage stuff for plugin devs:
-pub use event::PluginEventHandler;
-pub use rust_plugin_macro::Handler;
+pub use event::EventHandler;
+pub use rust_plugin_macro::Plugin;
 use tokio::sync::mpsc;
 use tokio_stream::{wrappers::ReceiverStream, StreamExt};
 
@@ -72,29 +71,11 @@ async fn connect_to_server(
     }
 }
 
-pub struct Plugin {
-    id: String,
-    name: String,
-    version: String,
-    api_version: String,
-}
+pub struct PluginRunner {}
 
-impl Plugin {
-    pub fn new(id: &str, name: &str, version: &str, api_version: &str) -> Self {
-        Self {
-            id: id.to_string(),
-            name: name.to_string(),
-            version: version.to_string(),
-            api_version: api_version.to_string(),
-        }
-    }
-
+impl PluginRunner {
     /// Runs the plugin, connecting to the server and starting the event loop.
-    pub async fn run(
-        self,
-        handler: impl PluginEventHandler + PluginSubscriptions + 'static,
-        addr: &str,
-    ) -> Result<(), Box<dyn Error>> {
+    pub async fn run(plugin: impl Plugin + 'static, addr: &str) -> Result<(), Box<dyn Error>> {
         let mut raw_client = connect_to_server(addr).await?;
 
         let (tx, rx) = mpsc::channel(128);
@@ -103,11 +84,11 @@ impl Plugin {
         // This is required because the Go server blocks on Recv() waiting for the
         // hello before sending response headers.
         let hello_msg = types::PluginToHost {
-            plugin_id: self.id.clone(),
+            plugin_id: plugin.get_id().to_owned(),
             payload: Some(types::PluginPayload::Hello(types::PluginHello {
-                name: self.name.clone(),
-                version: self.version.clone(),
-                api_version: self.api_version.clone(),
+                name: plugin.get_name().to_owned(),
+                version: plugin.get_version().to_owned(),
+                api_version: plugin.get_api_version().to_owned(),
                 commands: vec![],
                 custom_items: vec![],
             })),
@@ -118,24 +99,24 @@ impl Plugin {
         let mut event_stream = raw_client.event_stream(request_stream).await?.into_inner();
 
         let server = Server {
-            plugin_id: self.id.clone(),
+            plugin_id: plugin.get_id().to_owned(),
             sender: tx.clone(),
         };
 
-        let events = handler.get_subscriptions();
+        let events = plugin.get_subscriptions();
         if !events.is_empty() {
             println!("Subscribing to {} event types...", events.len());
             server.subscribe(events).await?;
         }
 
-        println!("Plugin '{}' connected and listening.", self.name);
+        println!("Plugin '{}' connected and listening.", plugin.get_name());
 
         // 8. Run the main event loop
         while let Some(Ok(msg)) = event_stream.next().await {
             match msg.payload {
                 // We received a game event
                 Some(types::HostPayload::Event(envelope)) => {
-                    event::dispatch_event(&server, &handler, &envelope).await;
+                    event::dispatch_event(&server, &plugin, &envelope).await;
                 }
                 // The server is shutting us down
                 Some(types::HostPayload::Shutdown(shutdown)) => {
@@ -146,7 +127,7 @@ impl Plugin {
             }
         }
 
-        println!("Plugin '{}' disconnected.", self.name);
+        println!("Plugin '{}' disconnected.", plugin.get_name());
         Ok(())
     }
 }
@@ -154,8 +135,60 @@ impl Plugin {
 /// A trait that defines which events your plugin will receive.
 ///
 /// You can implement this trait manually, or you can use the
-/// `#[bedrock_plugin]` macro on your `PluginEventHandler`
+/// `#[derive(Plugin)]` along with `#[events(Event1, Event2)`
 /// implementation to generate it for you.
-pub trait PluginSubscriptions {
+pub trait EventSubscriptions {
     fn get_subscriptions(&self) -> Vec<types::EventType>;
+}
+
+/// A struct that defines the details of your plugin.
+pub struct PluginInfo<'a> {
+    pub id: &'a str,
+    pub name: &'a str,
+    pub version: &'a str,
+    pub api_version: &'a str,
+}
+
+/// The final trait required for our plugin to be runnable.
+///
+/// These functions get impled automatically by
+/// `#[derive(Plugin)` like so:
+/// ```rust
+/// use dragonfly_plugin::{
+///    Dragonfly,      // Our runtime, clearly named
+///    EventHandler,   // The logic trait
+///    Plugin,         // The derive macro
+///    event_context::EventContext,
+///    types,
+///    Server,
+/// };
+///
+/// #[derive(Plugin, Default)]
+/// #[plugin(
+///    id = "example-rust",
+///    name = "Example Rust Plugin",
+///    version = "1.0.0",
+///    api = "1.0.0"
+/// )]
+///#[events(PlayerJoin, Chat)]
+///struct MyPlugin {}
+///
+///impl EventHandler for MyPlugin {
+///    async fn on_player_join(
+///        &self,
+///        server: &Server,
+///        event: &mut EventContext<'_, types::PlayerJoinEvent>,
+///    ) {
+///    }
+/// ```
+pub trait Plugin: EventHandler + EventSubscriptions {
+    fn get_info(&self) -> PluginInfo<'_>;
+
+    fn get_id(&self) -> &str;
+
+    fn get_name(&self) -> &str;
+
+    fn get_version(&self) -> &str;
+
+    fn get_api_version(&self) -> &str;
 }

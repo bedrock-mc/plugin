@@ -4,9 +4,7 @@ use quote::{format_ident, quote};
 use std::{collections::HashMap, path::PathBuf};
 use syn::{File, Ident, ItemStruct};
 
-use crate::utils::{
-    clean_type, find_nested_enum, get_variant_type_path, unwrap_option_path, write_formatted_file,
-};
+use crate::utils::{clean_type, find_nested_enum, get_variant_type_path, write_formatted_file};
 
 pub(crate) fn generate_server_helpers(
     ast: &File,
@@ -33,17 +31,9 @@ pub(crate) fn generate_server_helpers(
 
         for field in &action_struct_def.fields {
             let field_name = field.ident.as_ref().unwrap();
-            let (_inner_type, is_option) = unwrap_option_path(&field.ty);
             let arg_type = clean_type(&field.ty);
 
-            if is_option {
-                // If it's an Option, we must map the inner value
-                struct_fields.push(quote! { #field_name: #field_name.map(|v| v.into()) });
-            } else {
-                // If it's not an Option, we can call .into() directly
-                struct_fields.push(quote! { #field_name: #field_name.into() });
-            }
-
+            struct_fields.push(quote! { #field_name });
             fn_args.push(quote! { #field_name: #arg_type });
         }
 

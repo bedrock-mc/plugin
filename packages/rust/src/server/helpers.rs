@@ -10,8 +10,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::SendChat(types::SendChatAction {
-                    target_uuid: target_uuid.into(),
-                    message: message.into(),
+                    target_uuid,
+                    message,
                 }),
             )
             .await
@@ -25,9 +25,9 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::Teleport(types::TeleportAction {
-                    player_uuid: player_uuid.into(),
-                    position: position.map(|v| v.into()),
-                    rotation: rotation.map(|v| v.into()),
+                    player_uuid,
+                    position,
+                    rotation,
                 }),
             )
             .await
@@ -40,8 +40,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::Kick(types::KickAction {
-                    player_uuid: player_uuid.into(),
-                    reason: reason.into(),
+                    player_uuid,
+                    reason,
                 }),
             )
             .await
@@ -54,8 +54,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::SetGameMode(types::SetGameModeAction {
-                    player_uuid: player_uuid.into(),
-                    game_mode: game_mode.into(),
+                    player_uuid,
+                    game_mode,
                 }),
             )
             .await
@@ -68,8 +68,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::GiveItem(types::GiveItemAction {
-                    player_uuid: player_uuid.into(),
-                    item: item.map(|v| v.into()),
+                    player_uuid,
+                    item,
                 }),
             )
             .await
@@ -81,7 +81,7 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::ClearInventory(types::ClearInventoryAction {
-                    player_uuid: player_uuid.into(),
+                    player_uuid,
                 }),
             )
             .await
@@ -95,9 +95,9 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::SetHeldItem(types::SetHeldItemAction {
-                    player_uuid: player_uuid.into(),
-                    main: main.map(|v| v.into()),
-                    offhand: offhand.map(|v| v.into()),
+                    player_uuid,
+                    main,
+                    offhand,
                 }),
             )
             .await
@@ -111,9 +111,9 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::SetHealth(types::SetHealthAction {
-                    player_uuid: player_uuid.into(),
-                    health: health.into(),
-                    max_health: max_health.map(|v| v.into()),
+                    player_uuid,
+                    health,
+                    max_health,
                 }),
             )
             .await
@@ -126,8 +126,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::SetFood(types::SetFoodAction {
-                    player_uuid: player_uuid.into(),
-                    food: food.into(),
+                    player_uuid,
+                    food,
                 }),
             )
             .await
@@ -142,10 +142,10 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::SetExperience(types::SetExperienceAction {
-                    player_uuid: player_uuid.into(),
-                    level: level.map(|v| v.into()),
-                    progress: progress.map(|v| v.into()),
-                    amount: amount.map(|v| v.into()),
+                    player_uuid,
+                    level,
+                    progress,
+                    amount,
                 }),
             )
             .await
@@ -158,8 +158,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::SetVelocity(types::SetVelocityAction {
-                    player_uuid: player_uuid.into(),
-                    velocity: velocity.map(|v| v.into()),
+                    player_uuid,
+                    velocity,
                 }),
             )
             .await
@@ -175,11 +175,11 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::AddEffect(types::AddEffectAction {
-                    player_uuid: player_uuid.into(),
-                    effect_type: effect_type.into(),
-                    level: level.into(),
-                    duration_ms: duration_ms.into(),
-                    show_particles: show_particles.into(),
+                    player_uuid,
+                    effect_type,
+                    level,
+                    duration_ms,
+                    show_particles,
                 }),
             )
             .await
@@ -192,8 +192,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::RemoveEffect(types::RemoveEffectAction {
-                    player_uuid: player_uuid.into(),
-                    effect_type: effect_type.into(),
+                    player_uuid,
+                    effect_type,
                 }),
             )
             .await
@@ -210,12 +210,12 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::SendTitle(types::SendTitleAction {
-                    player_uuid: player_uuid.into(),
-                    title: title.into(),
-                    subtitle: subtitle.map(|v| v.into()),
-                    fade_in_ms: fade_in_ms.map(|v| v.into()),
-                    duration_ms: duration_ms.map(|v| v.into()),
-                    fade_out_ms: fade_out_ms.map(|v| v.into()),
+                    player_uuid,
+                    title,
+                    subtitle,
+                    fade_in_ms,
+                    duration_ms,
+                    fade_out_ms,
                 }),
             )
             .await
@@ -228,8 +228,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::SendPopup(types::SendPopupAction {
-                    player_uuid: player_uuid.into(),
-                    message: message.into(),
+                    player_uuid,
+                    message,
                 }),
             )
             .await
@@ -242,8 +242,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::SendTip(types::SendTipAction {
-                    player_uuid: player_uuid.into(),
-                    message: message.into(),
+                    player_uuid,
+                    message,
                 }),
             )
             .await
@@ -259,11 +259,11 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::PlaySound(types::PlaySoundAction {
-                    player_uuid: player_uuid.into(),
-                    sound: sound.into(),
-                    position: position.map(|v| v.into()),
-                    volume: volume.map(|v| v.into()),
-                    pitch: pitch.map(|v| v.into()),
+                    player_uuid,
+                    sound,
+                    position,
+                    volume,
+                    pitch,
                 }),
             )
             .await
@@ -276,8 +276,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::ExecuteCommand(types::ExecuteCommandAction {
-                    player_uuid: player_uuid.into(),
-                    command: command.into(),
+                    player_uuid,
+                    command,
                 }),
             )
             .await
@@ -290,8 +290,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::WorldSetDefaultGameMode(types::WorldSetDefaultGameModeAction {
-                    world: world.map(|v| v.into()),
-                    game_mode: game_mode.into(),
+                    world,
+                    game_mode,
                 }),
             )
             .await
@@ -304,8 +304,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::WorldSetDifficulty(types::WorldSetDifficultyAction {
-                    world: world.map(|v| v.into()),
-                    difficulty: difficulty.into(),
+                    world,
+                    difficulty,
                 }),
             )
             .await
@@ -318,8 +318,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::WorldSetTickRange(types::WorldSetTickRangeAction {
-                    world: world.map(|v| v.into()),
-                    tick_range: tick_range.into(),
+                    world,
+                    tick_range,
                 }),
             )
             .await
@@ -333,9 +333,9 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::WorldSetBlock(types::WorldSetBlockAction {
-                    world: world.map(|v| v.into()),
-                    position: position.map(|v| v.into()),
-                    block: block.map(|v| v.into()),
+                    world,
+                    position,
+                    block,
                 }),
             )
             .await
@@ -349,9 +349,9 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::WorldPlaySound(types::WorldPlaySoundAction {
-                    world: world.map(|v| v.into()),
-                    sound: sound.into(),
-                    position: position.map(|v| v.into()),
+                    world,
+                    sound,
+                    position,
                 }),
             )
             .await
@@ -367,11 +367,11 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::WorldAddParticle(types::WorldAddParticleAction {
-                    world: world.map(|v| v.into()),
-                    position: position.map(|v| v.into()),
-                    particle: particle.into(),
-                    block: block.map(|v| v.into()),
-                    face: face.map(|v| v.into()),
+                    world,
+                    position,
+                    particle,
+                    block,
+                    face,
                 }),
             )
             .await
@@ -383,7 +383,7 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::WorldQueryEntities(types::WorldQueryEntitiesAction {
-                    world: world.map(|v| v.into()),
+                    world,
                 }),
             )
             .await
@@ -395,7 +395,7 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::WorldQueryPlayers(types::WorldQueryPlayersAction {
-                    world: world.map(|v| v.into()),
+                    world,
                 }),
             )
             .await
@@ -408,8 +408,8 @@ impl Server {
     ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
         self.send_action(
                 types::action::Kind::WorldQueryEntitiesWithin(types::WorldQueryEntitiesWithinAction {
-                    world: world.map(|v| v.into()),
-                    r#box: r#box.map(|v| v.into()),
+                    world,
+                    r#box,
                 }),
             )
             .await

@@ -1,73 +1,47 @@
+mod events;
+mod plugin;
+
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::{
-    Data, DeriveInput, Ident, Token,
-    parse::{Parse, ParseStream},
-    parse_macro_input,
-    punctuated::Punctuated,
-};
+use syn::{parse_macro_input, Attribute, DeriveInput};
 
-#[proc_macro_derive(Handler, attributes(subscriptions))]
+use crate::{events::generate_event_subscriptions_inp, plugin::generate_plugin_impl};
+
+#[proc_macro_derive(Plugin, attributes(plugin, events))]
 pub fn handler_derive(input: TokenStream) -> TokenStream {
     let ast = parse_macro_input!(input as DeriveInput);
-    if !matches!(&ast.data, Data::Struct(_)) {
-        let msg = "The #[derive(Handler)] macro can only be used on a `struct`.";
-        return syn::Error::new_spanned(&ast.ident, msg)
-            .to_compile_error()
-            .into();
-    };
 
-    let attr = match ast
-        .attrs
-        .iter()
-        .find(|a| a.path().is_ident("subscriptions"))
-    {
-        Some(attr) => attr,
-        None => {
-            let msg = "Missing #[subscriptions(...)] attribute. Please list the events to subscribe to, e.g., #[subscriptions(Chat, PlayerJoin)]";
-            return syn::Error::new_spanned(&ast.ident, msg)
-                .to_compile_error()
-                .into();
-        }
-    };
+    let derive_name = &ast.ident;
 
-    let subscriptions = match attr.parse_args::<SubscriptionsListParser>() {
-        Ok(list) => list.events,
-        Err(e) => {
-            return e.to_compile_error().into();
-        }
-    };
+    let info_attr = find_attribute(
+        &ast,
+        "plugin",
+        "Missing `#[plugin(...)]` attribute with metadata.",
+    );
 
-    let subscription_variants = subscriptions.iter().map(|ident| {
-        quote! { types::EventType::#ident }
-    });
+    //  generate the code for impling Plugin.
+    let plugin_impl = generate_plugin_impl(info_attr, derive_name);
 
-    let struct_name = &ast.ident;
+    let subscription_attr = find_attribute(
+        &ast,
+        "events",
+        "Missing #[events(...)] attribute. Please list the events to \
+        subscribe to, e.g., #[events(Chat, PlayerJoin)]",
+    );
 
-    let output = quote! {
-        impl dragonfly_plugin::PluginSubscriptions for #struct_name {
-            fn get_subscriptions(&self) -> Vec<types::EventType> {
-                vec![
-                    #( #subscription_variants ),*
-                ]
-            }
-        }
-    };
+    let event_subscriptions_impl = generate_event_subscriptions_inp(subscription_attr, derive_name);
 
-    output.into()
-}
-
-struct SubscriptionsListParser {
-    events: Vec<Ident>,
-}
-
-impl Parse for SubscriptionsListParser {
-    fn parse(input: ParseStream) -> syn::Result<Self> {
-        let punctuated_list: Punctuated<syn::Ident, Token![,]> =
-            Punctuated::parse_terminated(input)?;
-
-        let events = punctuated_list.into_iter().collect();
-
-        Ok(Self { events })
+    quote! {
+        #plugin_impl
+        #event_subscriptions_impl
     }
+    .into()
+}
+
+fn find_attribute<'a>(ast: &'a syn::DeriveInput, name: &str, error: &str) -> &'a Attribute {
+    ast.attrs
+        .iter()
+        .find(|a| a.path().is_ident(name))
+        .ok_or_else(|| syn::Error::new(ast.ident.span(), error))
+        .unwrap()
 }

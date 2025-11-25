@@ -48,9 +48,8 @@ This is the complete code for a simple plugin that greets players on join and ad
 
 ```rust
 // --- Import all the necessary items ---
-use dragonfly-plugin::{
-    event_context::EventContext,
-    event_handler::PluginEventHandler,
+use dragonfly_plugin::{
+    event::{EventContext, PluginEventHandler},
     types, // Contains all event data structs
     Handler, // The derive macro
     Plugin,  // The main plugin runner
@@ -89,8 +88,7 @@ impl PluginEventHandler for MyPlugin {
         );
 
         // Use the `server` handle to send actions
-        // (This assumes a `send_chat` action helper exists)
-        server.send_chat(welcome_message).await.ok();
+        server.send_chat(event.data.player_uuid.clone(), welcome_message).await.ok();
     }
 
     /// This handler runs when a player sends a chat message.
@@ -141,7 +139,7 @@ Because this API uses native `async fn` in traits, you **must** include the anon
 
 You can read immutable data directly from the event:
 
-```rust
+```rust,ignore
 let player_name = &event.data.name;
 println!("Player name: {}", player_name);
 ```
@@ -150,7 +148,7 @@ println!("Player name: {}", player_name);
 
 Some events are mutable. The `EventContext` provides helper methods (like `set_message`) to modify the event before the server processes it:
 
-```rust
+```rust,ignore
 event.set_message(format!("New message: {}", event.data.message));
 ```
 
@@ -158,7 +156,7 @@ event.set_message(format!("New message: {}", event.data.message));
 
 You can also cancel compatible events to stop them from happening:
 
-```rust
+```rust,ignore
 event.cancel();
 ```
 

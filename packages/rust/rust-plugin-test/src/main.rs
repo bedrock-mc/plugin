@@ -1,23 +1,30 @@
 use dragonfly_plugin::{
-    Handler,
     Plugin,
+    PluginRunner,
     Server,
-    event::{EventContext, PluginEventHandler},
+    event::{EventContext, EventHandler},
     types, // All the raw prost/tonic types
 };
 
 // --- 2. Define a struct for your plugin's state ---
 // It can be empty, or it can hold databases, configs, etc.
-// Note `Handler` is what enables the auto regisration feature
+// Note `Plugin` is what enables the auto regisration feature
+// and the plugin details via plugin(...)
 // `subscriptions(xx)` is the events that your handle will sub
 // to from the server.
 // We add `Default` so it's easy to create.
-#[derive(Handler, Default)]
-#[subscriptions(PlayerJoin, Chat)]
+#[derive(Plugin, Default)]
+#[plugin(
+    id = "example-rust",        // A unique ID for your plugin (matches plugins.yaml)
+    name = "Example Rust Plugin", // A human-readable name
+    version = "1.0.0",               // Your plugin's version
+    api = "1.0.0",               // The API version you're built against
+)]
+#[events(PlayerJoin, Chat)] // A list of the events that you want to handle.
 struct MyExamplePlugin;
 
 // --- 3. Implement the event handlers ---
-impl PluginEventHandler for MyExamplePlugin {
+impl EventHandler for MyExamplePlugin {
     /// This handler runs when a player joins the server.
     /// We'll use it to send our "hello world" message.
     async fn on_player_join(
@@ -67,21 +74,11 @@ impl PluginEventHandler for MyExamplePlugin {
 // --- 4. The main function to run the plugin ---
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // 1. Define the plugin's metadata
-    let plugin = Plugin::new(
-        "example-rust",        // A unique ID for your plugin (matches plugins.yaml)
-        "Example Rust Plugin", // A human-readable name
-        "1.0.0",               // Your plugin's version
-        "1.0.0",               // The API version you're built against
-    );
+    println!("Starting the rust plugin...");
 
-    // 2. Connect to the server and run the plugin
-    println!("Connecting to df-mc server...");
-
-    plugin
-        .run(
-            MyExamplePlugin,         // Pass in an instance of our handler
-            "tcp://127.0.0.1:50050", // The server address (Unix socket)
-        )
-        .await
+    PluginRunner::run(
+        MyExamplePlugin,         // Pass in an instance of our plugin
+        "tcp://127.0.0.1:50050", // The server address (Unix socket)
+    )
+    .await
 }
