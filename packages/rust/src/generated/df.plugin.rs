@@ -1800,6 +1800,9 @@ pub struct ServerInformationResponse {
 pub struct HostHello {
     #[prost(string, tag="1")]
     pub api_version: ::prost::alloc::string::String,
+    /// Used for auto reload to distinguish between startup and reload
+    #[prost(string, tag="2")]
+    pub boot_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]

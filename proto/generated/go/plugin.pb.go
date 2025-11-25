@@ -435,6 +435,7 @@ func (x *ServerInformationResponse) GetPlugins() []string {
 type HostHello struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ApiVersion    string                 `protobuf:"bytes,1,opt,name=api_version,json=apiVersion,proto3" json:"api_version,omitempty"`
+	BootId        string                 `protobuf:"bytes,2,opt,name=boot_id,json=bootId,proto3" json:"boot_id,omitempty"` // Used for auto reload to distinguish between startup and reload
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -472,6 +473,13 @@ func (*HostHello) Descriptor() ([]byte, []int) {
 func (x *HostHello) GetApiVersion() string {
 	if x != nil {
 		return x.ApiVersion
+	}
+	return ""
+}
+
+func (x *HostHello) GetBootId() string {
+	if x != nil {
+		return x.BootId
 	}
 	return ""
 }
@@ -1721,10 +1729,11 @@ const file_plugin_proto_rawDesc = "" +
 	"\apayload\"\x1a\n" +
 	"\x18ServerInformationRequest\"5\n" +
 	"\x19ServerInformationResponse\x12\x18\n" +
-	"\aplugins\x18\x01 \x03(\tR\aplugins\",\n" +
+	"\aplugins\x18\x01 \x03(\tR\aplugins\"E\n" +
 	"\tHostHello\x12\x1f\n" +
 	"\vapi_version\x18\x01 \x01(\tR\n" +
-	"apiVersion\"&\n" +
+	"apiVersion\x12\x17\n" +
+	"\aboot_id\x18\x02 \x01(\tR\x06bootId\"&\n" +
 	"\fHostShutdown\x12\x16\n" +
 	"\x06reason\x18\x01 \x01(\tR\x06reason\"\xe6\x1e\n" +
 	"\rEventEnvelope\x12\x19\n" +

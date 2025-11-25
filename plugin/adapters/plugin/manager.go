@@ -46,6 +46,8 @@ type Manager struct {
 
 	playerHandlerFactory ports.PlayerHandlerFactory
 	worldHandlerFactory  ports.WorldHandlerFactory
+
+	bootID string
 }
 
 // SetServer assigns the Dragonfly server instance after the manager has started.
@@ -79,6 +81,7 @@ func NewManager(srv *server.Server, log *slog.Logger, playerHandlerFactory ports
 		worlds:               make(map[string]*world.World),
 		playerHandlerFactory: playerHandlerFactory,
 		worldHandlerFactory:  worldHandlerFactory,
+		bootID:               uuid.NewString(),
 	}
 }
 

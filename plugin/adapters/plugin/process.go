@@ -138,6 +138,7 @@ func (p *pluginProcess) launchProcess(ctx context.Context, serverAddress string)
 		passAddress = "unix:" + serverAddress
 	}
 	env = append(env, fmt.Sprintf("DF_PLUGIN_SERVER_ADDRESS=%s", passAddress))
+	env = append(env, fmt.Sprintf("DF_HOST_BOOT_ID=%s", p.manager.bootID))
 	for k, v := range p.cfg.Env {
 		env = append(env, fmt.Sprintf("%s=%s", k, v))
 	}
@@ -208,7 +209,10 @@ func (p *pluginProcess) sendHello() error {
 	msg := &pb.HostToPlugin{
 		PluginId: p.id,
 		Payload: &pb.HostToPlugin_Hello{
-			Hello: &pb.HostHello{ApiVersion: apiVersion},
+			Hello: &pb.HostHello{
+				ApiVersion: apiVersion,
+				BootId:     p.manager.bootID,
+			},
 		},
 	}
 	payload, err := proto.Marshal(msg)

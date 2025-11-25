@@ -574,12 +574,15 @@ export const ServerInformationResponse = {
     },
 };
 function createBaseHostHello() {
-    return { apiVersion: "" };
+    return { apiVersion: "", bootId: "" };
 }
 export const HostHello = {
     encode(message, writer = new BinaryWriter()) {
         if (message.apiVersion !== "") {
             writer.uint32(10).string(message.apiVersion);
+        }
+        if (message.bootId !== "") {
+            writer.uint32(18).string(message.bootId);
         }
         return writer;
     },
@@ -597,6 +600,13 @@ export const HostHello = {
                     message.apiVersion = reader.string();
                     continue;
                 }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.bootId = reader.string();
+                    continue;
+                }
             }
             if ((tag & 7) === 4 || tag === 0) {
                 break;
@@ -606,12 +616,18 @@ export const HostHello = {
         return message;
     },
     fromJSON(object) {
-        return { apiVersion: isSet(object.apiVersion) ? globalThis.String(object.apiVersion) : "" };
+        return {
+            apiVersion: isSet(object.apiVersion) ? globalThis.String(object.apiVersion) : "",
+            bootId: isSet(object.bootId) ? globalThis.String(object.bootId) : "",
+        };
     },
     toJSON(message) {
         const obj = {};
         if (message.apiVersion !== "") {
             obj.apiVersion = message.apiVersion;
+        }
+        if (message.bootId !== "") {
+            obj.bootId = message.bootId;
         }
         return obj;
     },
@@ -621,6 +637,7 @@ export const HostHello = {
     fromPartial(object) {
         const message = createBaseHostHello();
         message.apiVersion = object.apiVersion ?? "";
+        message.bootId = object.bootId ?? "";
         return message;
     },
 };

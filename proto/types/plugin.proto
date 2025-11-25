@@ -34,6 +34,7 @@ message ServerInformationResponse {
 
 message HostHello {
   string api_version = 1;
+  string boot_id = 2; // Used for auto reload to distinguish between startup and reload
 }
 
 message HostShutdown {

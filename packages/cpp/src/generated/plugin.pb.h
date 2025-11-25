@@ -1094,6 +1094,7 @@ class HostHello final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kApiVersionFieldNumber = 1,
+    kBootIdFieldNumber = 2,
   };
   // string api_version = 1 [json_name = "apiVersion"];
   void clear_api_version() ;
@@ -1110,12 +1111,27 @@ class HostHello final : public ::google::protobuf::Message
   ::std::string* PROTOBUF_NONNULL _internal_mutable_api_version();
 
   public:
+  // string boot_id = 2 [json_name = "bootId"];
+  void clear_boot_id() ;
+  const ::std::string& boot_id() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_boot_id(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_boot_id();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_boot_id();
+  void set_allocated_boot_id(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_boot_id() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_boot_id(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_boot_id();
+
+  public:
   // @@protoc_insertion_point(class_scope:df.plugin.HostHello)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<0, 1,
-                                   0, 39,
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 46,
                                    2>
       _table_;
 
@@ -1137,6 +1153,7 @@ class HostHello final : public ::google::protobuf::Message
     ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::internal::ArenaStringPtr api_version_;
+    ::google::protobuf::internal::ArenaStringPtr boot_id_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -4273,6 +4290,71 @@ inline void HostHello::set_allocated_api_version(::std::string* PROTOBUF_NULLABL
     _impl_.api_version_.Set("", GetArena());
   }
   // @@protoc_insertion_point(field_set_allocated:df.plugin.HostHello.api_version)
+}
+
+// string boot_id = 2 [json_name = "bootId"];
+inline void HostHello::clear_boot_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.boot_id_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline const ::std::string& HostHello::boot_id() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.HostHello.boot_id)
+  return _internal_boot_id();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void HostHello::set_boot_id(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  _impl_.boot_id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.HostHello.boot_id)
+}
+inline ::std::string* PROTOBUF_NONNULL HostHello::mutable_boot_id()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::std::string* _s = _internal_mutable_boot_id();
+  // @@protoc_insertion_point(field_mutable:df.plugin.HostHello.boot_id)
+  return _s;
+}
+inline const ::std::string& HostHello::_internal_boot_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.boot_id_.Get();
+}
+inline void HostHello::_internal_set_boot_id(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.boot_id_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL HostHello::_internal_mutable_boot_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.boot_id_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE HostHello::release_boot_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.HostHello.boot_id)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000002U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  auto* released = _impl_.boot_id_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.boot_id_.Set("", GetArena());
+  }
+  return released;
+}
+inline void HostHello::set_allocated_boot_id(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+  _impl_.boot_id_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.boot_id_.IsDefault()) {
+    _impl_.boot_id_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.HostHello.boot_id)
 }
 
 // -------------------------------------------------------------------
