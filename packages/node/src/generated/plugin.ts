@@ -9,7 +9,7 @@ import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { ActionResult } from "./action_results.js";
 import { ActionBatch } from "./actions.js";
 import { CommandEvent, CommandSpec } from "./command.js";
-import { CustomItemDefinition } from "./common.js";
+import { CustomBlockDefinition, CustomItemDefinition } from "./common.js";
 import { EventResult } from "./mutations.js";
 import {
   BlockBreakEvent,
@@ -411,6 +411,8 @@ export interface ServerInformationResponse {
 
 export interface HostHello {
   apiVersion: string;
+  /** Used for auto reload to distinguish between startup and reload */
+  bootId: string;
 }
 
 export interface HostShutdown {
@@ -489,6 +491,7 @@ export interface PluginHello {
   apiVersion: string;
   commands: CommandSpec[];
   customItems: CustomItemDefinition[];
+  customBlocks: CustomBlockDefinition[];
 }
 
 export interface LogMessage {
@@ -761,13 +764,16 @@ export const ServerInformationResponse: MessageFns<ServerInformationResponse> = 
 };
 
 function createBaseHostHello(): HostHello {
-  return { apiVersion: "" };
+  return { apiVersion: "", bootId: "" };
 }
 
 export const HostHello: MessageFns<HostHello> = {
   encode(message: HostHello, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
     if (message.apiVersion !== "") {
       writer.uint32(10).string(message.apiVersion);
+    }
+    if (message.bootId !== "") {
+      writer.uint32(18).string(message.bootId);
     }
     return writer;
   },
@@ -787,6 +793,14 @@ export const HostHello: MessageFns<HostHello> = {
           message.apiVersion = reader.string();
           continue;
         }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.bootId = reader.string();
+          continue;
+        }
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -797,13 +811,19 @@ export const HostHello: MessageFns<HostHello> = {
   },
 
   fromJSON(object: any): HostHello {
-    return { apiVersion: isSet(object.apiVersion) ? globalThis.String(object.apiVersion) : "" };
+    return {
+      apiVersion: isSet(object.apiVersion) ? globalThis.String(object.apiVersion) : "",
+      bootId: isSet(object.bootId) ? globalThis.String(object.bootId) : "",
+    };
   },
 
   toJSON(message: HostHello): unknown {
     const obj: any = {};
     if (message.apiVersion !== "") {
       obj.apiVersion = message.apiVersion;
+    }
+    if (message.bootId !== "") {
+      obj.bootId = message.bootId;
     }
     return obj;
   },
@@ -814,6 +834,7 @@ export const HostHello: MessageFns<HostHello> = {
   fromPartial(object: DeepPartial<HostHello>): HostHello {
     const message = createBaseHostHello();
     message.apiVersion = object.apiVersion ?? "";
+    message.bootId = object.bootId ?? "";
     return message;
   },
 };
@@ -2132,7 +2153,7 @@ export const PluginToHost: MessageFns<PluginToHost> = {
 };
 
 function createBasePluginHello(): PluginHello {
-  return { name: "", version: "", apiVersion: "", commands: [], customItems: [] };
+  return { name: "", version: "", apiVersion: "", commands: [], customItems: [], customBlocks: [] };
 }
 
 export const PluginHello: MessageFns<PluginHello> = {
@@ -2151,6 +2172,9 @@ export const PluginHello: MessageFns<PluginHello> = {
     }
     for (const v of message.customItems) {
       CustomItemDefinition.encode(v!, writer.uint32(42).fork()).join();
+    }
+    for (const v of message.customBlocks) {
+      CustomBlockDefinition.encode(v!, writer.uint32(50).fork()).join();
     }
     return writer;
   },
@@ -2202,6 +2226,14 @@ export const PluginHello: MessageFns<PluginHello> = {
           message.customItems.push(CustomItemDefinition.decode(reader, reader.uint32()));
           continue;
         }
+        case 6: {
+          if (tag !== 50) {
+            break;
+          }
+
+          message.customBlocks.push(CustomBlockDefinition.decode(reader, reader.uint32()));
+          continue;
+        }
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -2221,6 +2253,9 @@ export const PluginHello: MessageFns<PluginHello> = {
         : [],
       customItems: globalThis.Array.isArray(object?.customItems)
         ? object.customItems.map((e: any) => CustomItemDefinition.fromJSON(e))
+        : [],
+      customBlocks: globalThis.Array.isArray(object?.customBlocks)
+        ? object.customBlocks.map((e: any) => CustomBlockDefinition.fromJSON(e))
         : [],
     };
   },
@@ -2242,6 +2277,9 @@ export const PluginHello: MessageFns<PluginHello> = {
     if (message.customItems?.length) {
       obj.customItems = message.customItems.map((e) => CustomItemDefinition.toJSON(e));
     }
+    if (message.customBlocks?.length) {
+      obj.customBlocks = message.customBlocks.map((e) => CustomBlockDefinition.toJSON(e));
+    }
     return obj;
   },
 
@@ -2255,6 +2293,7 @@ export const PluginHello: MessageFns<PluginHello> = {
     message.apiVersion = object.apiVersion ?? "";
     message.commands = object.commands?.map((e) => CommandSpec.fromPartial(e)) || [];
     message.customItems = object.customItems?.map((e) => CustomItemDefinition.fromPartial(e)) || [];
+    message.customBlocks = object.customBlocks?.map((e) => CustomBlockDefinition.fromPartial(e)) || [];
     return message;
   },
 };

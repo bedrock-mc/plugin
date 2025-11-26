@@ -73,6 +73,9 @@ pub struct WorldRef {
     pub name: ::prost::alloc::string::String,
     #[prost(string, tag="2")]
     pub dimension: ::prost::alloc::string::String,
+    /// This is a runtime id. it changes across server restarts.
+    #[prost(string, tag="3")]
+    pub id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -135,6 +138,104 @@ pub struct CustomItemDefinition {
     /// Metadata value for this item (defaults to 0)
     #[prost(int32, tag="6")]
     pub meta: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockTexture {
+    /// Texture name used by materials (e.g., "my_block" or "my_block_side")
+    #[prost(string, tag="1")]
+    pub name: ::prost::alloc::string::String,
+    /// PNG-encoded bytes
+    #[prost(bytes="vec", tag="2")]
+    pub image_png: ::prost::alloc::vec::Vec<u8>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockMaterial {
+    /// "*", "up", "down", "north", "south", "east", "west"
+    #[prost(string, tag="1")]
+    pub target: ::prost::alloc::string::String,
+    /// Must match a CustomBlockTexture.name
+    #[prost(string, tag="2")]
+    pub texture_name: ::prost::alloc::string::String,
+    /// Optional, defaults to OPAQUE
+    #[prost(enumeration="CustomBlockRenderMethod", tag="3")]
+    pub render_method: i32,
+    /// Optional: defaults true
+    #[prost(bool, optional, tag="4")]
+    pub face_dimming: ::core::option::Option<bool>,
+    /// Optional: defaults based on render_method
+    #[prost(bool, optional, tag="5")]
+    pub ambient_occlusion: ::core::option::Option<bool>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockProperties {
+    #[prost(message, optional, tag="1")]
+    pub collision_box: ::core::option::Option<BBox>,
+    #[prost(message, optional, tag="2")]
+    pub selection_box: ::core::option::Option<BBox>,
+    /// e.g., "geometry.my_block"
+    #[prost(string, optional, tag="3")]
+    pub geometry_identifier: ::core::option::Option<::prost::alloc::string::String>,
+    /// true to use unit cube geometry when no identifier is provided
+    #[prost(bool, tag="4")]
+    pub cube: bool,
+    /// hex string like "#RRGGBB" for map colour
+    #[prost(string, optional, tag="5")]
+    pub map_colour: ::core::option::Option<::prost::alloc::string::String>,
+    /// integer degrees (90-degree increments), x/y/z
+    #[prost(message, optional, tag="6")]
+    pub rotation: ::core::option::Option<Vec3>,
+    /// translation vector
+    #[prost(message, optional, tag="7")]
+    pub translation: ::core::option::Option<Vec3>,
+    /// scaling factor
+    #[prost(message, optional, tag="8")]
+    pub scale: ::core::option::Option<Vec3>,
+    /// material instances by target
+    #[prost(message, repeated, tag="10")]
+    pub materials: ::prost::alloc::vec::Vec<CustomBlockMaterial>,
+    /// Client-side state properties and permutations (pack-only; no runtime IDs).
+    #[prost(map="string, message", tag="20")]
+    pub states: ::std::collections::HashMap<::prost::alloc::string::String, CustomBlockStateValues>,
+    #[prost(message, repeated, tag="21")]
+    pub permutations: ::prost::alloc::vec::Vec<CustomBlockPermutation>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockDefinition {
+    /// e.g., "my_plugin:my_block"
+    #[prost(string, tag="1")]
+    pub id: ::prost::alloc::string::String,
+    /// display name for language entry
+    #[prost(string, tag="2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// optional geometry JSON for models/blocks/<name>.geo.json
+    #[prost(bytes="vec", optional, tag="3")]
+    pub geometry_json: ::core::option::Option<::prost::alloc::vec::Vec<u8>>,
+    /// textures referred by materials
+    #[prost(message, repeated, tag="4")]
+    pub textures: ::prost::alloc::vec::Vec<CustomBlockTexture>,
+    /// server/client properties/components
+    #[prost(message, optional, tag="5")]
+    pub properties: ::core::option::Option<CustomBlockProperties>,
+}
+/// Value list for a single custom block property (strings parsed to bool/int/float where possible).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockStateValues {
+    #[prost(string, repeated, tag="1")]
+    pub values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Permutation with molang condition and property overrides.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockPermutation {
+    #[prost(string, tag="1")]
+    pub condition: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub properties: ::core::option::Option<CustomBlockProperties>,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -429,6 +530,39 @@ impl ItemCategory {
         }
     }
 }
+/// Custom block support
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum CustomBlockRenderMethod {
+    Opaque = 0,
+    AlphaTest = 1,
+    Blend = 2,
+    DoubleSided = 3,
+}
+impl CustomBlockRenderMethod {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            CustomBlockRenderMethod::Opaque => "CUSTOM_BLOCK_RENDER_METHOD_OPAQUE",
+            CustomBlockRenderMethod::AlphaTest => "CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST",
+            CustomBlockRenderMethod::Blend => "CUSTOM_BLOCK_RENDER_METHOD_BLEND",
+            CustomBlockRenderMethod::DoubleSided => "CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "CUSTOM_BLOCK_RENDER_METHOD_OPAQUE" => Some(Self::Opaque),
+            "CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST" => Some(Self::AlphaTest),
+            "CUSTOM_BLOCK_RENDER_METHOD_BLEND" => Some(Self::Blend),
+            "CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED" => Some(Self::DoubleSided),
+            _ => None,
+        }
+    }
+}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ActionResult {
@@ -436,7 +570,7 @@ pub struct ActionResult {
     pub correlation_id: ::prost::alloc::string::String,
     #[prost(message, optional, tag="2")]
     pub status: ::core::option::Option<ActionStatus>,
-    #[prost(oneof="action_result::Result", tags="10, 11, 12")]
+    #[prost(oneof="action_result::Result", tags="10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24")]
     pub result: ::core::option::Option<action_result::Result>,
 }
 /// Nested message and enum types in `ActionResult`.
@@ -450,6 +584,30 @@ pub mod action_result {
         WorldPlayers(super::WorldPlayersResult),
         #[prost(message, tag="12")]
         WorldEntitiesWithin(super::WorldEntitiesWithinResult),
+        #[prost(message, tag="13")]
+        WorldDefaultGameMode(super::WorldDefaultGameModeResult),
+        #[prost(message, tag="14")]
+        WorldPlayerSpawn(super::WorldPlayerSpawnResult),
+        #[prost(message, tag="15")]
+        WorldBlock(super::WorldBlockResult),
+        #[prost(message, tag="16")]
+        WorldBiome(super::WorldBiomeResult),
+        #[prost(message, tag="17")]
+        WorldLight(super::WorldLightResult),
+        #[prost(message, tag="18")]
+        WorldSkyLight(super::WorldSkyLightResult),
+        #[prost(message, tag="19")]
+        WorldTemperature(super::WorldTemperatureResult),
+        #[prost(message, tag="20")]
+        WorldHighestBlock(super::WorldHighestBlockResult),
+        #[prost(message, tag="21")]
+        WorldRainingAt(super::WorldRainingAtResult),
+        #[prost(message, tag="22")]
+        WorldSnowingAt(super::WorldSnowingAtResult),
+        #[prost(message, tag="23")]
+        WorldThunderingAt(super::WorldThunderingAtResult),
+        #[prost(message, tag="24")]
+        WorldLiquid(super::WorldLiquidResult),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -488,6 +646,130 @@ pub struct WorldPlayersResult {
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldDefaultGameModeResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(enumeration="GameMode", tag="2")]
+    pub game_mode: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldPlayerSpawnResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(string, tag="2")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="3")]
+    pub spawn: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldBlockResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(message, optional, tag="3")]
+    pub block: ::core::option::Option<BlockState>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldBiomeResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(string, tag="3")]
+    pub biome_id: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldLightResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    /// 0-15
+    #[prost(int32, tag="3")]
+    pub light_level: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSkyLightResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    /// 0-15
+    #[prost(int32, tag="3")]
+    pub sky_light_level: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldTemperatureResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(double, tag="3")]
+    pub temperature: f64,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldHighestBlockResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(int32, tag="2")]
+    pub x: i32,
+    #[prost(int32, tag="3")]
+    pub z: i32,
+    /// highest block Y coordinate
+    #[prost(int32, tag="4")]
+    pub y: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldRainingAtResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(bool, tag="3")]
+    pub raining: bool,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSnowingAtResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(bool, tag="3")]
+    pub snowing: bool,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldThunderingAtResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(bool, tag="3")]
+    pub thundering: bool,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldLiquidResult {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    /// nil if no liquid present
+    #[prost(message, optional, tag="3")]
+    pub liquid: ::core::option::Option<LiquidState>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ActionBatch {
     #[prost(message, repeated, tag="1")]
     pub actions: ::prost::alloc::vec::Vec<Action>,
@@ -497,7 +779,7 @@ pub struct ActionBatch {
 pub struct Action {
     #[prost(string, optional, tag="1")]
     pub correlation_id: ::core::option::Option<::prost::alloc::string::String>,
-    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 30, 31, 40, 41, 42, 43, 50, 60, 61, 62, 63, 64, 65, 70, 71, 72")]
+    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 132, 147, 148, 149, 20, 21, 22, 23, 30, 31, 40, 41, 42, 118, 119, 120, 121, 122, 123, 124, 125, 43, 126, 133, 134, 150, 151, 152, 139, 140, 50, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 127, 128, 129, 130, 131, 135, 136, 137, 138, 141, 142, 143, 144, 145, 146, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 90, 91, 92, 93, 70, 71, 72, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 73")]
     pub kind: ::core::option::Option<action::Kind>,
 }
 /// Nested message and enum types in `Action`.
@@ -505,6 +787,7 @@ pub mod action {
     #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Kind {
+        /// Player: Basic
         #[prost(message, tag="10")]
         SendChat(super::SendChatAction),
         #[prost(message, tag="11")]
@@ -513,14 +796,22 @@ pub mod action {
         Kick(super::KickAction),
         #[prost(message, tag="13")]
         SetGameMode(super::SetGameModeAction),
-        /// Inventory & Items
+        /// Player: Inventory & Items
         #[prost(message, tag="14")]
         GiveItem(super::GiveItemAction),
         #[prost(message, tag="15")]
         ClearInventory(super::ClearInventoryAction),
         #[prost(message, tag="16")]
         SetHeldItem(super::SetHeldItemAction),
-        /// Player State
+        #[prost(message, tag="132")]
+        PlayerSetArmour(super::PlayerSetArmourAction),
+        #[prost(message, tag="147")]
+        PlayerOpenBlockContainer(super::PlayerOpenBlockContainerAction),
+        #[prost(message, tag="148")]
+        PlayerDropItem(super::PlayerDropItemAction),
+        #[prost(message, tag="149")]
+        PlayerSetItemCooldown(super::PlayerSetItemCooldownAction),
+        /// Player: State & Attributes
         #[prost(message, tag="20")]
         SetHealth(super::SetHealthAction),
         #[prost(message, tag="21")]
@@ -529,24 +820,149 @@ pub mod action {
         SetExperience(super::SetExperienceAction),
         #[prost(message, tag="23")]
         SetVelocity(super::SetVelocityAction),
-        /// Effects & Status
+        /// Player: Effects
         #[prost(message, tag="30")]
         AddEffect(super::AddEffectAction),
         #[prost(message, tag="31")]
         RemoveEffect(super::RemoveEffectAction),
-        /// UI & Communication
+        /// Player: UI & Communication
         #[prost(message, tag="40")]
         SendTitle(super::SendTitleAction),
         #[prost(message, tag="41")]
         SendPopup(super::SendPopupAction),
         #[prost(message, tag="42")]
         SendTip(super::SendTipAction),
+        #[prost(message, tag="118")]
+        PlayerSendToast(super::PlayerSendToastAction),
+        #[prost(message, tag="119")]
+        PlayerSendJukeboxPopup(super::PlayerSendJukeboxPopupAction),
+        #[prost(message, tag="120")]
+        PlayerShowCoordinates(super::PlayerShowCoordinatesAction),
+        #[prost(message, tag="121")]
+        PlayerHideCoordinates(super::PlayerHideCoordinatesAction),
+        #[prost(message, tag="122")]
+        PlayerEnableInstantRespawn(super::PlayerEnableInstantRespawnAction),
+        #[prost(message, tag="123")]
+        PlayerDisableInstantRespawn(super::PlayerDisableInstantRespawnAction),
+        /// Player: Appearance (overhead)
+        #[prost(message, tag="124")]
+        PlayerSetNameTag(super::PlayerSetNameTagAction),
+        #[prost(message, tag="125")]
+        PlayerSetScoreTag(super::PlayerSetScoreTagAction),
+        /// Player: Audio & Visuals
         #[prost(message, tag="43")]
         PlaySound(super::PlaySoundAction),
-        /// Commands
+        #[prost(message, tag="126")]
+        PlayerShowParticle(super::PlayerShowParticleAction),
+        /// Player: Scoreboard
+        #[prost(message, tag="133")]
+        PlayerSendScoreboard(super::PlayerSendScoreboardAction),
+        #[prost(message, tag="134")]
+        PlayerRemoveScoreboard(super::PlayerRemoveScoreboardAction),
+        /// Player: Forms & Dialogue
+        #[prost(message, tag="150")]
+        PlayerSendMenuForm(super::PlayerSendMenuFormAction),
+        #[prost(message, tag="151")]
+        PlayerSendModalForm(super::PlayerSendModalFormAction),
+        #[prost(message, tag="152")]
+        PlayerSendDialogue(super::PlayerSendDialogueAction),
+        #[prost(message, tag="139")]
+        PlayerCloseDialogue(super::PlayerCloseDialogueAction),
+        #[prost(message, tag="140")]
+        PlayerCloseForm(super::PlayerCloseFormAction),
+        /// Player: Commands
         #[prost(message, tag="50")]
         ExecuteCommand(super::ExecuteCommandAction),
-        /// World configuration and effects
+        /// Player: Movement toggles
+        #[prost(message, tag="94")]
+        PlayerStartSprinting(super::PlayerStartSprintingAction),
+        #[prost(message, tag="95")]
+        PlayerStopSprinting(super::PlayerStopSprintingAction),
+        #[prost(message, tag="96")]
+        PlayerStartSneaking(super::PlayerStartSneakingAction),
+        #[prost(message, tag="97")]
+        PlayerStopSneaking(super::PlayerStopSneakingAction),
+        #[prost(message, tag="98")]
+        PlayerStartSwimming(super::PlayerStartSwimmingAction),
+        #[prost(message, tag="99")]
+        PlayerStopSwimming(super::PlayerStopSwimmingAction),
+        #[prost(message, tag="100")]
+        PlayerStartCrawling(super::PlayerStartCrawlingAction),
+        #[prost(message, tag="101")]
+        PlayerStopCrawling(super::PlayerStopCrawlingAction),
+        #[prost(message, tag="102")]
+        PlayerStartGliding(super::PlayerStartGlidingAction),
+        #[prost(message, tag="103")]
+        PlayerStopGliding(super::PlayerStopGlidingAction),
+        #[prost(message, tag="104")]
+        PlayerStartFlying(super::PlayerStartFlyingAction),
+        #[prost(message, tag="105")]
+        PlayerStopFlying(super::PlayerStopFlyingAction),
+        /// Player: Mobility lock
+        #[prost(message, tag="106")]
+        PlayerSetImmobile(super::PlayerSetImmobileAction),
+        #[prost(message, tag="107")]
+        PlayerSetMobile(super::PlayerSetMobileAction),
+        /// Player: Movement attributes
+        #[prost(message, tag="108")]
+        PlayerSetSpeed(super::PlayerSetSpeedAction),
+        #[prost(message, tag="109")]
+        PlayerSetFlightSpeed(super::PlayerSetFlightSpeedAction),
+        #[prost(message, tag="110")]
+        PlayerSetVerticalFlightSpeed(super::PlayerSetVerticalFlightSpeedAction),
+        /// Player: Health/Status
+        #[prost(message, tag="111")]
+        PlayerSetAbsorption(super::PlayerSetAbsorptionAction),
+        #[prost(message, tag="112")]
+        PlayerSetOnFire(super::PlayerSetOnFireAction),
+        #[prost(message, tag="113")]
+        PlayerExtinguish(super::PlayerExtinguishAction),
+        #[prost(message, tag="114")]
+        PlayerSetInvisible(super::PlayerSetInvisibleAction),
+        #[prost(message, tag="115")]
+        PlayerSetVisible(super::PlayerSetVisibleAction),
+        /// Player: Misc attributes
+        #[prost(message, tag="116")]
+        PlayerSetScale(super::PlayerSetScaleAction),
+        #[prost(message, tag="117")]
+        PlayerSetHeldSlot(super::PlayerSetHeldSlotAction),
+        /// Player: Lifecycle/Control
+        #[prost(message, tag="127")]
+        PlayerRespawn(super::PlayerRespawnAction),
+        #[prost(message, tag="128")]
+        PlayerTransfer(super::PlayerTransferAction),
+        #[prost(message, tag="129")]
+        PlayerKnockBack(super::PlayerKnockBackAction),
+        #[prost(message, tag="130")]
+        PlayerSwingArm(super::PlayerSwingArmAction),
+        #[prost(message, tag="131")]
+        PlayerPunchAir(super::PlayerPunchAirAction),
+        /// Player: Boss bar
+        #[prost(message, tag="135")]
+        PlayerSendBossBar(super::PlayerSendBossBarAction),
+        #[prost(message, tag="136")]
+        PlayerRemoveBossBar(super::PlayerRemoveBossBarAction),
+        /// Player: HUD elements
+        #[prost(message, tag="137")]
+        PlayerShowHudElement(super::PlayerShowHudElementAction),
+        #[prost(message, tag="138")]
+        PlayerHideHudElement(super::PlayerHideHudElementAction),
+        /// Player: Signs & Lecterns
+        #[prost(message, tag="141")]
+        PlayerOpenSign(super::PlayerOpenSignAction),
+        #[prost(message, tag="142")]
+        PlayerEditSign(super::PlayerEditSignAction),
+        #[prost(message, tag="143")]
+        PlayerTurnLecternPage(super::PlayerTurnLecternPageAction),
+        /// Player: Entity visibility
+        #[prost(message, tag="144")]
+        PlayerHidePlayer(super::PlayerHidePlayerAction),
+        #[prost(message, tag="145")]
+        PlayerShowPlayer(super::PlayerShowPlayerAction),
+        /// Player: Debug shapes
+        #[prost(message, tag="146")]
+        PlayerRemoveAllDebugShapes(super::PlayerRemoveAllDebugShapesAction),
+        /// World: Configuration & Settings
         #[prost(message, tag="60")]
         WorldSetDefaultGameMode(super::WorldSetDefaultGameModeAction),
         #[prost(message, tag="61")]
@@ -559,13 +975,58 @@ pub mod action {
         WorldPlaySound(super::WorldPlaySoundAction),
         #[prost(message, tag="65")]
         WorldAddParticle(super::WorldAddParticleAction),
-        /// World queries
+        /// World: Time
+        #[prost(message, tag="66")]
+        WorldSetTime(super::WorldSetTimeAction),
+        #[prost(message, tag="67")]
+        WorldStopTime(super::WorldStopTimeAction),
+        #[prost(message, tag="68")]
+        WorldStartTime(super::WorldStartTimeAction),
+        #[prost(message, tag="69")]
+        WorldSetSpawn(super::WorldSetSpawnAction),
+        /// World: Mutations
+        #[prost(message, tag="90")]
+        WorldSetBiome(super::WorldSetBiomeAction),
+        #[prost(message, tag="91")]
+        WorldSetLiquid(super::WorldSetLiquidAction),
+        #[prost(message, tag="92")]
+        WorldScheduleBlockUpdate(super::WorldScheduleBlockUpdateAction),
+        #[prost(message, tag="93")]
+        WorldBuildStructure(super::WorldBuildStructureAction),
+        /// World: Queries - Entities & Players
         #[prost(message, tag="70")]
         WorldQueryEntities(super::WorldQueryEntitiesAction),
         #[prost(message, tag="71")]
         WorldQueryPlayers(super::WorldQueryPlayersAction),
         #[prost(message, tag="72")]
         WorldQueryEntitiesWithin(super::WorldQueryEntitiesWithinAction),
+        #[prost(message, tag="74")]
+        WorldQueryPlayerSpawn(super::WorldQueryPlayerSpawnAction),
+        /// World: Queries - Blocks & Terrain
+        #[prost(message, tag="75")]
+        WorldQueryBlock(super::WorldQueryBlockAction),
+        #[prost(message, tag="76")]
+        WorldQueryBiome(super::WorldQueryBiomeAction),
+        #[prost(message, tag="77")]
+        WorldQueryLight(super::WorldQueryLightAction),
+        #[prost(message, tag="78")]
+        WorldQuerySkyLight(super::WorldQuerySkyLightAction),
+        #[prost(message, tag="79")]
+        WorldQueryTemperature(super::WorldQueryTemperatureAction),
+        #[prost(message, tag="80")]
+        WorldQueryHighestBlock(super::WorldQueryHighestBlockAction),
+        /// World: Queries - Weather & Environment
+        #[prost(message, tag="81")]
+        WorldQueryRainingAt(super::WorldQueryRainingAtAction),
+        #[prost(message, tag="82")]
+        WorldQuerySnowingAt(super::WorldQuerySnowingAtAction),
+        #[prost(message, tag="83")]
+        WorldQueryThunderingAt(super::WorldQueryThunderingAtAction),
+        /// World: Queries - Liquid & Settings
+        #[prost(message, tag="84")]
+        WorldQueryLiquid(super::WorldQueryLiquidAction),
+        #[prost(message, tag="73")]
+        WorldQueryDefaultGameMode(super::WorldQueryDefaultGameModeAction),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -823,6 +1284,48 @@ pub struct WorldAddParticleAction {
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSetTimeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(int32, tag="2")]
+    pub time: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldStopTimeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldStartTimeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSetSpawnAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub spawn: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryDefaultGameModeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryPlayerSpawnAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(string, tag="2")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct WorldQueryEntitiesAction {
     #[prost(message, optional, tag="1")]
     pub world: ::core::option::Option<WorldRef>,
@@ -840,6 +1343,662 @@ pub struct WorldQueryEntitiesWithinAction {
     pub world: ::core::option::Option<WorldRef>,
     #[prost(message, optional, tag="2")]
     pub r#box: ::core::option::Option<BBox>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryBlockAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryBiomeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryLightAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQuerySkyLightAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryTemperatureAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryHighestBlockAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(int32, tag="2")]
+    pub x: i32,
+    #[prost(int32, tag="3")]
+    pub z: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryRainingAtAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQuerySnowingAtAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryThunderingAtAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldQueryLiquidAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSetBiomeAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    /// e.g., "plains", "desert", "ocean"
+    #[prost(string, tag="3")]
+    pub biome_id: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldSetLiquidAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    /// nil to remove liquid
+    #[prost(message, optional, tag="3")]
+    pub liquid: ::core::option::Option<LiquidState>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldScheduleBlockUpdateAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(message, optional, tag="3")]
+    pub block: ::core::option::Option<BlockState>,
+    /// delay in milliseconds
+    #[prost(int64, tag="4")]
+    pub delay_ms: i64,
+}
+/// Structure building
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StructureVoxel {
+    #[prost(int32, tag="1")]
+    pub x: i32,
+    #[prost(int32, tag="2")]
+    pub y: i32,
+    #[prost(int32, tag="3")]
+    pub z: i32,
+    /// use "minecraft:air" to explicitly clear
+    #[prost(message, optional, tag="4")]
+    pub block: ::core::option::Option<BlockState>,
+    /// optional second layer
+    #[prost(message, optional, tag="5")]
+    pub liquid: ::core::option::Option<LiquidState>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct StructureDef {
+    #[prost(int32, tag="1")]
+    pub width: i32,
+    #[prost(int32, tag="2")]
+    pub height: i32,
+    #[prost(int32, tag="3")]
+    pub length: i32,
+    /// sparse set; omit positions for "no change"
+    #[prost(message, repeated, tag="10")]
+    pub voxels: ::prost::alloc::vec::Vec<StructureVoxel>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct WorldBuildStructureAction {
+    #[prost(message, optional, tag="1")]
+    pub world: ::core::option::Option<WorldRef>,
+    /// world-space base position
+    #[prost(message, optional, tag="2")]
+    pub origin: ::core::option::Option<BlockPos>,
+    #[prost(message, optional, tag="3")]
+    pub structure: ::core::option::Option<StructureDef>,
+}
+/// Player: Movement toggles
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStartSprintingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStopSprintingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStartSneakingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStopSneakingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStartSwimmingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStopSwimmingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStartCrawlingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStopCrawlingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStartGlidingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStopGlidingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStartFlyingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerStopFlyingAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+/// Player: Mobility lock
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetImmobileAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetMobileAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+/// Player: Movement attributes
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetSpeedAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(double, tag="2")]
+    pub speed: f64,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetFlightSpeedAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(double, tag="2")]
+    pub flight_speed: f64,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetVerticalFlightSpeedAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(double, tag="2")]
+    pub vertical_flight_speed: f64,
+}
+/// Player: Health/Status
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetAbsorptionAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(double, tag="2")]
+    pub absorption: f64,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetOnFireAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(int64, tag="2")]
+    pub duration_ms: i64,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerExtinguishAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetInvisibleAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetVisibleAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+/// Player: Misc attributes
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetScaleAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(double, tag="2")]
+    pub scale: f64,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetHeldSlotAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    /// 0-8
+    #[prost(int32, tag="2")]
+    pub slot: i32,
+}
+/// Player: UI
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSendToastAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub title: ::prost::alloc::string::String,
+    #[prost(string, tag="3")]
+    pub message: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSendJukeboxPopupAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub message: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerShowCoordinatesAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerHideCoordinatesAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerEnableInstantRespawnAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerDisableInstantRespawnAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetNameTagAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub name_tag: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetScoreTagAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub score_tag: ::prost::alloc::string::String,
+}
+/// Player: Visuals
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerShowParticleAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<Vec3>,
+    #[prost(enumeration="ParticleType", tag="3")]
+    pub particle: i32,
+    /// used for block-based particles when provided
+    #[prost(message, optional, tag="4")]
+    pub block: ::core::option::Option<BlockState>,
+    /// used for punch_block when provided
+    #[prost(int32, optional, tag="5")]
+    pub face: ::core::option::Option<i32>,
+}
+/// Player: Lifecycle/Control
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerRespawnAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerTransferAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub address: ::core::option::Option<Address>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerKnockBackAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub source: ::core::option::Option<Vec3>,
+    #[prost(double, tag="3")]
+    pub force: f64,
+    #[prost(double, tag="4")]
+    pub height: f64,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSwingArmAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerPunchAirAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+/// Player armour management
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetArmourAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub helmet: ::core::option::Option<ItemStack>,
+    #[prost(message, optional, tag="3")]
+    pub chestplate: ::core::option::Option<ItemStack>,
+    #[prost(message, optional, tag="4")]
+    pub leggings: ::core::option::Option<ItemStack>,
+    #[prost(message, optional, tag="5")]
+    pub boots: ::core::option::Option<ItemStack>,
+}
+/// Player scoreboard management
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSendScoreboardAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub title: ::prost::alloc::string::String,
+    #[prost(string, repeated, tag="3")]
+    pub lines: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// default true
+    #[prost(bool, optional, tag="4")]
+    pub padding: ::core::option::Option<bool>,
+    /// default false
+    #[prost(bool, optional, tag="5")]
+    pub descending: ::core::option::Option<bool>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerRemoveScoreboardAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+/// Player forms (show)
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSendMenuFormAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub title: ::prost::alloc::string::String,
+    #[prost(string, optional, tag="3")]
+    pub body: ::core::option::Option<::prost::alloc::string::String>,
+    /// up to 6
+    #[prost(string, repeated, tag="4")]
+    pub buttons: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSendModalFormAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub title: ::prost::alloc::string::String,
+    #[prost(string, tag="3")]
+    pub body: ::prost::alloc::string::String,
+    /// default: gui.yes
+    #[prost(string, tag="4")]
+    pub yes_text: ::prost::alloc::string::String,
+    /// default: gui.no
+    #[prost(string, tag="5")]
+    pub no_text: ::prost::alloc::string::String,
+}
+/// Dialogue (show)
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSendDialogueAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub title: ::prost::alloc::string::String,
+    #[prost(string, optional, tag="3")]
+    pub body: ::core::option::Option<::prost::alloc::string::String>,
+    /// up to 6
+    #[prost(string, repeated, tag="4")]
+    pub buttons: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// target entity to display as NPC
+    #[prost(message, optional, tag="5")]
+    pub entity: ::core::option::Option<EntityRef>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSendBossBarAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub text: ::prost::alloc::string::String,
+    /// 0.0 - 1.0 (default 1.0)
+    #[prost(float, optional, tag="3")]
+    pub health_percentage: ::core::option::Option<f32>,
+    /// default PURPLE
+    #[prost(enumeration="BossBarColour", optional, tag="4")]
+    pub colour: ::core::option::Option<i32>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerRemoveBossBarAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerShowHudElementAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(enumeration="HudElement", tag="2")]
+    pub element: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerHideHudElementAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(enumeration="HudElement", tag="2")]
+    pub element: i32,
+}
+/// Player UI closers
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerCloseDialogueAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerCloseFormAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+/// Player: Signs & Lecterns
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerOpenSignAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(bool, tag="3")]
+    pub front_side: bool,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerEditSignAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(string, tag="3")]
+    pub front_text: ::prost::alloc::string::String,
+    #[prost(string, tag="4")]
+    pub back_text: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerTurnLecternPageAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(int32, tag="3")]
+    pub page: i32,
+}
+/// Player: Entity visibility (player-targeted)
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerHidePlayerAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub target_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerShowPlayerAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub target_uuid: ::prost::alloc::string::String,
+}
+/// Player: Debug shapes
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerRemoveAllDebugShapesAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+/// Player: Interaction extras
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerOpenBlockContainerAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerDropItemAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    /// if unset, drops currently held main-hand item
+    #[prost(message, optional, tag="2")]
+    pub item: ::core::option::Option<ItemStack>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetItemCooldownAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub item: ::core::option::Option<ItemStack>,
+    #[prost(int64, tag="3")]
+    pub duration_ms: i64,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -914,6 +2073,108 @@ impl ParticleType {
             "PARTICLE_DUST_PLUME" => Some(Self::ParticleDustPlume),
             "PARTICLE_BLOCK_BREAK" => Some(Self::ParticleBlockBreak),
             "PARTICLE_PUNCH_BLOCK" => Some(Self::ParticlePunchBlock),
+            _ => None,
+        }
+    }
+}
+/// Player boss bar management
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum BossBarColour {
+    Grey = 0,
+    Blue = 1,
+    Red = 2,
+    Green = 3,
+    Yellow = 4,
+    Purple = 5,
+    White = 6,
+}
+impl BossBarColour {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            BossBarColour::Grey => "BOSS_BAR_COLOUR_GREY",
+            BossBarColour::Blue => "BOSS_BAR_COLOUR_BLUE",
+            BossBarColour::Red => "BOSS_BAR_COLOUR_RED",
+            BossBarColour::Green => "BOSS_BAR_COLOUR_GREEN",
+            BossBarColour::Yellow => "BOSS_BAR_COLOUR_YELLOW",
+            BossBarColour::Purple => "BOSS_BAR_COLOUR_PURPLE",
+            BossBarColour::White => "BOSS_BAR_COLOUR_WHITE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "BOSS_BAR_COLOUR_GREY" => Some(Self::Grey),
+            "BOSS_BAR_COLOUR_BLUE" => Some(Self::Blue),
+            "BOSS_BAR_COLOUR_RED" => Some(Self::Red),
+            "BOSS_BAR_COLOUR_GREEN" => Some(Self::Green),
+            "BOSS_BAR_COLOUR_YELLOW" => Some(Self::Yellow),
+            "BOSS_BAR_COLOUR_PURPLE" => Some(Self::Purple),
+            "BOSS_BAR_COLOUR_WHITE" => Some(Self::White),
+            _ => None,
+        }
+    }
+}
+/// Player HUD element control
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum HudElement {
+    PaperDoll = 0,
+    Armour = 1,
+    ToolTips = 2,
+    TouchControls = 3,
+    Crosshair = 4,
+    HotBar = 5,
+    Health = 6,
+    ProgressBar = 7,
+    Hunger = 8,
+    AirBubbles = 9,
+    HorseHealth = 10,
+    StatusEffects = 11,
+    ItemText = 12,
+}
+impl HudElement {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            HudElement::PaperDoll => "HUD_ELEMENT_PAPER_DOLL",
+            HudElement::Armour => "HUD_ELEMENT_ARMOUR",
+            HudElement::ToolTips => "HUD_ELEMENT_TOOL_TIPS",
+            HudElement::TouchControls => "HUD_ELEMENT_TOUCH_CONTROLS",
+            HudElement::Crosshair => "HUD_ELEMENT_CROSSHAIR",
+            HudElement::HotBar => "HUD_ELEMENT_HOT_BAR",
+            HudElement::Health => "HUD_ELEMENT_HEALTH",
+            HudElement::ProgressBar => "HUD_ELEMENT_PROGRESS_BAR",
+            HudElement::Hunger => "HUD_ELEMENT_HUNGER",
+            HudElement::AirBubbles => "HUD_ELEMENT_AIR_BUBBLES",
+            HudElement::HorseHealth => "HUD_ELEMENT_HORSE_HEALTH",
+            HudElement::StatusEffects => "HUD_ELEMENT_STATUS_EFFECTS",
+            HudElement::ItemText => "HUD_ELEMENT_ITEM_TEXT",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "HUD_ELEMENT_PAPER_DOLL" => Some(Self::PaperDoll),
+            "HUD_ELEMENT_ARMOUR" => Some(Self::Armour),
+            "HUD_ELEMENT_TOOL_TIPS" => Some(Self::ToolTips),
+            "HUD_ELEMENT_TOUCH_CONTROLS" => Some(Self::TouchControls),
+            "HUD_ELEMENT_CROSSHAIR" => Some(Self::Crosshair),
+            "HUD_ELEMENT_HOT_BAR" => Some(Self::HotBar),
+            "HUD_ELEMENT_HEALTH" => Some(Self::Health),
+            "HUD_ELEMENT_PROGRESS_BAR" => Some(Self::ProgressBar),
+            "HUD_ELEMENT_HUNGER" => Some(Self::Hunger),
+            "HUD_ELEMENT_AIR_BUBBLES" => Some(Self::AirBubbles),
+            "HUD_ELEMENT_HORSE_HEALTH" => Some(Self::HorseHealth),
+            "HUD_ELEMENT_STATUS_EFFECTS" => Some(Self::StatusEffects),
+            "HUD_ELEMENT_ITEM_TEXT" => Some(Self::ItemText),
             _ => None,
         }
     }
@@ -1800,6 +3061,9 @@ pub struct ServerInformationResponse {
 pub struct HostHello {
     #[prost(string, tag="1")]
     pub api_version: ::prost::alloc::string::String,
+    /// Used for auto reload to distinguish between startup and reload
+    #[prost(string, tag="2")]
+    pub boot_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1965,6 +3229,8 @@ pub struct PluginHello {
     pub commands: ::prost::alloc::vec::Vec<CommandSpec>,
     #[prost(message, repeated, tag="5")]
     pub custom_items: ::prost::alloc::vec::Vec<CustomItemDefinition>,
+    #[prost(message, repeated, tag="6")]
+    pub custom_blocks: ::prost::alloc::vec::Vec<CustomBlockDefinition>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]

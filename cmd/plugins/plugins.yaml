@@ -31,8 +31,21 @@ plugins:
   #     NODE_ENV: production
   - id: example-php
     name: Example PHP Plugin
-    command: "../examples/plugins/php/bin/php7/bin/php"
-    args: ["../examples/plugins/php/src/HelloPlugin.php"]
+    command: "watchexec"
+    args:
+      - "--restart"
+      - "--clear"
+      - "--watch"
+      - "src"
+      - "--exts"
+      - "php"
+      - "--"
+      - "bin/php7/bin/php"
+      - "src/HelloPlugin.php"
+    work_dir:
+      path: "../examples/plugins/php"
+    # command: "../examples/plugins/php/bin/php7/bin/php"
+    # args: ["../examples/plugins/php/src/HelloPlugin.php"]
     # command: "docker"
     # args:
     #   - "compose"
@@ -42,6 +55,15 @@ plugins:
     #   - "--abort-on-container-exit"
     env:
       PHP_ENV: production
+
+  - id: example-rust
+    name: Example Rust Plugin
+    command: "cargo"
+    args: ["run"]
+    work_dir:
+      path: "../packages/rust/rust-plugin-test"
+    env:
+      RUST_LOG: info
 
   # - id: example-go
   #   name: Example Go Plugin

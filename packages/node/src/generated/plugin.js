@@ -8,7 +8,7 @@ import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import { ActionResult } from "./action_results.js";
 import { ActionBatch } from "./actions.js";
 import { CommandEvent, CommandSpec } from "./command.js";
-import { CustomItemDefinition } from "./common.js";
+import { CustomBlockDefinition, CustomItemDefinition } from "./common.js";
 import { EventResult } from "./mutations.js";
 import { BlockBreakEvent, ChatEvent, PlayerAttackEntityEvent, PlayerBlockPickEvent, PlayerBlockPlaceEvent, PlayerChangeWorldEvent, PlayerDeathEvent, PlayerDiagnosticsEvent, PlayerExperienceGainEvent, PlayerFireExtinguishEvent, PlayerFoodLossEvent, PlayerHealEvent, PlayerHeldSlotChangeEvent, PlayerHurtEvent, PlayerItemConsumeEvent, PlayerItemDamageEvent, PlayerItemDropEvent, PlayerItemPickupEvent, PlayerItemReleaseEvent, PlayerItemUseEvent, PlayerItemUseOnBlockEvent, PlayerItemUseOnEntityEvent, PlayerJoinEvent, PlayerJumpEvent, PlayerLecternPageTurnEvent, PlayerMoveEvent, PlayerPunchAirEvent, PlayerQuitEvent, PlayerRespawnEvent, PlayerSignEditEvent, PlayerSkinChangeEvent, PlayerStartBreakEvent, PlayerTeleportEvent, PlayerToggleSneakEvent, PlayerToggleSprintEvent, PlayerTransferEvent, } from "./player_events.js";
 import { WorldBlockBurnEvent, WorldCloseEvent, WorldCropTrampleEvent, WorldEntityDespawnEvent, WorldEntitySpawnEvent, WorldExplosionEvent, WorldFireSpreadEvent, WorldLeavesDecayEvent, WorldLiquidDecayEvent, WorldLiquidFlowEvent, WorldLiquidHardenEvent, WorldSoundEvent, } from "./world_events.js";
@@ -574,12 +574,15 @@ export const ServerInformationResponse = {
     },
 };
 function createBaseHostHello() {
-    return { apiVersion: "" };
+    return { apiVersion: "", bootId: "" };
 }
 export const HostHello = {
     encode(message, writer = new BinaryWriter()) {
         if (message.apiVersion !== "") {
             writer.uint32(10).string(message.apiVersion);
+        }
+        if (message.bootId !== "") {
+            writer.uint32(18).string(message.bootId);
         }
         return writer;
     },
@@ -597,6 +600,13 @@ export const HostHello = {
                     message.apiVersion = reader.string();
                     continue;
                 }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.bootId = reader.string();
+                    continue;
+                }
             }
             if ((tag & 7) === 4 || tag === 0) {
                 break;
@@ -606,12 +616,18 @@ export const HostHello = {
         return message;
     },
     fromJSON(object) {
-        return { apiVersion: isSet(object.apiVersion) ? globalThis.String(object.apiVersion) : "" };
+        return {
+            apiVersion: isSet(object.apiVersion) ? globalThis.String(object.apiVersion) : "",
+            bootId: isSet(object.bootId) ? globalThis.String(object.bootId) : "",
+        };
     },
     toJSON(message) {
         const obj = {};
         if (message.apiVersion !== "") {
             obj.apiVersion = message.apiVersion;
+        }
+        if (message.bootId !== "") {
+            obj.bootId = message.bootId;
         }
         return obj;
     },
@@ -621,6 +637,7 @@ export const HostHello = {
     fromPartial(object) {
         const message = createBaseHostHello();
         message.apiVersion = object.apiVersion ?? "";
+        message.bootId = object.bootId ?? "";
         return message;
     },
 };
@@ -1860,7 +1877,7 @@ export const PluginToHost = {
     },
 };
 function createBasePluginHello() {
-    return { name: "", version: "", apiVersion: "", commands: [], customItems: [] };
+    return { name: "", version: "", apiVersion: "", commands: [], customItems: [], customBlocks: [] };
 }
 export const PluginHello = {
     encode(message, writer = new BinaryWriter()) {
@@ -1878,6 +1895,9 @@ export const PluginHello = {
         }
         for (const v of message.customItems) {
             CustomItemDefinition.encode(v, writer.uint32(42).fork()).join();
+        }
+        for (const v of message.customBlocks) {
+            CustomBlockDefinition.encode(v, writer.uint32(50).fork()).join();
         }
         return writer;
     },
@@ -1923,6 +1943,13 @@ export const PluginHello = {
                     message.customItems.push(CustomItemDefinition.decode(reader, reader.uint32()));
                     continue;
                 }
+                case 6: {
+                    if (tag !== 50) {
+                        break;
+                    }
+                    message.customBlocks.push(CustomBlockDefinition.decode(reader, reader.uint32()));
+                    continue;
+                }
             }
             if ((tag & 7) === 4 || tag === 0) {
                 break;
@@ -1941,6 +1968,9 @@ export const PluginHello = {
                 : [],
             customItems: globalThis.Array.isArray(object?.customItems)
                 ? object.customItems.map((e) => CustomItemDefinition.fromJSON(e))
+                : [],
+            customBlocks: globalThis.Array.isArray(object?.customBlocks)
+                ? object.customBlocks.map((e) => CustomBlockDefinition.fromJSON(e))
                 : [],
         };
     },
@@ -1961,6 +1991,9 @@ export const PluginHello = {
         if (message.customItems?.length) {
             obj.customItems = message.customItems.map((e) => CustomItemDefinition.toJSON(e));
         }
+        if (message.customBlocks?.length) {
+            obj.customBlocks = message.customBlocks.map((e) => CustomBlockDefinition.toJSON(e));
+        }
         return obj;
     },
     create(base) {
@@ -1973,6 +2006,7 @@ export const PluginHello = {
         message.apiVersion = object.apiVersion ?? "";
         message.commands = object.commands?.map((e) => CommandSpec.fromPartial(e)) || [];
         message.customItems = object.customItems?.map((e) => CustomItemDefinition.fromPartial(e)) || [];
+        message.customBlocks = object.customBlocks?.map((e) => CustomBlockDefinition.fromPartial(e)) || [];
         return message;
     },
 };

@@ -5,7 +5,7 @@
 // source: actions.proto
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
-import { BBox, BlockPos, BlockState, difficultyFromJSON, difficultyToJSON, effectTypeFromJSON, effectTypeToJSON, gameModeFromJSON, gameModeToJSON, ItemStack, soundFromJSON, soundToJSON, Vec3, WorldRef, } from "./common.js";
+import { Address, BBox, BlockPos, BlockState, difficultyFromJSON, difficultyToJSON, effectTypeFromJSON, effectTypeToJSON, EntityRef, gameModeFromJSON, gameModeToJSON, ItemStack, LiquidState, soundFromJSON, soundToJSON, Vec3, WorldRef, } from "./common.js";
 export const protobufPackage = "df.plugin";
 export var ParticleType;
 (function (ParticleType) {
@@ -140,6 +140,166 @@ export function particleTypeToJSON(object) {
             return "UNRECOGNIZED";
     }
 }
+/** Player boss bar management */
+export var BossBarColour;
+(function (BossBarColour) {
+    BossBarColour[BossBarColour["BOSS_BAR_COLOUR_GREY"] = 0] = "BOSS_BAR_COLOUR_GREY";
+    BossBarColour[BossBarColour["BOSS_BAR_COLOUR_BLUE"] = 1] = "BOSS_BAR_COLOUR_BLUE";
+    BossBarColour[BossBarColour["BOSS_BAR_COLOUR_RED"] = 2] = "BOSS_BAR_COLOUR_RED";
+    BossBarColour[BossBarColour["BOSS_BAR_COLOUR_GREEN"] = 3] = "BOSS_BAR_COLOUR_GREEN";
+    BossBarColour[BossBarColour["BOSS_BAR_COLOUR_YELLOW"] = 4] = "BOSS_BAR_COLOUR_YELLOW";
+    BossBarColour[BossBarColour["BOSS_BAR_COLOUR_PURPLE"] = 5] = "BOSS_BAR_COLOUR_PURPLE";
+    BossBarColour[BossBarColour["BOSS_BAR_COLOUR_WHITE"] = 6] = "BOSS_BAR_COLOUR_WHITE";
+    BossBarColour[BossBarColour["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+})(BossBarColour || (BossBarColour = {}));
+export function bossBarColourFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "BOSS_BAR_COLOUR_GREY":
+            return BossBarColour.BOSS_BAR_COLOUR_GREY;
+        case 1:
+        case "BOSS_BAR_COLOUR_BLUE":
+            return BossBarColour.BOSS_BAR_COLOUR_BLUE;
+        case 2:
+        case "BOSS_BAR_COLOUR_RED":
+            return BossBarColour.BOSS_BAR_COLOUR_RED;
+        case 3:
+        case "BOSS_BAR_COLOUR_GREEN":
+            return BossBarColour.BOSS_BAR_COLOUR_GREEN;
+        case 4:
+        case "BOSS_BAR_COLOUR_YELLOW":
+            return BossBarColour.BOSS_BAR_COLOUR_YELLOW;
+        case 5:
+        case "BOSS_BAR_COLOUR_PURPLE":
+            return BossBarColour.BOSS_BAR_COLOUR_PURPLE;
+        case 6:
+        case "BOSS_BAR_COLOUR_WHITE":
+            return BossBarColour.BOSS_BAR_COLOUR_WHITE;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return BossBarColour.UNRECOGNIZED;
+    }
+}
+export function bossBarColourToJSON(object) {
+    switch (object) {
+        case BossBarColour.BOSS_BAR_COLOUR_GREY:
+            return "BOSS_BAR_COLOUR_GREY";
+        case BossBarColour.BOSS_BAR_COLOUR_BLUE:
+            return "BOSS_BAR_COLOUR_BLUE";
+        case BossBarColour.BOSS_BAR_COLOUR_RED:
+            return "BOSS_BAR_COLOUR_RED";
+        case BossBarColour.BOSS_BAR_COLOUR_GREEN:
+            return "BOSS_BAR_COLOUR_GREEN";
+        case BossBarColour.BOSS_BAR_COLOUR_YELLOW:
+            return "BOSS_BAR_COLOUR_YELLOW";
+        case BossBarColour.BOSS_BAR_COLOUR_PURPLE:
+            return "BOSS_BAR_COLOUR_PURPLE";
+        case BossBarColour.BOSS_BAR_COLOUR_WHITE:
+            return "BOSS_BAR_COLOUR_WHITE";
+        case BossBarColour.UNRECOGNIZED:
+        default:
+            return "UNRECOGNIZED";
+    }
+}
+/** Player HUD element control */
+export var HudElement;
+(function (HudElement) {
+    HudElement[HudElement["HUD_ELEMENT_PAPER_DOLL"] = 0] = "HUD_ELEMENT_PAPER_DOLL";
+    HudElement[HudElement["HUD_ELEMENT_ARMOUR"] = 1] = "HUD_ELEMENT_ARMOUR";
+    HudElement[HudElement["HUD_ELEMENT_TOOL_TIPS"] = 2] = "HUD_ELEMENT_TOOL_TIPS";
+    HudElement[HudElement["HUD_ELEMENT_TOUCH_CONTROLS"] = 3] = "HUD_ELEMENT_TOUCH_CONTROLS";
+    HudElement[HudElement["HUD_ELEMENT_CROSSHAIR"] = 4] = "HUD_ELEMENT_CROSSHAIR";
+    HudElement[HudElement["HUD_ELEMENT_HOT_BAR"] = 5] = "HUD_ELEMENT_HOT_BAR";
+    HudElement[HudElement["HUD_ELEMENT_HEALTH"] = 6] = "HUD_ELEMENT_HEALTH";
+    HudElement[HudElement["HUD_ELEMENT_PROGRESS_BAR"] = 7] = "HUD_ELEMENT_PROGRESS_BAR";
+    HudElement[HudElement["HUD_ELEMENT_HUNGER"] = 8] = "HUD_ELEMENT_HUNGER";
+    HudElement[HudElement["HUD_ELEMENT_AIR_BUBBLES"] = 9] = "HUD_ELEMENT_AIR_BUBBLES";
+    HudElement[HudElement["HUD_ELEMENT_HORSE_HEALTH"] = 10] = "HUD_ELEMENT_HORSE_HEALTH";
+    HudElement[HudElement["HUD_ELEMENT_STATUS_EFFECTS"] = 11] = "HUD_ELEMENT_STATUS_EFFECTS";
+    HudElement[HudElement["HUD_ELEMENT_ITEM_TEXT"] = 12] = "HUD_ELEMENT_ITEM_TEXT";
+    HudElement[HudElement["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+})(HudElement || (HudElement = {}));
+export function hudElementFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "HUD_ELEMENT_PAPER_DOLL":
+            return HudElement.HUD_ELEMENT_PAPER_DOLL;
+        case 1:
+        case "HUD_ELEMENT_ARMOUR":
+            return HudElement.HUD_ELEMENT_ARMOUR;
+        case 2:
+        case "HUD_ELEMENT_TOOL_TIPS":
+            return HudElement.HUD_ELEMENT_TOOL_TIPS;
+        case 3:
+        case "HUD_ELEMENT_TOUCH_CONTROLS":
+            return HudElement.HUD_ELEMENT_TOUCH_CONTROLS;
+        case 4:
+        case "HUD_ELEMENT_CROSSHAIR":
+            return HudElement.HUD_ELEMENT_CROSSHAIR;
+        case 5:
+        case "HUD_ELEMENT_HOT_BAR":
+            return HudElement.HUD_ELEMENT_HOT_BAR;
+        case 6:
+        case "HUD_ELEMENT_HEALTH":
+            return HudElement.HUD_ELEMENT_HEALTH;
+        case 7:
+        case "HUD_ELEMENT_PROGRESS_BAR":
+            return HudElement.HUD_ELEMENT_PROGRESS_BAR;
+        case 8:
+        case "HUD_ELEMENT_HUNGER":
+            return HudElement.HUD_ELEMENT_HUNGER;
+        case 9:
+        case "HUD_ELEMENT_AIR_BUBBLES":
+            return HudElement.HUD_ELEMENT_AIR_BUBBLES;
+        case 10:
+        case "HUD_ELEMENT_HORSE_HEALTH":
+            return HudElement.HUD_ELEMENT_HORSE_HEALTH;
+        case 11:
+        case "HUD_ELEMENT_STATUS_EFFECTS":
+            return HudElement.HUD_ELEMENT_STATUS_EFFECTS;
+        case 12:
+        case "HUD_ELEMENT_ITEM_TEXT":
+            return HudElement.HUD_ELEMENT_ITEM_TEXT;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return HudElement.UNRECOGNIZED;
+    }
+}
+export function hudElementToJSON(object) {
+    switch (object) {
+        case HudElement.HUD_ELEMENT_PAPER_DOLL:
+            return "HUD_ELEMENT_PAPER_DOLL";
+        case HudElement.HUD_ELEMENT_ARMOUR:
+            return "HUD_ELEMENT_ARMOUR";
+        case HudElement.HUD_ELEMENT_TOOL_TIPS:
+            return "HUD_ELEMENT_TOOL_TIPS";
+        case HudElement.HUD_ELEMENT_TOUCH_CONTROLS:
+            return "HUD_ELEMENT_TOUCH_CONTROLS";
+        case HudElement.HUD_ELEMENT_CROSSHAIR:
+            return "HUD_ELEMENT_CROSSHAIR";
+        case HudElement.HUD_ELEMENT_HOT_BAR:
+            return "HUD_ELEMENT_HOT_BAR";
+        case HudElement.HUD_ELEMENT_HEALTH:
+            return "HUD_ELEMENT_HEALTH";
+        case HudElement.HUD_ELEMENT_PROGRESS_BAR:
+            return "HUD_ELEMENT_PROGRESS_BAR";
+        case HudElement.HUD_ELEMENT_HUNGER:
+            return "HUD_ELEMENT_HUNGER";
+        case HudElement.HUD_ELEMENT_AIR_BUBBLES:
+            return "HUD_ELEMENT_AIR_BUBBLES";
+        case HudElement.HUD_ELEMENT_HORSE_HEALTH:
+            return "HUD_ELEMENT_HORSE_HEALTH";
+        case HudElement.HUD_ELEMENT_STATUS_EFFECTS:
+            return "HUD_ELEMENT_STATUS_EFFECTS";
+        case HudElement.HUD_ELEMENT_ITEM_TEXT:
+            return "HUD_ELEMENT_ITEM_TEXT";
+        case HudElement.UNRECOGNIZED:
+        default:
+            return "UNRECOGNIZED";
+    }
+}
 function createBaseActionBatch() {
     return { actions: [] };
 }
@@ -203,6 +363,10 @@ function createBaseAction() {
         giveItem: undefined,
         clearInventory: undefined,
         setHeldItem: undefined,
+        playerSetArmour: undefined,
+        playerOpenBlockContainer: undefined,
+        playerDropItem: undefined,
+        playerSetItemCooldown: undefined,
         setHealth: undefined,
         setFood: undefined,
         setExperience: undefined,
@@ -212,17 +376,92 @@ function createBaseAction() {
         sendTitle: undefined,
         sendPopup: undefined,
         sendTip: undefined,
+        playerSendToast: undefined,
+        playerSendJukeboxPopup: undefined,
+        playerShowCoordinates: undefined,
+        playerHideCoordinates: undefined,
+        playerEnableInstantRespawn: undefined,
+        playerDisableInstantRespawn: undefined,
+        playerSetNameTag: undefined,
+        playerSetScoreTag: undefined,
         playSound: undefined,
+        playerShowParticle: undefined,
+        playerSendScoreboard: undefined,
+        playerRemoveScoreboard: undefined,
+        playerSendMenuForm: undefined,
+        playerSendModalForm: undefined,
+        playerSendDialogue: undefined,
+        playerCloseDialogue: undefined,
+        playerCloseForm: undefined,
         executeCommand: undefined,
+        playerStartSprinting: undefined,
+        playerStopSprinting: undefined,
+        playerStartSneaking: undefined,
+        playerStopSneaking: undefined,
+        playerStartSwimming: undefined,
+        playerStopSwimming: undefined,
+        playerStartCrawling: undefined,
+        playerStopCrawling: undefined,
+        playerStartGliding: undefined,
+        playerStopGliding: undefined,
+        playerStartFlying: undefined,
+        playerStopFlying: undefined,
+        playerSetImmobile: undefined,
+        playerSetMobile: undefined,
+        playerSetSpeed: undefined,
+        playerSetFlightSpeed: undefined,
+        playerSetVerticalFlightSpeed: undefined,
+        playerSetAbsorption: undefined,
+        playerSetOnFire: undefined,
+        playerExtinguish: undefined,
+        playerSetInvisible: undefined,
+        playerSetVisible: undefined,
+        playerSetScale: undefined,
+        playerSetHeldSlot: undefined,
+        playerRespawn: undefined,
+        playerTransfer: undefined,
+        playerKnockBack: undefined,
+        playerSwingArm: undefined,
+        playerPunchAir: undefined,
+        playerSendBossBar: undefined,
+        playerRemoveBossBar: undefined,
+        playerShowHudElement: undefined,
+        playerHideHudElement: undefined,
+        playerOpenSign: undefined,
+        playerEditSign: undefined,
+        playerTurnLecternPage: undefined,
+        playerHidePlayer: undefined,
+        playerShowPlayer: undefined,
+        playerRemoveAllDebugShapes: undefined,
         worldSetDefaultGameMode: undefined,
         worldSetDifficulty: undefined,
         worldSetTickRange: undefined,
         worldSetBlock: undefined,
         worldPlaySound: undefined,
         worldAddParticle: undefined,
+        worldSetTime: undefined,
+        worldStopTime: undefined,
+        worldStartTime: undefined,
+        worldSetSpawn: undefined,
+        worldSetBiome: undefined,
+        worldSetLiquid: undefined,
+        worldScheduleBlockUpdate: undefined,
+        worldBuildStructure: undefined,
         worldQueryEntities: undefined,
         worldQueryPlayers: undefined,
         worldQueryEntitiesWithin: undefined,
+        worldQueryPlayerSpawn: undefined,
+        worldQueryBlock: undefined,
+        worldQueryBiome: undefined,
+        worldQueryLight: undefined,
+        worldQuerySkyLight: undefined,
+        worldQueryTemperature: undefined,
+        worldQueryHighestBlock: undefined,
+        worldQueryRainingAt: undefined,
+        worldQuerySnowingAt: undefined,
+        worldQueryThunderingAt: undefined,
+        worldQueryLiquid: undefined,
+        worldQueryDefaultGameMode: undefined,
     };
 }
 export const Action = {
@@ -251,6 +490,18 @@ export const Action = {
         if (message.setHeldItem !== undefined) {
             SetHeldItemAction.encode(message.setHeldItem, writer.uint32(130).fork()).join();
         }
+        if (message.playerSetArmour !== undefined) {
+            PlayerSetArmourAction.encode(message.playerSetArmour, writer.uint32(1058).fork()).join();
+        }
+        if (message.playerOpenBlockContainer !== undefined) {
+            PlayerOpenBlockContainerAction.encode(message.playerOpenBlockContainer, writer.uint32(1178).fork()).join();
+        }
+        if (message.playerDropItem !== undefined) {
+            PlayerDropItemAction.encode(message.playerDropItem, writer.uint32(1186).fork()).join();
+        }
+        if (message.playerSetItemCooldown !== undefined) {
+            PlayerSetItemCooldownAction.encode(message.playerSetItemCooldown, writer.uint32(1194).fork()).join();
+        }
         if (message.setHealth !== undefined) {
             SetHealthAction.encode(message.setHealth, writer.uint32(162).fork()).join();
         }
@@ -278,11 +529,176 @@ export const Action = {
         if (message.sendTip !== undefined) {
             SendTipAction.encode(message.sendTip, writer.uint32(338).fork()).join();
         }
+        if (message.playerSendToast !== undefined) {
+            PlayerSendToastAction.encode(message.playerSendToast, writer.uint32(946).fork()).join();
+        }
+        if (message.playerSendJukeboxPopup !== undefined) {
+            PlayerSendJukeboxPopupAction.encode(message.playerSendJukeboxPopup, writer.uint32(954).fork()).join();
+        }
+        if (message.playerShowCoordinates !== undefined) {
+            PlayerShowCoordinatesAction.encode(message.playerShowCoordinates, writer.uint32(962).fork()).join();
+        }
+        if (message.playerHideCoordinates !== undefined) {
+            PlayerHideCoordinatesAction.encode(message.playerHideCoordinates, writer.uint32(970).fork()).join();
+        }
+        if (message.playerEnableInstantRespawn !== undefined) {
+            PlayerEnableInstantRespawnAction.encode(message.playerEnableInstantRespawn, writer.uint32(978).fork()).join();
+        }
+        if (message.playerDisableInstantRespawn !== undefined) {
+            PlayerDisableInstantRespawnAction.encode(message.playerDisableInstantRespawn, writer.uint32(986).fork()).join();
+        }
+        if (message.playerSetNameTag !== undefined) {
+            PlayerSetNameTagAction.encode(message.playerSetNameTag, writer.uint32(994).fork()).join();
+        }
+        if (message.playerSetScoreTag !== undefined) {
+            PlayerSetScoreTagAction.encode(message.playerSetScoreTag, writer.uint32(1002).fork()).join();
+        }
         if (message.playSound !== undefined) {
             PlaySoundAction.encode(message.playSound, writer.uint32(346).fork()).join();
         }
+        if (message.playerShowParticle !== undefined) {
+            PlayerShowParticleAction.encode(message.playerShowParticle, writer.uint32(1010).fork()).join();
+        }
+        if (message.playerSendScoreboard !== undefined) {
+            PlayerSendScoreboardAction.encode(message.playerSendScoreboard, writer.uint32(1066).fork()).join();
+        }
+        if (message.playerRemoveScoreboard !== undefined) {
+            PlayerRemoveScoreboardAction.encode(message.playerRemoveScoreboard, writer.uint32(1074).fork()).join();
+        }
+        if (message.playerSendMenuForm !== undefined) {
+            PlayerSendMenuFormAction.encode(message.playerSendMenuForm, writer.uint32(1202).fork()).join();
+        }
+        if (message.playerSendModalForm !== undefined) {
+            PlayerSendModalFormAction.encode(message.playerSendModalForm, writer.uint32(1210).fork()).join();
+        }
+        if (message.playerSendDialogue !== undefined) {
+            PlayerSendDialogueAction.encode(message.playerSendDialogue, writer.uint32(1218).fork()).join();
+        }
+        if (message.playerCloseDialogue !== undefined) {
+            PlayerCloseDialogueAction.encode(message.playerCloseDialogue, writer.uint32(1114).fork()).join();
+        }
+        if (message.playerCloseForm !== undefined) {
+            PlayerCloseFormAction.encode(message.playerCloseForm, writer.uint32(1122).fork()).join();
+        }
         if (message.executeCommand !== undefined) {
             ExecuteCommandAction.encode(message.executeCommand, writer.uint32(402).fork()).join();
+        }
+        if (message.playerStartSprinting !== undefined) {
+            PlayerStartSprintingAction.encode(message.playerStartSprinting, writer.uint32(754).fork()).join();
+        }
+        if (message.playerStopSprinting !== undefined) {
+            PlayerStopSprintingAction.encode(message.playerStopSprinting, writer.uint32(762).fork()).join();
+        }
+        if (message.playerStartSneaking !== undefined) {
+            PlayerStartSneakingAction.encode(message.playerStartSneaking, writer.uint32(770).fork()).join();
+        }
+        if (message.playerStopSneaking !== undefined) {
+            PlayerStopSneakingAction.encode(message.playerStopSneaking, writer.uint32(778).fork()).join();
+        }
+        if (message.playerStartSwimming !== undefined) {
+            PlayerStartSwimmingAction.encode(message.playerStartSwimming, writer.uint32(786).fork()).join();
+        }
+        if (message.playerStopSwimming !== undefined) {
+            PlayerStopSwimmingAction.encode(message.playerStopSwimming, writer.uint32(794).fork()).join();
+        }
+        if (message.playerStartCrawling !== undefined) {
+            PlayerStartCrawlingAction.encode(message.playerStartCrawling, writer.uint32(802).fork()).join();
+        }
+        if (message.playerStopCrawling !== undefined) {
+            PlayerStopCrawlingAction.encode(message.playerStopCrawling, writer.uint32(810).fork()).join();
+        }
+        if (message.playerStartGliding !== undefined) {
+            PlayerStartGlidingAction.encode(message.playerStartGliding, writer.uint32(818).fork()).join();
+        }
+        if (message.playerStopGliding !== undefined) {
+            PlayerStopGlidingAction.encode(message.playerStopGliding, writer.uint32(826).fork()).join();
+        }
+        if (message.playerStartFlying !== undefined) {
+            PlayerStartFlyingAction.encode(message.playerStartFlying, writer.uint32(834).fork()).join();
+        }
+        if (message.playerStopFlying !== undefined) {
+            PlayerStopFlyingAction.encode(message.playerStopFlying, writer.uint32(842).fork()).join();
+        }
+        if (message.playerSetImmobile !== undefined) {
+            PlayerSetImmobileAction.encode(message.playerSetImmobile, writer.uint32(850).fork()).join();
+        }
+        if (message.playerSetMobile !== undefined) {
+            PlayerSetMobileAction.encode(message.playerSetMobile, writer.uint32(858).fork()).join();
+        }
+        if (message.playerSetSpeed !== undefined) {
+            PlayerSetSpeedAction.encode(message.playerSetSpeed, writer.uint32(866).fork()).join();
+        }
+        if (message.playerSetFlightSpeed !== undefined) {
+            PlayerSetFlightSpeedAction.encode(message.playerSetFlightSpeed, writer.uint32(874).fork()).join();
+        }
+        if (message.playerSetVerticalFlightSpeed !== undefined) {
+            PlayerSetVerticalFlightSpeedAction.encode(message.playerSetVerticalFlightSpeed, writer.uint32(882).fork()).join();
+        }
+        if (message.playerSetAbsorption !== undefined) {
+            PlayerSetAbsorptionAction.encode(message.playerSetAbsorption, writer.uint32(890).fork()).join();
+        }
+        if (message.playerSetOnFire !== undefined) {
+            PlayerSetOnFireAction.encode(message.playerSetOnFire, writer.uint32(898).fork()).join();
+        }
+        if (message.playerExtinguish !== undefined) {
+            PlayerExtinguishAction.encode(message.playerExtinguish, writer.uint32(906).fork()).join();
+        }
+        if (message.playerSetInvisible !== undefined) {
+            PlayerSetInvisibleAction.encode(message.playerSetInvisible, writer.uint32(914).fork()).join();
+        }
+        if (message.playerSetVisible !== undefined) {
+            PlayerSetVisibleAction.encode(message.playerSetVisible, writer.uint32(922).fork()).join();
+        }
+        if (message.playerSetScale !== undefined) {
+            PlayerSetScaleAction.encode(message.playerSetScale, writer.uint32(930).fork()).join();
+        }
+        if (message.playerSetHeldSlot !== undefined) {
+            PlayerSetHeldSlotAction.encode(message.playerSetHeldSlot, writer.uint32(938).fork()).join();
+        }
+        if (message.playerRespawn !== undefined) {
+            PlayerRespawnAction.encode(message.playerRespawn, writer.uint32(1018).fork()).join();
+        }
+        if (message.playerTransfer !== undefined) {
+            PlayerTransferAction.encode(message.playerTransfer, writer.uint32(1026).fork()).join();
+        }
+        if (message.playerKnockBack !== undefined) {
+            PlayerKnockBackAction.encode(message.playerKnockBack, writer.uint32(1034).fork()).join();
+        }
+        if (message.playerSwingArm !== undefined) {
+            PlayerSwingArmAction.encode(message.playerSwingArm, writer.uint32(1042).fork()).join();
+        }
+        if (message.playerPunchAir !== undefined) {
+            PlayerPunchAirAction.encode(message.playerPunchAir, writer.uint32(1050).fork()).join();
+        }
+        if (message.playerSendBossBar !== undefined) {
+            PlayerSendBossBarAction.encode(message.playerSendBossBar, writer.uint32(1082).fork()).join();
+        }
+        if (message.playerRemoveBossBar !== undefined) {
+            PlayerRemoveBossBarAction.encode(message.playerRemoveBossBar, writer.uint32(1090).fork()).join();
+        }
+        if (message.playerShowHudElement !== undefined) {
+            PlayerShowHudElementAction.encode(message.playerShowHudElement, writer.uint32(1098).fork()).join();
+        }
+        if (message.playerHideHudElement !== undefined) {
+            PlayerHideHudElementAction.encode(message.playerHideHudElement, writer.uint32(1106).fork()).join();
+        }
+        if (message.playerOpenSign !== undefined) {
+            PlayerOpenSignAction.encode(message.playerOpenSign, writer.uint32(1130).fork()).join();
+        }
+        if (message.playerEditSign !== undefined) {
+            PlayerEditSignAction.encode(message.playerEditSign, writer.uint32(1138).fork()).join();
+        }
+        if (message.playerTurnLecternPage !== undefined) {
+            PlayerTurnLecternPageAction.encode(message.playerTurnLecternPage, writer.uint32(1146).fork()).join();
+        }
+        if (message.playerHidePlayer !== undefined) {
+            PlayerHidePlayerAction.encode(message.playerHidePlayer, writer.uint32(1154).fork()).join();
+        }
+        if (message.playerShowPlayer !== undefined) {
+            PlayerShowPlayerAction.encode(message.playerShowPlayer, writer.uint32(1162).fork()).join();
+        }
+        if (message.playerRemoveAllDebugShapes !== undefined) {
+            PlayerRemoveAllDebugShapesAction.encode(message.playerRemoveAllDebugShapes, writer.uint32(1170).fork()).join();
         }
         if (message.worldSetDefaultGameMode !== undefined) {
             WorldSetDefaultGameModeAction.encode(message.worldSetDefaultGameMode, writer.uint32(482).fork()).join();
@@ -302,6 +718,30 @@ export const Action = {
         if (message.worldAddParticle !== undefined) {
             WorldAddParticleAction.encode(message.worldAddParticle, writer.uint32(522).fork()).join();
         }
+        if (message.worldSetTime !== undefined) {
+            WorldSetTimeAction.encode(message.worldSetTime, writer.uint32(530).fork()).join();
+        }
+        if (message.worldStopTime !== undefined) {
+            WorldStopTimeAction.encode(message.worldStopTime, writer.uint32(538).fork()).join();
+        }
+        if (message.worldStartTime !== undefined) {
+            WorldStartTimeAction.encode(message.worldStartTime, writer.uint32(546).fork()).join();
+        }
+        if (message.worldSetSpawn !== undefined) {
+            WorldSetSpawnAction.encode(message.worldSetSpawn, writer.uint32(554).fork()).join();
+        }
+        if (message.worldSetBiome !== undefined) {
+            WorldSetBiomeAction.encode(message.worldSetBiome, writer.uint32(722).fork()).join();
+        }
+        if (message.worldSetLiquid !== undefined) {
+            WorldSetLiquidAction.encode(message.worldSetLiquid, writer.uint32(730).fork()).join();
+        }
+        if (message.worldScheduleBlockUpdate !== undefined) {
+            WorldScheduleBlockUpdateAction.encode(message.worldScheduleBlockUpdate, writer.uint32(738).fork()).join();
+        }
+        if (message.worldBuildStructure !== undefined) {
+            WorldBuildStructureAction.encode(message.worldBuildStructure, writer.uint32(746).fork()).join();
+        }
         if (message.worldQueryEntities !== undefined) {
             WorldQueryEntitiesAction.encode(message.worldQueryEntities, writer.uint32(562).fork()).join();
         }
@@ -310,6 +750,42 @@ export const Action = {
         }
         if (message.worldQueryEntitiesWithin !== undefined) {
             WorldQueryEntitiesWithinAction.encode(message.worldQueryEntitiesWithin, writer.uint32(578).fork()).join();
+        }
+        if (message.worldQueryPlayerSpawn !== undefined) {
+            WorldQueryPlayerSpawnAction.encode(message.worldQueryPlayerSpawn, writer.uint32(594).fork()).join();
+        }
+        if (message.worldQueryBlock !== undefined) {
+            WorldQueryBlockAction.encode(message.worldQueryBlock, writer.uint32(602).fork()).join();
+        }
+        if (message.worldQueryBiome !== undefined) {
+            WorldQueryBiomeAction.encode(message.worldQueryBiome, writer.uint32(610).fork()).join();
+        }
+        if (message.worldQueryLight !== undefined) {
+            WorldQueryLightAction.encode(message.worldQueryLight, writer.uint32(618).fork()).join();
+        }
+        if (message.worldQuerySkyLight !== undefined) {
+            WorldQuerySkyLightAction.encode(message.worldQuerySkyLight, writer.uint32(626).fork()).join();
+        }
+        if (message.worldQueryTemperature !== undefined) {
+            WorldQueryTemperatureAction.encode(message.worldQueryTemperature, writer.uint32(634).fork()).join();
+        }
+        if (message.worldQueryHighestBlock !== undefined) {
+            WorldQueryHighestBlockAction.encode(message.worldQueryHighestBlock, writer.uint32(642).fork()).join();
+        }
+        if (message.worldQueryRainingAt !== undefined) {
+            WorldQueryRainingAtAction.encode(message.worldQueryRainingAt, writer.uint32(650).fork()).join();
+        }
+        if (message.worldQuerySnowingAt !== undefined) {
+            WorldQuerySnowingAtAction.encode(message.worldQuerySnowingAt, writer.uint32(658).fork()).join();
+        }
+        if (message.worldQueryThunderingAt !== undefined) {
+            WorldQueryThunderingAtAction.encode(message.worldQueryThunderingAt, writer.uint32(666).fork()).join();
+        }
+        if (message.worldQueryLiquid !== undefined) {
+            WorldQueryLiquidAction.encode(message.worldQueryLiquid, writer.uint32(674).fork()).join();
+        }
+        if (message.worldQueryDefaultGameMode !== undefined) {
+            WorldQueryDefaultGameModeAction.encode(message.worldQueryDefaultGameMode, writer.uint32(586).fork()).join();
         }
         return writer;
     },
@@ -376,6 +852,34 @@ export const Action = {
                     message.setHeldItem = SetHeldItemAction.decode(reader, reader.uint32());
                     continue;
                 }
+                case 132: {
+                    if (tag !== 1058) {
+                        break;
+                    }
+                    message.playerSetArmour = PlayerSetArmourAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 147: {
+                    if (tag !== 1178) {
+                        break;
+                    }
+                    message.playerOpenBlockContainer = PlayerOpenBlockContainerAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 148: {
+                    if (tag !== 1186) {
+                        break;
+                    }
+                    message.playerDropItem = PlayerDropItemAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 149: {
+                    if (tag !== 1194) {
+                        break;
+                    }
+                    message.playerSetItemCooldown = PlayerSetItemCooldownAction.decode(reader, reader.uint32());
+                    continue;
+                }
                 case 20: {
                     if (tag !== 162) {
                         break;
@@ -439,6 +943,62 @@ export const Action = {
                     message.sendTip = SendTipAction.decode(reader, reader.uint32());
                     continue;
                 }
+                case 118: {
+                    if (tag !== 946) {
+                        break;
+                    }
+                    message.playerSendToast = PlayerSendToastAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 119: {
+                    if (tag !== 954) {
+                        break;
+                    }
+                    message.playerSendJukeboxPopup = PlayerSendJukeboxPopupAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 120: {
+                    if (tag !== 962) {
+                        break;
+                    }
+                    message.playerShowCoordinates = PlayerShowCoordinatesAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 121: {
+                    if (tag !== 970) {
+                        break;
+                    }
+                    message.playerHideCoordinates = PlayerHideCoordinatesAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 122: {
+                    if (tag !== 978) {
+                        break;
+                    }
+                    message.playerEnableInstantRespawn = PlayerEnableInstantRespawnAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 123: {
+                    if (tag !== 986) {
+                        break;
+                    }
+                    message.playerDisableInstantRespawn = PlayerDisableInstantRespawnAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 124: {
+                    if (tag !== 994) {
+                        break;
+                    }
+                    message.playerSetNameTag = PlayerSetNameTagAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 125: {
+                    if (tag !== 1002) {
+                        break;
+                    }
+                    message.playerSetScoreTag = PlayerSetScoreTagAction.decode(reader, reader.uint32());
+                    continue;
+                }
                 case 43: {
                     if (tag !== 346) {
                         break;
@@ -446,11 +1006,340 @@ export const Action = {
                     message.playSound = PlaySoundAction.decode(reader, reader.uint32());
                     continue;
                 }
+                case 126: {
+                    if (tag !== 1010) {
+                        break;
+                    }
+                    message.playerShowParticle = PlayerShowParticleAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 133: {
+                    if (tag !== 1066) {
+                        break;
+                    }
+                    message.playerSendScoreboard = PlayerSendScoreboardAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 134: {
+                    if (tag !== 1074) {
+                        break;
+                    }
+                    message.playerRemoveScoreboard = PlayerRemoveScoreboardAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 150: {
+                    if (tag !== 1202) {
+                        break;
+                    }
+                    message.playerSendMenuForm = PlayerSendMenuFormAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 151: {
+                    if (tag !== 1210) {
+                        break;
+                    }
+                    message.playerSendModalForm = PlayerSendModalFormAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 152: {
+                    if (tag !== 1218) {
+                        break;
+                    }
+                    message.playerSendDialogue = PlayerSendDialogueAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 139: {
+                    if (tag !== 1114) {
+                        break;
+                    }
+                    message.playerCloseDialogue = PlayerCloseDialogueAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 140: {
+                    if (tag !== 1122) {
+                        break;
+                    }
+                    message.playerCloseForm = PlayerCloseFormAction.decode(reader, reader.uint32());
+                    continue;
+                }
                 case 50: {
                     if (tag !== 402) {
                         break;
                     }
                     message.executeCommand = ExecuteCommandAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 94: {
+                    if (tag !== 754) {
+                        break;
+                    }
+                    message.playerStartSprinting = PlayerStartSprintingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 95: {
+                    if (tag !== 762) {
+                        break;
+                    }
+                    message.playerStopSprinting = PlayerStopSprintingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 96: {
+                    if (tag !== 770) {
+                        break;
+                    }
+                    message.playerStartSneaking = PlayerStartSneakingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 97: {
+                    if (tag !== 778) {
+                        break;
+                    }
+                    message.playerStopSneaking = PlayerStopSneakingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 98: {
+                    if (tag !== 786) {
+                        break;
+                    }
+                    message.playerStartSwimming = PlayerStartSwimmingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 99: {
+                    if (tag !== 794) {
+                        break;
+                    }
+                    message.playerStopSwimming = PlayerStopSwimmingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 100: {
+                    if (tag !== 802) {
+                        break;
+                    }
+                    message.playerStartCrawling = PlayerStartCrawlingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 101: {
+                    if (tag !== 810) {
+                        break;
+                    }
+                    message.playerStopCrawling = PlayerStopCrawlingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 102: {
+                    if (tag !== 818) {
+                        break;
+                    }
+                    message.playerStartGliding = PlayerStartGlidingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 103: {
+                    if (tag !== 826) {
+                        break;
+                    }
+                    message.playerStopGliding = PlayerStopGlidingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 104: {
+                    if (tag !== 834) {
+                        break;
+                    }
+                    message.playerStartFlying = PlayerStartFlyingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 105: {
+                    if (tag !== 842) {
+                        break;
+                    }
+                    message.playerStopFlying = PlayerStopFlyingAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 106: {
+                    if (tag !== 850) {
+                        break;
+                    }
+                    message.playerSetImmobile = PlayerSetImmobileAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 107: {
+                    if (tag !== 858) {
+                        break;
+                    }
+                    message.playerSetMobile = PlayerSetMobileAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 108: {
+                    if (tag !== 866) {
+                        break;
+                    }
+                    message.playerSetSpeed = PlayerSetSpeedAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 109: {
+                    if (tag !== 874) {
+                        break;
+                    }
+                    message.playerSetFlightSpeed = PlayerSetFlightSpeedAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 110: {
+                    if (tag !== 882) {
+                        break;
+                    }
+                    message.playerSetVerticalFlightSpeed = PlayerSetVerticalFlightSpeedAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 111: {
+                    if (tag !== 890) {
+                        break;
+                    }
+                    message.playerSetAbsorption = PlayerSetAbsorptionAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 112: {
+                    if (tag !== 898) {
+                        break;
+                    }
+                    message.playerSetOnFire = PlayerSetOnFireAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 113: {
+                    if (tag !== 906) {
+                        break;
+                    }
+                    message.playerExtinguish = PlayerExtinguishAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 114: {
+                    if (tag !== 914) {
+                        break;
+                    }
+                    message.playerSetInvisible = PlayerSetInvisibleAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 115: {
+                    if (tag !== 922) {
+                        break;
+                    }
+                    message.playerSetVisible = PlayerSetVisibleAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 116: {
+                    if (tag !== 930) {
+                        break;
+                    }
+                    message.playerSetScale = PlayerSetScaleAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 117: {
+                    if (tag !== 938) {
+                        break;
+                    }
+                    message.playerSetHeldSlot = PlayerSetHeldSlotAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 127: {
+                    if (tag !== 1018) {
+                        break;
+                    }
+                    message.playerRespawn = PlayerRespawnAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 128: {
+                    if (tag !== 1026) {
+                        break;
+                    }
+                    message.playerTransfer = PlayerTransferAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 129: {
+                    if (tag !== 1034) {
+                        break;
+                    }
+                    message.playerKnockBack = PlayerKnockBackAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 130: {
+                    if (tag !== 1042) {
+                        break;
+                    }
+                    message.playerSwingArm = PlayerSwingArmAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 131: {
+                    if (tag !== 1050) {
+                        break;
+                    }
+                    message.playerPunchAir = PlayerPunchAirAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 135: {
+                    if (tag !== 1082) {
+                        break;
+                    }
+                    message.playerSendBossBar = PlayerSendBossBarAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 136: {
+                    if (tag !== 1090) {
+                        break;
+                    }
+                    message.playerRemoveBossBar = PlayerRemoveBossBarAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 137: {
+                    if (tag !== 1098) {
+                        break;
+                    }
+                    message.playerShowHudElement = PlayerShowHudElementAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 138: {
+                    if (tag !== 1106) {
+                        break;
+                    }
+                    message.playerHideHudElement = PlayerHideHudElementAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 141: {
+                    if (tag !== 1130) {
+                        break;
+                    }
+                    message.playerOpenSign = PlayerOpenSignAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 142: {
+                    if (tag !== 1138) {
+                        break;
+                    }
+                    message.playerEditSign = PlayerEditSignAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 143: {
+                    if (tag !== 1146) {
+                        break;
+                    }
+                    message.playerTurnLecternPage = PlayerTurnLecternPageAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 144: {
+                    if (tag !== 1154) {
+                        break;
+                    }
+                    message.playerHidePlayer = PlayerHidePlayerAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 145: {
+                    if (tag !== 1162) {
+                        break;
+                    }
+                    message.playerShowPlayer = PlayerShowPlayerAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 146: {
+                    if (tag !== 1170) {
+                        break;
+                    }
+                    message.playerRemoveAllDebugShapes = PlayerRemoveAllDebugShapesAction.decode(reader, reader.uint32());
                     continue;
                 }
                 case 60: {
@@ -495,6 +1384,62 @@ export const Action = {
                     message.worldAddParticle = WorldAddParticleAction.decode(reader, reader.uint32());
                     continue;
                 }
+                case 66: {
+                    if (tag !== 530) {
+                        break;
+                    }
+                    message.worldSetTime = WorldSetTimeAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 67: {
+                    if (tag !== 538) {
+                        break;
+                    }
+                    message.worldStopTime = WorldStopTimeAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 68: {
+                    if (tag !== 546) {
+                        break;
+                    }
+                    message.worldStartTime = WorldStartTimeAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 69: {
+                    if (tag !== 554) {
+                        break;
+                    }
+                    message.worldSetSpawn = WorldSetSpawnAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 90: {
+                    if (tag !== 722) {
+                        break;
+                    }
+                    message.worldSetBiome = WorldSetBiomeAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 91: {
+                    if (tag !== 730) {
+                        break;
+                    }
+                    message.worldSetLiquid = WorldSetLiquidAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 92: {
+                    if (tag !== 738) {
+                        break;
+                    }
+                    message.worldScheduleBlockUpdate = WorldScheduleBlockUpdateAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 93: {
+                    if (tag !== 746) {
+                        break;
+                    }
+                    message.worldBuildStructure = WorldBuildStructureAction.decode(reader, reader.uint32());
+                    continue;
+                }
                 case 70: {
                     if (tag !== 562) {
                         break;
@@ -516,6 +1461,90 @@ export const Action = {
                     message.worldQueryEntitiesWithin = WorldQueryEntitiesWithinAction.decode(reader, reader.uint32());
                     continue;
                 }
+                case 74: {
+                    if (tag !== 594) {
+                        break;
+                    }
+                    message.worldQueryPlayerSpawn = WorldQueryPlayerSpawnAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 75: {
+                    if (tag !== 602) {
+                        break;
+                    }
+                    message.worldQueryBlock = WorldQueryBlockAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 76: {
+                    if (tag !== 610) {
+                        break;
+                    }
+                    message.worldQueryBiome = WorldQueryBiomeAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 77: {
+                    if (tag !== 618) {
+                        break;
+                    }
+                    message.worldQueryLight = WorldQueryLightAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 78: {
+                    if (tag !== 626) {
+                        break;
+                    }
+                    message.worldQuerySkyLight = WorldQuerySkyLightAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 79: {
+                    if (tag !== 634) {
+                        break;
+                    }
+                    message.worldQueryTemperature = WorldQueryTemperatureAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 80: {
+                    if (tag !== 642) {
+                        break;
+                    }
+                    message.worldQueryHighestBlock = WorldQueryHighestBlockAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 81: {
+                    if (tag !== 650) {
+                        break;
+                    }
+                    message.worldQueryRainingAt = WorldQueryRainingAtAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 82: {
+                    if (tag !== 658) {
+                        break;
+                    }
+                    message.worldQuerySnowingAt = WorldQuerySnowingAtAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 83: {
+                    if (tag !== 666) {
+                        break;
+                    }
+                    message.worldQueryThunderingAt = WorldQueryThunderingAtAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 84: {
+                    if (tag !== 674) {
+                        break;
+                    }
+                    message.worldQueryLiquid = WorldQueryLiquidAction.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 73: {
+                    if (tag !== 586) {
+                        break;
+                    }
+                    message.worldQueryDefaultGameMode = WorldQueryDefaultGameModeAction.decode(reader, reader.uint32());
+                    continue;
+                }
             }
             if ((tag & 7) === 4 || tag === 0) {
                 break;
@@ -534,6 +1563,16 @@ export const Action = {
             giveItem: isSet(object.giveItem) ? GiveItemAction.fromJSON(object.giveItem) : undefined,
             clearInventory: isSet(object.clearInventory) ? ClearInventoryAction.fromJSON(object.clearInventory) : undefined,
             setHeldItem: isSet(object.setHeldItem) ? SetHeldItemAction.fromJSON(object.setHeldItem) : undefined,
+            playerSetArmour: isSet(object.playerSetArmour)
+                ? PlayerSetArmourAction.fromJSON(object.playerSetArmour)
+                : undefined,
+            playerOpenBlockContainer: isSet(object.playerOpenBlockContainer)
+                ? PlayerOpenBlockContainerAction.fromJSON(object.playerOpenBlockContainer)
+                : undefined,
+            playerDropItem: isSet(object.playerDropItem) ? PlayerDropItemAction.fromJSON(object.playerDropItem) : undefined,
+            playerSetItemCooldown: isSet(object.playerSetItemCooldown)
+                ? PlayerSetItemCooldownAction.fromJSON(object.playerSetItemCooldown)
+                : undefined,
             setHealth: isSet(object.setHealth) ? SetHealthAction.fromJSON(object.setHealth) : undefined,
             setFood: isSet(object.setFood) ? SetFoodAction.fromJSON(object.setFood) : undefined,
             setExperience: isSet(object.setExperience) ? SetExperienceAction.fromJSON(object.setExperience) : undefined,
@@ -543,8 +1582,157 @@ export const Action = {
             sendTitle: isSet(object.sendTitle) ? SendTitleAction.fromJSON(object.sendTitle) : undefined,
             sendPopup: isSet(object.sendPopup) ? SendPopupAction.fromJSON(object.sendPopup) : undefined,
             sendTip: isSet(object.sendTip) ? SendTipAction.fromJSON(object.sendTip) : undefined,
+            playerSendToast: isSet(object.playerSendToast)
+                ? PlayerSendToastAction.fromJSON(object.playerSendToast)
+                : undefined,
+            playerSendJukeboxPopup: isSet(object.playerSendJukeboxPopup)
+                ? PlayerSendJukeboxPopupAction.fromJSON(object.playerSendJukeboxPopup)
+                : undefined,
+            playerShowCoordinates: isSet(object.playerShowCoordinates)
+                ? PlayerShowCoordinatesAction.fromJSON(object.playerShowCoordinates)
+                : undefined,
+            playerHideCoordinates: isSet(object.playerHideCoordinates)
+                ? PlayerHideCoordinatesAction.fromJSON(object.playerHideCoordinates)
+                : undefined,
+            playerEnableInstantRespawn: isSet(object.playerEnableInstantRespawn)
+                ? PlayerEnableInstantRespawnAction.fromJSON(object.playerEnableInstantRespawn)
+                : undefined,
+            playerDisableInstantRespawn: isSet(object.playerDisableInstantRespawn)
+                ? PlayerDisableInstantRespawnAction.fromJSON(object.playerDisableInstantRespawn)
+                : undefined,
+            playerSetNameTag: isSet(object.playerSetNameTag)
+                ? PlayerSetNameTagAction.fromJSON(object.playerSetNameTag)
+                : undefined,
+            playerSetScoreTag: isSet(object.playerSetScoreTag)
+                ? PlayerSetScoreTagAction.fromJSON(object.playerSetScoreTag)
+                : undefined,
             playSound: isSet(object.playSound) ? PlaySoundAction.fromJSON(object.playSound) : undefined,
+            playerShowParticle: isSet(object.playerShowParticle)
+                ? PlayerShowParticleAction.fromJSON(object.playerShowParticle)
+                : undefined,
+            playerSendScoreboard: isSet(object.playerSendScoreboard)
+                ? PlayerSendScoreboardAction.fromJSON(object.playerSendScoreboard)
+                : undefined,
+            playerRemoveScoreboard: isSet(object.playerRemoveScoreboard)
+                ? PlayerRemoveScoreboardAction.fromJSON(object.playerRemoveScoreboard)
+                : undefined,
+            playerSendMenuForm: isSet(object.playerSendMenuForm)
+                ? PlayerSendMenuFormAction.fromJSON(object.playerSendMenuForm)
+                : undefined,
+            playerSendModalForm: isSet(object.playerSendModalForm)
+                ? PlayerSendModalFormAction.fromJSON(object.playerSendModalForm)
+                : undefined,
+            playerSendDialogue: isSet(object.playerSendDialogue)
+                ? PlayerSendDialogueAction.fromJSON(object.playerSendDialogue)
+                : undefined,
+            playerCloseDialogue: isSet(object.playerCloseDialogue)
+                ? PlayerCloseDialogueAction.fromJSON(object.playerCloseDialogue)
+                : undefined,
+            playerCloseForm: isSet(object.playerCloseForm)
+                ? PlayerCloseFormAction.fromJSON(object.playerCloseForm)
+                : undefined,
             executeCommand: isSet(object.executeCommand) ? ExecuteCommandAction.fromJSON(object.executeCommand) : undefined,
+            playerStartSprinting: isSet(object.playerStartSprinting)
+                ? PlayerStartSprintingAction.fromJSON(object.playerStartSprinting)
+                : undefined,
+            playerStopSprinting: isSet(object.playerStopSprinting)
+                ? PlayerStopSprintingAction.fromJSON(object.playerStopSprinting)
+                : undefined,
+            playerStartSneaking: isSet(object.playerStartSneaking)
+                ? PlayerStartSneakingAction.fromJSON(object.playerStartSneaking)
+                : undefined,
+            playerStopSneaking: isSet(object.playerStopSneaking)
+                ? PlayerStopSneakingAction.fromJSON(object.playerStopSneaking)
+                : undefined,
+            playerStartSwimming: isSet(object.playerStartSwimming)
+                ? PlayerStartSwimmingAction.fromJSON(object.playerStartSwimming)
+                : undefined,
+            playerStopSwimming: isSet(object.playerStopSwimming)
+                ? PlayerStopSwimmingAction.fromJSON(object.playerStopSwimming)
+                : undefined,
+            playerStartCrawling: isSet(object.playerStartCrawling)
+                ? PlayerStartCrawlingAction.fromJSON(object.playerStartCrawling)
+                : undefined,
+            playerStopCrawling: isSet(object.playerStopCrawling)
+                ? PlayerStopCrawlingAction.fromJSON(object.playerStopCrawling)
+                : undefined,
+            playerStartGliding: isSet(object.playerStartGliding)
+                ? PlayerStartGlidingAction.fromJSON(object.playerStartGliding)
+                : undefined,
+            playerStopGliding: isSet(object.playerStopGliding)
+                ? PlayerStopGlidingAction.fromJSON(object.playerStopGliding)
+                : undefined,
+            playerStartFlying: isSet(object.playerStartFlying)
+                ? PlayerStartFlyingAction.fromJSON(object.playerStartFlying)
+                : undefined,
+            playerStopFlying: isSet(object.playerStopFlying)
+                ? PlayerStopFlyingAction.fromJSON(object.playerStopFlying)
+                : undefined,
+            playerSetImmobile: isSet(object.playerSetImmobile)
+                ? PlayerSetImmobileAction.fromJSON(object.playerSetImmobile)
+                : undefined,
+            playerSetMobile: isSet(object.playerSetMobile)
+                ? PlayerSetMobileAction.fromJSON(object.playerSetMobile)
+                : undefined,
+            playerSetSpeed: isSet(object.playerSetSpeed) ? PlayerSetSpeedAction.fromJSON(object.playerSetSpeed) : undefined,
+            playerSetFlightSpeed: isSet(object.playerSetFlightSpeed)
+                ? PlayerSetFlightSpeedAction.fromJSON(object.playerSetFlightSpeed)
+                : undefined,
+            playerSetVerticalFlightSpeed: isSet(object.playerSetVerticalFlightSpeed)
+                ? PlayerSetVerticalFlightSpeedAction.fromJSON(object.playerSetVerticalFlightSpeed)
+                : undefined,
+            playerSetAbsorption: isSet(object.playerSetAbsorption)
+                ? PlayerSetAbsorptionAction.fromJSON(object.playerSetAbsorption)
+                : undefined,
+            playerSetOnFire: isSet(object.playerSetOnFire)
+                ? PlayerSetOnFireAction.fromJSON(object.playerSetOnFire)
+                : undefined,
+            playerExtinguish: isSet(object.playerExtinguish)
+                ? PlayerExtinguishAction.fromJSON(object.playerExtinguish)
+                : undefined,
+            playerSetInvisible: isSet(object.playerSetInvisible)
+                ? PlayerSetInvisibleAction.fromJSON(object.playerSetInvisible)
+                : undefined,
+            playerSetVisible: isSet(object.playerSetVisible)
+                ? PlayerSetVisibleAction.fromJSON(object.playerSetVisible)
+                : undefined,
+            playerSetScale: isSet(object.playerSetScale) ? PlayerSetScaleAction.fromJSON(object.playerSetScale) : undefined,
+            playerSetHeldSlot: isSet(object.playerSetHeldSlot)
+                ? PlayerSetHeldSlotAction.fromJSON(object.playerSetHeldSlot)
+                : undefined,
+            playerRespawn: isSet(object.playerRespawn) ? PlayerRespawnAction.fromJSON(object.playerRespawn) : undefined,
+            playerTransfer: isSet(object.playerTransfer) ? PlayerTransferAction.fromJSON(object.playerTransfer) : undefined,
+            playerKnockBack: isSet(object.playerKnockBack)
+                ? PlayerKnockBackAction.fromJSON(object.playerKnockBack)
+                : undefined,
+            playerSwingArm: isSet(object.playerSwingArm) ? PlayerSwingArmAction.fromJSON(object.playerSwingArm) : undefined,
+            playerPunchAir: isSet(object.playerPunchAir) ? PlayerPunchAirAction.fromJSON(object.playerPunchAir) : undefined,
+            playerSendBossBar: isSet(object.playerSendBossBar)
+                ? PlayerSendBossBarAction.fromJSON(object.playerSendBossBar)
+                : undefined,
+            playerRemoveBossBar: isSet(object.playerRemoveBossBar)
+                ? PlayerRemoveBossBarAction.fromJSON(object.playerRemoveBossBar)
+                : undefined,
+            playerShowHudElement: isSet(object.playerShowHudElement)
+                ? PlayerShowHudElementAction.fromJSON(object.playerShowHudElement)
+                : undefined,
+            playerHideHudElement: isSet(object.playerHideHudElement)
+                ? PlayerHideHudElementAction.fromJSON(object.playerHideHudElement)
+                : undefined,
+            playerOpenSign: isSet(object.playerOpenSign) ? PlayerOpenSignAction.fromJSON(object.playerOpenSign) : undefined,
+            playerEditSign: isSet(object.playerEditSign) ? PlayerEditSignAction.fromJSON(object.playerEditSign) : undefined,
+            playerTurnLecternPage: isSet(object.playerTurnLecternPage)
+                ? PlayerTurnLecternPageAction.fromJSON(object.playerTurnLecternPage)
+                : undefined,
+            playerHidePlayer: isSet(object.playerHidePlayer)
+                ? PlayerHidePlayerAction.fromJSON(object.playerHidePlayer)
+                : undefined,
+            playerShowPlayer: isSet(object.playerShowPlayer)
+                ? PlayerShowPlayerAction.fromJSON(object.playerShowPlayer)
+                : undefined,
+            playerRemoveAllDebugShapes: isSet(object.playerRemoveAllDebugShapes)
+                ? PlayerRemoveAllDebugShapesAction.fromJSON(object.playerRemoveAllDebugShapes)
+                : undefined,
             worldSetDefaultGameMode: isSet(object.worldSetDefaultGameMode)
                 ? WorldSetDefaultGameModeAction.fromJSON(object.worldSetDefaultGameMode)
                 : undefined,
@@ -559,6 +1747,18 @@ export const Action = {
             worldAddParticle: isSet(object.worldAddParticle)
                 ? WorldAddParticleAction.fromJSON(object.worldAddParticle)
                 : undefined,
+            worldSetTime: isSet(object.worldSetTime) ? WorldSetTimeAction.fromJSON(object.worldSetTime) : undefined,
+            worldStopTime: isSet(object.worldStopTime) ? WorldStopTimeAction.fromJSON(object.worldStopTime) : undefined,
+            worldStartTime: isSet(object.worldStartTime) ? WorldStartTimeAction.fromJSON(object.worldStartTime) : undefined,
+            worldSetSpawn: isSet(object.worldSetSpawn) ? WorldSetSpawnAction.fromJSON(object.worldSetSpawn) : undefined,
+            worldSetBiome: isSet(object.worldSetBiome) ? WorldSetBiomeAction.fromJSON(object.worldSetBiome) : undefined,
+            worldSetLiquid: isSet(object.worldSetLiquid) ? WorldSetLiquidAction.fromJSON(object.worldSetLiquid) : undefined,
+            worldScheduleBlockUpdate: isSet(object.worldScheduleBlockUpdate)
+                ? WorldScheduleBlockUpdateAction.fromJSON(object.worldScheduleBlockUpdate)
+                : undefined,
+            worldBuildStructure: isSet(object.worldBuildStructure)
+                ? WorldBuildStructureAction.fromJSON(object.worldBuildStructure)
+                : undefined,
             worldQueryEntities: isSet(object.worldQueryEntities)
                 ? WorldQueryEntitiesAction.fromJSON(object.worldQueryEntities)
                 : undefined,
@@ -567,6 +1767,42 @@ export const Action = {
                 : undefined,
             worldQueryEntitiesWithin: isSet(object.worldQueryEntitiesWithin)
                 ? WorldQueryEntitiesWithinAction.fromJSON(object.worldQueryEntitiesWithin)
+                : undefined,
+            worldQueryPlayerSpawn: isSet(object.worldQueryPlayerSpawn)
+                ? WorldQueryPlayerSpawnAction.fromJSON(object.worldQueryPlayerSpawn)
+                : undefined,
+            worldQueryBlock: isSet(object.worldQueryBlock)
+                ? WorldQueryBlockAction.fromJSON(object.worldQueryBlock)
+                : undefined,
+            worldQueryBiome: isSet(object.worldQueryBiome)
+                ? WorldQueryBiomeAction.fromJSON(object.worldQueryBiome)
+                : undefined,
+            worldQueryLight: isSet(object.worldQueryLight)
+                ? WorldQueryLightAction.fromJSON(object.worldQueryLight)
+                : undefined,
+            worldQuerySkyLight: isSet(object.worldQuerySkyLight)
+                ? WorldQuerySkyLightAction.fromJSON(object.worldQuerySkyLight)
+                : undefined,
+            worldQueryTemperature: isSet(object.worldQueryTemperature)
+                ? WorldQueryTemperatureAction.fromJSON(object.worldQueryTemperature)
+                : undefined,
+            worldQueryHighestBlock: isSet(object.worldQueryHighestBlock)
+                ? WorldQueryHighestBlockAction.fromJSON(object.worldQueryHighestBlock)
+                : undefined,
+            worldQueryRainingAt: isSet(object.worldQueryRainingAt)
+                ? WorldQueryRainingAtAction.fromJSON(object.worldQueryRainingAt)
+                : undefined,
+            worldQuerySnowingAt: isSet(object.worldQuerySnowingAt)
+                ? WorldQuerySnowingAtAction.fromJSON(object.worldQuerySnowingAt)
+                : undefined,
+            worldQueryThunderingAt: isSet(object.worldQueryThunderingAt)
+                ? WorldQueryThunderingAtAction.fromJSON(object.worldQueryThunderingAt)
+                : undefined,
+            worldQueryLiquid: isSet(object.worldQueryLiquid)
+                ? WorldQueryLiquidAction.fromJSON(object.worldQueryLiquid)
+                : undefined,
+            worldQueryDefaultGameMode: isSet(object.worldQueryDefaultGameMode)
+                ? WorldQueryDefaultGameModeAction.fromJSON(object.worldQueryDefaultGameMode)
                 : undefined,
         };
     },
@@ -596,6 +1832,18 @@ export const Action = {
         if (message.setHeldItem !== undefined) {
             obj.setHeldItem = SetHeldItemAction.toJSON(message.setHeldItem);
         }
+        if (message.playerSetArmour !== undefined) {
+            obj.playerSetArmour = PlayerSetArmourAction.toJSON(message.playerSetArmour);
+        }
+        if (message.playerOpenBlockContainer !== undefined) {
+            obj.playerOpenBlockContainer = PlayerOpenBlockContainerAction.toJSON(message.playerOpenBlockContainer);
+        }
+        if (message.playerDropItem !== undefined) {
+            obj.playerDropItem = PlayerDropItemAction.toJSON(message.playerDropItem);
+        }
+        if (message.playerSetItemCooldown !== undefined) {
+            obj.playerSetItemCooldown = PlayerSetItemCooldownAction.toJSON(message.playerSetItemCooldown);
+        }
         if (message.setHealth !== undefined) {
             obj.setHealth = SetHealthAction.toJSON(message.setHealth);
         }
@@ -623,11 +1871,176 @@ export const Action = {
         if (message.sendTip !== undefined) {
             obj.sendTip = SendTipAction.toJSON(message.sendTip);
         }
+        if (message.playerSendToast !== undefined) {
+            obj.playerSendToast = PlayerSendToastAction.toJSON(message.playerSendToast);
+        }
+        if (message.playerSendJukeboxPopup !== undefined) {
+            obj.playerSendJukeboxPopup = PlayerSendJukeboxPopupAction.toJSON(message.playerSendJukeboxPopup);
+        }
+        if (message.playerShowCoordinates !== undefined) {
+            obj.playerShowCoordinates = PlayerShowCoordinatesAction.toJSON(message.playerShowCoordinates);
+        }
+        if (message.playerHideCoordinates !== undefined) {
+            obj.playerHideCoordinates = PlayerHideCoordinatesAction.toJSON(message.playerHideCoordinates);
+        }
+        if (message.playerEnableInstantRespawn !== undefined) {
+            obj.playerEnableInstantRespawn = PlayerEnableInstantRespawnAction.toJSON(message.playerEnableInstantRespawn);
+        }
+        if (message.playerDisableInstantRespawn !== undefined) {
+            obj.playerDisableInstantRespawn = PlayerDisableInstantRespawnAction.toJSON(message.playerDisableInstantRespawn);
+        }
+        if (message.playerSetNameTag !== undefined) {
+            obj.playerSetNameTag = PlayerSetNameTagAction.toJSON(message.playerSetNameTag);
+        }
+        if (message.playerSetScoreTag !== undefined) {
+            obj.playerSetScoreTag = PlayerSetScoreTagAction.toJSON(message.playerSetScoreTag);
+        }
         if (message.playSound !== undefined) {
             obj.playSound = PlaySoundAction.toJSON(message.playSound);
         }
+        if (message.playerShowParticle !== undefined) {
+            obj.playerShowParticle = PlayerShowParticleAction.toJSON(message.playerShowParticle);
+        }
+        if (message.playerSendScoreboard !== undefined) {
+            obj.playerSendScoreboard = PlayerSendScoreboardAction.toJSON(message.playerSendScoreboard);
+        }
+        if (message.playerRemoveScoreboard !== undefined) {
+            obj.playerRemoveScoreboard = PlayerRemoveScoreboardAction.toJSON(message.playerRemoveScoreboard);
+        }
+        if (message.playerSendMenuForm !== undefined) {
+            obj.playerSendMenuForm = PlayerSendMenuFormAction.toJSON(message.playerSendMenuForm);
+        }
+        if (message.playerSendModalForm !== undefined) {
+            obj.playerSendModalForm = PlayerSendModalFormAction.toJSON(message.playerSendModalForm);
+        }
+        if (message.playerSendDialogue !== undefined) {
+            obj.playerSendDialogue = PlayerSendDialogueAction.toJSON(message.playerSendDialogue);
+        }
+        if (message.playerCloseDialogue !== undefined) {
+            obj.playerCloseDialogue = PlayerCloseDialogueAction.toJSON(message.playerCloseDialogue);
+        }
+        if (message.playerCloseForm !== undefined) {
+            obj.playerCloseForm = PlayerCloseFormAction.toJSON(message.playerCloseForm);
+        }
         if (message.executeCommand !== undefined) {
             obj.executeCommand = ExecuteCommandAction.toJSON(message.executeCommand);
+        }
+        if (message.playerStartSprinting !== undefined) {
+            obj.playerStartSprinting = PlayerStartSprintingAction.toJSON(message.playerStartSprinting);
+        }
+        if (message.playerStopSprinting !== undefined) {
+            obj.playerStopSprinting = PlayerStopSprintingAction.toJSON(message.playerStopSprinting);
+        }
+        if (message.playerStartSneaking !== undefined) {
+            obj.playerStartSneaking = PlayerStartSneakingAction.toJSON(message.playerStartSneaking);
+        }
+        if (message.playerStopSneaking !== undefined) {
+            obj.playerStopSneaking = PlayerStopSneakingAction.toJSON(message.playerStopSneaking);
+        }
+        if (message.playerStartSwimming !== undefined) {
+            obj.playerStartSwimming = PlayerStartSwimmingAction.toJSON(message.playerStartSwimming);
+        }
+        if (message.playerStopSwimming !== undefined) {
+            obj.playerStopSwimming = PlayerStopSwimmingAction.toJSON(message.playerStopSwimming);
+        }
+        if (message.playerStartCrawling !== undefined) {
+            obj.playerStartCrawling = PlayerStartCrawlingAction.toJSON(message.playerStartCrawling);
+        }
+        if (message.playerStopCrawling !== undefined) {
+            obj.playerStopCrawling = PlayerStopCrawlingAction.toJSON(message.playerStopCrawling);
+        }
+        if (message.playerStartGliding !== undefined) {
+            obj.playerStartGliding = PlayerStartGlidingAction.toJSON(message.playerStartGliding);
+        }
+        if (message.playerStopGliding !== undefined) {
+            obj.playerStopGliding = PlayerStopGlidingAction.toJSON(message.playerStopGliding);
+        }
+        if (message.playerStartFlying !== undefined) {
+            obj.playerStartFlying = PlayerStartFlyingAction.toJSON(message.playerStartFlying);
+        }
+        if (message.playerStopFlying !== undefined) {
+            obj.playerStopFlying = PlayerStopFlyingAction.toJSON(message.playerStopFlying);
+        }
+        if (message.playerSetImmobile !== undefined) {
+            obj.playerSetImmobile = PlayerSetImmobileAction.toJSON(message.playerSetImmobile);
+        }
+        if (message.playerSetMobile !== undefined) {
+            obj.playerSetMobile = PlayerSetMobileAction.toJSON(message.playerSetMobile);
+        }
+        if (message.playerSetSpeed !== undefined) {
+            obj.playerSetSpeed = PlayerSetSpeedAction.toJSON(message.playerSetSpeed);
+        }
+        if (message.playerSetFlightSpeed !== undefined) {
+            obj.playerSetFlightSpeed = PlayerSetFlightSpeedAction.toJSON(message.playerSetFlightSpeed);
+        }
+        if (message.playerSetVerticalFlightSpeed !== undefined) {
+            obj.playerSetVerticalFlightSpeed = PlayerSetVerticalFlightSpeedAction.toJSON(message.playerSetVerticalFlightSpeed);
+        }
+        if (message.playerSetAbsorption !== undefined) {
+            obj.playerSetAbsorption = PlayerSetAbsorptionAction.toJSON(message.playerSetAbsorption);
+        }
+        if (message.playerSetOnFire !== undefined) {
+            obj.playerSetOnFire = PlayerSetOnFireAction.toJSON(message.playerSetOnFire);
+        }
+        if (message.playerExtinguish !== undefined) {
+            obj.playerExtinguish = PlayerExtinguishAction.toJSON(message.playerExtinguish);
+        }
+        if (message.playerSetInvisible !== undefined) {
+            obj.playerSetInvisible = PlayerSetInvisibleAction.toJSON(message.playerSetInvisible);
+        }
+        if (message.playerSetVisible !== undefined) {
+            obj.playerSetVisible = PlayerSetVisibleAction.toJSON(message.playerSetVisible);
+        }
+        if (message.playerSetScale !== undefined) {
+            obj.playerSetScale = PlayerSetScaleAction.toJSON(message.playerSetScale);
+        }
+        if (message.playerSetHeldSlot !== undefined) {
+            obj.playerSetHeldSlot = PlayerSetHeldSlotAction.toJSON(message.playerSetHeldSlot);
+        }
+        if (message.playerRespawn !== undefined) {
+            obj.playerRespawn = PlayerRespawnAction.toJSON(message.playerRespawn);
+        }
+        if (message.playerTransfer !== undefined) {
+            obj.playerTransfer = PlayerTransferAction.toJSON(message.playerTransfer);
+        }
+        if (message.playerKnockBack !== undefined) {
+            obj.playerKnockBack = PlayerKnockBackAction.toJSON(message.playerKnockBack);
+        }
+        if (message.playerSwingArm !== undefined) {
+            obj.playerSwingArm = PlayerSwingArmAction.toJSON(message.playerSwingArm);
+        }
+        if (message.playerPunchAir !== undefined) {
+            obj.playerPunchAir = PlayerPunchAirAction.toJSON(message.playerPunchAir);
+        }
+        if (message.playerSendBossBar !== undefined) {
+            obj.playerSendBossBar = PlayerSendBossBarAction.toJSON(message.playerSendBossBar);
+        }
+        if (message.playerRemoveBossBar !== undefined) {
+            obj.playerRemoveBossBar = PlayerRemoveBossBarAction.toJSON(message.playerRemoveBossBar);
+        }
+        if (message.playerShowHudElement !== undefined) {
+            obj.playerShowHudElement = PlayerShowHudElementAction.toJSON(message.playerShowHudElement);
+        }
+        if (message.playerHideHudElement !== undefined) {
+            obj.playerHideHudElement = PlayerHideHudElementAction.toJSON(message.playerHideHudElement);
+        }
+        if (message.playerOpenSign !== undefined) {
+            obj.playerOpenSign = PlayerOpenSignAction.toJSON(message.playerOpenSign);
+        }
+        if (message.playerEditSign !== undefined) {
+            obj.playerEditSign = PlayerEditSignAction.toJSON(message.playerEditSign);
+        }
+        if (message.playerTurnLecternPage !== undefined) {
+            obj.playerTurnLecternPage = PlayerTurnLecternPageAction.toJSON(message.playerTurnLecternPage);
+        }
+        if (message.playerHidePlayer !== undefined) {
+            obj.playerHidePlayer = PlayerHidePlayerAction.toJSON(message.playerHidePlayer);
+        }
+        if (message.playerShowPlayer !== undefined) {
+            obj.playerShowPlayer = PlayerShowPlayerAction.toJSON(message.playerShowPlayer);
+        }
+        if (message.playerRemoveAllDebugShapes !== undefined) {
+            obj.playerRemoveAllDebugShapes = PlayerRemoveAllDebugShapesAction.toJSON(message.playerRemoveAllDebugShapes);
         }
         if (message.worldSetDefaultGameMode !== undefined) {
             obj.worldSetDefaultGameMode = WorldSetDefaultGameModeAction.toJSON(message.worldSetDefaultGameMode);
@@ -647,6 +2060,30 @@ export const Action = {
         if (message.worldAddParticle !== undefined) {
             obj.worldAddParticle = WorldAddParticleAction.toJSON(message.worldAddParticle);
         }
+        if (message.worldSetTime !== undefined) {
+            obj.worldSetTime = WorldSetTimeAction.toJSON(message.worldSetTime);
+        }
+        if (message.worldStopTime !== undefined) {
+            obj.worldStopTime = WorldStopTimeAction.toJSON(message.worldStopTime);
+        }
+        if (message.worldStartTime !== undefined) {
+            obj.worldStartTime = WorldStartTimeAction.toJSON(message.worldStartTime);
+        }
+        if (message.worldSetSpawn !== undefined) {
+            obj.worldSetSpawn = WorldSetSpawnAction.toJSON(message.worldSetSpawn);
+        }
+        if (message.worldSetBiome !== undefined) {
+            obj.worldSetBiome = WorldSetBiomeAction.toJSON(message.worldSetBiome);
+        }
+        if (message.worldSetLiquid !== undefined) {
+            obj.worldSetLiquid = WorldSetLiquidAction.toJSON(message.worldSetLiquid);
+        }
+        if (message.worldScheduleBlockUpdate !== undefined) {
+            obj.worldScheduleBlockUpdate = WorldScheduleBlockUpdateAction.toJSON(message.worldScheduleBlockUpdate);
+        }
+        if (message.worldBuildStructure !== undefined) {
+            obj.worldBuildStructure = WorldBuildStructureAction.toJSON(message.worldBuildStructure);
+        }
         if (message.worldQueryEntities !== undefined) {
             obj.worldQueryEntities = WorldQueryEntitiesAction.toJSON(message.worldQueryEntities);
         }
@@ -655,6 +2092,42 @@ export const Action = {
         }
         if (message.worldQueryEntitiesWithin !== undefined) {
             obj.worldQueryEntitiesWithin = WorldQueryEntitiesWithinAction.toJSON(message.worldQueryEntitiesWithin);
+        }
+        if (message.worldQueryPlayerSpawn !== undefined) {
+            obj.worldQueryPlayerSpawn = WorldQueryPlayerSpawnAction.toJSON(message.worldQueryPlayerSpawn);
+        }
+        if (message.worldQueryBlock !== undefined) {
+            obj.worldQueryBlock = WorldQueryBlockAction.toJSON(message.worldQueryBlock);
+        }
+        if (message.worldQueryBiome !== undefined) {
+            obj.worldQueryBiome = WorldQueryBiomeAction.toJSON(message.worldQueryBiome);
+        }
+        if (message.worldQueryLight !== undefined) {
+            obj.worldQueryLight = WorldQueryLightAction.toJSON(message.worldQueryLight);
+        }
+        if (message.worldQuerySkyLight !== undefined) {
+            obj.worldQuerySkyLight = WorldQuerySkyLightAction.toJSON(message.worldQuerySkyLight);
+        }
+        if (message.worldQueryTemperature !== undefined) {
+            obj.worldQueryTemperature = WorldQueryTemperatureAction.toJSON(message.worldQueryTemperature);
+        }
+        if (message.worldQueryHighestBlock !== undefined) {
+            obj.worldQueryHighestBlock = WorldQueryHighestBlockAction.toJSON(message.worldQueryHighestBlock);
+        }
+        if (message.worldQueryRainingAt !== undefined) {
+            obj.worldQueryRainingAt = WorldQueryRainingAtAction.toJSON(message.worldQueryRainingAt);
+        }
+        if (message.worldQuerySnowingAt !== undefined) {
+            obj.worldQuerySnowingAt = WorldQuerySnowingAtAction.toJSON(message.worldQuerySnowingAt);
+        }
+        if (message.worldQueryThunderingAt !== undefined) {
+            obj.worldQueryThunderingAt = WorldQueryThunderingAtAction.toJSON(message.worldQueryThunderingAt);
+        }
+        if (message.worldQueryLiquid !== undefined) {
+            obj.worldQueryLiquid = WorldQueryLiquidAction.toJSON(message.worldQueryLiquid);
+        }
+        if (message.worldQueryDefaultGameMode !== undefined) {
+            obj.worldQueryDefaultGameMode = WorldQueryDefaultGameModeAction.toJSON(message.worldQueryDefaultGameMode);
         }
         return obj;
     },
@@ -685,6 +2158,20 @@ export const Action = {
         message.setHeldItem = (object.setHeldItem !== undefined && object.setHeldItem !== null)
             ? SetHeldItemAction.fromPartial(object.setHeldItem)
             : undefined;
+        message.playerSetArmour = (object.playerSetArmour !== undefined && object.playerSetArmour !== null)
+            ? PlayerSetArmourAction.fromPartial(object.playerSetArmour)
+            : undefined;
+        message.playerOpenBlockContainer =
+            (object.playerOpenBlockContainer !== undefined && object.playerOpenBlockContainer !== null)
+                ? PlayerOpenBlockContainerAction.fromPartial(object.playerOpenBlockContainer)
+                : undefined;
+        message.playerDropItem = (object.playerDropItem !== undefined && object.playerDropItem !== null)
+            ? PlayerDropItemAction.fromPartial(object.playerDropItem)
+            : undefined;
+        message.playerSetItemCooldown =
+            (object.playerSetItemCooldown !== undefined && object.playerSetItemCooldown !== null)
+                ? PlayerSetItemCooldownAction.fromPartial(object.playerSetItemCooldown)
+                : undefined;
         message.setHealth = (object.setHealth !== undefined && object.setHealth !== null)
             ? SetHealthAction.fromPartial(object.setHealth)
             : undefined;
@@ -712,12 +2199,186 @@ export const Action = {
         message.sendTip = (object.sendTip !== undefined && object.sendTip !== null)
             ? SendTipAction.fromPartial(object.sendTip)
             : undefined;
+        message.playerSendToast = (object.playerSendToast !== undefined && object.playerSendToast !== null)
+            ? PlayerSendToastAction.fromPartial(object.playerSendToast)
+            : undefined;
+        message.playerSendJukeboxPopup =
+            (object.playerSendJukeboxPopup !== undefined && object.playerSendJukeboxPopup !== null)
+                ? PlayerSendJukeboxPopupAction.fromPartial(object.playerSendJukeboxPopup)
+                : undefined;
+        message.playerShowCoordinates =
+            (object.playerShowCoordinates !== undefined && object.playerShowCoordinates !== null)
+                ? PlayerShowCoordinatesAction.fromPartial(object.playerShowCoordinates)
+                : undefined;
+        message.playerHideCoordinates =
+            (object.playerHideCoordinates !== undefined && object.playerHideCoordinates !== null)
+                ? PlayerHideCoordinatesAction.fromPartial(object.playerHideCoordinates)
+                : undefined;
+        message.playerEnableInstantRespawn =
+            (object.playerEnableInstantRespawn !== undefined && object.playerEnableInstantRespawn !== null)
+                ? PlayerEnableInstantRespawnAction.fromPartial(object.playerEnableInstantRespawn)
+                : undefined;
+        message.playerDisableInstantRespawn =
+            (object.playerDisableInstantRespawn !== undefined && object.playerDisableInstantRespawn !== null)
+                ? PlayerDisableInstantRespawnAction.fromPartial(object.playerDisableInstantRespawn)
+                : undefined;
+        message.playerSetNameTag = (object.playerSetNameTag !== undefined && object.playerSetNameTag !== null)
+            ? PlayerSetNameTagAction.fromPartial(object.playerSetNameTag)
+            : undefined;
+        message.playerSetScoreTag = (object.playerSetScoreTag !== undefined && object.playerSetScoreTag !== null)
+            ? PlayerSetScoreTagAction.fromPartial(object.playerSetScoreTag)
+            : undefined;
         message.playSound = (object.playSound !== undefined && object.playSound !== null)
             ? PlaySoundAction.fromPartial(object.playSound)
+            : undefined;
+        message.playerShowParticle = (object.playerShowParticle !== undefined && object.playerShowParticle !== null)
+            ? PlayerShowParticleAction.fromPartial(object.playerShowParticle)
+            : undefined;
+        message.playerSendScoreboard = (object.playerSendScoreboard !== undefined && object.playerSendScoreboard !== null)
+            ? PlayerSendScoreboardAction.fromPartial(object.playerSendScoreboard)
+            : undefined;
+        message.playerRemoveScoreboard =
+            (object.playerRemoveScoreboard !== undefined && object.playerRemoveScoreboard !== null)
+                ? PlayerRemoveScoreboardAction.fromPartial(object.playerRemoveScoreboard)
+                : undefined;
+        message.playerSendMenuForm = (object.playerSendMenuForm !== undefined && object.playerSendMenuForm !== null)
+            ? PlayerSendMenuFormAction.fromPartial(object.playerSendMenuForm)
+            : undefined;
+        message.playerSendModalForm = (object.playerSendModalForm !== undefined && object.playerSendModalForm !== null)
+            ? PlayerSendModalFormAction.fromPartial(object.playerSendModalForm)
+            : undefined;
+        message.playerSendDialogue = (object.playerSendDialogue !== undefined && object.playerSendDialogue !== null)
+            ? PlayerSendDialogueAction.fromPartial(object.playerSendDialogue)
+            : undefined;
+        message.playerCloseDialogue = (object.playerCloseDialogue !== undefined && object.playerCloseDialogue !== null)
+            ? PlayerCloseDialogueAction.fromPartial(object.playerCloseDialogue)
+            : undefined;
+        message.playerCloseForm = (object.playerCloseForm !== undefined && object.playerCloseForm !== null)
+            ? PlayerCloseFormAction.fromPartial(object.playerCloseForm)
             : undefined;
         message.executeCommand = (object.executeCommand !== undefined && object.executeCommand !== null)
             ? ExecuteCommandAction.fromPartial(object.executeCommand)
             : undefined;
+        message.playerStartSprinting = (object.playerStartSprinting !== undefined && object.playerStartSprinting !== null)
+            ? PlayerStartSprintingAction.fromPartial(object.playerStartSprinting)
+            : undefined;
+        message.playerStopSprinting = (object.playerStopSprinting !== undefined && object.playerStopSprinting !== null)
+            ? PlayerStopSprintingAction.fromPartial(object.playerStopSprinting)
+            : undefined;
+        message.playerStartSneaking = (object.playerStartSneaking !== undefined && object.playerStartSneaking !== null)
+            ? PlayerStartSneakingAction.fromPartial(object.playerStartSneaking)
+            : undefined;
+        message.playerStopSneaking = (object.playerStopSneaking !== undefined && object.playerStopSneaking !== null)
+            ? PlayerStopSneakingAction.fromPartial(object.playerStopSneaking)
+            : undefined;
+        message.playerStartSwimming = (object.playerStartSwimming !== undefined && object.playerStartSwimming !== null)
+            ? PlayerStartSwimmingAction.fromPartial(object.playerStartSwimming)
+            : undefined;
+        message.playerStopSwimming = (object.playerStopSwimming !== undefined && object.playerStopSwimming !== null)
+            ? PlayerStopSwimmingAction.fromPartial(object.playerStopSwimming)
+            : undefined;
+        message.playerStartCrawling = (object.playerStartCrawling !== undefined && object.playerStartCrawling !== null)
+            ? PlayerStartCrawlingAction.fromPartial(object.playerStartCrawling)
+            : undefined;
+        message.playerStopCrawling = (object.playerStopCrawling !== undefined && object.playerStopCrawling !== null)
+            ? PlayerStopCrawlingAction.fromPartial(object.playerStopCrawling)
+            : undefined;
+        message.playerStartGliding = (object.playerStartGliding !== undefined && object.playerStartGliding !== null)
+            ? PlayerStartGlidingAction.fromPartial(object.playerStartGliding)
+            : undefined;
+        message.playerStopGliding = (object.playerStopGliding !== undefined && object.playerStopGliding !== null)
+            ? PlayerStopGlidingAction.fromPartial(object.playerStopGliding)
+            : undefined;
+        message.playerStartFlying = (object.playerStartFlying !== undefined && object.playerStartFlying !== null)
+            ? PlayerStartFlyingAction.fromPartial(object.playerStartFlying)
+            : undefined;
+        message.playerStopFlying = (object.playerStopFlying !== undefined && object.playerStopFlying !== null)
+            ? PlayerStopFlyingAction.fromPartial(object.playerStopFlying)
+            : undefined;
+        message.playerSetImmobile = (object.playerSetImmobile !== undefined && object.playerSetImmobile !== null)
+            ? PlayerSetImmobileAction.fromPartial(object.playerSetImmobile)
+            : undefined;
+        message.playerSetMobile = (object.playerSetMobile !== undefined && object.playerSetMobile !== null)
+            ? PlayerSetMobileAction.fromPartial(object.playerSetMobile)
+            : undefined;
+        message.playerSetSpeed = (object.playerSetSpeed !== undefined && object.playerSetSpeed !== null)
+            ? PlayerSetSpeedAction.fromPartial(object.playerSetSpeed)
+            : undefined;
+        message.playerSetFlightSpeed = (object.playerSetFlightSpeed !== undefined && object.playerSetFlightSpeed !== null)
+            ? PlayerSetFlightSpeedAction.fromPartial(object.playerSetFlightSpeed)
+            : undefined;
+        message.playerSetVerticalFlightSpeed =
+            (object.playerSetVerticalFlightSpeed !== undefined && object.playerSetVerticalFlightSpeed !== null)
+                ? PlayerSetVerticalFlightSpeedAction.fromPartial(object.playerSetVerticalFlightSpeed)
+                : undefined;
+        message.playerSetAbsorption = (object.playerSetAbsorption !== undefined && object.playerSetAbsorption !== null)
+            ? PlayerSetAbsorptionAction.fromPartial(object.playerSetAbsorption)
+            : undefined;
+        message.playerSetOnFire = (object.playerSetOnFire !== undefined && object.playerSetOnFire !== null)
+            ? PlayerSetOnFireAction.fromPartial(object.playerSetOnFire)
+            : undefined;
+        message.playerExtinguish = (object.playerExtinguish !== undefined && object.playerExtinguish !== null)
+            ? PlayerExtinguishAction.fromPartial(object.playerExtinguish)
+            : undefined;
+        message.playerSetInvisible = (object.playerSetInvisible !== undefined && object.playerSetInvisible !== null)
+            ? PlayerSetInvisibleAction.fromPartial(object.playerSetInvisible)
+            : undefined;
+        message.playerSetVisible = (object.playerSetVisible !== undefined && object.playerSetVisible !== null)
+            ? PlayerSetVisibleAction.fromPartial(object.playerSetVisible)
+            : undefined;
+        message.playerSetScale = (object.playerSetScale !== undefined && object.playerSetScale !== null)
+            ? PlayerSetScaleAction.fromPartial(object.playerSetScale)
+            : undefined;
+        message.playerSetHeldSlot = (object.playerSetHeldSlot !== undefined && object.playerSetHeldSlot !== null)
+            ? PlayerSetHeldSlotAction.fromPartial(object.playerSetHeldSlot)
+            : undefined;
+        message.playerRespawn = (object.playerRespawn !== undefined && object.playerRespawn !== null)
+            ? PlayerRespawnAction.fromPartial(object.playerRespawn)
+            : undefined;
+        message.playerTransfer = (object.playerTransfer !== undefined && object.playerTransfer !== null)
+            ? PlayerTransferAction.fromPartial(object.playerTransfer)
+            : undefined;
+        message.playerKnockBack = (object.playerKnockBack !== undefined && object.playerKnockBack !== null)
+            ? PlayerKnockBackAction.fromPartial(object.playerKnockBack)
+            : undefined;
+        message.playerSwingArm = (object.playerSwingArm !== undefined && object.playerSwingArm !== null)
+            ? PlayerSwingArmAction.fromPartial(object.playerSwingArm)
+            : undefined;
+        message.playerPunchAir = (object.playerPunchAir !== undefined && object.playerPunchAir !== null)
+            ? PlayerPunchAirAction.fromPartial(object.playerPunchAir)
+            : undefined;
+        message.playerSendBossBar = (object.playerSendBossBar !== undefined && object.playerSendBossBar !== null)
+            ? PlayerSendBossBarAction.fromPartial(object.playerSendBossBar)
+            : undefined;
+        message.playerRemoveBossBar = (object.playerRemoveBossBar !== undefined && object.playerRemoveBossBar !== null)
+            ? PlayerRemoveBossBarAction.fromPartial(object.playerRemoveBossBar)
+            : undefined;
+        message.playerShowHudElement = (object.playerShowHudElement !== undefined && object.playerShowHudElement !== null)
+            ? PlayerShowHudElementAction.fromPartial(object.playerShowHudElement)
+            : undefined;
+        message.playerHideHudElement = (object.playerHideHudElement !== undefined && object.playerHideHudElement !== null)
+            ? PlayerHideHudElementAction.fromPartial(object.playerHideHudElement)
+            : undefined;
+        message.playerOpenSign = (object.playerOpenSign !== undefined && object.playerOpenSign !== null)
+            ? PlayerOpenSignAction.fromPartial(object.playerOpenSign)
+            : undefined;
+        message.playerEditSign = (object.playerEditSign !== undefined && object.playerEditSign !== null)
+            ? PlayerEditSignAction.fromPartial(object.playerEditSign)
+            : undefined;
+        message.playerTurnLecternPage =
+            (object.playerTurnLecternPage !== undefined && object.playerTurnLecternPage !== null)
+                ? PlayerTurnLecternPageAction.fromPartial(object.playerTurnLecternPage)
+                : undefined;
+        message.playerHidePlayer = (object.playerHidePlayer !== undefined && object.playerHidePlayer !== null)
+            ? PlayerHidePlayerAction.fromPartial(object.playerHidePlayer)
+            : undefined;
+        message.playerShowPlayer = (object.playerShowPlayer !== undefined && object.playerShowPlayer !== null)
+            ? PlayerShowPlayerAction.fromPartial(object.playerShowPlayer)
+            : undefined;
+        message.playerRemoveAllDebugShapes =
+            (object.playerRemoveAllDebugShapes !== undefined && object.playerRemoveAllDebugShapes !== null)
+                ? PlayerRemoveAllDebugShapesAction.fromPartial(object.playerRemoveAllDebugShapes)
+                : undefined;
         message.worldSetDefaultGameMode =
             (object.worldSetDefaultGameMode !== undefined && object.worldSetDefaultGameMode !== null)
                 ? WorldSetDefaultGameModeAction.fromPartial(object.worldSetDefaultGameMode)
@@ -737,6 +2398,31 @@ export const Action = {
         message.worldAddParticle = (object.worldAddParticle !== undefined && object.worldAddParticle !== null)
             ? WorldAddParticleAction.fromPartial(object.worldAddParticle)
             : undefined;
+        message.worldSetTime = (object.worldSetTime !== undefined && object.worldSetTime !== null)
+            ? WorldSetTimeAction.fromPartial(object.worldSetTime)
+            : undefined;
+        message.worldStopTime = (object.worldStopTime !== undefined && object.worldStopTime !== null)
+            ? WorldStopTimeAction.fromPartial(object.worldStopTime)
+            : undefined;
+        message.worldStartTime = (object.worldStartTime !== undefined && object.worldStartTime !== null)
+            ? WorldStartTimeAction.fromPartial(object.worldStartTime)
+            : undefined;
+        message.worldSetSpawn = (object.worldSetSpawn !== undefined && object.worldSetSpawn !== null)
+            ? WorldSetSpawnAction.fromPartial(object.worldSetSpawn)
+            : undefined;
+        message.worldSetBiome = (object.worldSetBiome !== undefined && object.worldSetBiome !== null)
+            ? WorldSetBiomeAction.fromPartial(object.worldSetBiome)
+            : undefined;
+        message.worldSetLiquid = (object.worldSetLiquid !== undefined && object.worldSetLiquid !== null)
+            ? WorldSetLiquidAction.fromPartial(object.worldSetLiquid)
+            : undefined;
+        message.worldScheduleBlockUpdate =
+            (object.worldScheduleBlockUpdate !== undefined && object.worldScheduleBlockUpdate !== null)
+                ? WorldScheduleBlockUpdateAction.fromPartial(object.worldScheduleBlockUpdate)
+                : undefined;
+        message.worldBuildStructure = (object.worldBuildStructure !== undefined && object.worldBuildStructure !== null)
+            ? WorldBuildStructureAction.fromPartial(object.worldBuildStructure)
+            : undefined;
         message.worldQueryEntities = (object.worldQueryEntities !== undefined && object.worldQueryEntities !== null)
             ? WorldQueryEntitiesAction.fromPartial(object.worldQueryEntities)
             : undefined;
@@ -746,6 +2432,47 @@ export const Action = {
         message.worldQueryEntitiesWithin =
             (object.worldQueryEntitiesWithin !== undefined && object.worldQueryEntitiesWithin !== null)
                 ? WorldQueryEntitiesWithinAction.fromPartial(object.worldQueryEntitiesWithin)
+                : undefined;
+        message.worldQueryPlayerSpawn =
+            (object.worldQueryPlayerSpawn !== undefined && object.worldQueryPlayerSpawn !== null)
+                ? WorldQueryPlayerSpawnAction.fromPartial(object.worldQueryPlayerSpawn)
+                : undefined;
+        message.worldQueryBlock = (object.worldQueryBlock !== undefined && object.worldQueryBlock !== null)
+            ? WorldQueryBlockAction.fromPartial(object.worldQueryBlock)
+            : undefined;
+        message.worldQueryBiome = (object.worldQueryBiome !== undefined && object.worldQueryBiome !== null)
+            ? WorldQueryBiomeAction.fromPartial(object.worldQueryBiome)
+            : undefined;
+        message.worldQueryLight = (object.worldQueryLight !== undefined && object.worldQueryLight !== null)
+            ? WorldQueryLightAction.fromPartial(object.worldQueryLight)
+            : undefined;
+        message.worldQuerySkyLight = (object.worldQuerySkyLight !== undefined && object.worldQuerySkyLight !== null)
+            ? WorldQuerySkyLightAction.fromPartial(object.worldQuerySkyLight)
+            : undefined;
+        message.worldQueryTemperature =
+            (object.worldQueryTemperature !== undefined && object.worldQueryTemperature !== null)
+                ? WorldQueryTemperatureAction.fromPartial(object.worldQueryTemperature)
+                : undefined;
+        message.worldQueryHighestBlock =
+            (object.worldQueryHighestBlock !== undefined && object.worldQueryHighestBlock !== null)
+                ? WorldQueryHighestBlockAction.fromPartial(object.worldQueryHighestBlock)
+                : undefined;
+        message.worldQueryRainingAt = (object.worldQueryRainingAt !== undefined && object.worldQueryRainingAt !== null)
+            ? WorldQueryRainingAtAction.fromPartial(object.worldQueryRainingAt)
+            : undefined;
+        message.worldQuerySnowingAt = (object.worldQuerySnowingAt !== undefined && object.worldQuerySnowingAt !== null)
+            ? WorldQuerySnowingAtAction.fromPartial(object.worldQuerySnowingAt)
+            : undefined;
+        message.worldQueryThunderingAt =
+            (object.worldQueryThunderingAt !== undefined && object.worldQueryThunderingAt !== null)
+                ? WorldQueryThunderingAtAction.fromPartial(object.worldQueryThunderingAt)
+                : undefined;
+        message.worldQueryLiquid = (object.worldQueryLiquid !== undefined && object.worldQueryLiquid !== null)
+            ? WorldQueryLiquidAction.fromPartial(object.worldQueryLiquid)
+            : undefined;
+        message.worldQueryDefaultGameMode =
+            (object.worldQueryDefaultGameMode !== undefined && object.worldQueryDefaultGameMode !== null)
+                ? WorldQueryDefaultGameModeAction.fromPartial(object.worldQueryDefaultGameMode)
                 : undefined;
         return message;
     },
@@ -2704,6 +4431,377 @@ export const WorldAddParticleAction = {
         return message;
     },
 };
+function createBaseWorldSetTimeAction() {
+    return { world: undefined, time: 0 };
+}
+export const WorldSetTimeAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.time !== 0) {
+            writer.uint32(16).int32(message.time);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldSetTimeAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.time = reader.int32();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            time: isSet(object.time) ? globalThis.Number(object.time) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.time !== 0) {
+            obj.time = Math.round(message.time);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldSetTimeAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldSetTimeAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.time = object.time ?? 0;
+        return message;
+    },
+};
+function createBaseWorldStopTimeAction() {
+    return { world: undefined };
+}
+export const WorldStopTimeAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldStopTimeAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldStopTimeAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldStopTimeAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldStartTimeAction() {
+    return { world: undefined };
+}
+export const WorldStartTimeAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldStartTimeAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldStartTimeAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldStartTimeAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldSetSpawnAction() {
+    return { world: undefined, spawn: undefined };
+}
+export const WorldSetSpawnAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.spawn !== undefined) {
+            BlockPos.encode(message.spawn, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldSetSpawnAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.spawn = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            spawn: isSet(object.spawn) ? BlockPos.fromJSON(object.spawn) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.spawn !== undefined) {
+            obj.spawn = BlockPos.toJSON(message.spawn);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldSetSpawnAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldSetSpawnAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.spawn = (object.spawn !== undefined && object.spawn !== null)
+            ? BlockPos.fromPartial(object.spawn)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldQueryDefaultGameModeAction() {
+    return { world: undefined };
+}
+export const WorldQueryDefaultGameModeAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQueryDefaultGameModeAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQueryDefaultGameModeAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQueryDefaultGameModeAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldQueryPlayerSpawnAction() {
+    return { world: undefined, playerUuid: "" };
+}
+export const WorldQueryPlayerSpawnAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.playerUuid !== "") {
+            writer.uint32(18).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQueryPlayerSpawnAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQueryPlayerSpawnAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQueryPlayerSpawnAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
 function createBaseWorldQueryEntitiesAction() {
     return { world: undefined };
 }
@@ -2877,6 +4975,5273 @@ export const WorldQueryEntitiesWithinAction = {
             ? WorldRef.fromPartial(object.world)
             : undefined;
         message.box = (object.box !== undefined && object.box !== null) ? BBox.fromPartial(object.box) : undefined;
+        return message;
+    },
+};
+function createBaseWorldQueryBlockAction() {
+    return { world: undefined, position: undefined };
+}
+export const WorldQueryBlockAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQueryBlockAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQueryBlockAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQueryBlockAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldQueryBiomeAction() {
+    return { world: undefined, position: undefined };
+}
+export const WorldQueryBiomeAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQueryBiomeAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQueryBiomeAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQueryBiomeAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldQueryLightAction() {
+    return { world: undefined, position: undefined };
+}
+export const WorldQueryLightAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQueryLightAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQueryLightAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQueryLightAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldQuerySkyLightAction() {
+    return { world: undefined, position: undefined };
+}
+export const WorldQuerySkyLightAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQuerySkyLightAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQuerySkyLightAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQuerySkyLightAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldQueryTemperatureAction() {
+    return { world: undefined, position: undefined };
+}
+export const WorldQueryTemperatureAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQueryTemperatureAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQueryTemperatureAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQueryTemperatureAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldQueryHighestBlockAction() {
+    return { world: undefined, x: 0, z: 0 };
+}
+export const WorldQueryHighestBlockAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.x !== 0) {
+            writer.uint32(16).int32(message.x);
+        }
+        if (message.z !== 0) {
+            writer.uint32(24).int32(message.z);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQueryHighestBlockAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.x = reader.int32();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 24) {
+                        break;
+                    }
+                    message.z = reader.int32();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            x: isSet(object.x) ? globalThis.Number(object.x) : 0,
+            z: isSet(object.z) ? globalThis.Number(object.z) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.x !== 0) {
+            obj.x = Math.round(message.x);
+        }
+        if (message.z !== 0) {
+            obj.z = Math.round(message.z);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQueryHighestBlockAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQueryHighestBlockAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.x = object.x ?? 0;
+        message.z = object.z ?? 0;
+        return message;
+    },
+};
+function createBaseWorldQueryRainingAtAction() {
+    return { world: undefined, position: undefined };
+}
+export const WorldQueryRainingAtAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQueryRainingAtAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQueryRainingAtAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQueryRainingAtAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldQuerySnowingAtAction() {
+    return { world: undefined, position: undefined };
+}
+export const WorldQuerySnowingAtAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQuerySnowingAtAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQuerySnowingAtAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQuerySnowingAtAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldQueryThunderingAtAction() {
+    return { world: undefined, position: undefined };
+}
+export const WorldQueryThunderingAtAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQueryThunderingAtAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQueryThunderingAtAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQueryThunderingAtAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldQueryLiquidAction() {
+    return { world: undefined, position: undefined };
+}
+export const WorldQueryLiquidAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldQueryLiquidAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldQueryLiquidAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldQueryLiquidAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldSetBiomeAction() {
+    return { world: undefined, position: undefined, biomeId: "" };
+}
+export const WorldSetBiomeAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        if (message.biomeId !== "") {
+            writer.uint32(26).string(message.biomeId);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldSetBiomeAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.biomeId = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+            biomeId: isSet(object.biomeId) ? globalThis.String(object.biomeId) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        if (message.biomeId !== "") {
+            obj.biomeId = message.biomeId;
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldSetBiomeAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldSetBiomeAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        message.biomeId = object.biomeId ?? "";
+        return message;
+    },
+};
+function createBaseWorldSetLiquidAction() {
+    return { world: undefined, position: undefined, liquid: undefined };
+}
+export const WorldSetLiquidAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        if (message.liquid !== undefined) {
+            LiquidState.encode(message.liquid, writer.uint32(26).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldSetLiquidAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.liquid = LiquidState.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+            liquid: isSet(object.liquid) ? LiquidState.fromJSON(object.liquid) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        if (message.liquid !== undefined) {
+            obj.liquid = LiquidState.toJSON(message.liquid);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldSetLiquidAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldSetLiquidAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        message.liquid = (object.liquid !== undefined && object.liquid !== null)
+            ? LiquidState.fromPartial(object.liquid)
+            : undefined;
+        return message;
+    },
+};
+function createBaseWorldScheduleBlockUpdateAction() {
+    return { world: undefined, position: undefined, block: undefined, delayMs: 0 };
+}
+export const WorldScheduleBlockUpdateAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        if (message.block !== undefined) {
+            BlockState.encode(message.block, writer.uint32(26).fork()).join();
+        }
+        if (message.delayMs !== 0) {
+            writer.uint32(32).int64(message.delayMs);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldScheduleBlockUpdateAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.block = BlockState.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 32) {
+                        break;
+                    }
+                    message.delayMs = longToNumber(reader.int64());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+            block: isSet(object.block) ? BlockState.fromJSON(object.block) : undefined,
+            delayMs: isSet(object.delayMs) ? globalThis.Number(object.delayMs) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        if (message.block !== undefined) {
+            obj.block = BlockState.toJSON(message.block);
+        }
+        if (message.delayMs !== 0) {
+            obj.delayMs = Math.round(message.delayMs);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldScheduleBlockUpdateAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldScheduleBlockUpdateAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        message.block = (object.block !== undefined && object.block !== null)
+            ? BlockState.fromPartial(object.block)
+            : undefined;
+        message.delayMs = object.delayMs ?? 0;
+        return message;
+    },
+};
+function createBaseStructureVoxel() {
+    return { x: 0, y: 0, z: 0, block: undefined, liquid: undefined };
+}
+export const StructureVoxel = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.x !== 0) {
+            writer.uint32(8).int32(message.x);
+        }
+        if (message.y !== 0) {
+            writer.uint32(16).int32(message.y);
+        }
+        if (message.z !== 0) {
+            writer.uint32(24).int32(message.z);
+        }
+        if (message.block !== undefined) {
+            BlockState.encode(message.block, writer.uint32(34).fork()).join();
+        }
+        if (message.liquid !== undefined) {
+            LiquidState.encode(message.liquid, writer.uint32(42).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseStructureVoxel();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 8) {
+                        break;
+                    }
+                    message.x = reader.int32();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.y = reader.int32();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 24) {
+                        break;
+                    }
+                    message.z = reader.int32();
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 34) {
+                        break;
+                    }
+                    message.block = BlockState.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 5: {
+                    if (tag !== 42) {
+                        break;
+                    }
+                    message.liquid = LiquidState.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            x: isSet(object.x) ? globalThis.Number(object.x) : 0,
+            y: isSet(object.y) ? globalThis.Number(object.y) : 0,
+            z: isSet(object.z) ? globalThis.Number(object.z) : 0,
+            block: isSet(object.block) ? BlockState.fromJSON(object.block) : undefined,
+            liquid: isSet(object.liquid) ? LiquidState.fromJSON(object.liquid) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.x !== 0) {
+            obj.x = Math.round(message.x);
+        }
+        if (message.y !== 0) {
+            obj.y = Math.round(message.y);
+        }
+        if (message.z !== 0) {
+            obj.z = Math.round(message.z);
+        }
+        if (message.block !== undefined) {
+            obj.block = BlockState.toJSON(message.block);
+        }
+        if (message.liquid !== undefined) {
+            obj.liquid = LiquidState.toJSON(message.liquid);
+        }
+        return obj;
+    },
+    create(base) {
+        return StructureVoxel.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseStructureVoxel();
+        message.x = object.x ?? 0;
+        message.y = object.y ?? 0;
+        message.z = object.z ?? 0;
+        message.block = (object.block !== undefined && object.block !== null)
+            ? BlockState.fromPartial(object.block)
+            : undefined;
+        message.liquid = (object.liquid !== undefined && object.liquid !== null)
+            ? LiquidState.fromPartial(object.liquid)
+            : undefined;
+        return message;
+    },
+};
+function createBaseStructureDef() {
+    return { width: 0, height: 0, length: 0, voxels: [] };
+}
+export const StructureDef = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.width !== 0) {
+            writer.uint32(8).int32(message.width);
+        }
+        if (message.height !== 0) {
+            writer.uint32(16).int32(message.height);
+        }
+        if (message.length !== 0) {
+            writer.uint32(24).int32(message.length);
+        }
+        for (const v of message.voxels) {
+            StructureVoxel.encode(v, writer.uint32(82).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseStructureDef();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 8) {
+                        break;
+                    }
+                    message.width = reader.int32();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.height = reader.int32();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 24) {
+                        break;
+                    }
+                    message.length = reader.int32();
+                    continue;
+                }
+                case 10: {
+                    if (tag !== 82) {
+                        break;
+                    }
+                    message.voxels.push(StructureVoxel.decode(reader, reader.uint32()));
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            width: isSet(object.width) ? globalThis.Number(object.width) : 0,
+            height: isSet(object.height) ? globalThis.Number(object.height) : 0,
+            length: isSet(object.length) ? globalThis.Number(object.length) : 0,
+            voxels: globalThis.Array.isArray(object?.voxels) ? object.voxels.map((e) => StructureVoxel.fromJSON(e)) : [],
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.width !== 0) {
+            obj.width = Math.round(message.width);
+        }
+        if (message.height !== 0) {
+            obj.height = Math.round(message.height);
+        }
+        if (message.length !== 0) {
+            obj.length = Math.round(message.length);
+        }
+        if (message.voxels?.length) {
+            obj.voxels = message.voxels.map((e) => StructureVoxel.toJSON(e));
+        }
+        return obj;
+    },
+    create(base) {
+        return StructureDef.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseStructureDef();
+        message.width = object.width ?? 0;
+        message.height = object.height ?? 0;
+        message.length = object.length ?? 0;
+        message.voxels = object.voxels?.map((e) => StructureVoxel.fromPartial(e)) || [];
+        return message;
+    },
+};
+function createBaseWorldBuildStructureAction() {
+    return { world: undefined, origin: undefined, structure: undefined };
+}
+export const WorldBuildStructureAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.world !== undefined) {
+            WorldRef.encode(message.world, writer.uint32(10).fork()).join();
+        }
+        if (message.origin !== undefined) {
+            BlockPos.encode(message.origin, writer.uint32(18).fork()).join();
+        }
+        if (message.structure !== undefined) {
+            StructureDef.encode(message.structure, writer.uint32(26).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseWorldBuildStructureAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.world = WorldRef.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.origin = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.structure = StructureDef.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            world: isSet(object.world) ? WorldRef.fromJSON(object.world) : undefined,
+            origin: isSet(object.origin) ? BlockPos.fromJSON(object.origin) : undefined,
+            structure: isSet(object.structure) ? StructureDef.fromJSON(object.structure) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.world !== undefined) {
+            obj.world = WorldRef.toJSON(message.world);
+        }
+        if (message.origin !== undefined) {
+            obj.origin = BlockPos.toJSON(message.origin);
+        }
+        if (message.structure !== undefined) {
+            obj.structure = StructureDef.toJSON(message.structure);
+        }
+        return obj;
+    },
+    create(base) {
+        return WorldBuildStructureAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBaseWorldBuildStructureAction();
+        message.world = (object.world !== undefined && object.world !== null)
+            ? WorldRef.fromPartial(object.world)
+            : undefined;
+        message.origin = (object.origin !== undefined && object.origin !== null)
+            ? BlockPos.fromPartial(object.origin)
+            : undefined;
+        message.structure = (object.structure !== undefined && object.structure !== null)
+            ? StructureDef.fromPartial(object.structure)
+            : undefined;
+        return message;
+    },
+};
+function createBasePlayerStartSprintingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStartSprintingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStartSprintingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStartSprintingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStartSprintingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerStopSprintingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStopSprintingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStopSprintingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStopSprintingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStopSprintingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerStartSneakingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStartSneakingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStartSneakingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStartSneakingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStartSneakingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerStopSneakingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStopSneakingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStopSneakingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStopSneakingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStopSneakingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerStartSwimmingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStartSwimmingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStartSwimmingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStartSwimmingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStartSwimmingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerStopSwimmingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStopSwimmingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStopSwimmingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStopSwimmingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStopSwimmingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerStartCrawlingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStartCrawlingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStartCrawlingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStartCrawlingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStartCrawlingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerStopCrawlingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStopCrawlingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStopCrawlingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStopCrawlingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStopCrawlingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerStartGlidingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStartGlidingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStartGlidingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStartGlidingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStartGlidingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerStopGlidingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStopGlidingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStopGlidingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStopGlidingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStopGlidingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerStartFlyingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStartFlyingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStartFlyingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStartFlyingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStartFlyingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerStopFlyingAction() {
+    return { playerUuid: "" };
+}
+export const PlayerStopFlyingAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerStopFlyingAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerStopFlyingAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerStopFlyingAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerSetImmobileAction() {
+    return { playerUuid: "" };
+}
+export const PlayerSetImmobileAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetImmobileAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetImmobileAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetImmobileAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerSetMobileAction() {
+    return { playerUuid: "" };
+}
+export const PlayerSetMobileAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetMobileAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetMobileAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetMobileAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerSetSpeedAction() {
+    return { playerUuid: "", speed: 0 };
+}
+export const PlayerSetSpeedAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.speed !== 0) {
+            writer.uint32(17).double(message.speed);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetSpeedAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 17) {
+                        break;
+                    }
+                    message.speed = reader.double();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            speed: isSet(object.speed) ? globalThis.Number(object.speed) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.speed !== 0) {
+            obj.speed = message.speed;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetSpeedAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetSpeedAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.speed = object.speed ?? 0;
+        return message;
+    },
+};
+function createBasePlayerSetFlightSpeedAction() {
+    return { playerUuid: "", flightSpeed: 0 };
+}
+export const PlayerSetFlightSpeedAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.flightSpeed !== 0) {
+            writer.uint32(17).double(message.flightSpeed);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetFlightSpeedAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 17) {
+                        break;
+                    }
+                    message.flightSpeed = reader.double();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            flightSpeed: isSet(object.flightSpeed) ? globalThis.Number(object.flightSpeed) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.flightSpeed !== 0) {
+            obj.flightSpeed = message.flightSpeed;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetFlightSpeedAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetFlightSpeedAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.flightSpeed = object.flightSpeed ?? 0;
+        return message;
+    },
+};
+function createBasePlayerSetVerticalFlightSpeedAction() {
+    return { playerUuid: "", verticalFlightSpeed: 0 };
+}
+export const PlayerSetVerticalFlightSpeedAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.verticalFlightSpeed !== 0) {
+            writer.uint32(17).double(message.verticalFlightSpeed);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetVerticalFlightSpeedAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 17) {
+                        break;
+                    }
+                    message.verticalFlightSpeed = reader.double();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            verticalFlightSpeed: isSet(object.verticalFlightSpeed) ? globalThis.Number(object.verticalFlightSpeed) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.verticalFlightSpeed !== 0) {
+            obj.verticalFlightSpeed = message.verticalFlightSpeed;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetVerticalFlightSpeedAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetVerticalFlightSpeedAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.verticalFlightSpeed = object.verticalFlightSpeed ?? 0;
+        return message;
+    },
+};
+function createBasePlayerSetAbsorptionAction() {
+    return { playerUuid: "", absorption: 0 };
+}
+export const PlayerSetAbsorptionAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.absorption !== 0) {
+            writer.uint32(17).double(message.absorption);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetAbsorptionAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 17) {
+                        break;
+                    }
+                    message.absorption = reader.double();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            absorption: isSet(object.absorption) ? globalThis.Number(object.absorption) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.absorption !== 0) {
+            obj.absorption = message.absorption;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetAbsorptionAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetAbsorptionAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.absorption = object.absorption ?? 0;
+        return message;
+    },
+};
+function createBasePlayerSetOnFireAction() {
+    return { playerUuid: "", durationMs: 0 };
+}
+export const PlayerSetOnFireAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.durationMs !== 0) {
+            writer.uint32(16).int64(message.durationMs);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetOnFireAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.durationMs = longToNumber(reader.int64());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            durationMs: isSet(object.durationMs) ? globalThis.Number(object.durationMs) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.durationMs !== 0) {
+            obj.durationMs = Math.round(message.durationMs);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetOnFireAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetOnFireAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.durationMs = object.durationMs ?? 0;
+        return message;
+    },
+};
+function createBasePlayerExtinguishAction() {
+    return { playerUuid: "" };
+}
+export const PlayerExtinguishAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerExtinguishAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerExtinguishAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerExtinguishAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerSetInvisibleAction() {
+    return { playerUuid: "" };
+}
+export const PlayerSetInvisibleAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetInvisibleAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetInvisibleAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetInvisibleAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerSetVisibleAction() {
+    return { playerUuid: "" };
+}
+export const PlayerSetVisibleAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetVisibleAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetVisibleAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetVisibleAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerSetScaleAction() {
+    return { playerUuid: "", scale: 0 };
+}
+export const PlayerSetScaleAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.scale !== 0) {
+            writer.uint32(17).double(message.scale);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetScaleAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 17) {
+                        break;
+                    }
+                    message.scale = reader.double();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            scale: isSet(object.scale) ? globalThis.Number(object.scale) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.scale !== 0) {
+            obj.scale = message.scale;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetScaleAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetScaleAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.scale = object.scale ?? 0;
+        return message;
+    },
+};
+function createBasePlayerSetHeldSlotAction() {
+    return { playerUuid: "", slot: 0 };
+}
+export const PlayerSetHeldSlotAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.slot !== 0) {
+            writer.uint32(16).int32(message.slot);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetHeldSlotAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.slot = reader.int32();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            slot: isSet(object.slot) ? globalThis.Number(object.slot) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.slot !== 0) {
+            obj.slot = Math.round(message.slot);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetHeldSlotAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetHeldSlotAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.slot = object.slot ?? 0;
+        return message;
+    },
+};
+function createBasePlayerSendToastAction() {
+    return { playerUuid: "", title: "", message: "" };
+}
+export const PlayerSendToastAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.title !== "") {
+            writer.uint32(18).string(message.title);
+        }
+        if (message.message !== "") {
+            writer.uint32(26).string(message.message);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSendToastAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.title = reader.string();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.message = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            title: isSet(object.title) ? globalThis.String(object.title) : "",
+            message: isSet(object.message) ? globalThis.String(object.message) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.title !== "") {
+            obj.title = message.title;
+        }
+        if (message.message !== "") {
+            obj.message = message.message;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSendToastAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSendToastAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.title = object.title ?? "";
+        message.message = object.message ?? "";
+        return message;
+    },
+};
+function createBasePlayerSendJukeboxPopupAction() {
+    return { playerUuid: "", message: "" };
+}
+export const PlayerSendJukeboxPopupAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.message !== "") {
+            writer.uint32(18).string(message.message);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSendJukeboxPopupAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.message = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            message: isSet(object.message) ? globalThis.String(object.message) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.message !== "") {
+            obj.message = message.message;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSendJukeboxPopupAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSendJukeboxPopupAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.message = object.message ?? "";
+        return message;
+    },
+};
+function createBasePlayerShowCoordinatesAction() {
+    return { playerUuid: "" };
+}
+export const PlayerShowCoordinatesAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerShowCoordinatesAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerShowCoordinatesAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerShowCoordinatesAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerHideCoordinatesAction() {
+    return { playerUuid: "" };
+}
+export const PlayerHideCoordinatesAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerHideCoordinatesAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerHideCoordinatesAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerHideCoordinatesAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerEnableInstantRespawnAction() {
+    return { playerUuid: "" };
+}
+export const PlayerEnableInstantRespawnAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerEnableInstantRespawnAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerEnableInstantRespawnAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerEnableInstantRespawnAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerDisableInstantRespawnAction() {
+    return { playerUuid: "" };
+}
+export const PlayerDisableInstantRespawnAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerDisableInstantRespawnAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerDisableInstantRespawnAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerDisableInstantRespawnAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerSetNameTagAction() {
+    return { playerUuid: "", nameTag: "" };
+}
+export const PlayerSetNameTagAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.nameTag !== "") {
+            writer.uint32(18).string(message.nameTag);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetNameTagAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.nameTag = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            nameTag: isSet(object.nameTag) ? globalThis.String(object.nameTag) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.nameTag !== "") {
+            obj.nameTag = message.nameTag;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetNameTagAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetNameTagAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.nameTag = object.nameTag ?? "";
+        return message;
+    },
+};
+function createBasePlayerSetScoreTagAction() {
+    return { playerUuid: "", scoreTag: "" };
+}
+export const PlayerSetScoreTagAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.scoreTag !== "") {
+            writer.uint32(18).string(message.scoreTag);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetScoreTagAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.scoreTag = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            scoreTag: isSet(object.scoreTag) ? globalThis.String(object.scoreTag) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.scoreTag !== "") {
+            obj.scoreTag = message.scoreTag;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetScoreTagAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetScoreTagAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.scoreTag = object.scoreTag ?? "";
+        return message;
+    },
+};
+function createBasePlayerShowParticleAction() {
+    return { playerUuid: "", position: undefined, particle: 0, block: undefined, face: undefined };
+}
+export const PlayerShowParticleAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.position !== undefined) {
+            Vec3.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        if (message.particle !== 0) {
+            writer.uint32(24).int32(message.particle);
+        }
+        if (message.block !== undefined) {
+            BlockState.encode(message.block, writer.uint32(34).fork()).join();
+        }
+        if (message.face !== undefined) {
+            writer.uint32(40).int32(message.face);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerShowParticleAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = Vec3.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 24) {
+                        break;
+                    }
+                    message.particle = reader.int32();
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 34) {
+                        break;
+                    }
+                    message.block = BlockState.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 5: {
+                    if (tag !== 40) {
+                        break;
+                    }
+                    message.face = reader.int32();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            position: isSet(object.position) ? Vec3.fromJSON(object.position) : undefined,
+            particle: isSet(object.particle) ? particleTypeFromJSON(object.particle) : 0,
+            block: isSet(object.block) ? BlockState.fromJSON(object.block) : undefined,
+            face: isSet(object.face) ? globalThis.Number(object.face) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.position !== undefined) {
+            obj.position = Vec3.toJSON(message.position);
+        }
+        if (message.particle !== 0) {
+            obj.particle = particleTypeToJSON(message.particle);
+        }
+        if (message.block !== undefined) {
+            obj.block = BlockState.toJSON(message.block);
+        }
+        if (message.face !== undefined) {
+            obj.face = Math.round(message.face);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerShowParticleAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerShowParticleAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.position = (object.position !== undefined && object.position !== null)
+            ? Vec3.fromPartial(object.position)
+            : undefined;
+        message.particle = object.particle ?? 0;
+        message.block = (object.block !== undefined && object.block !== null)
+            ? BlockState.fromPartial(object.block)
+            : undefined;
+        message.face = object.face ?? undefined;
+        return message;
+    },
+};
+function createBasePlayerRespawnAction() {
+    return { playerUuid: "" };
+}
+export const PlayerRespawnAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerRespawnAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerRespawnAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerRespawnAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerTransferAction() {
+    return { playerUuid: "", address: undefined };
+}
+export const PlayerTransferAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.address !== undefined) {
+            Address.encode(message.address, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerTransferAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.address = Address.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            address: isSet(object.address) ? Address.fromJSON(object.address) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.address !== undefined) {
+            obj.address = Address.toJSON(message.address);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerTransferAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerTransferAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.address = (object.address !== undefined && object.address !== null)
+            ? Address.fromPartial(object.address)
+            : undefined;
+        return message;
+    },
+};
+function createBasePlayerKnockBackAction() {
+    return { playerUuid: "", source: undefined, force: 0, height: 0 };
+}
+export const PlayerKnockBackAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.source !== undefined) {
+            Vec3.encode(message.source, writer.uint32(18).fork()).join();
+        }
+        if (message.force !== 0) {
+            writer.uint32(25).double(message.force);
+        }
+        if (message.height !== 0) {
+            writer.uint32(33).double(message.height);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerKnockBackAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.source = Vec3.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 25) {
+                        break;
+                    }
+                    message.force = reader.double();
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 33) {
+                        break;
+                    }
+                    message.height = reader.double();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            source: isSet(object.source) ? Vec3.fromJSON(object.source) : undefined,
+            force: isSet(object.force) ? globalThis.Number(object.force) : 0,
+            height: isSet(object.height) ? globalThis.Number(object.height) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.source !== undefined) {
+            obj.source = Vec3.toJSON(message.source);
+        }
+        if (message.force !== 0) {
+            obj.force = message.force;
+        }
+        if (message.height !== 0) {
+            obj.height = message.height;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerKnockBackAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerKnockBackAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.source = (object.source !== undefined && object.source !== null)
+            ? Vec3.fromPartial(object.source)
+            : undefined;
+        message.force = object.force ?? 0;
+        message.height = object.height ?? 0;
+        return message;
+    },
+};
+function createBasePlayerSwingArmAction() {
+    return { playerUuid: "" };
+}
+export const PlayerSwingArmAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSwingArmAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSwingArmAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSwingArmAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerPunchAirAction() {
+    return { playerUuid: "" };
+}
+export const PlayerPunchAirAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerPunchAirAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerPunchAirAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerPunchAirAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerSetArmourAction() {
+    return { playerUuid: "", helmet: undefined, chestplate: undefined, leggings: undefined, boots: undefined };
+}
+export const PlayerSetArmourAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.helmet !== undefined) {
+            ItemStack.encode(message.helmet, writer.uint32(18).fork()).join();
+        }
+        if (message.chestplate !== undefined) {
+            ItemStack.encode(message.chestplate, writer.uint32(26).fork()).join();
+        }
+        if (message.leggings !== undefined) {
+            ItemStack.encode(message.leggings, writer.uint32(34).fork()).join();
+        }
+        if (message.boots !== undefined) {
+            ItemStack.encode(message.boots, writer.uint32(42).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetArmourAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.helmet = ItemStack.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.chestplate = ItemStack.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 34) {
+                        break;
+                    }
+                    message.leggings = ItemStack.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 5: {
+                    if (tag !== 42) {
+                        break;
+                    }
+                    message.boots = ItemStack.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            helmet: isSet(object.helmet) ? ItemStack.fromJSON(object.helmet) : undefined,
+            chestplate: isSet(object.chestplate) ? ItemStack.fromJSON(object.chestplate) : undefined,
+            leggings: isSet(object.leggings) ? ItemStack.fromJSON(object.leggings) : undefined,
+            boots: isSet(object.boots) ? ItemStack.fromJSON(object.boots) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.helmet !== undefined) {
+            obj.helmet = ItemStack.toJSON(message.helmet);
+        }
+        if (message.chestplate !== undefined) {
+            obj.chestplate = ItemStack.toJSON(message.chestplate);
+        }
+        if (message.leggings !== undefined) {
+            obj.leggings = ItemStack.toJSON(message.leggings);
+        }
+        if (message.boots !== undefined) {
+            obj.boots = ItemStack.toJSON(message.boots);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetArmourAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetArmourAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.helmet = (object.helmet !== undefined && object.helmet !== null)
+            ? ItemStack.fromPartial(object.helmet)
+            : undefined;
+        message.chestplate = (object.chestplate !== undefined && object.chestplate !== null)
+            ? ItemStack.fromPartial(object.chestplate)
+            : undefined;
+        message.leggings = (object.leggings !== undefined && object.leggings !== null)
+            ? ItemStack.fromPartial(object.leggings)
+            : undefined;
+        message.boots = (object.boots !== undefined && object.boots !== null)
+            ? ItemStack.fromPartial(object.boots)
+            : undefined;
+        return message;
+    },
+};
+function createBasePlayerSendScoreboardAction() {
+    return { playerUuid: "", title: "", lines: [], padding: undefined, descending: undefined };
+}
+export const PlayerSendScoreboardAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.title !== "") {
+            writer.uint32(18).string(message.title);
+        }
+        for (const v of message.lines) {
+            writer.uint32(26).string(v);
+        }
+        if (message.padding !== undefined) {
+            writer.uint32(32).bool(message.padding);
+        }
+        if (message.descending !== undefined) {
+            writer.uint32(40).bool(message.descending);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSendScoreboardAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.title = reader.string();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.lines.push(reader.string());
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 32) {
+                        break;
+                    }
+                    message.padding = reader.bool();
+                    continue;
+                }
+                case 5: {
+                    if (tag !== 40) {
+                        break;
+                    }
+                    message.descending = reader.bool();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            title: isSet(object.title) ? globalThis.String(object.title) : "",
+            lines: globalThis.Array.isArray(object?.lines) ? object.lines.map((e) => globalThis.String(e)) : [],
+            padding: isSet(object.padding) ? globalThis.Boolean(object.padding) : undefined,
+            descending: isSet(object.descending) ? globalThis.Boolean(object.descending) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.title !== "") {
+            obj.title = message.title;
+        }
+        if (message.lines?.length) {
+            obj.lines = message.lines;
+        }
+        if (message.padding !== undefined) {
+            obj.padding = message.padding;
+        }
+        if (message.descending !== undefined) {
+            obj.descending = message.descending;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSendScoreboardAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSendScoreboardAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.title = object.title ?? "";
+        message.lines = object.lines?.map((e) => e) || [];
+        message.padding = object.padding ?? undefined;
+        message.descending = object.descending ?? undefined;
+        return message;
+    },
+};
+function createBasePlayerRemoveScoreboardAction() {
+    return { playerUuid: "" };
+}
+export const PlayerRemoveScoreboardAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerRemoveScoreboardAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerRemoveScoreboardAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerRemoveScoreboardAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerSendMenuFormAction() {
+    return { playerUuid: "", title: "", body: undefined, buttons: [] };
+}
+export const PlayerSendMenuFormAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.title !== "") {
+            writer.uint32(18).string(message.title);
+        }
+        if (message.body !== undefined) {
+            writer.uint32(26).string(message.body);
+        }
+        for (const v of message.buttons) {
+            writer.uint32(34).string(v);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSendMenuFormAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.title = reader.string();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.body = reader.string();
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 34) {
+                        break;
+                    }
+                    message.buttons.push(reader.string());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            title: isSet(object.title) ? globalThis.String(object.title) : "",
+            body: isSet(object.body) ? globalThis.String(object.body) : undefined,
+            buttons: globalThis.Array.isArray(object?.buttons) ? object.buttons.map((e) => globalThis.String(e)) : [],
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.title !== "") {
+            obj.title = message.title;
+        }
+        if (message.body !== undefined) {
+            obj.body = message.body;
+        }
+        if (message.buttons?.length) {
+            obj.buttons = message.buttons;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSendMenuFormAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSendMenuFormAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.title = object.title ?? "";
+        message.body = object.body ?? undefined;
+        message.buttons = object.buttons?.map((e) => e) || [];
+        return message;
+    },
+};
+function createBasePlayerSendModalFormAction() {
+    return { playerUuid: "", title: "", body: "", yesText: "", noText: "" };
+}
+export const PlayerSendModalFormAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.title !== "") {
+            writer.uint32(18).string(message.title);
+        }
+        if (message.body !== "") {
+            writer.uint32(26).string(message.body);
+        }
+        if (message.yesText !== "") {
+            writer.uint32(34).string(message.yesText);
+        }
+        if (message.noText !== "") {
+            writer.uint32(42).string(message.noText);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSendModalFormAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.title = reader.string();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.body = reader.string();
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 34) {
+                        break;
+                    }
+                    message.yesText = reader.string();
+                    continue;
+                }
+                case 5: {
+                    if (tag !== 42) {
+                        break;
+                    }
+                    message.noText = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            title: isSet(object.title) ? globalThis.String(object.title) : "",
+            body: isSet(object.body) ? globalThis.String(object.body) : "",
+            yesText: isSet(object.yesText) ? globalThis.String(object.yesText) : "",
+            noText: isSet(object.noText) ? globalThis.String(object.noText) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.title !== "") {
+            obj.title = message.title;
+        }
+        if (message.body !== "") {
+            obj.body = message.body;
+        }
+        if (message.yesText !== "") {
+            obj.yesText = message.yesText;
+        }
+        if (message.noText !== "") {
+            obj.noText = message.noText;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSendModalFormAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSendModalFormAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.title = object.title ?? "";
+        message.body = object.body ?? "";
+        message.yesText = object.yesText ?? "";
+        message.noText = object.noText ?? "";
+        return message;
+    },
+};
+function createBasePlayerSendDialogueAction() {
+    return { playerUuid: "", title: "", body: undefined, buttons: [], entity: undefined };
+}
+export const PlayerSendDialogueAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.title !== "") {
+            writer.uint32(18).string(message.title);
+        }
+        if (message.body !== undefined) {
+            writer.uint32(26).string(message.body);
+        }
+        for (const v of message.buttons) {
+            writer.uint32(34).string(v);
+        }
+        if (message.entity !== undefined) {
+            EntityRef.encode(message.entity, writer.uint32(42).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSendDialogueAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.title = reader.string();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.body = reader.string();
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 34) {
+                        break;
+                    }
+                    message.buttons.push(reader.string());
+                    continue;
+                }
+                case 5: {
+                    if (tag !== 42) {
+                        break;
+                    }
+                    message.entity = EntityRef.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            title: isSet(object.title) ? globalThis.String(object.title) : "",
+            body: isSet(object.body) ? globalThis.String(object.body) : undefined,
+            buttons: globalThis.Array.isArray(object?.buttons) ? object.buttons.map((e) => globalThis.String(e)) : [],
+            entity: isSet(object.entity) ? EntityRef.fromJSON(object.entity) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.title !== "") {
+            obj.title = message.title;
+        }
+        if (message.body !== undefined) {
+            obj.body = message.body;
+        }
+        if (message.buttons?.length) {
+            obj.buttons = message.buttons;
+        }
+        if (message.entity !== undefined) {
+            obj.entity = EntityRef.toJSON(message.entity);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSendDialogueAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSendDialogueAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.title = object.title ?? "";
+        message.body = object.body ?? undefined;
+        message.buttons = object.buttons?.map((e) => e) || [];
+        message.entity = (object.entity !== undefined && object.entity !== null)
+            ? EntityRef.fromPartial(object.entity)
+            : undefined;
+        return message;
+    },
+};
+function createBasePlayerSendBossBarAction() {
+    return { playerUuid: "", text: "", healthPercentage: undefined, colour: undefined };
+}
+export const PlayerSendBossBarAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.text !== "") {
+            writer.uint32(18).string(message.text);
+        }
+        if (message.healthPercentage !== undefined) {
+            writer.uint32(29).float(message.healthPercentage);
+        }
+        if (message.colour !== undefined) {
+            writer.uint32(32).int32(message.colour);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSendBossBarAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.text = reader.string();
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 29) {
+                        break;
+                    }
+                    message.healthPercentage = reader.float();
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 32) {
+                        break;
+                    }
+                    message.colour = reader.int32();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            text: isSet(object.text) ? globalThis.String(object.text) : "",
+            healthPercentage: isSet(object.healthPercentage) ? globalThis.Number(object.healthPercentage) : undefined,
+            colour: isSet(object.colour) ? bossBarColourFromJSON(object.colour) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.text !== "") {
+            obj.text = message.text;
+        }
+        if (message.healthPercentage !== undefined) {
+            obj.healthPercentage = message.healthPercentage;
+        }
+        if (message.colour !== undefined) {
+            obj.colour = bossBarColourToJSON(message.colour);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSendBossBarAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSendBossBarAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.text = object.text ?? "";
+        message.healthPercentage = object.healthPercentage ?? undefined;
+        message.colour = object.colour ?? undefined;
+        return message;
+    },
+};
+function createBasePlayerRemoveBossBarAction() {
+    return { playerUuid: "" };
+}
+export const PlayerRemoveBossBarAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerRemoveBossBarAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerRemoveBossBarAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerRemoveBossBarAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerShowHudElementAction() {
+    return { playerUuid: "", element: 0 };
+}
+export const PlayerShowHudElementAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.element !== 0) {
+            writer.uint32(16).int32(message.element);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerShowHudElementAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.element = reader.int32();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            element: isSet(object.element) ? hudElementFromJSON(object.element) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.element !== 0) {
+            obj.element = hudElementToJSON(message.element);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerShowHudElementAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerShowHudElementAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.element = object.element ?? 0;
+        return message;
+    },
+};
+function createBasePlayerHideHudElementAction() {
+    return { playerUuid: "", element: 0 };
+}
+export const PlayerHideHudElementAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.element !== 0) {
+            writer.uint32(16).int32(message.element);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerHideHudElementAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 16) {
+                        break;
+                    }
+                    message.element = reader.int32();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            element: isSet(object.element) ? hudElementFromJSON(object.element) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.element !== 0) {
+            obj.element = hudElementToJSON(message.element);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerHideHudElementAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerHideHudElementAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.element = object.element ?? 0;
+        return message;
+    },
+};
+function createBasePlayerCloseDialogueAction() {
+    return { playerUuid: "" };
+}
+export const PlayerCloseDialogueAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerCloseDialogueAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerCloseDialogueAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerCloseDialogueAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerCloseFormAction() {
+    return { playerUuid: "" };
+}
+export const PlayerCloseFormAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerCloseFormAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerCloseFormAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerCloseFormAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerOpenSignAction() {
+    return { playerUuid: "", position: undefined, frontSide: false };
+}
+export const PlayerOpenSignAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        if (message.frontSide !== false) {
+            writer.uint32(24).bool(message.frontSide);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerOpenSignAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 24) {
+                        break;
+                    }
+                    message.frontSide = reader.bool();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+            frontSide: isSet(object.frontSide) ? globalThis.Boolean(object.frontSide) : false,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        if (message.frontSide !== false) {
+            obj.frontSide = message.frontSide;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerOpenSignAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerOpenSignAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        message.frontSide = object.frontSide ?? false;
+        return message;
+    },
+};
+function createBasePlayerEditSignAction() {
+    return { playerUuid: "", position: undefined, frontText: "", backText: "" };
+}
+export const PlayerEditSignAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        if (message.frontText !== "") {
+            writer.uint32(26).string(message.frontText);
+        }
+        if (message.backText !== "") {
+            writer.uint32(34).string(message.backText);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerEditSignAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 26) {
+                        break;
+                    }
+                    message.frontText = reader.string();
+                    continue;
+                }
+                case 4: {
+                    if (tag !== 34) {
+                        break;
+                    }
+                    message.backText = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+            frontText: isSet(object.frontText) ? globalThis.String(object.frontText) : "",
+            backText: isSet(object.backText) ? globalThis.String(object.backText) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        if (message.frontText !== "") {
+            obj.frontText = message.frontText;
+        }
+        if (message.backText !== "") {
+            obj.backText = message.backText;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerEditSignAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerEditSignAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        message.frontText = object.frontText ?? "";
+        message.backText = object.backText ?? "";
+        return message;
+    },
+};
+function createBasePlayerTurnLecternPageAction() {
+    return { playerUuid: "", position: undefined, page: 0 };
+}
+export const PlayerTurnLecternPageAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        if (message.page !== 0) {
+            writer.uint32(24).int32(message.page);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerTurnLecternPageAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 24) {
+                        break;
+                    }
+                    message.page = reader.int32();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+            page: isSet(object.page) ? globalThis.Number(object.page) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        if (message.page !== 0) {
+            obj.page = Math.round(message.page);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerTurnLecternPageAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerTurnLecternPageAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        message.page = object.page ?? 0;
+        return message;
+    },
+};
+function createBasePlayerHidePlayerAction() {
+    return { playerUuid: "", targetUuid: "" };
+}
+export const PlayerHidePlayerAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.targetUuid !== "") {
+            writer.uint32(18).string(message.targetUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerHidePlayerAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.targetUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            targetUuid: isSet(object.targetUuid) ? globalThis.String(object.targetUuid) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.targetUuid !== "") {
+            obj.targetUuid = message.targetUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerHidePlayerAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerHidePlayerAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.targetUuid = object.targetUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerShowPlayerAction() {
+    return { playerUuid: "", targetUuid: "" };
+}
+export const PlayerShowPlayerAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.targetUuid !== "") {
+            writer.uint32(18).string(message.targetUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerShowPlayerAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.targetUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            targetUuid: isSet(object.targetUuid) ? globalThis.String(object.targetUuid) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.targetUuid !== "") {
+            obj.targetUuid = message.targetUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerShowPlayerAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerShowPlayerAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.targetUuid = object.targetUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerRemoveAllDebugShapesAction() {
+    return { playerUuid: "" };
+}
+export const PlayerRemoveAllDebugShapesAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerRemoveAllDebugShapesAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerRemoveAllDebugShapesAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerRemoveAllDebugShapesAction();
+        message.playerUuid = object.playerUuid ?? "";
+        return message;
+    },
+};
+function createBasePlayerOpenBlockContainerAction() {
+    return { playerUuid: "", position: undefined };
+}
+export const PlayerOpenBlockContainerAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.position !== undefined) {
+            BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerOpenBlockContainerAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.position = BlockPos.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.position !== undefined) {
+            obj.position = BlockPos.toJSON(message.position);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerOpenBlockContainerAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerOpenBlockContainerAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.position = (object.position !== undefined && object.position !== null)
+            ? BlockPos.fromPartial(object.position)
+            : undefined;
+        return message;
+    },
+};
+function createBasePlayerDropItemAction() {
+    return { playerUuid: "", item: undefined };
+}
+export const PlayerDropItemAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.item !== undefined) {
+            ItemStack.encode(message.item, writer.uint32(18).fork()).join();
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerDropItemAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.item = ItemStack.decode(reader, reader.uint32());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            item: isSet(object.item) ? ItemStack.fromJSON(object.item) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.item !== undefined) {
+            obj.item = ItemStack.toJSON(message.item);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerDropItemAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerDropItemAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.item = (object.item !== undefined && object.item !== null) ? ItemStack.fromPartial(object.item) : undefined;
+        return message;
+    },
+};
+function createBasePlayerSetItemCooldownAction() {
+    return { playerUuid: "", item: undefined, durationMs: 0 };
+}
+export const PlayerSetItemCooldownAction = {
+    encode(message, writer = new BinaryWriter()) {
+        if (message.playerUuid !== "") {
+            writer.uint32(10).string(message.playerUuid);
+        }
+        if (message.item !== undefined) {
+            ItemStack.encode(message.item, writer.uint32(18).fork()).join();
+        }
+        if (message.durationMs !== 0) {
+            writer.uint32(24).int64(message.durationMs);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePlayerSetItemCooldownAction();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1: {
+                    if (tag !== 10) {
+                        break;
+                    }
+                    message.playerUuid = reader.string();
+                    continue;
+                }
+                case 2: {
+                    if (tag !== 18) {
+                        break;
+                    }
+                    message.item = ItemStack.decode(reader, reader.uint32());
+                    continue;
+                }
+                case 3: {
+                    if (tag !== 24) {
+                        break;
+                    }
+                    message.durationMs = longToNumber(reader.int64());
+                    continue;
+                }
+            }
+            if ((tag & 7) === 4 || tag === 0) {
+                break;
+            }
+            reader.skip(tag & 7);
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+            item: isSet(object.item) ? ItemStack.fromJSON(object.item) : undefined,
+            durationMs: isSet(object.durationMs) ? globalThis.Number(object.durationMs) : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.playerUuid !== "") {
+            obj.playerUuid = message.playerUuid;
+        }
+        if (message.item !== undefined) {
+            obj.item = ItemStack.toJSON(message.item);
+        }
+        if (message.durationMs !== 0) {
+            obj.durationMs = Math.round(message.durationMs);
+        }
+        return obj;
+    },
+    create(base) {
+        return PlayerSetItemCooldownAction.fromPartial(base ?? {});
+    },
+    fromPartial(object) {
+        const message = createBasePlayerSetItemCooldownAction();
+        message.playerUuid = object.playerUuid ?? "";
+        message.item = (object.item !== undefined && object.item !== null) ? ItemStack.fromPartial(object.item) : undefined;
+        message.durationMs = object.durationMs ?? 0;
         return message;
     },
 };

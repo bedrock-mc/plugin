@@ -24,26 +24,36 @@ func playerWorldDimension(p *player.Player) string {
 	if p == nil {
 		return ""
 	}
-	tx := p.Tx()
-	if tx == nil {
-		return ""
+	// Prefer current transaction when available to avoid deadlocks.
+	if tx := p.Tx(); tx != nil {
+		return worldDimension(tx.World())
 	}
-	w := tx.World()
-	if w == nil {
-		return ""
+	// Fallback when no tx is available
+	dim := ""
+	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
+		dim = worldDimension(tx.World())
+	}); ok && dim != "" {
+		return dim
 	}
-	return strings.ToLower(fmt.Sprint(w.Dimension()))
+	return ""
 }
 
 func playerWorldRef(p *player.Player) *pb.WorldRef {
 	if p == nil {
 		return nil
 	}
-	tx := p.Tx()
-	if tx == nil {
-		return nil
+	// Prefer current transaction when available to avoid deadlocks.
+	if tx := p.Tx(); tx != nil {
+		return protoWorldRef(tx.World())
 	}
-	return protoWorldRef(tx.World())
+	// Fallback when no tx is available
+	var ref *pb.WorldRef
+	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
+		ref = protoWorldRef(tx.World())
+	}); ok && ref != nil {
+		return ref
+	}
+	return nil
 }
 
 func worldDimension(w *world.World) string {
@@ -212,11 +222,11 @@ func protoWorldRef(w *world.World) *pb.WorldRef {
 	if w == nil {
 		return nil
 	}
-	ref := &pb.WorldRef{
+	return &pb.WorldRef{
+		Id:        fmt.Sprintf("%p", w),
 		Name:      w.Name(),
 		Dimension: worldDimension(w),
 	}
-	return ref
 }
 
 func protoDamageSource(src world.DamageSource) *pb.DamageSource {

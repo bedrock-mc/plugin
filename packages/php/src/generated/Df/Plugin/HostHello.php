@@ -18,6 +18,12 @@ class HostHello extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string api_version = 1 [json_name = "apiVersion"];</code>
      */
     protected $api_version = '';
+    /**
+     * Used for auto reload to distinguish between startup and reload
+     *
+     * Generated from protobuf field <code>string boot_id = 2 [json_name = "bootId"];</code>
+     */
+    protected $boot_id = '';
 
     /**
      * Constructor.
@@ -26,6 +32,8 @@ class HostHello extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $api_version
+     *     @type string $boot_id
+     *           Used for auto reload to distinguish between startup and reload
      * }
      */
     public function __construct($data = NULL) {
@@ -51,6 +59,32 @@ class HostHello extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->api_version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Used for auto reload to distinguish between startup and reload
+     *
+     * Generated from protobuf field <code>string boot_id = 2 [json_name = "bootId"];</code>
+     * @return string
+     */
+    public function getBootId()
+    {
+        return $this->boot_id;
+    }
+
+    /**
+     * Used for auto reload to distinguish between startup and reload
+     *
+     * Generated from protobuf field <code>string boot_id = 2 [json_name = "bootId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBootId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->boot_id = $var;
 
         return $this;
     }

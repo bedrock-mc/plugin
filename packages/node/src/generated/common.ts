@@ -497,6 +497,52 @@ export function itemCategoryToJSON(object: ItemCategory): string {
   }
 }
 
+/** Custom block support */
+export enum CustomBlockRenderMethod {
+  CUSTOM_BLOCK_RENDER_METHOD_OPAQUE = 0,
+  CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST = 1,
+  CUSTOM_BLOCK_RENDER_METHOD_BLEND = 2,
+  CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED = 3,
+  UNRECOGNIZED = -1,
+}
+
+export function customBlockRenderMethodFromJSON(object: any): CustomBlockRenderMethod {
+  switch (object) {
+    case 0:
+    case "CUSTOM_BLOCK_RENDER_METHOD_OPAQUE":
+      return CustomBlockRenderMethod.CUSTOM_BLOCK_RENDER_METHOD_OPAQUE;
+    case 1:
+    case "CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST":
+      return CustomBlockRenderMethod.CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST;
+    case 2:
+    case "CUSTOM_BLOCK_RENDER_METHOD_BLEND":
+      return CustomBlockRenderMethod.CUSTOM_BLOCK_RENDER_METHOD_BLEND;
+    case 3:
+    case "CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED":
+      return CustomBlockRenderMethod.CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return CustomBlockRenderMethod.UNRECOGNIZED;
+  }
+}
+
+export function customBlockRenderMethodToJSON(object: CustomBlockRenderMethod): string {
+  switch (object) {
+    case CustomBlockRenderMethod.CUSTOM_BLOCK_RENDER_METHOD_OPAQUE:
+      return "CUSTOM_BLOCK_RENDER_METHOD_OPAQUE";
+    case CustomBlockRenderMethod.CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST:
+      return "CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST";
+    case CustomBlockRenderMethod.CUSTOM_BLOCK_RENDER_METHOD_BLEND:
+      return "CUSTOM_BLOCK_RENDER_METHOD_BLEND";
+    case CustomBlockRenderMethod.CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED:
+      return "CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED";
+    case CustomBlockRenderMethod.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+
 export interface Vec3 {
   x: number;
   y: number;
@@ -545,6 +591,8 @@ export interface LiquidState {
 export interface WorldRef {
   name: string;
   dimension: string;
+  /** This is a runtime id. it changes across server restarts. */
+  id: string;
 }
 
 export interface EntityRef {
@@ -589,6 +637,93 @@ export interface CustomItemDefinition {
     | undefined;
   /** Metadata value for this item (defaults to 0) */
   meta: number;
+}
+
+export interface CustomBlockTexture {
+  /** Texture name used by materials (e.g., "my_block" or "my_block_side") */
+  name: string;
+  /** PNG-encoded bytes */
+  imagePng: Uint8Array;
+}
+
+export interface CustomBlockMaterial {
+  /** "*", "up", "down", "north", "south", "east", "west" */
+  target: string;
+  /** Must match a CustomBlockTexture.name */
+  textureName: string;
+  /** Optional, defaults to OPAQUE */
+  renderMethod: CustomBlockRenderMethod;
+  /** Optional: defaults true */
+  faceDimming?:
+    | boolean
+    | undefined;
+  /** Optional: defaults based on render_method */
+  ambientOcclusion?: boolean | undefined;
+}
+
+export interface CustomBlockProperties {
+  collisionBox?: BBox | undefined;
+  selectionBox?:
+    | BBox
+    | undefined;
+  /** e.g., "geometry.my_block" */
+  geometryIdentifier?:
+    | string
+    | undefined;
+  /** true to use unit cube geometry when no identifier is provided */
+  cube: boolean;
+  /** hex string like "#RRGGBB" for map colour */
+  mapColour?:
+    | string
+    | undefined;
+  /** integer degrees (90-degree increments), x/y/z */
+  rotation?:
+    | Vec3
+    | undefined;
+  /** translation vector */
+  translation?:
+    | Vec3
+    | undefined;
+  /** scaling factor */
+  scale?:
+    | Vec3
+    | undefined;
+  /** material instances by target */
+  materials: CustomBlockMaterial[];
+  /** Client-side state properties and permutations (pack-only; no runtime IDs). */
+  states: { [key: string]: CustomBlockStateValues };
+  permutations: CustomBlockPermutation[];
+}
+
+export interface CustomBlockProperties_StatesEntry {
+  key: string;
+  value: CustomBlockStateValues | undefined;
+}
+
+export interface CustomBlockDefinition {
+  /** e.g., "my_plugin:my_block" */
+  id: string;
+  /** display name for language entry */
+  displayName: string;
+  /** optional geometry JSON for models/blocks/<name>.geo.json */
+  geometryJson?:
+    | Uint8Array
+    | undefined;
+  /** textures referred by materials */
+  textures: CustomBlockTexture[];
+  /** server/client properties/components */
+  properties: CustomBlockProperties | undefined;
+}
+
+/** Value list for a single custom block property (strings parsed to bool/int/float where possible). */
+export interface CustomBlockStateValues {
+  values: string[];
+}
+
+/** Permutation with molang condition and property overrides. */
+export interface CustomBlockPermutation {
+  condition: string;
+  properties: CustomBlockProperties | undefined;
 }
 
 function createBaseVec3(): Vec3 {
@@ -1304,7 +1439,7 @@ export const LiquidState: MessageFns<LiquidState> = {
 };
 
 function createBaseWorldRef(): WorldRef {
-  return { name: "", dimension: "" };
+  return { name: "", dimension: "", id: "" };
 }
 
 export const WorldRef: MessageFns<WorldRef> = {
@@ -1314,6 +1449,9 @@ export const WorldRef: MessageFns<WorldRef> = {
     }
     if (message.dimension !== "") {
       writer.uint32(18).string(message.dimension);
+    }
+    if (message.id !== "") {
+      writer.uint32(26).string(message.id);
     }
     return writer;
   },
@@ -1341,6 +1479,14 @@ export const WorldRef: MessageFns<WorldRef> = {
           message.dimension = reader.string();
           continue;
         }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.id = reader.string();
+          continue;
+        }
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -1354,6 +1500,7 @@ export const WorldRef: MessageFns<WorldRef> = {
     return {
       name: isSet(object.name) ? globalThis.String(object.name) : "",
       dimension: isSet(object.dimension) ? globalThis.String(object.dimension) : "",
+      id: isSet(object.id) ? globalThis.String(object.id) : "",
     };
   },
 
@@ -1365,6 +1512,9 @@ export const WorldRef: MessageFns<WorldRef> = {
     if (message.dimension !== "") {
       obj.dimension = message.dimension;
     }
+    if (message.id !== "") {
+      obj.id = message.id;
+    }
     return obj;
   },
 
@@ -1375,6 +1525,7 @@ export const WorldRef: MessageFns<WorldRef> = {
     const message = createBaseWorldRef();
     message.name = object.name ?? "";
     message.dimension = object.dimension ?? "";
+    message.id = object.id ?? "";
     return message;
   },
 };
@@ -1871,6 +2022,816 @@ export const CustomItemDefinition: MessageFns<CustomItemDefinition> = {
     message.category = object.category ?? 0;
     message.group = object.group ?? undefined;
     message.meta = object.meta ?? 0;
+    return message;
+  },
+};
+
+function createBaseCustomBlockTexture(): CustomBlockTexture {
+  return { name: "", imagePng: new Uint8Array(0) };
+}
+
+export const CustomBlockTexture: MessageFns<CustomBlockTexture> = {
+  encode(message: CustomBlockTexture, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.name !== "") {
+      writer.uint32(10).string(message.name);
+    }
+    if (message.imagePng.length !== 0) {
+      writer.uint32(18).bytes(message.imagePng);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): CustomBlockTexture {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseCustomBlockTexture();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.name = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.imagePng = reader.bytes();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): CustomBlockTexture {
+    return {
+      name: isSet(object.name) ? globalThis.String(object.name) : "",
+      imagePng: isSet(object.imagePng) ? bytesFromBase64(object.imagePng) : new Uint8Array(0),
+    };
+  },
+
+  toJSON(message: CustomBlockTexture): unknown {
+    const obj: any = {};
+    if (message.name !== "") {
+      obj.name = message.name;
+    }
+    if (message.imagePng.length !== 0) {
+      obj.imagePng = base64FromBytes(message.imagePng);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<CustomBlockTexture>): CustomBlockTexture {
+    return CustomBlockTexture.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<CustomBlockTexture>): CustomBlockTexture {
+    const message = createBaseCustomBlockTexture();
+    message.name = object.name ?? "";
+    message.imagePng = object.imagePng ?? new Uint8Array(0);
+    return message;
+  },
+};
+
+function createBaseCustomBlockMaterial(): CustomBlockMaterial {
+  return { target: "", textureName: "", renderMethod: 0, faceDimming: undefined, ambientOcclusion: undefined };
+}
+
+export const CustomBlockMaterial: MessageFns<CustomBlockMaterial> = {
+  encode(message: CustomBlockMaterial, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.target !== "") {
+      writer.uint32(10).string(message.target);
+    }
+    if (message.textureName !== "") {
+      writer.uint32(18).string(message.textureName);
+    }
+    if (message.renderMethod !== 0) {
+      writer.uint32(24).int32(message.renderMethod);
+    }
+    if (message.faceDimming !== undefined) {
+      writer.uint32(32).bool(message.faceDimming);
+    }
+    if (message.ambientOcclusion !== undefined) {
+      writer.uint32(40).bool(message.ambientOcclusion);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): CustomBlockMaterial {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseCustomBlockMaterial();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.target = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.textureName = reader.string();
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.renderMethod = reader.int32() as any;
+          continue;
+        }
+        case 4: {
+          if (tag !== 32) {
+            break;
+          }
+
+          message.faceDimming = reader.bool();
+          continue;
+        }
+        case 5: {
+          if (tag !== 40) {
+            break;
+          }
+
+          message.ambientOcclusion = reader.bool();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): CustomBlockMaterial {
+    return {
+      target: isSet(object.target) ? globalThis.String(object.target) : "",
+      textureName: isSet(object.textureName) ? globalThis.String(object.textureName) : "",
+      renderMethod: isSet(object.renderMethod) ? customBlockRenderMethodFromJSON(object.renderMethod) : 0,
+      faceDimming: isSet(object.faceDimming) ? globalThis.Boolean(object.faceDimming) : undefined,
+      ambientOcclusion: isSet(object.ambientOcclusion) ? globalThis.Boolean(object.ambientOcclusion) : undefined,
+    };
+  },
+
+  toJSON(message: CustomBlockMaterial): unknown {
+    const obj: any = {};
+    if (message.target !== "") {
+      obj.target = message.target;
+    }
+    if (message.textureName !== "") {
+      obj.textureName = message.textureName;
+    }
+    if (message.renderMethod !== 0) {
+      obj.renderMethod = customBlockRenderMethodToJSON(message.renderMethod);
+    }
+    if (message.faceDimming !== undefined) {
+      obj.faceDimming = message.faceDimming;
+    }
+    if (message.ambientOcclusion !== undefined) {
+      obj.ambientOcclusion = message.ambientOcclusion;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<CustomBlockMaterial>): CustomBlockMaterial {
+    return CustomBlockMaterial.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<CustomBlockMaterial>): CustomBlockMaterial {
+    const message = createBaseCustomBlockMaterial();
+    message.target = object.target ?? "";
+    message.textureName = object.textureName ?? "";
+    message.renderMethod = object.renderMethod ?? 0;
+    message.faceDimming = object.faceDimming ?? undefined;
+    message.ambientOcclusion = object.ambientOcclusion ?? undefined;
+    return message;
+  },
+};
+
+function createBaseCustomBlockProperties(): CustomBlockProperties {
+  return {
+    collisionBox: undefined,
+    selectionBox: undefined,
+    geometryIdentifier: undefined,
+    cube: false,
+    mapColour: undefined,
+    rotation: undefined,
+    translation: undefined,
+    scale: undefined,
+    materials: [],
+    states: {},
+    permutations: [],
+  };
+}
+
+export const CustomBlockProperties: MessageFns<CustomBlockProperties> = {
+  encode(message: CustomBlockProperties, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.collisionBox !== undefined) {
+      BBox.encode(message.collisionBox, writer.uint32(10).fork()).join();
+    }
+    if (message.selectionBox !== undefined) {
+      BBox.encode(message.selectionBox, writer.uint32(18).fork()).join();
+    }
+    if (message.geometryIdentifier !== undefined) {
+      writer.uint32(26).string(message.geometryIdentifier);
+    }
+    if (message.cube !== false) {
+      writer.uint32(32).bool(message.cube);
+    }
+    if (message.mapColour !== undefined) {
+      writer.uint32(42).string(message.mapColour);
+    }
+    if (message.rotation !== undefined) {
+      Vec3.encode(message.rotation, writer.uint32(50).fork()).join();
+    }
+    if (message.translation !== undefined) {
+      Vec3.encode(message.translation, writer.uint32(58).fork()).join();
+    }
+    if (message.scale !== undefined) {
+      Vec3.encode(message.scale, writer.uint32(66).fork()).join();
+    }
+    for (const v of message.materials) {
+      CustomBlockMaterial.encode(v!, writer.uint32(82).fork()).join();
+    }
+    Object.entries(message.states).forEach(([key, value]) => {
+      CustomBlockProperties_StatesEntry.encode({ key: key as any, value }, writer.uint32(162).fork()).join();
+    });
+    for (const v of message.permutations) {
+      CustomBlockPermutation.encode(v!, writer.uint32(170).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): CustomBlockProperties {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseCustomBlockProperties();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.collisionBox = BBox.decode(reader, reader.uint32());
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.selectionBox = BBox.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.geometryIdentifier = reader.string();
+          continue;
+        }
+        case 4: {
+          if (tag !== 32) {
+            break;
+          }
+
+          message.cube = reader.bool();
+          continue;
+        }
+        case 5: {
+          if (tag !== 42) {
+            break;
+          }
+
+          message.mapColour = reader.string();
+          continue;
+        }
+        case 6: {
+          if (tag !== 50) {
+            break;
+          }
+
+          message.rotation = Vec3.decode(reader, reader.uint32());
+          continue;
+        }
+        case 7: {
+          if (tag !== 58) {
+            break;
+          }
+
+          message.translation = Vec3.decode(reader, reader.uint32());
+          continue;
+        }
+        case 8: {
+          if (tag !== 66) {
+            break;
+          }
+
+          message.scale = Vec3.decode(reader, reader.uint32());
+          continue;
+        }
+        case 10: {
+          if (tag !== 82) {
+            break;
+          }
+
+          message.materials.push(CustomBlockMaterial.decode(reader, reader.uint32()));
+          continue;
+        }
+        case 20: {
+          if (tag !== 162) {
+            break;
+          }
+
+          const entry20 = CustomBlockProperties_StatesEntry.decode(reader, reader.uint32());
+          if (entry20.value !== undefined) {
+            message.states[entry20.key] = entry20.value;
+          }
+          continue;
+        }
+        case 21: {
+          if (tag !== 170) {
+            break;
+          }
+
+          message.permutations.push(CustomBlockPermutation.decode(reader, reader.uint32()));
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): CustomBlockProperties {
+    return {
+      collisionBox: isSet(object.collisionBox) ? BBox.fromJSON(object.collisionBox) : undefined,
+      selectionBox: isSet(object.selectionBox) ? BBox.fromJSON(object.selectionBox) : undefined,
+      geometryIdentifier: isSet(object.geometryIdentifier) ? globalThis.String(object.geometryIdentifier) : undefined,
+      cube: isSet(object.cube) ? globalThis.Boolean(object.cube) : false,
+      mapColour: isSet(object.mapColour) ? globalThis.String(object.mapColour) : undefined,
+      rotation: isSet(object.rotation) ? Vec3.fromJSON(object.rotation) : undefined,
+      translation: isSet(object.translation) ? Vec3.fromJSON(object.translation) : undefined,
+      scale: isSet(object.scale) ? Vec3.fromJSON(object.scale) : undefined,
+      materials: globalThis.Array.isArray(object?.materials)
+        ? object.materials.map((e: any) => CustomBlockMaterial.fromJSON(e))
+        : [],
+      states: isObject(object.states)
+        ? Object.entries(object.states).reduce<{ [key: string]: CustomBlockStateValues }>((acc, [key, value]) => {
+          acc[key] = CustomBlockStateValues.fromJSON(value);
+          return acc;
+        }, {})
+        : {},
+      permutations: globalThis.Array.isArray(object?.permutations)
+        ? object.permutations.map((e: any) => CustomBlockPermutation.fromJSON(e))
+        : [],
+    };
+  },
+
+  toJSON(message: CustomBlockProperties): unknown {
+    const obj: any = {};
+    if (message.collisionBox !== undefined) {
+      obj.collisionBox = BBox.toJSON(message.collisionBox);
+    }
+    if (message.selectionBox !== undefined) {
+      obj.selectionBox = BBox.toJSON(message.selectionBox);
+    }
+    if (message.geometryIdentifier !== undefined) {
+      obj.geometryIdentifier = message.geometryIdentifier;
+    }
+    if (message.cube !== false) {
+      obj.cube = message.cube;
+    }
+    if (message.mapColour !== undefined) {
+      obj.mapColour = message.mapColour;
+    }
+    if (message.rotation !== undefined) {
+      obj.rotation = Vec3.toJSON(message.rotation);
+    }
+    if (message.translation !== undefined) {
+      obj.translation = Vec3.toJSON(message.translation);
+    }
+    if (message.scale !== undefined) {
+      obj.scale = Vec3.toJSON(message.scale);
+    }
+    if (message.materials?.length) {
+      obj.materials = message.materials.map((e) => CustomBlockMaterial.toJSON(e));
+    }
+    if (message.states) {
+      const entries = Object.entries(message.states);
+      if (entries.length > 0) {
+        obj.states = {};
+        entries.forEach(([k, v]) => {
+          obj.states[k] = CustomBlockStateValues.toJSON(v);
+        });
+      }
+    }
+    if (message.permutations?.length) {
+      obj.permutations = message.permutations.map((e) => CustomBlockPermutation.toJSON(e));
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<CustomBlockProperties>): CustomBlockProperties {
+    return CustomBlockProperties.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<CustomBlockProperties>): CustomBlockProperties {
+    const message = createBaseCustomBlockProperties();
+    message.collisionBox = (object.collisionBox !== undefined && object.collisionBox !== null)
+      ? BBox.fromPartial(object.collisionBox)
+      : undefined;
+    message.selectionBox = (object.selectionBox !== undefined && object.selectionBox !== null)
+      ? BBox.fromPartial(object.selectionBox)
+      : undefined;
+    message.geometryIdentifier = object.geometryIdentifier ?? undefined;
+    message.cube = object.cube ?? false;
+    message.mapColour = object.mapColour ?? undefined;
+    message.rotation = (object.rotation !== undefined && object.rotation !== null)
+      ? Vec3.fromPartial(object.rotation)
+      : undefined;
+    message.translation = (object.translation !== undefined && object.translation !== null)
+      ? Vec3.fromPartial(object.translation)
+      : undefined;
+    message.scale = (object.scale !== undefined && object.scale !== null) ? Vec3.fromPartial(object.scale) : undefined;
+    message.materials = object.materials?.map((e) => CustomBlockMaterial.fromPartial(e)) || [];
+    message.states = Object.entries(object.states ?? {}).reduce<{ [key: string]: CustomBlockStateValues }>(
+      (acc, [key, value]) => {
+        if (value !== undefined) {
+          acc[key] = CustomBlockStateValues.fromPartial(value);
+        }
+        return acc;
+      },
+      {},
+    );
+    message.permutations = object.permutations?.map((e) => CustomBlockPermutation.fromPartial(e)) || [];
+    return message;
+  },
+};
+
+function createBaseCustomBlockProperties_StatesEntry(): CustomBlockProperties_StatesEntry {
+  return { key: "", value: undefined };
+}
+
+export const CustomBlockProperties_StatesEntry: MessageFns<CustomBlockProperties_StatesEntry> = {
+  encode(message: CustomBlockProperties_StatesEntry, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.key !== "") {
+      writer.uint32(10).string(message.key);
+    }
+    if (message.value !== undefined) {
+      CustomBlockStateValues.encode(message.value, writer.uint32(18).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): CustomBlockProperties_StatesEntry {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseCustomBlockProperties_StatesEntry();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.key = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.value = CustomBlockStateValues.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): CustomBlockProperties_StatesEntry {
+    return {
+      key: isSet(object.key) ? globalThis.String(object.key) : "",
+      value: isSet(object.value) ? CustomBlockStateValues.fromJSON(object.value) : undefined,
+    };
+  },
+
+  toJSON(message: CustomBlockProperties_StatesEntry): unknown {
+    const obj: any = {};
+    if (message.key !== "") {
+      obj.key = message.key;
+    }
+    if (message.value !== undefined) {
+      obj.value = CustomBlockStateValues.toJSON(message.value);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<CustomBlockProperties_StatesEntry>): CustomBlockProperties_StatesEntry {
+    return CustomBlockProperties_StatesEntry.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<CustomBlockProperties_StatesEntry>): CustomBlockProperties_StatesEntry {
+    const message = createBaseCustomBlockProperties_StatesEntry();
+    message.key = object.key ?? "";
+    message.value = (object.value !== undefined && object.value !== null)
+      ? CustomBlockStateValues.fromPartial(object.value)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseCustomBlockDefinition(): CustomBlockDefinition {
+  return { id: "", displayName: "", geometryJson: undefined, textures: [], properties: undefined };
+}
+
+export const CustomBlockDefinition: MessageFns<CustomBlockDefinition> = {
+  encode(message: CustomBlockDefinition, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.id !== "") {
+      writer.uint32(10).string(message.id);
+    }
+    if (message.displayName !== "") {
+      writer.uint32(18).string(message.displayName);
+    }
+    if (message.geometryJson !== undefined) {
+      writer.uint32(26).bytes(message.geometryJson);
+    }
+    for (const v of message.textures) {
+      CustomBlockTexture.encode(v!, writer.uint32(34).fork()).join();
+    }
+    if (message.properties !== undefined) {
+      CustomBlockProperties.encode(message.properties, writer.uint32(42).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): CustomBlockDefinition {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseCustomBlockDefinition();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.id = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.displayName = reader.string();
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.geometryJson = reader.bytes();
+          continue;
+        }
+        case 4: {
+          if (tag !== 34) {
+            break;
+          }
+
+          message.textures.push(CustomBlockTexture.decode(reader, reader.uint32()));
+          continue;
+        }
+        case 5: {
+          if (tag !== 42) {
+            break;
+          }
+
+          message.properties = CustomBlockProperties.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): CustomBlockDefinition {
+    return {
+      id: isSet(object.id) ? globalThis.String(object.id) : "",
+      displayName: isSet(object.displayName) ? globalThis.String(object.displayName) : "",
+      geometryJson: isSet(object.geometryJson) ? bytesFromBase64(object.geometryJson) : undefined,
+      textures: globalThis.Array.isArray(object?.textures)
+        ? object.textures.map((e: any) => CustomBlockTexture.fromJSON(e))
+        : [],
+      properties: isSet(object.properties) ? CustomBlockProperties.fromJSON(object.properties) : undefined,
+    };
+  },
+
+  toJSON(message: CustomBlockDefinition): unknown {
+    const obj: any = {};
+    if (message.id !== "") {
+      obj.id = message.id;
+    }
+    if (message.displayName !== "") {
+      obj.displayName = message.displayName;
+    }
+    if (message.geometryJson !== undefined) {
+      obj.geometryJson = base64FromBytes(message.geometryJson);
+    }
+    if (message.textures?.length) {
+      obj.textures = message.textures.map((e) => CustomBlockTexture.toJSON(e));
+    }
+    if (message.properties !== undefined) {
+      obj.properties = CustomBlockProperties.toJSON(message.properties);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<CustomBlockDefinition>): CustomBlockDefinition {
+    return CustomBlockDefinition.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<CustomBlockDefinition>): CustomBlockDefinition {
+    const message = createBaseCustomBlockDefinition();
+    message.id = object.id ?? "";
+    message.displayName = object.displayName ?? "";
+    message.geometryJson = object.geometryJson ?? undefined;
+    message.textures = object.textures?.map((e) => CustomBlockTexture.fromPartial(e)) || [];
+    message.properties = (object.properties !== undefined && object.properties !== null)
+      ? CustomBlockProperties.fromPartial(object.properties)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseCustomBlockStateValues(): CustomBlockStateValues {
+  return { values: [] };
+}
+
+export const CustomBlockStateValues: MessageFns<CustomBlockStateValues> = {
+  encode(message: CustomBlockStateValues, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    for (const v of message.values) {
+      writer.uint32(10).string(v!);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): CustomBlockStateValues {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseCustomBlockStateValues();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.values.push(reader.string());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): CustomBlockStateValues {
+    return {
+      values: globalThis.Array.isArray(object?.values) ? object.values.map((e: any) => globalThis.String(e)) : [],
+    };
+  },
+
+  toJSON(message: CustomBlockStateValues): unknown {
+    const obj: any = {};
+    if (message.values?.length) {
+      obj.values = message.values;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<CustomBlockStateValues>): CustomBlockStateValues {
+    return CustomBlockStateValues.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<CustomBlockStateValues>): CustomBlockStateValues {
+    const message = createBaseCustomBlockStateValues();
+    message.values = object.values?.map((e) => e) || [];
+    return message;
+  },
+};
+
+function createBaseCustomBlockPermutation(): CustomBlockPermutation {
+  return { condition: "", properties: undefined };
+}
+
+export const CustomBlockPermutation: MessageFns<CustomBlockPermutation> = {
+  encode(message: CustomBlockPermutation, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.condition !== "") {
+      writer.uint32(10).string(message.condition);
+    }
+    if (message.properties !== undefined) {
+      CustomBlockProperties.encode(message.properties, writer.uint32(18).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): CustomBlockPermutation {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseCustomBlockPermutation();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.condition = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.properties = CustomBlockProperties.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): CustomBlockPermutation {
+    return {
+      condition: isSet(object.condition) ? globalThis.String(object.condition) : "",
+      properties: isSet(object.properties) ? CustomBlockProperties.fromJSON(object.properties) : undefined,
+    };
+  },
+
+  toJSON(message: CustomBlockPermutation): unknown {
+    const obj: any = {};
+    if (message.condition !== "") {
+      obj.condition = message.condition;
+    }
+    if (message.properties !== undefined) {
+      obj.properties = CustomBlockProperties.toJSON(message.properties);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<CustomBlockPermutation>): CustomBlockPermutation {
+    return CustomBlockPermutation.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<CustomBlockPermutation>): CustomBlockPermutation {
+    const message = createBaseCustomBlockPermutation();
+    message.condition = object.condition ?? "";
+    message.properties = (object.properties !== undefined && object.properties !== null)
+      ? CustomBlockProperties.fromPartial(object.properties)
+      : undefined;
     return message;
   },
 };

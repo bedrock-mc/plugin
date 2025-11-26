@@ -56,6 +56,7 @@ abstract class PluginBase {
     /** @var array<string, Command> name/alias => command instance */
     private array $commandInstances = [];
     private bool $commandHandlerRegistered = false;
+    private bool $enabledOnce = false;
 
     public function __construct(?string $pluginId = null, ?string $serverAddress = null) {
         $this->pluginId = $pluginId ?? (getenv('DF_PLUGIN_ID') ?: 'php-plugin');
@@ -82,6 +83,7 @@ abstract class PluginBase {
     }
 
     // Lifecycle hooks
+    public function onLoad(): void {}
     public function onEnable(): void {}
     public function onDisable(): void {}
 
@@ -317,8 +319,13 @@ abstract class PluginBase {
         // Register internal handlers to track online players
         $this->registerPlayerTracking();
 
-        // Allow plugin to register handlers/subscriptions/commands
-        $this->onEnable();
+        // Lifecycle
+        // onLoad: runs on every plugin process start/reload.
+        $this->onLoad();
+        // onEnable: run once per server boot BEFORE handshake so that one-time
+        // resources (e.g., custom items) are present in PluginHello on first boot.
+        $bootIdEnv = getenv('DF_HOST_BOOT_ID') ?: '';
+        $this->maybeRunOnEnableOnce($bootIdEnv);
 
         // Defaults if not set
         if (empty($this->subscriptions)) {
@@ -453,6 +460,37 @@ abstract class PluginBase {
             fwrite(STDOUT, "[php] client completed\n");
             fwrite(STDOUT, "[php] connection closing\n");
         }
+    }
+
+    /**
+     * Run onEnable() at most once per server boot, identified by HostHello.boot_id.
+     * Persists the last seen boot ID in a temp file keyed by plugin ID.
+     */
+    private function maybeRunOnEnableOnce(string $bootId): void {
+        if ($this->enabledOnce) {
+            return;
+        }
+        $path = $this->bootIdCachePath();
+        $last = @file_exists($path) ? @trim((string)@file_get_contents($path)) : '';
+        if ($bootId === '' || $bootId !== $last) {
+            // First time for this server boot: run onEnable and store boot ID.
+            try {
+                $this->onEnable();
+            } catch (\Throwable $e) {
+                fwrite(STDERR, "[php] onEnable error: {$e->getMessage()}\n");
+            }
+            if ($bootId !== '') {
+                @file_put_contents($path, $bootId);
+            }
+        } else {
+            fwrite(STDOUT, "[php] skipping onEnable (already enabled for this server boot)\n");
+        }
+        $this->enabledOnce = true;
+    }
+
+    private function bootIdCachePath(): string {
+        $safeId = preg_replace('/[^a-zA-Z0-9._-]+/', '_', $this->pluginId);
+        return rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . "df_boot_{$safeId}.txt";
     }
 
     /**

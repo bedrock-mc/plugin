@@ -12,6 +12,18 @@ message ActionResult {
         WorldEntitiesResult world_entities = 10;
         WorldPlayersResult world_players = 11;
         WorldEntitiesWithinResult world_entities_within = 12;
+        WorldDefaultGameModeResult world_default_game_mode = 13;
+        WorldPlayerSpawnResult world_player_spawn = 14;
+        WorldBlockResult world_block = 15;
+        WorldBiomeResult world_biome = 16;
+        WorldLightResult world_light = 17;
+        WorldSkyLightResult world_sky_light = 18;
+        WorldTemperatureResult world_temperature = 19;
+        WorldHighestBlockResult world_highest_block = 20;
+        WorldRainingAtResult world_raining_at = 21;
+        WorldSnowingAtResult world_snowing_at = 22;
+        WorldThunderingAtResult world_thundering_at = 23;
+        WorldLiquidResult world_liquid = 24;
     }
 }
 
@@ -34,4 +46,76 @@ message WorldEntitiesWithinResult {
 message WorldPlayersResult {
     WorldRef world = 1;
     repeated EntityRef players = 2;
+}
+
+message WorldDefaultGameModeResult {
+    WorldRef world = 1;
+    GameMode game_mode = 2;
+}
+
+message WorldPlayerSpawnResult {
+    WorldRef world = 1;
+    string player_uuid = 2;
+    BlockPos spawn = 3;
+}
+
+message WorldBlockResult {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    BlockState block = 3;
+}
+
+message WorldBiomeResult {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    string biome_id = 3;
+}
+
+message WorldLightResult {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    int32 light_level = 3; // 0-15
+}
+
+message WorldSkyLightResult {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    int32 sky_light_level = 3; // 0-15
+}
+
+message WorldTemperatureResult {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    double temperature = 3;
+}
+
+message WorldHighestBlockResult {
+    WorldRef world = 1;
+    int32 x = 2;
+    int32 z = 3;
+    int32 y = 4; // highest block Y coordinate
+}
+
+message WorldRainingAtResult {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    bool raining = 3;
+}
+
+message WorldSnowingAtResult {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    bool snowing = 3;
+}
+
+message WorldThunderingAtResult {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    bool thundering = 3;
+}
+
+message WorldLiquidResult {
+    WorldRef world = 1;
+    BlockPos position = 2;
+    optional LiquidState liquid = 3; // nil if no liquid present
 }

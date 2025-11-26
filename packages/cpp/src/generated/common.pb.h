@@ -59,6 +59,8 @@ extern const ::google::protobuf::internal::DescriptorTable descriptor_table_comm
 }  // extern "C"
 namespace df {
 namespace plugin {
+enum CustomBlockRenderMethod : int;
+extern const uint32_t CustomBlockRenderMethod_internal_data_[];
 enum Difficulty : int;
 extern const uint32_t Difficulty_internal_data_[];
 enum EffectType : int;
@@ -89,6 +91,34 @@ class BlockState_PropertiesEntry_DoNotUse;
 struct BlockState_PropertiesEntry_DoNotUseDefaultTypeInternal;
 extern BlockState_PropertiesEntry_DoNotUseDefaultTypeInternal _BlockState_PropertiesEntry_DoNotUse_default_instance_;
 extern const ::google::protobuf::internal::ClassDataFull BlockState_PropertiesEntry_DoNotUse_class_data_;
+class CustomBlockDefinition;
+struct CustomBlockDefinitionDefaultTypeInternal;
+extern CustomBlockDefinitionDefaultTypeInternal _CustomBlockDefinition_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockDefinition_class_data_;
+class CustomBlockMaterial;
+struct CustomBlockMaterialDefaultTypeInternal;
+extern CustomBlockMaterialDefaultTypeInternal _CustomBlockMaterial_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockMaterial_class_data_;
+class CustomBlockPermutation;
+struct CustomBlockPermutationDefaultTypeInternal;
+extern CustomBlockPermutationDefaultTypeInternal _CustomBlockPermutation_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockPermutation_class_data_;
+class CustomBlockProperties;
+struct CustomBlockPropertiesDefaultTypeInternal;
+extern CustomBlockPropertiesDefaultTypeInternal _CustomBlockProperties_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockProperties_class_data_;
+class CustomBlockProperties_StatesEntry_DoNotUse;
+struct CustomBlockProperties_StatesEntry_DoNotUseDefaultTypeInternal;
+extern CustomBlockProperties_StatesEntry_DoNotUseDefaultTypeInternal _CustomBlockProperties_StatesEntry_DoNotUse_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockProperties_StatesEntry_DoNotUse_class_data_;
+class CustomBlockStateValues;
+struct CustomBlockStateValuesDefaultTypeInternal;
+extern CustomBlockStateValuesDefaultTypeInternal _CustomBlockStateValues_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockStateValues_class_data_;
+class CustomBlockTexture;
+struct CustomBlockTextureDefaultTypeInternal;
+extern CustomBlockTextureDefaultTypeInternal _CustomBlockTexture_default_instance_;
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockTexture_class_data_;
 class CustomItemDefinition;
 struct CustomItemDefinitionDefaultTypeInternal;
 extern CustomItemDefinitionDefaultTypeInternal _CustomItemDefinition_default_instance_;
@@ -129,6 +159,9 @@ extern const ::google::protobuf::internal::ClassDataFull WorldRef_class_data_;
 }  // namespace df
 namespace google {
 namespace protobuf {
+template <>
+internal::EnumTraitsT<::df::plugin::CustomBlockRenderMethod_internal_data_>
+    internal::EnumTraitsImpl::value<::df::plugin::CustomBlockRenderMethod>;
 template <>
 internal::EnumTraitsT<::df::plugin::Difficulty_internal_data_>
     internal::EnumTraitsImpl::value<::df::plugin::Difficulty>;
@@ -381,6 +414,44 @@ inline bool ItemCategory_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<ItemCategory>(ItemCategory_descriptor(), name,
                                            value);
 }
+enum CustomBlockRenderMethod : int {
+  CUSTOM_BLOCK_RENDER_METHOD_OPAQUE = 0,
+  CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST = 1,
+  CUSTOM_BLOCK_RENDER_METHOD_BLEND = 2,
+  CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED = 3,
+  CustomBlockRenderMethod_INT_MIN_SENTINEL_DO_NOT_USE_ =
+      ::std::numeric_limits<::int32_t>::min(),
+  CustomBlockRenderMethod_INT_MAX_SENTINEL_DO_NOT_USE_ =
+      ::std::numeric_limits<::int32_t>::max(),
+};
+
+extern const uint32_t CustomBlockRenderMethod_internal_data_[];
+inline constexpr CustomBlockRenderMethod CustomBlockRenderMethod_MIN =
+    static_cast<CustomBlockRenderMethod>(0);
+inline constexpr CustomBlockRenderMethod CustomBlockRenderMethod_MAX =
+    static_cast<CustomBlockRenderMethod>(3);
+inline bool CustomBlockRenderMethod_IsValid(int value) {
+  return 0 <= value && value <= 3;
+}
+inline constexpr int CustomBlockRenderMethod_ARRAYSIZE = 3 + 1;
+const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL CustomBlockRenderMethod_descriptor();
+template <typename T>
+const ::std::string& CustomBlockRenderMethod_Name(T value) {
+  static_assert(::std::is_same<T, CustomBlockRenderMethod>::value ||
+                    ::std::is_integral<T>::value,
+                "Incorrect type passed to CustomBlockRenderMethod_Name().");
+  return CustomBlockRenderMethod_Name(static_cast<CustomBlockRenderMethod>(value));
+}
+template <>
+inline const ::std::string& CustomBlockRenderMethod_Name(CustomBlockRenderMethod value) {
+  return ::google::protobuf::internal::NameOfDenseEnum<CustomBlockRenderMethod_descriptor, 0, 3>(
+      static_cast<int>(value));
+}
+inline bool CustomBlockRenderMethod_Parse(
+    ::absl::string_view name, CustomBlockRenderMethod* PROTOBUF_NONNULL value) {
+  return ::google::protobuf::internal::ParseNamedEnum<CustomBlockRenderMethod>(CustomBlockRenderMethod_descriptor(), name,
+                                           value);
+}
 
 // ===================================================================
 
@@ -531,6 +602,7 @@ class WorldRef final : public ::google::protobuf::Message
   enum : int {
     kNameFieldNumber = 1,
     kDimensionFieldNumber = 2,
+    kIdFieldNumber = 3,
   };
   // string name = 1 [json_name = "name"];
   void clear_name() ;
@@ -562,12 +634,27 @@ class WorldRef final : public ::google::protobuf::Message
   ::std::string* PROTOBUF_NONNULL _internal_mutable_dimension();
 
   public:
+  // string id = 3 [json_name = "id"];
+  void clear_id() ;
+  const ::std::string& id() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_id(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_id();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_id();
+  void set_allocated_id(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_id() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_id(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_id();
+
+  public:
   // @@protoc_insertion_point(class_scope:df.plugin.WorldRef)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<1, 2,
-                                   0, 40,
+  static const ::google::protobuf::internal::TcParseTable<2, 3,
+                                   0, 42,
                                    2>
       _table_;
 
@@ -590,6 +677,7 @@ class WorldRef final : public ::google::protobuf::Message
     ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::internal::ArenaStringPtr name_;
     ::google::protobuf::internal::ArenaStringPtr dimension_;
+    ::google::protobuf::internal::ArenaStringPtr id_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -1931,6 +2019,670 @@ class CustomItemDefinition final : public ::google::protobuf::Message
 extern const ::google::protobuf::internal::ClassDataFull CustomItemDefinition_class_data_;
 // -------------------------------------------------------------------
 
+class CustomBlockTexture final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:df.plugin.CustomBlockTexture) */ {
+ public:
+  inline CustomBlockTexture() : CustomBlockTexture(nullptr) {}
+  ~CustomBlockTexture() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(CustomBlockTexture* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(CustomBlockTexture));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CustomBlockTexture(::google::protobuf::internal::ConstantInitialized);
+
+  inline CustomBlockTexture(const CustomBlockTexture& from) : CustomBlockTexture(nullptr, from) {}
+  inline CustomBlockTexture(CustomBlockTexture&& from) noexcept
+      : CustomBlockTexture(nullptr, ::std::move(from)) {}
+  inline CustomBlockTexture& operator=(const CustomBlockTexture& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CustomBlockTexture& operator=(CustomBlockTexture&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CustomBlockTexture& default_instance() {
+    return *reinterpret_cast<const CustomBlockTexture*>(
+        &_CustomBlockTexture_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 14;
+  friend void swap(CustomBlockTexture& a, CustomBlockTexture& b) { a.Swap(&b); }
+  inline void Swap(CustomBlockTexture* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CustomBlockTexture* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CustomBlockTexture* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<CustomBlockTexture>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const CustomBlockTexture& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const CustomBlockTexture& from) { CustomBlockTexture::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(CustomBlockTexture* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.CustomBlockTexture"; }
+
+  explicit CustomBlockTexture(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  CustomBlockTexture(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const CustomBlockTexture& from);
+  CustomBlockTexture(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, CustomBlockTexture&& from) noexcept
+      : CustomBlockTexture(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kNameFieldNumber = 1,
+    kImagePngFieldNumber = 2,
+  };
+  // string name = 1 [json_name = "name"];
+  void clear_name() ;
+  const ::std::string& name() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_name(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_name();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_name();
+  void set_allocated_name(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_name() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_name(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_name();
+
+  public:
+  // bytes image_png = 2 [json_name = "imagePng"];
+  void clear_image_png() ;
+  const ::std::string& image_png() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_image_png(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_image_png();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_image_png();
+  void set_allocated_image_png(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_image_png() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_image_png(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_image_png();
+
+  public:
+  // @@protoc_insertion_point(class_scope:df.plugin.CustomBlockTexture)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   0, 41,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const CustomBlockTexture& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr name_;
+    ::google::protobuf::internal::ArenaStringPtr image_png_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_common_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockTexture_class_data_;
+// -------------------------------------------------------------------
+
+class CustomBlockStateValues final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:df.plugin.CustomBlockStateValues) */ {
+ public:
+  inline CustomBlockStateValues() : CustomBlockStateValues(nullptr) {}
+  ~CustomBlockStateValues() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(CustomBlockStateValues* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(CustomBlockStateValues));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CustomBlockStateValues(::google::protobuf::internal::ConstantInitialized);
+
+  inline CustomBlockStateValues(const CustomBlockStateValues& from) : CustomBlockStateValues(nullptr, from) {}
+  inline CustomBlockStateValues(CustomBlockStateValues&& from) noexcept
+      : CustomBlockStateValues(nullptr, ::std::move(from)) {}
+  inline CustomBlockStateValues& operator=(const CustomBlockStateValues& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CustomBlockStateValues& operator=(CustomBlockStateValues&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CustomBlockStateValues& default_instance() {
+    return *reinterpret_cast<const CustomBlockStateValues*>(
+        &_CustomBlockStateValues_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 19;
+  friend void swap(CustomBlockStateValues& a, CustomBlockStateValues& b) { a.Swap(&b); }
+  inline void Swap(CustomBlockStateValues* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CustomBlockStateValues* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CustomBlockStateValues* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<CustomBlockStateValues>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const CustomBlockStateValues& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const CustomBlockStateValues& from) { CustomBlockStateValues::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(CustomBlockStateValues* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.CustomBlockStateValues"; }
+
+  explicit CustomBlockStateValues(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  CustomBlockStateValues(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const CustomBlockStateValues& from);
+  CustomBlockStateValues(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, CustomBlockStateValues&& from) noexcept
+      : CustomBlockStateValues(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kValuesFieldNumber = 1,
+  };
+  // repeated string values = 1 [json_name = "values"];
+  int values_size() const;
+  private:
+  int _internal_values_size() const;
+
+  public:
+  void clear_values() ;
+  const ::std::string& values(int index) const;
+  ::std::string* PROTOBUF_NONNULL mutable_values(int index);
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_values(int index, Arg_&& value, Args_... args);
+  ::std::string* PROTOBUF_NONNULL add_values();
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void add_values(Arg_&& value, Args_... args);
+  const ::google::protobuf::RepeatedPtrField<::std::string>& values() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL mutable_values();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::std::string>& _internal_values() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL _internal_mutable_values();
+
+  public:
+  // @@protoc_insertion_point(class_scope:df.plugin.CustomBlockStateValues)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<0, 1,
+                                   0, 47,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const CustomBlockStateValues& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField<::std::string> values_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_common_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockStateValues_class_data_;
+// -------------------------------------------------------------------
+
+class CustomBlockMaterial final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:df.plugin.CustomBlockMaterial) */ {
+ public:
+  inline CustomBlockMaterial() : CustomBlockMaterial(nullptr) {}
+  ~CustomBlockMaterial() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(CustomBlockMaterial* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(CustomBlockMaterial));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CustomBlockMaterial(::google::protobuf::internal::ConstantInitialized);
+
+  inline CustomBlockMaterial(const CustomBlockMaterial& from) : CustomBlockMaterial(nullptr, from) {}
+  inline CustomBlockMaterial(CustomBlockMaterial&& from) noexcept
+      : CustomBlockMaterial(nullptr, ::std::move(from)) {}
+  inline CustomBlockMaterial& operator=(const CustomBlockMaterial& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CustomBlockMaterial& operator=(CustomBlockMaterial&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CustomBlockMaterial& default_instance() {
+    return *reinterpret_cast<const CustomBlockMaterial*>(
+        &_CustomBlockMaterial_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 15;
+  friend void swap(CustomBlockMaterial& a, CustomBlockMaterial& b) { a.Swap(&b); }
+  inline void Swap(CustomBlockMaterial* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CustomBlockMaterial* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CustomBlockMaterial* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<CustomBlockMaterial>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const CustomBlockMaterial& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const CustomBlockMaterial& from) { CustomBlockMaterial::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(CustomBlockMaterial* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.CustomBlockMaterial"; }
+
+  explicit CustomBlockMaterial(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  CustomBlockMaterial(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const CustomBlockMaterial& from);
+  CustomBlockMaterial(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, CustomBlockMaterial&& from) noexcept
+      : CustomBlockMaterial(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kTargetFieldNumber = 1,
+    kTextureNameFieldNumber = 2,
+    kRenderMethodFieldNumber = 3,
+    kFaceDimmingFieldNumber = 4,
+    kAmbientOcclusionFieldNumber = 5,
+  };
+  // string target = 1 [json_name = "target"];
+  void clear_target() ;
+  const ::std::string& target() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_target(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_target();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_target();
+  void set_allocated_target(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_target() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_target(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_target();
+
+  public:
+  // string texture_name = 2 [json_name = "textureName"];
+  void clear_texture_name() ;
+  const ::std::string& texture_name() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_texture_name(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_texture_name();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_texture_name();
+  void set_allocated_texture_name(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_texture_name() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_texture_name(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_texture_name();
+
+  public:
+  // .df.plugin.CustomBlockRenderMethod render_method = 3 [json_name = "renderMethod"];
+  void clear_render_method() ;
+  ::df::plugin::CustomBlockRenderMethod render_method() const;
+  void set_render_method(::df::plugin::CustomBlockRenderMethod value);
+
+  private:
+  ::df::plugin::CustomBlockRenderMethod _internal_render_method() const;
+  void _internal_set_render_method(::df::plugin::CustomBlockRenderMethod value);
+
+  public:
+  // optional bool face_dimming = 4 [json_name = "faceDimming"];
+  bool has_face_dimming() const;
+  void clear_face_dimming() ;
+  bool face_dimming() const;
+  void set_face_dimming(bool value);
+
+  private:
+  bool _internal_face_dimming() const;
+  void _internal_set_face_dimming(bool value);
+
+  public:
+  // optional bool ambient_occlusion = 5 [json_name = "ambientOcclusion"];
+  bool has_ambient_occlusion() const;
+  void clear_ambient_occlusion() ;
+  bool ambient_occlusion() const;
+  void set_ambient_occlusion(bool value);
+
+  private:
+  bool _internal_ambient_occlusion() const;
+  void _internal_set_ambient_occlusion(bool value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:df.plugin.CustomBlockMaterial)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<3, 5,
+                                   0, 56,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const CustomBlockMaterial& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr target_;
+    ::google::protobuf::internal::ArenaStringPtr texture_name_;
+    int render_method_;
+    bool face_dimming_;
+    bool ambient_occlusion_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_common_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockMaterial_class_data_;
+// -------------------------------------------------------------------
+
 class BlockState_PropertiesEntry_DoNotUse final
     : public ::google::protobuf::internal::MapEntry<::std::string, ::std::string,
                              ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -2655,6 +3407,45 @@ class EntityRef final : public ::google::protobuf::Message
 extern const ::google::protobuf::internal::ClassDataFull EntityRef_class_data_;
 // -------------------------------------------------------------------
 
+class CustomBlockProperties_StatesEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<::std::string, ::google::protobuf::Message,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                             ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
+ public:
+  using SuperType =
+      ::google::protobuf::internal::MapEntry<::std::string, ::google::protobuf::Message,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
+  CustomBlockProperties_StatesEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CustomBlockProperties_StatesEntry_DoNotUse(::google::protobuf::internal::ConstantInitialized);
+  explicit CustomBlockProperties_StatesEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr const void* PROTOBUF_NONNULL internal_default_instance() {
+    return &_CustomBlockProperties_StatesEntry_DoNotUse_default_instance_;
+  }
+
+
+  static constexpr auto InternalGenerateClassData_();
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_common_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   1, 55,
+                                   2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+};
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockProperties_StatesEntry_DoNotUse_class_data_;
+// -------------------------------------------------------------------
+
 class BlockState final : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:df.plugin.BlockState) */ {
  public:
@@ -3316,6 +4107,853 @@ class LiquidState final : public ::google::protobuf::Message
 };
 
 extern const ::google::protobuf::internal::ClassDataFull LiquidState_class_data_;
+// -------------------------------------------------------------------
+
+class CustomBlockPermutation final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:df.plugin.CustomBlockPermutation) */ {
+ public:
+  inline CustomBlockPermutation() : CustomBlockPermutation(nullptr) {}
+  ~CustomBlockPermutation() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(CustomBlockPermutation* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(CustomBlockPermutation));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CustomBlockPermutation(::google::protobuf::internal::ConstantInitialized);
+
+  inline CustomBlockPermutation(const CustomBlockPermutation& from) : CustomBlockPermutation(nullptr, from) {}
+  inline CustomBlockPermutation(CustomBlockPermutation&& from) noexcept
+      : CustomBlockPermutation(nullptr, ::std::move(from)) {}
+  inline CustomBlockPermutation& operator=(const CustomBlockPermutation& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CustomBlockPermutation& operator=(CustomBlockPermutation&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CustomBlockPermutation& default_instance() {
+    return *reinterpret_cast<const CustomBlockPermutation*>(
+        &_CustomBlockPermutation_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 20;
+  friend void swap(CustomBlockPermutation& a, CustomBlockPermutation& b) { a.Swap(&b); }
+  inline void Swap(CustomBlockPermutation* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CustomBlockPermutation* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CustomBlockPermutation* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<CustomBlockPermutation>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const CustomBlockPermutation& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const CustomBlockPermutation& from) { CustomBlockPermutation::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(CustomBlockPermutation* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.CustomBlockPermutation"; }
+
+  explicit CustomBlockPermutation(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  CustomBlockPermutation(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const CustomBlockPermutation& from);
+  CustomBlockPermutation(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, CustomBlockPermutation&& from) noexcept
+      : CustomBlockPermutation(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kConditionFieldNumber = 1,
+    kPropertiesFieldNumber = 2,
+  };
+  // string condition = 1 [json_name = "condition"];
+  void clear_condition() ;
+  const ::std::string& condition() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_condition(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_condition();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_condition();
+  void set_allocated_condition(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_condition() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_condition(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_condition();
+
+  public:
+  // .df.plugin.CustomBlockProperties properties = 2 [json_name = "properties"];
+  bool has_properties() const;
+  void clear_properties() ;
+  const ::df::plugin::CustomBlockProperties& properties() const;
+  [[nodiscard]] ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE release_properties();
+  ::df::plugin::CustomBlockProperties* PROTOBUF_NONNULL mutable_properties();
+  void set_allocated_properties(::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_properties(::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE value);
+  ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE unsafe_arena_release_properties();
+
+  private:
+  const ::df::plugin::CustomBlockProperties& _internal_properties() const;
+  ::df::plugin::CustomBlockProperties* PROTOBUF_NONNULL _internal_mutable_properties();
+
+  public:
+  // @@protoc_insertion_point(class_scope:df.plugin.CustomBlockPermutation)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<1, 2,
+                                   1, 50,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const CustomBlockPermutation& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr condition_;
+    ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE properties_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_common_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockPermutation_class_data_;
+// -------------------------------------------------------------------
+
+class CustomBlockProperties final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:df.plugin.CustomBlockProperties) */ {
+ public:
+  inline CustomBlockProperties() : CustomBlockProperties(nullptr) {}
+  ~CustomBlockProperties() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(CustomBlockProperties* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(CustomBlockProperties));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CustomBlockProperties(::google::protobuf::internal::ConstantInitialized);
+
+  inline CustomBlockProperties(const CustomBlockProperties& from) : CustomBlockProperties(nullptr, from) {}
+  inline CustomBlockProperties(CustomBlockProperties&& from) noexcept
+      : CustomBlockProperties(nullptr, ::std::move(from)) {}
+  inline CustomBlockProperties& operator=(const CustomBlockProperties& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CustomBlockProperties& operator=(CustomBlockProperties&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CustomBlockProperties& default_instance() {
+    return *reinterpret_cast<const CustomBlockProperties*>(
+        &_CustomBlockProperties_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 17;
+  friend void swap(CustomBlockProperties& a, CustomBlockProperties& b) { a.Swap(&b); }
+  inline void Swap(CustomBlockProperties* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CustomBlockProperties* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CustomBlockProperties* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<CustomBlockProperties>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const CustomBlockProperties& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const CustomBlockProperties& from) { CustomBlockProperties::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(CustomBlockProperties* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.CustomBlockProperties"; }
+
+  explicit CustomBlockProperties(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  CustomBlockProperties(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const CustomBlockProperties& from);
+  CustomBlockProperties(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, CustomBlockProperties&& from) noexcept
+      : CustomBlockProperties(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kMaterialsFieldNumber = 10,
+    kGeometryIdentifierFieldNumber = 3,
+    kMapColourFieldNumber = 5,
+    kCollisionBoxFieldNumber = 1,
+    kSelectionBoxFieldNumber = 2,
+    kRotationFieldNumber = 6,
+    kTranslationFieldNumber = 7,
+    kScaleFieldNumber = 8,
+    kCubeFieldNumber = 4,
+    kStatesFieldNumber = 20,
+    kPermutationsFieldNumber = 21,
+  };
+  // repeated .df.plugin.CustomBlockMaterial materials = 10 [json_name = "materials"];
+  int materials_size() const;
+  private:
+  int _internal_materials_size() const;
+
+  public:
+  void clear_materials() ;
+  ::df::plugin::CustomBlockMaterial* PROTOBUF_NONNULL mutable_materials(int index);
+  ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockMaterial>* PROTOBUF_NONNULL mutable_materials();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockMaterial>& _internal_materials() const;
+  ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockMaterial>* PROTOBUF_NONNULL _internal_mutable_materials();
+  public:
+  const ::df::plugin::CustomBlockMaterial& materials(int index) const;
+  ::df::plugin::CustomBlockMaterial* PROTOBUF_NONNULL add_materials();
+  const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockMaterial>& materials() const;
+  // optional string geometry_identifier = 3 [json_name = "geometryIdentifier"];
+  bool has_geometry_identifier() const;
+  void clear_geometry_identifier() ;
+  const ::std::string& geometry_identifier() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_geometry_identifier(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_geometry_identifier();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_geometry_identifier();
+  void set_allocated_geometry_identifier(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_geometry_identifier() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_geometry_identifier(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_geometry_identifier();
+
+  public:
+  // optional string map_colour = 5 [json_name = "mapColour"];
+  bool has_map_colour() const;
+  void clear_map_colour() ;
+  const ::std::string& map_colour() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_map_colour(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_map_colour();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_map_colour();
+  void set_allocated_map_colour(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_map_colour() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_map_colour(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_map_colour();
+
+  public:
+  // optional .df.plugin.BBox collision_box = 1 [json_name = "collisionBox"];
+  bool has_collision_box() const;
+  void clear_collision_box() ;
+  const ::df::plugin::BBox& collision_box() const;
+  [[nodiscard]] ::df::plugin::BBox* PROTOBUF_NULLABLE release_collision_box();
+  ::df::plugin::BBox* PROTOBUF_NONNULL mutable_collision_box();
+  void set_allocated_collision_box(::df::plugin::BBox* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_collision_box(::df::plugin::BBox* PROTOBUF_NULLABLE value);
+  ::df::plugin::BBox* PROTOBUF_NULLABLE unsafe_arena_release_collision_box();
+
+  private:
+  const ::df::plugin::BBox& _internal_collision_box() const;
+  ::df::plugin::BBox* PROTOBUF_NONNULL _internal_mutable_collision_box();
+
+  public:
+  // optional .df.plugin.BBox selection_box = 2 [json_name = "selectionBox"];
+  bool has_selection_box() const;
+  void clear_selection_box() ;
+  const ::df::plugin::BBox& selection_box() const;
+  [[nodiscard]] ::df::plugin::BBox* PROTOBUF_NULLABLE release_selection_box();
+  ::df::plugin::BBox* PROTOBUF_NONNULL mutable_selection_box();
+  void set_allocated_selection_box(::df::plugin::BBox* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_selection_box(::df::plugin::BBox* PROTOBUF_NULLABLE value);
+  ::df::plugin::BBox* PROTOBUF_NULLABLE unsafe_arena_release_selection_box();
+
+  private:
+  const ::df::plugin::BBox& _internal_selection_box() const;
+  ::df::plugin::BBox* PROTOBUF_NONNULL _internal_mutable_selection_box();
+
+  public:
+  // optional .df.plugin.Vec3 rotation = 6 [json_name = "rotation"];
+  bool has_rotation() const;
+  void clear_rotation() ;
+  const ::df::plugin::Vec3& rotation() const;
+  [[nodiscard]] ::df::plugin::Vec3* PROTOBUF_NULLABLE release_rotation();
+  ::df::plugin::Vec3* PROTOBUF_NONNULL mutable_rotation();
+  void set_allocated_rotation(::df::plugin::Vec3* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_rotation(::df::plugin::Vec3* PROTOBUF_NULLABLE value);
+  ::df::plugin::Vec3* PROTOBUF_NULLABLE unsafe_arena_release_rotation();
+
+  private:
+  const ::df::plugin::Vec3& _internal_rotation() const;
+  ::df::plugin::Vec3* PROTOBUF_NONNULL _internal_mutable_rotation();
+
+  public:
+  // optional .df.plugin.Vec3 translation = 7 [json_name = "translation"];
+  bool has_translation() const;
+  void clear_translation() ;
+  const ::df::plugin::Vec3& translation() const;
+  [[nodiscard]] ::df::plugin::Vec3* PROTOBUF_NULLABLE release_translation();
+  ::df::plugin::Vec3* PROTOBUF_NONNULL mutable_translation();
+  void set_allocated_translation(::df::plugin::Vec3* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_translation(::df::plugin::Vec3* PROTOBUF_NULLABLE value);
+  ::df::plugin::Vec3* PROTOBUF_NULLABLE unsafe_arena_release_translation();
+
+  private:
+  const ::df::plugin::Vec3& _internal_translation() const;
+  ::df::plugin::Vec3* PROTOBUF_NONNULL _internal_mutable_translation();
+
+  public:
+  // optional .df.plugin.Vec3 scale = 8 [json_name = "scale"];
+  bool has_scale() const;
+  void clear_scale() ;
+  const ::df::plugin::Vec3& scale() const;
+  [[nodiscard]] ::df::plugin::Vec3* PROTOBUF_NULLABLE release_scale();
+  ::df::plugin::Vec3* PROTOBUF_NONNULL mutable_scale();
+  void set_allocated_scale(::df::plugin::Vec3* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_scale(::df::plugin::Vec3* PROTOBUF_NULLABLE value);
+  ::df::plugin::Vec3* PROTOBUF_NULLABLE unsafe_arena_release_scale();
+
+  private:
+  const ::df::plugin::Vec3& _internal_scale() const;
+  ::df::plugin::Vec3* PROTOBUF_NONNULL _internal_mutable_scale();
+
+  public:
+  // bool cube = 4 [json_name = "cube"];
+  void clear_cube() ;
+  bool cube() const;
+  void set_cube(bool value);
+
+  private:
+  bool _internal_cube() const;
+  void _internal_set_cube(bool value);
+
+  public:
+  // map<string, .df.plugin.CustomBlockStateValues> states = 20 [json_name = "states"];
+  int states_size() const;
+  private:
+  int _internal_states_size() const;
+
+  public:
+  void clear_states() ;
+  const ::google::protobuf::Map<::std::string, ::df::plugin::CustomBlockStateValues>& states() const;
+  ::google::protobuf::Map<::std::string, ::df::plugin::CustomBlockStateValues>* PROTOBUF_NONNULL mutable_states();
+
+  private:
+  const ::google::protobuf::Map<::std::string, ::df::plugin::CustomBlockStateValues>& _internal_states() const;
+  ::google::protobuf::Map<::std::string, ::df::plugin::CustomBlockStateValues>* PROTOBUF_NONNULL _internal_mutable_states();
+
+  public:
+  // repeated .df.plugin.CustomBlockPermutation permutations = 21 [json_name = "permutations"];
+  int permutations_size() const;
+  private:
+  int _internal_permutations_size() const;
+
+  public:
+  void clear_permutations() ;
+  ::df::plugin::CustomBlockPermutation* PROTOBUF_NONNULL mutable_permutations(int index);
+  ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockPermutation>* PROTOBUF_NONNULL mutable_permutations();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockPermutation>& _internal_permutations() const;
+  ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockPermutation>* PROTOBUF_NONNULL _internal_mutable_permutations();
+  public:
+  const ::df::plugin::CustomBlockPermutation& permutations(int index) const;
+  ::df::plugin::CustomBlockPermutation* PROTOBUF_NONNULL add_permutations();
+  const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockPermutation>& permutations() const;
+  // @@protoc_insertion_point(class_scope:df.plugin.CustomBlockProperties)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<4, 11,
+                                   9, 83,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const CustomBlockProperties& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField< ::df::plugin::CustomBlockMaterial > materials_;
+    ::google::protobuf::internal::ArenaStringPtr geometry_identifier_;
+    ::google::protobuf::internal::ArenaStringPtr map_colour_;
+    ::df::plugin::BBox* PROTOBUF_NULLABLE collision_box_;
+    ::df::plugin::BBox* PROTOBUF_NULLABLE selection_box_;
+    ::df::plugin::Vec3* PROTOBUF_NULLABLE rotation_;
+    ::df::plugin::Vec3* PROTOBUF_NULLABLE translation_;
+    ::df::plugin::Vec3* PROTOBUF_NULLABLE scale_;
+    bool cube_;
+    ::google::protobuf::internal::MapField<CustomBlockProperties_StatesEntry_DoNotUse, ::std::string, ::df::plugin::CustomBlockStateValues,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
+        states_;
+    ::google::protobuf::RepeatedPtrField< ::df::plugin::CustomBlockPermutation > permutations_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_common_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockProperties_class_data_;
+// -------------------------------------------------------------------
+
+class CustomBlockDefinition final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:df.plugin.CustomBlockDefinition) */ {
+ public:
+  inline CustomBlockDefinition() : CustomBlockDefinition(nullptr) {}
+  ~CustomBlockDefinition() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(CustomBlockDefinition* PROTOBUF_NONNULL msg, ::std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(CustomBlockDefinition));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR CustomBlockDefinition(::google::protobuf::internal::ConstantInitialized);
+
+  inline CustomBlockDefinition(const CustomBlockDefinition& from) : CustomBlockDefinition(nullptr, from) {}
+  inline CustomBlockDefinition(CustomBlockDefinition&& from) noexcept
+      : CustomBlockDefinition(nullptr, ::std::move(from)) {}
+  inline CustomBlockDefinition& operator=(const CustomBlockDefinition& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CustomBlockDefinition& operator=(CustomBlockDefinition&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* PROTOBUF_NONNULL mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* PROTOBUF_NONNULL GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* PROTOBUF_NONNULL GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CustomBlockDefinition& default_instance() {
+    return *reinterpret_cast<const CustomBlockDefinition*>(
+        &_CustomBlockDefinition_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 18;
+  friend void swap(CustomBlockDefinition& a, CustomBlockDefinition& b) { a.Swap(&b); }
+  inline void Swap(CustomBlockDefinition* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CustomBlockDefinition* PROTOBUF_NONNULL other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CustomBlockDefinition* PROTOBUF_NONNULL New(::google::protobuf::Arena* PROTOBUF_NULLABLE arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<CustomBlockDefinition>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const CustomBlockDefinition& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const CustomBlockDefinition& from) { CustomBlockDefinition::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(::google::protobuf::MessageLite& to_msg,
+                        const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      const ::google::protobuf::MessageLite& msg, ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* PROTOBUF_NONNULL _InternalSerialize(
+      ::uint8_t* PROTOBUF_NONNULL target,
+      ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(CustomBlockDefinition* PROTOBUF_NONNULL other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "df.plugin.CustomBlockDefinition"; }
+
+  explicit CustomBlockDefinition(::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  CustomBlockDefinition(::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const CustomBlockDefinition& from);
+  CustomBlockDefinition(
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, CustomBlockDefinition&& from) noexcept
+      : CustomBlockDefinition(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL GetClassData() const PROTOBUF_FINAL;
+  static void* PROTOBUF_NONNULL PlacementNew_(
+      const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+      ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+  static constexpr auto InternalNewImpl_();
+
+ public:
+  static constexpr auto InternalGenerateClassData_();
+
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kTexturesFieldNumber = 4,
+    kIdFieldNumber = 1,
+    kDisplayNameFieldNumber = 2,
+    kGeometryJsonFieldNumber = 3,
+    kPropertiesFieldNumber = 5,
+  };
+  // repeated .df.plugin.CustomBlockTexture textures = 4 [json_name = "textures"];
+  int textures_size() const;
+  private:
+  int _internal_textures_size() const;
+
+  public:
+  void clear_textures() ;
+  ::df::plugin::CustomBlockTexture* PROTOBUF_NONNULL mutable_textures(int index);
+  ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockTexture>* PROTOBUF_NONNULL mutable_textures();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockTexture>& _internal_textures() const;
+  ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockTexture>* PROTOBUF_NONNULL _internal_mutable_textures();
+  public:
+  const ::df::plugin::CustomBlockTexture& textures(int index) const;
+  ::df::plugin::CustomBlockTexture* PROTOBUF_NONNULL add_textures();
+  const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockTexture>& textures() const;
+  // string id = 1 [json_name = "id"];
+  void clear_id() ;
+  const ::std::string& id() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_id(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_id();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_id();
+  void set_allocated_id(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_id() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_id(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_id();
+
+  public:
+  // string display_name = 2 [json_name = "displayName"];
+  void clear_display_name() ;
+  const ::std::string& display_name() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_display_name(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_display_name();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_display_name();
+  void set_allocated_display_name(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_display_name() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_display_name(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_display_name();
+
+  public:
+  // optional bytes geometry_json = 3 [json_name = "geometryJson"];
+  bool has_geometry_json() const;
+  void clear_geometry_json() ;
+  const ::std::string& geometry_json() const;
+  template <typename Arg_ = const ::std::string&, typename... Args_>
+  void set_geometry_json(Arg_&& arg, Args_... args);
+  ::std::string* PROTOBUF_NONNULL mutable_geometry_json();
+  [[nodiscard]] ::std::string* PROTOBUF_NULLABLE release_geometry_json();
+  void set_allocated_geometry_json(::std::string* PROTOBUF_NULLABLE value);
+
+  private:
+  const ::std::string& _internal_geometry_json() const;
+  PROTOBUF_ALWAYS_INLINE void _internal_set_geometry_json(const ::std::string& value);
+  ::std::string* PROTOBUF_NONNULL _internal_mutable_geometry_json();
+
+  public:
+  // .df.plugin.CustomBlockProperties properties = 5 [json_name = "properties"];
+  bool has_properties() const;
+  void clear_properties() ;
+  const ::df::plugin::CustomBlockProperties& properties() const;
+  [[nodiscard]] ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE release_properties();
+  ::df::plugin::CustomBlockProperties* PROTOBUF_NONNULL mutable_properties();
+  void set_allocated_properties(::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_properties(::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE value);
+  ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE unsafe_arena_release_properties();
+
+  private:
+  const ::df::plugin::CustomBlockProperties& _internal_properties() const;
+  ::df::plugin::CustomBlockProperties* PROTOBUF_NONNULL _internal_mutable_properties();
+
+  public:
+  // @@protoc_insertion_point(class_scope:df.plugin.CustomBlockDefinition)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<3, 5,
+                                   2, 54,
+                                   2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena);
+    inline explicit Impl_(
+        ::google::protobuf::internal::InternalVisibility visibility,
+        ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+        const CustomBlockDefinition& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::RepeatedPtrField< ::df::plugin::CustomBlockTexture > textures_;
+    ::google::protobuf::internal::ArenaStringPtr id_;
+    ::google::protobuf::internal::ArenaStringPtr display_name_;
+    ::google::protobuf::internal::ArenaStringPtr geometry_json_;
+    ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE properties_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_common_2eproto;
+};
+
+extern const ::google::protobuf::internal::ClassDataFull CustomBlockDefinition_class_data_;
 
 // ===================================================================
 
@@ -4315,6 +5953,71 @@ inline void WorldRef::set_allocated_dimension(::std::string* PROTOBUF_NULLABLE v
     _impl_.dimension_.Set("", GetArena());
   }
   // @@protoc_insertion_point(field_set_allocated:df.plugin.WorldRef.dimension)
+}
+
+// string id = 3 [json_name = "id"];
+inline void WorldRef::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline const ::std::string& WorldRef::id() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.WorldRef.id)
+  return _internal_id();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void WorldRef::set_id(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  _impl_.id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.WorldRef.id)
+}
+inline ::std::string* PROTOBUF_NONNULL WorldRef::mutable_id()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  ::std::string* _s = _internal_mutable_id();
+  // @@protoc_insertion_point(field_mutable:df.plugin.WorldRef.id)
+  return _s;
+}
+inline const ::std::string& WorldRef::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_.Get();
+}
+inline void WorldRef::_internal_set_id(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL WorldRef::_internal_mutable_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.id_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE WorldRef::release_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.WorldRef.id)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000004U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  auto* released = _impl_.id_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.id_.Set("", GetArena());
+  }
+  return released;
+}
+inline void WorldRef::set_allocated_id(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  }
+  _impl_.id_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.id_.IsDefault()) {
+    _impl_.id_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.WorldRef.id)
 }
 
 // -------------------------------------------------------------------
@@ -5406,6 +7109,1767 @@ inline void CustomItemDefinition::_internal_set_meta(::int32_t value) {
   _impl_.meta_ = value;
 }
 
+// -------------------------------------------------------------------
+
+// CustomBlockTexture
+
+// string name = 1 [json_name = "name"];
+inline void CustomBlockTexture::clear_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.name_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline const ::std::string& CustomBlockTexture::name() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockTexture.name)
+  return _internal_name();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomBlockTexture::set_name(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  _impl_.name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockTexture.name)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockTexture::mutable_name()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  ::std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockTexture.name)
+  return _s;
+}
+inline const ::std::string& CustomBlockTexture::_internal_name() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.name_.Get();
+}
+inline void CustomBlockTexture::_internal_set_name(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.name_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockTexture::_internal_mutable_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.name_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomBlockTexture::release_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockTexture.name)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000001U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  auto* released = _impl_.name_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.name_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomBlockTexture::set_allocated_name(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  }
+  _impl_.name_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockTexture.name)
+}
+
+// bytes image_png = 2 [json_name = "imagePng"];
+inline void CustomBlockTexture::clear_image_png() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.image_png_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline const ::std::string& CustomBlockTexture::image_png() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockTexture.image_png)
+  return _internal_image_png();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomBlockTexture::set_image_png(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  _impl_.image_png_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockTexture.image_png)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockTexture::mutable_image_png()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::std::string* _s = _internal_mutable_image_png();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockTexture.image_png)
+  return _s;
+}
+inline const ::std::string& CustomBlockTexture::_internal_image_png() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.image_png_.Get();
+}
+inline void CustomBlockTexture::_internal_set_image_png(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.image_png_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockTexture::_internal_mutable_image_png() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.image_png_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomBlockTexture::release_image_png() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockTexture.image_png)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000002U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  auto* released = _impl_.image_png_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.image_png_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomBlockTexture::set_allocated_image_png(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+  _impl_.image_png_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.image_png_.IsDefault()) {
+    _impl_.image_png_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockTexture.image_png)
+}
+
+// -------------------------------------------------------------------
+
+// CustomBlockMaterial
+
+// string target = 1 [json_name = "target"];
+inline void CustomBlockMaterial::clear_target() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.target_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline const ::std::string& CustomBlockMaterial::target() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockMaterial.target)
+  return _internal_target();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomBlockMaterial::set_target(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  _impl_.target_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockMaterial.target)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockMaterial::mutable_target()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  ::std::string* _s = _internal_mutable_target();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockMaterial.target)
+  return _s;
+}
+inline const ::std::string& CustomBlockMaterial::_internal_target() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.target_.Get();
+}
+inline void CustomBlockMaterial::_internal_set_target(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.target_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockMaterial::_internal_mutable_target() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.target_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomBlockMaterial::release_target() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockMaterial.target)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000001U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  auto* released = _impl_.target_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.target_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomBlockMaterial::set_allocated_target(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  }
+  _impl_.target_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.target_.IsDefault()) {
+    _impl_.target_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockMaterial.target)
+}
+
+// string texture_name = 2 [json_name = "textureName"];
+inline void CustomBlockMaterial::clear_texture_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.texture_name_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline const ::std::string& CustomBlockMaterial::texture_name() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockMaterial.texture_name)
+  return _internal_texture_name();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomBlockMaterial::set_texture_name(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  _impl_.texture_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockMaterial.texture_name)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockMaterial::mutable_texture_name()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::std::string* _s = _internal_mutable_texture_name();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockMaterial.texture_name)
+  return _s;
+}
+inline const ::std::string& CustomBlockMaterial::_internal_texture_name() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.texture_name_.Get();
+}
+inline void CustomBlockMaterial::_internal_set_texture_name(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.texture_name_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockMaterial::_internal_mutable_texture_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.texture_name_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomBlockMaterial::release_texture_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockMaterial.texture_name)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000002U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  auto* released = _impl_.texture_name_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.texture_name_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomBlockMaterial::set_allocated_texture_name(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+  _impl_.texture_name_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.texture_name_.IsDefault()) {
+    _impl_.texture_name_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockMaterial.texture_name)
+}
+
+// .df.plugin.CustomBlockRenderMethod render_method = 3 [json_name = "renderMethod"];
+inline void CustomBlockMaterial::clear_render_method() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.render_method_ = 0;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline ::df::plugin::CustomBlockRenderMethod CustomBlockMaterial::render_method() const {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockMaterial.render_method)
+  return _internal_render_method();
+}
+inline void CustomBlockMaterial::set_render_method(::df::plugin::CustomBlockRenderMethod value) {
+  _internal_set_render_method(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockMaterial.render_method)
+}
+inline ::df::plugin::CustomBlockRenderMethod CustomBlockMaterial::_internal_render_method() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::df::plugin::CustomBlockRenderMethod>(_impl_.render_method_);
+}
+inline void CustomBlockMaterial::_internal_set_render_method(::df::plugin::CustomBlockRenderMethod value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.render_method_ = value;
+}
+
+// optional bool face_dimming = 4 [json_name = "faceDimming"];
+inline bool CustomBlockMaterial::has_face_dimming() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000008U);
+  return value;
+}
+inline void CustomBlockMaterial::clear_face_dimming() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.face_dimming_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline bool CustomBlockMaterial::face_dimming() const {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockMaterial.face_dimming)
+  return _internal_face_dimming();
+}
+inline void CustomBlockMaterial::set_face_dimming(bool value) {
+  _internal_set_face_dimming(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockMaterial.face_dimming)
+}
+inline bool CustomBlockMaterial::_internal_face_dimming() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.face_dimming_;
+}
+inline void CustomBlockMaterial::_internal_set_face_dimming(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.face_dimming_ = value;
+}
+
+// optional bool ambient_occlusion = 5 [json_name = "ambientOcclusion"];
+inline bool CustomBlockMaterial::has_ambient_occlusion() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000010U);
+  return value;
+}
+inline void CustomBlockMaterial::clear_ambient_occlusion() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.ambient_occlusion_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline bool CustomBlockMaterial::ambient_occlusion() const {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockMaterial.ambient_occlusion)
+  return _internal_ambient_occlusion();
+}
+inline void CustomBlockMaterial::set_ambient_occlusion(bool value) {
+  _internal_set_ambient_occlusion(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockMaterial.ambient_occlusion)
+}
+inline bool CustomBlockMaterial::_internal_ambient_occlusion() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.ambient_occlusion_;
+}
+inline void CustomBlockMaterial::_internal_set_ambient_occlusion(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.ambient_occlusion_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// CustomBlockProperties
+
+// optional .df.plugin.BBox collision_box = 1 [json_name = "collisionBox"];
+inline bool CustomBlockProperties::has_collision_box() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000008U);
+  PROTOBUF_ASSUME(!value || _impl_.collision_box_ != nullptr);
+  return value;
+}
+inline void CustomBlockProperties::clear_collision_box() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.collision_box_ != nullptr) _impl_.collision_box_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline const ::df::plugin::BBox& CustomBlockProperties::_internal_collision_box() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::BBox* p = _impl_.collision_box_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::BBox&>(::df::plugin::_BBox_default_instance_);
+}
+inline const ::df::plugin::BBox& CustomBlockProperties::collision_box() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockProperties.collision_box)
+  return _internal_collision_box();
+}
+inline void CustomBlockProperties::unsafe_arena_set_allocated_collision_box(
+    ::df::plugin::BBox* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.collision_box_);
+  }
+  _impl_.collision_box_ = reinterpret_cast<::df::plugin::BBox*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.CustomBlockProperties.collision_box)
+}
+inline ::df::plugin::BBox* PROTOBUF_NULLABLE CustomBlockProperties::release_collision_box() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  ::df::plugin::BBox* released = _impl_.collision_box_;
+  _impl_.collision_box_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::BBox* PROTOBUF_NULLABLE CustomBlockProperties::unsafe_arena_release_collision_box() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockProperties.collision_box)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  ::df::plugin::BBox* temp = _impl_.collision_box_;
+  _impl_.collision_box_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::BBox* PROTOBUF_NONNULL CustomBlockProperties::_internal_mutable_collision_box() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.collision_box_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::BBox>(GetArena());
+    _impl_.collision_box_ = reinterpret_cast<::df::plugin::BBox*>(p);
+  }
+  return _impl_.collision_box_;
+}
+inline ::df::plugin::BBox* PROTOBUF_NONNULL CustomBlockProperties::mutable_collision_box()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  ::df::plugin::BBox* _msg = _internal_mutable_collision_box();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockProperties.collision_box)
+  return _msg;
+}
+inline void CustomBlockProperties::set_allocated_collision_box(::df::plugin::BBox* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.collision_box_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  }
+
+  _impl_.collision_box_ = reinterpret_cast<::df::plugin::BBox*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockProperties.collision_box)
+}
+
+// optional .df.plugin.BBox selection_box = 2 [json_name = "selectionBox"];
+inline bool CustomBlockProperties::has_selection_box() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000010U);
+  PROTOBUF_ASSUME(!value || _impl_.selection_box_ != nullptr);
+  return value;
+}
+inline void CustomBlockProperties::clear_selection_box() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.selection_box_ != nullptr) _impl_.selection_box_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline const ::df::plugin::BBox& CustomBlockProperties::_internal_selection_box() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::BBox* p = _impl_.selection_box_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::BBox&>(::df::plugin::_BBox_default_instance_);
+}
+inline const ::df::plugin::BBox& CustomBlockProperties::selection_box() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockProperties.selection_box)
+  return _internal_selection_box();
+}
+inline void CustomBlockProperties::unsafe_arena_set_allocated_selection_box(
+    ::df::plugin::BBox* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.selection_box_);
+  }
+  _impl_.selection_box_ = reinterpret_cast<::df::plugin::BBox*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.CustomBlockProperties.selection_box)
+}
+inline ::df::plugin::BBox* PROTOBUF_NULLABLE CustomBlockProperties::release_selection_box() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ::df::plugin::BBox* released = _impl_.selection_box_;
+  _impl_.selection_box_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::BBox* PROTOBUF_NULLABLE CustomBlockProperties::unsafe_arena_release_selection_box() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockProperties.selection_box)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ::df::plugin::BBox* temp = _impl_.selection_box_;
+  _impl_.selection_box_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::BBox* PROTOBUF_NONNULL CustomBlockProperties::_internal_mutable_selection_box() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.selection_box_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::BBox>(GetArena());
+    _impl_.selection_box_ = reinterpret_cast<::df::plugin::BBox*>(p);
+  }
+  return _impl_.selection_box_;
+}
+inline ::df::plugin::BBox* PROTOBUF_NONNULL CustomBlockProperties::mutable_selection_box()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ::df::plugin::BBox* _msg = _internal_mutable_selection_box();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockProperties.selection_box)
+  return _msg;
+}
+inline void CustomBlockProperties::set_allocated_selection_box(::df::plugin::BBox* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.selection_box_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  }
+
+  _impl_.selection_box_ = reinterpret_cast<::df::plugin::BBox*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockProperties.selection_box)
+}
+
+// optional string geometry_identifier = 3 [json_name = "geometryIdentifier"];
+inline bool CustomBlockProperties::has_geometry_identifier() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000002U);
+  return value;
+}
+inline void CustomBlockProperties::clear_geometry_identifier() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.geometry_identifier_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline const ::std::string& CustomBlockProperties::geometry_identifier() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockProperties.geometry_identifier)
+  return _internal_geometry_identifier();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomBlockProperties::set_geometry_identifier(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  _impl_.geometry_identifier_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockProperties.geometry_identifier)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockProperties::mutable_geometry_identifier()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::std::string* _s = _internal_mutable_geometry_identifier();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockProperties.geometry_identifier)
+  return _s;
+}
+inline const ::std::string& CustomBlockProperties::_internal_geometry_identifier() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.geometry_identifier_.Get();
+}
+inline void CustomBlockProperties::_internal_set_geometry_identifier(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.geometry_identifier_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockProperties::_internal_mutable_geometry_identifier() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.geometry_identifier_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomBlockProperties::release_geometry_identifier() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockProperties.geometry_identifier)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000002U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  auto* released = _impl_.geometry_identifier_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.geometry_identifier_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomBlockProperties::set_allocated_geometry_identifier(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+  _impl_.geometry_identifier_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.geometry_identifier_.IsDefault()) {
+    _impl_.geometry_identifier_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockProperties.geometry_identifier)
+}
+
+// bool cube = 4 [json_name = "cube"];
+inline void CustomBlockProperties::clear_cube() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.cube_ = false;
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000100U);
+}
+inline bool CustomBlockProperties::cube() const {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockProperties.cube)
+  return _internal_cube();
+}
+inline void CustomBlockProperties::set_cube(bool value) {
+  _internal_set_cube(value);
+  SetHasBit(_impl_._has_bits_[0], 0x00000100U);
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockProperties.cube)
+}
+inline bool CustomBlockProperties::_internal_cube() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.cube_;
+}
+inline void CustomBlockProperties::_internal_set_cube(bool value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.cube_ = value;
+}
+
+// optional string map_colour = 5 [json_name = "mapColour"];
+inline bool CustomBlockProperties::has_map_colour() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000004U);
+  return value;
+}
+inline void CustomBlockProperties::clear_map_colour() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.map_colour_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline const ::std::string& CustomBlockProperties::map_colour() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockProperties.map_colour)
+  return _internal_map_colour();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomBlockProperties::set_map_colour(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  _impl_.map_colour_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockProperties.map_colour)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockProperties::mutable_map_colour()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  ::std::string* _s = _internal_mutable_map_colour();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockProperties.map_colour)
+  return _s;
+}
+inline const ::std::string& CustomBlockProperties::_internal_map_colour() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.map_colour_.Get();
+}
+inline void CustomBlockProperties::_internal_set_map_colour(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.map_colour_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockProperties::_internal_mutable_map_colour() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.map_colour_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomBlockProperties::release_map_colour() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockProperties.map_colour)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000004U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  auto* released = _impl_.map_colour_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.map_colour_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomBlockProperties::set_allocated_map_colour(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  }
+  _impl_.map_colour_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.map_colour_.IsDefault()) {
+    _impl_.map_colour_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockProperties.map_colour)
+}
+
+// optional .df.plugin.Vec3 rotation = 6 [json_name = "rotation"];
+inline bool CustomBlockProperties::has_rotation() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000020U);
+  PROTOBUF_ASSUME(!value || _impl_.rotation_ != nullptr);
+  return value;
+}
+inline void CustomBlockProperties::clear_rotation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.rotation_ != nullptr) _impl_.rotation_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000020U);
+}
+inline const ::df::plugin::Vec3& CustomBlockProperties::_internal_rotation() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::Vec3* p = _impl_.rotation_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::Vec3&>(::df::plugin::_Vec3_default_instance_);
+}
+inline const ::df::plugin::Vec3& CustomBlockProperties::rotation() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockProperties.rotation)
+  return _internal_rotation();
+}
+inline void CustomBlockProperties::unsafe_arena_set_allocated_rotation(
+    ::df::plugin::Vec3* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.rotation_);
+  }
+  _impl_.rotation_ = reinterpret_cast<::df::plugin::Vec3*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.CustomBlockProperties.rotation)
+}
+inline ::df::plugin::Vec3* PROTOBUF_NULLABLE CustomBlockProperties::release_rotation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+  ::df::plugin::Vec3* released = _impl_.rotation_;
+  _impl_.rotation_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::Vec3* PROTOBUF_NULLABLE CustomBlockProperties::unsafe_arena_release_rotation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockProperties.rotation)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+  ::df::plugin::Vec3* temp = _impl_.rotation_;
+  _impl_.rotation_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::Vec3* PROTOBUF_NONNULL CustomBlockProperties::_internal_mutable_rotation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.rotation_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::Vec3>(GetArena());
+    _impl_.rotation_ = reinterpret_cast<::df::plugin::Vec3*>(p);
+  }
+  return _impl_.rotation_;
+}
+inline ::df::plugin::Vec3* PROTOBUF_NONNULL CustomBlockProperties::mutable_rotation()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  ::df::plugin::Vec3* _msg = _internal_mutable_rotation();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockProperties.rotation)
+  return _msg;
+}
+inline void CustomBlockProperties::set_allocated_rotation(::df::plugin::Vec3* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.rotation_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000020U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000020U);
+  }
+
+  _impl_.rotation_ = reinterpret_cast<::df::plugin::Vec3*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockProperties.rotation)
+}
+
+// optional .df.plugin.Vec3 translation = 7 [json_name = "translation"];
+inline bool CustomBlockProperties::has_translation() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000040U);
+  PROTOBUF_ASSUME(!value || _impl_.translation_ != nullptr);
+  return value;
+}
+inline void CustomBlockProperties::clear_translation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.translation_ != nullptr) _impl_.translation_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000040U);
+}
+inline const ::df::plugin::Vec3& CustomBlockProperties::_internal_translation() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::Vec3* p = _impl_.translation_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::Vec3&>(::df::plugin::_Vec3_default_instance_);
+}
+inline const ::df::plugin::Vec3& CustomBlockProperties::translation() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockProperties.translation)
+  return _internal_translation();
+}
+inline void CustomBlockProperties::unsafe_arena_set_allocated_translation(
+    ::df::plugin::Vec3* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.translation_);
+  }
+  _impl_.translation_ = reinterpret_cast<::df::plugin::Vec3*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.CustomBlockProperties.translation)
+}
+inline ::df::plugin::Vec3* PROTOBUF_NULLABLE CustomBlockProperties::release_translation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
+  ::df::plugin::Vec3* released = _impl_.translation_;
+  _impl_.translation_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::Vec3* PROTOBUF_NULLABLE CustomBlockProperties::unsafe_arena_release_translation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockProperties.translation)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
+  ::df::plugin::Vec3* temp = _impl_.translation_;
+  _impl_.translation_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::Vec3* PROTOBUF_NONNULL CustomBlockProperties::_internal_mutable_translation() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.translation_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::Vec3>(GetArena());
+    _impl_.translation_ = reinterpret_cast<::df::plugin::Vec3*>(p);
+  }
+  return _impl_.translation_;
+}
+inline ::df::plugin::Vec3* PROTOBUF_NONNULL CustomBlockProperties::mutable_translation()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  ::df::plugin::Vec3* _msg = _internal_mutable_translation();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockProperties.translation)
+  return _msg;
+}
+inline void CustomBlockProperties::set_allocated_translation(::df::plugin::Vec3* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.translation_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000040U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000040U);
+  }
+
+  _impl_.translation_ = reinterpret_cast<::df::plugin::Vec3*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockProperties.translation)
+}
+
+// optional .df.plugin.Vec3 scale = 8 [json_name = "scale"];
+inline bool CustomBlockProperties::has_scale() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000080U);
+  PROTOBUF_ASSUME(!value || _impl_.scale_ != nullptr);
+  return value;
+}
+inline void CustomBlockProperties::clear_scale() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.scale_ != nullptr) _impl_.scale_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000080U);
+}
+inline const ::df::plugin::Vec3& CustomBlockProperties::_internal_scale() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::Vec3* p = _impl_.scale_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::Vec3&>(::df::plugin::_Vec3_default_instance_);
+}
+inline const ::df::plugin::Vec3& CustomBlockProperties::scale() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockProperties.scale)
+  return _internal_scale();
+}
+inline void CustomBlockProperties::unsafe_arena_set_allocated_scale(
+    ::df::plugin::Vec3* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.scale_);
+  }
+  _impl_.scale_ = reinterpret_cast<::df::plugin::Vec3*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000080U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000080U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.CustomBlockProperties.scale)
+}
+inline ::df::plugin::Vec3* PROTOBUF_NULLABLE CustomBlockProperties::release_scale() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000080U);
+  ::df::plugin::Vec3* released = _impl_.scale_;
+  _impl_.scale_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::Vec3* PROTOBUF_NULLABLE CustomBlockProperties::unsafe_arena_release_scale() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockProperties.scale)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000080U);
+  ::df::plugin::Vec3* temp = _impl_.scale_;
+  _impl_.scale_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::Vec3* PROTOBUF_NONNULL CustomBlockProperties::_internal_mutable_scale() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.scale_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::Vec3>(GetArena());
+    _impl_.scale_ = reinterpret_cast<::df::plugin::Vec3*>(p);
+  }
+  return _impl_.scale_;
+}
+inline ::df::plugin::Vec3* PROTOBUF_NONNULL CustomBlockProperties::mutable_scale()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000080U);
+  ::df::plugin::Vec3* _msg = _internal_mutable_scale();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockProperties.scale)
+  return _msg;
+}
+inline void CustomBlockProperties::set_allocated_scale(::df::plugin::Vec3* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.scale_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000080U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000080U);
+  }
+
+  _impl_.scale_ = reinterpret_cast<::df::plugin::Vec3*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockProperties.scale)
+}
+
+// repeated .df.plugin.CustomBlockMaterial materials = 10 [json_name = "materials"];
+inline int CustomBlockProperties::_internal_materials_size() const {
+  return _internal_materials().size();
+}
+inline int CustomBlockProperties::materials_size() const {
+  return _internal_materials_size();
+}
+inline void CustomBlockProperties::clear_materials() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.materials_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::df::plugin::CustomBlockMaterial* PROTOBUF_NONNULL CustomBlockProperties::mutable_materials(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockProperties.materials)
+  return _internal_mutable_materials()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockMaterial>* PROTOBUF_NONNULL CustomBlockProperties::mutable_materials()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:df.plugin.CustomBlockProperties.materials)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_materials();
+}
+inline const ::df::plugin::CustomBlockMaterial& CustomBlockProperties::materials(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockProperties.materials)
+  return _internal_materials().Get(index);
+}
+inline ::df::plugin::CustomBlockMaterial* PROTOBUF_NONNULL CustomBlockProperties::add_materials()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::df::plugin::CustomBlockMaterial* _add =
+      _internal_mutable_materials()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:df.plugin.CustomBlockProperties.materials)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockMaterial>& CustomBlockProperties::materials() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:df.plugin.CustomBlockProperties.materials)
+  return _internal_materials();
+}
+inline const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockMaterial>&
+CustomBlockProperties::_internal_materials() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.materials_;
+}
+inline ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockMaterial>* PROTOBUF_NONNULL
+CustomBlockProperties::_internal_mutable_materials() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.materials_;
+}
+
+// map<string, .df.plugin.CustomBlockStateValues> states = 20 [json_name = "states"];
+inline int CustomBlockProperties::_internal_states_size() const {
+  return _internal_states().size();
+}
+inline int CustomBlockProperties::states_size() const {
+  return _internal_states_size();
+}
+inline void CustomBlockProperties::clear_states() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.states_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000200U);
+}
+inline const ::google::protobuf::Map<::std::string, ::df::plugin::CustomBlockStateValues>& CustomBlockProperties::_internal_states() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.states_.GetMap();
+}
+inline const ::google::protobuf::Map<::std::string, ::df::plugin::CustomBlockStateValues>& CustomBlockProperties::states() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:df.plugin.CustomBlockProperties.states)
+  return _internal_states();
+}
+inline ::google::protobuf::Map<::std::string, ::df::plugin::CustomBlockStateValues>* PROTOBUF_NONNULL CustomBlockProperties::_internal_mutable_states() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.states_.MutableMap();
+}
+inline ::google::protobuf::Map<::std::string, ::df::plugin::CustomBlockStateValues>* PROTOBUF_NONNULL CustomBlockProperties::mutable_states()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000200U);
+  // @@protoc_insertion_point(field_mutable_map:df.plugin.CustomBlockProperties.states)
+  return _internal_mutable_states();
+}
+
+// repeated .df.plugin.CustomBlockPermutation permutations = 21 [json_name = "permutations"];
+inline int CustomBlockProperties::_internal_permutations_size() const {
+  return _internal_permutations().size();
+}
+inline int CustomBlockProperties::permutations_size() const {
+  return _internal_permutations_size();
+}
+inline void CustomBlockProperties::clear_permutations() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.permutations_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000400U);
+}
+inline ::df::plugin::CustomBlockPermutation* PROTOBUF_NONNULL CustomBlockProperties::mutable_permutations(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockProperties.permutations)
+  return _internal_mutable_permutations()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockPermutation>* PROTOBUF_NONNULL CustomBlockProperties::mutable_permutations()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000400U);
+  // @@protoc_insertion_point(field_mutable_list:df.plugin.CustomBlockProperties.permutations)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_permutations();
+}
+inline const ::df::plugin::CustomBlockPermutation& CustomBlockProperties::permutations(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockProperties.permutations)
+  return _internal_permutations().Get(index);
+}
+inline ::df::plugin::CustomBlockPermutation* PROTOBUF_NONNULL CustomBlockProperties::add_permutations()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::df::plugin::CustomBlockPermutation* _add =
+      _internal_mutable_permutations()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000400U);
+  // @@protoc_insertion_point(field_add:df.plugin.CustomBlockProperties.permutations)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockPermutation>& CustomBlockProperties::permutations() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:df.plugin.CustomBlockProperties.permutations)
+  return _internal_permutations();
+}
+inline const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockPermutation>&
+CustomBlockProperties::_internal_permutations() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.permutations_;
+}
+inline ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockPermutation>* PROTOBUF_NONNULL
+CustomBlockProperties::_internal_mutable_permutations() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.permutations_;
+}
+
+// -------------------------------------------------------------------
+
+// CustomBlockDefinition
+
+// string id = 1 [json_name = "id"];
+inline void CustomBlockDefinition::clear_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline const ::std::string& CustomBlockDefinition::id() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockDefinition.id)
+  return _internal_id();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomBlockDefinition::set_id(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  _impl_.id_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockDefinition.id)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockDefinition::mutable_id()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::std::string* _s = _internal_mutable_id();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockDefinition.id)
+  return _s;
+}
+inline const ::std::string& CustomBlockDefinition::_internal_id() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.id_.Get();
+}
+inline void CustomBlockDefinition::_internal_set_id(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.id_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockDefinition::_internal_mutable_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.id_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomBlockDefinition::release_id() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockDefinition.id)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000002U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  auto* released = _impl_.id_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.id_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomBlockDefinition::set_allocated_id(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+  _impl_.id_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.id_.IsDefault()) {
+    _impl_.id_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockDefinition.id)
+}
+
+// string display_name = 2 [json_name = "displayName"];
+inline void CustomBlockDefinition::clear_display_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.display_name_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000004U);
+}
+inline const ::std::string& CustomBlockDefinition::display_name() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockDefinition.display_name)
+  return _internal_display_name();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomBlockDefinition::set_display_name(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  _impl_.display_name_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockDefinition.display_name)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockDefinition::mutable_display_name()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  ::std::string* _s = _internal_mutable_display_name();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockDefinition.display_name)
+  return _s;
+}
+inline const ::std::string& CustomBlockDefinition::_internal_display_name() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.display_name_.Get();
+}
+inline void CustomBlockDefinition::_internal_set_display_name(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.display_name_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockDefinition::_internal_mutable_display_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.display_name_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomBlockDefinition::release_display_name() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockDefinition.display_name)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000004U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  auto* released = _impl_.display_name_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.display_name_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomBlockDefinition::set_allocated_display_name(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000004U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000004U);
+  }
+  _impl_.display_name_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.display_name_.IsDefault()) {
+    _impl_.display_name_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockDefinition.display_name)
+}
+
+// optional bytes geometry_json = 3 [json_name = "geometryJson"];
+inline bool CustomBlockDefinition::has_geometry_json() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000008U);
+  return value;
+}
+inline void CustomBlockDefinition::clear_geometry_json() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.geometry_json_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+inline const ::std::string& CustomBlockDefinition::geometry_json() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockDefinition.geometry_json)
+  return _internal_geometry_json();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomBlockDefinition::set_geometry_json(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  _impl_.geometry_json_.SetBytes(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockDefinition.geometry_json)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockDefinition::mutable_geometry_json()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  ::std::string* _s = _internal_mutable_geometry_json();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockDefinition.geometry_json)
+  return _s;
+}
+inline const ::std::string& CustomBlockDefinition::_internal_geometry_json() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.geometry_json_.Get();
+}
+inline void CustomBlockDefinition::_internal_set_geometry_json(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.geometry_json_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockDefinition::_internal_mutable_geometry_json() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.geometry_json_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomBlockDefinition::release_geometry_json() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockDefinition.geometry_json)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000008U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  auto* released = _impl_.geometry_json_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.geometry_json_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomBlockDefinition::set_allocated_geometry_json(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000008U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000008U);
+  }
+  _impl_.geometry_json_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.geometry_json_.IsDefault()) {
+    _impl_.geometry_json_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockDefinition.geometry_json)
+}
+
+// repeated .df.plugin.CustomBlockTexture textures = 4 [json_name = "textures"];
+inline int CustomBlockDefinition::_internal_textures_size() const {
+  return _internal_textures().size();
+}
+inline int CustomBlockDefinition::textures_size() const {
+  return _internal_textures_size();
+}
+inline void CustomBlockDefinition::clear_textures() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.textures_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::df::plugin::CustomBlockTexture* PROTOBUF_NONNULL CustomBlockDefinition::mutable_textures(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockDefinition.textures)
+  return _internal_mutable_textures()->Mutable(index);
+}
+inline ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockTexture>* PROTOBUF_NONNULL CustomBlockDefinition::mutable_textures()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:df.plugin.CustomBlockDefinition.textures)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_textures();
+}
+inline const ::df::plugin::CustomBlockTexture& CustomBlockDefinition::textures(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockDefinition.textures)
+  return _internal_textures().Get(index);
+}
+inline ::df::plugin::CustomBlockTexture* PROTOBUF_NONNULL CustomBlockDefinition::add_textures()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::df::plugin::CustomBlockTexture* _add =
+      _internal_mutable_textures()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:df.plugin.CustomBlockDefinition.textures)
+  return _add;
+}
+inline const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockTexture>& CustomBlockDefinition::textures() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:df.plugin.CustomBlockDefinition.textures)
+  return _internal_textures();
+}
+inline const ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockTexture>&
+CustomBlockDefinition::_internal_textures() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.textures_;
+}
+inline ::google::protobuf::RepeatedPtrField<::df::plugin::CustomBlockTexture>* PROTOBUF_NONNULL
+CustomBlockDefinition::_internal_mutable_textures() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.textures_;
+}
+
+// .df.plugin.CustomBlockProperties properties = 5 [json_name = "properties"];
+inline bool CustomBlockDefinition::has_properties() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000010U);
+  PROTOBUF_ASSUME(!value || _impl_.properties_ != nullptr);
+  return value;
+}
+inline void CustomBlockDefinition::clear_properties() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.properties_ != nullptr) _impl_.properties_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+inline const ::df::plugin::CustomBlockProperties& CustomBlockDefinition::_internal_properties() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::CustomBlockProperties* p = _impl_.properties_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::CustomBlockProperties&>(::df::plugin::_CustomBlockProperties_default_instance_);
+}
+inline const ::df::plugin::CustomBlockProperties& CustomBlockDefinition::properties() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockDefinition.properties)
+  return _internal_properties();
+}
+inline void CustomBlockDefinition::unsafe_arena_set_allocated_properties(
+    ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.properties_);
+  }
+  _impl_.properties_ = reinterpret_cast<::df::plugin::CustomBlockProperties*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.CustomBlockDefinition.properties)
+}
+inline ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE CustomBlockDefinition::release_properties() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ::df::plugin::CustomBlockProperties* released = _impl_.properties_;
+  _impl_.properties_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE CustomBlockDefinition::unsafe_arena_release_properties() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockDefinition.properties)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ::df::plugin::CustomBlockProperties* temp = _impl_.properties_;
+  _impl_.properties_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::CustomBlockProperties* PROTOBUF_NONNULL CustomBlockDefinition::_internal_mutable_properties() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.properties_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::CustomBlockProperties>(GetArena());
+    _impl_.properties_ = reinterpret_cast<::df::plugin::CustomBlockProperties*>(p);
+  }
+  return _impl_.properties_;
+}
+inline ::df::plugin::CustomBlockProperties* PROTOBUF_NONNULL CustomBlockDefinition::mutable_properties()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  ::df::plugin::CustomBlockProperties* _msg = _internal_mutable_properties();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockDefinition.properties)
+  return _msg;
+}
+inline void CustomBlockDefinition::set_allocated_properties(::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.properties_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000010U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000010U);
+  }
+
+  _impl_.properties_ = reinterpret_cast<::df::plugin::CustomBlockProperties*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockDefinition.properties)
+}
+
+// -------------------------------------------------------------------
+
+// CustomBlockStateValues
+
+// repeated string values = 1 [json_name = "values"];
+inline int CustomBlockStateValues::_internal_values_size() const {
+  return _internal_values().size();
+}
+inline int CustomBlockStateValues::values_size() const {
+  return _internal_values_size();
+}
+inline void CustomBlockStateValues::clear_values() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.values_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockStateValues::add_values()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::std::string* _s =
+      _internal_mutable_values()->InternalAddWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), GetArena());
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add_mutable:df.plugin.CustomBlockStateValues.values)
+  return _s;
+}
+inline const ::std::string& CustomBlockStateValues::values(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockStateValues.values)
+  return _internal_values().Get(index);
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockStateValues::mutable_values(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockStateValues.values)
+  return _internal_mutable_values()->Mutable(index);
+}
+template <typename Arg_, typename... Args_>
+inline void CustomBlockStateValues::set_values(int index, Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::AssignToString(*_internal_mutable_values()->Mutable(index), ::std::forward<Arg_>(value),
+                        args... );
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockStateValues.values)
+}
+template <typename Arg_, typename... Args_>
+inline void CustomBlockStateValues::add_values(Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::google::protobuf::internal::AddToRepeatedPtrField(
+      ::google::protobuf::MessageLite::internal_visibility(), GetArena(),
+      *_internal_mutable_values(), ::std::forward<Arg_>(value),
+      args... );
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_add:df.plugin.CustomBlockStateValues.values)
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>& CustomBlockStateValues::values()
+    const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:df.plugin.CustomBlockStateValues.values)
+  return _internal_values();
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL
+CustomBlockStateValues::mutable_values() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBitForRepeated(_impl_._has_bits_[0], 0x00000001U);
+  // @@protoc_insertion_point(field_mutable_list:df.plugin.CustomBlockStateValues.values)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_values();
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>&
+CustomBlockStateValues::_internal_values() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.values_;
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>* PROTOBUF_NONNULL
+CustomBlockStateValues::_internal_mutable_values() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.values_;
+}
+
+// -------------------------------------------------------------------
+
+// CustomBlockPermutation
+
+// string condition = 1 [json_name = "condition"];
+inline void CustomBlockPermutation::clear_condition() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.condition_.ClearToEmpty();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000001U);
+}
+inline const ::std::string& CustomBlockPermutation::condition() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockPermutation.condition)
+  return _internal_condition();
+}
+template <typename Arg_, typename... Args_>
+PROTOBUF_ALWAYS_INLINE void CustomBlockPermutation::set_condition(Arg_&& arg, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  _impl_.condition_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:df.plugin.CustomBlockPermutation.condition)
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockPermutation::mutable_condition()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  ::std::string* _s = _internal_mutable_condition();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockPermutation.condition)
+  return _s;
+}
+inline const ::std::string& CustomBlockPermutation::_internal_condition() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.condition_.Get();
+}
+inline void CustomBlockPermutation::_internal_set_condition(const ::std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.condition_.Set(value, GetArena());
+}
+inline ::std::string* PROTOBUF_NONNULL CustomBlockPermutation::_internal_mutable_condition() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.condition_.Mutable( GetArena());
+}
+inline ::std::string* PROTOBUF_NULLABLE CustomBlockPermutation::release_condition() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockPermutation.condition)
+  if (!CheckHasBit(_impl_._has_bits_[0], 0x00000001U)) {
+    return nullptr;
+  }
+  ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  auto* released = _impl_.condition_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.condition_.Set("", GetArena());
+  }
+  return released;
+}
+inline void CustomBlockPermutation::set_allocated_condition(::std::string* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000001U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000001U);
+  }
+  _impl_.condition_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.condition_.IsDefault()) {
+    _impl_.condition_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockPermutation.condition)
+}
+
+// .df.plugin.CustomBlockProperties properties = 2 [json_name = "properties"];
+inline bool CustomBlockPermutation::has_properties() const {
+  bool value = CheckHasBit(_impl_._has_bits_[0], 0x00000002U);
+  PROTOBUF_ASSUME(!value || _impl_.properties_ != nullptr);
+  return value;
+}
+inline void CustomBlockPermutation::clear_properties() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.properties_ != nullptr) _impl_.properties_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+inline const ::df::plugin::CustomBlockProperties& CustomBlockPermutation::_internal_properties() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::df::plugin::CustomBlockProperties* p = _impl_.properties_;
+  return p != nullptr ? *p : reinterpret_cast<const ::df::plugin::CustomBlockProperties&>(::df::plugin::_CustomBlockProperties_default_instance_);
+}
+inline const ::df::plugin::CustomBlockProperties& CustomBlockPermutation::properties() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.CustomBlockPermutation.properties)
+  return _internal_properties();
+}
+inline void CustomBlockPermutation::unsafe_arena_set_allocated_properties(
+    ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.properties_);
+  }
+  _impl_.properties_ = reinterpret_cast<::df::plugin::CustomBlockProperties*>(value);
+  if (value != nullptr) {
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.CustomBlockPermutation.properties)
+}
+inline ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE CustomBlockPermutation::release_properties() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::df::plugin::CustomBlockProperties* released = _impl_.properties_;
+  _impl_.properties_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE CustomBlockPermutation::unsafe_arena_release_properties() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:df.plugin.CustomBlockPermutation.properties)
+
+  ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::df::plugin::CustomBlockProperties* temp = _impl_.properties_;
+  _impl_.properties_ = nullptr;
+  return temp;
+}
+inline ::df::plugin::CustomBlockProperties* PROTOBUF_NONNULL CustomBlockPermutation::_internal_mutable_properties() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.properties_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::df::plugin::CustomBlockProperties>(GetArena());
+    _impl_.properties_ = reinterpret_cast<::df::plugin::CustomBlockProperties*>(p);
+  }
+  return _impl_.properties_;
+}
+inline ::df::plugin::CustomBlockProperties* PROTOBUF_NONNULL CustomBlockPermutation::mutable_properties()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  ::df::plugin::CustomBlockProperties* _msg = _internal_mutable_properties();
+  // @@protoc_insertion_point(field_mutable:df.plugin.CustomBlockPermutation.properties)
+  return _msg;
+}
+inline void CustomBlockPermutation::set_allocated_properties(::df::plugin::CustomBlockProperties* PROTOBUF_NULLABLE value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.properties_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = value->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    SetHasBit(_impl_._has_bits_[0], 0x00000002U);
+  } else {
+    ClearHasBit(_impl_._has_bits_[0], 0x00000002U);
+  }
+
+  _impl_.properties_ = reinterpret_cast<::df::plugin::CustomBlockProperties*>(value);
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.CustomBlockPermutation.properties)
+}
+
 #ifdef __GNUC__
 #pragma GCC diagnostic pop
 #endif  // __GNUC__
@@ -5447,6 +8911,12 @@ struct is_proto_enum<::df::plugin::ItemCategory> : std::true_type {};
 template <>
 inline const EnumDescriptor* PROTOBUF_NONNULL GetEnumDescriptor<::df::plugin::ItemCategory>() {
   return ::df::plugin::ItemCategory_descriptor();
+}
+template <>
+struct is_proto_enum<::df::plugin::CustomBlockRenderMethod> : std::true_type {};
+template <>
+inline const EnumDescriptor* PROTOBUF_NONNULL GetEnumDescriptor<::df::plugin::CustomBlockRenderMethod>() {
+  return ::df::plugin::CustomBlockRenderMethod_descriptor();
 }
 
 }  // namespace protobuf

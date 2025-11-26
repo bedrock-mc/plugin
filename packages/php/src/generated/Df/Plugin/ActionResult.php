@@ -35,6 +35,18 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      *     @type \Df\Plugin\WorldEntitiesResult $world_entities
      *     @type \Df\Plugin\WorldPlayersResult $world_players
      *     @type \Df\Plugin\WorldEntitiesWithinResult $world_entities_within
+     *     @type \Df\Plugin\WorldDefaultGameModeResult $world_default_game_mode
+     *     @type \Df\Plugin\WorldPlayerSpawnResult $world_player_spawn
+     *     @type \Df\Plugin\WorldBlockResult $world_block
+     *     @type \Df\Plugin\WorldBiomeResult $world_biome
+     *     @type \Df\Plugin\WorldLightResult $world_light
+     *     @type \Df\Plugin\WorldSkyLightResult $world_sky_light
+     *     @type \Df\Plugin\WorldTemperatureResult $world_temperature
+     *     @type \Df\Plugin\WorldHighestBlockResult $world_highest_block
+     *     @type \Df\Plugin\WorldRainingAtResult $world_raining_at
+     *     @type \Df\Plugin\WorldSnowingAtResult $world_snowing_at
+     *     @type \Df\Plugin\WorldThunderingAtResult $world_thundering_at
+     *     @type \Df\Plugin\WorldLiquidResult $world_liquid
      * }
      */
     public function __construct($data = NULL) {
@@ -173,6 +185,330 @@ class ActionResult extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Df\Plugin\WorldEntitiesWithinResult::class);
         $this->writeOneof(12, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldDefaultGameModeResult world_default_game_mode = 13 [json_name = "worldDefaultGameMode"];</code>
+     * @return \Df\Plugin\WorldDefaultGameModeResult|null
+     */
+    public function getWorldDefaultGameMode()
+    {
+        return $this->readOneof(13);
+    }
+
+    public function hasWorldDefaultGameMode()
+    {
+        return $this->hasOneof(13);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldDefaultGameModeResult world_default_game_mode = 13 [json_name = "worldDefaultGameMode"];</code>
+     * @param \Df\Plugin\WorldDefaultGameModeResult $var
+     * @return $this
+     */
+    public function setWorldDefaultGameMode($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldDefaultGameModeResult::class);
+        $this->writeOneof(13, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldPlayerSpawnResult world_player_spawn = 14 [json_name = "worldPlayerSpawn"];</code>
+     * @return \Df\Plugin\WorldPlayerSpawnResult|null
+     */
+    public function getWorldPlayerSpawn()
+    {
+        return $this->readOneof(14);
+    }
+
+    public function hasWorldPlayerSpawn()
+    {
+        return $this->hasOneof(14);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldPlayerSpawnResult world_player_spawn = 14 [json_name = "worldPlayerSpawn"];</code>
+     * @param \Df\Plugin\WorldPlayerSpawnResult $var
+     * @return $this
+     */
+    public function setWorldPlayerSpawn($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldPlayerSpawnResult::class);
+        $this->writeOneof(14, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldBlockResult world_block = 15 [json_name = "worldBlock"];</code>
+     * @return \Df\Plugin\WorldBlockResult|null
+     */
+    public function getWorldBlock()
+    {
+        return $this->readOneof(15);
+    }
+
+    public function hasWorldBlock()
+    {
+        return $this->hasOneof(15);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldBlockResult world_block = 15 [json_name = "worldBlock"];</code>
+     * @param \Df\Plugin\WorldBlockResult $var
+     * @return $this
+     */
+    public function setWorldBlock($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldBlockResult::class);
+        $this->writeOneof(15, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldBiomeResult world_biome = 16 [json_name = "worldBiome"];</code>
+     * @return \Df\Plugin\WorldBiomeResult|null
+     */
+    public function getWorldBiome()
+    {
+        return $this->readOneof(16);
+    }
+
+    public function hasWorldBiome()
+    {
+        return $this->hasOneof(16);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldBiomeResult world_biome = 16 [json_name = "worldBiome"];</code>
+     * @param \Df\Plugin\WorldBiomeResult $var
+     * @return $this
+     */
+    public function setWorldBiome($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldBiomeResult::class);
+        $this->writeOneof(16, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldLightResult world_light = 17 [json_name = "worldLight"];</code>
+     * @return \Df\Plugin\WorldLightResult|null
+     */
+    public function getWorldLight()
+    {
+        return $this->readOneof(17);
+    }
+
+    public function hasWorldLight()
+    {
+        return $this->hasOneof(17);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldLightResult world_light = 17 [json_name = "worldLight"];</code>
+     * @param \Df\Plugin\WorldLightResult $var
+     * @return $this
+     */
+    public function setWorldLight($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldLightResult::class);
+        $this->writeOneof(17, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldSkyLightResult world_sky_light = 18 [json_name = "worldSkyLight"];</code>
+     * @return \Df\Plugin\WorldSkyLightResult|null
+     */
+    public function getWorldSkyLight()
+    {
+        return $this->readOneof(18);
+    }
+
+    public function hasWorldSkyLight()
+    {
+        return $this->hasOneof(18);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldSkyLightResult world_sky_light = 18 [json_name = "worldSkyLight"];</code>
+     * @param \Df\Plugin\WorldSkyLightResult $var
+     * @return $this
+     */
+    public function setWorldSkyLight($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldSkyLightResult::class);
+        $this->writeOneof(18, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldTemperatureResult world_temperature = 19 [json_name = "worldTemperature"];</code>
+     * @return \Df\Plugin\WorldTemperatureResult|null
+     */
+    public function getWorldTemperature()
+    {
+        return $this->readOneof(19);
+    }
+
+    public function hasWorldTemperature()
+    {
+        return $this->hasOneof(19);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldTemperatureResult world_temperature = 19 [json_name = "worldTemperature"];</code>
+     * @param \Df\Plugin\WorldTemperatureResult $var
+     * @return $this
+     */
+    public function setWorldTemperature($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldTemperatureResult::class);
+        $this->writeOneof(19, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldHighestBlockResult world_highest_block = 20 [json_name = "worldHighestBlock"];</code>
+     * @return \Df\Plugin\WorldHighestBlockResult|null
+     */
+    public function getWorldHighestBlock()
+    {
+        return $this->readOneof(20);
+    }
+
+    public function hasWorldHighestBlock()
+    {
+        return $this->hasOneof(20);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldHighestBlockResult world_highest_block = 20 [json_name = "worldHighestBlock"];</code>
+     * @param \Df\Plugin\WorldHighestBlockResult $var
+     * @return $this
+     */
+    public function setWorldHighestBlock($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldHighestBlockResult::class);
+        $this->writeOneof(20, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldRainingAtResult world_raining_at = 21 [json_name = "worldRainingAt"];</code>
+     * @return \Df\Plugin\WorldRainingAtResult|null
+     */
+    public function getWorldRainingAt()
+    {
+        return $this->readOneof(21);
+    }
+
+    public function hasWorldRainingAt()
+    {
+        return $this->hasOneof(21);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldRainingAtResult world_raining_at = 21 [json_name = "worldRainingAt"];</code>
+     * @param \Df\Plugin\WorldRainingAtResult $var
+     * @return $this
+     */
+    public function setWorldRainingAt($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldRainingAtResult::class);
+        $this->writeOneof(21, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldSnowingAtResult world_snowing_at = 22 [json_name = "worldSnowingAt"];</code>
+     * @return \Df\Plugin\WorldSnowingAtResult|null
+     */
+    public function getWorldSnowingAt()
+    {
+        return $this->readOneof(22);
+    }
+
+    public function hasWorldSnowingAt()
+    {
+        return $this->hasOneof(22);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldSnowingAtResult world_snowing_at = 22 [json_name = "worldSnowingAt"];</code>
+     * @param \Df\Plugin\WorldSnowingAtResult $var
+     * @return $this
+     */
+    public function setWorldSnowingAt($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldSnowingAtResult::class);
+        $this->writeOneof(22, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldThunderingAtResult world_thundering_at = 23 [json_name = "worldThunderingAt"];</code>
+     * @return \Df\Plugin\WorldThunderingAtResult|null
+     */
+    public function getWorldThunderingAt()
+    {
+        return $this->readOneof(23);
+    }
+
+    public function hasWorldThunderingAt()
+    {
+        return $this->hasOneof(23);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldThunderingAtResult world_thundering_at = 23 [json_name = "worldThunderingAt"];</code>
+     * @param \Df\Plugin\WorldThunderingAtResult $var
+     * @return $this
+     */
+    public function setWorldThunderingAt($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldThunderingAtResult::class);
+        $this->writeOneof(23, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldLiquidResult world_liquid = 24 [json_name = "worldLiquid"];</code>
+     * @return \Df\Plugin\WorldLiquidResult|null
+     */
+    public function getWorldLiquid()
+    {
+        return $this->readOneof(24);
+    }
+
+    public function hasWorldLiquid()
+    {
+        return $this->hasOneof(24);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldLiquidResult world_liquid = 24 [json_name = "worldLiquid"];</code>
+     * @param \Df\Plugin\WorldLiquidResult $var
+     * @return $this
+     */
+    public function setWorldLiquid($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldLiquidResult::class);
+        $this->writeOneof(24, $var);
 
         return $this;
     }

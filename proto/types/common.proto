@@ -121,6 +121,7 @@ message LiquidState {
 message WorldRef {
     string name = 1;
     string dimension = 2;
+    string id = 3; // This is a runtime id. it changes across server restarts.
 }
 
 message EntityRef {
@@ -163,4 +164,59 @@ message CustomItemDefinition {
     ItemCategory category = 4; // Creative inventory category
     optional string group = 5; // Optional subgroup within the category (e.g., "sword", "pickaxe", "food")
     int32 meta = 6; // Metadata value for this item (defaults to 0)
+}
+
+// Custom block support
+enum CustomBlockRenderMethod {
+    CUSTOM_BLOCK_RENDER_METHOD_OPAQUE = 0;
+    CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST = 1;
+    CUSTOM_BLOCK_RENDER_METHOD_BLEND = 2;
+    CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED = 3;
+}
+
+message CustomBlockTexture {
+    string name = 1;         // Texture name used by materials (e.g., "my_block" or "my_block_side")
+    bytes image_png = 2;     // PNG-encoded bytes
+}
+
+message CustomBlockMaterial {
+    string target = 1;                 // "*", "up", "down", "north", "south", "east", "west"
+    string texture_name = 2;           // Must match a CustomBlockTexture.name
+    CustomBlockRenderMethod render_method = 3; // Optional, defaults to OPAQUE
+    optional bool face_dimming = 4;           // Optional: defaults true
+    optional bool ambient_occlusion = 5;      // Optional: defaults based on render_method
+}
+
+message CustomBlockProperties {
+    optional BBox collision_box = 1;
+    optional BBox selection_box = 2;
+    optional string geometry_identifier = 3; // e.g., "geometry.my_block"
+    bool cube = 4;                            // true to use unit cube geometry when no identifier is provided
+    optional string map_colour = 5;           // hex string like "#RRGGBB" for map colour
+    optional Vec3 rotation = 6;               // integer degrees (90-degree increments), x/y/z
+    optional Vec3 translation = 7;            // translation vector
+    optional Vec3 scale = 8;                  // scaling factor
+    repeated CustomBlockMaterial materials = 10; // material instances by target
+    // Client-side state properties and permutations (pack-only; no runtime IDs).
+    map<string, CustomBlockStateValues> states = 20;
+    repeated CustomBlockPermutation permutations = 21;
+}
+
+message CustomBlockDefinition {
+    string id = 1;                             // e.g., "my_plugin:my_block"
+    string display_name = 2;                   // display name for language entry
+    optional bytes geometry_json = 3;          // optional geometry JSON for models/blocks/<name>.geo.json
+    repeated CustomBlockTexture textures = 4;  // textures referred by materials
+    CustomBlockProperties properties = 5;      // server/client properties/components
+}
+
+// Value list for a single custom block property (strings parsed to bool/int/float where possible).
+message CustomBlockStateValues {
+    repeated string values = 1;
+}
+
+// Permutation with molang condition and property overrides.
+message CustomBlockPermutation {
+    string condition = 1;
+    CustomBlockProperties properties = 2;
 }

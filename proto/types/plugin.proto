@@ -34,6 +34,7 @@ message ServerInformationResponse {
 
 message HostHello {
   string api_version = 1;
+  string boot_id = 2; // Used for auto reload to distinguish between startup and reload
 }
 
 message HostShutdown {
@@ -115,6 +116,7 @@ message PluginHello {
   string api_version = 3;
   repeated CommandSpec commands = 4;
   repeated CustomItemDefinition custom_items = 5;
+  repeated CustomBlockDefinition custom_blocks = 6;
 }
 
 message LogMessage {

@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 import common_pb2 as common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x61\x63tion_results.proto\x12\tdf.plugin\x1a\x0c\x63ommon.proto\"\xeb\x02\n\x0c\x41\x63tionResult\x12%\n\x0e\x63orrelation_id\x18\x01 \x01(\tR\rcorrelationId\x12\x34\n\x06status\x18\x02 \x01(\x0b\x32\x17.df.plugin.ActionStatusH\x01R\x06status\x88\x01\x01\x12G\n\x0eworld_entities\x18\n \x01(\x0b\x32\x1e.df.plugin.WorldEntitiesResultH\x00R\rworldEntities\x12\x44\n\rworld_players\x18\x0b \x01(\x0b\x32\x1d.df.plugin.WorldPlayersResultH\x00R\x0cworldPlayers\x12Z\n\x15world_entities_within\x18\x0c \x01(\x0b\x32$.df.plugin.WorldEntitiesWithinResultH\x00R\x13worldEntitiesWithinB\x08\n\x06resultB\t\n\x07_status\"C\n\x0c\x41\x63tionStatus\x12\x0e\n\x02ok\x18\x01 \x01(\x08R\x02ok\x12\x19\n\x05\x65rror\x18\x02 \x01(\tH\x00R\x05\x65rror\x88\x01\x01\x42\x08\n\x06_error\"r\n\x13WorldEntitiesResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\x30\n\x08\x65ntities\x18\x02 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x08\x65ntities\"\x9b\x01\n\x19WorldEntitiesWithinResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12!\n\x03\x62ox\x18\x02 \x01(\x0b\x32\x0f.df.plugin.BBoxR\x03\x62ox\x12\x30\n\x08\x65ntities\x18\x03 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x08\x65ntities\"o\n\x12WorldPlayersResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12.\n\x07players\x18\x02 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x07playersB\x91\x01\n\rcom.df.pluginB\x12\x41\x63tionResultsProtoP\x01Z\'github.com/secmc/plugin/proto/generated\xa2\x02\x03\x44PX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15\x44\x66\\Plugin\\GPBMetadata\xea\x02\nDf::Pluginb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x14\x61\x63tion_results.proto\x12\tdf.plugin\x1a\x0c\x63ommon.proto\"\x83\n\n\x0c\x41\x63tionResult\x12%\n\x0e\x63orrelation_id\x18\x01 \x01(\tR\rcorrelationId\x12\x34\n\x06status\x18\x02 \x01(\x0b\x32\x17.df.plugin.ActionStatusH\x01R\x06status\x88\x01\x01\x12G\n\x0eworld_entities\x18\n \x01(\x0b\x32\x1e.df.plugin.WorldEntitiesResultH\x00R\rworldEntities\x12\x44\n\rworld_players\x18\x0b \x01(\x0b\x32\x1d.df.plugin.WorldPlayersResultH\x00R\x0cworldPlayers\x12Z\n\x15world_entities_within\x18\x0c \x01(\x0b\x32$.df.plugin.WorldEntitiesWithinResultH\x00R\x13worldEntitiesWithin\x12^\n\x17world_default_game_mode\x18\r \x01(\x0b\x32%.df.plugin.WorldDefaultGameModeResultH\x00R\x14worldDefaultGameMode\x12Q\n\x12world_player_spawn\x18\x0e \x01(\x0b\x32!.df.plugin.WorldPlayerSpawnResultH\x00R\x10worldPlayerSpawn\x12>\n\x0bworld_block\x18\x0f \x01(\x0b\x32\x1b.df.plugin.WorldBlockResultH\x00R\nworldBlock\x12>\n\x0bworld_biome\x18\x10 \x01(\x0b\x32\x1b.df.plugin.WorldBiomeResultH\x00R\nworldBiome\x12>\n\x0bworld_light\x18\x11 \x01(\x0b\x32\x1b.df.plugin.WorldLightResultH\x00R\nworldLight\x12H\n\x0fworld_sky_light\x18\x12 \x01(\x0b\x32\x1e.df.plugin.WorldSkyLightResultH\x00R\rworldSkyLight\x12P\n\x11world_temperature\x18\x13 \x01(\x0b\x32!.df.plugin.WorldTemperatureResultH\x00R\x10worldTemperature\x12T\n\x13world_highest_block\x18\x14 \x01(\x0b\x32\".df.plugin.WorldHighestBlockResultH\x00R\x11worldHighestBlock\x12K\n\x10world_raining_at\x18\x15 \x01(\x0b\x32\x1f.df.plugin.WorldRainingAtResultH\x00R\x0eworldRainingAt\x12K\n\x10world_snowing_at\x18\x16 \x01(\x0b\x32\x1f.df.plugin.WorldSnowingAtResultH\x00R\x0eworldSnowingAt\x12T\n\x13world_thundering_at\x18\x17 \x01(\x0b\x32\".df.plugin.WorldThunderingAtResultH\x00R\x11worldThunderingAt\x12\x41\n\x0cworld_liquid\x18\x18 \x01(\x0b\x32\x1c.df.plugin.WorldLiquidResultH\x00R\x0bworldLiquidB\x08\n\x06resultB\t\n\x07_status\"C\n\x0c\x41\x63tionStatus\x12\x0e\n\x02ok\x18\x01 \x01(\x08R\x02ok\x12\x19\n\x05\x65rror\x18\x02 \x01(\tH\x00R\x05\x65rror\x88\x01\x01\x42\x08\n\x06_error\"r\n\x13WorldEntitiesResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\x30\n\x08\x65ntities\x18\x02 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x08\x65ntities\"\x9b\x01\n\x19WorldEntitiesWithinResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12!\n\x03\x62ox\x18\x02 \x01(\x0b\x32\x0f.df.plugin.BBoxR\x03\x62ox\x12\x30\n\x08\x65ntities\x18\x03 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x08\x65ntities\"o\n\x12WorldPlayersResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12.\n\x07players\x18\x02 \x03(\x0b\x32\x14.df.plugin.EntityRefR\x07players\"y\n\x1aWorldDefaultGameModeResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\x30\n\tgame_mode\x18\x02 \x01(\x0e\x32\x13.df.plugin.GameModeR\x08gameMode\"\x8f\x01\n\x16WorldPlayerSpawnResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\x1f\n\x0bplayer_uuid\x18\x02 \x01(\tR\nplayerUuid\x12)\n\x05spawn\x18\x03 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x05spawn\"\x9b\x01\n\x10WorldBlockResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\x12+\n\x05\x62lock\x18\x03 \x01(\x0b\x32\x15.df.plugin.BlockStateR\x05\x62lock\"\x89\x01\n\x10WorldBiomeResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\x12\x19\n\x08\x62iome_id\x18\x03 \x01(\tR\x07\x62iomeId\"\x8f\x01\n\x10WorldLightResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\x12\x1f\n\x0blight_level\x18\x03 \x01(\x05R\nlightLevel\"\x99\x01\n\x13WorldSkyLightResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\x12&\n\x0fsky_light_level\x18\x03 \x01(\x05R\rskyLightLevel\"\x96\x01\n\x16WorldTemperatureResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\x12 \n\x0btemperature\x18\x03 \x01(\x01R\x0btemperature\"n\n\x17WorldHighestBlockResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12\x0c\n\x01x\x18\x02 \x01(\x05R\x01x\x12\x0c\n\x01z\x18\x03 \x01(\x05R\x01z\x12\x0c\n\x01y\x18\x04 \x01(\x05R\x01y\"\x8c\x01\n\x14WorldRainingAtResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\x12\x18\n\x07raining\x18\x03 \x01(\x08R\x07raining\"\x8c\x01\n\x14WorldSnowingAtResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\x12\x18\n\x07snowing\x18\x03 \x01(\x08R\x07snowing\"\x95\x01\n\x17WorldThunderingAtResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\x12\x1e\n\nthundering\x18\x03 \x01(\x08R\nthundering\"\xaf\x01\n\x11WorldLiquidResult\x12)\n\x05world\x18\x01 \x01(\x0b\x32\x13.df.plugin.WorldRefR\x05world\x12/\n\x08position\x18\x02 \x01(\x0b\x32\x13.df.plugin.BlockPosR\x08position\x12\x33\n\x06liquid\x18\x03 \x01(\x0b\x32\x16.df.plugin.LiquidStateH\x00R\x06liquid\x88\x01\x01\x42\t\n\x07_liquidB\x91\x01\n\rcom.df.pluginB\x12\x41\x63tionResultsProtoP\x01Z\'github.com/secmc/plugin/proto/generated\xa2\x02\x03\x44PX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15\x44\x66\\Plugin\\GPBMetadata\xea\x02\nDf::Pluginb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,13 +34,37 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\rcom.df.pluginB\022ActionResultsProtoP\001Z\'github.com/secmc/plugin/proto/generated\242\002\003DPX\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMetadata\352\002\nDf::Plugin'
   _globals['_ACTIONRESULT']._serialized_start=50
-  _globals['_ACTIONRESULT']._serialized_end=413
-  _globals['_ACTIONSTATUS']._serialized_start=415
-  _globals['_ACTIONSTATUS']._serialized_end=482
-  _globals['_WORLDENTITIESRESULT']._serialized_start=484
-  _globals['_WORLDENTITIESRESULT']._serialized_end=598
-  _globals['_WORLDENTITIESWITHINRESULT']._serialized_start=601
-  _globals['_WORLDENTITIESWITHINRESULT']._serialized_end=756
-  _globals['_WORLDPLAYERSRESULT']._serialized_start=758
-  _globals['_WORLDPLAYERSRESULT']._serialized_end=869
+  _globals['_ACTIONRESULT']._serialized_end=1333
+  _globals['_ACTIONSTATUS']._serialized_start=1335
+  _globals['_ACTIONSTATUS']._serialized_end=1402
+  _globals['_WORLDENTITIESRESULT']._serialized_start=1404
+  _globals['_WORLDENTITIESRESULT']._serialized_end=1518
+  _globals['_WORLDENTITIESWITHINRESULT']._serialized_start=1521
+  _globals['_WORLDENTITIESWITHINRESULT']._serialized_end=1676
+  _globals['_WORLDPLAYERSRESULT']._serialized_start=1678
+  _globals['_WORLDPLAYERSRESULT']._serialized_end=1789
+  _globals['_WORLDDEFAULTGAMEMODERESULT']._serialized_start=1791
+  _globals['_WORLDDEFAULTGAMEMODERESULT']._serialized_end=1912
+  _globals['_WORLDPLAYERSPAWNRESULT']._serialized_start=1915
+  _globals['_WORLDPLAYERSPAWNRESULT']._serialized_end=2058
+  _globals['_WORLDBLOCKRESULT']._serialized_start=2061
+  _globals['_WORLDBLOCKRESULT']._serialized_end=2216
+  _globals['_WORLDBIOMERESULT']._serialized_start=2219
+  _globals['_WORLDBIOMERESULT']._serialized_end=2356
+  _globals['_WORLDLIGHTRESULT']._serialized_start=2359
+  _globals['_WORLDLIGHTRESULT']._serialized_end=2502
+  _globals['_WORLDSKYLIGHTRESULT']._serialized_start=2505
+  _globals['_WORLDSKYLIGHTRESULT']._serialized_end=2658
+  _globals['_WORLDTEMPERATURERESULT']._serialized_start=2661
+  _globals['_WORLDTEMPERATURERESULT']._serialized_end=2811
+  _globals['_WORLDHIGHESTBLOCKRESULT']._serialized_start=2813
+  _globals['_WORLDHIGHESTBLOCKRESULT']._serialized_end=2923
+  _globals['_WORLDRAININGATRESULT']._serialized_start=2926
+  _globals['_WORLDRAININGATRESULT']._serialized_end=3066
+  _globals['_WORLDSNOWINGATRESULT']._serialized_start=3069
+  _globals['_WORLDSNOWINGATRESULT']._serialized_end=3209
+  _globals['_WORLDTHUNDERINGATRESULT']._serialized_start=3212
+  _globals['_WORLDTHUNDERINGATRESULT']._serialized_end=3361
+  _globals['_WORLDLIQUIDRESULT']._serialized_start=3364
+  _globals['_WORLDLIQUIDRESULT']._serialized_end=3539
 # @@protoc_insertion_point(module_scope)

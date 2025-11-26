@@ -41,11 +41,17 @@ type Manager struct {
 
 	worldMu sync.RWMutex
 	worlds  map[string]*world.World
+	// worldsByDim maps lowercased dimension name ("overworld","nether","end") to the world instance.
+	worldsByDim map[string]*world.World
+	// worldsByID maps a runtime-stable world ID (assigned by host) to the world.
+	worldsByID map[string]*world.World
 
 	eventCounter atomic.Uint64
 
 	playerHandlerFactory ports.PlayerHandlerFactory
 	worldHandlerFactory  ports.WorldHandlerFactory
+
+	bootID string
 }
 
 // SetServer assigns the Dragonfly server instance after the manager has started.
@@ -77,8 +83,11 @@ func NewManager(srv *server.Server, log *slog.Logger, playerHandlerFactory ports
 		players:              make(map[uuid.UUID]*player.Player),
 		commands:             make(map[string]commandBinding),
 		worlds:               make(map[string]*world.World),
+		worldsByDim:          make(map[string]*world.World),
+		worldsByID:           make(map[string]*world.World),
 		playerHandlerFactory: playerHandlerFactory,
 		worldHandlerFactory:  worldHandlerFactory,
+		bootID:               uuid.NewString(),
 	}
 }
 
@@ -264,6 +273,7 @@ func (m *Manager) dispatchEvent(envelope *pb.EventEnvelope, expectResult bool) [
 		if expectResult {
 			waitCh = proc.expectEventResult(envelope.EventId)
 		}
+
 		msg := &pb.HostToPlugin{
 			PluginId: proc.id,
 			Payload: &pb.HostToPlugin_Event{
@@ -271,25 +281,34 @@ func (m *Manager) dispatchEvent(envelope *pb.EventEnvelope, expectResult bool) [
 			},
 		}
 		proc.queue(msg)
+
 		if !expectResult {
 			continue
 		}
+
+		waitStart := time.Now()
 		res, err := proc.waitEventResult(waitCh, eventResponseTimeout)
+		pluginResponseTime := time.Since(waitStart)
+
 		if err != nil {
 			if errors.Is(err, context.DeadlineExceeded) {
-				proc.log.Warn("plugin did not respond to event", "event_id", envelope.EventId, "type", envelope.Type.String())
+				proc.log.Warn("plugin did not respond to event",
+					"event_id", envelope.EventId,
+					"type", envelope.Type.String(),
+					"wait_ms", pluginResponseTime.Milliseconds())
 			}
 			proc.discardEventResult(envelope.EventId)
 			continue
 		}
 		if res != nil {
 			results = append(results, res)
-			if envelope.Type == pb.EventType_CHAT {
-				if chatEvt := envelope.GetChat(); chatEvt != nil {
-					if chatMut := res.GetChat(); chatMut != nil && chatMut.Message != nil {
-						chatEvt.Message = *chatMut.Message
-					}
-				}
+
+			// Log timing for command events
+			if envelope.Type == pb.EventType_COMMAND {
+				proc.log.Debug("plugin command response received",
+					"event_id", envelope.EventId,
+					"plugin_response_ms", pluginResponseTime.Milliseconds(),
+					"plugin_response_us", pluginResponseTime.Microseconds())
 			}
 		}
 	}
@@ -441,8 +460,18 @@ func (m *Manager) registerWorld(w *world.World) {
 		return
 	}
 	name := strings.ToLower(w.Name())
+	dim := strings.ToLower(fmt.Sprint(w.Dimension()))
+	id := fmt.Sprintf("%p", w)
 	m.worldMu.Lock()
 	m.worlds[name] = w
+	if m.worldsByDim == nil {
+		m.worldsByDim = make(map[string]*world.World)
+	}
+	m.worldsByDim[dim] = w
+	if m.worldsByID == nil {
+		m.worldsByID = make(map[string]*world.World)
+	}
+	m.worldsByID[id] = w
 	m.worldMu.Unlock()
 }
 
@@ -451,9 +480,21 @@ func (m *Manager) unregisterWorld(w *world.World) {
 		return
 	}
 	name := strings.ToLower(w.Name())
+	dim := strings.ToLower(fmt.Sprint(w.Dimension()))
+	id := fmt.Sprintf("%p", w)
 	m.worldMu.Lock()
 	if existing, ok := m.worlds[name]; ok && existing == w {
 		delete(m.worlds, name)
+	}
+	if m.worldsByDim != nil {
+		if existing, ok := m.worldsByDim[dim]; ok && existing == w {
+			delete(m.worldsByDim, dim)
+		}
+	}
+	if m.worldsByID != nil {
+		if existing, ok := m.worldsByID[id]; ok && existing == w {
+			delete(m.worldsByID, id)
+		}
 	}
 	m.worldMu.Unlock()
 }
@@ -466,21 +507,30 @@ func (m *Manager) worldFromRef(ref *pb.WorldRef) *world.World {
 	m.worldMu.RLock()
 	defer m.worldMu.RUnlock()
 
-	// Try by name first
+	// Prefer lookup by host-assigned ID when provided.
+	if ref.Id != "" {
+		if m.worldsByID != nil {
+			if w := m.worldsByID[ref.Id]; w != nil {
+				return w
+			}
+		}
+	}
+
+	// Prefer dimension lookup to disambiguate worlds that may share the same name (e.g., "World").
+	if ref.Dimension != "" {
+		dim := strings.ToLower(ref.Dimension)
+		if m.worldsByDim != nil {
+			if w := m.worldsByDim[dim]; w != nil {
+				return w
+			}
+		}
+	}
+
+	// Fallback to name lookup.
 	if ref.Name != "" {
 		name := strings.ToLower(ref.Name)
 		if w := m.worlds[name]; w != nil {
 			return w
-		}
-	}
-
-	// Fallback to dimension lookup
-	if ref.Dimension != "" {
-		dim := strings.ToLower(ref.Dimension)
-		for _, candidate := range m.worlds {
-			if worldDimension(candidate) == dim {
-				return candidate
-			}
 		}
 	}
 
@@ -503,6 +553,7 @@ func (m *Manager) handlePluginMessage(p *pluginProcess, msg *pb.PluginToHost) {
 		p.setHello(hello)
 		m.registerCommands(p, hello.Commands)
 		m.registerCustomItems(p, hello.CustomItems)
+		m.registerCustomBlocks(p, hello.CustomBlocks)
 	case *pb.PluginToHost_Subscribe:
 		subscribe := payload.Subscribe
 		eventNames := mapSlice(subscribe.Events, func(evt pb.EventType) string {

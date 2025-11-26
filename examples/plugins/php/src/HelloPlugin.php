@@ -30,11 +30,8 @@ class HelloPlugin extends PluginBase implements Listener {
     protected string $version = '0.1.0';
 
     public function onEnable(): void {
-        $this->registerCommandClass(new EffectCommand());
-        $this->registerCommandClass(new CircleCommand());
-        $this->registerCommand('/cheers', 'Send a toast from PHP');
-        $this->registerCommand('/pokemon', 'Give a Pokemon item');
-        // Register custom items
+        // Runs once per server boot. Put one-time init here.
+        // Register custom items only once to avoid double-registration.
         $this->registerCustomItemFromFile(
             'vasar:pokemon',
             'Pokemon Item',
@@ -43,7 +40,16 @@ class HelloPlugin extends PluginBase implements Listener {
             null,
             0
         );
+    }
+
+    public function onLoad(): void {
+        // Runs each plugin start/reload. Register event listeners here so
+        // subscriptions are derived before the handshake.
         $this->registerListener($this);
+        $this->registerCommandClass(new EffectCommand());
+        $this->registerCommandClass(new CircleCommand());
+        $this->registerCommand('/cheers', 'Send a toast from PHP');
+        $this->registerCommand('/pokemon', 'Give a Pokemon item');
     }
 
     public function onPlayerJoin(PlayerJoinEvent $e, EventContext $ctx): void {
