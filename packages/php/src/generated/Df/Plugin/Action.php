@@ -37,6 +37,9 @@ class Action extends \Google\Protobuf\Internal\Message
      *     @type \Df\Plugin\ClearInventoryAction $clear_inventory
      *     @type \Df\Plugin\SetHeldItemAction $set_held_item
      *     @type \Df\Plugin\PlayerSetArmourAction $player_set_armour
+     *     @type \Df\Plugin\PlayerOpenBlockContainerAction $player_open_block_container
+     *     @type \Df\Plugin\PlayerDropItemAction $player_drop_item
+     *     @type \Df\Plugin\PlayerSetItemCooldownAction $player_set_item_cooldown
      *     @type \Df\Plugin\SetHealthAction $set_health
      *           Player: State & Attributes
      *     @type \Df\Plugin\SetFoodAction $set_food
@@ -64,6 +67,12 @@ class Action extends \Google\Protobuf\Internal\Message
      *     @type \Df\Plugin\PlayerSendScoreboardAction $player_send_scoreboard
      *           Player: Scoreboard
      *     @type \Df\Plugin\PlayerRemoveScoreboardAction $player_remove_scoreboard
+     *     @type \Df\Plugin\PlayerSendMenuFormAction $player_send_menu_form
+     *           Player: Forms & Dialogue
+     *     @type \Df\Plugin\PlayerSendModalFormAction $player_send_modal_form
+     *     @type \Df\Plugin\PlayerSendDialogueAction $player_send_dialogue
+     *     @type \Df\Plugin\PlayerCloseDialogueAction $player_close_dialogue
+     *     @type \Df\Plugin\PlayerCloseFormAction $player_close_form
      *     @type \Df\Plugin\ExecuteCommandAction $execute_command
      *           Player: Commands
      *     @type \Df\Plugin\PlayerStartSprintingAction $player_start_sprinting
@@ -101,6 +110,21 @@ class Action extends \Google\Protobuf\Internal\Message
      *     @type \Df\Plugin\PlayerKnockBackAction $player_knock_back
      *     @type \Df\Plugin\PlayerSwingArmAction $player_swing_arm
      *     @type \Df\Plugin\PlayerPunchAirAction $player_punch_air
+     *     @type \Df\Plugin\PlayerSendBossBarAction $player_send_boss_bar
+     *           Player: Boss bar
+     *     @type \Df\Plugin\PlayerRemoveBossBarAction $player_remove_boss_bar
+     *     @type \Df\Plugin\PlayerShowHudElementAction $player_show_hud_element
+     *           Player: HUD elements
+     *     @type \Df\Plugin\PlayerHideHudElementAction $player_hide_hud_element
+     *     @type \Df\Plugin\PlayerOpenSignAction $player_open_sign
+     *           Player: Signs & Lecterns
+     *     @type \Df\Plugin\PlayerEditSignAction $player_edit_sign
+     *     @type \Df\Plugin\PlayerTurnLecternPageAction $player_turn_lectern_page
+     *     @type \Df\Plugin\PlayerHidePlayerAction $player_hide_player
+     *           Player: Entity visibility
+     *     @type \Df\Plugin\PlayerShowPlayerAction $player_show_player
+     *     @type \Df\Plugin\PlayerRemoveAllDebugShapesAction $player_remove_all_debug_shapes
+     *           Player: Debug shapes
      *     @type \Df\Plugin\WorldSetDefaultGameModeAction $world_set_default_game_mode
      *           World: Configuration & Settings
      *     @type \Df\Plugin\WorldSetDifficultyAction $world_set_difficulty
@@ -396,6 +420,87 @@ class Action extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetArmourAction::class);
         $this->writeOneof(132, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerOpenBlockContainerAction player_open_block_container = 147 [json_name = "playerOpenBlockContainer"];</code>
+     * @return \Df\Plugin\PlayerOpenBlockContainerAction|null
+     */
+    public function getPlayerOpenBlockContainer()
+    {
+        return $this->readOneof(147);
+    }
+
+    public function hasPlayerOpenBlockContainer()
+    {
+        return $this->hasOneof(147);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerOpenBlockContainerAction player_open_block_container = 147 [json_name = "playerOpenBlockContainer"];</code>
+     * @param \Df\Plugin\PlayerOpenBlockContainerAction $var
+     * @return $this
+     */
+    public function setPlayerOpenBlockContainer($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerOpenBlockContainerAction::class);
+        $this->writeOneof(147, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerDropItemAction player_drop_item = 148 [json_name = "playerDropItem"];</code>
+     * @return \Df\Plugin\PlayerDropItemAction|null
+     */
+    public function getPlayerDropItem()
+    {
+        return $this->readOneof(148);
+    }
+
+    public function hasPlayerDropItem()
+    {
+        return $this->hasOneof(148);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerDropItemAction player_drop_item = 148 [json_name = "playerDropItem"];</code>
+     * @param \Df\Plugin\PlayerDropItemAction $var
+     * @return $this
+     */
+    public function setPlayerDropItem($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerDropItemAction::class);
+        $this->writeOneof(148, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerSetItemCooldownAction player_set_item_cooldown = 149 [json_name = "playerSetItemCooldown"];</code>
+     * @return \Df\Plugin\PlayerSetItemCooldownAction|null
+     */
+    public function getPlayerSetItemCooldown()
+    {
+        return $this->readOneof(149);
+    }
+
+    public function hasPlayerSetItemCooldown()
+    {
+        return $this->hasOneof(149);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerSetItemCooldownAction player_set_item_cooldown = 149 [json_name = "playerSetItemCooldown"];</code>
+     * @param \Df\Plugin\PlayerSetItemCooldownAction $var
+     * @return $this
+     */
+    public function setPlayerSetItemCooldown($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetItemCooldownAction::class);
+        $this->writeOneof(149, $var);
 
         return $this;
     }
@@ -987,6 +1092,145 @@ class Action extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Df\Plugin\PlayerRemoveScoreboardAction::class);
         $this->writeOneof(134, $var);
+
+        return $this;
+    }
+
+    /**
+     * Player: Forms & Dialogue
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerSendMenuFormAction player_send_menu_form = 150 [json_name = "playerSendMenuForm"];</code>
+     * @return \Df\Plugin\PlayerSendMenuFormAction|null
+     */
+    public function getPlayerSendMenuForm()
+    {
+        return $this->readOneof(150);
+    }
+
+    public function hasPlayerSendMenuForm()
+    {
+        return $this->hasOneof(150);
+    }
+
+    /**
+     * Player: Forms & Dialogue
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerSendMenuFormAction player_send_menu_form = 150 [json_name = "playerSendMenuForm"];</code>
+     * @param \Df\Plugin\PlayerSendMenuFormAction $var
+     * @return $this
+     */
+    public function setPlayerSendMenuForm($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSendMenuFormAction::class);
+        $this->writeOneof(150, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerSendModalFormAction player_send_modal_form = 151 [json_name = "playerSendModalForm"];</code>
+     * @return \Df\Plugin\PlayerSendModalFormAction|null
+     */
+    public function getPlayerSendModalForm()
+    {
+        return $this->readOneof(151);
+    }
+
+    public function hasPlayerSendModalForm()
+    {
+        return $this->hasOneof(151);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerSendModalFormAction player_send_modal_form = 151 [json_name = "playerSendModalForm"];</code>
+     * @param \Df\Plugin\PlayerSendModalFormAction $var
+     * @return $this
+     */
+    public function setPlayerSendModalForm($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSendModalFormAction::class);
+        $this->writeOneof(151, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerSendDialogueAction player_send_dialogue = 152 [json_name = "playerSendDialogue"];</code>
+     * @return \Df\Plugin\PlayerSendDialogueAction|null
+     */
+    public function getPlayerSendDialogue()
+    {
+        return $this->readOneof(152);
+    }
+
+    public function hasPlayerSendDialogue()
+    {
+        return $this->hasOneof(152);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerSendDialogueAction player_send_dialogue = 152 [json_name = "playerSendDialogue"];</code>
+     * @param \Df\Plugin\PlayerSendDialogueAction $var
+     * @return $this
+     */
+    public function setPlayerSendDialogue($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSendDialogueAction::class);
+        $this->writeOneof(152, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerCloseDialogueAction player_close_dialogue = 139 [json_name = "playerCloseDialogue"];</code>
+     * @return \Df\Plugin\PlayerCloseDialogueAction|null
+     */
+    public function getPlayerCloseDialogue()
+    {
+        return $this->readOneof(139);
+    }
+
+    public function hasPlayerCloseDialogue()
+    {
+        return $this->hasOneof(139);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerCloseDialogueAction player_close_dialogue = 139 [json_name = "playerCloseDialogue"];</code>
+     * @param \Df\Plugin\PlayerCloseDialogueAction $var
+     * @return $this
+     */
+    public function setPlayerCloseDialogue($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerCloseDialogueAction::class);
+        $this->writeOneof(139, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerCloseFormAction player_close_form = 140 [json_name = "playerCloseForm"];</code>
+     * @return \Df\Plugin\PlayerCloseFormAction|null
+     */
+    public function getPlayerCloseForm()
+    {
+        return $this->readOneof(140);
+    }
+
+    public function hasPlayerCloseForm()
+    {
+        return $this->hasOneof(140);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerCloseFormAction player_close_form = 140 [json_name = "playerCloseForm"];</code>
+     * @param \Df\Plugin\PlayerCloseFormAction $var
+     * @return $this
+     */
+    public function setPlayerCloseForm($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerCloseFormAction::class);
+        $this->writeOneof(140, $var);
 
         return $this;
     }
@@ -1825,6 +2069,296 @@ class Action extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Df\Plugin\PlayerPunchAirAction::class);
         $this->writeOneof(131, $var);
+
+        return $this;
+    }
+
+    /**
+     * Player: Boss bar
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerSendBossBarAction player_send_boss_bar = 135 [json_name = "playerSendBossBar"];</code>
+     * @return \Df\Plugin\PlayerSendBossBarAction|null
+     */
+    public function getPlayerSendBossBar()
+    {
+        return $this->readOneof(135);
+    }
+
+    public function hasPlayerSendBossBar()
+    {
+        return $this->hasOneof(135);
+    }
+
+    /**
+     * Player: Boss bar
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerSendBossBarAction player_send_boss_bar = 135 [json_name = "playerSendBossBar"];</code>
+     * @param \Df\Plugin\PlayerSendBossBarAction $var
+     * @return $this
+     */
+    public function setPlayerSendBossBar($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSendBossBarAction::class);
+        $this->writeOneof(135, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerRemoveBossBarAction player_remove_boss_bar = 136 [json_name = "playerRemoveBossBar"];</code>
+     * @return \Df\Plugin\PlayerRemoveBossBarAction|null
+     */
+    public function getPlayerRemoveBossBar()
+    {
+        return $this->readOneof(136);
+    }
+
+    public function hasPlayerRemoveBossBar()
+    {
+        return $this->hasOneof(136);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerRemoveBossBarAction player_remove_boss_bar = 136 [json_name = "playerRemoveBossBar"];</code>
+     * @param \Df\Plugin\PlayerRemoveBossBarAction $var
+     * @return $this
+     */
+    public function setPlayerRemoveBossBar($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerRemoveBossBarAction::class);
+        $this->writeOneof(136, $var);
+
+        return $this;
+    }
+
+    /**
+     * Player: HUD elements
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerShowHudElementAction player_show_hud_element = 137 [json_name = "playerShowHudElement"];</code>
+     * @return \Df\Plugin\PlayerShowHudElementAction|null
+     */
+    public function getPlayerShowHudElement()
+    {
+        return $this->readOneof(137);
+    }
+
+    public function hasPlayerShowHudElement()
+    {
+        return $this->hasOneof(137);
+    }
+
+    /**
+     * Player: HUD elements
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerShowHudElementAction player_show_hud_element = 137 [json_name = "playerShowHudElement"];</code>
+     * @param \Df\Plugin\PlayerShowHudElementAction $var
+     * @return $this
+     */
+    public function setPlayerShowHudElement($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerShowHudElementAction::class);
+        $this->writeOneof(137, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerHideHudElementAction player_hide_hud_element = 138 [json_name = "playerHideHudElement"];</code>
+     * @return \Df\Plugin\PlayerHideHudElementAction|null
+     */
+    public function getPlayerHideHudElement()
+    {
+        return $this->readOneof(138);
+    }
+
+    public function hasPlayerHideHudElement()
+    {
+        return $this->hasOneof(138);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerHideHudElementAction player_hide_hud_element = 138 [json_name = "playerHideHudElement"];</code>
+     * @param \Df\Plugin\PlayerHideHudElementAction $var
+     * @return $this
+     */
+    public function setPlayerHideHudElement($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerHideHudElementAction::class);
+        $this->writeOneof(138, $var);
+
+        return $this;
+    }
+
+    /**
+     * Player: Signs & Lecterns
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerOpenSignAction player_open_sign = 141 [json_name = "playerOpenSign"];</code>
+     * @return \Df\Plugin\PlayerOpenSignAction|null
+     */
+    public function getPlayerOpenSign()
+    {
+        return $this->readOneof(141);
+    }
+
+    public function hasPlayerOpenSign()
+    {
+        return $this->hasOneof(141);
+    }
+
+    /**
+     * Player: Signs & Lecterns
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerOpenSignAction player_open_sign = 141 [json_name = "playerOpenSign"];</code>
+     * @param \Df\Plugin\PlayerOpenSignAction $var
+     * @return $this
+     */
+    public function setPlayerOpenSign($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerOpenSignAction::class);
+        $this->writeOneof(141, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerEditSignAction player_edit_sign = 142 [json_name = "playerEditSign"];</code>
+     * @return \Df\Plugin\PlayerEditSignAction|null
+     */
+    public function getPlayerEditSign()
+    {
+        return $this->readOneof(142);
+    }
+
+    public function hasPlayerEditSign()
+    {
+        return $this->hasOneof(142);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerEditSignAction player_edit_sign = 142 [json_name = "playerEditSign"];</code>
+     * @param \Df\Plugin\PlayerEditSignAction $var
+     * @return $this
+     */
+    public function setPlayerEditSign($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerEditSignAction::class);
+        $this->writeOneof(142, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerTurnLecternPageAction player_turn_lectern_page = 143 [json_name = "playerTurnLecternPage"];</code>
+     * @return \Df\Plugin\PlayerTurnLecternPageAction|null
+     */
+    public function getPlayerTurnLecternPage()
+    {
+        return $this->readOneof(143);
+    }
+
+    public function hasPlayerTurnLecternPage()
+    {
+        return $this->hasOneof(143);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerTurnLecternPageAction player_turn_lectern_page = 143 [json_name = "playerTurnLecternPage"];</code>
+     * @param \Df\Plugin\PlayerTurnLecternPageAction $var
+     * @return $this
+     */
+    public function setPlayerTurnLecternPage($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerTurnLecternPageAction::class);
+        $this->writeOneof(143, $var);
+
+        return $this;
+    }
+
+    /**
+     * Player: Entity visibility
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerHidePlayerAction player_hide_player = 144 [json_name = "playerHidePlayer"];</code>
+     * @return \Df\Plugin\PlayerHidePlayerAction|null
+     */
+    public function getPlayerHidePlayer()
+    {
+        return $this->readOneof(144);
+    }
+
+    public function hasPlayerHidePlayer()
+    {
+        return $this->hasOneof(144);
+    }
+
+    /**
+     * Player: Entity visibility
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerHidePlayerAction player_hide_player = 144 [json_name = "playerHidePlayer"];</code>
+     * @param \Df\Plugin\PlayerHidePlayerAction $var
+     * @return $this
+     */
+    public function setPlayerHidePlayer($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerHidePlayerAction::class);
+        $this->writeOneof(144, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerShowPlayerAction player_show_player = 145 [json_name = "playerShowPlayer"];</code>
+     * @return \Df\Plugin\PlayerShowPlayerAction|null
+     */
+    public function getPlayerShowPlayer()
+    {
+        return $this->readOneof(145);
+    }
+
+    public function hasPlayerShowPlayer()
+    {
+        return $this->hasOneof(145);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.PlayerShowPlayerAction player_show_player = 145 [json_name = "playerShowPlayer"];</code>
+     * @param \Df\Plugin\PlayerShowPlayerAction $var
+     * @return $this
+     */
+    public function setPlayerShowPlayer($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerShowPlayerAction::class);
+        $this->writeOneof(145, $var);
+
+        return $this;
+    }
+
+    /**
+     * Player: Debug shapes
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerRemoveAllDebugShapesAction player_remove_all_debug_shapes = 146 [json_name = "playerRemoveAllDebugShapes"];</code>
+     * @return \Df\Plugin\PlayerRemoveAllDebugShapesAction|null
+     */
+    public function getPlayerRemoveAllDebugShapes()
+    {
+        return $this->readOneof(146);
+    }
+
+    public function hasPlayerRemoveAllDebugShapes()
+    {
+        return $this->hasOneof(146);
+    }
+
+    /**
+     * Player: Debug shapes
+     *
+     * Generated from protobuf field <code>.df.plugin.PlayerRemoveAllDebugShapesAction player_remove_all_debug_shapes = 146 [json_name = "playerRemoveAllDebugShapes"];</code>
+     * @param \Df\Plugin\PlayerRemoveAllDebugShapesAction $var
+     * @return $this
+     */
+    public function setPlayerRemoveAllDebugShapes($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\PlayerRemoveAllDebugShapesAction::class);
+        $this->writeOneof(146, $var);
 
         return $this;
     }

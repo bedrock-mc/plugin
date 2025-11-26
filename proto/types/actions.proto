@@ -22,6 +22,9 @@ message Action {
         ClearInventoryAction clear_inventory = 15;
         SetHeldItemAction set_held_item = 16;
         PlayerSetArmourAction player_set_armour = 132;
+        PlayerOpenBlockContainerAction player_open_block_container = 147;
+        PlayerDropItemAction player_drop_item = 148;
+        PlayerSetItemCooldownAction player_set_item_cooldown = 149;
         // Player: State & Attributes
         SetHealthAction set_health = 20;
         SetFoodAction set_food = 21;
@@ -49,6 +52,12 @@ message Action {
         // Player: Scoreboard
         PlayerSendScoreboardAction player_send_scoreboard = 133;
         PlayerRemoveScoreboardAction player_remove_scoreboard = 134;
+        // Player: Forms & Dialogue
+        PlayerSendMenuFormAction player_send_menu_form = 150;
+        PlayerSendModalFormAction player_send_modal_form = 151;
+        PlayerSendDialogueAction player_send_dialogue = 152;
+        PlayerCloseDialogueAction player_close_dialogue = 139;
+        PlayerCloseFormAction player_close_form = 140;
         // Player: Commands
         ExecuteCommandAction execute_command = 50;
         // Player: Movement toggles
@@ -86,6 +95,21 @@ message Action {
         PlayerKnockBackAction player_knock_back = 129;
         PlayerSwingArmAction player_swing_arm = 130;
         PlayerPunchAirAction player_punch_air = 131;
+        // Player: Boss bar
+        PlayerSendBossBarAction player_send_boss_bar = 135;
+        PlayerRemoveBossBarAction player_remove_boss_bar = 136;
+        // Player: HUD elements
+        PlayerShowHudElementAction player_show_hud_element = 137;
+        PlayerHideHudElementAction player_hide_hud_element = 138;
+        // Player: Signs & Lecterns
+        PlayerOpenSignAction player_open_sign = 141;
+        PlayerEditSignAction player_edit_sign = 142;
+        PlayerTurnLecternPageAction player_turn_lectern_page = 143;
+        // Player: Entity visibility
+        PlayerHidePlayerAction player_hide_player = 144;
+        PlayerShowPlayerAction player_show_player = 145;
+        // Player: Debug shapes
+        PlayerRemoveAllDebugShapesAction player_remove_all_debug_shapes = 146;
 
         // World: Configuration & Settings
         WorldSetDefaultGameModeAction world_set_default_game_mode = 60;
@@ -600,4 +624,140 @@ message PlayerSendScoreboardAction {
 
 message PlayerRemoveScoreboardAction {
     string player_uuid = 1;
+}
+
+// Player forms (show)
+message PlayerSendMenuFormAction {
+    string player_uuid = 1;
+    string title = 2;
+    optional string body = 3;
+    repeated string buttons = 4; // up to 6
+}
+
+message PlayerSendModalFormAction {
+    string player_uuid = 1;
+    string title = 2;
+    string body = 3;
+    string yes_text = 4; // default: gui.yes
+    string no_text = 5;  // default: gui.no
+}
+
+// Dialogue (show)
+message PlayerSendDialogueAction {
+    string player_uuid = 1;
+    string title = 2;
+    optional string body = 3;
+    repeated string buttons = 4; // up to 6
+    EntityRef entity = 5; // target entity to display as NPC
+}
+
+// Player boss bar management
+enum BossBarColour {
+    BOSS_BAR_COLOUR_GREY = 0;
+    BOSS_BAR_COLOUR_BLUE = 1;
+    BOSS_BAR_COLOUR_RED = 2;
+    BOSS_BAR_COLOUR_GREEN = 3;
+    BOSS_BAR_COLOUR_YELLOW = 4;
+    BOSS_BAR_COLOUR_PURPLE = 5;
+    BOSS_BAR_COLOUR_WHITE = 6;
+}
+
+message PlayerSendBossBarAction {
+    string player_uuid = 1;
+    string text = 2;
+    optional float health_percentage = 3; // 0.0 - 1.0 (default 1.0)
+    optional BossBarColour colour = 4;    // default PURPLE
+}
+
+message PlayerRemoveBossBarAction {
+    string player_uuid = 1;
+}
+
+// Player HUD element control
+enum HudElement {
+    HUD_ELEMENT_PAPER_DOLL = 0;
+    HUD_ELEMENT_ARMOUR = 1;
+    HUD_ELEMENT_TOOL_TIPS = 2;
+    HUD_ELEMENT_TOUCH_CONTROLS = 3;
+    HUD_ELEMENT_CROSSHAIR = 4;
+    HUD_ELEMENT_HOT_BAR = 5;
+    HUD_ELEMENT_HEALTH = 6;
+    HUD_ELEMENT_PROGRESS_BAR = 7;
+    HUD_ELEMENT_HUNGER = 8;
+    HUD_ELEMENT_AIR_BUBBLES = 9;
+    HUD_ELEMENT_HORSE_HEALTH = 10;
+    HUD_ELEMENT_STATUS_EFFECTS = 11;
+    HUD_ELEMENT_ITEM_TEXT = 12;
+}
+
+message PlayerShowHudElementAction {
+    string player_uuid = 1;
+    HudElement element = 2;
+}
+
+message PlayerHideHudElementAction {
+    string player_uuid = 1;
+    HudElement element = 2;
+}
+
+// Player UI closers
+message PlayerCloseDialogueAction {
+    string player_uuid = 1;
+}
+
+message PlayerCloseFormAction {
+    string player_uuid = 1;
+}
+
+// Player: Signs & Lecterns
+message PlayerOpenSignAction {
+    string player_uuid = 1;
+    BlockPos position = 2;
+    bool front_side = 3;
+}
+
+message PlayerEditSignAction {
+    string player_uuid = 1;
+    BlockPos position = 2;
+    string front_text = 3;
+    string back_text = 4;
+}
+
+message PlayerTurnLecternPageAction {
+    string player_uuid = 1;
+    BlockPos position = 2;
+    int32 page = 3;
+}
+
+// Player: Entity visibility (player-targeted)
+message PlayerHidePlayerAction {
+    string player_uuid = 1;
+    string target_uuid = 2;
+}
+
+message PlayerShowPlayerAction {
+    string player_uuid = 1;
+    string target_uuid = 2;
+}
+
+// Player: Debug shapes
+message PlayerRemoveAllDebugShapesAction {
+    string player_uuid = 1;
+}
+
+// Player: Interaction extras
+message PlayerOpenBlockContainerAction {
+    string player_uuid = 1;
+    BlockPos position = 2;
+}
+
+message PlayerDropItemAction {
+    string player_uuid = 1;
+    optional ItemStack item = 2; // if unset, drops currently held main-hand item
+}
+
+message PlayerSetItemCooldownAction {
+    string player_uuid = 1;
+    ItemStack item = 2;
+    int64 duration_ms = 3;
 }

@@ -118,6 +118,148 @@ func (ParticleType) EnumDescriptor() ([]byte, []int) {
 	return file_actions_proto_rawDescGZIP(), []int{0}
 }
 
+// Player boss bar management
+type BossBarColour int32
+
+const (
+	BossBarColour_BOSS_BAR_COLOUR_GREY   BossBarColour = 0
+	BossBarColour_BOSS_BAR_COLOUR_BLUE   BossBarColour = 1
+	BossBarColour_BOSS_BAR_COLOUR_RED    BossBarColour = 2
+	BossBarColour_BOSS_BAR_COLOUR_GREEN  BossBarColour = 3
+	BossBarColour_BOSS_BAR_COLOUR_YELLOW BossBarColour = 4
+	BossBarColour_BOSS_BAR_COLOUR_PURPLE BossBarColour = 5
+	BossBarColour_BOSS_BAR_COLOUR_WHITE  BossBarColour = 6
+)
+
+// Enum value maps for BossBarColour.
+var (
+	BossBarColour_name = map[int32]string{
+		0: "BOSS_BAR_COLOUR_GREY",
+		1: "BOSS_BAR_COLOUR_BLUE",
+		2: "BOSS_BAR_COLOUR_RED",
+		3: "BOSS_BAR_COLOUR_GREEN",
+		4: "BOSS_BAR_COLOUR_YELLOW",
+		5: "BOSS_BAR_COLOUR_PURPLE",
+		6: "BOSS_BAR_COLOUR_WHITE",
+	}
+	BossBarColour_value = map[string]int32{
+		"BOSS_BAR_COLOUR_GREY":   0,
+		"BOSS_BAR_COLOUR_BLUE":   1,
+		"BOSS_BAR_COLOUR_RED":    2,
+		"BOSS_BAR_COLOUR_GREEN":  3,
+		"BOSS_BAR_COLOUR_YELLOW": 4,
+		"BOSS_BAR_COLOUR_PURPLE": 5,
+		"BOSS_BAR_COLOUR_WHITE":  6,
+	}
+)
+
+func (x BossBarColour) Enum() *BossBarColour {
+	p := new(BossBarColour)
+	*p = x
+	return p
+}
+
+func (x BossBarColour) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (BossBarColour) Descriptor() protoreflect.EnumDescriptor {
+	return file_actions_proto_enumTypes[1].Descriptor()
+}
+
+func (BossBarColour) Type() protoreflect.EnumType {
+	return &file_actions_proto_enumTypes[1]
+}
+
+func (x BossBarColour) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use BossBarColour.Descriptor instead.
+func (BossBarColour) EnumDescriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{1}
+}
+
+// Player HUD element control
+type HudElement int32
+
+const (
+	HudElement_HUD_ELEMENT_PAPER_DOLL     HudElement = 0
+	HudElement_HUD_ELEMENT_ARMOUR         HudElement = 1
+	HudElement_HUD_ELEMENT_TOOL_TIPS      HudElement = 2
+	HudElement_HUD_ELEMENT_TOUCH_CONTROLS HudElement = 3
+	HudElement_HUD_ELEMENT_CROSSHAIR      HudElement = 4
+	HudElement_HUD_ELEMENT_HOT_BAR        HudElement = 5
+	HudElement_HUD_ELEMENT_HEALTH         HudElement = 6
+	HudElement_HUD_ELEMENT_PROGRESS_BAR   HudElement = 7
+	HudElement_HUD_ELEMENT_HUNGER         HudElement = 8
+	HudElement_HUD_ELEMENT_AIR_BUBBLES    HudElement = 9
+	HudElement_HUD_ELEMENT_HORSE_HEALTH   HudElement = 10
+	HudElement_HUD_ELEMENT_STATUS_EFFECTS HudElement = 11
+	HudElement_HUD_ELEMENT_ITEM_TEXT      HudElement = 12
+)
+
+// Enum value maps for HudElement.
+var (
+	HudElement_name = map[int32]string{
+		0:  "HUD_ELEMENT_PAPER_DOLL",
+		1:  "HUD_ELEMENT_ARMOUR",
+		2:  "HUD_ELEMENT_TOOL_TIPS",
+		3:  "HUD_ELEMENT_TOUCH_CONTROLS",
+		4:  "HUD_ELEMENT_CROSSHAIR",
+		5:  "HUD_ELEMENT_HOT_BAR",
+		6:  "HUD_ELEMENT_HEALTH",
+		7:  "HUD_ELEMENT_PROGRESS_BAR",
+		8:  "HUD_ELEMENT_HUNGER",
+		9:  "HUD_ELEMENT_AIR_BUBBLES",
+		10: "HUD_ELEMENT_HORSE_HEALTH",
+		11: "HUD_ELEMENT_STATUS_EFFECTS",
+		12: "HUD_ELEMENT_ITEM_TEXT",
+	}
+	HudElement_value = map[string]int32{
+		"HUD_ELEMENT_PAPER_DOLL":     0,
+		"HUD_ELEMENT_ARMOUR":         1,
+		"HUD_ELEMENT_TOOL_TIPS":      2,
+		"HUD_ELEMENT_TOUCH_CONTROLS": 3,
+		"HUD_ELEMENT_CROSSHAIR":      4,
+		"HUD_ELEMENT_HOT_BAR":        5,
+		"HUD_ELEMENT_HEALTH":         6,
+		"HUD_ELEMENT_PROGRESS_BAR":   7,
+		"HUD_ELEMENT_HUNGER":         8,
+		"HUD_ELEMENT_AIR_BUBBLES":    9,
+		"HUD_ELEMENT_HORSE_HEALTH":   10,
+		"HUD_ELEMENT_STATUS_EFFECTS": 11,
+		"HUD_ELEMENT_ITEM_TEXT":      12,
+	}
+)
+
+func (x HudElement) Enum() *HudElement {
+	p := new(HudElement)
+	*p = x
+	return p
+}
+
+func (x HudElement) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (HudElement) Descriptor() protoreflect.EnumDescriptor {
+	return file_actions_proto_enumTypes[2].Descriptor()
+}
+
+func (HudElement) Type() protoreflect.EnumType {
+	return &file_actions_proto_enumTypes[2]
+}
+
+func (x HudElement) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use HudElement.Descriptor instead.
+func (HudElement) EnumDescriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{2}
+}
+
 type ActionBatch struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Actions       []*Action              `protobuf:"bytes,1,rep,name=actions,proto3" json:"actions,omitempty"`
@@ -175,6 +317,9 @@ type Action struct {
 	//	*Action_ClearInventory
 	//	*Action_SetHeldItem
 	//	*Action_PlayerSetArmour
+	//	*Action_PlayerOpenBlockContainer
+	//	*Action_PlayerDropItem
+	//	*Action_PlayerSetItemCooldown
 	//	*Action_SetHealth
 	//	*Action_SetFood
 	//	*Action_SetExperience
@@ -196,6 +341,11 @@ type Action struct {
 	//	*Action_PlayerShowParticle
 	//	*Action_PlayerSendScoreboard
 	//	*Action_PlayerRemoveScoreboard
+	//	*Action_PlayerSendMenuForm
+	//	*Action_PlayerSendModalForm
+	//	*Action_PlayerSendDialogue
+	//	*Action_PlayerCloseDialogue
+	//	*Action_PlayerCloseForm
 	//	*Action_ExecuteCommand
 	//	*Action_PlayerStartSprinting
 	//	*Action_PlayerStopSprinting
@@ -226,6 +376,16 @@ type Action struct {
 	//	*Action_PlayerKnockBack
 	//	*Action_PlayerSwingArm
 	//	*Action_PlayerPunchAir
+	//	*Action_PlayerSendBossBar
+	//	*Action_PlayerRemoveBossBar
+	//	*Action_PlayerShowHudElement
+	//	*Action_PlayerHideHudElement
+	//	*Action_PlayerOpenSign
+	//	*Action_PlayerEditSign
+	//	*Action_PlayerTurnLecternPage
+	//	*Action_PlayerHidePlayer
+	//	*Action_PlayerShowPlayer
+	//	*Action_PlayerRemoveAllDebugShapes
 	//	*Action_WorldSetDefaultGameMode
 	//	*Action_WorldSetDifficulty
 	//	*Action_WorldSetTickRange
@@ -371,6 +531,33 @@ func (x *Action) GetPlayerSetArmour() *PlayerSetArmourAction {
 	if x != nil {
 		if x, ok := x.Kind.(*Action_PlayerSetArmour); ok {
 			return x.PlayerSetArmour
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerOpenBlockContainer() *PlayerOpenBlockContainerAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerOpenBlockContainer); ok {
+			return x.PlayerOpenBlockContainer
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerDropItem() *PlayerDropItemAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerDropItem); ok {
+			return x.PlayerDropItem
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerSetItemCooldown() *PlayerSetItemCooldownAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerSetItemCooldown); ok {
+			return x.PlayerSetItemCooldown
 		}
 	}
 	return nil
@@ -560,6 +747,51 @@ func (x *Action) GetPlayerRemoveScoreboard() *PlayerRemoveScoreboardAction {
 	if x != nil {
 		if x, ok := x.Kind.(*Action_PlayerRemoveScoreboard); ok {
 			return x.PlayerRemoveScoreboard
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerSendMenuForm() *PlayerSendMenuFormAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerSendMenuForm); ok {
+			return x.PlayerSendMenuForm
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerSendModalForm() *PlayerSendModalFormAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerSendModalForm); ok {
+			return x.PlayerSendModalForm
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerSendDialogue() *PlayerSendDialogueAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerSendDialogue); ok {
+			return x.PlayerSendDialogue
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerCloseDialogue() *PlayerCloseDialogueAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerCloseDialogue); ok {
+			return x.PlayerCloseDialogue
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerCloseForm() *PlayerCloseFormAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerCloseForm); ok {
+			return x.PlayerCloseForm
 		}
 	}
 	return nil
@@ -830,6 +1062,96 @@ func (x *Action) GetPlayerPunchAir() *PlayerPunchAirAction {
 	if x != nil {
 		if x, ok := x.Kind.(*Action_PlayerPunchAir); ok {
 			return x.PlayerPunchAir
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerSendBossBar() *PlayerSendBossBarAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerSendBossBar); ok {
+			return x.PlayerSendBossBar
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerRemoveBossBar() *PlayerRemoveBossBarAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerRemoveBossBar); ok {
+			return x.PlayerRemoveBossBar
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerShowHudElement() *PlayerShowHudElementAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerShowHudElement); ok {
+			return x.PlayerShowHudElement
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerHideHudElement() *PlayerHideHudElementAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerHideHudElement); ok {
+			return x.PlayerHideHudElement
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerOpenSign() *PlayerOpenSignAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerOpenSign); ok {
+			return x.PlayerOpenSign
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerEditSign() *PlayerEditSignAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerEditSign); ok {
+			return x.PlayerEditSign
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerTurnLecternPage() *PlayerTurnLecternPageAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerTurnLecternPage); ok {
+			return x.PlayerTurnLecternPage
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerHidePlayer() *PlayerHidePlayerAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerHidePlayer); ok {
+			return x.PlayerHidePlayer
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerShowPlayer() *PlayerShowPlayerAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerShowPlayer); ok {
+			return x.PlayerShowPlayer
+		}
+	}
+	return nil
+}
+
+func (x *Action) GetPlayerRemoveAllDebugShapes() *PlayerRemoveAllDebugShapesAction {
+	if x != nil {
+		if x, ok := x.Kind.(*Action_PlayerRemoveAllDebugShapes); ok {
+			return x.PlayerRemoveAllDebugShapes
 		}
 	}
 	return nil
@@ -1134,6 +1456,18 @@ type Action_PlayerSetArmour struct {
 	PlayerSetArmour *PlayerSetArmourAction `protobuf:"bytes,132,opt,name=player_set_armour,json=playerSetArmour,proto3,oneof"`
 }
 
+type Action_PlayerOpenBlockContainer struct {
+	PlayerOpenBlockContainer *PlayerOpenBlockContainerAction `protobuf:"bytes,147,opt,name=player_open_block_container,json=playerOpenBlockContainer,proto3,oneof"`
+}
+
+type Action_PlayerDropItem struct {
+	PlayerDropItem *PlayerDropItemAction `protobuf:"bytes,148,opt,name=player_drop_item,json=playerDropItem,proto3,oneof"`
+}
+
+type Action_PlayerSetItemCooldown struct {
+	PlayerSetItemCooldown *PlayerSetItemCooldownAction `protobuf:"bytes,149,opt,name=player_set_item_cooldown,json=playerSetItemCooldown,proto3,oneof"`
+}
+
 type Action_SetHealth struct {
 	// Player: State & Attributes
 	SetHealth *SetHealthAction `protobuf:"bytes,20,opt,name=set_health,json=setHealth,proto3,oneof"`
@@ -1222,6 +1556,27 @@ type Action_PlayerSendScoreboard struct {
 
 type Action_PlayerRemoveScoreboard struct {
 	PlayerRemoveScoreboard *PlayerRemoveScoreboardAction `protobuf:"bytes,134,opt,name=player_remove_scoreboard,json=playerRemoveScoreboard,proto3,oneof"`
+}
+
+type Action_PlayerSendMenuForm struct {
+	// Player: Forms & Dialogue
+	PlayerSendMenuForm *PlayerSendMenuFormAction `protobuf:"bytes,150,opt,name=player_send_menu_form,json=playerSendMenuForm,proto3,oneof"`
+}
+
+type Action_PlayerSendModalForm struct {
+	PlayerSendModalForm *PlayerSendModalFormAction `protobuf:"bytes,151,opt,name=player_send_modal_form,json=playerSendModalForm,proto3,oneof"`
+}
+
+type Action_PlayerSendDialogue struct {
+	PlayerSendDialogue *PlayerSendDialogueAction `protobuf:"bytes,152,opt,name=player_send_dialogue,json=playerSendDialogue,proto3,oneof"`
+}
+
+type Action_PlayerCloseDialogue struct {
+	PlayerCloseDialogue *PlayerCloseDialogueAction `protobuf:"bytes,139,opt,name=player_close_dialogue,json=playerCloseDialogue,proto3,oneof"`
+}
+
+type Action_PlayerCloseForm struct {
+	PlayerCloseForm *PlayerCloseFormAction `protobuf:"bytes,140,opt,name=player_close_form,json=playerCloseForm,proto3,oneof"`
 }
 
 type Action_ExecuteCommand struct {
@@ -1349,6 +1704,51 @@ type Action_PlayerSwingArm struct {
 
 type Action_PlayerPunchAir struct {
 	PlayerPunchAir *PlayerPunchAirAction `protobuf:"bytes,131,opt,name=player_punch_air,json=playerPunchAir,proto3,oneof"`
+}
+
+type Action_PlayerSendBossBar struct {
+	// Player: Boss bar
+	PlayerSendBossBar *PlayerSendBossBarAction `protobuf:"bytes,135,opt,name=player_send_boss_bar,json=playerSendBossBar,proto3,oneof"`
+}
+
+type Action_PlayerRemoveBossBar struct {
+	PlayerRemoveBossBar *PlayerRemoveBossBarAction `protobuf:"bytes,136,opt,name=player_remove_boss_bar,json=playerRemoveBossBar,proto3,oneof"`
+}
+
+type Action_PlayerShowHudElement struct {
+	// Player: HUD elements
+	PlayerShowHudElement *PlayerShowHudElementAction `protobuf:"bytes,137,opt,name=player_show_hud_element,json=playerShowHudElement,proto3,oneof"`
+}
+
+type Action_PlayerHideHudElement struct {
+	PlayerHideHudElement *PlayerHideHudElementAction `protobuf:"bytes,138,opt,name=player_hide_hud_element,json=playerHideHudElement,proto3,oneof"`
+}
+
+type Action_PlayerOpenSign struct {
+	// Player: Signs & Lecterns
+	PlayerOpenSign *PlayerOpenSignAction `protobuf:"bytes,141,opt,name=player_open_sign,json=playerOpenSign,proto3,oneof"`
+}
+
+type Action_PlayerEditSign struct {
+	PlayerEditSign *PlayerEditSignAction `protobuf:"bytes,142,opt,name=player_edit_sign,json=playerEditSign,proto3,oneof"`
+}
+
+type Action_PlayerTurnLecternPage struct {
+	PlayerTurnLecternPage *PlayerTurnLecternPageAction `protobuf:"bytes,143,opt,name=player_turn_lectern_page,json=playerTurnLecternPage,proto3,oneof"`
+}
+
+type Action_PlayerHidePlayer struct {
+	// Player: Entity visibility
+	PlayerHidePlayer *PlayerHidePlayerAction `protobuf:"bytes,144,opt,name=player_hide_player,json=playerHidePlayer,proto3,oneof"`
+}
+
+type Action_PlayerShowPlayer struct {
+	PlayerShowPlayer *PlayerShowPlayerAction `protobuf:"bytes,145,opt,name=player_show_player,json=playerShowPlayer,proto3,oneof"`
+}
+
+type Action_PlayerRemoveAllDebugShapes struct {
+	// Player: Debug shapes
+	PlayerRemoveAllDebugShapes *PlayerRemoveAllDebugShapesAction `protobuf:"bytes,146,opt,name=player_remove_all_debug_shapes,json=playerRemoveAllDebugShapes,proto3,oneof"`
 }
 
 type Action_WorldSetDefaultGameMode struct {
@@ -1490,6 +1890,12 @@ func (*Action_SetHeldItem) isAction_Kind() {}
 
 func (*Action_PlayerSetArmour) isAction_Kind() {}
 
+func (*Action_PlayerOpenBlockContainer) isAction_Kind() {}
+
+func (*Action_PlayerDropItem) isAction_Kind() {}
+
+func (*Action_PlayerSetItemCooldown) isAction_Kind() {}
+
 func (*Action_SetHealth) isAction_Kind() {}
 
 func (*Action_SetFood) isAction_Kind() {}
@@ -1531,6 +1937,16 @@ func (*Action_PlayerShowParticle) isAction_Kind() {}
 func (*Action_PlayerSendScoreboard) isAction_Kind() {}
 
 func (*Action_PlayerRemoveScoreboard) isAction_Kind() {}
+
+func (*Action_PlayerSendMenuForm) isAction_Kind() {}
+
+func (*Action_PlayerSendModalForm) isAction_Kind() {}
+
+func (*Action_PlayerSendDialogue) isAction_Kind() {}
+
+func (*Action_PlayerCloseDialogue) isAction_Kind() {}
+
+func (*Action_PlayerCloseForm) isAction_Kind() {}
 
 func (*Action_ExecuteCommand) isAction_Kind() {}
 
@@ -1591,6 +2007,26 @@ func (*Action_PlayerKnockBack) isAction_Kind() {}
 func (*Action_PlayerSwingArm) isAction_Kind() {}
 
 func (*Action_PlayerPunchAir) isAction_Kind() {}
+
+func (*Action_PlayerSendBossBar) isAction_Kind() {}
+
+func (*Action_PlayerRemoveBossBar) isAction_Kind() {}
+
+func (*Action_PlayerShowHudElement) isAction_Kind() {}
+
+func (*Action_PlayerHideHudElement) isAction_Kind() {}
+
+func (*Action_PlayerOpenSign) isAction_Kind() {}
+
+func (*Action_PlayerEditSign) isAction_Kind() {}
+
+func (*Action_PlayerTurnLecternPage) isAction_Kind() {}
+
+func (*Action_PlayerHidePlayer) isAction_Kind() {}
+
+func (*Action_PlayerShowPlayer) isAction_Kind() {}
+
+func (*Action_PlayerRemoveAllDebugShapes) isAction_Kind() {}
 
 func (*Action_WorldSetDefaultGameMode) isAction_Kind() {}
 
@@ -6448,13 +6884,1044 @@ func (x *PlayerRemoveScoreboardAction) GetPlayerUuid() string {
 	return ""
 }
 
+// Player forms (show)
+type PlayerSendMenuFormAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	Body          *string                `protobuf:"bytes,3,opt,name=body,proto3,oneof" json:"body,omitempty"`
+	Buttons       []string               `protobuf:"bytes,4,rep,name=buttons,proto3" json:"buttons,omitempty"` // up to 6
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerSendMenuFormAction) Reset() {
+	*x = PlayerSendMenuFormAction{}
+	mi := &file_actions_proto_msgTypes[92]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerSendMenuFormAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerSendMenuFormAction) ProtoMessage() {}
+
+func (x *PlayerSendMenuFormAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[92]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerSendMenuFormAction.ProtoReflect.Descriptor instead.
+func (*PlayerSendMenuFormAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *PlayerSendMenuFormAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerSendMenuFormAction) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *PlayerSendMenuFormAction) GetBody() string {
+	if x != nil && x.Body != nil {
+		return *x.Body
+	}
+	return ""
+}
+
+func (x *PlayerSendMenuFormAction) GetButtons() []string {
+	if x != nil {
+		return x.Buttons
+	}
+	return nil
+}
+
+type PlayerSendModalFormAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	Body          string                 `protobuf:"bytes,3,opt,name=body,proto3" json:"body,omitempty"`
+	YesText       string                 `protobuf:"bytes,4,opt,name=yes_text,json=yesText,proto3" json:"yes_text,omitempty"` // default: gui.yes
+	NoText        string                 `protobuf:"bytes,5,opt,name=no_text,json=noText,proto3" json:"no_text,omitempty"`    // default: gui.no
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerSendModalFormAction) Reset() {
+	*x = PlayerSendModalFormAction{}
+	mi := &file_actions_proto_msgTypes[93]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerSendModalFormAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerSendModalFormAction) ProtoMessage() {}
+
+func (x *PlayerSendModalFormAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[93]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerSendModalFormAction.ProtoReflect.Descriptor instead.
+func (*PlayerSendModalFormAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *PlayerSendModalFormAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerSendModalFormAction) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *PlayerSendModalFormAction) GetBody() string {
+	if x != nil {
+		return x.Body
+	}
+	return ""
+}
+
+func (x *PlayerSendModalFormAction) GetYesText() string {
+	if x != nil {
+		return x.YesText
+	}
+	return ""
+}
+
+func (x *PlayerSendModalFormAction) GetNoText() string {
+	if x != nil {
+		return x.NoText
+	}
+	return ""
+}
+
+// Dialogue (show)
+type PlayerSendDialogueAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	Body          *string                `protobuf:"bytes,3,opt,name=body,proto3,oneof" json:"body,omitempty"`
+	Buttons       []string               `protobuf:"bytes,4,rep,name=buttons,proto3" json:"buttons,omitempty"` // up to 6
+	Entity        *EntityRef             `protobuf:"bytes,5,opt,name=entity,proto3" json:"entity,omitempty"`   // target entity to display as NPC
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerSendDialogueAction) Reset() {
+	*x = PlayerSendDialogueAction{}
+	mi := &file_actions_proto_msgTypes[94]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerSendDialogueAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerSendDialogueAction) ProtoMessage() {}
+
+func (x *PlayerSendDialogueAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[94]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerSendDialogueAction.ProtoReflect.Descriptor instead.
+func (*PlayerSendDialogueAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *PlayerSendDialogueAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerSendDialogueAction) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *PlayerSendDialogueAction) GetBody() string {
+	if x != nil && x.Body != nil {
+		return *x.Body
+	}
+	return ""
+}
+
+func (x *PlayerSendDialogueAction) GetButtons() []string {
+	if x != nil {
+		return x.Buttons
+	}
+	return nil
+}
+
+func (x *PlayerSendDialogueAction) GetEntity() *EntityRef {
+	if x != nil {
+		return x.Entity
+	}
+	return nil
+}
+
+type PlayerSendBossBarAction struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid       string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Text             string                 `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
+	HealthPercentage *float32               `protobuf:"fixed32,3,opt,name=health_percentage,json=healthPercentage,proto3,oneof" json:"health_percentage,omitempty"` // 0.0 - 1.0 (default 1.0)
+	Colour           *BossBarColour         `protobuf:"varint,4,opt,name=colour,proto3,enum=df.plugin.BossBarColour,oneof" json:"colour,omitempty"`                 // default PURPLE
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *PlayerSendBossBarAction) Reset() {
+	*x = PlayerSendBossBarAction{}
+	mi := &file_actions_proto_msgTypes[95]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerSendBossBarAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerSendBossBarAction) ProtoMessage() {}
+
+func (x *PlayerSendBossBarAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[95]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerSendBossBarAction.ProtoReflect.Descriptor instead.
+func (*PlayerSendBossBarAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{95}
+}
+
+func (x *PlayerSendBossBarAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerSendBossBarAction) GetText() string {
+	if x != nil {
+		return x.Text
+	}
+	return ""
+}
+
+func (x *PlayerSendBossBarAction) GetHealthPercentage() float32 {
+	if x != nil && x.HealthPercentage != nil {
+		return *x.HealthPercentage
+	}
+	return 0
+}
+
+func (x *PlayerSendBossBarAction) GetColour() BossBarColour {
+	if x != nil && x.Colour != nil {
+		return *x.Colour
+	}
+	return BossBarColour_BOSS_BAR_COLOUR_GREY
+}
+
+type PlayerRemoveBossBarAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerRemoveBossBarAction) Reset() {
+	*x = PlayerRemoveBossBarAction{}
+	mi := &file_actions_proto_msgTypes[96]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerRemoveBossBarAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerRemoveBossBarAction) ProtoMessage() {}
+
+func (x *PlayerRemoveBossBarAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[96]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerRemoveBossBarAction.ProtoReflect.Descriptor instead.
+func (*PlayerRemoveBossBarAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *PlayerRemoveBossBarAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+type PlayerShowHudElementAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Element       HudElement             `protobuf:"varint,2,opt,name=element,proto3,enum=df.plugin.HudElement" json:"element,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerShowHudElementAction) Reset() {
+	*x = PlayerShowHudElementAction{}
+	mi := &file_actions_proto_msgTypes[97]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerShowHudElementAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerShowHudElementAction) ProtoMessage() {}
+
+func (x *PlayerShowHudElementAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[97]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerShowHudElementAction.ProtoReflect.Descriptor instead.
+func (*PlayerShowHudElementAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *PlayerShowHudElementAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerShowHudElementAction) GetElement() HudElement {
+	if x != nil {
+		return x.Element
+	}
+	return HudElement_HUD_ELEMENT_PAPER_DOLL
+}
+
+type PlayerHideHudElementAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Element       HudElement             `protobuf:"varint,2,opt,name=element,proto3,enum=df.plugin.HudElement" json:"element,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerHideHudElementAction) Reset() {
+	*x = PlayerHideHudElementAction{}
+	mi := &file_actions_proto_msgTypes[98]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerHideHudElementAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerHideHudElementAction) ProtoMessage() {}
+
+func (x *PlayerHideHudElementAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[98]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerHideHudElementAction.ProtoReflect.Descriptor instead.
+func (*PlayerHideHudElementAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *PlayerHideHudElementAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerHideHudElementAction) GetElement() HudElement {
+	if x != nil {
+		return x.Element
+	}
+	return HudElement_HUD_ELEMENT_PAPER_DOLL
+}
+
+// Player UI closers
+type PlayerCloseDialogueAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerCloseDialogueAction) Reset() {
+	*x = PlayerCloseDialogueAction{}
+	mi := &file_actions_proto_msgTypes[99]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerCloseDialogueAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerCloseDialogueAction) ProtoMessage() {}
+
+func (x *PlayerCloseDialogueAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[99]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerCloseDialogueAction.ProtoReflect.Descriptor instead.
+func (*PlayerCloseDialogueAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *PlayerCloseDialogueAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+type PlayerCloseFormAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerCloseFormAction) Reset() {
+	*x = PlayerCloseFormAction{}
+	mi := &file_actions_proto_msgTypes[100]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerCloseFormAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerCloseFormAction) ProtoMessage() {}
+
+func (x *PlayerCloseFormAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[100]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerCloseFormAction.ProtoReflect.Descriptor instead.
+func (*PlayerCloseFormAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{100}
+}
+
+func (x *PlayerCloseFormAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+// Player: Signs & Lecterns
+type PlayerOpenSignAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	FrontSide     bool                   `protobuf:"varint,3,opt,name=front_side,json=frontSide,proto3" json:"front_side,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerOpenSignAction) Reset() {
+	*x = PlayerOpenSignAction{}
+	mi := &file_actions_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerOpenSignAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerOpenSignAction) ProtoMessage() {}
+
+func (x *PlayerOpenSignAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerOpenSignAction.ProtoReflect.Descriptor instead.
+func (*PlayerOpenSignAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *PlayerOpenSignAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerOpenSignAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *PlayerOpenSignAction) GetFrontSide() bool {
+	if x != nil {
+		return x.FrontSide
+	}
+	return false
+}
+
+type PlayerEditSignAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	FrontText     string                 `protobuf:"bytes,3,opt,name=front_text,json=frontText,proto3" json:"front_text,omitempty"`
+	BackText      string                 `protobuf:"bytes,4,opt,name=back_text,json=backText,proto3" json:"back_text,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerEditSignAction) Reset() {
+	*x = PlayerEditSignAction{}
+	mi := &file_actions_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerEditSignAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerEditSignAction) ProtoMessage() {}
+
+func (x *PlayerEditSignAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerEditSignAction.ProtoReflect.Descriptor instead.
+func (*PlayerEditSignAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *PlayerEditSignAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerEditSignAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *PlayerEditSignAction) GetFrontText() string {
+	if x != nil {
+		return x.FrontText
+	}
+	return ""
+}
+
+func (x *PlayerEditSignAction) GetBackText() string {
+	if x != nil {
+		return x.BackText
+	}
+	return ""
+}
+
+type PlayerTurnLecternPageAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	Page          int32                  `protobuf:"varint,3,opt,name=page,proto3" json:"page,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerTurnLecternPageAction) Reset() {
+	*x = PlayerTurnLecternPageAction{}
+	mi := &file_actions_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerTurnLecternPageAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerTurnLecternPageAction) ProtoMessage() {}
+
+func (x *PlayerTurnLecternPageAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerTurnLecternPageAction.ProtoReflect.Descriptor instead.
+func (*PlayerTurnLecternPageAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *PlayerTurnLecternPageAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerTurnLecternPageAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+func (x *PlayerTurnLecternPageAction) GetPage() int32 {
+	if x != nil {
+		return x.Page
+	}
+	return 0
+}
+
+// Player: Entity visibility (player-targeted)
+type PlayerHidePlayerAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	TargetUuid    string                 `protobuf:"bytes,2,opt,name=target_uuid,json=targetUuid,proto3" json:"target_uuid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerHidePlayerAction) Reset() {
+	*x = PlayerHidePlayerAction{}
+	mi := &file_actions_proto_msgTypes[104]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerHidePlayerAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerHidePlayerAction) ProtoMessage() {}
+
+func (x *PlayerHidePlayerAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[104]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerHidePlayerAction.ProtoReflect.Descriptor instead.
+func (*PlayerHidePlayerAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{104}
+}
+
+func (x *PlayerHidePlayerAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerHidePlayerAction) GetTargetUuid() string {
+	if x != nil {
+		return x.TargetUuid
+	}
+	return ""
+}
+
+type PlayerShowPlayerAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	TargetUuid    string                 `protobuf:"bytes,2,opt,name=target_uuid,json=targetUuid,proto3" json:"target_uuid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerShowPlayerAction) Reset() {
+	*x = PlayerShowPlayerAction{}
+	mi := &file_actions_proto_msgTypes[105]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerShowPlayerAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerShowPlayerAction) ProtoMessage() {}
+
+func (x *PlayerShowPlayerAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[105]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerShowPlayerAction.ProtoReflect.Descriptor instead.
+func (*PlayerShowPlayerAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{105}
+}
+
+func (x *PlayerShowPlayerAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerShowPlayerAction) GetTargetUuid() string {
+	if x != nil {
+		return x.TargetUuid
+	}
+	return ""
+}
+
+// Player: Debug shapes
+type PlayerRemoveAllDebugShapesAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerRemoveAllDebugShapesAction) Reset() {
+	*x = PlayerRemoveAllDebugShapesAction{}
+	mi := &file_actions_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerRemoveAllDebugShapesAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerRemoveAllDebugShapesAction) ProtoMessage() {}
+
+func (x *PlayerRemoveAllDebugShapesAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerRemoveAllDebugShapesAction.ProtoReflect.Descriptor instead.
+func (*PlayerRemoveAllDebugShapesAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *PlayerRemoveAllDebugShapesAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+// Player: Interaction extras
+type PlayerOpenBlockContainerAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Position      *BlockPos              `protobuf:"bytes,2,opt,name=position,proto3" json:"position,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerOpenBlockContainerAction) Reset() {
+	*x = PlayerOpenBlockContainerAction{}
+	mi := &file_actions_proto_msgTypes[107]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerOpenBlockContainerAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerOpenBlockContainerAction) ProtoMessage() {}
+
+func (x *PlayerOpenBlockContainerAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[107]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerOpenBlockContainerAction.ProtoReflect.Descriptor instead.
+func (*PlayerOpenBlockContainerAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{107}
+}
+
+func (x *PlayerOpenBlockContainerAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerOpenBlockContainerAction) GetPosition() *BlockPos {
+	if x != nil {
+		return x.Position
+	}
+	return nil
+}
+
+type PlayerDropItemAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Item          *ItemStack             `protobuf:"bytes,2,opt,name=item,proto3,oneof" json:"item,omitempty"` // if unset, drops currently held main-hand item
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerDropItemAction) Reset() {
+	*x = PlayerDropItemAction{}
+	mi := &file_actions_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerDropItemAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerDropItemAction) ProtoMessage() {}
+
+func (x *PlayerDropItemAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerDropItemAction.ProtoReflect.Descriptor instead.
+func (*PlayerDropItemAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *PlayerDropItemAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerDropItemAction) GetItem() *ItemStack {
+	if x != nil {
+		return x.Item
+	}
+	return nil
+}
+
+type PlayerSetItemCooldownAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	PlayerUuid    string                 `protobuf:"bytes,1,opt,name=player_uuid,json=playerUuid,proto3" json:"player_uuid,omitempty"`
+	Item          *ItemStack             `protobuf:"bytes,2,opt,name=item,proto3" json:"item,omitempty"`
+	DurationMs    int64                  `protobuf:"varint,3,opt,name=duration_ms,json=durationMs,proto3" json:"duration_ms,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerSetItemCooldownAction) Reset() {
+	*x = PlayerSetItemCooldownAction{}
+	mi := &file_actions_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerSetItemCooldownAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerSetItemCooldownAction) ProtoMessage() {}
+
+func (x *PlayerSetItemCooldownAction) ProtoReflect() protoreflect.Message {
+	mi := &file_actions_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerSetItemCooldownAction.ProtoReflect.Descriptor instead.
+func (*PlayerSetItemCooldownAction) Descriptor() ([]byte, []int) {
+	return file_actions_proto_rawDescGZIP(), []int{109}
+}
+
+func (x *PlayerSetItemCooldownAction) GetPlayerUuid() string {
+	if x != nil {
+		return x.PlayerUuid
+	}
+	return ""
+}
+
+func (x *PlayerSetItemCooldownAction) GetItem() *ItemStack {
+	if x != nil {
+		return x.Item
+	}
+	return nil
+}
+
+func (x *PlayerSetItemCooldownAction) GetDurationMs() int64 {
+	if x != nil {
+		return x.DurationMs
+	}
+	return 0
+}
+
 var File_actions_proto protoreflect.FileDescriptor
 
 const file_actions_proto_rawDesc = "" +
 	"\n" +
 	"\ractions.proto\x12\tdf.plugin\x1a\fcommon.proto\":\n" +
 	"\vActionBatch\x12+\n" +
-	"\aactions\x18\x01 \x03(\v2\x11.df.plugin.ActionR\aactions\"\x84:\n" +
+	"\aactions\x18\x01 \x03(\v2\x11.df.plugin.ActionR\aactions\"\xf8F\n" +
 	"\x06Action\x12*\n" +
 	"\x0ecorrelation_id\x18\x01 \x01(\tH\x01R\rcorrelationId\x88\x01\x01\x128\n" +
 	"\tsend_chat\x18\n" +
@@ -6465,7 +7932,10 @@ const file_actions_proto_rawDesc = "" +
 	"\tgive_item\x18\x0e \x01(\v2\x19.df.plugin.GiveItemActionH\x00R\bgiveItem\x12J\n" +
 	"\x0fclear_inventory\x18\x0f \x01(\v2\x1f.df.plugin.ClearInventoryActionH\x00R\x0eclearInventory\x12B\n" +
 	"\rset_held_item\x18\x10 \x01(\v2\x1c.df.plugin.SetHeldItemActionH\x00R\vsetHeldItem\x12O\n" +
-	"\x11player_set_armour\x18\x84\x01 \x01(\v2 .df.plugin.PlayerSetArmourActionH\x00R\x0fplayerSetArmour\x12;\n" +
+	"\x11player_set_armour\x18\x84\x01 \x01(\v2 .df.plugin.PlayerSetArmourActionH\x00R\x0fplayerSetArmour\x12k\n" +
+	"\x1bplayer_open_block_container\x18\x93\x01 \x01(\v2).df.plugin.PlayerOpenBlockContainerActionH\x00R\x18playerOpenBlockContainer\x12L\n" +
+	"\x10player_drop_item\x18\x94\x01 \x01(\v2\x1f.df.plugin.PlayerDropItemActionH\x00R\x0eplayerDropItem\x12b\n" +
+	"\x18player_set_item_cooldown\x18\x95\x01 \x01(\v2&.df.plugin.PlayerSetItemCooldownActionH\x00R\x15playerSetItemCooldown\x12;\n" +
 	"\n" +
 	"set_health\x18\x14 \x01(\v2\x1a.df.plugin.SetHealthActionH\x00R\tsetHealth\x125\n" +
 	"\bset_food\x18\x15 \x01(\v2\x18.df.plugin.SetFoodActionH\x00R\asetFood\x12G\n" +
@@ -6491,7 +7961,12 @@ const file_actions_proto_rawDesc = "" +
 	"play_sound\x18+ \x01(\v2\x1a.df.plugin.PlaySoundActionH\x00R\tplaySound\x12W\n" +
 	"\x14player_show_particle\x18~ \x01(\v2#.df.plugin.PlayerShowParticleActionH\x00R\x12playerShowParticle\x12^\n" +
 	"\x16player_send_scoreboard\x18\x85\x01 \x01(\v2%.df.plugin.PlayerSendScoreboardActionH\x00R\x14playerSendScoreboard\x12d\n" +
-	"\x18player_remove_scoreboard\x18\x86\x01 \x01(\v2'.df.plugin.PlayerRemoveScoreboardActionH\x00R\x16playerRemoveScoreboard\x12J\n" +
+	"\x18player_remove_scoreboard\x18\x86\x01 \x01(\v2'.df.plugin.PlayerRemoveScoreboardActionH\x00R\x16playerRemoveScoreboard\x12Y\n" +
+	"\x15player_send_menu_form\x18\x96\x01 \x01(\v2#.df.plugin.PlayerSendMenuFormActionH\x00R\x12playerSendMenuForm\x12\\\n" +
+	"\x16player_send_modal_form\x18\x97\x01 \x01(\v2$.df.plugin.PlayerSendModalFormActionH\x00R\x13playerSendModalForm\x12X\n" +
+	"\x14player_send_dialogue\x18\x98\x01 \x01(\v2#.df.plugin.PlayerSendDialogueActionH\x00R\x12playerSendDialogue\x12[\n" +
+	"\x15player_close_dialogue\x18\x8b\x01 \x01(\v2$.df.plugin.PlayerCloseDialogueActionH\x00R\x13playerCloseDialogue\x12O\n" +
+	"\x11player_close_form\x18\x8c\x01 \x01(\v2 .df.plugin.PlayerCloseFormActionH\x00R\x0fplayerCloseForm\x12J\n" +
 	"\x0fexecute_command\x182 \x01(\v2\x1f.df.plugin.ExecuteCommandActionH\x00R\x0eexecuteCommand\x12]\n" +
 	"\x16player_start_sprinting\x18^ \x01(\v2%.df.plugin.PlayerStartSprintingActionH\x00R\x14playerStartSprinting\x12Z\n" +
 	"\x15player_stop_sprinting\x18_ \x01(\v2$.df.plugin.PlayerStopSprintingActionH\x00R\x13playerStopSprinting\x12Z\n" +
@@ -6521,7 +7996,17 @@ const file_actions_proto_rawDesc = "" +
 	"\x0fplayer_transfer\x18\x80\x01 \x01(\v2\x1f.df.plugin.PlayerTransferActionH\x00R\x0eplayerTransfer\x12O\n" +
 	"\x11player_knock_back\x18\x81\x01 \x01(\v2 .df.plugin.PlayerKnockBackActionH\x00R\x0fplayerKnockBack\x12L\n" +
 	"\x10player_swing_arm\x18\x82\x01 \x01(\v2\x1f.df.plugin.PlayerSwingArmActionH\x00R\x0eplayerSwingArm\x12L\n" +
-	"\x10player_punch_air\x18\x83\x01 \x01(\v2\x1f.df.plugin.PlayerPunchAirActionH\x00R\x0eplayerPunchAir\x12h\n" +
+	"\x10player_punch_air\x18\x83\x01 \x01(\v2\x1f.df.plugin.PlayerPunchAirActionH\x00R\x0eplayerPunchAir\x12V\n" +
+	"\x14player_send_boss_bar\x18\x87\x01 \x01(\v2\".df.plugin.PlayerSendBossBarActionH\x00R\x11playerSendBossBar\x12\\\n" +
+	"\x16player_remove_boss_bar\x18\x88\x01 \x01(\v2$.df.plugin.PlayerRemoveBossBarActionH\x00R\x13playerRemoveBossBar\x12_\n" +
+	"\x17player_show_hud_element\x18\x89\x01 \x01(\v2%.df.plugin.PlayerShowHudElementActionH\x00R\x14playerShowHudElement\x12_\n" +
+	"\x17player_hide_hud_element\x18\x8a\x01 \x01(\v2%.df.plugin.PlayerHideHudElementActionH\x00R\x14playerHideHudElement\x12L\n" +
+	"\x10player_open_sign\x18\x8d\x01 \x01(\v2\x1f.df.plugin.PlayerOpenSignActionH\x00R\x0eplayerOpenSign\x12L\n" +
+	"\x10player_edit_sign\x18\x8e\x01 \x01(\v2\x1f.df.plugin.PlayerEditSignActionH\x00R\x0eplayerEditSign\x12b\n" +
+	"\x18player_turn_lectern_page\x18\x8f\x01 \x01(\v2&.df.plugin.PlayerTurnLecternPageActionH\x00R\x15playerTurnLecternPage\x12R\n" +
+	"\x12player_hide_player\x18\x90\x01 \x01(\v2!.df.plugin.PlayerHidePlayerActionH\x00R\x10playerHidePlayer\x12R\n" +
+	"\x12player_show_player\x18\x91\x01 \x01(\v2!.df.plugin.PlayerShowPlayerActionH\x00R\x10playerShowPlayer\x12r\n" +
+	"\x1eplayer_remove_all_debug_shapes\x18\x92\x01 \x01(\v2+.df.plugin.PlayerRemoveAllDebugShapesActionH\x00R\x1aplayerRemoveAllDebugShapes\x12h\n" +
 	"\x1bworld_set_default_game_mode\x18< \x01(\v2(.df.plugin.WorldSetDefaultGameModeActionH\x00R\x17worldSetDefaultGameMode\x12W\n" +
 	"\x14world_set_difficulty\x18= \x01(\v2#.df.plugin.WorldSetDifficultyActionH\x00R\x12worldSetDifficulty\x12U\n" +
 	"\x14world_set_tick_range\x18> \x01(\v2\".df.plugin.WorldSetTickRangeActionH\x00R\x11worldSetTickRange\x12H\n" +
@@ -6940,7 +8425,100 @@ const file_actions_proto_rawDesc = "" +
 	"\v_descending\"?\n" +
 	"\x1cPlayerRemoveScoreboardAction\x12\x1f\n" +
 	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
-	"playerUuid*\xeb\x03\n" +
+	"playerUuid\"\x8d\x01\n" +
+	"\x18PlayerSendMenuFormAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12\x14\n" +
+	"\x05title\x18\x02 \x01(\tR\x05title\x12\x17\n" +
+	"\x04body\x18\x03 \x01(\tH\x00R\x04body\x88\x01\x01\x12\x18\n" +
+	"\abuttons\x18\x04 \x03(\tR\abuttonsB\a\n" +
+	"\x05_body\"\x9a\x01\n" +
+	"\x19PlayerSendModalFormAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12\x14\n" +
+	"\x05title\x18\x02 \x01(\tR\x05title\x12\x12\n" +
+	"\x04body\x18\x03 \x01(\tR\x04body\x12\x19\n" +
+	"\byes_text\x18\x04 \x01(\tR\ayesText\x12\x17\n" +
+	"\ano_text\x18\x05 \x01(\tR\x06noText\"\xbb\x01\n" +
+	"\x18PlayerSendDialogueAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12\x14\n" +
+	"\x05title\x18\x02 \x01(\tR\x05title\x12\x17\n" +
+	"\x04body\x18\x03 \x01(\tH\x00R\x04body\x88\x01\x01\x12\x18\n" +
+	"\abuttons\x18\x04 \x03(\tR\abuttons\x12,\n" +
+	"\x06entity\x18\x05 \x01(\v2\x14.df.plugin.EntityRefR\x06entityB\a\n" +
+	"\x05_body\"\xd8\x01\n" +
+	"\x17PlayerSendBossBarAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12\x12\n" +
+	"\x04text\x18\x02 \x01(\tR\x04text\x120\n" +
+	"\x11health_percentage\x18\x03 \x01(\x02H\x00R\x10healthPercentage\x88\x01\x01\x125\n" +
+	"\x06colour\x18\x04 \x01(\x0e2\x18.df.plugin.BossBarColourH\x01R\x06colour\x88\x01\x01B\x14\n" +
+	"\x12_health_percentageB\t\n" +
+	"\a_colour\"<\n" +
+	"\x19PlayerRemoveBossBarAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\"n\n" +
+	"\x1aPlayerShowHudElementAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12/\n" +
+	"\aelement\x18\x02 \x01(\x0e2\x15.df.plugin.HudElementR\aelement\"n\n" +
+	"\x1aPlayerHideHudElementAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12/\n" +
+	"\aelement\x18\x02 \x01(\x0e2\x15.df.plugin.HudElementR\aelement\"<\n" +
+	"\x19PlayerCloseDialogueAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\"8\n" +
+	"\x15PlayerCloseFormAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\"\x87\x01\n" +
+	"\x14PlayerOpenSignAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12\x1d\n" +
+	"\n" +
+	"front_side\x18\x03 \x01(\bR\tfrontSide\"\xa4\x01\n" +
+	"\x14PlayerEditSignAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12\x1d\n" +
+	"\n" +
+	"front_text\x18\x03 \x01(\tR\tfrontText\x12\x1b\n" +
+	"\tback_text\x18\x04 \x01(\tR\bbackText\"\x83\x01\n" +
+	"\x1bPlayerTurnLecternPageAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x12\x12\n" +
+	"\x04page\x18\x03 \x01(\x05R\x04page\"Z\n" +
+	"\x16PlayerHidePlayerAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12\x1f\n" +
+	"\vtarget_uuid\x18\x02 \x01(\tR\n" +
+	"targetUuid\"Z\n" +
+	"\x16PlayerShowPlayerAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12\x1f\n" +
+	"\vtarget_uuid\x18\x02 \x01(\tR\n" +
+	"targetUuid\"C\n" +
+	" PlayerRemoveAllDebugShapesAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\"r\n" +
+	"\x1ePlayerOpenBlockContainerAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12/\n" +
+	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\"o\n" +
+	"\x14PlayerDropItemAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12-\n" +
+	"\x04item\x18\x02 \x01(\v2\x14.df.plugin.ItemStackH\x00R\x04item\x88\x01\x01B\a\n" +
+	"\x05_item\"\x89\x01\n" +
+	"\x1bPlayerSetItemCooldownAction\x12\x1f\n" +
+	"\vplayer_uuid\x18\x01 \x01(\tR\n" +
+	"playerUuid\x12(\n" +
+	"\x04item\x18\x02 \x01(\v2\x14.df.plugin.ItemStackR\x04item\x12\x1f\n" +
+	"\vduration_ms\x18\x03 \x01(\x03R\n" +
+	"durationMs*\xeb\x03\n" +
 	"\fParticleType\x12\x1d\n" +
 	"\x19PARTICLE_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17PARTICLE_HUGE_EXPLOSION\x10\x01\x12\x1e\n" +
@@ -6961,7 +8539,31 @@ const file_actions_proto_rawDesc = "" +
 	"\rPARTICLE_LAVA\x10\x0f\x12\x17\n" +
 	"\x13PARTICLE_DUST_PLUME\x10\x10\x12\x18\n" +
 	"\x14PARTICLE_BLOCK_BREAK\x10\x11\x12\x18\n" +
-	"\x14PARTICLE_PUNCH_BLOCK\x10\x12B\x8b\x01\n" +
+	"\x14PARTICLE_PUNCH_BLOCK\x10\x12*\xca\x01\n" +
+	"\rBossBarColour\x12\x18\n" +
+	"\x14BOSS_BAR_COLOUR_GREY\x10\x00\x12\x18\n" +
+	"\x14BOSS_BAR_COLOUR_BLUE\x10\x01\x12\x17\n" +
+	"\x13BOSS_BAR_COLOUR_RED\x10\x02\x12\x19\n" +
+	"\x15BOSS_BAR_COLOUR_GREEN\x10\x03\x12\x1a\n" +
+	"\x16BOSS_BAR_COLOUR_YELLOW\x10\x04\x12\x1a\n" +
+	"\x16BOSS_BAR_COLOUR_PURPLE\x10\x05\x12\x19\n" +
+	"\x15BOSS_BAR_COLOUR_WHITE\x10\x06*\xf3\x02\n" +
+	"\n" +
+	"HudElement\x12\x1a\n" +
+	"\x16HUD_ELEMENT_PAPER_DOLL\x10\x00\x12\x16\n" +
+	"\x12HUD_ELEMENT_ARMOUR\x10\x01\x12\x19\n" +
+	"\x15HUD_ELEMENT_TOOL_TIPS\x10\x02\x12\x1e\n" +
+	"\x1aHUD_ELEMENT_TOUCH_CONTROLS\x10\x03\x12\x19\n" +
+	"\x15HUD_ELEMENT_CROSSHAIR\x10\x04\x12\x17\n" +
+	"\x13HUD_ELEMENT_HOT_BAR\x10\x05\x12\x16\n" +
+	"\x12HUD_ELEMENT_HEALTH\x10\x06\x12\x1c\n" +
+	"\x18HUD_ELEMENT_PROGRESS_BAR\x10\a\x12\x16\n" +
+	"\x12HUD_ELEMENT_HUNGER\x10\b\x12\x1b\n" +
+	"\x17HUD_ELEMENT_AIR_BUBBLES\x10\t\x12\x1c\n" +
+	"\x18HUD_ELEMENT_HORSE_HEALTH\x10\n" +
+	"\x12\x1e\n" +
+	"\x1aHUD_ELEMENT_STATUS_EFFECTS\x10\v\x12\x19\n" +
+	"\x15HUD_ELEMENT_ITEM_TEXT\x10\fB\x8b\x01\n" +
 	"\rcom.df.pluginB\fActionsProtoP\x01Z'github.com/secmc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
 	"Df::Pluginb\x06proto3"
 
@@ -6977,289 +8579,338 @@ func file_actions_proto_rawDescGZIP() []byte {
 	return file_actions_proto_rawDescData
 }
 
-var file_actions_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_actions_proto_msgTypes = make([]protoimpl.MessageInfo, 92)
+var file_actions_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
+var file_actions_proto_msgTypes = make([]protoimpl.MessageInfo, 110)
 var file_actions_proto_goTypes = []any{
 	(ParticleType)(0),                          // 0: df.plugin.ParticleType
-	(*ActionBatch)(nil),                        // 1: df.plugin.ActionBatch
-	(*Action)(nil),                             // 2: df.plugin.Action
-	(*SendChatAction)(nil),                     // 3: df.plugin.SendChatAction
-	(*TeleportAction)(nil),                     // 4: df.plugin.TeleportAction
-	(*KickAction)(nil),                         // 5: df.plugin.KickAction
-	(*SetGameModeAction)(nil),                  // 6: df.plugin.SetGameModeAction
-	(*GiveItemAction)(nil),                     // 7: df.plugin.GiveItemAction
-	(*ClearInventoryAction)(nil),               // 8: df.plugin.ClearInventoryAction
-	(*SetHeldItemAction)(nil),                  // 9: df.plugin.SetHeldItemAction
-	(*SetHealthAction)(nil),                    // 10: df.plugin.SetHealthAction
-	(*SetFoodAction)(nil),                      // 11: df.plugin.SetFoodAction
-	(*SetExperienceAction)(nil),                // 12: df.plugin.SetExperienceAction
-	(*SetVelocityAction)(nil),                  // 13: df.plugin.SetVelocityAction
-	(*AddEffectAction)(nil),                    // 14: df.plugin.AddEffectAction
-	(*RemoveEffectAction)(nil),                 // 15: df.plugin.RemoveEffectAction
-	(*SendTitleAction)(nil),                    // 16: df.plugin.SendTitleAction
-	(*SendPopupAction)(nil),                    // 17: df.plugin.SendPopupAction
-	(*SendTipAction)(nil),                      // 18: df.plugin.SendTipAction
-	(*PlaySoundAction)(nil),                    // 19: df.plugin.PlaySoundAction
-	(*ExecuteCommandAction)(nil),               // 20: df.plugin.ExecuteCommandAction
-	(*WorldSetDefaultGameModeAction)(nil),      // 21: df.plugin.WorldSetDefaultGameModeAction
-	(*WorldSetDifficultyAction)(nil),           // 22: df.plugin.WorldSetDifficultyAction
-	(*WorldSetTickRangeAction)(nil),            // 23: df.plugin.WorldSetTickRangeAction
-	(*WorldSetBlockAction)(nil),                // 24: df.plugin.WorldSetBlockAction
-	(*WorldPlaySoundAction)(nil),               // 25: df.plugin.WorldPlaySoundAction
-	(*WorldAddParticleAction)(nil),             // 26: df.plugin.WorldAddParticleAction
-	(*WorldSetTimeAction)(nil),                 // 27: df.plugin.WorldSetTimeAction
-	(*WorldStopTimeAction)(nil),                // 28: df.plugin.WorldStopTimeAction
-	(*WorldStartTimeAction)(nil),               // 29: df.plugin.WorldStartTimeAction
-	(*WorldSetSpawnAction)(nil),                // 30: df.plugin.WorldSetSpawnAction
-	(*WorldQueryDefaultGameModeAction)(nil),    // 31: df.plugin.WorldQueryDefaultGameModeAction
-	(*WorldQueryPlayerSpawnAction)(nil),        // 32: df.plugin.WorldQueryPlayerSpawnAction
-	(*WorldQueryEntitiesAction)(nil),           // 33: df.plugin.WorldQueryEntitiesAction
-	(*WorldQueryPlayersAction)(nil),            // 34: df.plugin.WorldQueryPlayersAction
-	(*WorldQueryEntitiesWithinAction)(nil),     // 35: df.plugin.WorldQueryEntitiesWithinAction
-	(*WorldQueryBlockAction)(nil),              // 36: df.plugin.WorldQueryBlockAction
-	(*WorldQueryBiomeAction)(nil),              // 37: df.plugin.WorldQueryBiomeAction
-	(*WorldQueryLightAction)(nil),              // 38: df.plugin.WorldQueryLightAction
-	(*WorldQuerySkyLightAction)(nil),           // 39: df.plugin.WorldQuerySkyLightAction
-	(*WorldQueryTemperatureAction)(nil),        // 40: df.plugin.WorldQueryTemperatureAction
-	(*WorldQueryHighestBlockAction)(nil),       // 41: df.plugin.WorldQueryHighestBlockAction
-	(*WorldQueryRainingAtAction)(nil),          // 42: df.plugin.WorldQueryRainingAtAction
-	(*WorldQuerySnowingAtAction)(nil),          // 43: df.plugin.WorldQuerySnowingAtAction
-	(*WorldQueryThunderingAtAction)(nil),       // 44: df.plugin.WorldQueryThunderingAtAction
-	(*WorldQueryLiquidAction)(nil),             // 45: df.plugin.WorldQueryLiquidAction
-	(*WorldSetBiomeAction)(nil),                // 46: df.plugin.WorldSetBiomeAction
-	(*WorldSetLiquidAction)(nil),               // 47: df.plugin.WorldSetLiquidAction
-	(*WorldScheduleBlockUpdateAction)(nil),     // 48: df.plugin.WorldScheduleBlockUpdateAction
-	(*StructureVoxel)(nil),                     // 49: df.plugin.StructureVoxel
-	(*StructureDef)(nil),                       // 50: df.plugin.StructureDef
-	(*WorldBuildStructureAction)(nil),          // 51: df.plugin.WorldBuildStructureAction
-	(*PlayerStartSprintingAction)(nil),         // 52: df.plugin.PlayerStartSprintingAction
-	(*PlayerStopSprintingAction)(nil),          // 53: df.plugin.PlayerStopSprintingAction
-	(*PlayerStartSneakingAction)(nil),          // 54: df.plugin.PlayerStartSneakingAction
-	(*PlayerStopSneakingAction)(nil),           // 55: df.plugin.PlayerStopSneakingAction
-	(*PlayerStartSwimmingAction)(nil),          // 56: df.plugin.PlayerStartSwimmingAction
-	(*PlayerStopSwimmingAction)(nil),           // 57: df.plugin.PlayerStopSwimmingAction
-	(*PlayerStartCrawlingAction)(nil),          // 58: df.plugin.PlayerStartCrawlingAction
-	(*PlayerStopCrawlingAction)(nil),           // 59: df.plugin.PlayerStopCrawlingAction
-	(*PlayerStartGlidingAction)(nil),           // 60: df.plugin.PlayerStartGlidingAction
-	(*PlayerStopGlidingAction)(nil),            // 61: df.plugin.PlayerStopGlidingAction
-	(*PlayerStartFlyingAction)(nil),            // 62: df.plugin.PlayerStartFlyingAction
-	(*PlayerStopFlyingAction)(nil),             // 63: df.plugin.PlayerStopFlyingAction
-	(*PlayerSetImmobileAction)(nil),            // 64: df.plugin.PlayerSetImmobileAction
-	(*PlayerSetMobileAction)(nil),              // 65: df.plugin.PlayerSetMobileAction
-	(*PlayerSetSpeedAction)(nil),               // 66: df.plugin.PlayerSetSpeedAction
-	(*PlayerSetFlightSpeedAction)(nil),         // 67: df.plugin.PlayerSetFlightSpeedAction
-	(*PlayerSetVerticalFlightSpeedAction)(nil), // 68: df.plugin.PlayerSetVerticalFlightSpeedAction
-	(*PlayerSetAbsorptionAction)(nil),          // 69: df.plugin.PlayerSetAbsorptionAction
-	(*PlayerSetOnFireAction)(nil),              // 70: df.plugin.PlayerSetOnFireAction
-	(*PlayerExtinguishAction)(nil),             // 71: df.plugin.PlayerExtinguishAction
-	(*PlayerSetInvisibleAction)(nil),           // 72: df.plugin.PlayerSetInvisibleAction
-	(*PlayerSetVisibleAction)(nil),             // 73: df.plugin.PlayerSetVisibleAction
-	(*PlayerSetScaleAction)(nil),               // 74: df.plugin.PlayerSetScaleAction
-	(*PlayerSetHeldSlotAction)(nil),            // 75: df.plugin.PlayerSetHeldSlotAction
-	(*PlayerSendToastAction)(nil),              // 76: df.plugin.PlayerSendToastAction
-	(*PlayerSendJukeboxPopupAction)(nil),       // 77: df.plugin.PlayerSendJukeboxPopupAction
-	(*PlayerShowCoordinatesAction)(nil),        // 78: df.plugin.PlayerShowCoordinatesAction
-	(*PlayerHideCoordinatesAction)(nil),        // 79: df.plugin.PlayerHideCoordinatesAction
-	(*PlayerEnableInstantRespawnAction)(nil),   // 80: df.plugin.PlayerEnableInstantRespawnAction
-	(*PlayerDisableInstantRespawnAction)(nil),  // 81: df.plugin.PlayerDisableInstantRespawnAction
-	(*PlayerSetNameTagAction)(nil),             // 82: df.plugin.PlayerSetNameTagAction
-	(*PlayerSetScoreTagAction)(nil),            // 83: df.plugin.PlayerSetScoreTagAction
-	(*PlayerShowParticleAction)(nil),           // 84: df.plugin.PlayerShowParticleAction
-	(*PlayerRespawnAction)(nil),                // 85: df.plugin.PlayerRespawnAction
-	(*PlayerTransferAction)(nil),               // 86: df.plugin.PlayerTransferAction
-	(*PlayerKnockBackAction)(nil),              // 87: df.plugin.PlayerKnockBackAction
-	(*PlayerSwingArmAction)(nil),               // 88: df.plugin.PlayerSwingArmAction
-	(*PlayerPunchAirAction)(nil),               // 89: df.plugin.PlayerPunchAirAction
-	(*PlayerSetArmourAction)(nil),              // 90: df.plugin.PlayerSetArmourAction
-	(*PlayerSendScoreboardAction)(nil),         // 91: df.plugin.PlayerSendScoreboardAction
-	(*PlayerRemoveScoreboardAction)(nil),       // 92: df.plugin.PlayerRemoveScoreboardAction
-	(*Vec3)(nil),                               // 93: df.plugin.Vec3
-	(GameMode)(0),                              // 94: df.plugin.GameMode
-	(*ItemStack)(nil),                          // 95: df.plugin.ItemStack
-	(EffectType)(0),                            // 96: df.plugin.EffectType
-	(Sound)(0),                                 // 97: df.plugin.Sound
-	(*WorldRef)(nil),                           // 98: df.plugin.WorldRef
-	(Difficulty)(0),                            // 99: df.plugin.Difficulty
-	(*BlockPos)(nil),                           // 100: df.plugin.BlockPos
-	(*BlockState)(nil),                         // 101: df.plugin.BlockState
-	(*BBox)(nil),                               // 102: df.plugin.BBox
-	(*LiquidState)(nil),                        // 103: df.plugin.LiquidState
-	(*Address)(nil),                            // 104: df.plugin.Address
+	(BossBarColour)(0),                         // 1: df.plugin.BossBarColour
+	(HudElement)(0),                            // 2: df.plugin.HudElement
+	(*ActionBatch)(nil),                        // 3: df.plugin.ActionBatch
+	(*Action)(nil),                             // 4: df.plugin.Action
+	(*SendChatAction)(nil),                     // 5: df.plugin.SendChatAction
+	(*TeleportAction)(nil),                     // 6: df.plugin.TeleportAction
+	(*KickAction)(nil),                         // 7: df.plugin.KickAction
+	(*SetGameModeAction)(nil),                  // 8: df.plugin.SetGameModeAction
+	(*GiveItemAction)(nil),                     // 9: df.plugin.GiveItemAction
+	(*ClearInventoryAction)(nil),               // 10: df.plugin.ClearInventoryAction
+	(*SetHeldItemAction)(nil),                  // 11: df.plugin.SetHeldItemAction
+	(*SetHealthAction)(nil),                    // 12: df.plugin.SetHealthAction
+	(*SetFoodAction)(nil),                      // 13: df.plugin.SetFoodAction
+	(*SetExperienceAction)(nil),                // 14: df.plugin.SetExperienceAction
+	(*SetVelocityAction)(nil),                  // 15: df.plugin.SetVelocityAction
+	(*AddEffectAction)(nil),                    // 16: df.plugin.AddEffectAction
+	(*RemoveEffectAction)(nil),                 // 17: df.plugin.RemoveEffectAction
+	(*SendTitleAction)(nil),                    // 18: df.plugin.SendTitleAction
+	(*SendPopupAction)(nil),                    // 19: df.plugin.SendPopupAction
+	(*SendTipAction)(nil),                      // 20: df.plugin.SendTipAction
+	(*PlaySoundAction)(nil),                    // 21: df.plugin.PlaySoundAction
+	(*ExecuteCommandAction)(nil),               // 22: df.plugin.ExecuteCommandAction
+	(*WorldSetDefaultGameModeAction)(nil),      // 23: df.plugin.WorldSetDefaultGameModeAction
+	(*WorldSetDifficultyAction)(nil),           // 24: df.plugin.WorldSetDifficultyAction
+	(*WorldSetTickRangeAction)(nil),            // 25: df.plugin.WorldSetTickRangeAction
+	(*WorldSetBlockAction)(nil),                // 26: df.plugin.WorldSetBlockAction
+	(*WorldPlaySoundAction)(nil),               // 27: df.plugin.WorldPlaySoundAction
+	(*WorldAddParticleAction)(nil),             // 28: df.plugin.WorldAddParticleAction
+	(*WorldSetTimeAction)(nil),                 // 29: df.plugin.WorldSetTimeAction
+	(*WorldStopTimeAction)(nil),                // 30: df.plugin.WorldStopTimeAction
+	(*WorldStartTimeAction)(nil),               // 31: df.plugin.WorldStartTimeAction
+	(*WorldSetSpawnAction)(nil),                // 32: df.plugin.WorldSetSpawnAction
+	(*WorldQueryDefaultGameModeAction)(nil),    // 33: df.plugin.WorldQueryDefaultGameModeAction
+	(*WorldQueryPlayerSpawnAction)(nil),        // 34: df.plugin.WorldQueryPlayerSpawnAction
+	(*WorldQueryEntitiesAction)(nil),           // 35: df.plugin.WorldQueryEntitiesAction
+	(*WorldQueryPlayersAction)(nil),            // 36: df.plugin.WorldQueryPlayersAction
+	(*WorldQueryEntitiesWithinAction)(nil),     // 37: df.plugin.WorldQueryEntitiesWithinAction
+	(*WorldQueryBlockAction)(nil),              // 38: df.plugin.WorldQueryBlockAction
+	(*WorldQueryBiomeAction)(nil),              // 39: df.plugin.WorldQueryBiomeAction
+	(*WorldQueryLightAction)(nil),              // 40: df.plugin.WorldQueryLightAction
+	(*WorldQuerySkyLightAction)(nil),           // 41: df.plugin.WorldQuerySkyLightAction
+	(*WorldQueryTemperatureAction)(nil),        // 42: df.plugin.WorldQueryTemperatureAction
+	(*WorldQueryHighestBlockAction)(nil),       // 43: df.plugin.WorldQueryHighestBlockAction
+	(*WorldQueryRainingAtAction)(nil),          // 44: df.plugin.WorldQueryRainingAtAction
+	(*WorldQuerySnowingAtAction)(nil),          // 45: df.plugin.WorldQuerySnowingAtAction
+	(*WorldQueryThunderingAtAction)(nil),       // 46: df.plugin.WorldQueryThunderingAtAction
+	(*WorldQueryLiquidAction)(nil),             // 47: df.plugin.WorldQueryLiquidAction
+	(*WorldSetBiomeAction)(nil),                // 48: df.plugin.WorldSetBiomeAction
+	(*WorldSetLiquidAction)(nil),               // 49: df.plugin.WorldSetLiquidAction
+	(*WorldScheduleBlockUpdateAction)(nil),     // 50: df.plugin.WorldScheduleBlockUpdateAction
+	(*StructureVoxel)(nil),                     // 51: df.plugin.StructureVoxel
+	(*StructureDef)(nil),                       // 52: df.plugin.StructureDef
+	(*WorldBuildStructureAction)(nil),          // 53: df.plugin.WorldBuildStructureAction
+	(*PlayerStartSprintingAction)(nil),         // 54: df.plugin.PlayerStartSprintingAction
+	(*PlayerStopSprintingAction)(nil),          // 55: df.plugin.PlayerStopSprintingAction
+	(*PlayerStartSneakingAction)(nil),          // 56: df.plugin.PlayerStartSneakingAction
+	(*PlayerStopSneakingAction)(nil),           // 57: df.plugin.PlayerStopSneakingAction
+	(*PlayerStartSwimmingAction)(nil),          // 58: df.plugin.PlayerStartSwimmingAction
+	(*PlayerStopSwimmingAction)(nil),           // 59: df.plugin.PlayerStopSwimmingAction
+	(*PlayerStartCrawlingAction)(nil),          // 60: df.plugin.PlayerStartCrawlingAction
+	(*PlayerStopCrawlingAction)(nil),           // 61: df.plugin.PlayerStopCrawlingAction
+	(*PlayerStartGlidingAction)(nil),           // 62: df.plugin.PlayerStartGlidingAction
+	(*PlayerStopGlidingAction)(nil),            // 63: df.plugin.PlayerStopGlidingAction
+	(*PlayerStartFlyingAction)(nil),            // 64: df.plugin.PlayerStartFlyingAction
+	(*PlayerStopFlyingAction)(nil),             // 65: df.plugin.PlayerStopFlyingAction
+	(*PlayerSetImmobileAction)(nil),            // 66: df.plugin.PlayerSetImmobileAction
+	(*PlayerSetMobileAction)(nil),              // 67: df.plugin.PlayerSetMobileAction
+	(*PlayerSetSpeedAction)(nil),               // 68: df.plugin.PlayerSetSpeedAction
+	(*PlayerSetFlightSpeedAction)(nil),         // 69: df.plugin.PlayerSetFlightSpeedAction
+	(*PlayerSetVerticalFlightSpeedAction)(nil), // 70: df.plugin.PlayerSetVerticalFlightSpeedAction
+	(*PlayerSetAbsorptionAction)(nil),          // 71: df.plugin.PlayerSetAbsorptionAction
+	(*PlayerSetOnFireAction)(nil),              // 72: df.plugin.PlayerSetOnFireAction
+	(*PlayerExtinguishAction)(nil),             // 73: df.plugin.PlayerExtinguishAction
+	(*PlayerSetInvisibleAction)(nil),           // 74: df.plugin.PlayerSetInvisibleAction
+	(*PlayerSetVisibleAction)(nil),             // 75: df.plugin.PlayerSetVisibleAction
+	(*PlayerSetScaleAction)(nil),               // 76: df.plugin.PlayerSetScaleAction
+	(*PlayerSetHeldSlotAction)(nil),            // 77: df.plugin.PlayerSetHeldSlotAction
+	(*PlayerSendToastAction)(nil),              // 78: df.plugin.PlayerSendToastAction
+	(*PlayerSendJukeboxPopupAction)(nil),       // 79: df.plugin.PlayerSendJukeboxPopupAction
+	(*PlayerShowCoordinatesAction)(nil),        // 80: df.plugin.PlayerShowCoordinatesAction
+	(*PlayerHideCoordinatesAction)(nil),        // 81: df.plugin.PlayerHideCoordinatesAction
+	(*PlayerEnableInstantRespawnAction)(nil),   // 82: df.plugin.PlayerEnableInstantRespawnAction
+	(*PlayerDisableInstantRespawnAction)(nil),  // 83: df.plugin.PlayerDisableInstantRespawnAction
+	(*PlayerSetNameTagAction)(nil),             // 84: df.plugin.PlayerSetNameTagAction
+	(*PlayerSetScoreTagAction)(nil),            // 85: df.plugin.PlayerSetScoreTagAction
+	(*PlayerShowParticleAction)(nil),           // 86: df.plugin.PlayerShowParticleAction
+	(*PlayerRespawnAction)(nil),                // 87: df.plugin.PlayerRespawnAction
+	(*PlayerTransferAction)(nil),               // 88: df.plugin.PlayerTransferAction
+	(*PlayerKnockBackAction)(nil),              // 89: df.plugin.PlayerKnockBackAction
+	(*PlayerSwingArmAction)(nil),               // 90: df.plugin.PlayerSwingArmAction
+	(*PlayerPunchAirAction)(nil),               // 91: df.plugin.PlayerPunchAirAction
+	(*PlayerSetArmourAction)(nil),              // 92: df.plugin.PlayerSetArmourAction
+	(*PlayerSendScoreboardAction)(nil),         // 93: df.plugin.PlayerSendScoreboardAction
+	(*PlayerRemoveScoreboardAction)(nil),       // 94: df.plugin.PlayerRemoveScoreboardAction
+	(*PlayerSendMenuFormAction)(nil),           // 95: df.plugin.PlayerSendMenuFormAction
+	(*PlayerSendModalFormAction)(nil),          // 96: df.plugin.PlayerSendModalFormAction
+	(*PlayerSendDialogueAction)(nil),           // 97: df.plugin.PlayerSendDialogueAction
+	(*PlayerSendBossBarAction)(nil),            // 98: df.plugin.PlayerSendBossBarAction
+	(*PlayerRemoveBossBarAction)(nil),          // 99: df.plugin.PlayerRemoveBossBarAction
+	(*PlayerShowHudElementAction)(nil),         // 100: df.plugin.PlayerShowHudElementAction
+	(*PlayerHideHudElementAction)(nil),         // 101: df.plugin.PlayerHideHudElementAction
+	(*PlayerCloseDialogueAction)(nil),          // 102: df.plugin.PlayerCloseDialogueAction
+	(*PlayerCloseFormAction)(nil),              // 103: df.plugin.PlayerCloseFormAction
+	(*PlayerOpenSignAction)(nil),               // 104: df.plugin.PlayerOpenSignAction
+	(*PlayerEditSignAction)(nil),               // 105: df.plugin.PlayerEditSignAction
+	(*PlayerTurnLecternPageAction)(nil),        // 106: df.plugin.PlayerTurnLecternPageAction
+	(*PlayerHidePlayerAction)(nil),             // 107: df.plugin.PlayerHidePlayerAction
+	(*PlayerShowPlayerAction)(nil),             // 108: df.plugin.PlayerShowPlayerAction
+	(*PlayerRemoveAllDebugShapesAction)(nil),   // 109: df.plugin.PlayerRemoveAllDebugShapesAction
+	(*PlayerOpenBlockContainerAction)(nil),     // 110: df.plugin.PlayerOpenBlockContainerAction
+	(*PlayerDropItemAction)(nil),               // 111: df.plugin.PlayerDropItemAction
+	(*PlayerSetItemCooldownAction)(nil),        // 112: df.plugin.PlayerSetItemCooldownAction
+	(*Vec3)(nil),                               // 113: df.plugin.Vec3
+	(GameMode)(0),                              // 114: df.plugin.GameMode
+	(*ItemStack)(nil),                          // 115: df.plugin.ItemStack
+	(EffectType)(0),                            // 116: df.plugin.EffectType
+	(Sound)(0),                                 // 117: df.plugin.Sound
+	(*WorldRef)(nil),                           // 118: df.plugin.WorldRef
+	(Difficulty)(0),                            // 119: df.plugin.Difficulty
+	(*BlockPos)(nil),                           // 120: df.plugin.BlockPos
+	(*BlockState)(nil),                         // 121: df.plugin.BlockState
+	(*BBox)(nil),                               // 122: df.plugin.BBox
+	(*LiquidState)(nil),                        // 123: df.plugin.LiquidState
+	(*Address)(nil),                            // 124: df.plugin.Address
+	(*EntityRef)(nil),                          // 125: df.plugin.EntityRef
 }
 var file_actions_proto_depIdxs = []int32{
-	2,   // 0: df.plugin.ActionBatch.actions:type_name -> df.plugin.Action
-	3,   // 1: df.plugin.Action.send_chat:type_name -> df.plugin.SendChatAction
-	4,   // 2: df.plugin.Action.teleport:type_name -> df.plugin.TeleportAction
-	5,   // 3: df.plugin.Action.kick:type_name -> df.plugin.KickAction
-	6,   // 4: df.plugin.Action.set_game_mode:type_name -> df.plugin.SetGameModeAction
-	7,   // 5: df.plugin.Action.give_item:type_name -> df.plugin.GiveItemAction
-	8,   // 6: df.plugin.Action.clear_inventory:type_name -> df.plugin.ClearInventoryAction
-	9,   // 7: df.plugin.Action.set_held_item:type_name -> df.plugin.SetHeldItemAction
-	90,  // 8: df.plugin.Action.player_set_armour:type_name -> df.plugin.PlayerSetArmourAction
-	10,  // 9: df.plugin.Action.set_health:type_name -> df.plugin.SetHealthAction
-	11,  // 10: df.plugin.Action.set_food:type_name -> df.plugin.SetFoodAction
-	12,  // 11: df.plugin.Action.set_experience:type_name -> df.plugin.SetExperienceAction
-	13,  // 12: df.plugin.Action.set_velocity:type_name -> df.plugin.SetVelocityAction
-	14,  // 13: df.plugin.Action.add_effect:type_name -> df.plugin.AddEffectAction
-	15,  // 14: df.plugin.Action.remove_effect:type_name -> df.plugin.RemoveEffectAction
-	16,  // 15: df.plugin.Action.send_title:type_name -> df.plugin.SendTitleAction
-	17,  // 16: df.plugin.Action.send_popup:type_name -> df.plugin.SendPopupAction
-	18,  // 17: df.plugin.Action.send_tip:type_name -> df.plugin.SendTipAction
-	76,  // 18: df.plugin.Action.player_send_toast:type_name -> df.plugin.PlayerSendToastAction
-	77,  // 19: df.plugin.Action.player_send_jukebox_popup:type_name -> df.plugin.PlayerSendJukeboxPopupAction
-	78,  // 20: df.plugin.Action.player_show_coordinates:type_name -> df.plugin.PlayerShowCoordinatesAction
-	79,  // 21: df.plugin.Action.player_hide_coordinates:type_name -> df.plugin.PlayerHideCoordinatesAction
-	80,  // 22: df.plugin.Action.player_enable_instant_respawn:type_name -> df.plugin.PlayerEnableInstantRespawnAction
-	81,  // 23: df.plugin.Action.player_disable_instant_respawn:type_name -> df.plugin.PlayerDisableInstantRespawnAction
-	82,  // 24: df.plugin.Action.player_set_name_tag:type_name -> df.plugin.PlayerSetNameTagAction
-	83,  // 25: df.plugin.Action.player_set_score_tag:type_name -> df.plugin.PlayerSetScoreTagAction
-	19,  // 26: df.plugin.Action.play_sound:type_name -> df.plugin.PlaySoundAction
-	84,  // 27: df.plugin.Action.player_show_particle:type_name -> df.plugin.PlayerShowParticleAction
-	91,  // 28: df.plugin.Action.player_send_scoreboard:type_name -> df.plugin.PlayerSendScoreboardAction
-	92,  // 29: df.plugin.Action.player_remove_scoreboard:type_name -> df.plugin.PlayerRemoveScoreboardAction
-	20,  // 30: df.plugin.Action.execute_command:type_name -> df.plugin.ExecuteCommandAction
-	52,  // 31: df.plugin.Action.player_start_sprinting:type_name -> df.plugin.PlayerStartSprintingAction
-	53,  // 32: df.plugin.Action.player_stop_sprinting:type_name -> df.plugin.PlayerStopSprintingAction
-	54,  // 33: df.plugin.Action.player_start_sneaking:type_name -> df.plugin.PlayerStartSneakingAction
-	55,  // 34: df.plugin.Action.player_stop_sneaking:type_name -> df.plugin.PlayerStopSneakingAction
-	56,  // 35: df.plugin.Action.player_start_swimming:type_name -> df.plugin.PlayerStartSwimmingAction
-	57,  // 36: df.plugin.Action.player_stop_swimming:type_name -> df.plugin.PlayerStopSwimmingAction
-	58,  // 37: df.plugin.Action.player_start_crawling:type_name -> df.plugin.PlayerStartCrawlingAction
-	59,  // 38: df.plugin.Action.player_stop_crawling:type_name -> df.plugin.PlayerStopCrawlingAction
-	60,  // 39: df.plugin.Action.player_start_gliding:type_name -> df.plugin.PlayerStartGlidingAction
-	61,  // 40: df.plugin.Action.player_stop_gliding:type_name -> df.plugin.PlayerStopGlidingAction
-	62,  // 41: df.plugin.Action.player_start_flying:type_name -> df.plugin.PlayerStartFlyingAction
-	63,  // 42: df.plugin.Action.player_stop_flying:type_name -> df.plugin.PlayerStopFlyingAction
-	64,  // 43: df.plugin.Action.player_set_immobile:type_name -> df.plugin.PlayerSetImmobileAction
-	65,  // 44: df.plugin.Action.player_set_mobile:type_name -> df.plugin.PlayerSetMobileAction
-	66,  // 45: df.plugin.Action.player_set_speed:type_name -> df.plugin.PlayerSetSpeedAction
-	67,  // 46: df.plugin.Action.player_set_flight_speed:type_name -> df.plugin.PlayerSetFlightSpeedAction
-	68,  // 47: df.plugin.Action.player_set_vertical_flight_speed:type_name -> df.plugin.PlayerSetVerticalFlightSpeedAction
-	69,  // 48: df.plugin.Action.player_set_absorption:type_name -> df.plugin.PlayerSetAbsorptionAction
-	70,  // 49: df.plugin.Action.player_set_on_fire:type_name -> df.plugin.PlayerSetOnFireAction
-	71,  // 50: df.plugin.Action.player_extinguish:type_name -> df.plugin.PlayerExtinguishAction
-	72,  // 51: df.plugin.Action.player_set_invisible:type_name -> df.plugin.PlayerSetInvisibleAction
-	73,  // 52: df.plugin.Action.player_set_visible:type_name -> df.plugin.PlayerSetVisibleAction
-	74,  // 53: df.plugin.Action.player_set_scale:type_name -> df.plugin.PlayerSetScaleAction
-	75,  // 54: df.plugin.Action.player_set_held_slot:type_name -> df.plugin.PlayerSetHeldSlotAction
-	85,  // 55: df.plugin.Action.player_respawn:type_name -> df.plugin.PlayerRespawnAction
-	86,  // 56: df.plugin.Action.player_transfer:type_name -> df.plugin.PlayerTransferAction
-	87,  // 57: df.plugin.Action.player_knock_back:type_name -> df.plugin.PlayerKnockBackAction
-	88,  // 58: df.plugin.Action.player_swing_arm:type_name -> df.plugin.PlayerSwingArmAction
-	89,  // 59: df.plugin.Action.player_punch_air:type_name -> df.plugin.PlayerPunchAirAction
-	21,  // 60: df.plugin.Action.world_set_default_game_mode:type_name -> df.plugin.WorldSetDefaultGameModeAction
-	22,  // 61: df.plugin.Action.world_set_difficulty:type_name -> df.plugin.WorldSetDifficultyAction
-	23,  // 62: df.plugin.Action.world_set_tick_range:type_name -> df.plugin.WorldSetTickRangeAction
-	24,  // 63: df.plugin.Action.world_set_block:type_name -> df.plugin.WorldSetBlockAction
-	25,  // 64: df.plugin.Action.world_play_sound:type_name -> df.plugin.WorldPlaySoundAction
-	26,  // 65: df.plugin.Action.world_add_particle:type_name -> df.plugin.WorldAddParticleAction
-	27,  // 66: df.plugin.Action.world_set_time:type_name -> df.plugin.WorldSetTimeAction
-	28,  // 67: df.plugin.Action.world_stop_time:type_name -> df.plugin.WorldStopTimeAction
-	29,  // 68: df.plugin.Action.world_start_time:type_name -> df.plugin.WorldStartTimeAction
-	30,  // 69: df.plugin.Action.world_set_spawn:type_name -> df.plugin.WorldSetSpawnAction
-	46,  // 70: df.plugin.Action.world_set_biome:type_name -> df.plugin.WorldSetBiomeAction
-	47,  // 71: df.plugin.Action.world_set_liquid:type_name -> df.plugin.WorldSetLiquidAction
-	48,  // 72: df.plugin.Action.world_schedule_block_update:type_name -> df.plugin.WorldScheduleBlockUpdateAction
-	51,  // 73: df.plugin.Action.world_build_structure:type_name -> df.plugin.WorldBuildStructureAction
-	33,  // 74: df.plugin.Action.world_query_entities:type_name -> df.plugin.WorldQueryEntitiesAction
-	34,  // 75: df.plugin.Action.world_query_players:type_name -> df.plugin.WorldQueryPlayersAction
-	35,  // 76: df.plugin.Action.world_query_entities_within:type_name -> df.plugin.WorldQueryEntitiesWithinAction
-	32,  // 77: df.plugin.Action.world_query_player_spawn:type_name -> df.plugin.WorldQueryPlayerSpawnAction
-	36,  // 78: df.plugin.Action.world_query_block:type_name -> df.plugin.WorldQueryBlockAction
-	37,  // 79: df.plugin.Action.world_query_biome:type_name -> df.plugin.WorldQueryBiomeAction
-	38,  // 80: df.plugin.Action.world_query_light:type_name -> df.plugin.WorldQueryLightAction
-	39,  // 81: df.plugin.Action.world_query_sky_light:type_name -> df.plugin.WorldQuerySkyLightAction
-	40,  // 82: df.plugin.Action.world_query_temperature:type_name -> df.plugin.WorldQueryTemperatureAction
-	41,  // 83: df.plugin.Action.world_query_highest_block:type_name -> df.plugin.WorldQueryHighestBlockAction
-	42,  // 84: df.plugin.Action.world_query_raining_at:type_name -> df.plugin.WorldQueryRainingAtAction
-	43,  // 85: df.plugin.Action.world_query_snowing_at:type_name -> df.plugin.WorldQuerySnowingAtAction
-	44,  // 86: df.plugin.Action.world_query_thundering_at:type_name -> df.plugin.WorldQueryThunderingAtAction
-	45,  // 87: df.plugin.Action.world_query_liquid:type_name -> df.plugin.WorldQueryLiquidAction
-	31,  // 88: df.plugin.Action.world_query_default_game_mode:type_name -> df.plugin.WorldQueryDefaultGameModeAction
-	93,  // 89: df.plugin.TeleportAction.position:type_name -> df.plugin.Vec3
-	93,  // 90: df.plugin.TeleportAction.rotation:type_name -> df.plugin.Vec3
-	94,  // 91: df.plugin.SetGameModeAction.game_mode:type_name -> df.plugin.GameMode
-	95,  // 92: df.plugin.GiveItemAction.item:type_name -> df.plugin.ItemStack
-	95,  // 93: df.plugin.SetHeldItemAction.main:type_name -> df.plugin.ItemStack
-	95,  // 94: df.plugin.SetHeldItemAction.offhand:type_name -> df.plugin.ItemStack
-	93,  // 95: df.plugin.SetVelocityAction.velocity:type_name -> df.plugin.Vec3
-	96,  // 96: df.plugin.AddEffectAction.effect_type:type_name -> df.plugin.EffectType
-	96,  // 97: df.plugin.RemoveEffectAction.effect_type:type_name -> df.plugin.EffectType
-	97,  // 98: df.plugin.PlaySoundAction.sound:type_name -> df.plugin.Sound
-	93,  // 99: df.plugin.PlaySoundAction.position:type_name -> df.plugin.Vec3
-	98,  // 100: df.plugin.WorldSetDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
-	94,  // 101: df.plugin.WorldSetDefaultGameModeAction.game_mode:type_name -> df.plugin.GameMode
-	98,  // 102: df.plugin.WorldSetDifficultyAction.world:type_name -> df.plugin.WorldRef
-	99,  // 103: df.plugin.WorldSetDifficultyAction.difficulty:type_name -> df.plugin.Difficulty
-	98,  // 104: df.plugin.WorldSetTickRangeAction.world:type_name -> df.plugin.WorldRef
-	98,  // 105: df.plugin.WorldSetBlockAction.world:type_name -> df.plugin.WorldRef
-	100, // 106: df.plugin.WorldSetBlockAction.position:type_name -> df.plugin.BlockPos
-	101, // 107: df.plugin.WorldSetBlockAction.block:type_name -> df.plugin.BlockState
-	98,  // 108: df.plugin.WorldPlaySoundAction.world:type_name -> df.plugin.WorldRef
-	97,  // 109: df.plugin.WorldPlaySoundAction.sound:type_name -> df.plugin.Sound
-	93,  // 110: df.plugin.WorldPlaySoundAction.position:type_name -> df.plugin.Vec3
-	98,  // 111: df.plugin.WorldAddParticleAction.world:type_name -> df.plugin.WorldRef
-	93,  // 112: df.plugin.WorldAddParticleAction.position:type_name -> df.plugin.Vec3
-	0,   // 113: df.plugin.WorldAddParticleAction.particle:type_name -> df.plugin.ParticleType
-	101, // 114: df.plugin.WorldAddParticleAction.block:type_name -> df.plugin.BlockState
-	98,  // 115: df.plugin.WorldSetTimeAction.world:type_name -> df.plugin.WorldRef
-	98,  // 116: df.plugin.WorldStopTimeAction.world:type_name -> df.plugin.WorldRef
-	98,  // 117: df.plugin.WorldStartTimeAction.world:type_name -> df.plugin.WorldRef
-	98,  // 118: df.plugin.WorldSetSpawnAction.world:type_name -> df.plugin.WorldRef
-	100, // 119: df.plugin.WorldSetSpawnAction.spawn:type_name -> df.plugin.BlockPos
-	98,  // 120: df.plugin.WorldQueryDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
-	98,  // 121: df.plugin.WorldQueryPlayerSpawnAction.world:type_name -> df.plugin.WorldRef
-	98,  // 122: df.plugin.WorldQueryEntitiesAction.world:type_name -> df.plugin.WorldRef
-	98,  // 123: df.plugin.WorldQueryPlayersAction.world:type_name -> df.plugin.WorldRef
-	98,  // 124: df.plugin.WorldQueryEntitiesWithinAction.world:type_name -> df.plugin.WorldRef
-	102, // 125: df.plugin.WorldQueryEntitiesWithinAction.box:type_name -> df.plugin.BBox
-	98,  // 126: df.plugin.WorldQueryBlockAction.world:type_name -> df.plugin.WorldRef
-	100, // 127: df.plugin.WorldQueryBlockAction.position:type_name -> df.plugin.BlockPos
-	98,  // 128: df.plugin.WorldQueryBiomeAction.world:type_name -> df.plugin.WorldRef
-	100, // 129: df.plugin.WorldQueryBiomeAction.position:type_name -> df.plugin.BlockPos
-	98,  // 130: df.plugin.WorldQueryLightAction.world:type_name -> df.plugin.WorldRef
-	100, // 131: df.plugin.WorldQueryLightAction.position:type_name -> df.plugin.BlockPos
-	98,  // 132: df.plugin.WorldQuerySkyLightAction.world:type_name -> df.plugin.WorldRef
-	100, // 133: df.plugin.WorldQuerySkyLightAction.position:type_name -> df.plugin.BlockPos
-	98,  // 134: df.plugin.WorldQueryTemperatureAction.world:type_name -> df.plugin.WorldRef
-	100, // 135: df.plugin.WorldQueryTemperatureAction.position:type_name -> df.plugin.BlockPos
-	98,  // 136: df.plugin.WorldQueryHighestBlockAction.world:type_name -> df.plugin.WorldRef
-	98,  // 137: df.plugin.WorldQueryRainingAtAction.world:type_name -> df.plugin.WorldRef
-	100, // 138: df.plugin.WorldQueryRainingAtAction.position:type_name -> df.plugin.BlockPos
-	98,  // 139: df.plugin.WorldQuerySnowingAtAction.world:type_name -> df.plugin.WorldRef
-	100, // 140: df.plugin.WorldQuerySnowingAtAction.position:type_name -> df.plugin.BlockPos
-	98,  // 141: df.plugin.WorldQueryThunderingAtAction.world:type_name -> df.plugin.WorldRef
-	100, // 142: df.plugin.WorldQueryThunderingAtAction.position:type_name -> df.plugin.BlockPos
-	98,  // 143: df.plugin.WorldQueryLiquidAction.world:type_name -> df.plugin.WorldRef
-	100, // 144: df.plugin.WorldQueryLiquidAction.position:type_name -> df.plugin.BlockPos
-	98,  // 145: df.plugin.WorldSetBiomeAction.world:type_name -> df.plugin.WorldRef
-	100, // 146: df.plugin.WorldSetBiomeAction.position:type_name -> df.plugin.BlockPos
-	98,  // 147: df.plugin.WorldSetLiquidAction.world:type_name -> df.plugin.WorldRef
-	100, // 148: df.plugin.WorldSetLiquidAction.position:type_name -> df.plugin.BlockPos
-	103, // 149: df.plugin.WorldSetLiquidAction.liquid:type_name -> df.plugin.LiquidState
-	98,  // 150: df.plugin.WorldScheduleBlockUpdateAction.world:type_name -> df.plugin.WorldRef
-	100, // 151: df.plugin.WorldScheduleBlockUpdateAction.position:type_name -> df.plugin.BlockPos
-	101, // 152: df.plugin.WorldScheduleBlockUpdateAction.block:type_name -> df.plugin.BlockState
-	101, // 153: df.plugin.StructureVoxel.block:type_name -> df.plugin.BlockState
-	103, // 154: df.plugin.StructureVoxel.liquid:type_name -> df.plugin.LiquidState
-	49,  // 155: df.plugin.StructureDef.voxels:type_name -> df.plugin.StructureVoxel
-	98,  // 156: df.plugin.WorldBuildStructureAction.world:type_name -> df.plugin.WorldRef
-	100, // 157: df.plugin.WorldBuildStructureAction.origin:type_name -> df.plugin.BlockPos
-	50,  // 158: df.plugin.WorldBuildStructureAction.structure:type_name -> df.plugin.StructureDef
-	93,  // 159: df.plugin.PlayerShowParticleAction.position:type_name -> df.plugin.Vec3
-	0,   // 160: df.plugin.PlayerShowParticleAction.particle:type_name -> df.plugin.ParticleType
-	101, // 161: df.plugin.PlayerShowParticleAction.block:type_name -> df.plugin.BlockState
-	104, // 162: df.plugin.PlayerTransferAction.address:type_name -> df.plugin.Address
-	93,  // 163: df.plugin.PlayerKnockBackAction.source:type_name -> df.plugin.Vec3
-	95,  // 164: df.plugin.PlayerSetArmourAction.helmet:type_name -> df.plugin.ItemStack
-	95,  // 165: df.plugin.PlayerSetArmourAction.chestplate:type_name -> df.plugin.ItemStack
-	95,  // 166: df.plugin.PlayerSetArmourAction.leggings:type_name -> df.plugin.ItemStack
-	95,  // 167: df.plugin.PlayerSetArmourAction.boots:type_name -> df.plugin.ItemStack
-	168, // [168:168] is the sub-list for method output_type
-	168, // [168:168] is the sub-list for method input_type
-	168, // [168:168] is the sub-list for extension type_name
-	168, // [168:168] is the sub-list for extension extendee
-	0,   // [0:168] is the sub-list for field type_name
+	4,   // 0: df.plugin.ActionBatch.actions:type_name -> df.plugin.Action
+	5,   // 1: df.plugin.Action.send_chat:type_name -> df.plugin.SendChatAction
+	6,   // 2: df.plugin.Action.teleport:type_name -> df.plugin.TeleportAction
+	7,   // 3: df.plugin.Action.kick:type_name -> df.plugin.KickAction
+	8,   // 4: df.plugin.Action.set_game_mode:type_name -> df.plugin.SetGameModeAction
+	9,   // 5: df.plugin.Action.give_item:type_name -> df.plugin.GiveItemAction
+	10,  // 6: df.plugin.Action.clear_inventory:type_name -> df.plugin.ClearInventoryAction
+	11,  // 7: df.plugin.Action.set_held_item:type_name -> df.plugin.SetHeldItemAction
+	92,  // 8: df.plugin.Action.player_set_armour:type_name -> df.plugin.PlayerSetArmourAction
+	110, // 9: df.plugin.Action.player_open_block_container:type_name -> df.plugin.PlayerOpenBlockContainerAction
+	111, // 10: df.plugin.Action.player_drop_item:type_name -> df.plugin.PlayerDropItemAction
+	112, // 11: df.plugin.Action.player_set_item_cooldown:type_name -> df.plugin.PlayerSetItemCooldownAction
+	12,  // 12: df.plugin.Action.set_health:type_name -> df.plugin.SetHealthAction
+	13,  // 13: df.plugin.Action.set_food:type_name -> df.plugin.SetFoodAction
+	14,  // 14: df.plugin.Action.set_experience:type_name -> df.plugin.SetExperienceAction
+	15,  // 15: df.plugin.Action.set_velocity:type_name -> df.plugin.SetVelocityAction
+	16,  // 16: df.plugin.Action.add_effect:type_name -> df.plugin.AddEffectAction
+	17,  // 17: df.plugin.Action.remove_effect:type_name -> df.plugin.RemoveEffectAction
+	18,  // 18: df.plugin.Action.send_title:type_name -> df.plugin.SendTitleAction
+	19,  // 19: df.plugin.Action.send_popup:type_name -> df.plugin.SendPopupAction
+	20,  // 20: df.plugin.Action.send_tip:type_name -> df.plugin.SendTipAction
+	78,  // 21: df.plugin.Action.player_send_toast:type_name -> df.plugin.PlayerSendToastAction
+	79,  // 22: df.plugin.Action.player_send_jukebox_popup:type_name -> df.plugin.PlayerSendJukeboxPopupAction
+	80,  // 23: df.plugin.Action.player_show_coordinates:type_name -> df.plugin.PlayerShowCoordinatesAction
+	81,  // 24: df.plugin.Action.player_hide_coordinates:type_name -> df.plugin.PlayerHideCoordinatesAction
+	82,  // 25: df.plugin.Action.player_enable_instant_respawn:type_name -> df.plugin.PlayerEnableInstantRespawnAction
+	83,  // 26: df.plugin.Action.player_disable_instant_respawn:type_name -> df.plugin.PlayerDisableInstantRespawnAction
+	84,  // 27: df.plugin.Action.player_set_name_tag:type_name -> df.plugin.PlayerSetNameTagAction
+	85,  // 28: df.plugin.Action.player_set_score_tag:type_name -> df.plugin.PlayerSetScoreTagAction
+	21,  // 29: df.plugin.Action.play_sound:type_name -> df.plugin.PlaySoundAction
+	86,  // 30: df.plugin.Action.player_show_particle:type_name -> df.plugin.PlayerShowParticleAction
+	93,  // 31: df.plugin.Action.player_send_scoreboard:type_name -> df.plugin.PlayerSendScoreboardAction
+	94,  // 32: df.plugin.Action.player_remove_scoreboard:type_name -> df.plugin.PlayerRemoveScoreboardAction
+	95,  // 33: df.plugin.Action.player_send_menu_form:type_name -> df.plugin.PlayerSendMenuFormAction
+	96,  // 34: df.plugin.Action.player_send_modal_form:type_name -> df.plugin.PlayerSendModalFormAction
+	97,  // 35: df.plugin.Action.player_send_dialogue:type_name -> df.plugin.PlayerSendDialogueAction
+	102, // 36: df.plugin.Action.player_close_dialogue:type_name -> df.plugin.PlayerCloseDialogueAction
+	103, // 37: df.plugin.Action.player_close_form:type_name -> df.plugin.PlayerCloseFormAction
+	22,  // 38: df.plugin.Action.execute_command:type_name -> df.plugin.ExecuteCommandAction
+	54,  // 39: df.plugin.Action.player_start_sprinting:type_name -> df.plugin.PlayerStartSprintingAction
+	55,  // 40: df.plugin.Action.player_stop_sprinting:type_name -> df.plugin.PlayerStopSprintingAction
+	56,  // 41: df.plugin.Action.player_start_sneaking:type_name -> df.plugin.PlayerStartSneakingAction
+	57,  // 42: df.plugin.Action.player_stop_sneaking:type_name -> df.plugin.PlayerStopSneakingAction
+	58,  // 43: df.plugin.Action.player_start_swimming:type_name -> df.plugin.PlayerStartSwimmingAction
+	59,  // 44: df.plugin.Action.player_stop_swimming:type_name -> df.plugin.PlayerStopSwimmingAction
+	60,  // 45: df.plugin.Action.player_start_crawling:type_name -> df.plugin.PlayerStartCrawlingAction
+	61,  // 46: df.plugin.Action.player_stop_crawling:type_name -> df.plugin.PlayerStopCrawlingAction
+	62,  // 47: df.plugin.Action.player_start_gliding:type_name -> df.plugin.PlayerStartGlidingAction
+	63,  // 48: df.plugin.Action.player_stop_gliding:type_name -> df.plugin.PlayerStopGlidingAction
+	64,  // 49: df.plugin.Action.player_start_flying:type_name -> df.plugin.PlayerStartFlyingAction
+	65,  // 50: df.plugin.Action.player_stop_flying:type_name -> df.plugin.PlayerStopFlyingAction
+	66,  // 51: df.plugin.Action.player_set_immobile:type_name -> df.plugin.PlayerSetImmobileAction
+	67,  // 52: df.plugin.Action.player_set_mobile:type_name -> df.plugin.PlayerSetMobileAction
+	68,  // 53: df.plugin.Action.player_set_speed:type_name -> df.plugin.PlayerSetSpeedAction
+	69,  // 54: df.plugin.Action.player_set_flight_speed:type_name -> df.plugin.PlayerSetFlightSpeedAction
+	70,  // 55: df.plugin.Action.player_set_vertical_flight_speed:type_name -> df.plugin.PlayerSetVerticalFlightSpeedAction
+	71,  // 56: df.plugin.Action.player_set_absorption:type_name -> df.plugin.PlayerSetAbsorptionAction
+	72,  // 57: df.plugin.Action.player_set_on_fire:type_name -> df.plugin.PlayerSetOnFireAction
+	73,  // 58: df.plugin.Action.player_extinguish:type_name -> df.plugin.PlayerExtinguishAction
+	74,  // 59: df.plugin.Action.player_set_invisible:type_name -> df.plugin.PlayerSetInvisibleAction
+	75,  // 60: df.plugin.Action.player_set_visible:type_name -> df.plugin.PlayerSetVisibleAction
+	76,  // 61: df.plugin.Action.player_set_scale:type_name -> df.plugin.PlayerSetScaleAction
+	77,  // 62: df.plugin.Action.player_set_held_slot:type_name -> df.plugin.PlayerSetHeldSlotAction
+	87,  // 63: df.plugin.Action.player_respawn:type_name -> df.plugin.PlayerRespawnAction
+	88,  // 64: df.plugin.Action.player_transfer:type_name -> df.plugin.PlayerTransferAction
+	89,  // 65: df.plugin.Action.player_knock_back:type_name -> df.plugin.PlayerKnockBackAction
+	90,  // 66: df.plugin.Action.player_swing_arm:type_name -> df.plugin.PlayerSwingArmAction
+	91,  // 67: df.plugin.Action.player_punch_air:type_name -> df.plugin.PlayerPunchAirAction
+	98,  // 68: df.plugin.Action.player_send_boss_bar:type_name -> df.plugin.PlayerSendBossBarAction
+	99,  // 69: df.plugin.Action.player_remove_boss_bar:type_name -> df.plugin.PlayerRemoveBossBarAction
+	100, // 70: df.plugin.Action.player_show_hud_element:type_name -> df.plugin.PlayerShowHudElementAction
+	101, // 71: df.plugin.Action.player_hide_hud_element:type_name -> df.plugin.PlayerHideHudElementAction
+	104, // 72: df.plugin.Action.player_open_sign:type_name -> df.plugin.PlayerOpenSignAction
+	105, // 73: df.plugin.Action.player_edit_sign:type_name -> df.plugin.PlayerEditSignAction
+	106, // 74: df.plugin.Action.player_turn_lectern_page:type_name -> df.plugin.PlayerTurnLecternPageAction
+	107, // 75: df.plugin.Action.player_hide_player:type_name -> df.plugin.PlayerHidePlayerAction
+	108, // 76: df.plugin.Action.player_show_player:type_name -> df.plugin.PlayerShowPlayerAction
+	109, // 77: df.plugin.Action.player_remove_all_debug_shapes:type_name -> df.plugin.PlayerRemoveAllDebugShapesAction
+	23,  // 78: df.plugin.Action.world_set_default_game_mode:type_name -> df.plugin.WorldSetDefaultGameModeAction
+	24,  // 79: df.plugin.Action.world_set_difficulty:type_name -> df.plugin.WorldSetDifficultyAction
+	25,  // 80: df.plugin.Action.world_set_tick_range:type_name -> df.plugin.WorldSetTickRangeAction
+	26,  // 81: df.plugin.Action.world_set_block:type_name -> df.plugin.WorldSetBlockAction
+	27,  // 82: df.plugin.Action.world_play_sound:type_name -> df.plugin.WorldPlaySoundAction
+	28,  // 83: df.plugin.Action.world_add_particle:type_name -> df.plugin.WorldAddParticleAction
+	29,  // 84: df.plugin.Action.world_set_time:type_name -> df.plugin.WorldSetTimeAction
+	30,  // 85: df.plugin.Action.world_stop_time:type_name -> df.plugin.WorldStopTimeAction
+	31,  // 86: df.plugin.Action.world_start_time:type_name -> df.plugin.WorldStartTimeAction
+	32,  // 87: df.plugin.Action.world_set_spawn:type_name -> df.plugin.WorldSetSpawnAction
+	48,  // 88: df.plugin.Action.world_set_biome:type_name -> df.plugin.WorldSetBiomeAction
+	49,  // 89: df.plugin.Action.world_set_liquid:type_name -> df.plugin.WorldSetLiquidAction
+	50,  // 90: df.plugin.Action.world_schedule_block_update:type_name -> df.plugin.WorldScheduleBlockUpdateAction
+	53,  // 91: df.plugin.Action.world_build_structure:type_name -> df.plugin.WorldBuildStructureAction
+	35,  // 92: df.plugin.Action.world_query_entities:type_name -> df.plugin.WorldQueryEntitiesAction
+	36,  // 93: df.plugin.Action.world_query_players:type_name -> df.plugin.WorldQueryPlayersAction
+	37,  // 94: df.plugin.Action.world_query_entities_within:type_name -> df.plugin.WorldQueryEntitiesWithinAction
+	34,  // 95: df.plugin.Action.world_query_player_spawn:type_name -> df.plugin.WorldQueryPlayerSpawnAction
+	38,  // 96: df.plugin.Action.world_query_block:type_name -> df.plugin.WorldQueryBlockAction
+	39,  // 97: df.plugin.Action.world_query_biome:type_name -> df.plugin.WorldQueryBiomeAction
+	40,  // 98: df.plugin.Action.world_query_light:type_name -> df.plugin.WorldQueryLightAction
+	41,  // 99: df.plugin.Action.world_query_sky_light:type_name -> df.plugin.WorldQuerySkyLightAction
+	42,  // 100: df.plugin.Action.world_query_temperature:type_name -> df.plugin.WorldQueryTemperatureAction
+	43,  // 101: df.plugin.Action.world_query_highest_block:type_name -> df.plugin.WorldQueryHighestBlockAction
+	44,  // 102: df.plugin.Action.world_query_raining_at:type_name -> df.plugin.WorldQueryRainingAtAction
+	45,  // 103: df.plugin.Action.world_query_snowing_at:type_name -> df.plugin.WorldQuerySnowingAtAction
+	46,  // 104: df.plugin.Action.world_query_thundering_at:type_name -> df.plugin.WorldQueryThunderingAtAction
+	47,  // 105: df.plugin.Action.world_query_liquid:type_name -> df.plugin.WorldQueryLiquidAction
+	33,  // 106: df.plugin.Action.world_query_default_game_mode:type_name -> df.plugin.WorldQueryDefaultGameModeAction
+	113, // 107: df.plugin.TeleportAction.position:type_name -> df.plugin.Vec3
+	113, // 108: df.plugin.TeleportAction.rotation:type_name -> df.plugin.Vec3
+	114, // 109: df.plugin.SetGameModeAction.game_mode:type_name -> df.plugin.GameMode
+	115, // 110: df.plugin.GiveItemAction.item:type_name -> df.plugin.ItemStack
+	115, // 111: df.plugin.SetHeldItemAction.main:type_name -> df.plugin.ItemStack
+	115, // 112: df.plugin.SetHeldItemAction.offhand:type_name -> df.plugin.ItemStack
+	113, // 113: df.plugin.SetVelocityAction.velocity:type_name -> df.plugin.Vec3
+	116, // 114: df.plugin.AddEffectAction.effect_type:type_name -> df.plugin.EffectType
+	116, // 115: df.plugin.RemoveEffectAction.effect_type:type_name -> df.plugin.EffectType
+	117, // 116: df.plugin.PlaySoundAction.sound:type_name -> df.plugin.Sound
+	113, // 117: df.plugin.PlaySoundAction.position:type_name -> df.plugin.Vec3
+	118, // 118: df.plugin.WorldSetDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
+	114, // 119: df.plugin.WorldSetDefaultGameModeAction.game_mode:type_name -> df.plugin.GameMode
+	118, // 120: df.plugin.WorldSetDifficultyAction.world:type_name -> df.plugin.WorldRef
+	119, // 121: df.plugin.WorldSetDifficultyAction.difficulty:type_name -> df.plugin.Difficulty
+	118, // 122: df.plugin.WorldSetTickRangeAction.world:type_name -> df.plugin.WorldRef
+	118, // 123: df.plugin.WorldSetBlockAction.world:type_name -> df.plugin.WorldRef
+	120, // 124: df.plugin.WorldSetBlockAction.position:type_name -> df.plugin.BlockPos
+	121, // 125: df.plugin.WorldSetBlockAction.block:type_name -> df.plugin.BlockState
+	118, // 126: df.plugin.WorldPlaySoundAction.world:type_name -> df.plugin.WorldRef
+	117, // 127: df.plugin.WorldPlaySoundAction.sound:type_name -> df.plugin.Sound
+	113, // 128: df.plugin.WorldPlaySoundAction.position:type_name -> df.plugin.Vec3
+	118, // 129: df.plugin.WorldAddParticleAction.world:type_name -> df.plugin.WorldRef
+	113, // 130: df.plugin.WorldAddParticleAction.position:type_name -> df.plugin.Vec3
+	0,   // 131: df.plugin.WorldAddParticleAction.particle:type_name -> df.plugin.ParticleType
+	121, // 132: df.plugin.WorldAddParticleAction.block:type_name -> df.plugin.BlockState
+	118, // 133: df.plugin.WorldSetTimeAction.world:type_name -> df.plugin.WorldRef
+	118, // 134: df.plugin.WorldStopTimeAction.world:type_name -> df.plugin.WorldRef
+	118, // 135: df.plugin.WorldStartTimeAction.world:type_name -> df.plugin.WorldRef
+	118, // 136: df.plugin.WorldSetSpawnAction.world:type_name -> df.plugin.WorldRef
+	120, // 137: df.plugin.WorldSetSpawnAction.spawn:type_name -> df.plugin.BlockPos
+	118, // 138: df.plugin.WorldQueryDefaultGameModeAction.world:type_name -> df.plugin.WorldRef
+	118, // 139: df.plugin.WorldQueryPlayerSpawnAction.world:type_name -> df.plugin.WorldRef
+	118, // 140: df.plugin.WorldQueryEntitiesAction.world:type_name -> df.plugin.WorldRef
+	118, // 141: df.plugin.WorldQueryPlayersAction.world:type_name -> df.plugin.WorldRef
+	118, // 142: df.plugin.WorldQueryEntitiesWithinAction.world:type_name -> df.plugin.WorldRef
+	122, // 143: df.plugin.WorldQueryEntitiesWithinAction.box:type_name -> df.plugin.BBox
+	118, // 144: df.plugin.WorldQueryBlockAction.world:type_name -> df.plugin.WorldRef
+	120, // 145: df.plugin.WorldQueryBlockAction.position:type_name -> df.plugin.BlockPos
+	118, // 146: df.plugin.WorldQueryBiomeAction.world:type_name -> df.plugin.WorldRef
+	120, // 147: df.plugin.WorldQueryBiomeAction.position:type_name -> df.plugin.BlockPos
+	118, // 148: df.plugin.WorldQueryLightAction.world:type_name -> df.plugin.WorldRef
+	120, // 149: df.plugin.WorldQueryLightAction.position:type_name -> df.plugin.BlockPos
+	118, // 150: df.plugin.WorldQuerySkyLightAction.world:type_name -> df.plugin.WorldRef
+	120, // 151: df.plugin.WorldQuerySkyLightAction.position:type_name -> df.plugin.BlockPos
+	118, // 152: df.plugin.WorldQueryTemperatureAction.world:type_name -> df.plugin.WorldRef
+	120, // 153: df.plugin.WorldQueryTemperatureAction.position:type_name -> df.plugin.BlockPos
+	118, // 154: df.plugin.WorldQueryHighestBlockAction.world:type_name -> df.plugin.WorldRef
+	118, // 155: df.plugin.WorldQueryRainingAtAction.world:type_name -> df.plugin.WorldRef
+	120, // 156: df.plugin.WorldQueryRainingAtAction.position:type_name -> df.plugin.BlockPos
+	118, // 157: df.plugin.WorldQuerySnowingAtAction.world:type_name -> df.plugin.WorldRef
+	120, // 158: df.plugin.WorldQuerySnowingAtAction.position:type_name -> df.plugin.BlockPos
+	118, // 159: df.plugin.WorldQueryThunderingAtAction.world:type_name -> df.plugin.WorldRef
+	120, // 160: df.plugin.WorldQueryThunderingAtAction.position:type_name -> df.plugin.BlockPos
+	118, // 161: df.plugin.WorldQueryLiquidAction.world:type_name -> df.plugin.WorldRef
+	120, // 162: df.plugin.WorldQueryLiquidAction.position:type_name -> df.plugin.BlockPos
+	118, // 163: df.plugin.WorldSetBiomeAction.world:type_name -> df.plugin.WorldRef
+	120, // 164: df.plugin.WorldSetBiomeAction.position:type_name -> df.plugin.BlockPos
+	118, // 165: df.plugin.WorldSetLiquidAction.world:type_name -> df.plugin.WorldRef
+	120, // 166: df.plugin.WorldSetLiquidAction.position:type_name -> df.plugin.BlockPos
+	123, // 167: df.plugin.WorldSetLiquidAction.liquid:type_name -> df.plugin.LiquidState
+	118, // 168: df.plugin.WorldScheduleBlockUpdateAction.world:type_name -> df.plugin.WorldRef
+	120, // 169: df.plugin.WorldScheduleBlockUpdateAction.position:type_name -> df.plugin.BlockPos
+	121, // 170: df.plugin.WorldScheduleBlockUpdateAction.block:type_name -> df.plugin.BlockState
+	121, // 171: df.plugin.StructureVoxel.block:type_name -> df.plugin.BlockState
+	123, // 172: df.plugin.StructureVoxel.liquid:type_name -> df.plugin.LiquidState
+	51,  // 173: df.plugin.StructureDef.voxels:type_name -> df.plugin.StructureVoxel
+	118, // 174: df.plugin.WorldBuildStructureAction.world:type_name -> df.plugin.WorldRef
+	120, // 175: df.plugin.WorldBuildStructureAction.origin:type_name -> df.plugin.BlockPos
+	52,  // 176: df.plugin.WorldBuildStructureAction.structure:type_name -> df.plugin.StructureDef
+	113, // 177: df.plugin.PlayerShowParticleAction.position:type_name -> df.plugin.Vec3
+	0,   // 178: df.plugin.PlayerShowParticleAction.particle:type_name -> df.plugin.ParticleType
+	121, // 179: df.plugin.PlayerShowParticleAction.block:type_name -> df.plugin.BlockState
+	124, // 180: df.plugin.PlayerTransferAction.address:type_name -> df.plugin.Address
+	113, // 181: df.plugin.PlayerKnockBackAction.source:type_name -> df.plugin.Vec3
+	115, // 182: df.plugin.PlayerSetArmourAction.helmet:type_name -> df.plugin.ItemStack
+	115, // 183: df.plugin.PlayerSetArmourAction.chestplate:type_name -> df.plugin.ItemStack
+	115, // 184: df.plugin.PlayerSetArmourAction.leggings:type_name -> df.plugin.ItemStack
+	115, // 185: df.plugin.PlayerSetArmourAction.boots:type_name -> df.plugin.ItemStack
+	125, // 186: df.plugin.PlayerSendDialogueAction.entity:type_name -> df.plugin.EntityRef
+	1,   // 187: df.plugin.PlayerSendBossBarAction.colour:type_name -> df.plugin.BossBarColour
+	2,   // 188: df.plugin.PlayerShowHudElementAction.element:type_name -> df.plugin.HudElement
+	2,   // 189: df.plugin.PlayerHideHudElementAction.element:type_name -> df.plugin.HudElement
+	120, // 190: df.plugin.PlayerOpenSignAction.position:type_name -> df.plugin.BlockPos
+	120, // 191: df.plugin.PlayerEditSignAction.position:type_name -> df.plugin.BlockPos
+	120, // 192: df.plugin.PlayerTurnLecternPageAction.position:type_name -> df.plugin.BlockPos
+	120, // 193: df.plugin.PlayerOpenBlockContainerAction.position:type_name -> df.plugin.BlockPos
+	115, // 194: df.plugin.PlayerDropItemAction.item:type_name -> df.plugin.ItemStack
+	115, // 195: df.plugin.PlayerSetItemCooldownAction.item:type_name -> df.plugin.ItemStack
+	196, // [196:196] is the sub-list for method output_type
+	196, // [196:196] is the sub-list for method input_type
+	196, // [196:196] is the sub-list for extension type_name
+	196, // [196:196] is the sub-list for extension extendee
+	0,   // [0:196] is the sub-list for field type_name
 }
 
 func init() { file_actions_proto_init() }
@@ -7277,6 +8928,9 @@ func file_actions_proto_init() {
 		(*Action_ClearInventory)(nil),
 		(*Action_SetHeldItem)(nil),
 		(*Action_PlayerSetArmour)(nil),
+		(*Action_PlayerOpenBlockContainer)(nil),
+		(*Action_PlayerDropItem)(nil),
+		(*Action_PlayerSetItemCooldown)(nil),
 		(*Action_SetHealth)(nil),
 		(*Action_SetFood)(nil),
 		(*Action_SetExperience)(nil),
@@ -7298,6 +8952,11 @@ func file_actions_proto_init() {
 		(*Action_PlayerShowParticle)(nil),
 		(*Action_PlayerSendScoreboard)(nil),
 		(*Action_PlayerRemoveScoreboard)(nil),
+		(*Action_PlayerSendMenuForm)(nil),
+		(*Action_PlayerSendModalForm)(nil),
+		(*Action_PlayerSendDialogue)(nil),
+		(*Action_PlayerCloseDialogue)(nil),
+		(*Action_PlayerCloseForm)(nil),
 		(*Action_ExecuteCommand)(nil),
 		(*Action_PlayerStartSprinting)(nil),
 		(*Action_PlayerStopSprinting)(nil),
@@ -7328,6 +8987,16 @@ func file_actions_proto_init() {
 		(*Action_PlayerKnockBack)(nil),
 		(*Action_PlayerSwingArm)(nil),
 		(*Action_PlayerPunchAir)(nil),
+		(*Action_PlayerSendBossBar)(nil),
+		(*Action_PlayerRemoveBossBar)(nil),
+		(*Action_PlayerShowHudElement)(nil),
+		(*Action_PlayerHideHudElement)(nil),
+		(*Action_PlayerOpenSign)(nil),
+		(*Action_PlayerEditSign)(nil),
+		(*Action_PlayerTurnLecternPage)(nil),
+		(*Action_PlayerHidePlayer)(nil),
+		(*Action_PlayerShowPlayer)(nil),
+		(*Action_PlayerRemoveAllDebugShapes)(nil),
 		(*Action_WorldSetDefaultGameMode)(nil),
 		(*Action_WorldSetDifficulty)(nil),
 		(*Action_WorldSetTickRange)(nil),
@@ -7370,13 +9039,17 @@ func file_actions_proto_init() {
 	file_actions_proto_msgTypes[83].OneofWrappers = []any{}
 	file_actions_proto_msgTypes[89].OneofWrappers = []any{}
 	file_actions_proto_msgTypes[90].OneofWrappers = []any{}
+	file_actions_proto_msgTypes[92].OneofWrappers = []any{}
+	file_actions_proto_msgTypes[94].OneofWrappers = []any{}
+	file_actions_proto_msgTypes[95].OneofWrappers = []any{}
+	file_actions_proto_msgTypes[108].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_actions_proto_rawDesc), len(file_actions_proto_rawDesc)),
-			NumEnums:      1,
-			NumMessages:   92,
+			NumEnums:      3,
+			NumMessages:   110,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

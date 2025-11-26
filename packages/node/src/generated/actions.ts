@@ -17,6 +17,7 @@ import {
   EffectType,
   effectTypeFromJSON,
   effectTypeToJSON,
+  EntityRef,
   GameMode,
   gameModeFromJSON,
   gameModeToJSON,
@@ -166,6 +167,170 @@ export function particleTypeToJSON(object: ParticleType): string {
   }
 }
 
+/** Player boss bar management */
+export enum BossBarColour {
+  BOSS_BAR_COLOUR_GREY = 0,
+  BOSS_BAR_COLOUR_BLUE = 1,
+  BOSS_BAR_COLOUR_RED = 2,
+  BOSS_BAR_COLOUR_GREEN = 3,
+  BOSS_BAR_COLOUR_YELLOW = 4,
+  BOSS_BAR_COLOUR_PURPLE = 5,
+  BOSS_BAR_COLOUR_WHITE = 6,
+  UNRECOGNIZED = -1,
+}
+
+export function bossBarColourFromJSON(object: any): BossBarColour {
+  switch (object) {
+    case 0:
+    case "BOSS_BAR_COLOUR_GREY":
+      return BossBarColour.BOSS_BAR_COLOUR_GREY;
+    case 1:
+    case "BOSS_BAR_COLOUR_BLUE":
+      return BossBarColour.BOSS_BAR_COLOUR_BLUE;
+    case 2:
+    case "BOSS_BAR_COLOUR_RED":
+      return BossBarColour.BOSS_BAR_COLOUR_RED;
+    case 3:
+    case "BOSS_BAR_COLOUR_GREEN":
+      return BossBarColour.BOSS_BAR_COLOUR_GREEN;
+    case 4:
+    case "BOSS_BAR_COLOUR_YELLOW":
+      return BossBarColour.BOSS_BAR_COLOUR_YELLOW;
+    case 5:
+    case "BOSS_BAR_COLOUR_PURPLE":
+      return BossBarColour.BOSS_BAR_COLOUR_PURPLE;
+    case 6:
+    case "BOSS_BAR_COLOUR_WHITE":
+      return BossBarColour.BOSS_BAR_COLOUR_WHITE;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return BossBarColour.UNRECOGNIZED;
+  }
+}
+
+export function bossBarColourToJSON(object: BossBarColour): string {
+  switch (object) {
+    case BossBarColour.BOSS_BAR_COLOUR_GREY:
+      return "BOSS_BAR_COLOUR_GREY";
+    case BossBarColour.BOSS_BAR_COLOUR_BLUE:
+      return "BOSS_BAR_COLOUR_BLUE";
+    case BossBarColour.BOSS_BAR_COLOUR_RED:
+      return "BOSS_BAR_COLOUR_RED";
+    case BossBarColour.BOSS_BAR_COLOUR_GREEN:
+      return "BOSS_BAR_COLOUR_GREEN";
+    case BossBarColour.BOSS_BAR_COLOUR_YELLOW:
+      return "BOSS_BAR_COLOUR_YELLOW";
+    case BossBarColour.BOSS_BAR_COLOUR_PURPLE:
+      return "BOSS_BAR_COLOUR_PURPLE";
+    case BossBarColour.BOSS_BAR_COLOUR_WHITE:
+      return "BOSS_BAR_COLOUR_WHITE";
+    case BossBarColour.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+
+/** Player HUD element control */
+export enum HudElement {
+  HUD_ELEMENT_PAPER_DOLL = 0,
+  HUD_ELEMENT_ARMOUR = 1,
+  HUD_ELEMENT_TOOL_TIPS = 2,
+  HUD_ELEMENT_TOUCH_CONTROLS = 3,
+  HUD_ELEMENT_CROSSHAIR = 4,
+  HUD_ELEMENT_HOT_BAR = 5,
+  HUD_ELEMENT_HEALTH = 6,
+  HUD_ELEMENT_PROGRESS_BAR = 7,
+  HUD_ELEMENT_HUNGER = 8,
+  HUD_ELEMENT_AIR_BUBBLES = 9,
+  HUD_ELEMENT_HORSE_HEALTH = 10,
+  HUD_ELEMENT_STATUS_EFFECTS = 11,
+  HUD_ELEMENT_ITEM_TEXT = 12,
+  UNRECOGNIZED = -1,
+}
+
+export function hudElementFromJSON(object: any): HudElement {
+  switch (object) {
+    case 0:
+    case "HUD_ELEMENT_PAPER_DOLL":
+      return HudElement.HUD_ELEMENT_PAPER_DOLL;
+    case 1:
+    case "HUD_ELEMENT_ARMOUR":
+      return HudElement.HUD_ELEMENT_ARMOUR;
+    case 2:
+    case "HUD_ELEMENT_TOOL_TIPS":
+      return HudElement.HUD_ELEMENT_TOOL_TIPS;
+    case 3:
+    case "HUD_ELEMENT_TOUCH_CONTROLS":
+      return HudElement.HUD_ELEMENT_TOUCH_CONTROLS;
+    case 4:
+    case "HUD_ELEMENT_CROSSHAIR":
+      return HudElement.HUD_ELEMENT_CROSSHAIR;
+    case 5:
+    case "HUD_ELEMENT_HOT_BAR":
+      return HudElement.HUD_ELEMENT_HOT_BAR;
+    case 6:
+    case "HUD_ELEMENT_HEALTH":
+      return HudElement.HUD_ELEMENT_HEALTH;
+    case 7:
+    case "HUD_ELEMENT_PROGRESS_BAR":
+      return HudElement.HUD_ELEMENT_PROGRESS_BAR;
+    case 8:
+    case "HUD_ELEMENT_HUNGER":
+      return HudElement.HUD_ELEMENT_HUNGER;
+    case 9:
+    case "HUD_ELEMENT_AIR_BUBBLES":
+      return HudElement.HUD_ELEMENT_AIR_BUBBLES;
+    case 10:
+    case "HUD_ELEMENT_HORSE_HEALTH":
+      return HudElement.HUD_ELEMENT_HORSE_HEALTH;
+    case 11:
+    case "HUD_ELEMENT_STATUS_EFFECTS":
+      return HudElement.HUD_ELEMENT_STATUS_EFFECTS;
+    case 12:
+    case "HUD_ELEMENT_ITEM_TEXT":
+      return HudElement.HUD_ELEMENT_ITEM_TEXT;
+    case -1:
+    case "UNRECOGNIZED":
+    default:
+      return HudElement.UNRECOGNIZED;
+  }
+}
+
+export function hudElementToJSON(object: HudElement): string {
+  switch (object) {
+    case HudElement.HUD_ELEMENT_PAPER_DOLL:
+      return "HUD_ELEMENT_PAPER_DOLL";
+    case HudElement.HUD_ELEMENT_ARMOUR:
+      return "HUD_ELEMENT_ARMOUR";
+    case HudElement.HUD_ELEMENT_TOOL_TIPS:
+      return "HUD_ELEMENT_TOOL_TIPS";
+    case HudElement.HUD_ELEMENT_TOUCH_CONTROLS:
+      return "HUD_ELEMENT_TOUCH_CONTROLS";
+    case HudElement.HUD_ELEMENT_CROSSHAIR:
+      return "HUD_ELEMENT_CROSSHAIR";
+    case HudElement.HUD_ELEMENT_HOT_BAR:
+      return "HUD_ELEMENT_HOT_BAR";
+    case HudElement.HUD_ELEMENT_HEALTH:
+      return "HUD_ELEMENT_HEALTH";
+    case HudElement.HUD_ELEMENT_PROGRESS_BAR:
+      return "HUD_ELEMENT_PROGRESS_BAR";
+    case HudElement.HUD_ELEMENT_HUNGER:
+      return "HUD_ELEMENT_HUNGER";
+    case HudElement.HUD_ELEMENT_AIR_BUBBLES:
+      return "HUD_ELEMENT_AIR_BUBBLES";
+    case HudElement.HUD_ELEMENT_HORSE_HEALTH:
+      return "HUD_ELEMENT_HORSE_HEALTH";
+    case HudElement.HUD_ELEMENT_STATUS_EFFECTS:
+      return "HUD_ELEMENT_STATUS_EFFECTS";
+    case HudElement.HUD_ELEMENT_ITEM_TEXT:
+      return "HUD_ELEMENT_ITEM_TEXT";
+    case HudElement.UNRECOGNIZED:
+    default:
+      return "UNRECOGNIZED";
+  }
+}
+
 export interface ActionBatch {
   actions: Action[];
 }
@@ -185,8 +350,11 @@ export interface Action {
   giveItem?: GiveItemAction | undefined;
   clearInventory?: ClearInventoryAction | undefined;
   setHeldItem?: SetHeldItemAction | undefined;
-  playerSetArmour?:
-    | PlayerSetArmourAction
+  playerSetArmour?: PlayerSetArmourAction | undefined;
+  playerOpenBlockContainer?: PlayerOpenBlockContainerAction | undefined;
+  playerDropItem?: PlayerDropItemAction | undefined;
+  playerSetItemCooldown?:
+    | PlayerSetItemCooldownAction
     | undefined;
   /** Player: State & Attributes */
   setHealth?: SetHealthAction | undefined;
@@ -226,6 +394,14 @@ export interface Action {
   playerSendScoreboard?: PlayerSendScoreboardAction | undefined;
   playerRemoveScoreboard?:
     | PlayerRemoveScoreboardAction
+    | undefined;
+  /** Player: Forms & Dialogue */
+  playerSendMenuForm?: PlayerSendMenuFormAction | undefined;
+  playerSendModalForm?: PlayerSendModalFormAction | undefined;
+  playerSendDialogue?: PlayerSendDialogueAction | undefined;
+  playerCloseDialogue?: PlayerCloseDialogueAction | undefined;
+  playerCloseForm?:
+    | PlayerCloseFormAction
     | undefined;
   /** Player: Commands */
   executeCommand?:
@@ -277,6 +453,31 @@ export interface Action {
   playerSwingArm?: PlayerSwingArmAction | undefined;
   playerPunchAir?:
     | PlayerPunchAirAction
+    | undefined;
+  /** Player: Boss bar */
+  playerSendBossBar?: PlayerSendBossBarAction | undefined;
+  playerRemoveBossBar?:
+    | PlayerRemoveBossBarAction
+    | undefined;
+  /** Player: HUD elements */
+  playerShowHudElement?: PlayerShowHudElementAction | undefined;
+  playerHideHudElement?:
+    | PlayerHideHudElementAction
+    | undefined;
+  /** Player: Signs & Lecterns */
+  playerOpenSign?: PlayerOpenSignAction | undefined;
+  playerEditSign?: PlayerEditSignAction | undefined;
+  playerTurnLecternPage?:
+    | PlayerTurnLecternPageAction
+    | undefined;
+  /** Player: Entity visibility */
+  playerHidePlayer?: PlayerHidePlayerAction | undefined;
+  playerShowPlayer?:
+    | PlayerShowPlayerAction
+    | undefined;
+  /** Player: Debug shapes */
+  playerRemoveAllDebugShapes?:
+    | PlayerRemoveAllDebugShapesAction
     | undefined;
   /** World: Configuration & Settings */
   worldSetDefaultGameMode?: WorldSetDefaultGameModeAction | undefined;
@@ -868,6 +1069,128 @@ export interface PlayerRemoveScoreboardAction {
   playerUuid: string;
 }
 
+/** Player forms (show) */
+export interface PlayerSendMenuFormAction {
+  playerUuid: string;
+  title: string;
+  body?:
+    | string
+    | undefined;
+  /** up to 6 */
+  buttons: string[];
+}
+
+export interface PlayerSendModalFormAction {
+  playerUuid: string;
+  title: string;
+  body: string;
+  /** default: gui.yes */
+  yesText: string;
+  /** default: gui.no */
+  noText: string;
+}
+
+/** Dialogue (show) */
+export interface PlayerSendDialogueAction {
+  playerUuid: string;
+  title: string;
+  body?:
+    | string
+    | undefined;
+  /** up to 6 */
+  buttons: string[];
+  /** target entity to display as NPC */
+  entity: EntityRef | undefined;
+}
+
+export interface PlayerSendBossBarAction {
+  playerUuid: string;
+  text: string;
+  /** 0.0 - 1.0 (default 1.0) */
+  healthPercentage?:
+    | number
+    | undefined;
+  /** default PURPLE */
+  colour?: BossBarColour | undefined;
+}
+
+export interface PlayerRemoveBossBarAction {
+  playerUuid: string;
+}
+
+export interface PlayerShowHudElementAction {
+  playerUuid: string;
+  element: HudElement;
+}
+
+export interface PlayerHideHudElementAction {
+  playerUuid: string;
+  element: HudElement;
+}
+
+/** Player UI closers */
+export interface PlayerCloseDialogueAction {
+  playerUuid: string;
+}
+
+export interface PlayerCloseFormAction {
+  playerUuid: string;
+}
+
+/** Player: Signs & Lecterns */
+export interface PlayerOpenSignAction {
+  playerUuid: string;
+  position: BlockPos | undefined;
+  frontSide: boolean;
+}
+
+export interface PlayerEditSignAction {
+  playerUuid: string;
+  position: BlockPos | undefined;
+  frontText: string;
+  backText: string;
+}
+
+export interface PlayerTurnLecternPageAction {
+  playerUuid: string;
+  position: BlockPos | undefined;
+  page: number;
+}
+
+/** Player: Entity visibility (player-targeted) */
+export interface PlayerHidePlayerAction {
+  playerUuid: string;
+  targetUuid: string;
+}
+
+export interface PlayerShowPlayerAction {
+  playerUuid: string;
+  targetUuid: string;
+}
+
+/** Player: Debug shapes */
+export interface PlayerRemoveAllDebugShapesAction {
+  playerUuid: string;
+}
+
+/** Player: Interaction extras */
+export interface PlayerOpenBlockContainerAction {
+  playerUuid: string;
+  position: BlockPos | undefined;
+}
+
+export interface PlayerDropItemAction {
+  playerUuid: string;
+  /** if unset, drops currently held main-hand item */
+  item?: ItemStack | undefined;
+}
+
+export interface PlayerSetItemCooldownAction {
+  playerUuid: string;
+  item: ItemStack | undefined;
+  durationMs: number;
+}
+
 function createBaseActionBatch(): ActionBatch {
   return { actions: [] };
 }
@@ -939,6 +1262,9 @@ function createBaseAction(): Action {
     clearInventory: undefined,
     setHeldItem: undefined,
     playerSetArmour: undefined,
+    playerOpenBlockContainer: undefined,
+    playerDropItem: undefined,
+    playerSetItemCooldown: undefined,
     setHealth: undefined,
     setFood: undefined,
     setExperience: undefined,
@@ -960,6 +1286,11 @@ function createBaseAction(): Action {
     playerShowParticle: undefined,
     playerSendScoreboard: undefined,
     playerRemoveScoreboard: undefined,
+    playerSendMenuForm: undefined,
+    playerSendModalForm: undefined,
+    playerSendDialogue: undefined,
+    playerCloseDialogue: undefined,
+    playerCloseForm: undefined,
     executeCommand: undefined,
     playerStartSprinting: undefined,
     playerStopSprinting: undefined,
@@ -990,6 +1321,16 @@ function createBaseAction(): Action {
     playerKnockBack: undefined,
     playerSwingArm: undefined,
     playerPunchAir: undefined,
+    playerSendBossBar: undefined,
+    playerRemoveBossBar: undefined,
+    playerShowHudElement: undefined,
+    playerHideHudElement: undefined,
+    playerOpenSign: undefined,
+    playerEditSign: undefined,
+    playerTurnLecternPage: undefined,
+    playerHidePlayer: undefined,
+    playerShowPlayer: undefined,
+    playerRemoveAllDebugShapes: undefined,
     worldSetDefaultGameMode: undefined,
     worldSetDifficulty: undefined,
     worldSetTickRange: undefined,
@@ -1050,6 +1391,15 @@ export const Action: MessageFns<Action> = {
     }
     if (message.playerSetArmour !== undefined) {
       PlayerSetArmourAction.encode(message.playerSetArmour, writer.uint32(1058).fork()).join();
+    }
+    if (message.playerOpenBlockContainer !== undefined) {
+      PlayerOpenBlockContainerAction.encode(message.playerOpenBlockContainer, writer.uint32(1178).fork()).join();
+    }
+    if (message.playerDropItem !== undefined) {
+      PlayerDropItemAction.encode(message.playerDropItem, writer.uint32(1186).fork()).join();
+    }
+    if (message.playerSetItemCooldown !== undefined) {
+      PlayerSetItemCooldownAction.encode(message.playerSetItemCooldown, writer.uint32(1194).fork()).join();
     }
     if (message.setHealth !== undefined) {
       SetHealthAction.encode(message.setHealth, writer.uint32(162).fork()).join();
@@ -1113,6 +1463,21 @@ export const Action: MessageFns<Action> = {
     }
     if (message.playerRemoveScoreboard !== undefined) {
       PlayerRemoveScoreboardAction.encode(message.playerRemoveScoreboard, writer.uint32(1074).fork()).join();
+    }
+    if (message.playerSendMenuForm !== undefined) {
+      PlayerSendMenuFormAction.encode(message.playerSendMenuForm, writer.uint32(1202).fork()).join();
+    }
+    if (message.playerSendModalForm !== undefined) {
+      PlayerSendModalFormAction.encode(message.playerSendModalForm, writer.uint32(1210).fork()).join();
+    }
+    if (message.playerSendDialogue !== undefined) {
+      PlayerSendDialogueAction.encode(message.playerSendDialogue, writer.uint32(1218).fork()).join();
+    }
+    if (message.playerCloseDialogue !== undefined) {
+      PlayerCloseDialogueAction.encode(message.playerCloseDialogue, writer.uint32(1114).fork()).join();
+    }
+    if (message.playerCloseForm !== undefined) {
+      PlayerCloseFormAction.encode(message.playerCloseForm, writer.uint32(1122).fork()).join();
     }
     if (message.executeCommand !== undefined) {
       ExecuteCommandAction.encode(message.executeCommand, writer.uint32(402).fork()).join();
@@ -1203,6 +1568,36 @@ export const Action: MessageFns<Action> = {
     }
     if (message.playerPunchAir !== undefined) {
       PlayerPunchAirAction.encode(message.playerPunchAir, writer.uint32(1050).fork()).join();
+    }
+    if (message.playerSendBossBar !== undefined) {
+      PlayerSendBossBarAction.encode(message.playerSendBossBar, writer.uint32(1082).fork()).join();
+    }
+    if (message.playerRemoveBossBar !== undefined) {
+      PlayerRemoveBossBarAction.encode(message.playerRemoveBossBar, writer.uint32(1090).fork()).join();
+    }
+    if (message.playerShowHudElement !== undefined) {
+      PlayerShowHudElementAction.encode(message.playerShowHudElement, writer.uint32(1098).fork()).join();
+    }
+    if (message.playerHideHudElement !== undefined) {
+      PlayerHideHudElementAction.encode(message.playerHideHudElement, writer.uint32(1106).fork()).join();
+    }
+    if (message.playerOpenSign !== undefined) {
+      PlayerOpenSignAction.encode(message.playerOpenSign, writer.uint32(1130).fork()).join();
+    }
+    if (message.playerEditSign !== undefined) {
+      PlayerEditSignAction.encode(message.playerEditSign, writer.uint32(1138).fork()).join();
+    }
+    if (message.playerTurnLecternPage !== undefined) {
+      PlayerTurnLecternPageAction.encode(message.playerTurnLecternPage, writer.uint32(1146).fork()).join();
+    }
+    if (message.playerHidePlayer !== undefined) {
+      PlayerHidePlayerAction.encode(message.playerHidePlayer, writer.uint32(1154).fork()).join();
+    }
+    if (message.playerShowPlayer !== undefined) {
+      PlayerShowPlayerAction.encode(message.playerShowPlayer, writer.uint32(1162).fork()).join();
+    }
+    if (message.playerRemoveAllDebugShapes !== undefined) {
+      PlayerRemoveAllDebugShapesAction.encode(message.playerRemoveAllDebugShapes, writer.uint32(1170).fork()).join();
     }
     if (message.worldSetDefaultGameMode !== undefined) {
       WorldSetDefaultGameModeAction.encode(message.worldSetDefaultGameMode, writer.uint32(482).fork()).join();
@@ -1373,6 +1768,30 @@ export const Action: MessageFns<Action> = {
           message.playerSetArmour = PlayerSetArmourAction.decode(reader, reader.uint32());
           continue;
         }
+        case 147: {
+          if (tag !== 1178) {
+            break;
+          }
+
+          message.playerOpenBlockContainer = PlayerOpenBlockContainerAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 148: {
+          if (tag !== 1186) {
+            break;
+          }
+
+          message.playerDropItem = PlayerDropItemAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 149: {
+          if (tag !== 1194) {
+            break;
+          }
+
+          message.playerSetItemCooldown = PlayerSetItemCooldownAction.decode(reader, reader.uint32());
+          continue;
+        }
         case 20: {
           if (tag !== 162) {
             break;
@@ -1539,6 +1958,46 @@ export const Action: MessageFns<Action> = {
           }
 
           message.playerRemoveScoreboard = PlayerRemoveScoreboardAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 150: {
+          if (tag !== 1202) {
+            break;
+          }
+
+          message.playerSendMenuForm = PlayerSendMenuFormAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 151: {
+          if (tag !== 1210) {
+            break;
+          }
+
+          message.playerSendModalForm = PlayerSendModalFormAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 152: {
+          if (tag !== 1218) {
+            break;
+          }
+
+          message.playerSendDialogue = PlayerSendDialogueAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 139: {
+          if (tag !== 1114) {
+            break;
+          }
+
+          message.playerCloseDialogue = PlayerCloseDialogueAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 140: {
+          if (tag !== 1122) {
+            break;
+          }
+
+          message.playerCloseForm = PlayerCloseFormAction.decode(reader, reader.uint32());
           continue;
         }
         case 50: {
@@ -1779,6 +2238,86 @@ export const Action: MessageFns<Action> = {
           }
 
           message.playerPunchAir = PlayerPunchAirAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 135: {
+          if (tag !== 1082) {
+            break;
+          }
+
+          message.playerSendBossBar = PlayerSendBossBarAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 136: {
+          if (tag !== 1090) {
+            break;
+          }
+
+          message.playerRemoveBossBar = PlayerRemoveBossBarAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 137: {
+          if (tag !== 1098) {
+            break;
+          }
+
+          message.playerShowHudElement = PlayerShowHudElementAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 138: {
+          if (tag !== 1106) {
+            break;
+          }
+
+          message.playerHideHudElement = PlayerHideHudElementAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 141: {
+          if (tag !== 1130) {
+            break;
+          }
+
+          message.playerOpenSign = PlayerOpenSignAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 142: {
+          if (tag !== 1138) {
+            break;
+          }
+
+          message.playerEditSign = PlayerEditSignAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 143: {
+          if (tag !== 1146) {
+            break;
+          }
+
+          message.playerTurnLecternPage = PlayerTurnLecternPageAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 144: {
+          if (tag !== 1154) {
+            break;
+          }
+
+          message.playerHidePlayer = PlayerHidePlayerAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 145: {
+          if (tag !== 1162) {
+            break;
+          }
+
+          message.playerShowPlayer = PlayerShowPlayerAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 146: {
+          if (tag !== 1170) {
+            break;
+          }
+
+          message.playerRemoveAllDebugShapes = PlayerRemoveAllDebugShapesAction.decode(reader, reader.uint32());
           continue;
         }
         case 60: {
@@ -2035,6 +2574,13 @@ export const Action: MessageFns<Action> = {
       playerSetArmour: isSet(object.playerSetArmour)
         ? PlayerSetArmourAction.fromJSON(object.playerSetArmour)
         : undefined,
+      playerOpenBlockContainer: isSet(object.playerOpenBlockContainer)
+        ? PlayerOpenBlockContainerAction.fromJSON(object.playerOpenBlockContainer)
+        : undefined,
+      playerDropItem: isSet(object.playerDropItem) ? PlayerDropItemAction.fromJSON(object.playerDropItem) : undefined,
+      playerSetItemCooldown: isSet(object.playerSetItemCooldown)
+        ? PlayerSetItemCooldownAction.fromJSON(object.playerSetItemCooldown)
+        : undefined,
       setHealth: isSet(object.setHealth) ? SetHealthAction.fromJSON(object.setHealth) : undefined,
       setFood: isSet(object.setFood) ? SetFoodAction.fromJSON(object.setFood) : undefined,
       setExperience: isSet(object.setExperience) ? SetExperienceAction.fromJSON(object.setExperience) : undefined,
@@ -2077,6 +2623,21 @@ export const Action: MessageFns<Action> = {
         : undefined,
       playerRemoveScoreboard: isSet(object.playerRemoveScoreboard)
         ? PlayerRemoveScoreboardAction.fromJSON(object.playerRemoveScoreboard)
+        : undefined,
+      playerSendMenuForm: isSet(object.playerSendMenuForm)
+        ? PlayerSendMenuFormAction.fromJSON(object.playerSendMenuForm)
+        : undefined,
+      playerSendModalForm: isSet(object.playerSendModalForm)
+        ? PlayerSendModalFormAction.fromJSON(object.playerSendModalForm)
+        : undefined,
+      playerSendDialogue: isSet(object.playerSendDialogue)
+        ? PlayerSendDialogueAction.fromJSON(object.playerSendDialogue)
+        : undefined,
+      playerCloseDialogue: isSet(object.playerCloseDialogue)
+        ? PlayerCloseDialogueAction.fromJSON(object.playerCloseDialogue)
+        : undefined,
+      playerCloseForm: isSet(object.playerCloseForm)
+        ? PlayerCloseFormAction.fromJSON(object.playerCloseForm)
         : undefined,
       executeCommand: isSet(object.executeCommand) ? ExecuteCommandAction.fromJSON(object.executeCommand) : undefined,
       playerStartSprinting: isSet(object.playerStartSprinting)
@@ -2154,6 +2715,32 @@ export const Action: MessageFns<Action> = {
         : undefined,
       playerSwingArm: isSet(object.playerSwingArm) ? PlayerSwingArmAction.fromJSON(object.playerSwingArm) : undefined,
       playerPunchAir: isSet(object.playerPunchAir) ? PlayerPunchAirAction.fromJSON(object.playerPunchAir) : undefined,
+      playerSendBossBar: isSet(object.playerSendBossBar)
+        ? PlayerSendBossBarAction.fromJSON(object.playerSendBossBar)
+        : undefined,
+      playerRemoveBossBar: isSet(object.playerRemoveBossBar)
+        ? PlayerRemoveBossBarAction.fromJSON(object.playerRemoveBossBar)
+        : undefined,
+      playerShowHudElement: isSet(object.playerShowHudElement)
+        ? PlayerShowHudElementAction.fromJSON(object.playerShowHudElement)
+        : undefined,
+      playerHideHudElement: isSet(object.playerHideHudElement)
+        ? PlayerHideHudElementAction.fromJSON(object.playerHideHudElement)
+        : undefined,
+      playerOpenSign: isSet(object.playerOpenSign) ? PlayerOpenSignAction.fromJSON(object.playerOpenSign) : undefined,
+      playerEditSign: isSet(object.playerEditSign) ? PlayerEditSignAction.fromJSON(object.playerEditSign) : undefined,
+      playerTurnLecternPage: isSet(object.playerTurnLecternPage)
+        ? PlayerTurnLecternPageAction.fromJSON(object.playerTurnLecternPage)
+        : undefined,
+      playerHidePlayer: isSet(object.playerHidePlayer)
+        ? PlayerHidePlayerAction.fromJSON(object.playerHidePlayer)
+        : undefined,
+      playerShowPlayer: isSet(object.playerShowPlayer)
+        ? PlayerShowPlayerAction.fromJSON(object.playerShowPlayer)
+        : undefined,
+      playerRemoveAllDebugShapes: isSet(object.playerRemoveAllDebugShapes)
+        ? PlayerRemoveAllDebugShapesAction.fromJSON(object.playerRemoveAllDebugShapes)
+        : undefined,
       worldSetDefaultGameMode: isSet(object.worldSetDefaultGameMode)
         ? WorldSetDefaultGameModeAction.fromJSON(object.worldSetDefaultGameMode)
         : undefined,
@@ -2257,6 +2844,15 @@ export const Action: MessageFns<Action> = {
     if (message.playerSetArmour !== undefined) {
       obj.playerSetArmour = PlayerSetArmourAction.toJSON(message.playerSetArmour);
     }
+    if (message.playerOpenBlockContainer !== undefined) {
+      obj.playerOpenBlockContainer = PlayerOpenBlockContainerAction.toJSON(message.playerOpenBlockContainer);
+    }
+    if (message.playerDropItem !== undefined) {
+      obj.playerDropItem = PlayerDropItemAction.toJSON(message.playerDropItem);
+    }
+    if (message.playerSetItemCooldown !== undefined) {
+      obj.playerSetItemCooldown = PlayerSetItemCooldownAction.toJSON(message.playerSetItemCooldown);
+    }
     if (message.setHealth !== undefined) {
       obj.setHealth = SetHealthAction.toJSON(message.setHealth);
     }
@@ -2319,6 +2915,21 @@ export const Action: MessageFns<Action> = {
     }
     if (message.playerRemoveScoreboard !== undefined) {
       obj.playerRemoveScoreboard = PlayerRemoveScoreboardAction.toJSON(message.playerRemoveScoreboard);
+    }
+    if (message.playerSendMenuForm !== undefined) {
+      obj.playerSendMenuForm = PlayerSendMenuFormAction.toJSON(message.playerSendMenuForm);
+    }
+    if (message.playerSendModalForm !== undefined) {
+      obj.playerSendModalForm = PlayerSendModalFormAction.toJSON(message.playerSendModalForm);
+    }
+    if (message.playerSendDialogue !== undefined) {
+      obj.playerSendDialogue = PlayerSendDialogueAction.toJSON(message.playerSendDialogue);
+    }
+    if (message.playerCloseDialogue !== undefined) {
+      obj.playerCloseDialogue = PlayerCloseDialogueAction.toJSON(message.playerCloseDialogue);
+    }
+    if (message.playerCloseForm !== undefined) {
+      obj.playerCloseForm = PlayerCloseFormAction.toJSON(message.playerCloseForm);
     }
     if (message.executeCommand !== undefined) {
       obj.executeCommand = ExecuteCommandAction.toJSON(message.executeCommand);
@@ -2411,6 +3022,36 @@ export const Action: MessageFns<Action> = {
     }
     if (message.playerPunchAir !== undefined) {
       obj.playerPunchAir = PlayerPunchAirAction.toJSON(message.playerPunchAir);
+    }
+    if (message.playerSendBossBar !== undefined) {
+      obj.playerSendBossBar = PlayerSendBossBarAction.toJSON(message.playerSendBossBar);
+    }
+    if (message.playerRemoveBossBar !== undefined) {
+      obj.playerRemoveBossBar = PlayerRemoveBossBarAction.toJSON(message.playerRemoveBossBar);
+    }
+    if (message.playerShowHudElement !== undefined) {
+      obj.playerShowHudElement = PlayerShowHudElementAction.toJSON(message.playerShowHudElement);
+    }
+    if (message.playerHideHudElement !== undefined) {
+      obj.playerHideHudElement = PlayerHideHudElementAction.toJSON(message.playerHideHudElement);
+    }
+    if (message.playerOpenSign !== undefined) {
+      obj.playerOpenSign = PlayerOpenSignAction.toJSON(message.playerOpenSign);
+    }
+    if (message.playerEditSign !== undefined) {
+      obj.playerEditSign = PlayerEditSignAction.toJSON(message.playerEditSign);
+    }
+    if (message.playerTurnLecternPage !== undefined) {
+      obj.playerTurnLecternPage = PlayerTurnLecternPageAction.toJSON(message.playerTurnLecternPage);
+    }
+    if (message.playerHidePlayer !== undefined) {
+      obj.playerHidePlayer = PlayerHidePlayerAction.toJSON(message.playerHidePlayer);
+    }
+    if (message.playerShowPlayer !== undefined) {
+      obj.playerShowPlayer = PlayerShowPlayerAction.toJSON(message.playerShowPlayer);
+    }
+    if (message.playerRemoveAllDebugShapes !== undefined) {
+      obj.playerRemoveAllDebugShapes = PlayerRemoveAllDebugShapesAction.toJSON(message.playerRemoveAllDebugShapes);
     }
     if (message.worldSetDefaultGameMode !== undefined) {
       obj.worldSetDefaultGameMode = WorldSetDefaultGameModeAction.toJSON(message.worldSetDefaultGameMode);
@@ -2532,6 +3173,17 @@ export const Action: MessageFns<Action> = {
     message.playerSetArmour = (object.playerSetArmour !== undefined && object.playerSetArmour !== null)
       ? PlayerSetArmourAction.fromPartial(object.playerSetArmour)
       : undefined;
+    message.playerOpenBlockContainer =
+      (object.playerOpenBlockContainer !== undefined && object.playerOpenBlockContainer !== null)
+        ? PlayerOpenBlockContainerAction.fromPartial(object.playerOpenBlockContainer)
+        : undefined;
+    message.playerDropItem = (object.playerDropItem !== undefined && object.playerDropItem !== null)
+      ? PlayerDropItemAction.fromPartial(object.playerDropItem)
+      : undefined;
+    message.playerSetItemCooldown =
+      (object.playerSetItemCooldown !== undefined && object.playerSetItemCooldown !== null)
+        ? PlayerSetItemCooldownAction.fromPartial(object.playerSetItemCooldown)
+        : undefined;
     message.setHealth = (object.setHealth !== undefined && object.setHealth !== null)
       ? SetHealthAction.fromPartial(object.setHealth)
       : undefined;
@@ -2601,6 +3253,21 @@ export const Action: MessageFns<Action> = {
       (object.playerRemoveScoreboard !== undefined && object.playerRemoveScoreboard !== null)
         ? PlayerRemoveScoreboardAction.fromPartial(object.playerRemoveScoreboard)
         : undefined;
+    message.playerSendMenuForm = (object.playerSendMenuForm !== undefined && object.playerSendMenuForm !== null)
+      ? PlayerSendMenuFormAction.fromPartial(object.playerSendMenuForm)
+      : undefined;
+    message.playerSendModalForm = (object.playerSendModalForm !== undefined && object.playerSendModalForm !== null)
+      ? PlayerSendModalFormAction.fromPartial(object.playerSendModalForm)
+      : undefined;
+    message.playerSendDialogue = (object.playerSendDialogue !== undefined && object.playerSendDialogue !== null)
+      ? PlayerSendDialogueAction.fromPartial(object.playerSendDialogue)
+      : undefined;
+    message.playerCloseDialogue = (object.playerCloseDialogue !== undefined && object.playerCloseDialogue !== null)
+      ? PlayerCloseDialogueAction.fromPartial(object.playerCloseDialogue)
+      : undefined;
+    message.playerCloseForm = (object.playerCloseForm !== undefined && object.playerCloseForm !== null)
+      ? PlayerCloseFormAction.fromPartial(object.playerCloseForm)
+      : undefined;
     message.executeCommand = (object.executeCommand !== undefined && object.executeCommand !== null)
       ? ExecuteCommandAction.fromPartial(object.executeCommand)
       : undefined;
@@ -2692,6 +3359,38 @@ export const Action: MessageFns<Action> = {
     message.playerPunchAir = (object.playerPunchAir !== undefined && object.playerPunchAir !== null)
       ? PlayerPunchAirAction.fromPartial(object.playerPunchAir)
       : undefined;
+    message.playerSendBossBar = (object.playerSendBossBar !== undefined && object.playerSendBossBar !== null)
+      ? PlayerSendBossBarAction.fromPartial(object.playerSendBossBar)
+      : undefined;
+    message.playerRemoveBossBar = (object.playerRemoveBossBar !== undefined && object.playerRemoveBossBar !== null)
+      ? PlayerRemoveBossBarAction.fromPartial(object.playerRemoveBossBar)
+      : undefined;
+    message.playerShowHudElement = (object.playerShowHudElement !== undefined && object.playerShowHudElement !== null)
+      ? PlayerShowHudElementAction.fromPartial(object.playerShowHudElement)
+      : undefined;
+    message.playerHideHudElement = (object.playerHideHudElement !== undefined && object.playerHideHudElement !== null)
+      ? PlayerHideHudElementAction.fromPartial(object.playerHideHudElement)
+      : undefined;
+    message.playerOpenSign = (object.playerOpenSign !== undefined && object.playerOpenSign !== null)
+      ? PlayerOpenSignAction.fromPartial(object.playerOpenSign)
+      : undefined;
+    message.playerEditSign = (object.playerEditSign !== undefined && object.playerEditSign !== null)
+      ? PlayerEditSignAction.fromPartial(object.playerEditSign)
+      : undefined;
+    message.playerTurnLecternPage =
+      (object.playerTurnLecternPage !== undefined && object.playerTurnLecternPage !== null)
+        ? PlayerTurnLecternPageAction.fromPartial(object.playerTurnLecternPage)
+        : undefined;
+    message.playerHidePlayer = (object.playerHidePlayer !== undefined && object.playerHidePlayer !== null)
+      ? PlayerHidePlayerAction.fromPartial(object.playerHidePlayer)
+      : undefined;
+    message.playerShowPlayer = (object.playerShowPlayer !== undefined && object.playerShowPlayer !== null)
+      ? PlayerShowPlayerAction.fromPartial(object.playerShowPlayer)
+      : undefined;
+    message.playerRemoveAllDebugShapes =
+      (object.playerRemoveAllDebugShapes !== undefined && object.playerRemoveAllDebugShapes !== null)
+        ? PlayerRemoveAllDebugShapesAction.fromPartial(object.playerRemoveAllDebugShapes)
+        : undefined;
     message.worldSetDefaultGameMode =
       (object.worldSetDefaultGameMode !== undefined && object.worldSetDefaultGameMode !== null)
         ? WorldSetDefaultGameModeAction.fromPartial(object.worldSetDefaultGameMode)
@@ -9896,6 +10595,1552 @@ export const PlayerRemoveScoreboardAction: MessageFns<PlayerRemoveScoreboardActi
   fromPartial(object: DeepPartial<PlayerRemoveScoreboardAction>): PlayerRemoveScoreboardAction {
     const message = createBasePlayerRemoveScoreboardAction();
     message.playerUuid = object.playerUuid ?? "";
+    return message;
+  },
+};
+
+function createBasePlayerSendMenuFormAction(): PlayerSendMenuFormAction {
+  return { playerUuid: "", title: "", body: undefined, buttons: [] };
+}
+
+export const PlayerSendMenuFormAction: MessageFns<PlayerSendMenuFormAction> = {
+  encode(message: PlayerSendMenuFormAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.title !== "") {
+      writer.uint32(18).string(message.title);
+    }
+    if (message.body !== undefined) {
+      writer.uint32(26).string(message.body);
+    }
+    for (const v of message.buttons) {
+      writer.uint32(34).string(v!);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerSendMenuFormAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerSendMenuFormAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.title = reader.string();
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.body = reader.string();
+          continue;
+        }
+        case 4: {
+          if (tag !== 34) {
+            break;
+          }
+
+          message.buttons.push(reader.string());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerSendMenuFormAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      title: isSet(object.title) ? globalThis.String(object.title) : "",
+      body: isSet(object.body) ? globalThis.String(object.body) : undefined,
+      buttons: globalThis.Array.isArray(object?.buttons) ? object.buttons.map((e: any) => globalThis.String(e)) : [],
+    };
+  },
+
+  toJSON(message: PlayerSendMenuFormAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.title !== "") {
+      obj.title = message.title;
+    }
+    if (message.body !== undefined) {
+      obj.body = message.body;
+    }
+    if (message.buttons?.length) {
+      obj.buttons = message.buttons;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerSendMenuFormAction>): PlayerSendMenuFormAction {
+    return PlayerSendMenuFormAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerSendMenuFormAction>): PlayerSendMenuFormAction {
+    const message = createBasePlayerSendMenuFormAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.title = object.title ?? "";
+    message.body = object.body ?? undefined;
+    message.buttons = object.buttons?.map((e) => e) || [];
+    return message;
+  },
+};
+
+function createBasePlayerSendModalFormAction(): PlayerSendModalFormAction {
+  return { playerUuid: "", title: "", body: "", yesText: "", noText: "" };
+}
+
+export const PlayerSendModalFormAction: MessageFns<PlayerSendModalFormAction> = {
+  encode(message: PlayerSendModalFormAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.title !== "") {
+      writer.uint32(18).string(message.title);
+    }
+    if (message.body !== "") {
+      writer.uint32(26).string(message.body);
+    }
+    if (message.yesText !== "") {
+      writer.uint32(34).string(message.yesText);
+    }
+    if (message.noText !== "") {
+      writer.uint32(42).string(message.noText);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerSendModalFormAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerSendModalFormAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.title = reader.string();
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.body = reader.string();
+          continue;
+        }
+        case 4: {
+          if (tag !== 34) {
+            break;
+          }
+
+          message.yesText = reader.string();
+          continue;
+        }
+        case 5: {
+          if (tag !== 42) {
+            break;
+          }
+
+          message.noText = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerSendModalFormAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      title: isSet(object.title) ? globalThis.String(object.title) : "",
+      body: isSet(object.body) ? globalThis.String(object.body) : "",
+      yesText: isSet(object.yesText) ? globalThis.String(object.yesText) : "",
+      noText: isSet(object.noText) ? globalThis.String(object.noText) : "",
+    };
+  },
+
+  toJSON(message: PlayerSendModalFormAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.title !== "") {
+      obj.title = message.title;
+    }
+    if (message.body !== "") {
+      obj.body = message.body;
+    }
+    if (message.yesText !== "") {
+      obj.yesText = message.yesText;
+    }
+    if (message.noText !== "") {
+      obj.noText = message.noText;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerSendModalFormAction>): PlayerSendModalFormAction {
+    return PlayerSendModalFormAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerSendModalFormAction>): PlayerSendModalFormAction {
+    const message = createBasePlayerSendModalFormAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.title = object.title ?? "";
+    message.body = object.body ?? "";
+    message.yesText = object.yesText ?? "";
+    message.noText = object.noText ?? "";
+    return message;
+  },
+};
+
+function createBasePlayerSendDialogueAction(): PlayerSendDialogueAction {
+  return { playerUuid: "", title: "", body: undefined, buttons: [], entity: undefined };
+}
+
+export const PlayerSendDialogueAction: MessageFns<PlayerSendDialogueAction> = {
+  encode(message: PlayerSendDialogueAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.title !== "") {
+      writer.uint32(18).string(message.title);
+    }
+    if (message.body !== undefined) {
+      writer.uint32(26).string(message.body);
+    }
+    for (const v of message.buttons) {
+      writer.uint32(34).string(v!);
+    }
+    if (message.entity !== undefined) {
+      EntityRef.encode(message.entity, writer.uint32(42).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerSendDialogueAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerSendDialogueAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.title = reader.string();
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.body = reader.string();
+          continue;
+        }
+        case 4: {
+          if (tag !== 34) {
+            break;
+          }
+
+          message.buttons.push(reader.string());
+          continue;
+        }
+        case 5: {
+          if (tag !== 42) {
+            break;
+          }
+
+          message.entity = EntityRef.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerSendDialogueAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      title: isSet(object.title) ? globalThis.String(object.title) : "",
+      body: isSet(object.body) ? globalThis.String(object.body) : undefined,
+      buttons: globalThis.Array.isArray(object?.buttons) ? object.buttons.map((e: any) => globalThis.String(e)) : [],
+      entity: isSet(object.entity) ? EntityRef.fromJSON(object.entity) : undefined,
+    };
+  },
+
+  toJSON(message: PlayerSendDialogueAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.title !== "") {
+      obj.title = message.title;
+    }
+    if (message.body !== undefined) {
+      obj.body = message.body;
+    }
+    if (message.buttons?.length) {
+      obj.buttons = message.buttons;
+    }
+    if (message.entity !== undefined) {
+      obj.entity = EntityRef.toJSON(message.entity);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerSendDialogueAction>): PlayerSendDialogueAction {
+    return PlayerSendDialogueAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerSendDialogueAction>): PlayerSendDialogueAction {
+    const message = createBasePlayerSendDialogueAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.title = object.title ?? "";
+    message.body = object.body ?? undefined;
+    message.buttons = object.buttons?.map((e) => e) || [];
+    message.entity = (object.entity !== undefined && object.entity !== null)
+      ? EntityRef.fromPartial(object.entity)
+      : undefined;
+    return message;
+  },
+};
+
+function createBasePlayerSendBossBarAction(): PlayerSendBossBarAction {
+  return { playerUuid: "", text: "", healthPercentage: undefined, colour: undefined };
+}
+
+export const PlayerSendBossBarAction: MessageFns<PlayerSendBossBarAction> = {
+  encode(message: PlayerSendBossBarAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.text !== "") {
+      writer.uint32(18).string(message.text);
+    }
+    if (message.healthPercentage !== undefined) {
+      writer.uint32(29).float(message.healthPercentage);
+    }
+    if (message.colour !== undefined) {
+      writer.uint32(32).int32(message.colour);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerSendBossBarAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerSendBossBarAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.text = reader.string();
+          continue;
+        }
+        case 3: {
+          if (tag !== 29) {
+            break;
+          }
+
+          message.healthPercentage = reader.float();
+          continue;
+        }
+        case 4: {
+          if (tag !== 32) {
+            break;
+          }
+
+          message.colour = reader.int32() as any;
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerSendBossBarAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      text: isSet(object.text) ? globalThis.String(object.text) : "",
+      healthPercentage: isSet(object.healthPercentage) ? globalThis.Number(object.healthPercentage) : undefined,
+      colour: isSet(object.colour) ? bossBarColourFromJSON(object.colour) : undefined,
+    };
+  },
+
+  toJSON(message: PlayerSendBossBarAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.text !== "") {
+      obj.text = message.text;
+    }
+    if (message.healthPercentage !== undefined) {
+      obj.healthPercentage = message.healthPercentage;
+    }
+    if (message.colour !== undefined) {
+      obj.colour = bossBarColourToJSON(message.colour);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerSendBossBarAction>): PlayerSendBossBarAction {
+    return PlayerSendBossBarAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerSendBossBarAction>): PlayerSendBossBarAction {
+    const message = createBasePlayerSendBossBarAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.text = object.text ?? "";
+    message.healthPercentage = object.healthPercentage ?? undefined;
+    message.colour = object.colour ?? undefined;
+    return message;
+  },
+};
+
+function createBasePlayerRemoveBossBarAction(): PlayerRemoveBossBarAction {
+  return { playerUuid: "" };
+}
+
+export const PlayerRemoveBossBarAction: MessageFns<PlayerRemoveBossBarAction> = {
+  encode(message: PlayerRemoveBossBarAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerRemoveBossBarAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerRemoveBossBarAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerRemoveBossBarAction {
+    return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+  },
+
+  toJSON(message: PlayerRemoveBossBarAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerRemoveBossBarAction>): PlayerRemoveBossBarAction {
+    return PlayerRemoveBossBarAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerRemoveBossBarAction>): PlayerRemoveBossBarAction {
+    const message = createBasePlayerRemoveBossBarAction();
+    message.playerUuid = object.playerUuid ?? "";
+    return message;
+  },
+};
+
+function createBasePlayerShowHudElementAction(): PlayerShowHudElementAction {
+  return { playerUuid: "", element: 0 };
+}
+
+export const PlayerShowHudElementAction: MessageFns<PlayerShowHudElementAction> = {
+  encode(message: PlayerShowHudElementAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.element !== 0) {
+      writer.uint32(16).int32(message.element);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerShowHudElementAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerShowHudElementAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 16) {
+            break;
+          }
+
+          message.element = reader.int32() as any;
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerShowHudElementAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      element: isSet(object.element) ? hudElementFromJSON(object.element) : 0,
+    };
+  },
+
+  toJSON(message: PlayerShowHudElementAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.element !== 0) {
+      obj.element = hudElementToJSON(message.element);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerShowHudElementAction>): PlayerShowHudElementAction {
+    return PlayerShowHudElementAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerShowHudElementAction>): PlayerShowHudElementAction {
+    const message = createBasePlayerShowHudElementAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.element = object.element ?? 0;
+    return message;
+  },
+};
+
+function createBasePlayerHideHudElementAction(): PlayerHideHudElementAction {
+  return { playerUuid: "", element: 0 };
+}
+
+export const PlayerHideHudElementAction: MessageFns<PlayerHideHudElementAction> = {
+  encode(message: PlayerHideHudElementAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.element !== 0) {
+      writer.uint32(16).int32(message.element);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerHideHudElementAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerHideHudElementAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 16) {
+            break;
+          }
+
+          message.element = reader.int32() as any;
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerHideHudElementAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      element: isSet(object.element) ? hudElementFromJSON(object.element) : 0,
+    };
+  },
+
+  toJSON(message: PlayerHideHudElementAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.element !== 0) {
+      obj.element = hudElementToJSON(message.element);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerHideHudElementAction>): PlayerHideHudElementAction {
+    return PlayerHideHudElementAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerHideHudElementAction>): PlayerHideHudElementAction {
+    const message = createBasePlayerHideHudElementAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.element = object.element ?? 0;
+    return message;
+  },
+};
+
+function createBasePlayerCloseDialogueAction(): PlayerCloseDialogueAction {
+  return { playerUuid: "" };
+}
+
+export const PlayerCloseDialogueAction: MessageFns<PlayerCloseDialogueAction> = {
+  encode(message: PlayerCloseDialogueAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerCloseDialogueAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerCloseDialogueAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerCloseDialogueAction {
+    return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+  },
+
+  toJSON(message: PlayerCloseDialogueAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerCloseDialogueAction>): PlayerCloseDialogueAction {
+    return PlayerCloseDialogueAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerCloseDialogueAction>): PlayerCloseDialogueAction {
+    const message = createBasePlayerCloseDialogueAction();
+    message.playerUuid = object.playerUuid ?? "";
+    return message;
+  },
+};
+
+function createBasePlayerCloseFormAction(): PlayerCloseFormAction {
+  return { playerUuid: "" };
+}
+
+export const PlayerCloseFormAction: MessageFns<PlayerCloseFormAction> = {
+  encode(message: PlayerCloseFormAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerCloseFormAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerCloseFormAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerCloseFormAction {
+    return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+  },
+
+  toJSON(message: PlayerCloseFormAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerCloseFormAction>): PlayerCloseFormAction {
+    return PlayerCloseFormAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerCloseFormAction>): PlayerCloseFormAction {
+    const message = createBasePlayerCloseFormAction();
+    message.playerUuid = object.playerUuid ?? "";
+    return message;
+  },
+};
+
+function createBasePlayerOpenSignAction(): PlayerOpenSignAction {
+  return { playerUuid: "", position: undefined, frontSide: false };
+}
+
+export const PlayerOpenSignAction: MessageFns<PlayerOpenSignAction> = {
+  encode(message: PlayerOpenSignAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.frontSide !== false) {
+      writer.uint32(24).bool(message.frontSide);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerOpenSignAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerOpenSignAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.frontSide = reader.bool();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerOpenSignAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      frontSide: isSet(object.frontSide) ? globalThis.Boolean(object.frontSide) : false,
+    };
+  },
+
+  toJSON(message: PlayerOpenSignAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.frontSide !== false) {
+      obj.frontSide = message.frontSide;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerOpenSignAction>): PlayerOpenSignAction {
+    return PlayerOpenSignAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerOpenSignAction>): PlayerOpenSignAction {
+    const message = createBasePlayerOpenSignAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.frontSide = object.frontSide ?? false;
+    return message;
+  },
+};
+
+function createBasePlayerEditSignAction(): PlayerEditSignAction {
+  return { playerUuid: "", position: undefined, frontText: "", backText: "" };
+}
+
+export const PlayerEditSignAction: MessageFns<PlayerEditSignAction> = {
+  encode(message: PlayerEditSignAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.frontText !== "") {
+      writer.uint32(26).string(message.frontText);
+    }
+    if (message.backText !== "") {
+      writer.uint32(34).string(message.backText);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerEditSignAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerEditSignAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 26) {
+            break;
+          }
+
+          message.frontText = reader.string();
+          continue;
+        }
+        case 4: {
+          if (tag !== 34) {
+            break;
+          }
+
+          message.backText = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerEditSignAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      frontText: isSet(object.frontText) ? globalThis.String(object.frontText) : "",
+      backText: isSet(object.backText) ? globalThis.String(object.backText) : "",
+    };
+  },
+
+  toJSON(message: PlayerEditSignAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.frontText !== "") {
+      obj.frontText = message.frontText;
+    }
+    if (message.backText !== "") {
+      obj.backText = message.backText;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerEditSignAction>): PlayerEditSignAction {
+    return PlayerEditSignAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerEditSignAction>): PlayerEditSignAction {
+    const message = createBasePlayerEditSignAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.frontText = object.frontText ?? "";
+    message.backText = object.backText ?? "";
+    return message;
+  },
+};
+
+function createBasePlayerTurnLecternPageAction(): PlayerTurnLecternPageAction {
+  return { playerUuid: "", position: undefined, page: 0 };
+}
+
+export const PlayerTurnLecternPageAction: MessageFns<PlayerTurnLecternPageAction> = {
+  encode(message: PlayerTurnLecternPageAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    if (message.page !== 0) {
+      writer.uint32(24).int32(message.page);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerTurnLecternPageAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerTurnLecternPageAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.page = reader.int32();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerTurnLecternPageAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+      page: isSet(object.page) ? globalThis.Number(object.page) : 0,
+    };
+  },
+
+  toJSON(message: PlayerTurnLecternPageAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    if (message.page !== 0) {
+      obj.page = Math.round(message.page);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerTurnLecternPageAction>): PlayerTurnLecternPageAction {
+    return PlayerTurnLecternPageAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerTurnLecternPageAction>): PlayerTurnLecternPageAction {
+    const message = createBasePlayerTurnLecternPageAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    message.page = object.page ?? 0;
+    return message;
+  },
+};
+
+function createBasePlayerHidePlayerAction(): PlayerHidePlayerAction {
+  return { playerUuid: "", targetUuid: "" };
+}
+
+export const PlayerHidePlayerAction: MessageFns<PlayerHidePlayerAction> = {
+  encode(message: PlayerHidePlayerAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.targetUuid !== "") {
+      writer.uint32(18).string(message.targetUuid);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerHidePlayerAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerHidePlayerAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.targetUuid = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerHidePlayerAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      targetUuid: isSet(object.targetUuid) ? globalThis.String(object.targetUuid) : "",
+    };
+  },
+
+  toJSON(message: PlayerHidePlayerAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.targetUuid !== "") {
+      obj.targetUuid = message.targetUuid;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerHidePlayerAction>): PlayerHidePlayerAction {
+    return PlayerHidePlayerAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerHidePlayerAction>): PlayerHidePlayerAction {
+    const message = createBasePlayerHidePlayerAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.targetUuid = object.targetUuid ?? "";
+    return message;
+  },
+};
+
+function createBasePlayerShowPlayerAction(): PlayerShowPlayerAction {
+  return { playerUuid: "", targetUuid: "" };
+}
+
+export const PlayerShowPlayerAction: MessageFns<PlayerShowPlayerAction> = {
+  encode(message: PlayerShowPlayerAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.targetUuid !== "") {
+      writer.uint32(18).string(message.targetUuid);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerShowPlayerAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerShowPlayerAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.targetUuid = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerShowPlayerAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      targetUuid: isSet(object.targetUuid) ? globalThis.String(object.targetUuid) : "",
+    };
+  },
+
+  toJSON(message: PlayerShowPlayerAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.targetUuid !== "") {
+      obj.targetUuid = message.targetUuid;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerShowPlayerAction>): PlayerShowPlayerAction {
+    return PlayerShowPlayerAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerShowPlayerAction>): PlayerShowPlayerAction {
+    const message = createBasePlayerShowPlayerAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.targetUuid = object.targetUuid ?? "";
+    return message;
+  },
+};
+
+function createBasePlayerRemoveAllDebugShapesAction(): PlayerRemoveAllDebugShapesAction {
+  return { playerUuid: "" };
+}
+
+export const PlayerRemoveAllDebugShapesAction: MessageFns<PlayerRemoveAllDebugShapesAction> = {
+  encode(message: PlayerRemoveAllDebugShapesAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerRemoveAllDebugShapesAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerRemoveAllDebugShapesAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerRemoveAllDebugShapesAction {
+    return { playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "" };
+  },
+
+  toJSON(message: PlayerRemoveAllDebugShapesAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerRemoveAllDebugShapesAction>): PlayerRemoveAllDebugShapesAction {
+    return PlayerRemoveAllDebugShapesAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerRemoveAllDebugShapesAction>): PlayerRemoveAllDebugShapesAction {
+    const message = createBasePlayerRemoveAllDebugShapesAction();
+    message.playerUuid = object.playerUuid ?? "";
+    return message;
+  },
+};
+
+function createBasePlayerOpenBlockContainerAction(): PlayerOpenBlockContainerAction {
+  return { playerUuid: "", position: undefined };
+}
+
+export const PlayerOpenBlockContainerAction: MessageFns<PlayerOpenBlockContainerAction> = {
+  encode(message: PlayerOpenBlockContainerAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.position !== undefined) {
+      BlockPos.encode(message.position, writer.uint32(18).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerOpenBlockContainerAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerOpenBlockContainerAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.position = BlockPos.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerOpenBlockContainerAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      position: isSet(object.position) ? BlockPos.fromJSON(object.position) : undefined,
+    };
+  },
+
+  toJSON(message: PlayerOpenBlockContainerAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.position !== undefined) {
+      obj.position = BlockPos.toJSON(message.position);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerOpenBlockContainerAction>): PlayerOpenBlockContainerAction {
+    return PlayerOpenBlockContainerAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerOpenBlockContainerAction>): PlayerOpenBlockContainerAction {
+    const message = createBasePlayerOpenBlockContainerAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.position = (object.position !== undefined && object.position !== null)
+      ? BlockPos.fromPartial(object.position)
+      : undefined;
+    return message;
+  },
+};
+
+function createBasePlayerDropItemAction(): PlayerDropItemAction {
+  return { playerUuid: "", item: undefined };
+}
+
+export const PlayerDropItemAction: MessageFns<PlayerDropItemAction> = {
+  encode(message: PlayerDropItemAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.item !== undefined) {
+      ItemStack.encode(message.item, writer.uint32(18).fork()).join();
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerDropItemAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerDropItemAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.item = ItemStack.decode(reader, reader.uint32());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerDropItemAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      item: isSet(object.item) ? ItemStack.fromJSON(object.item) : undefined,
+    };
+  },
+
+  toJSON(message: PlayerDropItemAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.item !== undefined) {
+      obj.item = ItemStack.toJSON(message.item);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerDropItemAction>): PlayerDropItemAction {
+    return PlayerDropItemAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerDropItemAction>): PlayerDropItemAction {
+    const message = createBasePlayerDropItemAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.item = (object.item !== undefined && object.item !== null) ? ItemStack.fromPartial(object.item) : undefined;
+    return message;
+  },
+};
+
+function createBasePlayerSetItemCooldownAction(): PlayerSetItemCooldownAction {
+  return { playerUuid: "", item: undefined, durationMs: 0 };
+}
+
+export const PlayerSetItemCooldownAction: MessageFns<PlayerSetItemCooldownAction> = {
+  encode(message: PlayerSetItemCooldownAction, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.playerUuid !== "") {
+      writer.uint32(10).string(message.playerUuid);
+    }
+    if (message.item !== undefined) {
+      ItemStack.encode(message.item, writer.uint32(18).fork()).join();
+    }
+    if (message.durationMs !== 0) {
+      writer.uint32(24).int64(message.durationMs);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): PlayerSetItemCooldownAction {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePlayerSetItemCooldownAction();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.playerUuid = reader.string();
+          continue;
+        }
+        case 2: {
+          if (tag !== 18) {
+            break;
+          }
+
+          message.item = ItemStack.decode(reader, reader.uint32());
+          continue;
+        }
+        case 3: {
+          if (tag !== 24) {
+            break;
+          }
+
+          message.durationMs = longToNumber(reader.int64());
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PlayerSetItemCooldownAction {
+    return {
+      playerUuid: isSet(object.playerUuid) ? globalThis.String(object.playerUuid) : "",
+      item: isSet(object.item) ? ItemStack.fromJSON(object.item) : undefined,
+      durationMs: isSet(object.durationMs) ? globalThis.Number(object.durationMs) : 0,
+    };
+  },
+
+  toJSON(message: PlayerSetItemCooldownAction): unknown {
+    const obj: any = {};
+    if (message.playerUuid !== "") {
+      obj.playerUuid = message.playerUuid;
+    }
+    if (message.item !== undefined) {
+      obj.item = ItemStack.toJSON(message.item);
+    }
+    if (message.durationMs !== 0) {
+      obj.durationMs = Math.round(message.durationMs);
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<PlayerSetItemCooldownAction>): PlayerSetItemCooldownAction {
+    return PlayerSetItemCooldownAction.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<PlayerSetItemCooldownAction>): PlayerSetItemCooldownAction {
+    const message = createBasePlayerSetItemCooldownAction();
+    message.playerUuid = object.playerUuid ?? "";
+    message.item = (object.item !== undefined && object.item !== null) ? ItemStack.fromPartial(object.item) : undefined;
+    message.durationMs = object.durationMs ?? 0;
     return message;
   },
 };

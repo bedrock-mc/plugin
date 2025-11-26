@@ -779,7 +779,7 @@ pub struct ActionBatch {
 pub struct Action {
     #[prost(string, optional, tag="1")]
     pub correlation_id: ::core::option::Option<::prost::alloc::string::String>,
-    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 132, 20, 21, 22, 23, 30, 31, 40, 41, 42, 118, 119, 120, 121, 122, 123, 124, 125, 43, 126, 133, 134, 50, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 127, 128, 129, 130, 131, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 90, 91, 92, 93, 70, 71, 72, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 73")]
+    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 132, 147, 148, 149, 20, 21, 22, 23, 30, 31, 40, 41, 42, 118, 119, 120, 121, 122, 123, 124, 125, 43, 126, 133, 134, 150, 151, 152, 139, 140, 50, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 127, 128, 129, 130, 131, 135, 136, 137, 138, 141, 142, 143, 144, 145, 146, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 90, 91, 92, 93, 70, 71, 72, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 73")]
     pub kind: ::core::option::Option<action::Kind>,
 }
 /// Nested message and enum types in `Action`.
@@ -805,6 +805,12 @@ pub mod action {
         SetHeldItem(super::SetHeldItemAction),
         #[prost(message, tag="132")]
         PlayerSetArmour(super::PlayerSetArmourAction),
+        #[prost(message, tag="147")]
+        PlayerOpenBlockContainer(super::PlayerOpenBlockContainerAction),
+        #[prost(message, tag="148")]
+        PlayerDropItem(super::PlayerDropItemAction),
+        #[prost(message, tag="149")]
+        PlayerSetItemCooldown(super::PlayerSetItemCooldownAction),
         /// Player: State & Attributes
         #[prost(message, tag="20")]
         SetHealth(super::SetHealthAction),
@@ -853,6 +859,17 @@ pub mod action {
         PlayerSendScoreboard(super::PlayerSendScoreboardAction),
         #[prost(message, tag="134")]
         PlayerRemoveScoreboard(super::PlayerRemoveScoreboardAction),
+        /// Player: Forms & Dialogue
+        #[prost(message, tag="150")]
+        PlayerSendMenuForm(super::PlayerSendMenuFormAction),
+        #[prost(message, tag="151")]
+        PlayerSendModalForm(super::PlayerSendModalFormAction),
+        #[prost(message, tag="152")]
+        PlayerSendDialogue(super::PlayerSendDialogueAction),
+        #[prost(message, tag="139")]
+        PlayerCloseDialogue(super::PlayerCloseDialogueAction),
+        #[prost(message, tag="140")]
+        PlayerCloseForm(super::PlayerCloseFormAction),
         /// Player: Commands
         #[prost(message, tag="50")]
         ExecuteCommand(super::ExecuteCommandAction),
@@ -920,6 +937,31 @@ pub mod action {
         PlayerSwingArm(super::PlayerSwingArmAction),
         #[prost(message, tag="131")]
         PlayerPunchAir(super::PlayerPunchAirAction),
+        /// Player: Boss bar
+        #[prost(message, tag="135")]
+        PlayerSendBossBar(super::PlayerSendBossBarAction),
+        #[prost(message, tag="136")]
+        PlayerRemoveBossBar(super::PlayerRemoveBossBarAction),
+        /// Player: HUD elements
+        #[prost(message, tag="137")]
+        PlayerShowHudElement(super::PlayerShowHudElementAction),
+        #[prost(message, tag="138")]
+        PlayerHideHudElement(super::PlayerHideHudElementAction),
+        /// Player: Signs & Lecterns
+        #[prost(message, tag="141")]
+        PlayerOpenSign(super::PlayerOpenSignAction),
+        #[prost(message, tag="142")]
+        PlayerEditSign(super::PlayerEditSignAction),
+        #[prost(message, tag="143")]
+        PlayerTurnLecternPage(super::PlayerTurnLecternPageAction),
+        /// Player: Entity visibility
+        #[prost(message, tag="144")]
+        PlayerHidePlayer(super::PlayerHidePlayerAction),
+        #[prost(message, tag="145")]
+        PlayerShowPlayer(super::PlayerShowPlayerAction),
+        /// Player: Debug shapes
+        #[prost(message, tag="146")]
+        PlayerRemoveAllDebugShapes(super::PlayerRemoveAllDebugShapesAction),
         /// World: Configuration & Settings
         #[prost(message, tag="60")]
         WorldSetDefaultGameMode(super::WorldSetDefaultGameModeAction),
@@ -1777,6 +1819,187 @@ pub struct PlayerRemoveScoreboardAction {
     #[prost(string, tag="1")]
     pub player_uuid: ::prost::alloc::string::String,
 }
+/// Player forms (show)
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSendMenuFormAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub title: ::prost::alloc::string::String,
+    #[prost(string, optional, tag="3")]
+    pub body: ::core::option::Option<::prost::alloc::string::String>,
+    /// up to 6
+    #[prost(string, repeated, tag="4")]
+    pub buttons: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSendModalFormAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub title: ::prost::alloc::string::String,
+    #[prost(string, tag="3")]
+    pub body: ::prost::alloc::string::String,
+    /// default: gui.yes
+    #[prost(string, tag="4")]
+    pub yes_text: ::prost::alloc::string::String,
+    /// default: gui.no
+    #[prost(string, tag="5")]
+    pub no_text: ::prost::alloc::string::String,
+}
+/// Dialogue (show)
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSendDialogueAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub title: ::prost::alloc::string::String,
+    #[prost(string, optional, tag="3")]
+    pub body: ::core::option::Option<::prost::alloc::string::String>,
+    /// up to 6
+    #[prost(string, repeated, tag="4")]
+    pub buttons: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    /// target entity to display as NPC
+    #[prost(message, optional, tag="5")]
+    pub entity: ::core::option::Option<EntityRef>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSendBossBarAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub text: ::prost::alloc::string::String,
+    /// 0.0 - 1.0 (default 1.0)
+    #[prost(float, optional, tag="3")]
+    pub health_percentage: ::core::option::Option<f32>,
+    /// default PURPLE
+    #[prost(enumeration="BossBarColour", optional, tag="4")]
+    pub colour: ::core::option::Option<i32>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerRemoveBossBarAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerShowHudElementAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(enumeration="HudElement", tag="2")]
+    pub element: i32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerHideHudElementAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(enumeration="HudElement", tag="2")]
+    pub element: i32,
+}
+/// Player UI closers
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerCloseDialogueAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerCloseFormAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+/// Player: Signs & Lecterns
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerOpenSignAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(bool, tag="3")]
+    pub front_side: bool,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerEditSignAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(string, tag="3")]
+    pub front_text: ::prost::alloc::string::String,
+    #[prost(string, tag="4")]
+    pub back_text: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerTurnLecternPageAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+    #[prost(int32, tag="3")]
+    pub page: i32,
+}
+/// Player: Entity visibility (player-targeted)
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerHidePlayerAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub target_uuid: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerShowPlayerAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(string, tag="2")]
+    pub target_uuid: ::prost::alloc::string::String,
+}
+/// Player: Debug shapes
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerRemoveAllDebugShapesAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+}
+/// Player: Interaction extras
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerOpenBlockContainerAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub position: ::core::option::Option<BlockPos>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerDropItemAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    /// if unset, drops currently held main-hand item
+    #[prost(message, optional, tag="2")]
+    pub item: ::core::option::Option<ItemStack>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct PlayerSetItemCooldownAction {
+    #[prost(string, tag="1")]
+    pub player_uuid: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub item: ::core::option::Option<ItemStack>,
+    #[prost(int64, tag="3")]
+    pub duration_ms: i64,
+}
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum ParticleType {
@@ -1850,6 +2073,108 @@ impl ParticleType {
             "PARTICLE_DUST_PLUME" => Some(Self::ParticleDustPlume),
             "PARTICLE_BLOCK_BREAK" => Some(Self::ParticleBlockBreak),
             "PARTICLE_PUNCH_BLOCK" => Some(Self::ParticlePunchBlock),
+            _ => None,
+        }
+    }
+}
+/// Player boss bar management
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum BossBarColour {
+    Grey = 0,
+    Blue = 1,
+    Red = 2,
+    Green = 3,
+    Yellow = 4,
+    Purple = 5,
+    White = 6,
+}
+impl BossBarColour {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            BossBarColour::Grey => "BOSS_BAR_COLOUR_GREY",
+            BossBarColour::Blue => "BOSS_BAR_COLOUR_BLUE",
+            BossBarColour::Red => "BOSS_BAR_COLOUR_RED",
+            BossBarColour::Green => "BOSS_BAR_COLOUR_GREEN",
+            BossBarColour::Yellow => "BOSS_BAR_COLOUR_YELLOW",
+            BossBarColour::Purple => "BOSS_BAR_COLOUR_PURPLE",
+            BossBarColour::White => "BOSS_BAR_COLOUR_WHITE",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "BOSS_BAR_COLOUR_GREY" => Some(Self::Grey),
+            "BOSS_BAR_COLOUR_BLUE" => Some(Self::Blue),
+            "BOSS_BAR_COLOUR_RED" => Some(Self::Red),
+            "BOSS_BAR_COLOUR_GREEN" => Some(Self::Green),
+            "BOSS_BAR_COLOUR_YELLOW" => Some(Self::Yellow),
+            "BOSS_BAR_COLOUR_PURPLE" => Some(Self::Purple),
+            "BOSS_BAR_COLOUR_WHITE" => Some(Self::White),
+            _ => None,
+        }
+    }
+}
+/// Player HUD element control
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum HudElement {
+    PaperDoll = 0,
+    Armour = 1,
+    ToolTips = 2,
+    TouchControls = 3,
+    Crosshair = 4,
+    HotBar = 5,
+    Health = 6,
+    ProgressBar = 7,
+    Hunger = 8,
+    AirBubbles = 9,
+    HorseHealth = 10,
+    StatusEffects = 11,
+    ItemText = 12,
+}
+impl HudElement {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            HudElement::PaperDoll => "HUD_ELEMENT_PAPER_DOLL",
+            HudElement::Armour => "HUD_ELEMENT_ARMOUR",
+            HudElement::ToolTips => "HUD_ELEMENT_TOOL_TIPS",
+            HudElement::TouchControls => "HUD_ELEMENT_TOUCH_CONTROLS",
+            HudElement::Crosshair => "HUD_ELEMENT_CROSSHAIR",
+            HudElement::HotBar => "HUD_ELEMENT_HOT_BAR",
+            HudElement::Health => "HUD_ELEMENT_HEALTH",
+            HudElement::ProgressBar => "HUD_ELEMENT_PROGRESS_BAR",
+            HudElement::Hunger => "HUD_ELEMENT_HUNGER",
+            HudElement::AirBubbles => "HUD_ELEMENT_AIR_BUBBLES",
+            HudElement::HorseHealth => "HUD_ELEMENT_HORSE_HEALTH",
+            HudElement::StatusEffects => "HUD_ELEMENT_STATUS_EFFECTS",
+            HudElement::ItemText => "HUD_ELEMENT_ITEM_TEXT",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "HUD_ELEMENT_PAPER_DOLL" => Some(Self::PaperDoll),
+            "HUD_ELEMENT_ARMOUR" => Some(Self::Armour),
+            "HUD_ELEMENT_TOOL_TIPS" => Some(Self::ToolTips),
+            "HUD_ELEMENT_TOUCH_CONTROLS" => Some(Self::TouchControls),
+            "HUD_ELEMENT_CROSSHAIR" => Some(Self::Crosshair),
+            "HUD_ELEMENT_HOT_BAR" => Some(Self::HotBar),
+            "HUD_ELEMENT_HEALTH" => Some(Self::Health),
+            "HUD_ELEMENT_PROGRESS_BAR" => Some(Self::ProgressBar),
+            "HUD_ELEMENT_HUNGER" => Some(Self::Hunger),
+            "HUD_ELEMENT_AIR_BUBBLES" => Some(Self::AirBubbles),
+            "HUD_ELEMENT_HORSE_HEALTH" => Some(Self::HorseHealth),
+            "HUD_ELEMENT_STATUS_EFFECTS" => Some(Self::StatusEffects),
+            "HUD_ELEMENT_ITEM_TEXT" => Some(Self::ItemText),
             _ => None,
         }
     }

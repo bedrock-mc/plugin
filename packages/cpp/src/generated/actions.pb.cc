@@ -647,6 +647,64 @@ struct PlayerStartCrawlingActionDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerStartCrawlingActionDefaultTypeInternal _PlayerStartCrawlingAction_default_instance_;
 
+inline constexpr PlayerShowPlayerAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        target_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerShowPlayerAction::PlayerShowPlayerAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerShowPlayerAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerShowPlayerActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerShowPlayerActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerShowPlayerActionDefaultTypeInternal() {}
+  union {
+    PlayerShowPlayerAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerShowPlayerActionDefaultTypeInternal _PlayerShowPlayerAction_default_instance_;
+
+inline constexpr PlayerShowHudElementAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        element_{static_cast< ::df::plugin::HudElement >(0)} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerShowHudElementAction::PlayerShowHudElementAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerShowHudElementAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerShowHudElementActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerShowHudElementActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerShowHudElementActionDefaultTypeInternal() {}
+  union {
+    PlayerShowHudElementAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerShowHudElementActionDefaultTypeInternal _PlayerShowHudElementAction_default_instance_;
+
 inline constexpr PlayerShowCoordinatesAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -1104,6 +1162,79 @@ struct PlayerSendScoreboardActionDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerSendScoreboardActionDefaultTypeInternal _PlayerSendScoreboardAction_default_instance_;
 
+inline constexpr PlayerSendModalFormAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        title_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        body_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        yes_text_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        no_text_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerSendModalFormAction::PlayerSendModalFormAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerSendModalFormAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerSendModalFormActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerSendModalFormActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerSendModalFormActionDefaultTypeInternal() {}
+  union {
+    PlayerSendModalFormAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerSendModalFormActionDefaultTypeInternal _PlayerSendModalFormAction_default_instance_;
+
+inline constexpr PlayerSendMenuFormAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        buttons_{},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        title_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        body_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerSendMenuFormAction::PlayerSendMenuFormAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerSendMenuFormAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerSendMenuFormActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerSendMenuFormActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerSendMenuFormActionDefaultTypeInternal() {}
+  union {
+    PlayerSendMenuFormAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerSendMenuFormActionDefaultTypeInternal _PlayerSendMenuFormAction_default_instance_;
+
 inline constexpr PlayerSendJukeboxPopupAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -1133,6 +1264,38 @@ struct PlayerSendJukeboxPopupActionDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerSendJukeboxPopupActionDefaultTypeInternal _PlayerSendJukeboxPopupAction_default_instance_;
+
+inline constexpr PlayerSendBossBarAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        text_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        health_percentage_{0},
+        colour_{static_cast< ::df::plugin::BossBarColour >(0)} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerSendBossBarAction::PlayerSendBossBarAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerSendBossBarAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerSendBossBarActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerSendBossBarActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerSendBossBarActionDefaultTypeInternal() {}
+  union {
+    PlayerSendBossBarAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerSendBossBarActionDefaultTypeInternal _PlayerSendBossBarAction_default_instance_;
 
 inline constexpr PlayerRespawnAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1188,6 +1351,60 @@ struct PlayerRemoveScoreboardActionDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerRemoveScoreboardActionDefaultTypeInternal _PlayerRemoveScoreboardAction_default_instance_;
 
+inline constexpr PlayerRemoveBossBarAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerRemoveBossBarAction::PlayerRemoveBossBarAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerRemoveBossBarAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerRemoveBossBarActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerRemoveBossBarActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerRemoveBossBarActionDefaultTypeInternal() {}
+  union {
+    PlayerRemoveBossBarAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerRemoveBossBarActionDefaultTypeInternal _PlayerRemoveBossBarAction_default_instance_;
+
+inline constexpr PlayerRemoveAllDebugShapesAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerRemoveAllDebugShapesAction::PlayerRemoveAllDebugShapesAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerRemoveAllDebugShapesAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerRemoveAllDebugShapesActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerRemoveAllDebugShapesActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerRemoveAllDebugShapesActionDefaultTypeInternal() {}
+  union {
+    PlayerRemoveAllDebugShapesAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerRemoveAllDebugShapesActionDefaultTypeInternal _PlayerRemoveAllDebugShapesAction_default_instance_;
+
 inline constexpr PlayerPunchAirAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -1214,6 +1431,64 @@ struct PlayerPunchAirActionDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerPunchAirActionDefaultTypeInternal _PlayerPunchAirAction_default_instance_;
+
+inline constexpr PlayerHidePlayerAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        target_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerHidePlayerAction::PlayerHidePlayerAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerHidePlayerAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerHidePlayerActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerHidePlayerActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerHidePlayerActionDefaultTypeInternal() {}
+  union {
+    PlayerHidePlayerAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerHidePlayerActionDefaultTypeInternal _PlayerHidePlayerAction_default_instance_;
+
+inline constexpr PlayerHideHudElementAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        element_{static_cast< ::df::plugin::HudElement >(0)} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerHideHudElementAction::PlayerHideHudElementAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerHideHudElementAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerHideHudElementActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerHideHudElementActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerHideHudElementActionDefaultTypeInternal() {}
+  union {
+    PlayerHideHudElementAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerHideHudElementActionDefaultTypeInternal _PlayerHideHudElementAction_default_instance_;
 
 inline constexpr PlayerHideCoordinatesAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -1322,6 +1597,60 @@ struct PlayerDisableInstantRespawnActionDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerDisableInstantRespawnActionDefaultTypeInternal _PlayerDisableInstantRespawnAction_default_instance_;
+
+inline constexpr PlayerCloseFormAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerCloseFormAction::PlayerCloseFormAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerCloseFormAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerCloseFormActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerCloseFormActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerCloseFormActionDefaultTypeInternal() {}
+  union {
+    PlayerCloseFormAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerCloseFormActionDefaultTypeInternal _PlayerCloseFormAction_default_instance_;
+
+inline constexpr PlayerCloseDialogueAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerCloseDialogueAction::PlayerCloseDialogueAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerCloseDialogueAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerCloseDialogueActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerCloseDialogueActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerCloseDialogueActionDefaultTypeInternal() {}
+  union {
+    PlayerCloseDialogueAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerCloseDialogueActionDefaultTypeInternal _PlayerCloseDialogueAction_default_instance_;
 
 inline constexpr KickAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -2127,6 +2456,35 @@ struct SetHeldItemActionDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SetHeldItemActionDefaultTypeInternal _SetHeldItemAction_default_instance_;
 
+inline constexpr PlayerTurnLecternPageAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        position_{nullptr},
+        page_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerTurnLecternPageAction::PlayerTurnLecternPageAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerTurnLecternPageAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerTurnLecternPageActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerTurnLecternPageActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerTurnLecternPageActionDefaultTypeInternal() {}
+  union {
+    PlayerTurnLecternPageAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerTurnLecternPageActionDefaultTypeInternal _PlayerTurnLecternPageAction_default_instance_;
+
 inline constexpr PlayerTransferAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -2154,6 +2512,35 @@ struct PlayerTransferActionDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerTransferActionDefaultTypeInternal _PlayerTransferAction_default_instance_;
+
+inline constexpr PlayerSetItemCooldownAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        item_{nullptr},
+        duration_ms_{::int64_t{0}} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerSetItemCooldownAction::PlayerSetItemCooldownAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerSetItemCooldownAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerSetItemCooldownActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerSetItemCooldownActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerSetItemCooldownActionDefaultTypeInternal() {}
+  union {
+    PlayerSetItemCooldownAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerSetItemCooldownActionDefaultTypeInternal _PlayerSetItemCooldownAction_default_instance_;
 
 inline constexpr PlayerSetArmourAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -2186,6 +2573,63 @@ struct PlayerSetArmourActionDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerSetArmourActionDefaultTypeInternal _PlayerSetArmourAction_default_instance_;
 
+inline constexpr PlayerOpenSignAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        position_{nullptr},
+        front_side_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerOpenSignAction::PlayerOpenSignAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerOpenSignAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerOpenSignActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerOpenSignActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerOpenSignActionDefaultTypeInternal() {}
+  union {
+    PlayerOpenSignAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerOpenSignActionDefaultTypeInternal _PlayerOpenSignAction_default_instance_;
+
+inline constexpr PlayerOpenBlockContainerAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerOpenBlockContainerAction::PlayerOpenBlockContainerAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerOpenBlockContainerAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerOpenBlockContainerActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerOpenBlockContainerActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerOpenBlockContainerActionDefaultTypeInternal() {}
+  union {
+    PlayerOpenBlockContainerAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerOpenBlockContainerActionDefaultTypeInternal _PlayerOpenBlockContainerAction_default_instance_;
+
 inline constexpr PlayerKnockBackAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -2215,6 +2659,68 @@ struct PlayerKnockBackActionDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerKnockBackActionDefaultTypeInternal _PlayerKnockBackAction_default_instance_;
+
+inline constexpr PlayerEditSignAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        front_text_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        back_text_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        position_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerEditSignAction::PlayerEditSignAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerEditSignAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerEditSignActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerEditSignActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerEditSignActionDefaultTypeInternal() {}
+  union {
+    PlayerEditSignAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerEditSignActionDefaultTypeInternal _PlayerEditSignAction_default_instance_;
+
+inline constexpr PlayerDropItemAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        item_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerDropItemAction::PlayerDropItemAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerDropItemAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerDropItemActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerDropItemActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerDropItemActionDefaultTypeInternal() {}
+  union {
+    PlayerDropItemAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerDropItemActionDefaultTypeInternal _PlayerDropItemAction_default_instance_;
 
 inline constexpr PlaySoundAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -2416,6 +2922,41 @@ struct PlayerShowParticleActionDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerShowParticleActionDefaultTypeInternal _PlayerShowParticleAction_default_instance_;
 
+inline constexpr PlayerSendDialogueAction::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        buttons_{},
+        player_uuid_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        title_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        body_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        entity_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR PlayerSendDialogueAction::PlayerSendDialogueAction(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(PlayerSendDialogueAction_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct PlayerSendDialogueActionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR PlayerSendDialogueActionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~PlayerSendDialogueActionDefaultTypeInternal() {}
+  union {
+    PlayerSendDialogueAction _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PlayerSendDialogueActionDefaultTypeInternal _PlayerSendDialogueAction_default_instance_;
+
 inline constexpr WorldSetLiquidAction::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : _cached_size_{0},
@@ -2583,7 +3124,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 }  // namespace plugin
 }  // namespace df
 static const ::_pb::EnumDescriptor* PROTOBUF_NONNULL
-    file_level_enum_descriptors_actions_2eproto[1];
+    file_level_enum_descriptors_actions_2eproto[3];
 static constexpr const ::_pb::ServiceDescriptor* PROTOBUF_NONNULL* PROTOBUF_NULLABLE
     file_level_service_descriptors_actions_2eproto = nullptr;
 const ::uint32_t
@@ -2597,7 +3138,7 @@ const ::uint32_t
         0x085, // bitmap
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_._has_bits_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_._oneof_case_[0]),
-        94, // hasbit index offset
+        112, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.correlation_id_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
@@ -2688,7 +3229,43 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::Action, _impl_.kind_),
         0,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
+        ~0u,
         ~0u,
         ~0u,
         ~0u,
@@ -3431,102 +4008,268 @@ const ::uint32_t
         4, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerRemoveScoreboardAction, _impl_.player_uuid_),
         0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendMenuFormAction, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendMenuFormAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendMenuFormAction, _impl_.title_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendMenuFormAction, _impl_.body_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendMenuFormAction, _impl_.buttons_),
+        1,
+        2,
+        3,
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendModalFormAction, _impl_._has_bits_),
+        8, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendModalFormAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendModalFormAction, _impl_.title_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendModalFormAction, _impl_.body_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendModalFormAction, _impl_.yes_text_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendModalFormAction, _impl_.no_text_),
+        0,
+        1,
+        2,
+        3,
+        4,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendDialogueAction, _impl_._has_bits_),
+        8, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendDialogueAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendDialogueAction, _impl_.title_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendDialogueAction, _impl_.body_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendDialogueAction, _impl_.buttons_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendDialogueAction, _impl_.entity_),
+        1,
+        2,
+        3,
+        0,
+        4,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendBossBarAction, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendBossBarAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendBossBarAction, _impl_.text_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendBossBarAction, _impl_.health_percentage_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSendBossBarAction, _impl_.colour_),
+        0,
+        1,
+        2,
+        3,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerRemoveBossBarAction, _impl_._has_bits_),
+        4, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerRemoveBossBarAction, _impl_.player_uuid_),
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerShowHudElementAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerShowHudElementAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerShowHudElementAction, _impl_.element_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerHideHudElementAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerHideHudElementAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerHideHudElementAction, _impl_.element_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerCloseDialogueAction, _impl_._has_bits_),
+        4, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerCloseDialogueAction, _impl_.player_uuid_),
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerCloseFormAction, _impl_._has_bits_),
+        4, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerCloseFormAction, _impl_.player_uuid_),
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerOpenSignAction, _impl_._has_bits_),
+        6, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerOpenSignAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerOpenSignAction, _impl_.position_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerOpenSignAction, _impl_.front_side_),
+        0,
+        1,
+        2,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerEditSignAction, _impl_._has_bits_),
+        7, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerEditSignAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerEditSignAction, _impl_.position_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerEditSignAction, _impl_.front_text_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerEditSignAction, _impl_.back_text_),
+        0,
+        3,
+        1,
+        2,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerTurnLecternPageAction, _impl_._has_bits_),
+        6, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerTurnLecternPageAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerTurnLecternPageAction, _impl_.position_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerTurnLecternPageAction, _impl_.page_),
+        0,
+        1,
+        2,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerHidePlayerAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerHidePlayerAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerHidePlayerAction, _impl_.target_uuid_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerShowPlayerAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerShowPlayerAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerShowPlayerAction, _impl_.target_uuid_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerRemoveAllDebugShapesAction, _impl_._has_bits_),
+        4, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerRemoveAllDebugShapesAction, _impl_.player_uuid_),
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerOpenBlockContainerAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerOpenBlockContainerAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerOpenBlockContainerAction, _impl_.position_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerDropItemAction, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerDropItemAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerDropItemAction, _impl_.item_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSetItemCooldownAction, _impl_._has_bits_),
+        6, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSetItemCooldownAction, _impl_.player_uuid_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSetItemCooldownAction, _impl_.item_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PlayerSetItemCooldownAction, _impl_.duration_ms_),
+        0,
+        1,
+        2,
 };
 
 static const ::_pbi::MigrationSchema
     schemas[] ABSL_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
         {0, sizeof(::df::plugin::ActionBatch)},
         {5, sizeof(::df::plugin::Action)},
-        {188, sizeof(::df::plugin::SendChatAction)},
-        {195, sizeof(::df::plugin::TeleportAction)},
-        {204, sizeof(::df::plugin::KickAction)},
-        {211, sizeof(::df::plugin::SetGameModeAction)},
-        {218, sizeof(::df::plugin::GiveItemAction)},
-        {225, sizeof(::df::plugin::ClearInventoryAction)},
-        {230, sizeof(::df::plugin::SetHeldItemAction)},
-        {239, sizeof(::df::plugin::SetHealthAction)},
-        {248, sizeof(::df::plugin::SetFoodAction)},
-        {255, sizeof(::df::plugin::SetExperienceAction)},
-        {266, sizeof(::df::plugin::SetVelocityAction)},
-        {273, sizeof(::df::plugin::AddEffectAction)},
-        {286, sizeof(::df::plugin::RemoveEffectAction)},
-        {293, sizeof(::df::plugin::SendTitleAction)},
-        {308, sizeof(::df::plugin::SendPopupAction)},
-        {315, sizeof(::df::plugin::SendTipAction)},
-        {322, sizeof(::df::plugin::PlaySoundAction)},
-        {335, sizeof(::df::plugin::ExecuteCommandAction)},
-        {342, sizeof(::df::plugin::WorldSetDefaultGameModeAction)},
-        {349, sizeof(::df::plugin::WorldSetDifficultyAction)},
-        {356, sizeof(::df::plugin::WorldSetTickRangeAction)},
-        {363, sizeof(::df::plugin::WorldSetBlockAction)},
-        {372, sizeof(::df::plugin::WorldPlaySoundAction)},
-        {381, sizeof(::df::plugin::WorldAddParticleAction)},
-        {394, sizeof(::df::plugin::WorldSetTimeAction)},
-        {401, sizeof(::df::plugin::WorldStopTimeAction)},
-        {406, sizeof(::df::plugin::WorldStartTimeAction)},
-        {411, sizeof(::df::plugin::WorldSetSpawnAction)},
-        {418, sizeof(::df::plugin::WorldQueryDefaultGameModeAction)},
-        {423, sizeof(::df::plugin::WorldQueryPlayerSpawnAction)},
-        {430, sizeof(::df::plugin::WorldQueryEntitiesAction)},
-        {435, sizeof(::df::plugin::WorldQueryPlayersAction)},
-        {440, sizeof(::df::plugin::WorldQueryEntitiesWithinAction)},
-        {447, sizeof(::df::plugin::WorldQueryBlockAction)},
-        {454, sizeof(::df::plugin::WorldQueryBiomeAction)},
-        {461, sizeof(::df::plugin::WorldQueryLightAction)},
-        {468, sizeof(::df::plugin::WorldQuerySkyLightAction)},
-        {475, sizeof(::df::plugin::WorldQueryTemperatureAction)},
-        {482, sizeof(::df::plugin::WorldQueryHighestBlockAction)},
-        {491, sizeof(::df::plugin::WorldQueryRainingAtAction)},
-        {498, sizeof(::df::plugin::WorldQuerySnowingAtAction)},
-        {505, sizeof(::df::plugin::WorldQueryThunderingAtAction)},
-        {512, sizeof(::df::plugin::WorldQueryLiquidAction)},
-        {519, sizeof(::df::plugin::WorldSetBiomeAction)},
-        {528, sizeof(::df::plugin::WorldSetLiquidAction)},
-        {537, sizeof(::df::plugin::WorldScheduleBlockUpdateAction)},
-        {548, sizeof(::df::plugin::StructureVoxel)},
-        {561, sizeof(::df::plugin::StructureDef)},
-        {572, sizeof(::df::plugin::WorldBuildStructureAction)},
-        {581, sizeof(::df::plugin::PlayerStartSprintingAction)},
-        {586, sizeof(::df::plugin::PlayerStopSprintingAction)},
-        {591, sizeof(::df::plugin::PlayerStartSneakingAction)},
-        {596, sizeof(::df::plugin::PlayerStopSneakingAction)},
-        {601, sizeof(::df::plugin::PlayerStartSwimmingAction)},
-        {606, sizeof(::df::plugin::PlayerStopSwimmingAction)},
-        {611, sizeof(::df::plugin::PlayerStartCrawlingAction)},
-        {616, sizeof(::df::plugin::PlayerStopCrawlingAction)},
-        {621, sizeof(::df::plugin::PlayerStartGlidingAction)},
-        {626, sizeof(::df::plugin::PlayerStopGlidingAction)},
-        {631, sizeof(::df::plugin::PlayerStartFlyingAction)},
-        {636, sizeof(::df::plugin::PlayerStopFlyingAction)},
-        {641, sizeof(::df::plugin::PlayerSetImmobileAction)},
-        {646, sizeof(::df::plugin::PlayerSetMobileAction)},
-        {651, sizeof(::df::plugin::PlayerSetSpeedAction)},
-        {658, sizeof(::df::plugin::PlayerSetFlightSpeedAction)},
-        {665, sizeof(::df::plugin::PlayerSetVerticalFlightSpeedAction)},
-        {672, sizeof(::df::plugin::PlayerSetAbsorptionAction)},
-        {679, sizeof(::df::plugin::PlayerSetOnFireAction)},
-        {686, sizeof(::df::plugin::PlayerExtinguishAction)},
-        {691, sizeof(::df::plugin::PlayerSetInvisibleAction)},
-        {696, sizeof(::df::plugin::PlayerSetVisibleAction)},
-        {701, sizeof(::df::plugin::PlayerSetScaleAction)},
-        {708, sizeof(::df::plugin::PlayerSetHeldSlotAction)},
-        {715, sizeof(::df::plugin::PlayerSendToastAction)},
-        {724, sizeof(::df::plugin::PlayerSendJukeboxPopupAction)},
-        {731, sizeof(::df::plugin::PlayerShowCoordinatesAction)},
-        {736, sizeof(::df::plugin::PlayerHideCoordinatesAction)},
-        {741, sizeof(::df::plugin::PlayerEnableInstantRespawnAction)},
-        {746, sizeof(::df::plugin::PlayerDisableInstantRespawnAction)},
-        {751, sizeof(::df::plugin::PlayerSetNameTagAction)},
-        {758, sizeof(::df::plugin::PlayerSetScoreTagAction)},
-        {765, sizeof(::df::plugin::PlayerShowParticleAction)},
-        {778, sizeof(::df::plugin::PlayerRespawnAction)},
-        {783, sizeof(::df::plugin::PlayerTransferAction)},
-        {790, sizeof(::df::plugin::PlayerKnockBackAction)},
-        {801, sizeof(::df::plugin::PlayerSwingArmAction)},
-        {806, sizeof(::df::plugin::PlayerPunchAirAction)},
-        {811, sizeof(::df::plugin::PlayerSetArmourAction)},
-        {824, sizeof(::df::plugin::PlayerSendScoreboardAction)},
-        {837, sizeof(::df::plugin::PlayerRemoveScoreboardAction)},
+        {224, sizeof(::df::plugin::SendChatAction)},
+        {231, sizeof(::df::plugin::TeleportAction)},
+        {240, sizeof(::df::plugin::KickAction)},
+        {247, sizeof(::df::plugin::SetGameModeAction)},
+        {254, sizeof(::df::plugin::GiveItemAction)},
+        {261, sizeof(::df::plugin::ClearInventoryAction)},
+        {266, sizeof(::df::plugin::SetHeldItemAction)},
+        {275, sizeof(::df::plugin::SetHealthAction)},
+        {284, sizeof(::df::plugin::SetFoodAction)},
+        {291, sizeof(::df::plugin::SetExperienceAction)},
+        {302, sizeof(::df::plugin::SetVelocityAction)},
+        {309, sizeof(::df::plugin::AddEffectAction)},
+        {322, sizeof(::df::plugin::RemoveEffectAction)},
+        {329, sizeof(::df::plugin::SendTitleAction)},
+        {344, sizeof(::df::plugin::SendPopupAction)},
+        {351, sizeof(::df::plugin::SendTipAction)},
+        {358, sizeof(::df::plugin::PlaySoundAction)},
+        {371, sizeof(::df::plugin::ExecuteCommandAction)},
+        {378, sizeof(::df::plugin::WorldSetDefaultGameModeAction)},
+        {385, sizeof(::df::plugin::WorldSetDifficultyAction)},
+        {392, sizeof(::df::plugin::WorldSetTickRangeAction)},
+        {399, sizeof(::df::plugin::WorldSetBlockAction)},
+        {408, sizeof(::df::plugin::WorldPlaySoundAction)},
+        {417, sizeof(::df::plugin::WorldAddParticleAction)},
+        {430, sizeof(::df::plugin::WorldSetTimeAction)},
+        {437, sizeof(::df::plugin::WorldStopTimeAction)},
+        {442, sizeof(::df::plugin::WorldStartTimeAction)},
+        {447, sizeof(::df::plugin::WorldSetSpawnAction)},
+        {454, sizeof(::df::plugin::WorldQueryDefaultGameModeAction)},
+        {459, sizeof(::df::plugin::WorldQueryPlayerSpawnAction)},
+        {466, sizeof(::df::plugin::WorldQueryEntitiesAction)},
+        {471, sizeof(::df::plugin::WorldQueryPlayersAction)},
+        {476, sizeof(::df::plugin::WorldQueryEntitiesWithinAction)},
+        {483, sizeof(::df::plugin::WorldQueryBlockAction)},
+        {490, sizeof(::df::plugin::WorldQueryBiomeAction)},
+        {497, sizeof(::df::plugin::WorldQueryLightAction)},
+        {504, sizeof(::df::plugin::WorldQuerySkyLightAction)},
+        {511, sizeof(::df::plugin::WorldQueryTemperatureAction)},
+        {518, sizeof(::df::plugin::WorldQueryHighestBlockAction)},
+        {527, sizeof(::df::plugin::WorldQueryRainingAtAction)},
+        {534, sizeof(::df::plugin::WorldQuerySnowingAtAction)},
+        {541, sizeof(::df::plugin::WorldQueryThunderingAtAction)},
+        {548, sizeof(::df::plugin::WorldQueryLiquidAction)},
+        {555, sizeof(::df::plugin::WorldSetBiomeAction)},
+        {564, sizeof(::df::plugin::WorldSetLiquidAction)},
+        {573, sizeof(::df::plugin::WorldScheduleBlockUpdateAction)},
+        {584, sizeof(::df::plugin::StructureVoxel)},
+        {597, sizeof(::df::plugin::StructureDef)},
+        {608, sizeof(::df::plugin::WorldBuildStructureAction)},
+        {617, sizeof(::df::plugin::PlayerStartSprintingAction)},
+        {622, sizeof(::df::plugin::PlayerStopSprintingAction)},
+        {627, sizeof(::df::plugin::PlayerStartSneakingAction)},
+        {632, sizeof(::df::plugin::PlayerStopSneakingAction)},
+        {637, sizeof(::df::plugin::PlayerStartSwimmingAction)},
+        {642, sizeof(::df::plugin::PlayerStopSwimmingAction)},
+        {647, sizeof(::df::plugin::PlayerStartCrawlingAction)},
+        {652, sizeof(::df::plugin::PlayerStopCrawlingAction)},
+        {657, sizeof(::df::plugin::PlayerStartGlidingAction)},
+        {662, sizeof(::df::plugin::PlayerStopGlidingAction)},
+        {667, sizeof(::df::plugin::PlayerStartFlyingAction)},
+        {672, sizeof(::df::plugin::PlayerStopFlyingAction)},
+        {677, sizeof(::df::plugin::PlayerSetImmobileAction)},
+        {682, sizeof(::df::plugin::PlayerSetMobileAction)},
+        {687, sizeof(::df::plugin::PlayerSetSpeedAction)},
+        {694, sizeof(::df::plugin::PlayerSetFlightSpeedAction)},
+        {701, sizeof(::df::plugin::PlayerSetVerticalFlightSpeedAction)},
+        {708, sizeof(::df::plugin::PlayerSetAbsorptionAction)},
+        {715, sizeof(::df::plugin::PlayerSetOnFireAction)},
+        {722, sizeof(::df::plugin::PlayerExtinguishAction)},
+        {727, sizeof(::df::plugin::PlayerSetInvisibleAction)},
+        {732, sizeof(::df::plugin::PlayerSetVisibleAction)},
+        {737, sizeof(::df::plugin::PlayerSetScaleAction)},
+        {744, sizeof(::df::plugin::PlayerSetHeldSlotAction)},
+        {751, sizeof(::df::plugin::PlayerSendToastAction)},
+        {760, sizeof(::df::plugin::PlayerSendJukeboxPopupAction)},
+        {767, sizeof(::df::plugin::PlayerShowCoordinatesAction)},
+        {772, sizeof(::df::plugin::PlayerHideCoordinatesAction)},
+        {777, sizeof(::df::plugin::PlayerEnableInstantRespawnAction)},
+        {782, sizeof(::df::plugin::PlayerDisableInstantRespawnAction)},
+        {787, sizeof(::df::plugin::PlayerSetNameTagAction)},
+        {794, sizeof(::df::plugin::PlayerSetScoreTagAction)},
+        {801, sizeof(::df::plugin::PlayerShowParticleAction)},
+        {814, sizeof(::df::plugin::PlayerRespawnAction)},
+        {819, sizeof(::df::plugin::PlayerTransferAction)},
+        {826, sizeof(::df::plugin::PlayerKnockBackAction)},
+        {837, sizeof(::df::plugin::PlayerSwingArmAction)},
+        {842, sizeof(::df::plugin::PlayerPunchAirAction)},
+        {847, sizeof(::df::plugin::PlayerSetArmourAction)},
+        {860, sizeof(::df::plugin::PlayerSendScoreboardAction)},
+        {873, sizeof(::df::plugin::PlayerRemoveScoreboardAction)},
+        {878, sizeof(::df::plugin::PlayerSendMenuFormAction)},
+        {889, sizeof(::df::plugin::PlayerSendModalFormAction)},
+        {902, sizeof(::df::plugin::PlayerSendDialogueAction)},
+        {915, sizeof(::df::plugin::PlayerSendBossBarAction)},
+        {926, sizeof(::df::plugin::PlayerRemoveBossBarAction)},
+        {931, sizeof(::df::plugin::PlayerShowHudElementAction)},
+        {938, sizeof(::df::plugin::PlayerHideHudElementAction)},
+        {945, sizeof(::df::plugin::PlayerCloseDialogueAction)},
+        {950, sizeof(::df::plugin::PlayerCloseFormAction)},
+        {955, sizeof(::df::plugin::PlayerOpenSignAction)},
+        {964, sizeof(::df::plugin::PlayerEditSignAction)},
+        {975, sizeof(::df::plugin::PlayerTurnLecternPageAction)},
+        {984, sizeof(::df::plugin::PlayerHidePlayerAction)},
+        {991, sizeof(::df::plugin::PlayerShowPlayerAction)},
+        {998, sizeof(::df::plugin::PlayerRemoveAllDebugShapesAction)},
+        {1003, sizeof(::df::plugin::PlayerOpenBlockContainerAction)},
+        {1010, sizeof(::df::plugin::PlayerDropItemAction)},
+        {1017, sizeof(::df::plugin::PlayerSetItemCooldownAction)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::df::plugin::_ActionBatch_default_instance_._instance,
@@ -3621,12 +4364,30 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::df::plugin::_PlayerSetArmourAction_default_instance_._instance,
     &::df::plugin::_PlayerSendScoreboardAction_default_instance_._instance,
     &::df::plugin::_PlayerRemoveScoreboardAction_default_instance_._instance,
+    &::df::plugin::_PlayerSendMenuFormAction_default_instance_._instance,
+    &::df::plugin::_PlayerSendModalFormAction_default_instance_._instance,
+    &::df::plugin::_PlayerSendDialogueAction_default_instance_._instance,
+    &::df::plugin::_PlayerSendBossBarAction_default_instance_._instance,
+    &::df::plugin::_PlayerRemoveBossBarAction_default_instance_._instance,
+    &::df::plugin::_PlayerShowHudElementAction_default_instance_._instance,
+    &::df::plugin::_PlayerHideHudElementAction_default_instance_._instance,
+    &::df::plugin::_PlayerCloseDialogueAction_default_instance_._instance,
+    &::df::plugin::_PlayerCloseFormAction_default_instance_._instance,
+    &::df::plugin::_PlayerOpenSignAction_default_instance_._instance,
+    &::df::plugin::_PlayerEditSignAction_default_instance_._instance,
+    &::df::plugin::_PlayerTurnLecternPageAction_default_instance_._instance,
+    &::df::plugin::_PlayerHidePlayerAction_default_instance_._instance,
+    &::df::plugin::_PlayerShowPlayerAction_default_instance_._instance,
+    &::df::plugin::_PlayerRemoveAllDebugShapesAction_default_instance_._instance,
+    &::df::plugin::_PlayerOpenBlockContainerAction_default_instance_._instance,
+    &::df::plugin::_PlayerDropItemAction_default_instance_._instance,
+    &::df::plugin::_PlayerSetItemCooldownAction_default_instance_._instance,
 };
 const char descriptor_table_protodef_actions_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
     "\n\ractions.proto\022\tdf.plugin\032\014common.proto"
     "\":\n\013ActionBatch\022+\n\007actions\030\001 \003(\0132\021.df.pl"
-    "ugin.ActionR\007actions\"\204:\n\006Action\022*\n\016corre"
+    "ugin.ActionR\007actions\"\370F\n\006Action\022*\n\016corre"
     "lation_id\030\001 \001(\tH\001R\rcorrelationId\210\001\001\0228\n\ts"
     "end_chat\030\n \001(\0132\031.df.plugin.SendChatActio"
     "nH\000R\010sendChat\0227\n\010teleport\030\013 \001(\0132\031.df.plu"
@@ -3640,438 +4401,548 @@ const char descriptor_table_protodef_actions_2eproto[] ABSL_ATTRIBUTE_SECTION_VA
     "\rset_held_item\030\020 \001(\0132\034.df.plugin.SetHeld"
     "ItemActionH\000R\013setHeldItem\022O\n\021player_set_"
     "armour\030\204\001 \001(\0132 .df.plugin.PlayerSetArmou"
-    "rActionH\000R\017playerSetArmour\022;\n\nset_health"
-    "\030\024 \001(\0132\032.df.plugin.SetHealthActionH\000R\tse"
-    "tHealth\0225\n\010set_food\030\025 \001(\0132\030.df.plugin.Se"
-    "tFoodActionH\000R\007setFood\022G\n\016set_experience"
-    "\030\026 \001(\0132\036.df.plugin.SetExperienceActionH\000"
-    "R\rsetExperience\022A\n\014set_velocity\030\027 \001(\0132\034."
-    "df.plugin.SetVelocityActionH\000R\013setVeloci"
-    "ty\022;\n\nadd_effect\030\036 \001(\0132\032.df.plugin.AddEf"
-    "fectActionH\000R\taddEffect\022D\n\rremove_effect"
-    "\030\037 \001(\0132\035.df.plugin.RemoveEffectActionH\000R"
-    "\014removeEffect\022;\n\nsend_title\030( \001(\0132\032.df.p"
-    "lugin.SendTitleActionH\000R\tsendTitle\022;\n\nse"
-    "nd_popup\030) \001(\0132\032.df.plugin.SendPopupActi"
-    "onH\000R\tsendPopup\0225\n\010send_tip\030* \001(\0132\030.df.p"
-    "lugin.SendTipActionH\000R\007sendTip\022N\n\021player"
-    "_send_toast\030v \001(\0132 .df.plugin.PlayerSend"
-    "ToastActionH\000R\017playerSendToast\022d\n\031player"
-    "_send_jukebox_popup\030w \001(\0132\'.df.plugin.Pl"
-    "ayerSendJukeboxPopupActionH\000R\026playerSend"
-    "JukeboxPopup\022`\n\027player_show_coordinates\030"
-    "x \001(\0132&.df.plugin.PlayerShowCoordinatesA"
-    "ctionH\000R\025playerShowCoordinates\022`\n\027player"
-    "_hide_coordinates\030y \001(\0132&.df.plugin.Play"
-    "erHideCoordinatesActionH\000R\025playerHideCoo"
-    "rdinates\022p\n\035player_enable_instant_respaw"
-    "n\030z \001(\0132+.df.plugin.PlayerEnableInstantR"
-    "espawnActionH\000R\032playerEnableInstantRespa"
-    "wn\022s\n\036player_disable_instant_respawn\030{ \001"
-    "(\0132,.df.plugin.PlayerDisableInstantRespa"
-    "wnActionH\000R\033playerDisableInstantRespawn\022"
-    "R\n\023player_set_name_tag\030| \001(\0132!.df.plugin"
-    ".PlayerSetNameTagActionH\000R\020playerSetName"
-    "Tag\022U\n\024player_set_score_tag\030} \001(\0132\".df.p"
-    "lugin.PlayerSetScoreTagActionH\000R\021playerS"
-    "etScoreTag\022;\n\nplay_sound\030+ \001(\0132\032.df.plug"
-    "in.PlaySoundActionH\000R\tplaySound\022W\n\024playe"
-    "r_show_particle\030~ \001(\0132#.df.plugin.Player"
-    "ShowParticleActionH\000R\022playerShowParticle"
-    "\022^\n\026player_send_scoreboard\030\205\001 \001(\0132%.df.p"
-    "lugin.PlayerSendScoreboardActionH\000R\024play"
-    "erSendScoreboard\022d\n\030player_remove_scoreb"
-    "oard\030\206\001 \001(\0132\'.df.plugin.PlayerRemoveScor"
-    "eboardActionH\000R\026playerRemoveScoreboard\022J"
-    "\n\017execute_command\0302 \001(\0132\037.df.plugin.Exec"
-    "uteCommandActionH\000R\016executeCommand\022]\n\026pl"
-    "ayer_start_sprinting\030^ \001(\0132%.df.plugin.P"
-    "layerStartSprintingActionH\000R\024playerStart"
-    "Sprinting\022Z\n\025player_stop_sprinting\030_ \001(\013"
-    "2$.df.plugin.PlayerStopSprintingActionH\000"
-    "R\023playerStopSprinting\022Z\n\025player_start_sn"
-    "eaking\030` \001(\0132$.df.plugin.PlayerStartSnea"
-    "kingActionH\000R\023playerStartSneaking\022W\n\024pla"
-    "yer_stop_sneaking\030a \001(\0132#.df.plugin.Play"
-    "erStopSneakingActionH\000R\022playerStopSneaki"
-    "ng\022Z\n\025player_start_swimming\030b \001(\0132$.df.p"
-    "lugin.PlayerStartSwimmingActionH\000R\023playe"
-    "rStartSwimming\022W\n\024player_stop_swimming\030c"
-    " \001(\0132#.df.plugin.PlayerStopSwimmingActio"
-    "nH\000R\022playerStopSwimming\022Z\n\025player_start_"
-    "crawling\030d \001(\0132$.df.plugin.PlayerStartCr"
-    "awlingActionH\000R\023playerStartCrawling\022W\n\024p"
-    "layer_stop_crawling\030e \001(\0132#.df.plugin.Pl"
-    "ayerStopCrawlingActionH\000R\022playerStopCraw"
-    "ling\022W\n\024player_start_gliding\030f \001(\0132#.df."
-    "plugin.PlayerStartGlidingActionH\000R\022playe"
-    "rStartGliding\022T\n\023player_stop_gliding\030g \001"
-    "(\0132\".df.plugin.PlayerStopGlidingActionH\000"
-    "R\021playerStopGliding\022T\n\023player_start_flyi"
-    "ng\030h \001(\0132\".df.plugin.PlayerStartFlyingAc"
-    "tionH\000R\021playerStartFlying\022Q\n\022player_stop"
-    "_flying\030i \001(\0132!.df.plugin.PlayerStopFlyi"
-    "ngActionH\000R\020playerStopFlying\022T\n\023player_s"
-    "et_immobile\030j \001(\0132\".df.plugin.PlayerSetI"
-    "mmobileActionH\000R\021playerSetImmobile\022N\n\021pl"
-    "ayer_set_mobile\030k \001(\0132 .df.plugin.Player"
-    "SetMobileActionH\000R\017playerSetMobile\022K\n\020pl"
-    "ayer_set_speed\030l \001(\0132\037.df.plugin.PlayerS"
-    "etSpeedActionH\000R\016playerSetSpeed\022^\n\027playe"
-    "r_set_flight_speed\030m \001(\0132%.df.plugin.Pla"
-    "yerSetFlightSpeedActionH\000R\024playerSetFlig"
-    "htSpeed\022w\n player_set_vertical_flight_sp"
-    "eed\030n \001(\0132-.df.plugin.PlayerSetVerticalF"
-    "lightSpeedActionH\000R\034playerSetVerticalFli"
-    "ghtSpeed\022Z\n\025player_set_absorption\030o \001(\0132"
-    "$.df.plugin.PlayerSetAbsorptionActionH\000R"
-    "\023playerSetAbsorption\022O\n\022player_set_on_fi"
-    "re\030p \001(\0132 .df.plugin.PlayerSetOnFireActi"
-    "onH\000R\017playerSetOnFire\022P\n\021player_extingui"
-    "sh\030q \001(\0132!.df.plugin.PlayerExtinguishAct"
-    "ionH\000R\020playerExtinguish\022W\n\024player_set_in"
-    "visible\030r \001(\0132#.df.plugin.PlayerSetInvis"
-    "ibleActionH\000R\022playerSetInvisible\022Q\n\022play"
-    "er_set_visible\030s \001(\0132!.df.plugin.PlayerS"
-    "etVisibleActionH\000R\020playerSetVisible\022K\n\020p"
-    "layer_set_scale\030t \001(\0132\037.df.plugin.Player"
-    "SetScaleActionH\000R\016playerSetScale\022U\n\024play"
-    "er_set_held_slot\030u \001(\0132\".df.plugin.Playe"
-    "rSetHeldSlotActionH\000R\021playerSetHeldSlot\022"
-    "G\n\016player_respawn\030\177 \001(\0132\036.df.plugin.Play"
-    "erRespawnActionH\000R\rplayerRespawn\022K\n\017play"
-    "er_transfer\030\200\001 \001(\0132\037.df.plugin.PlayerTra"
-    "nsferActionH\000R\016playerTransfer\022O\n\021player_"
-    "knock_back\030\201\001 \001(\0132 .df.plugin.PlayerKnoc"
-    "kBackActionH\000R\017playerKnockBack\022L\n\020player"
-    "_swing_arm\030\202\001 \001(\0132\037.df.plugin.PlayerSwin"
-    "gArmActionH\000R\016playerSwingArm\022L\n\020player_p"
-    "unch_air\030\203\001 \001(\0132\037.df.plugin.PlayerPunchA"
-    "irActionH\000R\016playerPunchAir\022h\n\033world_set_"
-    "default_game_mode\030< \001(\0132(.df.plugin.Worl"
-    "dSetDefaultGameModeActionH\000R\027worldSetDef"
-    "aultGameMode\022W\n\024world_set_difficulty\030= \001"
-    "(\0132#.df.plugin.WorldSetDifficultyActionH"
-    "\000R\022worldSetDifficulty\022U\n\024world_set_tick_"
-    "range\030> \001(\0132\".df.plugin.WorldSetTickRang"
-    "eActionH\000R\021worldSetTickRange\022H\n\017world_se"
-    "t_block\030\? \001(\0132\036.df.plugin.WorldSetBlockA"
-    "ctionH\000R\rworldSetBlock\022K\n\020world_play_sou"
-    "nd\030@ \001(\0132\037.df.plugin.WorldPlaySoundActio"
-    "nH\000R\016worldPlaySound\022Q\n\022world_add_particl"
-    "e\030A \001(\0132!.df.plugin.WorldAddParticleActi"
-    "onH\000R\020worldAddParticle\022E\n\016world_set_time"
-    "\030B \001(\0132\035.df.plugin.WorldSetTimeActionH\000R"
-    "\014worldSetTime\022H\n\017world_stop_time\030C \001(\0132\036"
-    ".df.plugin.WorldStopTimeActionH\000R\rworldS"
-    "topTime\022K\n\020world_start_time\030D \001(\0132\037.df.p"
-    "lugin.WorldStartTimeActionH\000R\016worldStart"
-    "Time\022H\n\017world_set_spawn\030E \001(\0132\036.df.plugi"
-    "n.WorldSetSpawnActionH\000R\rworldSetSpawn\022H"
-    "\n\017world_set_biome\030Z \001(\0132\036.df.plugin.Worl"
-    "dSetBiomeActionH\000R\rworldSetBiome\022K\n\020worl"
-    "d_set_liquid\030[ \001(\0132\037.df.plugin.WorldSetL"
-    "iquidActionH\000R\016worldSetLiquid\022j\n\033world_s"
-    "chedule_block_update\030\\ \001(\0132).df.plugin.W"
-    "orldScheduleBlockUpdateActionH\000R\030worldSc"
-    "heduleBlockUpdate\022Z\n\025world_build_structu"
-    "re\030] \001(\0132$.df.plugin.WorldBuildStructure"
-    "ActionH\000R\023worldBuildStructure\022W\n\024world_q"
-    "uery_entities\030F \001(\0132#.df.plugin.WorldQue"
-    "ryEntitiesActionH\000R\022worldQueryEntities\022T"
-    "\n\023world_query_players\030G \001(\0132\".df.plugin."
-    "WorldQueryPlayersActionH\000R\021worldQueryPla"
-    "yers\022j\n\033world_query_entities_within\030H \001("
-    "\0132).df.plugin.WorldQueryEntitiesWithinAc"
-    "tionH\000R\030worldQueryEntitiesWithin\022a\n\030worl"
-    "d_query_player_spawn\030J \001(\0132&.df.plugin.W"
-    "orldQueryPlayerSpawnActionH\000R\025worldQuery"
-    "PlayerSpawn\022N\n\021world_query_block\030K \001(\0132 "
-    ".df.plugin.WorldQueryBlockActionH\000R\017worl"
-    "dQueryBlock\022N\n\021world_query_biome\030L \001(\0132 "
-    ".df.plugin.WorldQueryBiomeActionH\000R\017worl"
-    "dQueryBiome\022N\n\021world_query_light\030M \001(\0132 "
-    ".df.plugin.WorldQueryLightActionH\000R\017worl"
-    "dQueryLight\022X\n\025world_query_sky_light\030N \001"
-    "(\0132#.df.plugin.WorldQuerySkyLightActionH"
-    "\000R\022worldQuerySkyLight\022`\n\027world_query_tem"
-    "perature\030O \001(\0132&.df.plugin.WorldQueryTem"
-    "peratureActionH\000R\025worldQueryTemperature\022"
-    "d\n\031world_query_highest_block\030P \001(\0132\'.df."
-    "plugin.WorldQueryHighestBlockActionH\000R\026w"
-    "orldQueryHighestBlock\022[\n\026world_query_rai"
-    "ning_at\030Q \001(\0132$.df.plugin.WorldQueryRain"
-    "ingAtActionH\000R\023worldQueryRainingAt\022[\n\026wo"
-    "rld_query_snowing_at\030R \001(\0132$.df.plugin.W"
-    "orldQuerySnowingAtActionH\000R\023worldQuerySn"
-    "owingAt\022d\n\031world_query_thundering_at\030S \001"
-    "(\0132\'.df.plugin.WorldQueryThunderingAtAct"
-    "ionH\000R\026worldQueryThunderingAt\022Q\n\022world_q"
-    "uery_liquid\030T \001(\0132!.df.plugin.WorldQuery"
-    "LiquidActionH\000R\020worldQueryLiquid\022n\n\035worl"
-    "d_query_default_game_mode\030I \001(\0132*.df.plu"
-    "gin.WorldQueryDefaultGameModeActionH\000R\031w"
-    "orldQueryDefaultGameModeB\006\n\004kindB\021\n\017_cor"
-    "relation_id\"K\n\016SendChatAction\022\037\n\013target_"
-    "uuid\030\001 \001(\tR\ntargetUuid\022\030\n\007message\030\002 \001(\tR"
-    "\007message\"\213\001\n\016TeleportAction\022\037\n\013player_uu"
-    "id\030\001 \001(\tR\nplayerUuid\022+\n\010position\030\002 \001(\0132\017"
-    ".df.plugin.Vec3R\010position\022+\n\010rotation\030\003 "
-    "\001(\0132\017.df.plugin.Vec3R\010rotation\"E\n\nKickAc"
-    "tion\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\022\026\n"
-    "\006reason\030\002 \001(\tR\006reason\"f\n\021SetGameModeActi"
-    "on\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\0220\n\tg"
-    "ame_mode\030\002 \001(\0162\023.df.plugin.GameModeR\010gam"
-    "eMode\"[\n\016GiveItemAction\022\037\n\013player_uuid\030\001"
-    " \001(\tR\nplayerUuid\022(\n\004item\030\002 \001(\0132\024.df.plug"
-    "in.ItemStackR\004item\"7\n\024ClearInventoryActi"
-    "on\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\"\255\001\n\021"
-    "SetHeldItemAction\022\037\n\013player_uuid\030\001 \001(\tR\n"
-    "playerUuid\022-\n\004main\030\002 \001(\0132\024.df.plugin.Ite"
-    "mStackH\000R\004main\210\001\001\0223\n\007offhand\030\003 \001(\0132\024.df."
-    "plugin.ItemStackH\001R\007offhand\210\001\001B\007\n\005_mainB"
-    "\n\n\010_offhand\"}\n\017SetHealthAction\022\037\n\013player"
-    "_uuid\030\001 \001(\tR\nplayerUuid\022\026\n\006health\030\002 \001(\001R"
-    "\006health\022\"\n\nmax_health\030\003 \001(\001H\000R\tmaxHealth"
-    "\210\001\001B\r\n\013_max_health\"D\n\rSetFoodAction\022\037\n\013p"
-    "layer_uuid\030\001 \001(\tR\nplayerUuid\022\022\n\004food\030\002 \001"
-    "(\005R\004food\"\261\001\n\023SetExperienceAction\022\037\n\013play"
-    "er_uuid\030\001 \001(\tR\nplayerUuid\022\031\n\005level\030\002 \001(\005"
-    "H\000R\005level\210\001\001\022\037\n\010progress\030\003 \001(\002H\001R\010progre"
-    "ss\210\001\001\022\033\n\006amount\030\004 \001(\005H\002R\006amount\210\001\001B\010\n\006_l"
-    "evelB\013\n\t_progressB\t\n\007_amount\"a\n\021SetVeloc"
-    "ityAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUu"
-    "id\022+\n\010velocity\030\002 \001(\0132\017.df.plugin.Vec3R\010v"
-    "elocity\"\310\001\n\017AddEffectAction\022\037\n\013player_uu"
-    "id\030\001 \001(\tR\nplayerUuid\0226\n\013effect_type\030\002 \001("
-    "\0162\025.df.plugin.EffectTypeR\neffectType\022\024\n\005"
-    "level\030\003 \001(\005R\005level\022\037\n\013duration_ms\030\004 \001(\003R"
-    "\ndurationMs\022%\n\016show_particles\030\005 \001(\010R\rsho"
-    "wParticles\"m\n\022RemoveEffectAction\022\037\n\013play"
-    "er_uuid\030\001 \001(\tR\nplayerUuid\0226\n\013effect_type"
-    "\030\002 \001(\0162\025.df.plugin.EffectTypeR\neffectTyp"
-    "e\"\223\002\n\017SendTitleAction\022\037\n\013player_uuid\030\001 \001"
-    "(\tR\nplayerUuid\022\024\n\005title\030\002 \001(\tR\005title\022\037\n\010"
-    "subtitle\030\003 \001(\tH\000R\010subtitle\210\001\001\022!\n\nfade_in"
-    "_ms\030\004 \001(\003H\001R\010fadeInMs\210\001\001\022$\n\013duration_ms\030"
-    "\005 \001(\003H\002R\ndurationMs\210\001\001\022#\n\013fade_out_ms\030\006 "
-    "\001(\003H\003R\tfadeOutMs\210\001\001B\013\n\t_subtitleB\r\n\013_fad"
-    "e_in_msB\016\n\014_duration_msB\016\n\014_fade_out_ms\""
-    "L\n\017SendPopupAction\022\037\n\013player_uuid\030\001 \001(\tR"
-    "\nplayerUuid\022\030\n\007message\030\002 \001(\tR\007message\"J\n"
-    "\rSendTipAction\022\037\n\013player_uuid\030\001 \001(\tR\npla"
-    "yerUuid\022\030\n\007message\030\002 \001(\tR\007message\"\346\001\n\017Pl"
-    "aySoundAction\022\037\n\013player_uuid\030\001 \001(\tR\nplay"
-    "erUuid\022&\n\005sound\030\002 \001(\0162\020.df.plugin.SoundR"
-    "\005sound\0220\n\010position\030\003 \001(\0132\017.df.plugin.Vec"
-    "3H\000R\010position\210\001\001\022\033\n\006volume\030\004 \001(\002H\001R\006volu"
-    "me\210\001\001\022\031\n\005pitch\030\005 \001(\002H\002R\005pitch\210\001\001B\013\n\t_pos"
-    "itionB\t\n\007_volumeB\010\n\006_pitch\"Q\n\024ExecuteCom"
-    "mandAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerU"
-    "uid\022\030\n\007command\030\002 \001(\tR\007command\"|\n\035WorldSe"
-    "tDefaultGameModeAction\022)\n\005world\030\001 \001(\0132\023."
-    "df.plugin.WorldRefR\005world\0220\n\tgame_mode\030\002"
-    " \001(\0162\023.df.plugin.GameModeR\010gameMode\"|\n\030W"
-    "orldSetDifficultyAction\022)\n\005world\030\001 \001(\0132\023"
-    ".df.plugin.WorldRefR\005world\0225\n\ndifficulty"
-    "\030\002 \001(\0162\025.df.plugin.DifficultyR\ndifficult"
-    "y\"c\n\027WorldSetTickRangeAction\022)\n\005world\030\001 "
-    "\001(\0132\023.df.plugin.WorldRefR\005world\022\035\n\ntick_"
-    "range\030\002 \001(\005R\ttickRange\"\255\001\n\023WorldSetBlock"
-    "Action\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldR"
-    "efR\005world\022/\n\010position\030\002 \001(\0132\023.df.plugin."
-    "BlockPosR\010position\0220\n\005block\030\003 \001(\0132\025.df.p"
-    "lugin.BlockStateH\000R\005block\210\001\001B\010\n\006_block\"\226"
-    "\001\n\024WorldPlaySoundAction\022)\n\005world\030\001 \001(\0132\023"
-    ".df.plugin.WorldRefR\005world\022&\n\005sound\030\002 \001("
-    "\0162\020.df.plugin.SoundR\005sound\022+\n\010position\030\003"
-    " \001(\0132\017.df.plugin.Vec3R\010position\"\203\002\n\026Worl"
-    "dAddParticleAction\022)\n\005world\030\001 \001(\0132\023.df.p"
-    "lugin.WorldRefR\005world\022+\n\010position\030\002 \001(\0132"
-    "\017.df.plugin.Vec3R\010position\0223\n\010particle\030\003"
-    " \001(\0162\027.df.plugin.ParticleTypeR\010particle\022"
-    "0\n\005block\030\004 \001(\0132\025.df.plugin.BlockStateH\000R"
-    "\005block\210\001\001\022\027\n\004face\030\005 \001(\005H\001R\004face\210\001\001B\010\n\006_b"
-    "lockB\007\n\005_face\"S\n\022WorldSetTimeAction\022)\n\005w"
-    "orld\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\022\022"
-    "\n\004time\030\002 \001(\005R\004time\"@\n\023WorldStopTimeActio"
+    "rActionH\000R\017playerSetArmour\022k\n\033player_ope"
+    "n_block_container\030\223\001 \001(\0132).df.plugin.Pla"
+    "yerOpenBlockContainerActionH\000R\030playerOpe"
+    "nBlockContainer\022L\n\020player_drop_item\030\224\001 \001"
+    "(\0132\037.df.plugin.PlayerDropItemActionH\000R\016p"
+    "layerDropItem\022b\n\030player_set_item_cooldow"
+    "n\030\225\001 \001(\0132&.df.plugin.PlayerSetItemCooldo"
+    "wnActionH\000R\025playerSetItemCooldown\022;\n\nset"
+    "_health\030\024 \001(\0132\032.df.plugin.SetHealthActio"
+    "nH\000R\tsetHealth\0225\n\010set_food\030\025 \001(\0132\030.df.pl"
+    "ugin.SetFoodActionH\000R\007setFood\022G\n\016set_exp"
+    "erience\030\026 \001(\0132\036.df.plugin.SetExperienceA"
+    "ctionH\000R\rsetExperience\022A\n\014set_velocity\030\027"
+    " \001(\0132\034.df.plugin.SetVelocityActionH\000R\013se"
+    "tVelocity\022;\n\nadd_effect\030\036 \001(\0132\032.df.plugi"
+    "n.AddEffectActionH\000R\taddEffect\022D\n\rremove"
+    "_effect\030\037 \001(\0132\035.df.plugin.RemoveEffectAc"
+    "tionH\000R\014removeEffect\022;\n\nsend_title\030( \001(\013"
+    "2\032.df.plugin.SendTitleActionH\000R\tsendTitl"
+    "e\022;\n\nsend_popup\030) \001(\0132\032.df.plugin.SendPo"
+    "pupActionH\000R\tsendPopup\0225\n\010send_tip\030* \001(\013"
+    "2\030.df.plugin.SendTipActionH\000R\007sendTip\022N\n"
+    "\021player_send_toast\030v \001(\0132 .df.plugin.Pla"
+    "yerSendToastActionH\000R\017playerSendToast\022d\n"
+    "\031player_send_jukebox_popup\030w \001(\0132\'.df.pl"
+    "ugin.PlayerSendJukeboxPopupActionH\000R\026pla"
+    "yerSendJukeboxPopup\022`\n\027player_show_coord"
+    "inates\030x \001(\0132&.df.plugin.PlayerShowCoord"
+    "inatesActionH\000R\025playerShowCoordinates\022`\n"
+    "\027player_hide_coordinates\030y \001(\0132&.df.plug"
+    "in.PlayerHideCoordinatesActionH\000R\025player"
+    "HideCoordinates\022p\n\035player_enable_instant"
+    "_respawn\030z \001(\0132+.df.plugin.PlayerEnableI"
+    "nstantRespawnActionH\000R\032playerEnableInsta"
+    "ntRespawn\022s\n\036player_disable_instant_resp"
+    "awn\030{ \001(\0132,.df.plugin.PlayerDisableInsta"
+    "ntRespawnActionH\000R\033playerDisableInstantR"
+    "espawn\022R\n\023player_set_name_tag\030| \001(\0132!.df"
+    ".plugin.PlayerSetNameTagActionH\000R\020player"
+    "SetNameTag\022U\n\024player_set_score_tag\030} \001(\013"
+    "2\".df.plugin.PlayerSetScoreTagActionH\000R\021"
+    "playerSetScoreTag\022;\n\nplay_sound\030+ \001(\0132\032."
+    "df.plugin.PlaySoundActionH\000R\tplaySound\022W"
+    "\n\024player_show_particle\030~ \001(\0132#.df.plugin"
+    ".PlayerShowParticleActionH\000R\022playerShowP"
+    "article\022^\n\026player_send_scoreboard\030\205\001 \001(\013"
+    "2%.df.plugin.PlayerSendScoreboardActionH"
+    "\000R\024playerSendScoreboard\022d\n\030player_remove"
+    "_scoreboard\030\206\001 \001(\0132\'.df.plugin.PlayerRem"
+    "oveScoreboardActionH\000R\026playerRemoveScore"
+    "board\022Y\n\025player_send_menu_form\030\226\001 \001(\0132#."
+    "df.plugin.PlayerSendMenuFormActionH\000R\022pl"
+    "ayerSendMenuForm\022\\\n\026player_send_modal_fo"
+    "rm\030\227\001 \001(\0132$.df.plugin.PlayerSendModalFor"
+    "mActionH\000R\023playerSendModalForm\022X\n\024player"
+    "_send_dialogue\030\230\001 \001(\0132#.df.plugin.Player"
+    "SendDialogueActionH\000R\022playerSendDialogue"
+    "\022[\n\025player_close_dialogue\030\213\001 \001(\0132$.df.pl"
+    "ugin.PlayerCloseDialogueActionH\000R\023player"
+    "CloseDialogue\022O\n\021player_close_form\030\214\001 \001("
+    "\0132 .df.plugin.PlayerCloseFormActionH\000R\017p"
+    "layerCloseForm\022J\n\017execute_command\0302 \001(\0132"
+    "\037.df.plugin.ExecuteCommandActionH\000R\016exec"
+    "uteCommand\022]\n\026player_start_sprinting\030^ \001"
+    "(\0132%.df.plugin.PlayerStartSprintingActio"
+    "nH\000R\024playerStartSprinting\022Z\n\025player_stop"
+    "_sprinting\030_ \001(\0132$.df.plugin.PlayerStopS"
+    "printingActionH\000R\023playerStopSprinting\022Z\n"
+    "\025player_start_sneaking\030` \001(\0132$.df.plugin"
+    ".PlayerStartSneakingActionH\000R\023playerStar"
+    "tSneaking\022W\n\024player_stop_sneaking\030a \001(\0132"
+    "#.df.plugin.PlayerStopSneakingActionH\000R\022"
+    "playerStopSneaking\022Z\n\025player_start_swimm"
+    "ing\030b \001(\0132$.df.plugin.PlayerStartSwimmin"
+    "gActionH\000R\023playerStartSwimming\022W\n\024player"
+    "_stop_swimming\030c \001(\0132#.df.plugin.PlayerS"
+    "topSwimmingActionH\000R\022playerStopSwimming\022"
+    "Z\n\025player_start_crawling\030d \001(\0132$.df.plug"
+    "in.PlayerStartCrawlingActionH\000R\023playerSt"
+    "artCrawling\022W\n\024player_stop_crawling\030e \001("
+    "\0132#.df.plugin.PlayerStopCrawlingActionH\000"
+    "R\022playerStopCrawling\022W\n\024player_start_gli"
+    "ding\030f \001(\0132#.df.plugin.PlayerStartGlidin"
+    "gActionH\000R\022playerStartGliding\022T\n\023player_"
+    "stop_gliding\030g \001(\0132\".df.plugin.PlayerSto"
+    "pGlidingActionH\000R\021playerStopGliding\022T\n\023p"
+    "layer_start_flying\030h \001(\0132\".df.plugin.Pla"
+    "yerStartFlyingActionH\000R\021playerStartFlyin"
+    "g\022Q\n\022player_stop_flying\030i \001(\0132!.df.plugi"
+    "n.PlayerStopFlyingActionH\000R\020playerStopFl"
+    "ying\022T\n\023player_set_immobile\030j \001(\0132\".df.p"
+    "lugin.PlayerSetImmobileActionH\000R\021playerS"
+    "etImmobile\022N\n\021player_set_mobile\030k \001(\0132 ."
+    "df.plugin.PlayerSetMobileActionH\000R\017playe"
+    "rSetMobile\022K\n\020player_set_speed\030l \001(\0132\037.d"
+    "f.plugin.PlayerSetSpeedActionH\000R\016playerS"
+    "etSpeed\022^\n\027player_set_flight_speed\030m \001(\013"
+    "2%.df.plugin.PlayerSetFlightSpeedActionH"
+    "\000R\024playerSetFlightSpeed\022w\n player_set_ve"
+    "rtical_flight_speed\030n \001(\0132-.df.plugin.Pl"
+    "ayerSetVerticalFlightSpeedActionH\000R\034play"
+    "erSetVerticalFlightSpeed\022Z\n\025player_set_a"
+    "bsorption\030o \001(\0132$.df.plugin.PlayerSetAbs"
+    "orptionActionH\000R\023playerSetAbsorption\022O\n\022"
+    "player_set_on_fire\030p \001(\0132 .df.plugin.Pla"
+    "yerSetOnFireActionH\000R\017playerSetOnFire\022P\n"
+    "\021player_extinguish\030q \001(\0132!.df.plugin.Pla"
+    "yerExtinguishActionH\000R\020playerExtinguish\022"
+    "W\n\024player_set_invisible\030r \001(\0132#.df.plugi"
+    "n.PlayerSetInvisibleActionH\000R\022playerSetI"
+    "nvisible\022Q\n\022player_set_visible\030s \001(\0132!.d"
+    "f.plugin.PlayerSetVisibleActionH\000R\020playe"
+    "rSetVisible\022K\n\020player_set_scale\030t \001(\0132\037."
+    "df.plugin.PlayerSetScaleActionH\000R\016player"
+    "SetScale\022U\n\024player_set_held_slot\030u \001(\0132\""
+    ".df.plugin.PlayerSetHeldSlotActionH\000R\021pl"
+    "ayerSetHeldSlot\022G\n\016player_respawn\030\177 \001(\0132"
+    "\036.df.plugin.PlayerRespawnActionH\000R\rplaye"
+    "rRespawn\022K\n\017player_transfer\030\200\001 \001(\0132\037.df."
+    "plugin.PlayerTransferActionH\000R\016playerTra"
+    "nsfer\022O\n\021player_knock_back\030\201\001 \001(\0132 .df.p"
+    "lugin.PlayerKnockBackActionH\000R\017playerKno"
+    "ckBack\022L\n\020player_swing_arm\030\202\001 \001(\0132\037.df.p"
+    "lugin.PlayerSwingArmActionH\000R\016playerSwin"
+    "gArm\022L\n\020player_punch_air\030\203\001 \001(\0132\037.df.plu"
+    "gin.PlayerPunchAirActionH\000R\016playerPunchA"
+    "ir\022V\n\024player_send_boss_bar\030\207\001 \001(\0132\".df.p"
+    "lugin.PlayerSendBossBarActionH\000R\021playerS"
+    "endBossBar\022\\\n\026player_remove_boss_bar\030\210\001 "
+    "\001(\0132$.df.plugin.PlayerRemoveBossBarActio"
+    "nH\000R\023playerRemoveBossBar\022_\n\027player_show_"
+    "hud_element\030\211\001 \001(\0132%.df.plugin.PlayerSho"
+    "wHudElementActionH\000R\024playerShowHudElemen"
+    "t\022_\n\027player_hide_hud_element\030\212\001 \001(\0132%.df"
+    ".plugin.PlayerHideHudElementActionH\000R\024pl"
+    "ayerHideHudElement\022L\n\020player_open_sign\030\215"
+    "\001 \001(\0132\037.df.plugin.PlayerOpenSignActionH\000"
+    "R\016playerOpenSign\022L\n\020player_edit_sign\030\216\001 "
+    "\001(\0132\037.df.plugin.PlayerEditSignActionH\000R\016"
+    "playerEditSign\022b\n\030player_turn_lectern_pa"
+    "ge\030\217\001 \001(\0132&.df.plugin.PlayerTurnLecternP"
+    "ageActionH\000R\025playerTurnLecternPage\022R\n\022pl"
+    "ayer_hide_player\030\220\001 \001(\0132!.df.plugin.Play"
+    "erHidePlayerActionH\000R\020playerHidePlayer\022R"
+    "\n\022player_show_player\030\221\001 \001(\0132!.df.plugin."
+    "PlayerShowPlayerActionH\000R\020playerShowPlay"
+    "er\022r\n\036player_remove_all_debug_shapes\030\222\001 "
+    "\001(\0132+.df.plugin.PlayerRemoveAllDebugShap"
+    "esActionH\000R\032playerRemoveAllDebugShapes\022h"
+    "\n\033world_set_default_game_mode\030< \001(\0132(.df"
+    ".plugin.WorldSetDefaultGameModeActionH\000R"
+    "\027worldSetDefaultGameMode\022W\n\024world_set_di"
+    "fficulty\030= \001(\0132#.df.plugin.WorldSetDiffi"
+    "cultyActionH\000R\022worldSetDifficulty\022U\n\024wor"
+    "ld_set_tick_range\030> \001(\0132\".df.plugin.Worl"
+    "dSetTickRangeActionH\000R\021worldSetTickRange"
+    "\022H\n\017world_set_block\030\? \001(\0132\036.df.plugin.Wo"
+    "rldSetBlockActionH\000R\rworldSetBlock\022K\n\020wo"
+    "rld_play_sound\030@ \001(\0132\037.df.plugin.WorldPl"
+    "aySoundActionH\000R\016worldPlaySound\022Q\n\022world"
+    "_add_particle\030A \001(\0132!.df.plugin.WorldAdd"
+    "ParticleActionH\000R\020worldAddParticle\022E\n\016wo"
+    "rld_set_time\030B \001(\0132\035.df.plugin.WorldSetT"
+    "imeActionH\000R\014worldSetTime\022H\n\017world_stop_"
+    "time\030C \001(\0132\036.df.plugin.WorldStopTimeActi"
+    "onH\000R\rworldStopTime\022K\n\020world_start_time\030"
+    "D \001(\0132\037.df.plugin.WorldStartTimeActionH\000"
+    "R\016worldStartTime\022H\n\017world_set_spawn\030E \001("
+    "\0132\036.df.plugin.WorldSetSpawnActionH\000R\rwor"
+    "ldSetSpawn\022H\n\017world_set_biome\030Z \001(\0132\036.df"
+    ".plugin.WorldSetBiomeActionH\000R\rworldSetB"
+    "iome\022K\n\020world_set_liquid\030[ \001(\0132\037.df.plug"
+    "in.WorldSetLiquidActionH\000R\016worldSetLiqui"
+    "d\022j\n\033world_schedule_block_update\030\\ \001(\0132)"
+    ".df.plugin.WorldScheduleBlockUpdateActio"
+    "nH\000R\030worldScheduleBlockUpdate\022Z\n\025world_b"
+    "uild_structure\030] \001(\0132$.df.plugin.WorldBu"
+    "ildStructureActionH\000R\023worldBuildStructur"
+    "e\022W\n\024world_query_entities\030F \001(\0132#.df.plu"
+    "gin.WorldQueryEntitiesActionH\000R\022worldQue"
+    "ryEntities\022T\n\023world_query_players\030G \001(\0132"
+    "\".df.plugin.WorldQueryPlayersActionH\000R\021w"
+    "orldQueryPlayers\022j\n\033world_query_entities"
+    "_within\030H \001(\0132).df.plugin.WorldQueryEnti"
+    "tiesWithinActionH\000R\030worldQueryEntitiesWi"
+    "thin\022a\n\030world_query_player_spawn\030J \001(\0132&"
+    ".df.plugin.WorldQueryPlayerSpawnActionH\000"
+    "R\025worldQueryPlayerSpawn\022N\n\021world_query_b"
+    "lock\030K \001(\0132 .df.plugin.WorldQueryBlockAc"
+    "tionH\000R\017worldQueryBlock\022N\n\021world_query_b"
+    "iome\030L \001(\0132 .df.plugin.WorldQueryBiomeAc"
+    "tionH\000R\017worldQueryBiome\022N\n\021world_query_l"
+    "ight\030M \001(\0132 .df.plugin.WorldQueryLightAc"
+    "tionH\000R\017worldQueryLight\022X\n\025world_query_s"
+    "ky_light\030N \001(\0132#.df.plugin.WorldQuerySky"
+    "LightActionH\000R\022worldQuerySkyLight\022`\n\027wor"
+    "ld_query_temperature\030O \001(\0132&.df.plugin.W"
+    "orldQueryTemperatureActionH\000R\025worldQuery"
+    "Temperature\022d\n\031world_query_highest_block"
+    "\030P \001(\0132\'.df.plugin.WorldQueryHighestBloc"
+    "kActionH\000R\026worldQueryHighestBlock\022[\n\026wor"
+    "ld_query_raining_at\030Q \001(\0132$.df.plugin.Wo"
+    "rldQueryRainingAtActionH\000R\023worldQueryRai"
+    "ningAt\022[\n\026world_query_snowing_at\030R \001(\0132$"
+    ".df.plugin.WorldQuerySnowingAtActionH\000R\023"
+    "worldQuerySnowingAt\022d\n\031world_query_thund"
+    "ering_at\030S \001(\0132\'.df.plugin.WorldQueryThu"
+    "nderingAtActionH\000R\026worldQueryThunderingA"
+    "t\022Q\n\022world_query_liquid\030T \001(\0132!.df.plugi"
+    "n.WorldQueryLiquidActionH\000R\020worldQueryLi"
+    "quid\022n\n\035world_query_default_game_mode\030I "
+    "\001(\0132*.df.plugin.WorldQueryDefaultGameMod"
+    "eActionH\000R\031worldQueryDefaultGameModeB\006\n\004"
+    "kindB\021\n\017_correlation_id\"K\n\016SendChatActio"
+    "n\022\037\n\013target_uuid\030\001 \001(\tR\ntargetUuid\022\030\n\007me"
+    "ssage\030\002 \001(\tR\007message\"\213\001\n\016TeleportAction\022"
+    "\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\022+\n\010posi"
+    "tion\030\002 \001(\0132\017.df.plugin.Vec3R\010position\022+\n"
+    "\010rotation\030\003 \001(\0132\017.df.plugin.Vec3R\010rotati"
+    "on\"E\n\nKickAction\022\037\n\013player_uuid\030\001 \001(\tR\np"
+    "layerUuid\022\026\n\006reason\030\002 \001(\tR\006reason\"f\n\021Set"
+    "GameModeAction\022\037\n\013player_uuid\030\001 \001(\tR\npla"
+    "yerUuid\0220\n\tgame_mode\030\002 \001(\0162\023.df.plugin.G"
+    "ameModeR\010gameMode\"[\n\016GiveItemAction\022\037\n\013p"
+    "layer_uuid\030\001 \001(\tR\nplayerUuid\022(\n\004item\030\002 \001"
+    "(\0132\024.df.plugin.ItemStackR\004item\"7\n\024ClearI"
+    "nventoryAction\022\037\n\013player_uuid\030\001 \001(\tR\npla"
+    "yerUuid\"\255\001\n\021SetHeldItemAction\022\037\n\013player_"
+    "uuid\030\001 \001(\tR\nplayerUuid\022-\n\004main\030\002 \001(\0132\024.d"
+    "f.plugin.ItemStackH\000R\004main\210\001\001\0223\n\007offhand"
+    "\030\003 \001(\0132\024.df.plugin.ItemStackH\001R\007offhand\210"
+    "\001\001B\007\n\005_mainB\n\n\010_offhand\"}\n\017SetHealthActi"
+    "on\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\022\026\n\006h"
+    "ealth\030\002 \001(\001R\006health\022\"\n\nmax_health\030\003 \001(\001H"
+    "\000R\tmaxHealth\210\001\001B\r\n\013_max_health\"D\n\rSetFoo"
+    "dAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid"
+    "\022\022\n\004food\030\002 \001(\005R\004food\"\261\001\n\023SetExperienceAc"
+    "tion\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\022\031\n"
+    "\005level\030\002 \001(\005H\000R\005level\210\001\001\022\037\n\010progress\030\003 \001"
+    "(\002H\001R\010progress\210\001\001\022\033\n\006amount\030\004 \001(\005H\002R\006amo"
+    "unt\210\001\001B\010\n\006_levelB\013\n\t_progressB\t\n\007_amount"
+    "\"a\n\021SetVelocityAction\022\037\n\013player_uuid\030\001 \001"
+    "(\tR\nplayerUuid\022+\n\010velocity\030\002 \001(\0132\017.df.pl"
+    "ugin.Vec3R\010velocity\"\310\001\n\017AddEffectAction\022"
+    "\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\0226\n\013effe"
+    "ct_type\030\002 \001(\0162\025.df.plugin.EffectTypeR\nef"
+    "fectType\022\024\n\005level\030\003 \001(\005R\005level\022\037\n\013durati"
+    "on_ms\030\004 \001(\003R\ndurationMs\022%\n\016show_particle"
+    "s\030\005 \001(\010R\rshowParticles\"m\n\022RemoveEffectAc"
+    "tion\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\0226\n"
+    "\013effect_type\030\002 \001(\0162\025.df.plugin.EffectTyp"
+    "eR\neffectType\"\223\002\n\017SendTitleAction\022\037\n\013pla"
+    "yer_uuid\030\001 \001(\tR\nplayerUuid\022\024\n\005title\030\002 \001("
+    "\tR\005title\022\037\n\010subtitle\030\003 \001(\tH\000R\010subtitle\210\001"
+    "\001\022!\n\nfade_in_ms\030\004 \001(\003H\001R\010fadeInMs\210\001\001\022$\n\013"
+    "duration_ms\030\005 \001(\003H\002R\ndurationMs\210\001\001\022#\n\013fa"
+    "de_out_ms\030\006 \001(\003H\003R\tfadeOutMs\210\001\001B\013\n\t_subt"
+    "itleB\r\n\013_fade_in_msB\016\n\014_duration_msB\016\n\014_"
+    "fade_out_ms\"L\n\017SendPopupAction\022\037\n\013player"
+    "_uuid\030\001 \001(\tR\nplayerUuid\022\030\n\007message\030\002 \001(\t"
+    "R\007message\"J\n\rSendTipAction\022\037\n\013player_uui"
+    "d\030\001 \001(\tR\nplayerUuid\022\030\n\007message\030\002 \001(\tR\007me"
+    "ssage\"\346\001\n\017PlaySoundAction\022\037\n\013player_uuid"
+    "\030\001 \001(\tR\nplayerUuid\022&\n\005sound\030\002 \001(\0162\020.df.p"
+    "lugin.SoundR\005sound\0220\n\010position\030\003 \001(\0132\017.d"
+    "f.plugin.Vec3H\000R\010position\210\001\001\022\033\n\006volume\030\004"
+    " \001(\002H\001R\006volume\210\001\001\022\031\n\005pitch\030\005 \001(\002H\002R\005pitc"
+    "h\210\001\001B\013\n\t_positionB\t\n\007_volumeB\010\n\006_pitch\"Q"
+    "\n\024ExecuteCommandAction\022\037\n\013player_uuid\030\001 "
+    "\001(\tR\nplayerUuid\022\030\n\007command\030\002 \001(\tR\007comman"
+    "d\"|\n\035WorldSetDefaultGameModeAction\022)\n\005wo"
+    "rld\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\0220\n"
+    "\tgame_mode\030\002 \001(\0162\023.df.plugin.GameModeR\010g"
+    "ameMode\"|\n\030WorldSetDifficultyAction\022)\n\005w"
+    "orld\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\0225"
+    "\n\ndifficulty\030\002 \001(\0162\025.df.plugin.Difficult"
+    "yR\ndifficulty\"c\n\027WorldSetTickRangeAction"
+    "\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005wo"
+    "rld\022\035\n\ntick_range\030\002 \001(\005R\ttickRange\"\255\001\n\023W"
+    "orldSetBlockAction\022)\n\005world\030\001 \001(\0132\023.df.p"
+    "lugin.WorldRefR\005world\022/\n\010position\030\002 \001(\0132"
+    "\023.df.plugin.BlockPosR\010position\0220\n\005block\030"
+    "\003 \001(\0132\025.df.plugin.BlockStateH\000R\005block\210\001\001"
+    "B\010\n\006_block\"\226\001\n\024WorldPlaySoundAction\022)\n\005w"
+    "orld\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\022&"
+    "\n\005sound\030\002 \001(\0162\020.df.plugin.SoundR\005sound\022+"
+    "\n\010position\030\003 \001(\0132\017.df.plugin.Vec3R\010posit"
+    "ion\"\203\002\n\026WorldAddParticleAction\022)\n\005world\030"
+    "\001 \001(\0132\023.df.plugin.WorldRefR\005world\022+\n\010pos"
+    "ition\030\002 \001(\0132\017.df.plugin.Vec3R\010position\0223"
+    "\n\010particle\030\003 \001(\0162\027.df.plugin.ParticleTyp"
+    "eR\010particle\0220\n\005block\030\004 \001(\0132\025.df.plugin.B"
+    "lockStateH\000R\005block\210\001\001\022\027\n\004face\030\005 \001(\005H\001R\004f"
+    "ace\210\001\001B\010\n\006_blockB\007\n\005_face\"S\n\022WorldSetTim"
+    "eAction\022)\n\005world\030\001 \001(\0132\023.df.plugin.World"
+    "RefR\005world\022\022\n\004time\030\002 \001(\005R\004time\"@\n\023WorldS"
+    "topTimeAction\022)\n\005world\030\001 \001(\0132\023.df.plugin"
+    ".WorldRefR\005world\"A\n\024WorldStartTimeAction"
+    "\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005wo"
+    "rld\"k\n\023WorldSetSpawnAction\022)\n\005world\030\001 \001("
+    "\0132\023.df.plugin.WorldRefR\005world\022)\n\005spawn\030\002"
+    " \001(\0132\023.df.plugin.BlockPosR\005spawn\"L\n\037Worl"
+    "dQueryDefaultGameModeAction\022)\n\005world\030\001 \001"
+    "(\0132\023.df.plugin.WorldRefR\005world\"i\n\033WorldQ"
+    "ueryPlayerSpawnAction\022)\n\005world\030\001 \001(\0132\023.d"
+    "f.plugin.WorldRefR\005world\022\037\n\013player_uuid\030"
+    "\002 \001(\tR\nplayerUuid\"E\n\030WorldQueryEntitiesA"
+    "ction\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldRe"
+    "fR\005world\"D\n\027WorldQueryPlayersAction\022)\n\005w"
+    "orld\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\"n"
+    "\n\036WorldQueryEntitiesWithinAction\022)\n\005worl"
+    "d\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\022!\n\003b"
+    "ox\030\002 \001(\0132\017.df.plugin.BBoxR\003box\"s\n\025WorldQ"
+    "ueryBlockAction\022)\n\005world\030\001 \001(\0132\023.df.plug"
+    "in.WorldRefR\005world\022/\n\010position\030\002 \001(\0132\023.d"
+    "f.plugin.BlockPosR\010position\"s\n\025WorldQuer"
+    "yBiomeAction\022)\n\005world\030\001 \001(\0132\023.df.plugin."
+    "WorldRefR\005world\022/\n\010position\030\002 \001(\0132\023.df.p"
+    "lugin.BlockPosR\010position\"s\n\025WorldQueryLi"
+    "ghtAction\022)\n\005world\030\001 \001(\0132\023.df.plugin.Wor"
+    "ldRefR\005world\022/\n\010position\030\002 \001(\0132\023.df.plug"
+    "in.BlockPosR\010position\"v\n\030WorldQuerySkyLi"
+    "ghtAction\022)\n\005world\030\001 \001(\0132\023.df.plugin.Wor"
+    "ldRefR\005world\022/\n\010position\030\002 \001(\0132\023.df.plug"
+    "in.BlockPosR\010position\"y\n\033WorldQueryTempe"
+    "ratureAction\022)\n\005world\030\001 \001(\0132\023.df.plugin."
+    "WorldRefR\005world\022/\n\010position\030\002 \001(\0132\023.df.p"
+    "lugin.BlockPosR\010position\"e\n\034WorldQueryHi"
+    "ghestBlockAction\022)\n\005world\030\001 \001(\0132\023.df.plu"
+    "gin.WorldRefR\005world\022\014\n\001x\030\002 \001(\005R\001x\022\014\n\001z\030\003"
+    " \001(\005R\001z\"w\n\031WorldQueryRainingAtAction\022)\n\005"
+    "world\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\022"
+    "/\n\010position\030\002 \001(\0132\023.df.plugin.BlockPosR\010"
+    "position\"w\n\031WorldQuerySnowingAtAction\022)\n"
+    "\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005world"
+    "\022/\n\010position\030\002 \001(\0132\023.df.plugin.BlockPosR"
+    "\010position\"z\n\034WorldQueryThunderingAtActio"
     "n\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005w"
-    "orld\"A\n\024WorldStartTimeAction\022)\n\005world\030\001 "
-    "\001(\0132\023.df.plugin.WorldRefR\005world\"k\n\023World"
-    "SetSpawnAction\022)\n\005world\030\001 \001(\0132\023.df.plugi"
-    "n.WorldRefR\005world\022)\n\005spawn\030\002 \001(\0132\023.df.pl"
-    "ugin.BlockPosR\005spawn\"L\n\037WorldQueryDefaul"
-    "tGameModeAction\022)\n\005world\030\001 \001(\0132\023.df.plug"
-    "in.WorldRefR\005world\"i\n\033WorldQueryPlayerSp"
-    "awnAction\022)\n\005world\030\001 \001(\0132\023.df.plugin.Wor"
-    "ldRefR\005world\022\037\n\013player_uuid\030\002 \001(\tR\nplaye"
-    "rUuid\"E\n\030WorldQueryEntitiesAction\022)\n\005wor"
-    "ld\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\"D\n\027"
-    "WorldQueryPlayersAction\022)\n\005world\030\001 \001(\0132\023"
-    ".df.plugin.WorldRefR\005world\"n\n\036WorldQuery"
-    "EntitiesWithinAction\022)\n\005world\030\001 \001(\0132\023.df"
-    ".plugin.WorldRefR\005world\022!\n\003box\030\002 \001(\0132\017.d"
-    "f.plugin.BBoxR\003box\"s\n\025WorldQueryBlockAct"
-    "ion\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldRefR"
-    "\005world\022/\n\010position\030\002 \001(\0132\023.df.plugin.Blo"
-    "ckPosR\010position\"s\n\025WorldQueryBiomeAction"
-    "\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005wo"
-    "rld\022/\n\010position\030\002 \001(\0132\023.df.plugin.BlockP"
-    "osR\010position\"s\n\025WorldQueryLightAction\022)\n"
-    "\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005world"
-    "\022/\n\010position\030\002 \001(\0132\023.df.plugin.BlockPosR"
-    "\010position\"v\n\030WorldQuerySkyLightAction\022)\n"
-    "\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005world"
-    "\022/\n\010position\030\002 \001(\0132\023.df.plugin.BlockPosR"
-    "\010position\"y\n\033WorldQueryTemperatureAction"
-    "\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005wo"
-    "rld\022/\n\010position\030\002 \001(\0132\023.df.plugin.BlockP"
-    "osR\010position\"e\n\034WorldQueryHighestBlockAc"
-    "tion\022)\n\005world\030\001 \001(\0132\023.df.plugin.WorldRef"
-    "R\005world\022\014\n\001x\030\002 \001(\005R\001x\022\014\n\001z\030\003 \001(\005R\001z\"w\n\031W"
-    "orldQueryRainingAtAction\022)\n\005world\030\001 \001(\0132"
-    "\023.df.plugin.WorldRefR\005world\022/\n\010position\030"
-    "\002 \001(\0132\023.df.plugin.BlockPosR\010position\"w\n\031"
-    "WorldQuerySnowingAtAction\022)\n\005world\030\001 \001(\013"
-    "2\023.df.plugin.WorldRefR\005world\022/\n\010position"
-    "\030\002 \001(\0132\023.df.plugin.BlockPosR\010position\"z\n"
-    "\034WorldQueryThunderingAtAction\022)\n\005world\030\001"
-    " \001(\0132\023.df.plugin.WorldRefR\005world\022/\n\010posi"
-    "tion\030\002 \001(\0132\023.df.plugin.BlockPosR\010positio"
-    "n\"t\n\026WorldQueryLiquidAction\022)\n\005world\030\001 \001"
-    "(\0132\023.df.plugin.WorldRefR\005world\022/\n\010positi"
-    "on\030\002 \001(\0132\023.df.plugin.BlockPosR\010position\""
-    "\214\001\n\023WorldSetBiomeAction\022)\n\005world\030\001 \001(\0132\023"
-    ".df.plugin.WorldRefR\005world\022/\n\010position\030\002"
-    " \001(\0132\023.df.plugin.BlockPosR\010position\022\031\n\010b"
-    "iome_id\030\003 \001(\tR\007biomeId\"\262\001\n\024WorldSetLiqui"
-    "dAction\022)\n\005world\030\001 \001(\0132\023.df.plugin.World"
-    "RefR\005world\022/\n\010position\030\002 \001(\0132\023.df.plugin"
-    ".BlockPosR\010position\0223\n\006liquid\030\003 \001(\0132\026.df"
-    ".plugin.LiquidStateH\000R\006liquid\210\001\001B\t\n\007_liq"
-    "uid\"\304\001\n\036WorldScheduleBlockUpdateAction\022)"
-    "\n\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005worl"
-    "d\022/\n\010position\030\002 \001(\0132\023.df.plugin.BlockPos"
-    "R\010position\022+\n\005block\030\003 \001(\0132\025.df.plugin.Bl"
-    "ockStateR\005block\022\031\n\010delay_ms\030\004 \001(\003R\007delay"
-    "Ms\"\247\001\n\016StructureVoxel\022\014\n\001x\030\001 \001(\005R\001x\022\014\n\001y"
-    "\030\002 \001(\005R\001y\022\014\n\001z\030\003 \001(\005R\001z\022+\n\005block\030\004 \001(\0132\025"
-    ".df.plugin.BlockStateR\005block\0223\n\006liquid\030\005"
-    " \001(\0132\026.df.plugin.LiquidStateH\000R\006liquid\210\001"
-    "\001B\t\n\007_liquid\"\207\001\n\014StructureDef\022\024\n\005width\030\001"
-    " \001(\005R\005width\022\026\n\006height\030\002 \001(\005R\006height\022\026\n\006l"
-    "ength\030\003 \001(\005R\006length\0221\n\006voxels\030\n \003(\0132\031.df"
-    ".plugin.StructureVoxelR\006voxels\"\252\001\n\031World"
-    "BuildStructureAction\022)\n\005world\030\001 \001(\0132\023.df"
-    ".plugin.WorldRefR\005world\022+\n\006origin\030\002 \001(\0132"
-    "\023.df.plugin.BlockPosR\006origin\0225\n\tstructur"
-    "e\030\003 \001(\0132\027.df.plugin.StructureDefR\tstruct"
-    "ure\"=\n\032PlayerStartSprintingAction\022\037\n\013pla"
-    "yer_uuid\030\001 \001(\tR\nplayerUuid\"<\n\031PlayerStop"
-    "SprintingAction\022\037\n\013player_uuid\030\001 \001(\tR\npl"
-    "ayerUuid\"<\n\031PlayerStartSneakingAction\022\037\n"
-    "\013player_uuid\030\001 \001(\tR\nplayerUuid\";\n\030Player"
-    "StopSneakingAction\022\037\n\013player_uuid\030\001 \001(\tR"
-    "\nplayerUuid\"<\n\031PlayerStartSwimmingAction"
-    "\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\";\n\030Pla"
-    "yerStopSwimmingAction\022\037\n\013player_uuid\030\001 \001"
-    "(\tR\nplayerUuid\"<\n\031PlayerStartCrawlingAct"
-    "ion\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\";\n\030"
-    "PlayerStopCrawlingAction\022\037\n\013player_uuid\030"
-    "\001 \001(\tR\nplayerUuid\";\n\030PlayerStartGlidingA"
-    "ction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\":"
-    "\n\027PlayerStopGlidingAction\022\037\n\013player_uuid"
-    "\030\001 \001(\tR\nplayerUuid\":\n\027PlayerStartFlyingA"
-    "ction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\"9"
-    "\n\026PlayerStopFlyingAction\022\037\n\013player_uuid\030"
-    "\001 \001(\tR\nplayerUuid\":\n\027PlayerSetImmobileAc"
-    "tion\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\"8\n"
-    "\025PlayerSetMobileAction\022\037\n\013player_uuid\030\001 "
-    "\001(\tR\nplayerUuid\"M\n\024PlayerSetSpeedAction\022"
-    "\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\022\024\n\005spee"
-    "d\030\002 \001(\001R\005speed\"`\n\032PlayerSetFlightSpeedAc"
-    "tion\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\022!\n"
-    "\014flight_speed\030\002 \001(\001R\013flightSpeed\"y\n\"Play"
-    "erSetVerticalFlightSpeedAction\022\037\n\013player"
-    "_uuid\030\001 \001(\tR\nplayerUuid\0222\n\025vertical_flig"
-    "ht_speed\030\002 \001(\001R\023verticalFlightSpeed\"\\\n\031P"
-    "layerSetAbsorptionAction\022\037\n\013player_uuid\030"
-    "\001 \001(\tR\nplayerUuid\022\036\n\nabsorption\030\002 \001(\001R\na"
-    "bsorption\"Y\n\025PlayerSetOnFireAction\022\037\n\013pl"
-    "ayer_uuid\030\001 \001(\tR\nplayerUuid\022\037\n\013duration_"
-    "ms\030\002 \001(\003R\ndurationMs\"9\n\026PlayerExtinguish"
+    "orld\022/\n\010position\030\002 \001(\0132\023.df.plugin.Block"
+    "PosR\010position\"t\n\026WorldQueryLiquidAction\022"
+    ")\n\005world\030\001 \001(\0132\023.df.plugin.WorldRefR\005wor"
+    "ld\022/\n\010position\030\002 \001(\0132\023.df.plugin.BlockPo"
+    "sR\010position\"\214\001\n\023WorldSetBiomeAction\022)\n\005w"
+    "orld\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\022/"
+    "\n\010position\030\002 \001(\0132\023.df.plugin.BlockPosR\010p"
+    "osition\022\031\n\010biome_id\030\003 \001(\tR\007biomeId\"\262\001\n\024W"
+    "orldSetLiquidAction\022)\n\005world\030\001 \001(\0132\023.df."
+    "plugin.WorldRefR\005world\022/\n\010position\030\002 \001(\013"
+    "2\023.df.plugin.BlockPosR\010position\0223\n\006liqui"
+    "d\030\003 \001(\0132\026.df.plugin.LiquidStateH\000R\006liqui"
+    "d\210\001\001B\t\n\007_liquid\"\304\001\n\036WorldScheduleBlockUp"
+    "dateAction\022)\n\005world\030\001 \001(\0132\023.df.plugin.Wo"
+    "rldRefR\005world\022/\n\010position\030\002 \001(\0132\023.df.plu"
+    "gin.BlockPosR\010position\022+\n\005block\030\003 \001(\0132\025."
+    "df.plugin.BlockStateR\005block\022\031\n\010delay_ms\030"
+    "\004 \001(\003R\007delayMs\"\247\001\n\016StructureVoxel\022\014\n\001x\030\001"
+    " \001(\005R\001x\022\014\n\001y\030\002 \001(\005R\001y\022\014\n\001z\030\003 \001(\005R\001z\022+\n\005b"
+    "lock\030\004 \001(\0132\025.df.plugin.BlockStateR\005block"
+    "\0223\n\006liquid\030\005 \001(\0132\026.df.plugin.LiquidState"
+    "H\000R\006liquid\210\001\001B\t\n\007_liquid\"\207\001\n\014StructureDe"
+    "f\022\024\n\005width\030\001 \001(\005R\005width\022\026\n\006height\030\002 \001(\005R"
+    "\006height\022\026\n\006length\030\003 \001(\005R\006length\0221\n\006voxel"
+    "s\030\n \003(\0132\031.df.plugin.StructureVoxelR\006voxe"
+    "ls\"\252\001\n\031WorldBuildStructureAction\022)\n\005worl"
+    "d\030\001 \001(\0132\023.df.plugin.WorldRefR\005world\022+\n\006o"
+    "rigin\030\002 \001(\0132\023.df.plugin.BlockPosR\006origin"
+    "\0225\n\tstructure\030\003 \001(\0132\027.df.plugin.Structur"
+    "eDefR\tstructure\"=\n\032PlayerStartSprintingA"
+    "ction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\"<"
+    "\n\031PlayerStopSprintingAction\022\037\n\013player_uu"
+    "id\030\001 \001(\tR\nplayerUuid\"<\n\031PlayerStartSneak"
+    "ingAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUu"
+    "id\";\n\030PlayerStopSneakingAction\022\037\n\013player"
+    "_uuid\030\001 \001(\tR\nplayerUuid\"<\n\031PlayerStartSw"
+    "immingAction\022\037\n\013player_uuid\030\001 \001(\tR\nplaye"
+    "rUuid\";\n\030PlayerStopSwimmingAction\022\037\n\013pla"
+    "yer_uuid\030\001 \001(\tR\nplayerUuid\"<\n\031PlayerStar"
+    "tCrawlingAction\022\037\n\013player_uuid\030\001 \001(\tR\npl"
+    "ayerUuid\";\n\030PlayerStopCrawlingAction\022\037\n\013"
+    "player_uuid\030\001 \001(\tR\nplayerUuid\";\n\030PlayerS"
+    "tartGlidingAction\022\037\n\013player_uuid\030\001 \001(\tR\n"
+    "playerUuid\":\n\027PlayerStopGlidingAction\022\037\n"
+    "\013player_uuid\030\001 \001(\tR\nplayerUuid\":\n\027Player"
+    "StartFlyingAction\022\037\n\013player_uuid\030\001 \001(\tR\n"
+    "playerUuid\"9\n\026PlayerStopFlyingAction\022\037\n\013"
+    "player_uuid\030\001 \001(\tR\nplayerUuid\":\n\027PlayerS"
+    "etImmobileAction\022\037\n\013player_uuid\030\001 \001(\tR\np"
+    "layerUuid\"8\n\025PlayerSetMobileAction\022\037\n\013pl"
+    "ayer_uuid\030\001 \001(\tR\nplayerUuid\"M\n\024PlayerSet"
+    "SpeedAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayer"
+    "Uuid\022\024\n\005speed\030\002 \001(\001R\005speed\"`\n\032PlayerSetF"
+    "lightSpeedAction\022\037\n\013player_uuid\030\001 \001(\tR\np"
+    "layerUuid\022!\n\014flight_speed\030\002 \001(\001R\013flightS"
+    "peed\"y\n\"PlayerSetVerticalFlightSpeedActi"
+    "on\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\0222\n\025v"
+    "ertical_flight_speed\030\002 \001(\001R\023verticalFlig"
+    "htSpeed\"\\\n\031PlayerSetAbsorptionAction\022\037\n\013"
+    "player_uuid\030\001 \001(\tR\nplayerUuid\022\036\n\nabsorpt"
+    "ion\030\002 \001(\001R\nabsorption\"Y\n\025PlayerSetOnFire"
+    "Action\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\022"
+    "\037\n\013duration_ms\030\002 \001(\003R\ndurationMs\"9\n\026Play"
+    "erExtinguishAction\022\037\n\013player_uuid\030\001 \001(\tR"
+    "\nplayerUuid\";\n\030PlayerSetInvisibleAction\022"
+    "\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\"9\n\026Play"
+    "erSetVisibleAction\022\037\n\013player_uuid\030\001 \001(\tR"
+    "\nplayerUuid\"M\n\024PlayerSetScaleAction\022\037\n\013p"
+    "layer_uuid\030\001 \001(\tR\nplayerUuid\022\024\n\005scale\030\002 "
+    "\001(\001R\005scale\"N\n\027PlayerSetHeldSlotAction\022\037\n"
+    "\013player_uuid\030\001 \001(\tR\nplayerUuid\022\022\n\004slot\030\002"
+    " \001(\005R\004slot\"h\n\025PlayerSendToastAction\022\037\n\013p"
+    "layer_uuid\030\001 \001(\tR\nplayerUuid\022\024\n\005title\030\002 "
+    "\001(\tR\005title\022\030\n\007message\030\003 \001(\tR\007message\"Y\n\034"
+    "PlayerSendJukeboxPopupAction\022\037\n\013player_u"
+    "uid\030\001 \001(\tR\nplayerUuid\022\030\n\007message\030\002 \001(\tR\007"
+    "message\">\n\033PlayerShowCoordinatesAction\022\037"
+    "\n\013player_uuid\030\001 \001(\tR\nplayerUuid\">\n\033Playe"
+    "rHideCoordinatesAction\022\037\n\013player_uuid\030\001 "
+    "\001(\tR\nplayerUuid\"C\n PlayerEnableInstantRe"
+    "spawnAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayer"
+    "Uuid\"D\n!PlayerDisableInstantRespawnActio"
+    "n\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\"T\n\026Pl"
+    "ayerSetNameTagAction\022\037\n\013player_uuid\030\001 \001("
+    "\tR\nplayerUuid\022\031\n\010name_tag\030\002 \001(\tR\007nameTag"
+    "\"W\n\027PlayerSetScoreTagAction\022\037\n\013player_uu"
+    "id\030\001 \001(\tR\nplayerUuid\022\033\n\tscore_tag\030\002 \001(\tR"
+    "\010scoreTag\"\373\001\n\030PlayerShowParticleAction\022\037"
+    "\n\013player_uuid\030\001 \001(\tR\nplayerUuid\022+\n\010posit"
+    "ion\030\002 \001(\0132\017.df.plugin.Vec3R\010position\0223\n\010"
+    "particle\030\003 \001(\0162\027.df.plugin.ParticleTypeR"
+    "\010particle\0220\n\005block\030\004 \001(\0132\025.df.plugin.Blo"
+    "ckStateH\000R\005block\210\001\001\022\027\n\004face\030\005 \001(\005H\001R\004fac"
+    "e\210\001\001B\010\n\006_blockB\007\n\005_face\"6\n\023PlayerRespawn"
     "Action\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\""
-    ";\n\030PlayerSetInvisibleAction\022\037\n\013player_uu"
-    "id\030\001 \001(\tR\nplayerUuid\"9\n\026PlayerSetVisible"
-    "Action\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\""
-    "M\n\024PlayerSetScaleAction\022\037\n\013player_uuid\030\001"
-    " \001(\tR\nplayerUuid\022\024\n\005scale\030\002 \001(\001R\005scale\"N"
-    "\n\027PlayerSetHeldSlotAction\022\037\n\013player_uuid"
-    "\030\001 \001(\tR\nplayerUuid\022\022\n\004slot\030\002 \001(\005R\004slot\"h"
-    "\n\025PlayerSendToastAction\022\037\n\013player_uuid\030\001"
-    " \001(\tR\nplayerUuid\022\024\n\005title\030\002 \001(\tR\005title\022\030"
-    "\n\007message\030\003 \001(\tR\007message\"Y\n\034PlayerSendJu"
-    "keboxPopupAction\022\037\n\013player_uuid\030\001 \001(\tR\np"
-    "layerUuid\022\030\n\007message\030\002 \001(\tR\007message\">\n\033P"
-    "layerShowCoordinatesAction\022\037\n\013player_uui"
-    "d\030\001 \001(\tR\nplayerUuid\">\n\033PlayerHideCoordin"
-    "atesAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerU"
-    "uid\"C\n PlayerEnableInstantRespawnAction\022"
-    "\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\"D\n!Play"
-    "erDisableInstantRespawnAction\022\037\n\013player_"
-    "uuid\030\001 \001(\tR\nplayerUuid\"T\n\026PlayerSetNameT"
-    "agAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUui"
-    "d\022\031\n\010name_tag\030\002 \001(\tR\007nameTag\"W\n\027PlayerSe"
-    "tScoreTagAction\022\037\n\013player_uuid\030\001 \001(\tR\npl"
-    "ayerUuid\022\033\n\tscore_tag\030\002 \001(\tR\010scoreTag\"\373\001"
-    "\n\030PlayerShowParticleAction\022\037\n\013player_uui"
-    "d\030\001 \001(\tR\nplayerUuid\022+\n\010position\030\002 \001(\0132\017."
-    "df.plugin.Vec3R\010position\0223\n\010particle\030\003 \001"
-    "(\0162\027.df.plugin.ParticleTypeR\010particle\0220\n"
-    "\005block\030\004 \001(\0132\025.df.plugin.BlockStateH\000R\005b"
-    "lock\210\001\001\022\027\n\004face\030\005 \001(\005H\001R\004face\210\001\001B\010\n\006_blo"
-    "ckB\007\n\005_face\"6\n\023PlayerRespawnAction\022\037\n\013pl"
-    "ayer_uuid\030\001 \001(\tR\nplayerUuid\"e\n\024PlayerTra"
-    "nsferAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayer"
-    "Uuid\022,\n\007address\030\002 \001(\0132\022.df.plugin.Addres"
-    "sR\007address\"\217\001\n\025PlayerKnockBackAction\022\037\n\013"
-    "player_uuid\030\001 \001(\tR\nplayerUuid\022\'\n\006source\030"
-    "\002 \001(\0132\017.df.plugin.Vec3R\006source\022\024\n\005force\030"
-    "\003 \001(\001R\005force\022\026\n\006height\030\004 \001(\001R\006height\"7\n\024"
-    "PlayerSwingArmAction\022\037\n\013player_uuid\030\001 \001("
-    "\tR\nplayerUuid\"7\n\024PlayerPunchAirAction\022\037\n"
-    "\013player_uuid\030\001 \001(\tR\nplayerUuid\"\277\002\n\025Playe"
-    "rSetArmourAction\022\037\n\013player_uuid\030\001 \001(\tR\np"
-    "layerUuid\0221\n\006helmet\030\002 \001(\0132\024.df.plugin.It"
-    "emStackH\000R\006helmet\210\001\001\0229\n\nchestplate\030\003 \001(\013"
-    "2\024.df.plugin.ItemStackH\001R\nchestplate\210\001\001\022"
-    "5\n\010leggings\030\004 \001(\0132\024.df.plugin.ItemStackH"
-    "\002R\010leggings\210\001\001\022/\n\005boots\030\005 \001(\0132\024.df.plugi"
-    "n.ItemStackH\003R\005boots\210\001\001B\t\n\007_helmetB\r\n\013_c"
-    "hestplateB\013\n\t_leggingsB\010\n\006_boots\"\310\001\n\032Pla"
-    "yerSendScoreboardAction\022\037\n\013player_uuid\030\001"
-    " \001(\tR\nplayerUuid\022\024\n\005title\030\002 \001(\tR\005title\022\024"
-    "\n\005lines\030\003 \003(\tR\005lines\022\035\n\007padding\030\004 \001(\010H\000R"
-    "\007padding\210\001\001\022#\n\ndescending\030\005 \001(\010H\001R\ndesce"
-    "nding\210\001\001B\n\n\010_paddingB\r\n\013_descending\"\?\n\034P"
-    "layerRemoveScoreboardAction\022\037\n\013player_uu"
-    "id\030\001 \001(\tR\nplayerUuid*\353\003\n\014ParticleType\022\035\n"
-    "\031PARTICLE_TYPE_UNSPECIFIED\020\000\022\033\n\027PARTICLE"
-    "_HUGE_EXPLOSION\020\001\022\036\n\032PARTICLE_ENDERMAN_T"
-    "ELEPORT\020\002\022\032\n\026PARTICLE_SNOWBALL_POOF\020\003\022\026\n"
-    "\022PARTICLE_EGG_SMASH\020\004\022\023\n\017PARTICLE_SPLASH"
-    "\020\005\022\023\n\017PARTICLE_EFFECT\020\006\022\031\n\025PARTICLE_ENTI"
-    "TY_FLAME\020\007\022\022\n\016PARTICLE_FLAME\020\010\022\021\n\rPARTIC"
-    "LE_DUST\020\t\022\036\n\032PARTICLE_BLOCK_FORCE_FIELD\020"
-    "\n\022\026\n\022PARTICLE_BONE_MEAL\020\013\022\026\n\022PARTICLE_EV"
-    "APORATE\020\014\022\027\n\023PARTICLE_WATER_DRIP\020\r\022\026\n\022PA"
-    "RTICLE_LAVA_DRIP\020\016\022\021\n\rPARTICLE_LAVA\020\017\022\027\n"
-    "\023PARTICLE_DUST_PLUME\020\020\022\030\n\024PARTICLE_BLOCK"
-    "_BREAK\020\021\022\030\n\024PARTICLE_PUNCH_BLOCK\020\022B\213\001\n\rc"
-    "om.df.pluginB\014ActionsProtoP\001Z\'github.com"
-    "/secmc/plugin/proto/generated\242\002\003DPX\252\002\tDf"
-    ".Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMetad"
-    "ata\352\002\nDf::Pluginb\006proto3"
+    "e\n\024PlayerTransferAction\022\037\n\013player_uuid\030\001"
+    " \001(\tR\nplayerUuid\022,\n\007address\030\002 \001(\0132\022.df.p"
+    "lugin.AddressR\007address\"\217\001\n\025PlayerKnockBa"
+    "ckAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUui"
+    "d\022\'\n\006source\030\002 \001(\0132\017.df.plugin.Vec3R\006sour"
+    "ce\022\024\n\005force\030\003 \001(\001R\005force\022\026\n\006height\030\004 \001(\001"
+    "R\006height\"7\n\024PlayerSwingArmAction\022\037\n\013play"
+    "er_uuid\030\001 \001(\tR\nplayerUuid\"7\n\024PlayerPunch"
+    "AirAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUu"
+    "id\"\277\002\n\025PlayerSetArmourAction\022\037\n\013player_u"
+    "uid\030\001 \001(\tR\nplayerUuid\0221\n\006helmet\030\002 \001(\0132\024."
+    "df.plugin.ItemStackH\000R\006helmet\210\001\001\0229\n\nches"
+    "tplate\030\003 \001(\0132\024.df.plugin.ItemStackH\001R\nch"
+    "estplate\210\001\001\0225\n\010leggings\030\004 \001(\0132\024.df.plugi"
+    "n.ItemStackH\002R\010leggings\210\001\001\022/\n\005boots\030\005 \001("
+    "\0132\024.df.plugin.ItemStackH\003R\005boots\210\001\001B\t\n\007_"
+    "helmetB\r\n\013_chestplateB\013\n\t_leggingsB\010\n\006_b"
+    "oots\"\310\001\n\032PlayerSendScoreboardAction\022\037\n\013p"
+    "layer_uuid\030\001 \001(\tR\nplayerUuid\022\024\n\005title\030\002 "
+    "\001(\tR\005title\022\024\n\005lines\030\003 \003(\tR\005lines\022\035\n\007padd"
+    "ing\030\004 \001(\010H\000R\007padding\210\001\001\022#\n\ndescending\030\005 "
+    "\001(\010H\001R\ndescending\210\001\001B\n\n\010_paddingB\r\n\013_des"
+    "cending\"\?\n\034PlayerRemoveScoreboardAction\022"
+    "\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\"\215\001\n\030Pla"
+    "yerSendMenuFormAction\022\037\n\013player_uuid\030\001 \001"
+    "(\tR\nplayerUuid\022\024\n\005title\030\002 \001(\tR\005title\022\027\n\004"
+    "body\030\003 \001(\tH\000R\004body\210\001\001\022\030\n\007buttons\030\004 \003(\tR\007"
+    "buttonsB\007\n\005_body\"\232\001\n\031PlayerSendModalForm"
+    "Action\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\022"
+    "\024\n\005title\030\002 \001(\tR\005title\022\022\n\004body\030\003 \001(\tR\004bod"
+    "y\022\031\n\010yes_text\030\004 \001(\tR\007yesText\022\027\n\007no_text\030"
+    "\005 \001(\tR\006noText\"\273\001\n\030PlayerSendDialogueActi"
+    "on\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\022\024\n\005t"
+    "itle\030\002 \001(\tR\005title\022\027\n\004body\030\003 \001(\tH\000R\004body\210"
+    "\001\001\022\030\n\007buttons\030\004 \003(\tR\007buttons\022,\n\006entity\030\005"
+    " \001(\0132\024.df.plugin.EntityRefR\006entityB\007\n\005_b"
+    "ody\"\330\001\n\027PlayerSendBossBarAction\022\037\n\013playe"
+    "r_uuid\030\001 \001(\tR\nplayerUuid\022\022\n\004text\030\002 \001(\tR\004"
+    "text\0220\n\021health_percentage\030\003 \001(\002H\000R\020healt"
+    "hPercentage\210\001\001\0225\n\006colour\030\004 \001(\0162\030.df.plug"
+    "in.BossBarColourH\001R\006colour\210\001\001B\024\n\022_health"
+    "_percentageB\t\n\007_colour\"<\n\031PlayerRemoveBo"
+    "ssBarAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayer"
+    "Uuid\"n\n\032PlayerShowHudElementAction\022\037\n\013pl"
+    "ayer_uuid\030\001 \001(\tR\nplayerUuid\022/\n\007element\030\002"
+    " \001(\0162\025.df.plugin.HudElementR\007element\"n\n\032"
+    "PlayerHideHudElementAction\022\037\n\013player_uui"
+    "d\030\001 \001(\tR\nplayerUuid\022/\n\007element\030\002 \001(\0162\025.d"
+    "f.plugin.HudElementR\007element\"<\n\031PlayerCl"
+    "oseDialogueAction\022\037\n\013player_uuid\030\001 \001(\tR\n"
+    "playerUuid\"8\n\025PlayerCloseFormAction\022\037\n\013p"
+    "layer_uuid\030\001 \001(\tR\nplayerUuid\"\207\001\n\024PlayerO"
+    "penSignAction\022\037\n\013player_uuid\030\001 \001(\tR\nplay"
+    "erUuid\022/\n\010position\030\002 \001(\0132\023.df.plugin.Blo"
+    "ckPosR\010position\022\035\n\nfront_side\030\003 \001(\010R\tfro"
+    "ntSide\"\244\001\n\024PlayerEditSignAction\022\037\n\013playe"
+    "r_uuid\030\001 \001(\tR\nplayerUuid\022/\n\010position\030\002 \001"
+    "(\0132\023.df.plugin.BlockPosR\010position\022\035\n\nfro"
+    "nt_text\030\003 \001(\tR\tfrontText\022\033\n\tback_text\030\004 "
+    "\001(\tR\010backText\"\203\001\n\033PlayerTurnLecternPageA"
+    "ction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid\022/"
+    "\n\010position\030\002 \001(\0132\023.df.plugin.BlockPosR\010p"
+    "osition\022\022\n\004page\030\003 \001(\005R\004page\"Z\n\026PlayerHid"
+    "ePlayerAction\022\037\n\013player_uuid\030\001 \001(\tR\nplay"
+    "erUuid\022\037\n\013target_uuid\030\002 \001(\tR\ntargetUuid\""
+    "Z\n\026PlayerShowPlayerAction\022\037\n\013player_uuid"
+    "\030\001 \001(\tR\nplayerUuid\022\037\n\013target_uuid\030\002 \001(\tR"
+    "\ntargetUuid\"C\n PlayerRemoveAllDebugShape"
+    "sAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid"
+    "\"r\n\036PlayerOpenBlockContainerAction\022\037\n\013pl"
+    "ayer_uuid\030\001 \001(\tR\nplayerUuid\022/\n\010position\030"
+    "\002 \001(\0132\023.df.plugin.BlockPosR\010position\"o\n\024"
+    "PlayerDropItemAction\022\037\n\013player_uuid\030\001 \001("
+    "\tR\nplayerUuid\022-\n\004item\030\002 \001(\0132\024.df.plugin."
+    "ItemStackH\000R\004item\210\001\001B\007\n\005_item\"\211\001\n\033Player"
+    "SetItemCooldownAction\022\037\n\013player_uuid\030\001 \001"
+    "(\tR\nplayerUuid\022(\n\004item\030\002 \001(\0132\024.df.plugin"
+    ".ItemStackR\004item\022\037\n\013duration_ms\030\003 \001(\003R\nd"
+    "urationMs*\353\003\n\014ParticleType\022\035\n\031PARTICLE_T"
+    "YPE_UNSPECIFIED\020\000\022\033\n\027PARTICLE_HUGE_EXPLO"
+    "SION\020\001\022\036\n\032PARTICLE_ENDERMAN_TELEPORT\020\002\022\032"
+    "\n\026PARTICLE_SNOWBALL_POOF\020\003\022\026\n\022PARTICLE_E"
+    "GG_SMASH\020\004\022\023\n\017PARTICLE_SPLASH\020\005\022\023\n\017PARTI"
+    "CLE_EFFECT\020\006\022\031\n\025PARTICLE_ENTITY_FLAME\020\007\022"
+    "\022\n\016PARTICLE_FLAME\020\010\022\021\n\rPARTICLE_DUST\020\t\022\036"
+    "\n\032PARTICLE_BLOCK_FORCE_FIELD\020\n\022\026\n\022PARTIC"
+    "LE_BONE_MEAL\020\013\022\026\n\022PARTICLE_EVAPORATE\020\014\022\027"
+    "\n\023PARTICLE_WATER_DRIP\020\r\022\026\n\022PARTICLE_LAVA"
+    "_DRIP\020\016\022\021\n\rPARTICLE_LAVA\020\017\022\027\n\023PARTICLE_D"
+    "UST_PLUME\020\020\022\030\n\024PARTICLE_BLOCK_BREAK\020\021\022\030\n"
+    "\024PARTICLE_PUNCH_BLOCK\020\022*\312\001\n\rBossBarColou"
+    "r\022\030\n\024BOSS_BAR_COLOUR_GREY\020\000\022\030\n\024BOSS_BAR_"
+    "COLOUR_BLUE\020\001\022\027\n\023BOSS_BAR_COLOUR_RED\020\002\022\031"
+    "\n\025BOSS_BAR_COLOUR_GREEN\020\003\022\032\n\026BOSS_BAR_CO"
+    "LOUR_YELLOW\020\004\022\032\n\026BOSS_BAR_COLOUR_PURPLE\020"
+    "\005\022\031\n\025BOSS_BAR_COLOUR_WHITE\020\006*\363\002\n\nHudElem"
+    "ent\022\032\n\026HUD_ELEMENT_PAPER_DOLL\020\000\022\026\n\022HUD_E"
+    "LEMENT_ARMOUR\020\001\022\031\n\025HUD_ELEMENT_TOOL_TIPS"
+    "\020\002\022\036\n\032HUD_ELEMENT_TOUCH_CONTROLS\020\003\022\031\n\025HU"
+    "D_ELEMENT_CROSSHAIR\020\004\022\027\n\023HUD_ELEMENT_HOT"
+    "_BAR\020\005\022\026\n\022HUD_ELEMENT_HEALTH\020\006\022\034\n\030HUD_EL"
+    "EMENT_PROGRESS_BAR\020\007\022\026\n\022HUD_ELEMENT_HUNG"
+    "ER\020\010\022\033\n\027HUD_ELEMENT_AIR_BUBBLES\020\t\022\034\n\030HUD"
+    "_ELEMENT_HORSE_HEALTH\020\n\022\036\n\032HUD_ELEMENT_S"
+    "TATUS_EFFECTS\020\013\022\031\n\025HUD_ELEMENT_ITEM_TEXT"
+    "\020\014B\213\001\n\rcom.df.pluginB\014ActionsProtoP\001Z\'gi"
+    "thub.com/secmc/plugin/proto/generated\242\002\003"
+    "DPX\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\"
+    "GPBMetadata\352\002\nDf::Pluginb\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_actions_2eproto_deps[1] = {
@@ -4081,13 +4952,13 @@ static ::absl::once_flag descriptor_table_actions_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_actions_2eproto = {
     false,
     false,
-    17904,
+    22312,
     descriptor_table_protodef_actions_2eproto,
     "actions.proto",
     &descriptor_table_actions_2eproto_once,
     descriptor_table_actions_2eproto_deps,
     1,
-    92,
+    110,
     schemas,
     file_default_instances,
     TableStruct_actions_2eproto::offsets,
@@ -4102,6 +4973,18 @@ const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL ParticleType_descript
 }
 PROTOBUF_CONSTINIT const uint32_t ParticleType_internal_data_[] = {
     1245184u, 0u, };
+const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL BossBarColour_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_actions_2eproto);
+  return file_level_enum_descriptors_actions_2eproto[1];
+}
+PROTOBUF_CONSTINIT const uint32_t BossBarColour_internal_data_[] = {
+    458752u, 0u, };
+const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL HudElement_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_actions_2eproto);
+  return file_level_enum_descriptors_actions_2eproto[2];
+}
+PROTOBUF_CONSTINIT const uint32_t HudElement_internal_data_[] = {
+    851968u, 0u, };
 // ===================================================================
 
 class ActionBatch::_Internal {
@@ -4502,6 +5385,45 @@ void Action::set_allocated_player_set_armour(::df::plugin::PlayerSetArmourAction
   }
   // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_set_armour)
 }
+void Action::set_allocated_player_open_block_container(::df::plugin::PlayerOpenBlockContainerAction* PROTOBUF_NULLABLE player_open_block_container) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_open_block_container) {
+    ::google::protobuf::Arena* submessage_arena = player_open_block_container->GetArena();
+    if (message_arena != submessage_arena) {
+      player_open_block_container = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_open_block_container, submessage_arena);
+    }
+    set_has_player_open_block_container();
+    _impl_.kind_.player_open_block_container_ = player_open_block_container;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_open_block_container)
+}
+void Action::set_allocated_player_drop_item(::df::plugin::PlayerDropItemAction* PROTOBUF_NULLABLE player_drop_item) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_drop_item) {
+    ::google::protobuf::Arena* submessage_arena = player_drop_item->GetArena();
+    if (message_arena != submessage_arena) {
+      player_drop_item = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_drop_item, submessage_arena);
+    }
+    set_has_player_drop_item();
+    _impl_.kind_.player_drop_item_ = player_drop_item;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_drop_item)
+}
+void Action::set_allocated_player_set_item_cooldown(::df::plugin::PlayerSetItemCooldownAction* PROTOBUF_NULLABLE player_set_item_cooldown) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_set_item_cooldown) {
+    ::google::protobuf::Arena* submessage_arena = player_set_item_cooldown->GetArena();
+    if (message_arena != submessage_arena) {
+      player_set_item_cooldown = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_set_item_cooldown, submessage_arena);
+    }
+    set_has_player_set_item_cooldown();
+    _impl_.kind_.player_set_item_cooldown_ = player_set_item_cooldown;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_set_item_cooldown)
+}
 void Action::set_allocated_set_health(::df::plugin::SetHealthAction* PROTOBUF_NULLABLE set_health) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_kind();
@@ -4774,6 +5696,71 @@ void Action::set_allocated_player_remove_scoreboard(::df::plugin::PlayerRemoveSc
     _impl_.kind_.player_remove_scoreboard_ = player_remove_scoreboard;
   }
   // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_remove_scoreboard)
+}
+void Action::set_allocated_player_send_menu_form(::df::plugin::PlayerSendMenuFormAction* PROTOBUF_NULLABLE player_send_menu_form) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_send_menu_form) {
+    ::google::protobuf::Arena* submessage_arena = player_send_menu_form->GetArena();
+    if (message_arena != submessage_arena) {
+      player_send_menu_form = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_send_menu_form, submessage_arena);
+    }
+    set_has_player_send_menu_form();
+    _impl_.kind_.player_send_menu_form_ = player_send_menu_form;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_send_menu_form)
+}
+void Action::set_allocated_player_send_modal_form(::df::plugin::PlayerSendModalFormAction* PROTOBUF_NULLABLE player_send_modal_form) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_send_modal_form) {
+    ::google::protobuf::Arena* submessage_arena = player_send_modal_form->GetArena();
+    if (message_arena != submessage_arena) {
+      player_send_modal_form = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_send_modal_form, submessage_arena);
+    }
+    set_has_player_send_modal_form();
+    _impl_.kind_.player_send_modal_form_ = player_send_modal_form;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_send_modal_form)
+}
+void Action::set_allocated_player_send_dialogue(::df::plugin::PlayerSendDialogueAction* PROTOBUF_NULLABLE player_send_dialogue) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_send_dialogue) {
+    ::google::protobuf::Arena* submessage_arena = player_send_dialogue->GetArena();
+    if (message_arena != submessage_arena) {
+      player_send_dialogue = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_send_dialogue, submessage_arena);
+    }
+    set_has_player_send_dialogue();
+    _impl_.kind_.player_send_dialogue_ = player_send_dialogue;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_send_dialogue)
+}
+void Action::set_allocated_player_close_dialogue(::df::plugin::PlayerCloseDialogueAction* PROTOBUF_NULLABLE player_close_dialogue) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_close_dialogue) {
+    ::google::protobuf::Arena* submessage_arena = player_close_dialogue->GetArena();
+    if (message_arena != submessage_arena) {
+      player_close_dialogue = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_close_dialogue, submessage_arena);
+    }
+    set_has_player_close_dialogue();
+    _impl_.kind_.player_close_dialogue_ = player_close_dialogue;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_close_dialogue)
+}
+void Action::set_allocated_player_close_form(::df::plugin::PlayerCloseFormAction* PROTOBUF_NULLABLE player_close_form) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_close_form) {
+    ::google::protobuf::Arena* submessage_arena = player_close_form->GetArena();
+    if (message_arena != submessage_arena) {
+      player_close_form = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_close_form, submessage_arena);
+    }
+    set_has_player_close_form();
+    _impl_.kind_.player_close_form_ = player_close_form;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_close_form)
 }
 void Action::set_allocated_execute_command(::df::plugin::ExecuteCommandAction* PROTOBUF_NULLABLE execute_command) {
   ::google::protobuf::Arena* message_arena = GetArena();
@@ -5164,6 +6151,136 @@ void Action::set_allocated_player_punch_air(::df::plugin::PlayerPunchAirAction* 
     _impl_.kind_.player_punch_air_ = player_punch_air;
   }
   // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_punch_air)
+}
+void Action::set_allocated_player_send_boss_bar(::df::plugin::PlayerSendBossBarAction* PROTOBUF_NULLABLE player_send_boss_bar) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_send_boss_bar) {
+    ::google::protobuf::Arena* submessage_arena = player_send_boss_bar->GetArena();
+    if (message_arena != submessage_arena) {
+      player_send_boss_bar = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_send_boss_bar, submessage_arena);
+    }
+    set_has_player_send_boss_bar();
+    _impl_.kind_.player_send_boss_bar_ = player_send_boss_bar;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_send_boss_bar)
+}
+void Action::set_allocated_player_remove_boss_bar(::df::plugin::PlayerRemoveBossBarAction* PROTOBUF_NULLABLE player_remove_boss_bar) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_remove_boss_bar) {
+    ::google::protobuf::Arena* submessage_arena = player_remove_boss_bar->GetArena();
+    if (message_arena != submessage_arena) {
+      player_remove_boss_bar = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_remove_boss_bar, submessage_arena);
+    }
+    set_has_player_remove_boss_bar();
+    _impl_.kind_.player_remove_boss_bar_ = player_remove_boss_bar;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_remove_boss_bar)
+}
+void Action::set_allocated_player_show_hud_element(::df::plugin::PlayerShowHudElementAction* PROTOBUF_NULLABLE player_show_hud_element) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_show_hud_element) {
+    ::google::protobuf::Arena* submessage_arena = player_show_hud_element->GetArena();
+    if (message_arena != submessage_arena) {
+      player_show_hud_element = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_show_hud_element, submessage_arena);
+    }
+    set_has_player_show_hud_element();
+    _impl_.kind_.player_show_hud_element_ = player_show_hud_element;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_show_hud_element)
+}
+void Action::set_allocated_player_hide_hud_element(::df::plugin::PlayerHideHudElementAction* PROTOBUF_NULLABLE player_hide_hud_element) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_hide_hud_element) {
+    ::google::protobuf::Arena* submessage_arena = player_hide_hud_element->GetArena();
+    if (message_arena != submessage_arena) {
+      player_hide_hud_element = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_hide_hud_element, submessage_arena);
+    }
+    set_has_player_hide_hud_element();
+    _impl_.kind_.player_hide_hud_element_ = player_hide_hud_element;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_hide_hud_element)
+}
+void Action::set_allocated_player_open_sign(::df::plugin::PlayerOpenSignAction* PROTOBUF_NULLABLE player_open_sign) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_open_sign) {
+    ::google::protobuf::Arena* submessage_arena = player_open_sign->GetArena();
+    if (message_arena != submessage_arena) {
+      player_open_sign = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_open_sign, submessage_arena);
+    }
+    set_has_player_open_sign();
+    _impl_.kind_.player_open_sign_ = player_open_sign;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_open_sign)
+}
+void Action::set_allocated_player_edit_sign(::df::plugin::PlayerEditSignAction* PROTOBUF_NULLABLE player_edit_sign) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_edit_sign) {
+    ::google::protobuf::Arena* submessage_arena = player_edit_sign->GetArena();
+    if (message_arena != submessage_arena) {
+      player_edit_sign = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_edit_sign, submessage_arena);
+    }
+    set_has_player_edit_sign();
+    _impl_.kind_.player_edit_sign_ = player_edit_sign;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_edit_sign)
+}
+void Action::set_allocated_player_turn_lectern_page(::df::plugin::PlayerTurnLecternPageAction* PROTOBUF_NULLABLE player_turn_lectern_page) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_turn_lectern_page) {
+    ::google::protobuf::Arena* submessage_arena = player_turn_lectern_page->GetArena();
+    if (message_arena != submessage_arena) {
+      player_turn_lectern_page = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_turn_lectern_page, submessage_arena);
+    }
+    set_has_player_turn_lectern_page();
+    _impl_.kind_.player_turn_lectern_page_ = player_turn_lectern_page;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_turn_lectern_page)
+}
+void Action::set_allocated_player_hide_player(::df::plugin::PlayerHidePlayerAction* PROTOBUF_NULLABLE player_hide_player) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_hide_player) {
+    ::google::protobuf::Arena* submessage_arena = player_hide_player->GetArena();
+    if (message_arena != submessage_arena) {
+      player_hide_player = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_hide_player, submessage_arena);
+    }
+    set_has_player_hide_player();
+    _impl_.kind_.player_hide_player_ = player_hide_player;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_hide_player)
+}
+void Action::set_allocated_player_show_player(::df::plugin::PlayerShowPlayerAction* PROTOBUF_NULLABLE player_show_player) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_show_player) {
+    ::google::protobuf::Arena* submessage_arena = player_show_player->GetArena();
+    if (message_arena != submessage_arena) {
+      player_show_player = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_show_player, submessage_arena);
+    }
+    set_has_player_show_player();
+    _impl_.kind_.player_show_player_ = player_show_player;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_show_player)
+}
+void Action::set_allocated_player_remove_all_debug_shapes(::df::plugin::PlayerRemoveAllDebugShapesAction* PROTOBUF_NULLABLE player_remove_all_debug_shapes) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (player_remove_all_debug_shapes) {
+    ::google::protobuf::Arena* submessage_arena = player_remove_all_debug_shapes->GetArena();
+    if (message_arena != submessage_arena) {
+      player_remove_all_debug_shapes = ::google::protobuf::internal::GetOwnedMessage(message_arena, player_remove_all_debug_shapes, submessage_arena);
+    }
+    set_has_player_remove_all_debug_shapes();
+    _impl_.kind_.player_remove_all_debug_shapes_ = player_remove_all_debug_shapes;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.player_remove_all_debug_shapes)
 }
 void Action::set_allocated_world_set_default_game_mode(::df::plugin::WorldSetDefaultGameModeAction* PROTOBUF_NULLABLE world_set_default_game_mode) {
   ::google::protobuf::Arena* message_arena = GetArena();
@@ -5601,6 +6718,15 @@ Action::Action(
       case kPlayerSetArmour:
         _impl_.kind_.player_set_armour_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_set_armour_);
         break;
+      case kPlayerOpenBlockContainer:
+        _impl_.kind_.player_open_block_container_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_open_block_container_);
+        break;
+      case kPlayerDropItem:
+        _impl_.kind_.player_drop_item_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_drop_item_);
+        break;
+      case kPlayerSetItemCooldown:
+        _impl_.kind_.player_set_item_cooldown_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_set_item_cooldown_);
+        break;
       case kSetHealth:
         _impl_.kind_.set_health_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.set_health_);
         break;
@@ -5663,6 +6789,21 @@ Action::Action(
         break;
       case kPlayerRemoveScoreboard:
         _impl_.kind_.player_remove_scoreboard_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_remove_scoreboard_);
+        break;
+      case kPlayerSendMenuForm:
+        _impl_.kind_.player_send_menu_form_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_send_menu_form_);
+        break;
+      case kPlayerSendModalForm:
+        _impl_.kind_.player_send_modal_form_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_send_modal_form_);
+        break;
+      case kPlayerSendDialogue:
+        _impl_.kind_.player_send_dialogue_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_send_dialogue_);
+        break;
+      case kPlayerCloseDialogue:
+        _impl_.kind_.player_close_dialogue_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_close_dialogue_);
+        break;
+      case kPlayerCloseForm:
+        _impl_.kind_.player_close_form_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_close_form_);
         break;
       case kExecuteCommand:
         _impl_.kind_.execute_command_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.execute_command_);
@@ -5753,6 +6894,36 @@ Action::Action(
         break;
       case kPlayerPunchAir:
         _impl_.kind_.player_punch_air_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_punch_air_);
+        break;
+      case kPlayerSendBossBar:
+        _impl_.kind_.player_send_boss_bar_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_send_boss_bar_);
+        break;
+      case kPlayerRemoveBossBar:
+        _impl_.kind_.player_remove_boss_bar_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_remove_boss_bar_);
+        break;
+      case kPlayerShowHudElement:
+        _impl_.kind_.player_show_hud_element_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_show_hud_element_);
+        break;
+      case kPlayerHideHudElement:
+        _impl_.kind_.player_hide_hud_element_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_hide_hud_element_);
+        break;
+      case kPlayerOpenSign:
+        _impl_.kind_.player_open_sign_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_open_sign_);
+        break;
+      case kPlayerEditSign:
+        _impl_.kind_.player_edit_sign_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_edit_sign_);
+        break;
+      case kPlayerTurnLecternPage:
+        _impl_.kind_.player_turn_lectern_page_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_turn_lectern_page_);
+        break;
+      case kPlayerHidePlayer:
+        _impl_.kind_.player_hide_player_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_hide_player_);
+        break;
+      case kPlayerShowPlayer:
+        _impl_.kind_.player_show_player_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_show_player_);
+        break;
+      case kPlayerRemoveAllDebugShapes:
+        _impl_.kind_.player_remove_all_debug_shapes_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_remove_all_debug_shapes_);
         break;
       case kWorldSetDefaultGameMode:
         _impl_.kind_.world_set_default_game_mode_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_default_game_mode_);
@@ -5942,6 +7113,30 @@ void Action::clear_kind() {
       }
       break;
     }
+    case kPlayerOpenBlockContainer: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_open_block_container_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_open_block_container_);
+      }
+      break;
+    }
+    case kPlayerDropItem: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_drop_item_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_drop_item_);
+      }
+      break;
+    }
+    case kPlayerSetItemCooldown: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_set_item_cooldown_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_set_item_cooldown_);
+      }
+      break;
+    }
     case kSetHealth: {
       if (GetArena() == nullptr) {
         delete _impl_.kind_.set_health_;
@@ -6107,6 +7302,46 @@ void Action::clear_kind() {
         delete _impl_.kind_.player_remove_scoreboard_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
         ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_remove_scoreboard_);
+      }
+      break;
+    }
+    case kPlayerSendMenuForm: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_send_menu_form_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_send_menu_form_);
+      }
+      break;
+    }
+    case kPlayerSendModalForm: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_send_modal_form_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_send_modal_form_);
+      }
+      break;
+    }
+    case kPlayerSendDialogue: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_send_dialogue_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_send_dialogue_);
+      }
+      break;
+    }
+    case kPlayerCloseDialogue: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_close_dialogue_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_close_dialogue_);
+      }
+      break;
+    }
+    case kPlayerCloseForm: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_close_form_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_close_form_);
       }
       break;
     }
@@ -6347,6 +7582,86 @@ void Action::clear_kind() {
         delete _impl_.kind_.player_punch_air_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
         ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_punch_air_);
+      }
+      break;
+    }
+    case kPlayerSendBossBar: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_send_boss_bar_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_send_boss_bar_);
+      }
+      break;
+    }
+    case kPlayerRemoveBossBar: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_remove_boss_bar_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_remove_boss_bar_);
+      }
+      break;
+    }
+    case kPlayerShowHudElement: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_show_hud_element_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_show_hud_element_);
+      }
+      break;
+    }
+    case kPlayerHideHudElement: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_hide_hud_element_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_hide_hud_element_);
+      }
+      break;
+    }
+    case kPlayerOpenSign: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_open_sign_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_open_sign_);
+      }
+      break;
+    }
+    case kPlayerEditSign: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_edit_sign_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_edit_sign_);
+      }
+      break;
+    }
+    case kPlayerTurnLecternPage: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_turn_lectern_page_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_turn_lectern_page_);
+      }
+      break;
+    }
+    case kPlayerHidePlayer: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_hide_player_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_hide_player_);
+      }
+      break;
+    }
+    case kPlayerShowPlayer: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_show_player_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_show_player_);
+      }
+      break;
+    }
+    case kPlayerRemoveAllDebugShapes: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.player_remove_all_debug_shapes_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.player_remove_all_debug_shapes_);
       }
       break;
     }
@@ -6633,17 +7948,17 @@ Action::GetClassData() const {
   return Action_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<0, 89, 88, 127, 17>
+const ::_pbi::TcParseTable<0, 107, 106, 143, 21>
 Action::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Action, _impl_._has_bits_),
     0, // no _extensions_
-    134, 0,  // max_field_number, fast_idx_mask
+    152, 0,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
     2676425214,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    89,  // num_field_entries
-    88,  // num_aux_entries
+    107,  // num_field_entries
+    106,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     Action_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -6657,13 +7972,15 @@ Action::_table_ = {
      {10, 0, 0,
       PROTOBUF_FIELD_OFFSET(Action, _impl_.correlation_id_)}},
   }}, {{
-    40, 0, 6,
+    40, 0, 8,
     64496, 14,
     15, 19,
     57344, 31,
     3, 44,
     0, 58,
-    32768, 74,
+    0, 74,
+    0, 90,
+    65534, 106,
     65535, 65535
   }}, {{
     // optional string correlation_id = 1 [json_name = "correlationId"];
@@ -6844,6 +8161,42 @@ Action::_table_ = {
     {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_send_scoreboard_), _Internal::kOneofCaseOffset + 0, 86, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
     // .df.plugin.PlayerRemoveScoreboardAction player_remove_scoreboard = 134 [json_name = "playerRemoveScoreboard"];
     {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_remove_scoreboard_), _Internal::kOneofCaseOffset + 0, 87, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerSendBossBarAction player_send_boss_bar = 135 [json_name = "playerSendBossBar"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_send_boss_bar_), _Internal::kOneofCaseOffset + 0, 88, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerRemoveBossBarAction player_remove_boss_bar = 136 [json_name = "playerRemoveBossBar"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_remove_boss_bar_), _Internal::kOneofCaseOffset + 0, 89, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerShowHudElementAction player_show_hud_element = 137 [json_name = "playerShowHudElement"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_show_hud_element_), _Internal::kOneofCaseOffset + 0, 90, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerHideHudElementAction player_hide_hud_element = 138 [json_name = "playerHideHudElement"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_hide_hud_element_), _Internal::kOneofCaseOffset + 0, 91, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerCloseDialogueAction player_close_dialogue = 139 [json_name = "playerCloseDialogue"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_close_dialogue_), _Internal::kOneofCaseOffset + 0, 92, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerCloseFormAction player_close_form = 140 [json_name = "playerCloseForm"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_close_form_), _Internal::kOneofCaseOffset + 0, 93, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerOpenSignAction player_open_sign = 141 [json_name = "playerOpenSign"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_open_sign_), _Internal::kOneofCaseOffset + 0, 94, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerEditSignAction player_edit_sign = 142 [json_name = "playerEditSign"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_edit_sign_), _Internal::kOneofCaseOffset + 0, 95, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerTurnLecternPageAction player_turn_lectern_page = 143 [json_name = "playerTurnLecternPage"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_turn_lectern_page_), _Internal::kOneofCaseOffset + 0, 96, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerHidePlayerAction player_hide_player = 144 [json_name = "playerHidePlayer"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_hide_player_), _Internal::kOneofCaseOffset + 0, 97, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerShowPlayerAction player_show_player = 145 [json_name = "playerShowPlayer"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_show_player_), _Internal::kOneofCaseOffset + 0, 98, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerRemoveAllDebugShapesAction player_remove_all_debug_shapes = 146 [json_name = "playerRemoveAllDebugShapes"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_remove_all_debug_shapes_), _Internal::kOneofCaseOffset + 0, 99, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerOpenBlockContainerAction player_open_block_container = 147 [json_name = "playerOpenBlockContainer"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_open_block_container_), _Internal::kOneofCaseOffset + 0, 100, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerDropItemAction player_drop_item = 148 [json_name = "playerDropItem"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_drop_item_), _Internal::kOneofCaseOffset + 0, 101, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerSetItemCooldownAction player_set_item_cooldown = 149 [json_name = "playerSetItemCooldown"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_set_item_cooldown_), _Internal::kOneofCaseOffset + 0, 102, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerSendMenuFormAction player_send_menu_form = 150 [json_name = "playerSendMenuForm"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_send_menu_form_), _Internal::kOneofCaseOffset + 0, 103, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerSendModalFormAction player_send_modal_form = 151 [json_name = "playerSendModalForm"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_send_modal_form_), _Internal::kOneofCaseOffset + 0, 104, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.PlayerSendDialogueAction player_send_dialogue = 152 [json_name = "playerSendDialogue"];
+    {PROTOBUF_FIELD_OFFSET(Action, _impl_.kind_.player_send_dialogue_), _Internal::kOneofCaseOffset + 0, 105, (0 | ::_fl::kFcOneof | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::df::plugin::SendChatAction>()},
@@ -6934,9 +8287,27 @@ Action::_table_ = {
       {::_pbi::TcParser::GetTable<::df::plugin::PlayerSetArmourAction>()},
       {::_pbi::TcParser::GetTable<::df::plugin::PlayerSendScoreboardAction>()},
       {::_pbi::TcParser::GetTable<::df::plugin::PlayerRemoveScoreboardAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerSendBossBarAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerRemoveBossBarAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerShowHudElementAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerHideHudElementAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerCloseDialogueAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerCloseFormAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerOpenSignAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerEditSignAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerTurnLecternPageAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerHidePlayerAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerShowPlayerAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerRemoveAllDebugShapesAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerOpenBlockContainerAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerDropItemAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerSetItemCooldownAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerSendMenuFormAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerSendModalFormAction>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::PlayerSendDialogueAction>()},
   }},
   {{
-    "\20\16\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
+    "\20\16\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
     "df.plugin.Action"
     "correlation_id"
   }},
@@ -7513,6 +8884,114 @@ PROTOBUF_NOINLINE void Action::Clear() {
           stream);
       break;
     }
+    case kPlayerSendBossBar: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          135, *this_._impl_.kind_.player_send_boss_bar_, this_._impl_.kind_.player_send_boss_bar_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerRemoveBossBar: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          136, *this_._impl_.kind_.player_remove_boss_bar_, this_._impl_.kind_.player_remove_boss_bar_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerShowHudElement: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          137, *this_._impl_.kind_.player_show_hud_element_, this_._impl_.kind_.player_show_hud_element_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerHideHudElement: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          138, *this_._impl_.kind_.player_hide_hud_element_, this_._impl_.kind_.player_hide_hud_element_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerCloseDialogue: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          139, *this_._impl_.kind_.player_close_dialogue_, this_._impl_.kind_.player_close_dialogue_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerCloseForm: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          140, *this_._impl_.kind_.player_close_form_, this_._impl_.kind_.player_close_form_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerOpenSign: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          141, *this_._impl_.kind_.player_open_sign_, this_._impl_.kind_.player_open_sign_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerEditSign: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          142, *this_._impl_.kind_.player_edit_sign_, this_._impl_.kind_.player_edit_sign_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerTurnLecternPage: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          143, *this_._impl_.kind_.player_turn_lectern_page_, this_._impl_.kind_.player_turn_lectern_page_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerHidePlayer: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          144, *this_._impl_.kind_.player_hide_player_, this_._impl_.kind_.player_hide_player_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerShowPlayer: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          145, *this_._impl_.kind_.player_show_player_, this_._impl_.kind_.player_show_player_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerRemoveAllDebugShapes: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          146, *this_._impl_.kind_.player_remove_all_debug_shapes_, this_._impl_.kind_.player_remove_all_debug_shapes_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerOpenBlockContainer: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          147, *this_._impl_.kind_.player_open_block_container_, this_._impl_.kind_.player_open_block_container_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerDropItem: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          148, *this_._impl_.kind_.player_drop_item_, this_._impl_.kind_.player_drop_item_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerSetItemCooldown: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          149, *this_._impl_.kind_.player_set_item_cooldown_, this_._impl_.kind_.player_set_item_cooldown_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerSendMenuForm: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          150, *this_._impl_.kind_.player_send_menu_form_, this_._impl_.kind_.player_send_menu_form_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerSendModalForm: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          151, *this_._impl_.kind_.player_send_modal_form_, this_._impl_.kind_.player_send_modal_form_->GetCachedSize(), target,
+          stream);
+      break;
+    }
+    case kPlayerSendDialogue: {
+      target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+          152, *this_._impl_.kind_.player_send_dialogue_, this_._impl_.kind_.player_send_dialogue_->GetCachedSize(), target,
+          stream);
+      break;
+    }
     default:
       break;
   }
@@ -7594,6 +9073,24 @@ PROTOBUF_NOINLINE void Action::Clear() {
     case kPlayerSetArmour: {
       total_size += 2 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_set_armour_);
+      break;
+    }
+    // .df.plugin.PlayerOpenBlockContainerAction player_open_block_container = 147 [json_name = "playerOpenBlockContainer"];
+    case kPlayerOpenBlockContainer: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_open_block_container_);
+      break;
+    }
+    // .df.plugin.PlayerDropItemAction player_drop_item = 148 [json_name = "playerDropItem"];
+    case kPlayerDropItem: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_drop_item_);
+      break;
+    }
+    // .df.plugin.PlayerSetItemCooldownAction player_set_item_cooldown = 149 [json_name = "playerSetItemCooldown"];
+    case kPlayerSetItemCooldown: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_set_item_cooldown_);
       break;
     }
     // .df.plugin.SetHealthAction set_health = 20 [json_name = "setHealth"];
@@ -7720,6 +9217,36 @@ PROTOBUF_NOINLINE void Action::Clear() {
     case kPlayerRemoveScoreboard: {
       total_size += 2 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_remove_scoreboard_);
+      break;
+    }
+    // .df.plugin.PlayerSendMenuFormAction player_send_menu_form = 150 [json_name = "playerSendMenuForm"];
+    case kPlayerSendMenuForm: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_send_menu_form_);
+      break;
+    }
+    // .df.plugin.PlayerSendModalFormAction player_send_modal_form = 151 [json_name = "playerSendModalForm"];
+    case kPlayerSendModalForm: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_send_modal_form_);
+      break;
+    }
+    // .df.plugin.PlayerSendDialogueAction player_send_dialogue = 152 [json_name = "playerSendDialogue"];
+    case kPlayerSendDialogue: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_send_dialogue_);
+      break;
+    }
+    // .df.plugin.PlayerCloseDialogueAction player_close_dialogue = 139 [json_name = "playerCloseDialogue"];
+    case kPlayerCloseDialogue: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_close_dialogue_);
+      break;
+    }
+    // .df.plugin.PlayerCloseFormAction player_close_form = 140 [json_name = "playerCloseForm"];
+    case kPlayerCloseForm: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_close_form_);
       break;
     }
     // .df.plugin.ExecuteCommandAction execute_command = 50 [json_name = "executeCommand"];
@@ -7900,6 +9427,66 @@ PROTOBUF_NOINLINE void Action::Clear() {
     case kPlayerPunchAir: {
       total_size += 2 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_punch_air_);
+      break;
+    }
+    // .df.plugin.PlayerSendBossBarAction player_send_boss_bar = 135 [json_name = "playerSendBossBar"];
+    case kPlayerSendBossBar: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_send_boss_bar_);
+      break;
+    }
+    // .df.plugin.PlayerRemoveBossBarAction player_remove_boss_bar = 136 [json_name = "playerRemoveBossBar"];
+    case kPlayerRemoveBossBar: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_remove_boss_bar_);
+      break;
+    }
+    // .df.plugin.PlayerShowHudElementAction player_show_hud_element = 137 [json_name = "playerShowHudElement"];
+    case kPlayerShowHudElement: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_show_hud_element_);
+      break;
+    }
+    // .df.plugin.PlayerHideHudElementAction player_hide_hud_element = 138 [json_name = "playerHideHudElement"];
+    case kPlayerHideHudElement: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_hide_hud_element_);
+      break;
+    }
+    // .df.plugin.PlayerOpenSignAction player_open_sign = 141 [json_name = "playerOpenSign"];
+    case kPlayerOpenSign: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_open_sign_);
+      break;
+    }
+    // .df.plugin.PlayerEditSignAction player_edit_sign = 142 [json_name = "playerEditSign"];
+    case kPlayerEditSign: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_edit_sign_);
+      break;
+    }
+    // .df.plugin.PlayerTurnLecternPageAction player_turn_lectern_page = 143 [json_name = "playerTurnLecternPage"];
+    case kPlayerTurnLecternPage: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_turn_lectern_page_);
+      break;
+    }
+    // .df.plugin.PlayerHidePlayerAction player_hide_player = 144 [json_name = "playerHidePlayer"];
+    case kPlayerHidePlayer: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_hide_player_);
+      break;
+    }
+    // .df.plugin.PlayerShowPlayerAction player_show_player = 145 [json_name = "playerShowPlayer"];
+    case kPlayerShowPlayer: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_show_player_);
+      break;
+    }
+    // .df.plugin.PlayerRemoveAllDebugShapesAction player_remove_all_debug_shapes = 146 [json_name = "playerRemoveAllDebugShapes"];
+    case kPlayerRemoveAllDebugShapes: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.player_remove_all_debug_shapes_);
       break;
     }
     // .df.plugin.WorldSetDefaultGameModeAction world_set_default_game_mode = 60 [json_name = "worldSetDefaultGameMode"];
@@ -8179,6 +9766,30 @@ void Action::MergeImpl(::google::protobuf::MessageLite& to_msg,
         }
         break;
       }
+      case kPlayerOpenBlockContainer: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_open_block_container_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_open_block_container_);
+        } else {
+          _this->_impl_.kind_.player_open_block_container_->MergeFrom(*from._impl_.kind_.player_open_block_container_);
+        }
+        break;
+      }
+      case kPlayerDropItem: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_drop_item_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_drop_item_);
+        } else {
+          _this->_impl_.kind_.player_drop_item_->MergeFrom(*from._impl_.kind_.player_drop_item_);
+        }
+        break;
+      }
+      case kPlayerSetItemCooldown: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_set_item_cooldown_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_set_item_cooldown_);
+        } else {
+          _this->_impl_.kind_.player_set_item_cooldown_->MergeFrom(*from._impl_.kind_.player_set_item_cooldown_);
+        }
+        break;
+      }
       case kSetHealth: {
         if (oneof_needs_init) {
           _this->_impl_.kind_.set_health_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.set_health_);
@@ -8344,6 +9955,46 @@ void Action::MergeImpl(::google::protobuf::MessageLite& to_msg,
           _this->_impl_.kind_.player_remove_scoreboard_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_remove_scoreboard_);
         } else {
           _this->_impl_.kind_.player_remove_scoreboard_->MergeFrom(*from._impl_.kind_.player_remove_scoreboard_);
+        }
+        break;
+      }
+      case kPlayerSendMenuForm: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_send_menu_form_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_send_menu_form_);
+        } else {
+          _this->_impl_.kind_.player_send_menu_form_->MergeFrom(*from._impl_.kind_.player_send_menu_form_);
+        }
+        break;
+      }
+      case kPlayerSendModalForm: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_send_modal_form_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_send_modal_form_);
+        } else {
+          _this->_impl_.kind_.player_send_modal_form_->MergeFrom(*from._impl_.kind_.player_send_modal_form_);
+        }
+        break;
+      }
+      case kPlayerSendDialogue: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_send_dialogue_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_send_dialogue_);
+        } else {
+          _this->_impl_.kind_.player_send_dialogue_->MergeFrom(*from._impl_.kind_.player_send_dialogue_);
+        }
+        break;
+      }
+      case kPlayerCloseDialogue: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_close_dialogue_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_close_dialogue_);
+        } else {
+          _this->_impl_.kind_.player_close_dialogue_->MergeFrom(*from._impl_.kind_.player_close_dialogue_);
+        }
+        break;
+      }
+      case kPlayerCloseForm: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_close_form_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_close_form_);
+        } else {
+          _this->_impl_.kind_.player_close_form_->MergeFrom(*from._impl_.kind_.player_close_form_);
         }
         break;
       }
@@ -8584,6 +10235,86 @@ void Action::MergeImpl(::google::protobuf::MessageLite& to_msg,
           _this->_impl_.kind_.player_punch_air_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_punch_air_);
         } else {
           _this->_impl_.kind_.player_punch_air_->MergeFrom(*from._impl_.kind_.player_punch_air_);
+        }
+        break;
+      }
+      case kPlayerSendBossBar: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_send_boss_bar_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_send_boss_bar_);
+        } else {
+          _this->_impl_.kind_.player_send_boss_bar_->MergeFrom(*from._impl_.kind_.player_send_boss_bar_);
+        }
+        break;
+      }
+      case kPlayerRemoveBossBar: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_remove_boss_bar_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_remove_boss_bar_);
+        } else {
+          _this->_impl_.kind_.player_remove_boss_bar_->MergeFrom(*from._impl_.kind_.player_remove_boss_bar_);
+        }
+        break;
+      }
+      case kPlayerShowHudElement: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_show_hud_element_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_show_hud_element_);
+        } else {
+          _this->_impl_.kind_.player_show_hud_element_->MergeFrom(*from._impl_.kind_.player_show_hud_element_);
+        }
+        break;
+      }
+      case kPlayerHideHudElement: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_hide_hud_element_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_hide_hud_element_);
+        } else {
+          _this->_impl_.kind_.player_hide_hud_element_->MergeFrom(*from._impl_.kind_.player_hide_hud_element_);
+        }
+        break;
+      }
+      case kPlayerOpenSign: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_open_sign_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_open_sign_);
+        } else {
+          _this->_impl_.kind_.player_open_sign_->MergeFrom(*from._impl_.kind_.player_open_sign_);
+        }
+        break;
+      }
+      case kPlayerEditSign: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_edit_sign_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_edit_sign_);
+        } else {
+          _this->_impl_.kind_.player_edit_sign_->MergeFrom(*from._impl_.kind_.player_edit_sign_);
+        }
+        break;
+      }
+      case kPlayerTurnLecternPage: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_turn_lectern_page_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_turn_lectern_page_);
+        } else {
+          _this->_impl_.kind_.player_turn_lectern_page_->MergeFrom(*from._impl_.kind_.player_turn_lectern_page_);
+        }
+        break;
+      }
+      case kPlayerHidePlayer: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_hide_player_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_hide_player_);
+        } else {
+          _this->_impl_.kind_.player_hide_player_->MergeFrom(*from._impl_.kind_.player_hide_player_);
+        }
+        break;
+      }
+      case kPlayerShowPlayer: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_show_player_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_show_player_);
+        } else {
+          _this->_impl_.kind_.player_show_player_->MergeFrom(*from._impl_.kind_.player_show_player_);
+        }
+        break;
+      }
+      case kPlayerRemoveAllDebugShapes: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.player_remove_all_debug_shapes_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.player_remove_all_debug_shapes_);
+        } else {
+          _this->_impl_.kind_.player_remove_all_debug_shapes_->MergeFrom(*from._impl_.kind_.player_remove_all_debug_shapes_);
         }
         break;
       }
@@ -37960,6 +39691,6192 @@ void PlayerRemoveScoreboardAction::InternalSwap(PlayerRemoveScoreboardAction* PR
 }
 
 ::google::protobuf::Metadata PlayerRemoveScoreboardAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerSendMenuFormAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerSendMenuFormAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_._has_bits_);
+};
+
+PlayerSendMenuFormAction::PlayerSendMenuFormAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerSendMenuFormAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerSendMenuFormAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerSendMenuFormAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerSendMenuFormAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        buttons_{visibility, arena, from.buttons_},
+        player_uuid_(arena, from.player_uuid_),
+        title_(arena, from.title_),
+        body_(arena, from.body_) {}
+
+PlayerSendMenuFormAction::PlayerSendMenuFormAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerSendMenuFormAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerSendMenuFormAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerSendMenuFormAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerSendMenuFormAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerSendMenuFormAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        buttons_{visibility, arena},
+        player_uuid_(arena),
+        title_(arena),
+        body_(arena) {}
+
+inline void PlayerSendMenuFormAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+PlayerSendMenuFormAction::~PlayerSendMenuFormAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerSendMenuFormAction)
+  SharedDtor(*this);
+}
+inline void PlayerSendMenuFormAction::SharedDtor(MessageLite& self) {
+  PlayerSendMenuFormAction& this_ = static_cast<PlayerSendMenuFormAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.title_.Destroy();
+  this_._impl_.body_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerSendMenuFormAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerSendMenuFormAction(arena);
+}
+constexpr auto PlayerSendMenuFormAction::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_.buttons_) +
+          decltype(PlayerSendMenuFormAction::_impl_.buttons_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(PlayerSendMenuFormAction), alignof(PlayerSendMenuFormAction), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&PlayerSendMenuFormAction::PlacementNew_,
+                                 sizeof(PlayerSendMenuFormAction),
+                                 alignof(PlayerSendMenuFormAction));
+  }
+}
+constexpr auto PlayerSendMenuFormAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerSendMenuFormAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerSendMenuFormAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerSendMenuFormAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerSendMenuFormAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerSendMenuFormAction>(), &PlayerSendMenuFormAction::ByteSizeLong,
+              &PlayerSendMenuFormAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerSendMenuFormAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerSendMenuFormAction_class_data_ =
+        PlayerSendMenuFormAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerSendMenuFormAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerSendMenuFormAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerSendMenuFormAction_class_data_.tc_table);
+  return PlayerSendMenuFormAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 4, 0, 70, 2>
+PlayerSendMenuFormAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_._has_bits_),
+    0, // no _extensions_
+    4, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerSendMenuFormAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerSendMenuFormAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated string buttons = 4 [json_name = "buttons"];
+    {::_pbi::TcParser::FastUR1,
+     {34, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_.buttons_)}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_.player_uuid_)}},
+    // string title = 2 [json_name = "title"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 2, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_.title_)}},
+    // optional string body = 3 [json_name = "body"];
+    {::_pbi::TcParser::FastUS1,
+     {26, 3, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_.body_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string title = 2 [json_name = "title"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_.title_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // optional string body = 3 [json_name = "body"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_.body_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // repeated string buttons = 4 [json_name = "buttons"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendMenuFormAction, _impl_.buttons_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
+  }},
+  // no aux_entries
+  {{
+    "\42\13\5\4\7\0\0\0"
+    "df.plugin.PlayerSendMenuFormAction"
+    "player_uuid"
+    "title"
+    "body"
+    "buttons"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerSendMenuFormAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerSendMenuFormAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.buttons_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _impl_.title_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      _impl_.body_.ClearNonDefaultToEmpty();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerSendMenuFormAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerSendMenuFormAction& this_ = static_cast<const PlayerSendMenuFormAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerSendMenuFormAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerSendMenuFormAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerSendMenuFormAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendMenuFormAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // string title = 2 [json_name = "title"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_title().empty()) {
+      const ::std::string& _s = this_._internal_title();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendMenuFormAction.title");
+      target = stream->WriteStringMaybeAliased(2, _s, target);
+    }
+  }
+
+  // optional string body = 3 [json_name = "body"];
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    const ::std::string& _s = this_._internal_body();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendMenuFormAction.body");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
+  }
+
+  // repeated string buttons = 4 [json_name = "buttons"];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (int i = 0, n = this_._internal_buttons_size(); i < n; ++i) {
+      const auto& s = this_._internal_buttons().Get(i);
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendMenuFormAction.buttons");
+      target = stream->WriteString(4, s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerSendMenuFormAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerSendMenuFormAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerSendMenuFormAction& this_ = static_cast<const PlayerSendMenuFormAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerSendMenuFormAction::ByteSizeLong() const {
+  const PlayerSendMenuFormAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerSendMenuFormAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    // repeated string buttons = 4 [json_name = "buttons"];
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_buttons().size());
+      for (int i = 0, n = this_._internal_buttons().size(); i < n; ++i) {
+        total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+            this_._internal_buttons().Get(i));
+      }
+    }
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // string title = 2 [json_name = "title"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!this_._internal_title().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_title());
+      }
+    }
+    // optional string body = 3 [json_name = "body"];
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                      this_._internal_body());
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerSendMenuFormAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerSendMenuFormAction*>(&to_msg);
+  auto& from = static_cast<const PlayerSendMenuFormAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerSendMenuFormAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_buttons()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_buttons());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!from._internal_title().empty()) {
+        _this->_internal_set_title(from._internal_title());
+      } else {
+        if (_this->_impl_.title_.IsDefault()) {
+          _this->_internal_set_title("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      _this->_internal_set_body(from._internal_body());
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerSendMenuFormAction::CopyFrom(const PlayerSendMenuFormAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerSendMenuFormAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerSendMenuFormAction::InternalSwap(PlayerSendMenuFormAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.buttons_.InternalSwap(&other->_impl_.buttons_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.title_, &other->_impl_.title_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.body_, &other->_impl_.body_, arena);
+}
+
+::google::protobuf::Metadata PlayerSendMenuFormAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerSendModalFormAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerSendModalFormAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_._has_bits_);
+};
+
+PlayerSendModalFormAction::PlayerSendModalFormAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerSendModalFormAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerSendModalFormAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerSendModalFormAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerSendModalFormAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_),
+        title_(arena, from.title_),
+        body_(arena, from.body_),
+        yes_text_(arena, from.yes_text_),
+        no_text_(arena, from.no_text_) {}
+
+PlayerSendModalFormAction::PlayerSendModalFormAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerSendModalFormAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerSendModalFormAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerSendModalFormAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerSendModalFormAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerSendModalFormAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena),
+        title_(arena),
+        body_(arena),
+        yes_text_(arena),
+        no_text_(arena) {}
+
+inline void PlayerSendModalFormAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+PlayerSendModalFormAction::~PlayerSendModalFormAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerSendModalFormAction)
+  SharedDtor(*this);
+}
+inline void PlayerSendModalFormAction::SharedDtor(MessageLite& self) {
+  PlayerSendModalFormAction& this_ = static_cast<PlayerSendModalFormAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.title_.Destroy();
+  this_._impl_.body_.Destroy();
+  this_._impl_.yes_text_.Destroy();
+  this_._impl_.no_text_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerSendModalFormAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerSendModalFormAction(arena);
+}
+constexpr auto PlayerSendModalFormAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerSendModalFormAction),
+                                            alignof(PlayerSendModalFormAction));
+}
+constexpr auto PlayerSendModalFormAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerSendModalFormAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerSendModalFormAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerSendModalFormAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerSendModalFormAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerSendModalFormAction>(), &PlayerSendModalFormAction::ByteSizeLong,
+              &PlayerSendModalFormAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerSendModalFormAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerSendModalFormAction_class_data_ =
+        PlayerSendModalFormAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerSendModalFormAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerSendModalFormAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerSendModalFormAction_class_data_.tc_table);
+  return PlayerSendModalFormAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 0, 79, 2>
+PlayerSendModalFormAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_._has_bits_),
+    0, // no _extensions_
+    5, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967264,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerSendModalFormAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerSendModalFormAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_.player_uuid_)}},
+    // string title = 2 [json_name = "title"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_.title_)}},
+    // string body = 3 [json_name = "body"];
+    {::_pbi::TcParser::FastUS1,
+     {26, 2, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_.body_)}},
+    // string yes_text = 4 [json_name = "yesText"];
+    {::_pbi::TcParser::FastUS1,
+     {34, 3, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_.yes_text_)}},
+    // string no_text = 5 [json_name = "noText"];
+    {::_pbi::TcParser::FastUS1,
+     {42, 4, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_.no_text_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string title = 2 [json_name = "title"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_.title_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string body = 3 [json_name = "body"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_.body_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string yes_text = 4 [json_name = "yesText"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_.yes_text_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string no_text = 5 [json_name = "noText"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendModalFormAction, _impl_.no_text_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\43\13\5\4\10\7\0\0"
+    "df.plugin.PlayerSendModalFormAction"
+    "player_uuid"
+    "title"
+    "body"
+    "yes_text"
+    "no_text"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerSendModalFormAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerSendModalFormAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.title_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _impl_.body_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      _impl_.yes_text_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      _impl_.no_text_.ClearNonDefaultToEmpty();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerSendModalFormAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerSendModalFormAction& this_ = static_cast<const PlayerSendModalFormAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerSendModalFormAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerSendModalFormAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerSendModalFormAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendModalFormAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // string title = 2 [json_name = "title"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_title().empty()) {
+      const ::std::string& _s = this_._internal_title();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendModalFormAction.title");
+      target = stream->WriteStringMaybeAliased(2, _s, target);
+    }
+  }
+
+  // string body = 3 [json_name = "body"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_body().empty()) {
+      const ::std::string& _s = this_._internal_body();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendModalFormAction.body");
+      target = stream->WriteStringMaybeAliased(3, _s, target);
+    }
+  }
+
+  // string yes_text = 4 [json_name = "yesText"];
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (!this_._internal_yes_text().empty()) {
+      const ::std::string& _s = this_._internal_yes_text();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendModalFormAction.yes_text");
+      target = stream->WriteStringMaybeAliased(4, _s, target);
+    }
+  }
+
+  // string no_text = 5 [json_name = "noText"];
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (!this_._internal_no_text().empty()) {
+      const ::std::string& _s = this_._internal_no_text();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendModalFormAction.no_text");
+      target = stream->WriteStringMaybeAliased(5, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerSendModalFormAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerSendModalFormAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerSendModalFormAction& this_ = static_cast<const PlayerSendModalFormAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerSendModalFormAction::ByteSizeLong() const {
+  const PlayerSendModalFormAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerSendModalFormAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // string title = 2 [json_name = "title"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_title().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_title());
+      }
+    }
+    // string body = 3 [json_name = "body"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!this_._internal_body().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_body());
+      }
+    }
+    // string yes_text = 4 [json_name = "yesText"];
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (!this_._internal_yes_text().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_yes_text());
+      }
+    }
+    // string no_text = 5 [json_name = "noText"];
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (!this_._internal_no_text().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_no_text());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerSendModalFormAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerSendModalFormAction*>(&to_msg);
+  auto& from = static_cast<const PlayerSendModalFormAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerSendModalFormAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_title().empty()) {
+        _this->_internal_set_title(from._internal_title());
+      } else {
+        if (_this->_impl_.title_.IsDefault()) {
+          _this->_internal_set_title("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!from._internal_body().empty()) {
+        _this->_internal_set_body(from._internal_body());
+      } else {
+        if (_this->_impl_.body_.IsDefault()) {
+          _this->_internal_set_body("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      if (!from._internal_yes_text().empty()) {
+        _this->_internal_set_yes_text(from._internal_yes_text());
+      } else {
+        if (_this->_impl_.yes_text_.IsDefault()) {
+          _this->_internal_set_yes_text("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      if (!from._internal_no_text().empty()) {
+        _this->_internal_set_no_text(from._internal_no_text());
+      } else {
+        if (_this->_impl_.no_text_.IsDefault()) {
+          _this->_internal_set_no_text("");
+        }
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerSendModalFormAction::CopyFrom(const PlayerSendModalFormAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerSendModalFormAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerSendModalFormAction::InternalSwap(PlayerSendModalFormAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.title_, &other->_impl_.title_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.body_, &other->_impl_.body_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.yes_text_, &other->_impl_.yes_text_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.no_text_, &other->_impl_.no_text_, arena);
+}
+
+::google::protobuf::Metadata PlayerSendModalFormAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerSendDialogueAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerSendDialogueAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_._has_bits_);
+};
+
+void PlayerSendDialogueAction::clear_entity() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.entity_ != nullptr) _impl_.entity_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000010U);
+}
+PlayerSendDialogueAction::PlayerSendDialogueAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerSendDialogueAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerSendDialogueAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerSendDialogueAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerSendDialogueAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        buttons_{visibility, arena, from.buttons_},
+        player_uuid_(arena, from.player_uuid_),
+        title_(arena, from.title_),
+        body_(arena, from.body_) {}
+
+PlayerSendDialogueAction::PlayerSendDialogueAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerSendDialogueAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerSendDialogueAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerSendDialogueAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.entity_ = (CheckHasBit(cached_has_bits, 0x00000010U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.entity_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerSendDialogueAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerSendDialogueAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        buttons_{visibility, arena},
+        player_uuid_(arena),
+        title_(arena),
+        body_(arena) {}
+
+inline void PlayerSendDialogueAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.entity_ = {};
+}
+PlayerSendDialogueAction::~PlayerSendDialogueAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerSendDialogueAction)
+  SharedDtor(*this);
+}
+inline void PlayerSendDialogueAction::SharedDtor(MessageLite& self) {
+  PlayerSendDialogueAction& this_ = static_cast<PlayerSendDialogueAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.title_.Destroy();
+  this_._impl_.body_.Destroy();
+  delete this_._impl_.entity_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerSendDialogueAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerSendDialogueAction(arena);
+}
+constexpr auto PlayerSendDialogueAction::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_.buttons_) +
+          decltype(PlayerSendDialogueAction::_impl_.buttons_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(PlayerSendDialogueAction), alignof(PlayerSendDialogueAction), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&PlayerSendDialogueAction::PlacementNew_,
+                                 sizeof(PlayerSendDialogueAction),
+                                 alignof(PlayerSendDialogueAction));
+  }
+}
+constexpr auto PlayerSendDialogueAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerSendDialogueAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerSendDialogueAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerSendDialogueAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerSendDialogueAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerSendDialogueAction>(), &PlayerSendDialogueAction::ByteSizeLong,
+              &PlayerSendDialogueAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerSendDialogueAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerSendDialogueAction_class_data_ =
+        PlayerSendDialogueAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerSendDialogueAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerSendDialogueAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerSendDialogueAction_class_data_.tc_table);
+  return PlayerSendDialogueAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 1, 70, 2>
+PlayerSendDialogueAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_._has_bits_),
+    0, // no _extensions_
+    5, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967264,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    PlayerSendDialogueAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerSendDialogueAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_.player_uuid_)}},
+    // string title = 2 [json_name = "title"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 2, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_.title_)}},
+    // optional string body = 3 [json_name = "body"];
+    {::_pbi::TcParser::FastUS1,
+     {26, 3, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_.body_)}},
+    // repeated string buttons = 4 [json_name = "buttons"];
+    {::_pbi::TcParser::FastUR1,
+     {34, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_.buttons_)}},
+    // .df.plugin.EntityRef entity = 5 [json_name = "entity"];
+    {::_pbi::TcParser::FastMtS1,
+     {42, 4, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_.entity_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string title = 2 [json_name = "title"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_.title_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // optional string body = 3 [json_name = "body"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_.body_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // repeated string buttons = 4 [json_name = "buttons"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_.buttons_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
+    // .df.plugin.EntityRef entity = 5 [json_name = "entity"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendDialogueAction, _impl_.entity_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::EntityRef>()},
+  }},
+  {{
+    "\42\13\5\4\7\0\0\0"
+    "df.plugin.PlayerSendDialogueAction"
+    "player_uuid"
+    "title"
+    "body"
+    "buttons"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerSendDialogueAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerSendDialogueAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.buttons_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _impl_.title_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      _impl_.body_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      ABSL_DCHECK(_impl_.entity_ != nullptr);
+      _impl_.entity_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerSendDialogueAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerSendDialogueAction& this_ = static_cast<const PlayerSendDialogueAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerSendDialogueAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerSendDialogueAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerSendDialogueAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendDialogueAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // string title = 2 [json_name = "title"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_title().empty()) {
+      const ::std::string& _s = this_._internal_title();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendDialogueAction.title");
+      target = stream->WriteStringMaybeAliased(2, _s, target);
+    }
+  }
+
+  // optional string body = 3 [json_name = "body"];
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    const ::std::string& _s = this_._internal_body();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendDialogueAction.body");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
+  }
+
+  // repeated string buttons = 4 [json_name = "buttons"];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (int i = 0, n = this_._internal_buttons_size(); i < n; ++i) {
+      const auto& s = this_._internal_buttons().Get(i);
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendDialogueAction.buttons");
+      target = stream->WriteString(4, s, target);
+    }
+  }
+
+  // .df.plugin.EntityRef entity = 5 [json_name = "entity"];
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        5, *this_._impl_.entity_, this_._impl_.entity_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerSendDialogueAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerSendDialogueAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerSendDialogueAction& this_ = static_cast<const PlayerSendDialogueAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerSendDialogueAction::ByteSizeLong() const {
+  const PlayerSendDialogueAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerSendDialogueAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    // repeated string buttons = 4 [json_name = "buttons"];
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_buttons().size());
+      for (int i = 0, n = this_._internal_buttons().size(); i < n; ++i) {
+        total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+            this_._internal_buttons().Get(i));
+      }
+    }
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // string title = 2 [json_name = "title"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!this_._internal_title().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_title());
+      }
+    }
+    // optional string body = 3 [json_name = "body"];
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                      this_._internal_body());
+    }
+    // .df.plugin.EntityRef entity = 5 [json_name = "entity"];
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.entity_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerSendDialogueAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerSendDialogueAction*>(&to_msg);
+  auto& from = static_cast<const PlayerSendDialogueAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerSendDialogueAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_buttons()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_buttons());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!from._internal_title().empty()) {
+        _this->_internal_set_title(from._internal_title());
+      } else {
+        if (_this->_impl_.title_.IsDefault()) {
+          _this->_internal_set_title("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      _this->_internal_set_body(from._internal_body());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      ABSL_DCHECK(from._impl_.entity_ != nullptr);
+      if (_this->_impl_.entity_ == nullptr) {
+        _this->_impl_.entity_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.entity_);
+      } else {
+        _this->_impl_.entity_->MergeFrom(*from._impl_.entity_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerSendDialogueAction::CopyFrom(const PlayerSendDialogueAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerSendDialogueAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerSendDialogueAction::InternalSwap(PlayerSendDialogueAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.buttons_.InternalSwap(&other->_impl_.buttons_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.title_, &other->_impl_.title_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.body_, &other->_impl_.body_, arena);
+  swap(_impl_.entity_, other->_impl_.entity_);
+}
+
+::google::protobuf::Metadata PlayerSendDialogueAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerSendBossBarAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerSendBossBarAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_._has_bits_);
+};
+
+PlayerSendBossBarAction::PlayerSendBossBarAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerSendBossBarAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerSendBossBarAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerSendBossBarAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerSendBossBarAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_),
+        text_(arena, from.text_) {}
+
+PlayerSendBossBarAction::PlayerSendBossBarAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerSendBossBarAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerSendBossBarAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerSendBossBarAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, health_percentage_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, health_percentage_),
+           offsetof(Impl_, colour_) -
+               offsetof(Impl_, health_percentage_) +
+               sizeof(Impl_::colour_));
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerSendBossBarAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerSendBossBarAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena),
+        text_(arena) {}
+
+inline void PlayerSendBossBarAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, health_percentage_),
+           0,
+           offsetof(Impl_, colour_) -
+               offsetof(Impl_, health_percentage_) +
+               sizeof(Impl_::colour_));
+}
+PlayerSendBossBarAction::~PlayerSendBossBarAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerSendBossBarAction)
+  SharedDtor(*this);
+}
+inline void PlayerSendBossBarAction::SharedDtor(MessageLite& self) {
+  PlayerSendBossBarAction& this_ = static_cast<PlayerSendBossBarAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.text_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerSendBossBarAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerSendBossBarAction(arena);
+}
+constexpr auto PlayerSendBossBarAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerSendBossBarAction),
+                                            alignof(PlayerSendBossBarAction));
+}
+constexpr auto PlayerSendBossBarAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerSendBossBarAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerSendBossBarAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerSendBossBarAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerSendBossBarAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerSendBossBarAction>(), &PlayerSendBossBarAction::ByteSizeLong,
+              &PlayerSendBossBarAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerSendBossBarAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerSendBossBarAction_class_data_ =
+        PlayerSendBossBarAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerSendBossBarAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerSendBossBarAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerSendBossBarAction_class_data_.tc_table);
+  return PlayerSendBossBarAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 4, 0, 57, 2>
+PlayerSendBossBarAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_._has_bits_),
+    0, // no _extensions_
+    4, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerSendBossBarAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerSendBossBarAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // optional .df.plugin.BossBarColour colour = 4 [json_name = "colour"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerSendBossBarAction, _impl_.colour_), 3>(),
+     {32, 3, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_.colour_)}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_.player_uuid_)}},
+    // string text = 2 [json_name = "text"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_.text_)}},
+    // optional float health_percentage = 3 [json_name = "healthPercentage"];
+    {::_pbi::TcParser::FastF32S1,
+     {29, 2, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_.health_percentage_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string text = 2 [json_name = "text"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_.text_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // optional float health_percentage = 3 [json_name = "healthPercentage"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_.health_percentage_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kFloat)},
+    // optional .df.plugin.BossBarColour colour = 4 [json_name = "colour"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_.colour_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kOpenEnum)},
+  }},
+  // no aux_entries
+  {{
+    "\41\13\4\0\0\0\0\0"
+    "df.plugin.PlayerSendBossBarAction"
+    "player_uuid"
+    "text"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerSendBossBarAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerSendBossBarAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.text_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000cU)) {
+    ::memset(&_impl_.health_percentage_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.colour_) -
+        reinterpret_cast<char*>(&_impl_.health_percentage_)) + sizeof(_impl_.colour_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerSendBossBarAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerSendBossBarAction& this_ = static_cast<const PlayerSendBossBarAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerSendBossBarAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerSendBossBarAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerSendBossBarAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendBossBarAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // string text = 2 [json_name = "text"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_text().empty()) {
+      const ::std::string& _s = this_._internal_text();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSendBossBarAction.text");
+      target = stream->WriteStringMaybeAliased(2, _s, target);
+    }
+  }
+
+  // optional float health_percentage = 3 [json_name = "healthPercentage"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(
+        3, this_._internal_health_percentage(), target);
+  }
+
+  // optional .df.plugin.BossBarColour colour = 4 [json_name = "colour"];
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+        4, this_._internal_colour(), target);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerSendBossBarAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerSendBossBarAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerSendBossBarAction& this_ = static_cast<const PlayerSendBossBarAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerSendBossBarAction::ByteSizeLong() const {
+  const PlayerSendBossBarAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerSendBossBarAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  total_size += static_cast<bool>(0x00000004U & cached_has_bits) * 5;
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000bU)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // string text = 2 [json_name = "text"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_text().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_text());
+      }
+    }
+    // optional .df.plugin.BossBarColour colour = 4 [json_name = "colour"];
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      total_size += 1 +
+                    ::_pbi::WireFormatLite::EnumSize(this_._internal_colour());
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerSendBossBarAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerSendBossBarAction*>(&to_msg);
+  auto& from = static_cast<const PlayerSendBossBarAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerSendBossBarAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_text().empty()) {
+        _this->_internal_set_text(from._internal_text());
+      } else {
+        if (_this->_impl_.text_.IsDefault()) {
+          _this->_internal_set_text("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _this->_impl_.health_percentage_ = from._impl_.health_percentage_;
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      _this->_impl_.colour_ = from._impl_.colour_;
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerSendBossBarAction::CopyFrom(const PlayerSendBossBarAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerSendBossBarAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerSendBossBarAction::InternalSwap(PlayerSendBossBarAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.text_, &other->_impl_.text_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_.colour_)
+      + sizeof(PlayerSendBossBarAction::_impl_.colour_)
+      - PROTOBUF_FIELD_OFFSET(PlayerSendBossBarAction, _impl_.health_percentage_)>(
+          reinterpret_cast<char*>(&_impl_.health_percentage_),
+          reinterpret_cast<char*>(&other->_impl_.health_percentage_));
+}
+
+::google::protobuf::Metadata PlayerSendBossBarAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerRemoveBossBarAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerRemoveBossBarAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerRemoveBossBarAction, _impl_._has_bits_);
+};
+
+PlayerRemoveBossBarAction::PlayerRemoveBossBarAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerRemoveBossBarAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerRemoveBossBarAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerRemoveBossBarAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerRemoveBossBarAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+PlayerRemoveBossBarAction::PlayerRemoveBossBarAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerRemoveBossBarAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerRemoveBossBarAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerRemoveBossBarAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerRemoveBossBarAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerRemoveBossBarAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void PlayerRemoveBossBarAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+PlayerRemoveBossBarAction::~PlayerRemoveBossBarAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerRemoveBossBarAction)
+  SharedDtor(*this);
+}
+inline void PlayerRemoveBossBarAction::SharedDtor(MessageLite& self) {
+  PlayerRemoveBossBarAction& this_ = static_cast<PlayerRemoveBossBarAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerRemoveBossBarAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerRemoveBossBarAction(arena);
+}
+constexpr auto PlayerRemoveBossBarAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerRemoveBossBarAction),
+                                            alignof(PlayerRemoveBossBarAction));
+}
+constexpr auto PlayerRemoveBossBarAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerRemoveBossBarAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerRemoveBossBarAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerRemoveBossBarAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerRemoveBossBarAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerRemoveBossBarAction>(), &PlayerRemoveBossBarAction::ByteSizeLong,
+              &PlayerRemoveBossBarAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerRemoveBossBarAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerRemoveBossBarAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerRemoveBossBarAction_class_data_ =
+        PlayerRemoveBossBarAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerRemoveBossBarAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerRemoveBossBarAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerRemoveBossBarAction_class_data_.tc_table);
+  return PlayerRemoveBossBarAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 55, 2>
+PlayerRemoveBossBarAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerRemoveBossBarAction, _impl_._has_bits_),
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerRemoveBossBarAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerRemoveBossBarAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerRemoveBossBarAction, _impl_.player_uuid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerRemoveBossBarAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\43\13\0\0\0\0\0\0"
+    "df.plugin.PlayerRemoveBossBarAction"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerRemoveBossBarAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerRemoveBossBarAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.player_uuid_.ClearNonDefaultToEmpty();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerRemoveBossBarAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerRemoveBossBarAction& this_ = static_cast<const PlayerRemoveBossBarAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerRemoveBossBarAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerRemoveBossBarAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerRemoveBossBarAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerRemoveBossBarAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerRemoveBossBarAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerRemoveBossBarAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerRemoveBossBarAction& this_ = static_cast<const PlayerRemoveBossBarAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerRemoveBossBarAction::ByteSizeLong() const {
+  const PlayerRemoveBossBarAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerRemoveBossBarAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+   {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    cached_has_bits = this_._impl_._has_bits_[0];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerRemoveBossBarAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerRemoveBossBarAction*>(&to_msg);
+  auto& from = static_cast<const PlayerRemoveBossBarAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerRemoveBossBarAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!from._internal_player_uuid().empty()) {
+      _this->_internal_set_player_uuid(from._internal_player_uuid());
+    } else {
+      if (_this->_impl_.player_uuid_.IsDefault()) {
+        _this->_internal_set_player_uuid("");
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerRemoveBossBarAction::CopyFrom(const PlayerRemoveBossBarAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerRemoveBossBarAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerRemoveBossBarAction::InternalSwap(PlayerRemoveBossBarAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+}
+
+::google::protobuf::Metadata PlayerRemoveBossBarAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerShowHudElementAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerShowHudElementAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerShowHudElementAction, _impl_._has_bits_);
+};
+
+PlayerShowHudElementAction::PlayerShowHudElementAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerShowHudElementAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerShowHudElementAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerShowHudElementAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerShowHudElementAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+PlayerShowHudElementAction::PlayerShowHudElementAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerShowHudElementAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerShowHudElementAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerShowHudElementAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.element_ = from._impl_.element_;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerShowHudElementAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerShowHudElementAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void PlayerShowHudElementAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.element_ = {};
+}
+PlayerShowHudElementAction::~PlayerShowHudElementAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerShowHudElementAction)
+  SharedDtor(*this);
+}
+inline void PlayerShowHudElementAction::SharedDtor(MessageLite& self) {
+  PlayerShowHudElementAction& this_ = static_cast<PlayerShowHudElementAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerShowHudElementAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerShowHudElementAction(arena);
+}
+constexpr auto PlayerShowHudElementAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerShowHudElementAction),
+                                            alignof(PlayerShowHudElementAction));
+}
+constexpr auto PlayerShowHudElementAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerShowHudElementAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerShowHudElementAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerShowHudElementAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerShowHudElementAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerShowHudElementAction>(), &PlayerShowHudElementAction::ByteSizeLong,
+              &PlayerShowHudElementAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerShowHudElementAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerShowHudElementAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerShowHudElementAction_class_data_ =
+        PlayerShowHudElementAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerShowHudElementAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerShowHudElementAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerShowHudElementAction_class_data_.tc_table);
+  return PlayerShowHudElementAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 56, 2>
+PlayerShowHudElementAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerShowHudElementAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerShowHudElementAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerShowHudElementAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.HudElement element = 2 [json_name = "element"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerShowHudElementAction, _impl_.element_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerShowHudElementAction, _impl_.element_)}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerShowHudElementAction, _impl_.player_uuid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerShowHudElementAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .df.plugin.HudElement element = 2 [json_name = "element"];
+    {PROTOBUF_FIELD_OFFSET(PlayerShowHudElementAction, _impl_.element_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kOpenEnum)},
+  }},
+  // no aux_entries
+  {{
+    "\44\13\0\0\0\0\0\0"
+    "df.plugin.PlayerShowHudElementAction"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerShowHudElementAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerShowHudElementAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.player_uuid_.ClearNonDefaultToEmpty();
+  }
+  _impl_.element_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerShowHudElementAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerShowHudElementAction& this_ = static_cast<const PlayerShowHudElementAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerShowHudElementAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerShowHudElementAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerShowHudElementAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerShowHudElementAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // .df.plugin.HudElement element = 2 [json_name = "element"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_element() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteEnumToArray(
+          2, this_._internal_element(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerShowHudElementAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerShowHudElementAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerShowHudElementAction& this_ = static_cast<const PlayerShowHudElementAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerShowHudElementAction::ByteSizeLong() const {
+  const PlayerShowHudElementAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerShowHudElementAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // .df.plugin.HudElement element = 2 [json_name = "element"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_element() != 0) {
+        total_size += 1 +
+                      ::_pbi::WireFormatLite::EnumSize(this_._internal_element());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerShowHudElementAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerShowHudElementAction*>(&to_msg);
+  auto& from = static_cast<const PlayerShowHudElementAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerShowHudElementAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_element() != 0) {
+        _this->_impl_.element_ = from._impl_.element_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerShowHudElementAction::CopyFrom(const PlayerShowHudElementAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerShowHudElementAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerShowHudElementAction::InternalSwap(PlayerShowHudElementAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  swap(_impl_.element_, other->_impl_.element_);
+}
+
+::google::protobuf::Metadata PlayerShowHudElementAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerHideHudElementAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerHideHudElementAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerHideHudElementAction, _impl_._has_bits_);
+};
+
+PlayerHideHudElementAction::PlayerHideHudElementAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerHideHudElementAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerHideHudElementAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerHideHudElementAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerHideHudElementAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+PlayerHideHudElementAction::PlayerHideHudElementAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerHideHudElementAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerHideHudElementAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerHideHudElementAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  _impl_.element_ = from._impl_.element_;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerHideHudElementAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerHideHudElementAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void PlayerHideHudElementAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.element_ = {};
+}
+PlayerHideHudElementAction::~PlayerHideHudElementAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerHideHudElementAction)
+  SharedDtor(*this);
+}
+inline void PlayerHideHudElementAction::SharedDtor(MessageLite& self) {
+  PlayerHideHudElementAction& this_ = static_cast<PlayerHideHudElementAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerHideHudElementAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerHideHudElementAction(arena);
+}
+constexpr auto PlayerHideHudElementAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerHideHudElementAction),
+                                            alignof(PlayerHideHudElementAction));
+}
+constexpr auto PlayerHideHudElementAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerHideHudElementAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerHideHudElementAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerHideHudElementAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerHideHudElementAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerHideHudElementAction>(), &PlayerHideHudElementAction::ByteSizeLong,
+              &PlayerHideHudElementAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerHideHudElementAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerHideHudElementAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerHideHudElementAction_class_data_ =
+        PlayerHideHudElementAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerHideHudElementAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerHideHudElementAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerHideHudElementAction_class_data_.tc_table);
+  return PlayerHideHudElementAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 56, 2>
+PlayerHideHudElementAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerHideHudElementAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerHideHudElementAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerHideHudElementAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.HudElement element = 2 [json_name = "element"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerHideHudElementAction, _impl_.element_), 1>(),
+     {16, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerHideHudElementAction, _impl_.element_)}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerHideHudElementAction, _impl_.player_uuid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerHideHudElementAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .df.plugin.HudElement element = 2 [json_name = "element"];
+    {PROTOBUF_FIELD_OFFSET(PlayerHideHudElementAction, _impl_.element_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kOpenEnum)},
+  }},
+  // no aux_entries
+  {{
+    "\44\13\0\0\0\0\0\0"
+    "df.plugin.PlayerHideHudElementAction"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerHideHudElementAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerHideHudElementAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.player_uuid_.ClearNonDefaultToEmpty();
+  }
+  _impl_.element_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerHideHudElementAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerHideHudElementAction& this_ = static_cast<const PlayerHideHudElementAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerHideHudElementAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerHideHudElementAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerHideHudElementAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerHideHudElementAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // .df.plugin.HudElement element = 2 [json_name = "element"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (this_._internal_element() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteEnumToArray(
+          2, this_._internal_element(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerHideHudElementAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerHideHudElementAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerHideHudElementAction& this_ = static_cast<const PlayerHideHudElementAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerHideHudElementAction::ByteSizeLong() const {
+  const PlayerHideHudElementAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerHideHudElementAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // .df.plugin.HudElement element = 2 [json_name = "element"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (this_._internal_element() != 0) {
+        total_size += 1 +
+                      ::_pbi::WireFormatLite::EnumSize(this_._internal_element());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerHideHudElementAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerHideHudElementAction*>(&to_msg);
+  auto& from = static_cast<const PlayerHideHudElementAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerHideHudElementAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (from._internal_element() != 0) {
+        _this->_impl_.element_ = from._impl_.element_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerHideHudElementAction::CopyFrom(const PlayerHideHudElementAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerHideHudElementAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerHideHudElementAction::InternalSwap(PlayerHideHudElementAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  swap(_impl_.element_, other->_impl_.element_);
+}
+
+::google::protobuf::Metadata PlayerHideHudElementAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerCloseDialogueAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerCloseDialogueAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerCloseDialogueAction, _impl_._has_bits_);
+};
+
+PlayerCloseDialogueAction::PlayerCloseDialogueAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerCloseDialogueAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerCloseDialogueAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerCloseDialogueAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerCloseDialogueAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+PlayerCloseDialogueAction::PlayerCloseDialogueAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerCloseDialogueAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerCloseDialogueAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerCloseDialogueAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerCloseDialogueAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerCloseDialogueAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void PlayerCloseDialogueAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+PlayerCloseDialogueAction::~PlayerCloseDialogueAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerCloseDialogueAction)
+  SharedDtor(*this);
+}
+inline void PlayerCloseDialogueAction::SharedDtor(MessageLite& self) {
+  PlayerCloseDialogueAction& this_ = static_cast<PlayerCloseDialogueAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerCloseDialogueAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerCloseDialogueAction(arena);
+}
+constexpr auto PlayerCloseDialogueAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerCloseDialogueAction),
+                                            alignof(PlayerCloseDialogueAction));
+}
+constexpr auto PlayerCloseDialogueAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerCloseDialogueAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerCloseDialogueAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerCloseDialogueAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerCloseDialogueAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerCloseDialogueAction>(), &PlayerCloseDialogueAction::ByteSizeLong,
+              &PlayerCloseDialogueAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerCloseDialogueAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerCloseDialogueAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerCloseDialogueAction_class_data_ =
+        PlayerCloseDialogueAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerCloseDialogueAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerCloseDialogueAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerCloseDialogueAction_class_data_.tc_table);
+  return PlayerCloseDialogueAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 55, 2>
+PlayerCloseDialogueAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerCloseDialogueAction, _impl_._has_bits_),
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerCloseDialogueAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerCloseDialogueAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerCloseDialogueAction, _impl_.player_uuid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerCloseDialogueAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\43\13\0\0\0\0\0\0"
+    "df.plugin.PlayerCloseDialogueAction"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerCloseDialogueAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerCloseDialogueAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.player_uuid_.ClearNonDefaultToEmpty();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerCloseDialogueAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerCloseDialogueAction& this_ = static_cast<const PlayerCloseDialogueAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerCloseDialogueAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerCloseDialogueAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerCloseDialogueAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerCloseDialogueAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerCloseDialogueAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerCloseDialogueAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerCloseDialogueAction& this_ = static_cast<const PlayerCloseDialogueAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerCloseDialogueAction::ByteSizeLong() const {
+  const PlayerCloseDialogueAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerCloseDialogueAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+   {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    cached_has_bits = this_._impl_._has_bits_[0];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerCloseDialogueAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerCloseDialogueAction*>(&to_msg);
+  auto& from = static_cast<const PlayerCloseDialogueAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerCloseDialogueAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!from._internal_player_uuid().empty()) {
+      _this->_internal_set_player_uuid(from._internal_player_uuid());
+    } else {
+      if (_this->_impl_.player_uuid_.IsDefault()) {
+        _this->_internal_set_player_uuid("");
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerCloseDialogueAction::CopyFrom(const PlayerCloseDialogueAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerCloseDialogueAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerCloseDialogueAction::InternalSwap(PlayerCloseDialogueAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+}
+
+::google::protobuf::Metadata PlayerCloseDialogueAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerCloseFormAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerCloseFormAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerCloseFormAction, _impl_._has_bits_);
+};
+
+PlayerCloseFormAction::PlayerCloseFormAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerCloseFormAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerCloseFormAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerCloseFormAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerCloseFormAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+PlayerCloseFormAction::PlayerCloseFormAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerCloseFormAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerCloseFormAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerCloseFormAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerCloseFormAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerCloseFormAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void PlayerCloseFormAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+PlayerCloseFormAction::~PlayerCloseFormAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerCloseFormAction)
+  SharedDtor(*this);
+}
+inline void PlayerCloseFormAction::SharedDtor(MessageLite& self) {
+  PlayerCloseFormAction& this_ = static_cast<PlayerCloseFormAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerCloseFormAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerCloseFormAction(arena);
+}
+constexpr auto PlayerCloseFormAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerCloseFormAction),
+                                            alignof(PlayerCloseFormAction));
+}
+constexpr auto PlayerCloseFormAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerCloseFormAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerCloseFormAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerCloseFormAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerCloseFormAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerCloseFormAction>(), &PlayerCloseFormAction::ByteSizeLong,
+              &PlayerCloseFormAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerCloseFormAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerCloseFormAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerCloseFormAction_class_data_ =
+        PlayerCloseFormAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerCloseFormAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerCloseFormAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerCloseFormAction_class_data_.tc_table);
+  return PlayerCloseFormAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 51, 2>
+PlayerCloseFormAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerCloseFormAction, _impl_._has_bits_),
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerCloseFormAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerCloseFormAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerCloseFormAction, _impl_.player_uuid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerCloseFormAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\37\13\0\0\0\0\0\0"
+    "df.plugin.PlayerCloseFormAction"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerCloseFormAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerCloseFormAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.player_uuid_.ClearNonDefaultToEmpty();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerCloseFormAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerCloseFormAction& this_ = static_cast<const PlayerCloseFormAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerCloseFormAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerCloseFormAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerCloseFormAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerCloseFormAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerCloseFormAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerCloseFormAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerCloseFormAction& this_ = static_cast<const PlayerCloseFormAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerCloseFormAction::ByteSizeLong() const {
+  const PlayerCloseFormAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerCloseFormAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+   {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    cached_has_bits = this_._impl_._has_bits_[0];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerCloseFormAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerCloseFormAction*>(&to_msg);
+  auto& from = static_cast<const PlayerCloseFormAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerCloseFormAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!from._internal_player_uuid().empty()) {
+      _this->_internal_set_player_uuid(from._internal_player_uuid());
+    } else {
+      if (_this->_impl_.player_uuid_.IsDefault()) {
+        _this->_internal_set_player_uuid("");
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerCloseFormAction::CopyFrom(const PlayerCloseFormAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerCloseFormAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerCloseFormAction::InternalSwap(PlayerCloseFormAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+}
+
+::google::protobuf::Metadata PlayerCloseFormAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerOpenSignAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerOpenSignAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerOpenSignAction, _impl_._has_bits_);
+};
+
+void PlayerOpenSignAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+PlayerOpenSignAction::PlayerOpenSignAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerOpenSignAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerOpenSignAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerOpenSignAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerOpenSignAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+PlayerOpenSignAction::PlayerOpenSignAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerOpenSignAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerOpenSignAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerOpenSignAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+  _impl_.front_side_ = from._impl_.front_side_;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerOpenSignAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerOpenSignAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void PlayerOpenSignAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, position_),
+           0,
+           offsetof(Impl_, front_side_) -
+               offsetof(Impl_, position_) +
+               sizeof(Impl_::front_side_));
+}
+PlayerOpenSignAction::~PlayerOpenSignAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerOpenSignAction)
+  SharedDtor(*this);
+}
+inline void PlayerOpenSignAction::SharedDtor(MessageLite& self) {
+  PlayerOpenSignAction& this_ = static_cast<PlayerOpenSignAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerOpenSignAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerOpenSignAction(arena);
+}
+constexpr auto PlayerOpenSignAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerOpenSignAction),
+                                            alignof(PlayerOpenSignAction));
+}
+constexpr auto PlayerOpenSignAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerOpenSignAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerOpenSignAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerOpenSignAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerOpenSignAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerOpenSignAction>(), &PlayerOpenSignAction::ByteSizeLong,
+              &PlayerOpenSignAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerOpenSignAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerOpenSignAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerOpenSignAction_class_data_ =
+        PlayerOpenSignAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerOpenSignAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerOpenSignAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerOpenSignAction_class_data_.tc_table);
+  return PlayerOpenSignAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 1, 50, 2>
+PlayerOpenSignAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerOpenSignAction, _impl_._has_bits_),
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    PlayerOpenSignAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerOpenSignAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerOpenSignAction, _impl_.player_uuid_)}},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerOpenSignAction, _impl_.position_)}},
+    // bool front_side = 3 [json_name = "frontSide"];
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(PlayerOpenSignAction, _impl_.front_side_), 2>(),
+     {24, 2, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerOpenSignAction, _impl_.front_side_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerOpenSignAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(PlayerOpenSignAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // bool front_side = 3 [json_name = "frontSide"];
+    {PROTOBUF_FIELD_OFFSET(PlayerOpenSignAction, _impl_.front_side_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+    "\36\13\0\0\0\0\0\0"
+    "df.plugin.PlayerOpenSignAction"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerOpenSignAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerOpenSignAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_.front_side_ = false;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerOpenSignAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerOpenSignAction& this_ = static_cast<const PlayerOpenSignAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerOpenSignAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerOpenSignAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerOpenSignAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerOpenSignAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  // bool front_side = 3 [json_name = "frontSide"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_front_side() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          3, this_._internal_front_side(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerOpenSignAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerOpenSignAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerOpenSignAction& this_ = static_cast<const PlayerOpenSignAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerOpenSignAction::ByteSizeLong() const {
+  const PlayerOpenSignAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerOpenSignAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+    // bool front_side = 3 [json_name = "frontSide"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_front_side() != 0) {
+        total_size += 2;
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerOpenSignAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerOpenSignAction*>(&to_msg);
+  auto& from = static_cast<const PlayerOpenSignAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerOpenSignAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_front_side() != 0) {
+        _this->_impl_.front_side_ = from._impl_.front_side_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerOpenSignAction::CopyFrom(const PlayerOpenSignAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerOpenSignAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerOpenSignAction::InternalSwap(PlayerOpenSignAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(PlayerOpenSignAction, _impl_.front_side_)
+      + sizeof(PlayerOpenSignAction::_impl_.front_side_)
+      - PROTOBUF_FIELD_OFFSET(PlayerOpenSignAction, _impl_.position_)>(
+          reinterpret_cast<char*>(&_impl_.position_),
+          reinterpret_cast<char*>(&other->_impl_.position_));
+}
+
+::google::protobuf::Metadata PlayerOpenSignAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerEditSignAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerEditSignAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerEditSignAction, _impl_._has_bits_);
+};
+
+void PlayerEditSignAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000008U);
+}
+PlayerEditSignAction::PlayerEditSignAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerEditSignAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerEditSignAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerEditSignAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerEditSignAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_),
+        front_text_(arena, from.front_text_),
+        back_text_(arena, from.back_text_) {}
+
+PlayerEditSignAction::PlayerEditSignAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerEditSignAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerEditSignAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerEditSignAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000008U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerEditSignAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerEditSignAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena),
+        front_text_(arena),
+        back_text_(arena) {}
+
+inline void PlayerEditSignAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.position_ = {};
+}
+PlayerEditSignAction::~PlayerEditSignAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerEditSignAction)
+  SharedDtor(*this);
+}
+inline void PlayerEditSignAction::SharedDtor(MessageLite& self) {
+  PlayerEditSignAction& this_ = static_cast<PlayerEditSignAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.front_text_.Destroy();
+  this_._impl_.back_text_.Destroy();
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerEditSignAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerEditSignAction(arena);
+}
+constexpr auto PlayerEditSignAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerEditSignAction),
+                                            alignof(PlayerEditSignAction));
+}
+constexpr auto PlayerEditSignAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerEditSignAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerEditSignAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerEditSignAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerEditSignAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerEditSignAction>(), &PlayerEditSignAction::ByteSizeLong,
+              &PlayerEditSignAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerEditSignAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerEditSignAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerEditSignAction_class_data_ =
+        PlayerEditSignAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerEditSignAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerEditSignAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerEditSignAction_class_data_.tc_table);
+  return PlayerEditSignAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 4, 1, 69, 2>
+PlayerEditSignAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerEditSignAction, _impl_._has_bits_),
+    0, // no _extensions_
+    4, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967280,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    4,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    PlayerEditSignAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerEditSignAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string back_text = 4 [json_name = "backText"];
+    {::_pbi::TcParser::FastUS1,
+     {34, 2, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerEditSignAction, _impl_.back_text_)}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerEditSignAction, _impl_.player_uuid_)}},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 3, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerEditSignAction, _impl_.position_)}},
+    // string front_text = 3 [json_name = "frontText"];
+    {::_pbi::TcParser::FastUS1,
+     {26, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerEditSignAction, _impl_.front_text_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerEditSignAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(PlayerEditSignAction, _impl_.position_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // string front_text = 3 [json_name = "frontText"];
+    {PROTOBUF_FIELD_OFFSET(PlayerEditSignAction, _impl_.front_text_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string back_text = 4 [json_name = "backText"];
+    {PROTOBUF_FIELD_OFFSET(PlayerEditSignAction, _impl_.back_text_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+    "\36\13\0\12\11\0\0\0"
+    "df.plugin.PlayerEditSignAction"
+    "player_uuid"
+    "front_text"
+    "back_text"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerEditSignAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerEditSignAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.front_text_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _impl_.back_text_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerEditSignAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerEditSignAction& this_ = static_cast<const PlayerEditSignAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerEditSignAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerEditSignAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerEditSignAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerEditSignAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  // string front_text = 3 [json_name = "frontText"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_front_text().empty()) {
+      const ::std::string& _s = this_._internal_front_text();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerEditSignAction.front_text");
+      target = stream->WriteStringMaybeAliased(3, _s, target);
+    }
+  }
+
+  // string back_text = 4 [json_name = "backText"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_back_text().empty()) {
+      const ::std::string& _s = this_._internal_back_text();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerEditSignAction.back_text");
+      target = stream->WriteStringMaybeAliased(4, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerEditSignAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerEditSignAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerEditSignAction& this_ = static_cast<const PlayerEditSignAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerEditSignAction::ByteSizeLong() const {
+  const PlayerEditSignAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerEditSignAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // string front_text = 3 [json_name = "frontText"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_front_text().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_front_text());
+      }
+    }
+    // string back_text = 4 [json_name = "backText"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!this_._internal_back_text().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_back_text());
+      }
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerEditSignAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerEditSignAction*>(&to_msg);
+  auto& from = static_cast<const PlayerEditSignAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerEditSignAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000000fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_front_text().empty()) {
+        _this->_internal_set_front_text(from._internal_front_text());
+      } else {
+        if (_this->_impl_.front_text_.IsDefault()) {
+          _this->_internal_set_front_text("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!from._internal_back_text().empty()) {
+        _this->_internal_set_back_text(from._internal_back_text());
+      } else {
+        if (_this->_impl_.back_text_.IsDefault()) {
+          _this->_internal_set_back_text("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerEditSignAction::CopyFrom(const PlayerEditSignAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerEditSignAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerEditSignAction::InternalSwap(PlayerEditSignAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.front_text_, &other->_impl_.front_text_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.back_text_, &other->_impl_.back_text_, arena);
+  swap(_impl_.position_, other->_impl_.position_);
+}
+
+::google::protobuf::Metadata PlayerEditSignAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerTurnLecternPageAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerTurnLecternPageAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerTurnLecternPageAction, _impl_._has_bits_);
+};
+
+void PlayerTurnLecternPageAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+PlayerTurnLecternPageAction::PlayerTurnLecternPageAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerTurnLecternPageAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerTurnLecternPageAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerTurnLecternPageAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerTurnLecternPageAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+PlayerTurnLecternPageAction::PlayerTurnLecternPageAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerTurnLecternPageAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerTurnLecternPageAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerTurnLecternPageAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+  _impl_.page_ = from._impl_.page_;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerTurnLecternPageAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerTurnLecternPageAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void PlayerTurnLecternPageAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, position_),
+           0,
+           offsetof(Impl_, page_) -
+               offsetof(Impl_, position_) +
+               sizeof(Impl_::page_));
+}
+PlayerTurnLecternPageAction::~PlayerTurnLecternPageAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerTurnLecternPageAction)
+  SharedDtor(*this);
+}
+inline void PlayerTurnLecternPageAction::SharedDtor(MessageLite& self) {
+  PlayerTurnLecternPageAction& this_ = static_cast<PlayerTurnLecternPageAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerTurnLecternPageAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerTurnLecternPageAction(arena);
+}
+constexpr auto PlayerTurnLecternPageAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerTurnLecternPageAction),
+                                            alignof(PlayerTurnLecternPageAction));
+}
+constexpr auto PlayerTurnLecternPageAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerTurnLecternPageAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerTurnLecternPageAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerTurnLecternPageAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerTurnLecternPageAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerTurnLecternPageAction>(), &PlayerTurnLecternPageAction::ByteSizeLong,
+              &PlayerTurnLecternPageAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerTurnLecternPageAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerTurnLecternPageAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerTurnLecternPageAction_class_data_ =
+        PlayerTurnLecternPageAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerTurnLecternPageAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerTurnLecternPageAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerTurnLecternPageAction_class_data_.tc_table);
+  return PlayerTurnLecternPageAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 1, 57, 2>
+PlayerTurnLecternPageAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerTurnLecternPageAction, _impl_._has_bits_),
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    PlayerTurnLecternPageAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerTurnLecternPageAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerTurnLecternPageAction, _impl_.player_uuid_)}},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerTurnLecternPageAction, _impl_.position_)}},
+    // int32 page = 3 [json_name = "page"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(PlayerTurnLecternPageAction, _impl_.page_), 2>(),
+     {24, 2, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerTurnLecternPageAction, _impl_.page_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerTurnLecternPageAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(PlayerTurnLecternPageAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // int32 page = 3 [json_name = "page"];
+    {PROTOBUF_FIELD_OFFSET(PlayerTurnLecternPageAction, _impl_.page_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt32)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+    "\45\13\0\0\0\0\0\0"
+    "df.plugin.PlayerTurnLecternPageAction"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerTurnLecternPageAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerTurnLecternPageAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_.page_ = 0;
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerTurnLecternPageAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerTurnLecternPageAction& this_ = static_cast<const PlayerTurnLecternPageAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerTurnLecternPageAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerTurnLecternPageAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerTurnLecternPageAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerTurnLecternPageAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  // int32 page = 3 [json_name = "page"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_page() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt32ToArrayWithField<3>(
+              stream, this_._internal_page(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerTurnLecternPageAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerTurnLecternPageAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerTurnLecternPageAction& this_ = static_cast<const PlayerTurnLecternPageAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerTurnLecternPageAction::ByteSizeLong() const {
+  const PlayerTurnLecternPageAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerTurnLecternPageAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+    // int32 page = 3 [json_name = "page"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_page() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
+            this_._internal_page());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerTurnLecternPageAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerTurnLecternPageAction*>(&to_msg);
+  auto& from = static_cast<const PlayerTurnLecternPageAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerTurnLecternPageAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_page() != 0) {
+        _this->_impl_.page_ = from._impl_.page_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerTurnLecternPageAction::CopyFrom(const PlayerTurnLecternPageAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerTurnLecternPageAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerTurnLecternPageAction::InternalSwap(PlayerTurnLecternPageAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(PlayerTurnLecternPageAction, _impl_.page_)
+      + sizeof(PlayerTurnLecternPageAction::_impl_.page_)
+      - PROTOBUF_FIELD_OFFSET(PlayerTurnLecternPageAction, _impl_.position_)>(
+          reinterpret_cast<char*>(&_impl_.position_),
+          reinterpret_cast<char*>(&other->_impl_.position_));
+}
+
+::google::protobuf::Metadata PlayerTurnLecternPageAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerHidePlayerAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerHidePlayerAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerHidePlayerAction, _impl_._has_bits_);
+};
+
+PlayerHidePlayerAction::PlayerHidePlayerAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerHidePlayerAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerHidePlayerAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerHidePlayerAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerHidePlayerAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_),
+        target_uuid_(arena, from.target_uuid_) {}
+
+PlayerHidePlayerAction::PlayerHidePlayerAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerHidePlayerAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerHidePlayerAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerHidePlayerAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerHidePlayerAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerHidePlayerAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena),
+        target_uuid_(arena) {}
+
+inline void PlayerHidePlayerAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+PlayerHidePlayerAction::~PlayerHidePlayerAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerHidePlayerAction)
+  SharedDtor(*this);
+}
+inline void PlayerHidePlayerAction::SharedDtor(MessageLite& self) {
+  PlayerHidePlayerAction& this_ = static_cast<PlayerHidePlayerAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.target_uuid_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerHidePlayerAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerHidePlayerAction(arena);
+}
+constexpr auto PlayerHidePlayerAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerHidePlayerAction),
+                                            alignof(PlayerHidePlayerAction));
+}
+constexpr auto PlayerHidePlayerAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerHidePlayerAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerHidePlayerAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerHidePlayerAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerHidePlayerAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerHidePlayerAction>(), &PlayerHidePlayerAction::ByteSizeLong,
+              &PlayerHidePlayerAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerHidePlayerAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerHidePlayerAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerHidePlayerAction_class_data_ =
+        PlayerHidePlayerAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerHidePlayerAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerHidePlayerAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerHidePlayerAction_class_data_.tc_table);
+  return PlayerHidePlayerAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 63, 2>
+PlayerHidePlayerAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerHidePlayerAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerHidePlayerAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerHidePlayerAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string target_uuid = 2 [json_name = "targetUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerHidePlayerAction, _impl_.target_uuid_)}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerHidePlayerAction, _impl_.player_uuid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerHidePlayerAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string target_uuid = 2 [json_name = "targetUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerHidePlayerAction, _impl_.target_uuid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\40\13\13\0\0\0\0\0"
+    "df.plugin.PlayerHidePlayerAction"
+    "player_uuid"
+    "target_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerHidePlayerAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerHidePlayerAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.target_uuid_.ClearNonDefaultToEmpty();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerHidePlayerAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerHidePlayerAction& this_ = static_cast<const PlayerHidePlayerAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerHidePlayerAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerHidePlayerAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerHidePlayerAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerHidePlayerAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // string target_uuid = 2 [json_name = "targetUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_target_uuid().empty()) {
+      const ::std::string& _s = this_._internal_target_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerHidePlayerAction.target_uuid");
+      target = stream->WriteStringMaybeAliased(2, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerHidePlayerAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerHidePlayerAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerHidePlayerAction& this_ = static_cast<const PlayerHidePlayerAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerHidePlayerAction::ByteSizeLong() const {
+  const PlayerHidePlayerAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerHidePlayerAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // string target_uuid = 2 [json_name = "targetUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_target_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_target_uuid());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerHidePlayerAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerHidePlayerAction*>(&to_msg);
+  auto& from = static_cast<const PlayerHidePlayerAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerHidePlayerAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_target_uuid().empty()) {
+        _this->_internal_set_target_uuid(from._internal_target_uuid());
+      } else {
+        if (_this->_impl_.target_uuid_.IsDefault()) {
+          _this->_internal_set_target_uuid("");
+        }
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerHidePlayerAction::CopyFrom(const PlayerHidePlayerAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerHidePlayerAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerHidePlayerAction::InternalSwap(PlayerHidePlayerAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.target_uuid_, &other->_impl_.target_uuid_, arena);
+}
+
+::google::protobuf::Metadata PlayerHidePlayerAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerShowPlayerAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerShowPlayerAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerShowPlayerAction, _impl_._has_bits_);
+};
+
+PlayerShowPlayerAction::PlayerShowPlayerAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerShowPlayerAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerShowPlayerAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerShowPlayerAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerShowPlayerAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_),
+        target_uuid_(arena, from.target_uuid_) {}
+
+PlayerShowPlayerAction::PlayerShowPlayerAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerShowPlayerAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerShowPlayerAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerShowPlayerAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerShowPlayerAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerShowPlayerAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena),
+        target_uuid_(arena) {}
+
+inline void PlayerShowPlayerAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+PlayerShowPlayerAction::~PlayerShowPlayerAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerShowPlayerAction)
+  SharedDtor(*this);
+}
+inline void PlayerShowPlayerAction::SharedDtor(MessageLite& self) {
+  PlayerShowPlayerAction& this_ = static_cast<PlayerShowPlayerAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.target_uuid_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerShowPlayerAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerShowPlayerAction(arena);
+}
+constexpr auto PlayerShowPlayerAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerShowPlayerAction),
+                                            alignof(PlayerShowPlayerAction));
+}
+constexpr auto PlayerShowPlayerAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerShowPlayerAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerShowPlayerAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerShowPlayerAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerShowPlayerAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerShowPlayerAction>(), &PlayerShowPlayerAction::ByteSizeLong,
+              &PlayerShowPlayerAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerShowPlayerAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerShowPlayerAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerShowPlayerAction_class_data_ =
+        PlayerShowPlayerAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerShowPlayerAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerShowPlayerAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerShowPlayerAction_class_data_.tc_table);
+  return PlayerShowPlayerAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 63, 2>
+PlayerShowPlayerAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerShowPlayerAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerShowPlayerAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerShowPlayerAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string target_uuid = 2 [json_name = "targetUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerShowPlayerAction, _impl_.target_uuid_)}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerShowPlayerAction, _impl_.player_uuid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerShowPlayerAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string target_uuid = 2 [json_name = "targetUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerShowPlayerAction, _impl_.target_uuid_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\40\13\13\0\0\0\0\0"
+    "df.plugin.PlayerShowPlayerAction"
+    "player_uuid"
+    "target_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerShowPlayerAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerShowPlayerAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.target_uuid_.ClearNonDefaultToEmpty();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerShowPlayerAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerShowPlayerAction& this_ = static_cast<const PlayerShowPlayerAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerShowPlayerAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerShowPlayerAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerShowPlayerAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerShowPlayerAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // string target_uuid = 2 [json_name = "targetUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_target_uuid().empty()) {
+      const ::std::string& _s = this_._internal_target_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerShowPlayerAction.target_uuid");
+      target = stream->WriteStringMaybeAliased(2, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerShowPlayerAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerShowPlayerAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerShowPlayerAction& this_ = static_cast<const PlayerShowPlayerAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerShowPlayerAction::ByteSizeLong() const {
+  const PlayerShowPlayerAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerShowPlayerAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // string target_uuid = 2 [json_name = "targetUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_target_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_target_uuid());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerShowPlayerAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerShowPlayerAction*>(&to_msg);
+  auto& from = static_cast<const PlayerShowPlayerAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerShowPlayerAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_target_uuid().empty()) {
+        _this->_internal_set_target_uuid(from._internal_target_uuid());
+      } else {
+        if (_this->_impl_.target_uuid_.IsDefault()) {
+          _this->_internal_set_target_uuid("");
+        }
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerShowPlayerAction::CopyFrom(const PlayerShowPlayerAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerShowPlayerAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerShowPlayerAction::InternalSwap(PlayerShowPlayerAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.target_uuid_, &other->_impl_.target_uuid_, arena);
+}
+
+::google::protobuf::Metadata PlayerShowPlayerAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerRemoveAllDebugShapesAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerRemoveAllDebugShapesAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerRemoveAllDebugShapesAction, _impl_._has_bits_);
+};
+
+PlayerRemoveAllDebugShapesAction::PlayerRemoveAllDebugShapesAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerRemoveAllDebugShapesAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerRemoveAllDebugShapesAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerRemoveAllDebugShapesAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerRemoveAllDebugShapesAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+PlayerRemoveAllDebugShapesAction::PlayerRemoveAllDebugShapesAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerRemoveAllDebugShapesAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerRemoveAllDebugShapesAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerRemoveAllDebugShapesAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerRemoveAllDebugShapesAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerRemoveAllDebugShapesAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void PlayerRemoveAllDebugShapesAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+PlayerRemoveAllDebugShapesAction::~PlayerRemoveAllDebugShapesAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerRemoveAllDebugShapesAction)
+  SharedDtor(*this);
+}
+inline void PlayerRemoveAllDebugShapesAction::SharedDtor(MessageLite& self) {
+  PlayerRemoveAllDebugShapesAction& this_ = static_cast<PlayerRemoveAllDebugShapesAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerRemoveAllDebugShapesAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerRemoveAllDebugShapesAction(arena);
+}
+constexpr auto PlayerRemoveAllDebugShapesAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerRemoveAllDebugShapesAction),
+                                            alignof(PlayerRemoveAllDebugShapesAction));
+}
+constexpr auto PlayerRemoveAllDebugShapesAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerRemoveAllDebugShapesAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerRemoveAllDebugShapesAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerRemoveAllDebugShapesAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerRemoveAllDebugShapesAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerRemoveAllDebugShapesAction>(), &PlayerRemoveAllDebugShapesAction::ByteSizeLong,
+              &PlayerRemoveAllDebugShapesAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerRemoveAllDebugShapesAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerRemoveAllDebugShapesAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerRemoveAllDebugShapesAction_class_data_ =
+        PlayerRemoveAllDebugShapesAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerRemoveAllDebugShapesAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerRemoveAllDebugShapesAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerRemoveAllDebugShapesAction_class_data_.tc_table);
+  return PlayerRemoveAllDebugShapesAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 62, 2>
+PlayerRemoveAllDebugShapesAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerRemoveAllDebugShapesAction, _impl_._has_bits_),
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    PlayerRemoveAllDebugShapesAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerRemoveAllDebugShapesAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerRemoveAllDebugShapesAction, _impl_.player_uuid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerRemoveAllDebugShapesAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\52\13\0\0\0\0\0\0"
+    "df.plugin.PlayerRemoveAllDebugShapesAction"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerRemoveAllDebugShapesAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerRemoveAllDebugShapesAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    _impl_.player_uuid_.ClearNonDefaultToEmpty();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerRemoveAllDebugShapesAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerRemoveAllDebugShapesAction& this_ = static_cast<const PlayerRemoveAllDebugShapesAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerRemoveAllDebugShapesAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerRemoveAllDebugShapesAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerRemoveAllDebugShapesAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerRemoveAllDebugShapesAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerRemoveAllDebugShapesAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerRemoveAllDebugShapesAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerRemoveAllDebugShapesAction& this_ = static_cast<const PlayerRemoveAllDebugShapesAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerRemoveAllDebugShapesAction::ByteSizeLong() const {
+  const PlayerRemoveAllDebugShapesAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerRemoveAllDebugShapesAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+   {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    cached_has_bits = this_._impl_._has_bits_[0];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerRemoveAllDebugShapesAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerRemoveAllDebugShapesAction*>(&to_msg);
+  auto& from = static_cast<const PlayerRemoveAllDebugShapesAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerRemoveAllDebugShapesAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!from._internal_player_uuid().empty()) {
+      _this->_internal_set_player_uuid(from._internal_player_uuid());
+    } else {
+      if (_this->_impl_.player_uuid_.IsDefault()) {
+        _this->_internal_set_player_uuid("");
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerRemoveAllDebugShapesAction::CopyFrom(const PlayerRemoveAllDebugShapesAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerRemoveAllDebugShapesAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerRemoveAllDebugShapesAction::InternalSwap(PlayerRemoveAllDebugShapesAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+}
+
+::google::protobuf::Metadata PlayerRemoveAllDebugShapesAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerOpenBlockContainerAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerOpenBlockContainerAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerOpenBlockContainerAction, _impl_._has_bits_);
+};
+
+void PlayerOpenBlockContainerAction::clear_position() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.position_ != nullptr) _impl_.position_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+PlayerOpenBlockContainerAction::PlayerOpenBlockContainerAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerOpenBlockContainerAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerOpenBlockContainerAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerOpenBlockContainerAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerOpenBlockContainerAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+PlayerOpenBlockContainerAction::PlayerOpenBlockContainerAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerOpenBlockContainerAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerOpenBlockContainerAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerOpenBlockContainerAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.position_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerOpenBlockContainerAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerOpenBlockContainerAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void PlayerOpenBlockContainerAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.position_ = {};
+}
+PlayerOpenBlockContainerAction::~PlayerOpenBlockContainerAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerOpenBlockContainerAction)
+  SharedDtor(*this);
+}
+inline void PlayerOpenBlockContainerAction::SharedDtor(MessageLite& self) {
+  PlayerOpenBlockContainerAction& this_ = static_cast<PlayerOpenBlockContainerAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  delete this_._impl_.position_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerOpenBlockContainerAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerOpenBlockContainerAction(arena);
+}
+constexpr auto PlayerOpenBlockContainerAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerOpenBlockContainerAction),
+                                            alignof(PlayerOpenBlockContainerAction));
+}
+constexpr auto PlayerOpenBlockContainerAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerOpenBlockContainerAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerOpenBlockContainerAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerOpenBlockContainerAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerOpenBlockContainerAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerOpenBlockContainerAction>(), &PlayerOpenBlockContainerAction::ByteSizeLong,
+              &PlayerOpenBlockContainerAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerOpenBlockContainerAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerOpenBlockContainerAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerOpenBlockContainerAction_class_data_ =
+        PlayerOpenBlockContainerAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerOpenBlockContainerAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerOpenBlockContainerAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerOpenBlockContainerAction_class_data_.tc_table);
+  return PlayerOpenBlockContainerAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 60, 2>
+PlayerOpenBlockContainerAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerOpenBlockContainerAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    PlayerOpenBlockContainerAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerOpenBlockContainerAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerOpenBlockContainerAction, _impl_.position_)}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerOpenBlockContainerAction, _impl_.player_uuid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerOpenBlockContainerAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    {PROTOBUF_FIELD_OFFSET(PlayerOpenBlockContainerAction, _impl_.position_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::BlockPos>()},
+  }},
+  {{
+    "\50\13\0\0\0\0\0\0"
+    "df.plugin.PlayerOpenBlockContainerAction"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerOpenBlockContainerAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerOpenBlockContainerAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.position_ != nullptr);
+      _impl_.position_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerOpenBlockContainerAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerOpenBlockContainerAction& this_ = static_cast<const PlayerOpenBlockContainerAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerOpenBlockContainerAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerOpenBlockContainerAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerOpenBlockContainerAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerOpenBlockContainerAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // .df.plugin.BlockPos position = 2 [json_name = "position"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.position_, this_._impl_.position_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerOpenBlockContainerAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerOpenBlockContainerAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerOpenBlockContainerAction& this_ = static_cast<const PlayerOpenBlockContainerAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerOpenBlockContainerAction::ByteSizeLong() const {
+  const PlayerOpenBlockContainerAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerOpenBlockContainerAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // .df.plugin.BlockPos position = 2 [json_name = "position"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.position_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerOpenBlockContainerAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerOpenBlockContainerAction*>(&to_msg);
+  auto& from = static_cast<const PlayerOpenBlockContainerAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerOpenBlockContainerAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.position_ != nullptr);
+      if (_this->_impl_.position_ == nullptr) {
+        _this->_impl_.position_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.position_);
+      } else {
+        _this->_impl_.position_->MergeFrom(*from._impl_.position_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerOpenBlockContainerAction::CopyFrom(const PlayerOpenBlockContainerAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerOpenBlockContainerAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerOpenBlockContainerAction::InternalSwap(PlayerOpenBlockContainerAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  swap(_impl_.position_, other->_impl_.position_);
+}
+
+::google::protobuf::Metadata PlayerOpenBlockContainerAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerDropItemAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerDropItemAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerDropItemAction, _impl_._has_bits_);
+};
+
+void PlayerDropItemAction::clear_item() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.item_ != nullptr) _impl_.item_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+PlayerDropItemAction::PlayerDropItemAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerDropItemAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerDropItemAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerDropItemAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerDropItemAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+PlayerDropItemAction::PlayerDropItemAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerDropItemAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerDropItemAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerDropItemAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.item_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.item_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerDropItemAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerDropItemAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void PlayerDropItemAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.item_ = {};
+}
+PlayerDropItemAction::~PlayerDropItemAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerDropItemAction)
+  SharedDtor(*this);
+}
+inline void PlayerDropItemAction::SharedDtor(MessageLite& self) {
+  PlayerDropItemAction& this_ = static_cast<PlayerDropItemAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  delete this_._impl_.item_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerDropItemAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerDropItemAction(arena);
+}
+constexpr auto PlayerDropItemAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerDropItemAction),
+                                            alignof(PlayerDropItemAction));
+}
+constexpr auto PlayerDropItemAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerDropItemAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerDropItemAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerDropItemAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerDropItemAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerDropItemAction>(), &PlayerDropItemAction::ByteSizeLong,
+              &PlayerDropItemAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerDropItemAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerDropItemAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerDropItemAction_class_data_ =
+        PlayerDropItemAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerDropItemAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerDropItemAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerDropItemAction_class_data_.tc_table);
+  return PlayerDropItemAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 50, 2>
+PlayerDropItemAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerDropItemAction, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    PlayerDropItemAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerDropItemAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // optional .df.plugin.ItemStack item = 2 [json_name = "item"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerDropItemAction, _impl_.item_)}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerDropItemAction, _impl_.player_uuid_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerDropItemAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // optional .df.plugin.ItemStack item = 2 [json_name = "item"];
+    {PROTOBUF_FIELD_OFFSET(PlayerDropItemAction, _impl_.item_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::ItemStack>()},
+  }},
+  {{
+    "\36\13\0\0\0\0\0\0"
+    "df.plugin.PlayerDropItemAction"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerDropItemAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerDropItemAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.item_ != nullptr);
+      _impl_.item_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerDropItemAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerDropItemAction& this_ = static_cast<const PlayerDropItemAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerDropItemAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerDropItemAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerDropItemAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerDropItemAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // optional .df.plugin.ItemStack item = 2 [json_name = "item"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.item_, this_._impl_.item_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerDropItemAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerDropItemAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerDropItemAction& this_ = static_cast<const PlayerDropItemAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerDropItemAction::ByteSizeLong() const {
+  const PlayerDropItemAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerDropItemAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // optional .df.plugin.ItemStack item = 2 [json_name = "item"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.item_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerDropItemAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerDropItemAction*>(&to_msg);
+  auto& from = static_cast<const PlayerDropItemAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerDropItemAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.item_ != nullptr);
+      if (_this->_impl_.item_ == nullptr) {
+        _this->_impl_.item_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.item_);
+      } else {
+        _this->_impl_.item_->MergeFrom(*from._impl_.item_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerDropItemAction::CopyFrom(const PlayerDropItemAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerDropItemAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerDropItemAction::InternalSwap(PlayerDropItemAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  swap(_impl_.item_, other->_impl_.item_);
+}
+
+::google::protobuf::Metadata PlayerDropItemAction::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class PlayerSetItemCooldownAction::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<PlayerSetItemCooldownAction>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(PlayerSetItemCooldownAction, _impl_._has_bits_);
+};
+
+void PlayerSetItemCooldownAction::clear_item() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.item_ != nullptr) _impl_.item_->Clear();
+  ClearHasBit(_impl_._has_bits_[0],
+                  0x00000002U);
+}
+PlayerSetItemCooldownAction::PlayerSetItemCooldownAction(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerSetItemCooldownAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.PlayerSetItemCooldownAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerSetItemCooldownAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::PlayerSetItemCooldownAction& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        player_uuid_(arena, from.player_uuid_) {}
+
+PlayerSetItemCooldownAction::PlayerSetItemCooldownAction(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const PlayerSetItemCooldownAction& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, PlayerSetItemCooldownAction_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  PlayerSetItemCooldownAction* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.item_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.item_)
+                : nullptr;
+  _impl_.duration_ms_ = from._impl_.duration_ms_;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.PlayerSetItemCooldownAction)
+}
+PROTOBUF_NDEBUG_INLINE PlayerSetItemCooldownAction::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        player_uuid_(arena) {}
+
+inline void PlayerSetItemCooldownAction::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, item_),
+           0,
+           offsetof(Impl_, duration_ms_) -
+               offsetof(Impl_, item_) +
+               sizeof(Impl_::duration_ms_));
+}
+PlayerSetItemCooldownAction::~PlayerSetItemCooldownAction() {
+  // @@protoc_insertion_point(destructor:df.plugin.PlayerSetItemCooldownAction)
+  SharedDtor(*this);
+}
+inline void PlayerSetItemCooldownAction::SharedDtor(MessageLite& self) {
+  PlayerSetItemCooldownAction& this_ = static_cast<PlayerSetItemCooldownAction&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.player_uuid_.Destroy();
+  delete this_._impl_.item_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL PlayerSetItemCooldownAction::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) PlayerSetItemCooldownAction(arena);
+}
+constexpr auto PlayerSetItemCooldownAction::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(PlayerSetItemCooldownAction),
+                                            alignof(PlayerSetItemCooldownAction));
+}
+constexpr auto PlayerSetItemCooldownAction::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_PlayerSetItemCooldownAction_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &PlayerSetItemCooldownAction::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<PlayerSetItemCooldownAction>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &PlayerSetItemCooldownAction::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<PlayerSetItemCooldownAction>(), &PlayerSetItemCooldownAction::ByteSizeLong,
+              &PlayerSetItemCooldownAction::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(PlayerSetItemCooldownAction, _impl_._cached_size_),
+          false,
+      },
+      &PlayerSetItemCooldownAction::kDescriptorMethods,
+      &descriptor_table_actions_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull PlayerSetItemCooldownAction_class_data_ =
+        PlayerSetItemCooldownAction::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+PlayerSetItemCooldownAction::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&PlayerSetItemCooldownAction_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(PlayerSetItemCooldownAction_class_data_.tc_table);
+  return PlayerSetItemCooldownAction_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<2, 3, 1, 57, 2>
+PlayerSetItemCooldownAction::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(PlayerSetItemCooldownAction, _impl_._has_bits_),
+    0, // no _extensions_
+    3, 24,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967288,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    3,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    PlayerSetItemCooldownAction_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::PlayerSetItemCooldownAction>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSetItemCooldownAction, _impl_.player_uuid_)}},
+    // .df.plugin.ItemStack item = 2 [json_name = "item"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSetItemCooldownAction, _impl_.item_)}},
+    // int64 duration_ms = 3 [json_name = "durationMs"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint64_t, offsetof(PlayerSetItemCooldownAction, _impl_.duration_ms_), 2>(),
+     {24, 2, 0,
+      PROTOBUF_FIELD_OFFSET(PlayerSetItemCooldownAction, _impl_.duration_ms_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSetItemCooldownAction, _impl_.player_uuid_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .df.plugin.ItemStack item = 2 [json_name = "item"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSetItemCooldownAction, _impl_.item_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // int64 duration_ms = 3 [json_name = "durationMs"];
+    {PROTOBUF_FIELD_OFFSET(PlayerSetItemCooldownAction, _impl_.duration_ms_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kInt64)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::ItemStack>()},
+  }},
+  {{
+    "\45\13\0\0\0\0\0\0"
+    "df.plugin.PlayerSetItemCooldownAction"
+    "player_uuid"
+  }},
+};
+PROTOBUF_NOINLINE void PlayerSetItemCooldownAction::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.PlayerSetItemCooldownAction)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.player_uuid_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.item_ != nullptr);
+      _impl_.item_->Clear();
+    }
+  }
+  _impl_.duration_ms_ = ::int64_t{0};
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL PlayerSetItemCooldownAction::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const PlayerSetItemCooldownAction& this_ = static_cast<const PlayerSetItemCooldownAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL PlayerSetItemCooldownAction::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const PlayerSetItemCooldownAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.PlayerSetItemCooldownAction)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string player_uuid = 1 [json_name = "playerUuid"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_player_uuid().empty()) {
+      const ::std::string& _s = this_._internal_player_uuid();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.PlayerSetItemCooldownAction.player_uuid");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // .df.plugin.ItemStack item = 2 [json_name = "item"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.item_, this_._impl_.item_->GetCachedSize(), target,
+        stream);
+  }
+
+  // int64 duration_ms = 3 [json_name = "durationMs"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_duration_ms() != 0) {
+      target =
+          ::google::protobuf::internal::WireFormatLite::WriteInt64ToArrayWithField<3>(
+              stream, this_._internal_duration_ms(), target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.PlayerSetItemCooldownAction)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t PlayerSetItemCooldownAction::ByteSizeLong(const MessageLite& base) {
+  const PlayerSetItemCooldownAction& this_ = static_cast<const PlayerSetItemCooldownAction&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t PlayerSetItemCooldownAction::ByteSizeLong() const {
+  const PlayerSetItemCooldownAction& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.PlayerSetItemCooldownAction)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    // string player_uuid = 1 [json_name = "playerUuid"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_player_uuid().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_player_uuid());
+      }
+    }
+    // .df.plugin.ItemStack item = 2 [json_name = "item"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.item_);
+    }
+    // int64 duration_ms = 3 [json_name = "durationMs"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_duration_ms() != 0) {
+        total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
+            this_._internal_duration_ms());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void PlayerSetItemCooldownAction::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<PlayerSetItemCooldownAction*>(&to_msg);
+  auto& from = static_cast<const PlayerSetItemCooldownAction&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.PlayerSetItemCooldownAction)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_player_uuid().empty()) {
+        _this->_internal_set_player_uuid(from._internal_player_uuid());
+      } else {
+        if (_this->_impl_.player_uuid_.IsDefault()) {
+          _this->_internal_set_player_uuid("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.item_ != nullptr);
+      if (_this->_impl_.item_ == nullptr) {
+        _this->_impl_.item_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.item_);
+      } else {
+        _this->_impl_.item_->MergeFrom(*from._impl_.item_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_duration_ms() != 0) {
+        _this->_impl_.duration_ms_ = from._impl_.duration_ms_;
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void PlayerSetItemCooldownAction::CopyFrom(const PlayerSetItemCooldownAction& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.PlayerSetItemCooldownAction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void PlayerSetItemCooldownAction::InternalSwap(PlayerSetItemCooldownAction* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.player_uuid_, &other->_impl_.player_uuid_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(PlayerSetItemCooldownAction, _impl_.duration_ms_)
+      + sizeof(PlayerSetItemCooldownAction::_impl_.duration_ms_)
+      - PROTOBUF_FIELD_OFFSET(PlayerSetItemCooldownAction, _impl_.item_)>(
+          reinterpret_cast<char*>(&_impl_.item_),
+          reinterpret_cast<char*>(&other->_impl_.item_));
+}
+
+::google::protobuf::Metadata PlayerSetItemCooldownAction::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)
