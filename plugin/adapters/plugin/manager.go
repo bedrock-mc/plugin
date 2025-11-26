@@ -310,14 +310,6 @@ func (m *Manager) dispatchEvent(envelope *pb.EventEnvelope, expectResult bool) [
 					"plugin_response_ms", pluginResponseTime.Milliseconds(),
 					"plugin_response_us", pluginResponseTime.Microseconds())
 			}
-
-			if envelope.Type == pb.EventType_CHAT {
-				if chatEvt := envelope.GetChat(); chatEvt != nil {
-					if chatMut := res.GetChat(); chatMut != nil && chatMut.Message != nil {
-						chatEvt.Message = *chatMut.Message
-					}
-				}
-			}
 		}
 	}
 	return results
