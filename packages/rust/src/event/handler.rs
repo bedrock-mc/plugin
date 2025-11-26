@@ -352,261 +352,506 @@ pub async fn dispatch_event(
     };
     match payload {
         types::event_envelope::Payload::PlayerJoin(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_join(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerQuit(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_quit(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerMove(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_move(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerJump(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_jump(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerTeleport(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_teleport(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerChangeWorld(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_change_world(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerToggleSprint(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_toggle_sprint(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerToggleSneak(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_toggle_sneak(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::Chat(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_chat(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerFoodLoss(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_food_loss(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerHeal(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_heal(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerHurt(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_hurt(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerDeath(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_death(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerRespawn(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_respawn(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerSkinChange(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_skin_change(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerFireExtinguish(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler
                 .on_player_fire_extinguish(server, &mut context)
                 .await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerStartBreak(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_start_break(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::BlockBreak(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_block_break(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerBlockPlace(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_block_place(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerBlockPick(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_block_pick(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerItemUse(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_item_use(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerItemUseOnBlock(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler
                 .on_player_item_use_on_block(server, &mut context)
                 .await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerItemUseOnEntity(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler
                 .on_player_item_use_on_entity(server, &mut context)
                 .await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerItemRelease(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_item_release(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerItemConsume(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_item_consume(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerAttackEntity(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_attack_entity(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerExperienceGain(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler
                 .on_player_experience_gain(server, &mut context)
                 .await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerPunchAir(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_punch_air(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerSignEdit(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_sign_edit(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerLecternPageTurn(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler
                 .on_player_lectern_page_turn(server, &mut context)
                 .await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerItemDamage(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_item_damage(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerItemPickup(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_item_pickup(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerHeldSlotChange(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler
                 .on_player_held_slot_change(server, &mut context)
                 .await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerItemDrop(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_item_drop(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerTransfer(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_transfer(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::Command(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_command(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::PlayerDiagnostics(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_player_diagnostics(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldLiquidFlow(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_liquid_flow(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldLiquidDecay(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_liquid_decay(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldLiquidHarden(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_liquid_harden(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldSound(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_sound(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldFireSpread(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_fire_spread(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldBlockBurn(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_block_burn(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldCropTrample(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_crop_trample(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldLeavesDecay(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_leaves_decay(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldEntitySpawn(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_entity_spawn(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldEntityDespawn(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_entity_despawn(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldExplosion(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_explosion(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
         types::event_envelope::Payload::WorldClose(e) => {
-            let mut context = EventContext::new(&envelope.event_id, e);
+            let mut context = EventContext::new(
+                &envelope.event_id,
+                e,
+                server.sender.clone(),
+                server.plugin_id.clone(),
+            );
             handler.on_world_close(server, &mut context).await;
-            server.send_event_result(context).await.ok();
+            context.send_ack_if_needed().await;
         }
     }
 }

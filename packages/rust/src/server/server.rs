@@ -1,9 +1,6 @@
 use tokio::sync::mpsc;
 
-use crate::{
-    event::{EventContext, EventResultUpdate},
-    types::{self, PluginToHost},
-};
+use crate::types::{self, PluginToHost};
 
 #[derive(Clone)]
 pub struct Server {
@@ -55,37 +52,6 @@ impl Server {
         let msg = PluginToHost {
             plugin_id: self.plugin_id.clone(),
             payload: Some(types::PluginPayload::Subscribe(sub)),
-        };
-        self.sender.send(msg).await
-    }
-
-    /// Internal helper to send an event result (cancel/mutate)
-    /// This is called by the auto-generated `dispatch_event` function.
-    #[doc(hidden)]
-    pub(crate) async fn send_event_result(
-        &self,
-        context: EventContext<'_, impl Sized>,
-    ) -> Result<(), mpsc::error::SendError<types::PluginToHost>> {
-        let (event_id, result) = context.into_result();
-
-        let payload = match result {
-            // Do nothing if the handler didn't mutate or cancel
-            EventResultUpdate::None => return Ok(()),
-            EventResultUpdate::Cancelled => types::EventResult {
-                event_id,
-                cancel: Some(true),
-                update: None,
-            },
-            EventResultUpdate::Mutated(update) => types::EventResult {
-                event_id,
-                cancel: None,
-                update: Some(update),
-            },
-        };
-
-        let msg = types::PluginToHost {
-            plugin_id: self.plugin_id.clone(),
-            payload: Some(types::PluginPayload::EventResult(payload)),
         };
         self.sender.send(msg).await
     }

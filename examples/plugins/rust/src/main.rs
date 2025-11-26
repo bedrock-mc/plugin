@@ -76,7 +76,8 @@ impl EventHandler for RusticEconomy {
 
         // Handle commands
         if message.starts_with("!pay") {
-            event.cancel();
+            // ALWAYS RESPOND TO THE SERVER ASAP.
+            // THEN DO SIDE WORK THAT MIGHT TAKE A GOOD BIT.
             let parts: Vec<&str> = message.split_whitespace().collect();
             if parts.len() != 2 {
                 server
@@ -118,10 +119,15 @@ impl EventHandler for RusticEconomy {
                         .expect("Bad error handling");
                 }
             }
+            event.cancel().await;
+            println!("I HAVE SENT THE CANCEL FULLY");
         } else if message.starts_with("!bal") {
-            event.cancel();
+            // YET AGAIN RESPOND ASAP TO SERVER.
+            event.cancel().await;
             match self.get_balance(player_uuid).await {
                 Ok(balance) => {
+                    // These are fine to happen later.
+                    // as they aren't bounded by the timout of server responses.
                     server
                         .send_chat(
                             player_uuid.clone(),

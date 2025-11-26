@@ -50,9 +50,14 @@ fn generate_handler_trait_tokens(ast: &File) -> Result<String> {
 
         dispatch_fn_match_arms.push(quote! {
             types::event_envelope::Payload::#ident(e) => {
-                let mut context = EventContext::new(&envelope.event_id, e);
+                let mut context = EventContext::new(
+                    &envelope.event_id,
+                    e,
+                    server.sender.clone(),
+                    server.plugin_id.clone(),
+                );
                 handler.#handler_fn_name(server, &mut context).await;
-                server.send_event_result(context).await.ok();
+                context.send_ack_if_needed().await;
             },
         })
     }
