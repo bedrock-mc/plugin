@@ -561,6 +561,7 @@ func (m *Manager) handlePluginMessage(p *pluginProcess, msg *pb.PluginToHost) {
 		p.setHello(hello)
 		m.registerCommands(p, hello.Commands)
 		m.registerCustomItems(p, hello.CustomItems)
+		m.registerCustomBlocks(p, hello.CustomBlocks)
 	case *pb.PluginToHost_Subscribe:
 		subscribe := payload.Subscribe
 		eventNames := mapSlice(subscribe.Events, func(evt pb.EventType) string {

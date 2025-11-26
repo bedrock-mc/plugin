@@ -28,60 +28,67 @@ class Action extends \Google\Protobuf\Internal\Message
      *
      *     @type string $correlation_id
      *     @type \Df\Plugin\SendChatAction $send_chat
+     *           Player: Basic Actions
      *     @type \Df\Plugin\TeleportAction $teleport
      *     @type \Df\Plugin\KickAction $kick
      *     @type \Df\Plugin\SetGameModeAction $set_game_mode
      *     @type \Df\Plugin\GiveItemAction $give_item
-     *           Inventory & Items
+     *           Player: Inventory & Items
      *     @type \Df\Plugin\ClearInventoryAction $clear_inventory
      *     @type \Df\Plugin\SetHeldItemAction $set_held_item
      *     @type \Df\Plugin\SetHealthAction $set_health
-     *           Player State
+     *           Player: State & Attributes
      *     @type \Df\Plugin\SetFoodAction $set_food
      *     @type \Df\Plugin\SetExperienceAction $set_experience
      *     @type \Df\Plugin\SetVelocityAction $set_velocity
      *     @type \Df\Plugin\AddEffectAction $add_effect
-     *           Effects & Status
+     *           Player: Effects & Status
      *     @type \Df\Plugin\RemoveEffectAction $remove_effect
      *     @type \Df\Plugin\SendTitleAction $send_title
-     *           UI & Communication
+     *           Player: UI & Communication
      *     @type \Df\Plugin\SendPopupAction $send_popup
      *     @type \Df\Plugin\SendTipAction $send_tip
      *     @type \Df\Plugin\PlaySoundAction $play_sound
      *     @type \Df\Plugin\ExecuteCommandAction $execute_command
      *           Commands
      *     @type \Df\Plugin\WorldSetDefaultGameModeAction $world_set_default_game_mode
-     *           World configuration and effects
+     *           World: Configuration & Settings
      *     @type \Df\Plugin\WorldSetDifficultyAction $world_set_difficulty
      *     @type \Df\Plugin\WorldSetTickRangeAction $world_set_tick_range
-     *     @type \Df\Plugin\WorldSetBlockAction $world_set_block
-     *     @type \Df\Plugin\WorldPlaySoundAction $world_play_sound
-     *     @type \Df\Plugin\WorldAddParticleAction $world_add_particle
-     *     @type \Df\Plugin\WorldSetTimeAction $world_set_time
-     *     @type \Df\Plugin\WorldStopTimeAction $world_stop_time
-     *     @type \Df\Plugin\WorldStartTimeAction $world_start_time
      *     @type \Df\Plugin\WorldSetSpawnAction $world_set_spawn
-     *     @type \Df\Plugin\WorldQueryEntitiesAction $world_query_entities
-     *           World queries
-     *     @type \Df\Plugin\WorldQueryPlayersAction $world_query_players
-     *     @type \Df\Plugin\WorldQueryEntitiesWithinAction $world_query_entities_within
-     *     @type \Df\Plugin\WorldQueryDefaultGameModeAction $world_query_default_game_mode
-     *     @type \Df\Plugin\WorldQueryPlayerSpawnAction $world_query_player_spawn
-     *     @type \Df\Plugin\WorldQueryBlockAction $world_query_block
-     *     @type \Df\Plugin\WorldQueryBiomeAction $world_query_biome
-     *     @type \Df\Plugin\WorldQueryLightAction $world_query_light
-     *     @type \Df\Plugin\WorldQuerySkyLightAction $world_query_sky_light
-     *     @type \Df\Plugin\WorldQueryTemperatureAction $world_query_temperature
-     *     @type \Df\Plugin\WorldQueryHighestBlockAction $world_query_highest_block
-     *     @type \Df\Plugin\WorldQueryRainingAtAction $world_query_raining_at
-     *     @type \Df\Plugin\WorldQuerySnowingAtAction $world_query_snowing_at
-     *     @type \Df\Plugin\WorldQueryThunderingAtAction $world_query_thundering_at
-     *     @type \Df\Plugin\WorldQueryLiquidAction $world_query_liquid
+     *     @type \Df\Plugin\WorldSetBlockAction $world_set_block
+     *           World: Actions - Blocks & Terrain
      *     @type \Df\Plugin\WorldSetBiomeAction $world_set_biome
-     *           World mutations (additional)
      *     @type \Df\Plugin\WorldSetLiquidAction $world_set_liquid
      *     @type \Df\Plugin\WorldScheduleBlockUpdateAction $world_schedule_block_update
      *     @type \Df\Plugin\WorldBuildStructureAction $world_build_structure
+     *     @type \Df\Plugin\WorldSetTimeAction $world_set_time
+     *           World: Actions -  Time
+     *     @type \Df\Plugin\WorldStopTimeAction $world_stop_time
+     *     @type \Df\Plugin\WorldStartTimeAction $world_start_time
+     *     @type \Df\Plugin\WorldPlaySoundAction $world_play_sound
+     *           World: Actions - Effects & Audio
+     *     @type \Df\Plugin\WorldAddParticleAction $world_add_particle
+     *     @type \Df\Plugin\WorldQueryEntitiesAction $world_query_entities
+     *           World: Queries - Entities & Players
+     *     @type \Df\Plugin\WorldQueryPlayersAction $world_query_players
+     *     @type \Df\Plugin\WorldQueryEntitiesWithinAction $world_query_entities_within
+     *     @type \Df\Plugin\WorldQueryPlayerSpawnAction $world_query_player_spawn
+     *     @type \Df\Plugin\WorldQueryBlockAction $world_query_block
+     *           World: Queries - Blocks & Terrain
+     *     @type \Df\Plugin\WorldQueryBiomeAction $world_query_biome
+     *     @type \Df\Plugin\WorldQueryLiquidAction $world_query_liquid
+     *     @type \Df\Plugin\WorldQueryHighestBlockAction $world_query_highest_block
+     *     @type \Df\Plugin\WorldQueryLightAction $world_query_light
+     *           World: Queries - Lighting
+     *     @type \Df\Plugin\WorldQuerySkyLightAction $world_query_sky_light
+     *     @type \Df\Plugin\WorldQueryTemperatureAction $world_query_temperature
+     *           World: Queries - Weather & Environment
+     *     @type \Df\Plugin\WorldQueryRainingAtAction $world_query_raining_at
+     *     @type \Df\Plugin\WorldQuerySnowingAtAction $world_query_snowing_at
+     *     @type \Df\Plugin\WorldQueryThunderingAtAction $world_query_thundering_at
+     *     @type \Df\Plugin\WorldQueryDefaultGameModeAction $world_query_default_game_mode
+     *           World: Queries - Settings
      * }
      */
     public function __construct($data = NULL) {
@@ -122,6 +129,8 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Player: Basic Actions
+     *
      * Generated from protobuf field <code>.df.plugin.SendChatAction send_chat = 10 [json_name = "sendChat"];</code>
      * @return \Df\Plugin\SendChatAction|null
      */
@@ -136,6 +145,8 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Player: Basic Actions
+     *
      * Generated from protobuf field <code>.df.plugin.SendChatAction send_chat = 10 [json_name = "sendChat"];</code>
      * @param \Df\Plugin\SendChatAction $var
      * @return $this
@@ -230,7 +241,7 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Inventory & Items
+     * Player: Inventory & Items
      *
      * Generated from protobuf field <code>.df.plugin.GiveItemAction give_item = 14 [json_name = "giveItem"];</code>
      * @return \Df\Plugin\GiveItemAction|null
@@ -246,7 +257,7 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Inventory & Items
+     * Player: Inventory & Items
      *
      * Generated from protobuf field <code>.df.plugin.GiveItemAction give_item = 14 [json_name = "giveItem"];</code>
      * @param \Df\Plugin\GiveItemAction $var
@@ -315,7 +326,7 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Player State
+     * Player: State & Attributes
      *
      * Generated from protobuf field <code>.df.plugin.SetHealthAction set_health = 20 [json_name = "setHealth"];</code>
      * @return \Df\Plugin\SetHealthAction|null
@@ -331,7 +342,7 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Player State
+     * Player: State & Attributes
      *
      * Generated from protobuf field <code>.df.plugin.SetHealthAction set_health = 20 [json_name = "setHealth"];</code>
      * @param \Df\Plugin\SetHealthAction $var
@@ -427,7 +438,7 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Effects & Status
+     * Player: Effects & Status
      *
      * Generated from protobuf field <code>.df.plugin.AddEffectAction add_effect = 30 [json_name = "addEffect"];</code>
      * @return \Df\Plugin\AddEffectAction|null
@@ -443,7 +454,7 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Effects & Status
+     * Player: Effects & Status
      *
      * Generated from protobuf field <code>.df.plugin.AddEffectAction add_effect = 30 [json_name = "addEffect"];</code>
      * @param \Df\Plugin\AddEffectAction $var
@@ -485,7 +496,7 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * UI & Communication
+     * Player: UI & Communication
      *
      * Generated from protobuf field <code>.df.plugin.SendTitleAction send_title = 40 [json_name = "sendTitle"];</code>
      * @return \Df\Plugin\SendTitleAction|null
@@ -501,7 +512,7 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * UI & Communication
+     * Player: UI & Communication
      *
      * Generated from protobuf field <code>.df.plugin.SendTitleAction send_title = 40 [json_name = "sendTitle"];</code>
      * @param \Df\Plugin\SendTitleAction $var
@@ -628,7 +639,7 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * World configuration and effects
+     * World: Configuration & Settings
      *
      * Generated from protobuf field <code>.df.plugin.WorldSetDefaultGameModeAction world_set_default_game_mode = 60 [json_name = "worldSetDefaultGameMode"];</code>
      * @return \Df\Plugin\WorldSetDefaultGameModeAction|null
@@ -644,7 +655,7 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * World configuration and effects
+     * World: Configuration & Settings
      *
      * Generated from protobuf field <code>.df.plugin.WorldSetDefaultGameModeAction world_set_default_game_mode = 60 [json_name = "worldSetDefaultGameMode"];</code>
      * @param \Df\Plugin\WorldSetDefaultGameModeAction $var
@@ -713,168 +724,6 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.df.plugin.WorldSetBlockAction world_set_block = 63 [json_name = "worldSetBlock"];</code>
-     * @return \Df\Plugin\WorldSetBlockAction|null
-     */
-    public function getWorldSetBlock()
-    {
-        return $this->readOneof(63);
-    }
-
-    public function hasWorldSetBlock()
-    {
-        return $this->hasOneof(63);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldSetBlockAction world_set_block = 63 [json_name = "worldSetBlock"];</code>
-     * @param \Df\Plugin\WorldSetBlockAction $var
-     * @return $this
-     */
-    public function setWorldSetBlock($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetBlockAction::class);
-        $this->writeOneof(63, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldPlaySoundAction world_play_sound = 64 [json_name = "worldPlaySound"];</code>
-     * @return \Df\Plugin\WorldPlaySoundAction|null
-     */
-    public function getWorldPlaySound()
-    {
-        return $this->readOneof(64);
-    }
-
-    public function hasWorldPlaySound()
-    {
-        return $this->hasOneof(64);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldPlaySoundAction world_play_sound = 64 [json_name = "worldPlaySound"];</code>
-     * @param \Df\Plugin\WorldPlaySoundAction $var
-     * @return $this
-     */
-    public function setWorldPlaySound($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldPlaySoundAction::class);
-        $this->writeOneof(64, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldAddParticleAction world_add_particle = 65 [json_name = "worldAddParticle"];</code>
-     * @return \Df\Plugin\WorldAddParticleAction|null
-     */
-    public function getWorldAddParticle()
-    {
-        return $this->readOneof(65);
-    }
-
-    public function hasWorldAddParticle()
-    {
-        return $this->hasOneof(65);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldAddParticleAction world_add_particle = 65 [json_name = "worldAddParticle"];</code>
-     * @param \Df\Plugin\WorldAddParticleAction $var
-     * @return $this
-     */
-    public function setWorldAddParticle($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldAddParticleAction::class);
-        $this->writeOneof(65, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];</code>
-     * @return \Df\Plugin\WorldSetTimeAction|null
-     */
-    public function getWorldSetTime()
-    {
-        return $this->readOneof(66);
-    }
-
-    public function hasWorldSetTime()
-    {
-        return $this->hasOneof(66);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];</code>
-     * @param \Df\Plugin\WorldSetTimeAction $var
-     * @return $this
-     */
-    public function setWorldSetTime($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetTimeAction::class);
-        $this->writeOneof(66, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];</code>
-     * @return \Df\Plugin\WorldStopTimeAction|null
-     */
-    public function getWorldStopTime()
-    {
-        return $this->readOneof(67);
-    }
-
-    public function hasWorldStopTime()
-    {
-        return $this->hasOneof(67);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];</code>
-     * @param \Df\Plugin\WorldStopTimeAction $var
-     * @return $this
-     */
-    public function setWorldStopTime($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldStopTimeAction::class);
-        $this->writeOneof(67, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];</code>
-     * @return \Df\Plugin\WorldStartTimeAction|null
-     */
-    public function getWorldStartTime()
-    {
-        return $this->readOneof(68);
-    }
-
-    public function hasWorldStartTime()
-    {
-        return $this->hasOneof(68);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];</code>
-     * @param \Df\Plugin\WorldStartTimeAction $var
-     * @return $this
-     */
-    public function setWorldStartTime($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldStartTimeAction::class);
-        $this->writeOneof(68, $var);
-
-        return $this;
-    }
-
-    /**
      * Generated from protobuf field <code>.df.plugin.WorldSetSpawnAction world_set_spawn = 69 [json_name = "worldSetSpawn"];</code>
      * @return \Df\Plugin\WorldSetSpawnAction|null
      */
@@ -902,417 +751,37 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * World queries
+     * World: Actions - Blocks & Terrain
      *
-     * Generated from protobuf field <code>.df.plugin.WorldQueryEntitiesAction world_query_entities = 70 [json_name = "worldQueryEntities"];</code>
-     * @return \Df\Plugin\WorldQueryEntitiesAction|null
+     * Generated from protobuf field <code>.df.plugin.WorldSetBlockAction world_set_block = 63 [json_name = "worldSetBlock"];</code>
+     * @return \Df\Plugin\WorldSetBlockAction|null
      */
-    public function getWorldQueryEntities()
+    public function getWorldSetBlock()
     {
-        return $this->readOneof(70);
+        return $this->readOneof(63);
     }
 
-    public function hasWorldQueryEntities()
+    public function hasWorldSetBlock()
     {
-        return $this->hasOneof(70);
+        return $this->hasOneof(63);
     }
 
     /**
-     * World queries
+     * World: Actions - Blocks & Terrain
      *
-     * Generated from protobuf field <code>.df.plugin.WorldQueryEntitiesAction world_query_entities = 70 [json_name = "worldQueryEntities"];</code>
-     * @param \Df\Plugin\WorldQueryEntitiesAction $var
+     * Generated from protobuf field <code>.df.plugin.WorldSetBlockAction world_set_block = 63 [json_name = "worldSetBlock"];</code>
+     * @param \Df\Plugin\WorldSetBlockAction $var
      * @return $this
      */
-    public function setWorldQueryEntities($var)
+    public function setWorldSetBlock($var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryEntitiesAction::class);
-        $this->writeOneof(70, $var);
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetBlockAction::class);
+        $this->writeOneof(63, $var);
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryPlayersAction world_query_players = 71 [json_name = "worldQueryPlayers"];</code>
-     * @return \Df\Plugin\WorldQueryPlayersAction|null
-     */
-    public function getWorldQueryPlayers()
-    {
-        return $this->readOneof(71);
-    }
-
-    public function hasWorldQueryPlayers()
-    {
-        return $this->hasOneof(71);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryPlayersAction world_query_players = 71 [json_name = "worldQueryPlayers"];</code>
-     * @param \Df\Plugin\WorldQueryPlayersAction $var
-     * @return $this
-     */
-    public function setWorldQueryPlayers($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryPlayersAction::class);
-        $this->writeOneof(71, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryEntitiesWithinAction world_query_entities_within = 72 [json_name = "worldQueryEntitiesWithin"];</code>
-     * @return \Df\Plugin\WorldQueryEntitiesWithinAction|null
-     */
-    public function getWorldQueryEntitiesWithin()
-    {
-        return $this->readOneof(72);
-    }
-
-    public function hasWorldQueryEntitiesWithin()
-    {
-        return $this->hasOneof(72);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryEntitiesWithinAction world_query_entities_within = 72 [json_name = "worldQueryEntitiesWithin"];</code>
-     * @param \Df\Plugin\WorldQueryEntitiesWithinAction $var
-     * @return $this
-     */
-    public function setWorldQueryEntitiesWithin($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryEntitiesWithinAction::class);
-        $this->writeOneof(72, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];</code>
-     * @return \Df\Plugin\WorldQueryDefaultGameModeAction|null
-     */
-    public function getWorldQueryDefaultGameMode()
-    {
-        return $this->readOneof(73);
-    }
-
-    public function hasWorldQueryDefaultGameMode()
-    {
-        return $this->hasOneof(73);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];</code>
-     * @param \Df\Plugin\WorldQueryDefaultGameModeAction $var
-     * @return $this
-     */
-    public function setWorldQueryDefaultGameMode($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryDefaultGameModeAction::class);
-        $this->writeOneof(73, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];</code>
-     * @return \Df\Plugin\WorldQueryPlayerSpawnAction|null
-     */
-    public function getWorldQueryPlayerSpawn()
-    {
-        return $this->readOneof(74);
-    }
-
-    public function hasWorldQueryPlayerSpawn()
-    {
-        return $this->hasOneof(74);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];</code>
-     * @param \Df\Plugin\WorldQueryPlayerSpawnAction $var
-     * @return $this
-     */
-    public function setWorldQueryPlayerSpawn($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryPlayerSpawnAction::class);
-        $this->writeOneof(74, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];</code>
-     * @return \Df\Plugin\WorldQueryBlockAction|null
-     */
-    public function getWorldQueryBlock()
-    {
-        return $this->readOneof(75);
-    }
-
-    public function hasWorldQueryBlock()
-    {
-        return $this->hasOneof(75);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];</code>
-     * @param \Df\Plugin\WorldQueryBlockAction $var
-     * @return $this
-     */
-    public function setWorldQueryBlock($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryBlockAction::class);
-        $this->writeOneof(75, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];</code>
-     * @return \Df\Plugin\WorldQueryBiomeAction|null
-     */
-    public function getWorldQueryBiome()
-    {
-        return $this->readOneof(76);
-    }
-
-    public function hasWorldQueryBiome()
-    {
-        return $this->hasOneof(76);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];</code>
-     * @param \Df\Plugin\WorldQueryBiomeAction $var
-     * @return $this
-     */
-    public function setWorldQueryBiome($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryBiomeAction::class);
-        $this->writeOneof(76, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];</code>
-     * @return \Df\Plugin\WorldQueryLightAction|null
-     */
-    public function getWorldQueryLight()
-    {
-        return $this->readOneof(77);
-    }
-
-    public function hasWorldQueryLight()
-    {
-        return $this->hasOneof(77);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];</code>
-     * @param \Df\Plugin\WorldQueryLightAction $var
-     * @return $this
-     */
-    public function setWorldQueryLight($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryLightAction::class);
-        $this->writeOneof(77, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];</code>
-     * @return \Df\Plugin\WorldQuerySkyLightAction|null
-     */
-    public function getWorldQuerySkyLight()
-    {
-        return $this->readOneof(78);
-    }
-
-    public function hasWorldQuerySkyLight()
-    {
-        return $this->hasOneof(78);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];</code>
-     * @param \Df\Plugin\WorldQuerySkyLightAction $var
-     * @return $this
-     */
-    public function setWorldQuerySkyLight($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQuerySkyLightAction::class);
-        $this->writeOneof(78, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];</code>
-     * @return \Df\Plugin\WorldQueryTemperatureAction|null
-     */
-    public function getWorldQueryTemperature()
-    {
-        return $this->readOneof(79);
-    }
-
-    public function hasWorldQueryTemperature()
-    {
-        return $this->hasOneof(79);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];</code>
-     * @param \Df\Plugin\WorldQueryTemperatureAction $var
-     * @return $this
-     */
-    public function setWorldQueryTemperature($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryTemperatureAction::class);
-        $this->writeOneof(79, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];</code>
-     * @return \Df\Plugin\WorldQueryHighestBlockAction|null
-     */
-    public function getWorldQueryHighestBlock()
-    {
-        return $this->readOneof(80);
-    }
-
-    public function hasWorldQueryHighestBlock()
-    {
-        return $this->hasOneof(80);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];</code>
-     * @param \Df\Plugin\WorldQueryHighestBlockAction $var
-     * @return $this
-     */
-    public function setWorldQueryHighestBlock($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryHighestBlockAction::class);
-        $this->writeOneof(80, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];</code>
-     * @return \Df\Plugin\WorldQueryRainingAtAction|null
-     */
-    public function getWorldQueryRainingAt()
-    {
-        return $this->readOneof(81);
-    }
-
-    public function hasWorldQueryRainingAt()
-    {
-        return $this->hasOneof(81);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];</code>
-     * @param \Df\Plugin\WorldQueryRainingAtAction $var
-     * @return $this
-     */
-    public function setWorldQueryRainingAt($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryRainingAtAction::class);
-        $this->writeOneof(81, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];</code>
-     * @return \Df\Plugin\WorldQuerySnowingAtAction|null
-     */
-    public function getWorldQuerySnowingAt()
-    {
-        return $this->readOneof(82);
-    }
-
-    public function hasWorldQuerySnowingAt()
-    {
-        return $this->hasOneof(82);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];</code>
-     * @param \Df\Plugin\WorldQuerySnowingAtAction $var
-     * @return $this
-     */
-    public function setWorldQuerySnowingAt($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQuerySnowingAtAction::class);
-        $this->writeOneof(82, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];</code>
-     * @return \Df\Plugin\WorldQueryThunderingAtAction|null
-     */
-    public function getWorldQueryThunderingAt()
-    {
-        return $this->readOneof(83);
-    }
-
-    public function hasWorldQueryThunderingAt()
-    {
-        return $this->hasOneof(83);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];</code>
-     * @param \Df\Plugin\WorldQueryThunderingAtAction $var
-     * @return $this
-     */
-    public function setWorldQueryThunderingAt($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryThunderingAtAction::class);
-        $this->writeOneof(83, $var);
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];</code>
-     * @return \Df\Plugin\WorldQueryLiquidAction|null
-     */
-    public function getWorldQueryLiquid()
-    {
-        return $this->readOneof(84);
-    }
-
-    public function hasWorldQueryLiquid()
-    {
-        return $this->hasOneof(84);
-    }
-
-    /**
-     * Generated from protobuf field <code>.df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];</code>
-     * @param \Df\Plugin\WorldQueryLiquidAction $var
-     * @return $this
-     */
-    public function setWorldQueryLiquid($var)
-    {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryLiquidAction::class);
-        $this->writeOneof(84, $var);
-
-        return $this;
-    }
-
-    /**
-     * World mutations (additional)
-     *
      * Generated from protobuf field <code>.df.plugin.WorldSetBiomeAction world_set_biome = 90 [json_name = "worldSetBiome"];</code>
      * @return \Df\Plugin\WorldSetBiomeAction|null
      */
@@ -1327,8 +796,6 @@ class Action extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * World mutations (additional)
-     *
      * Generated from protobuf field <code>.df.plugin.WorldSetBiomeAction world_set_biome = 90 [json_name = "worldSetBiome"];</code>
      * @param \Df\Plugin\WorldSetBiomeAction $var
      * @return $this
@@ -1418,6 +885,574 @@ class Action extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Df\Plugin\WorldBuildStructureAction::class);
         $this->writeOneof(93, $var);
+
+        return $this;
+    }
+
+    /**
+     * World: Actions -  Time
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];</code>
+     * @return \Df\Plugin\WorldSetTimeAction|null
+     */
+    public function getWorldSetTime()
+    {
+        return $this->readOneof(66);
+    }
+
+    public function hasWorldSetTime()
+    {
+        return $this->hasOneof(66);
+    }
+
+    /**
+     * World: Actions -  Time
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];</code>
+     * @param \Df\Plugin\WorldSetTimeAction $var
+     * @return $this
+     */
+    public function setWorldSetTime($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetTimeAction::class);
+        $this->writeOneof(66, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];</code>
+     * @return \Df\Plugin\WorldStopTimeAction|null
+     */
+    public function getWorldStopTime()
+    {
+        return $this->readOneof(67);
+    }
+
+    public function hasWorldStopTime()
+    {
+        return $this->hasOneof(67);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];</code>
+     * @param \Df\Plugin\WorldStopTimeAction $var
+     * @return $this
+     */
+    public function setWorldStopTime($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldStopTimeAction::class);
+        $this->writeOneof(67, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];</code>
+     * @return \Df\Plugin\WorldStartTimeAction|null
+     */
+    public function getWorldStartTime()
+    {
+        return $this->readOneof(68);
+    }
+
+    public function hasWorldStartTime()
+    {
+        return $this->hasOneof(68);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];</code>
+     * @param \Df\Plugin\WorldStartTimeAction $var
+     * @return $this
+     */
+    public function setWorldStartTime($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldStartTimeAction::class);
+        $this->writeOneof(68, $var);
+
+        return $this;
+    }
+
+    /**
+     * World: Actions - Effects & Audio
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldPlaySoundAction world_play_sound = 64 [json_name = "worldPlaySound"];</code>
+     * @return \Df\Plugin\WorldPlaySoundAction|null
+     */
+    public function getWorldPlaySound()
+    {
+        return $this->readOneof(64);
+    }
+
+    public function hasWorldPlaySound()
+    {
+        return $this->hasOneof(64);
+    }
+
+    /**
+     * World: Actions - Effects & Audio
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldPlaySoundAction world_play_sound = 64 [json_name = "worldPlaySound"];</code>
+     * @param \Df\Plugin\WorldPlaySoundAction $var
+     * @return $this
+     */
+    public function setWorldPlaySound($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldPlaySoundAction::class);
+        $this->writeOneof(64, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldAddParticleAction world_add_particle = 65 [json_name = "worldAddParticle"];</code>
+     * @return \Df\Plugin\WorldAddParticleAction|null
+     */
+    public function getWorldAddParticle()
+    {
+        return $this->readOneof(65);
+    }
+
+    public function hasWorldAddParticle()
+    {
+        return $this->hasOneof(65);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldAddParticleAction world_add_particle = 65 [json_name = "worldAddParticle"];</code>
+     * @param \Df\Plugin\WorldAddParticleAction $var
+     * @return $this
+     */
+    public function setWorldAddParticle($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldAddParticleAction::class);
+        $this->writeOneof(65, $var);
+
+        return $this;
+    }
+
+    /**
+     * World: Queries - Entities & Players
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldQueryEntitiesAction world_query_entities = 70 [json_name = "worldQueryEntities"];</code>
+     * @return \Df\Plugin\WorldQueryEntitiesAction|null
+     */
+    public function getWorldQueryEntities()
+    {
+        return $this->readOneof(70);
+    }
+
+    public function hasWorldQueryEntities()
+    {
+        return $this->hasOneof(70);
+    }
+
+    /**
+     * World: Queries - Entities & Players
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldQueryEntitiesAction world_query_entities = 70 [json_name = "worldQueryEntities"];</code>
+     * @param \Df\Plugin\WorldQueryEntitiesAction $var
+     * @return $this
+     */
+    public function setWorldQueryEntities($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryEntitiesAction::class);
+        $this->writeOneof(70, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryPlayersAction world_query_players = 71 [json_name = "worldQueryPlayers"];</code>
+     * @return \Df\Plugin\WorldQueryPlayersAction|null
+     */
+    public function getWorldQueryPlayers()
+    {
+        return $this->readOneof(71);
+    }
+
+    public function hasWorldQueryPlayers()
+    {
+        return $this->hasOneof(71);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryPlayersAction world_query_players = 71 [json_name = "worldQueryPlayers"];</code>
+     * @param \Df\Plugin\WorldQueryPlayersAction $var
+     * @return $this
+     */
+    public function setWorldQueryPlayers($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryPlayersAction::class);
+        $this->writeOneof(71, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryEntitiesWithinAction world_query_entities_within = 72 [json_name = "worldQueryEntitiesWithin"];</code>
+     * @return \Df\Plugin\WorldQueryEntitiesWithinAction|null
+     */
+    public function getWorldQueryEntitiesWithin()
+    {
+        return $this->readOneof(72);
+    }
+
+    public function hasWorldQueryEntitiesWithin()
+    {
+        return $this->hasOneof(72);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryEntitiesWithinAction world_query_entities_within = 72 [json_name = "worldQueryEntitiesWithin"];</code>
+     * @param \Df\Plugin\WorldQueryEntitiesWithinAction $var
+     * @return $this
+     */
+    public function setWorldQueryEntitiesWithin($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryEntitiesWithinAction::class);
+        $this->writeOneof(72, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];</code>
+     * @return \Df\Plugin\WorldQueryPlayerSpawnAction|null
+     */
+    public function getWorldQueryPlayerSpawn()
+    {
+        return $this->readOneof(74);
+    }
+
+    public function hasWorldQueryPlayerSpawn()
+    {
+        return $this->hasOneof(74);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];</code>
+     * @param \Df\Plugin\WorldQueryPlayerSpawnAction $var
+     * @return $this
+     */
+    public function setWorldQueryPlayerSpawn($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryPlayerSpawnAction::class);
+        $this->writeOneof(74, $var);
+
+        return $this;
+    }
+
+    /**
+     * World: Queries - Blocks & Terrain
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];</code>
+     * @return \Df\Plugin\WorldQueryBlockAction|null
+     */
+    public function getWorldQueryBlock()
+    {
+        return $this->readOneof(75);
+    }
+
+    public function hasWorldQueryBlock()
+    {
+        return $this->hasOneof(75);
+    }
+
+    /**
+     * World: Queries - Blocks & Terrain
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];</code>
+     * @param \Df\Plugin\WorldQueryBlockAction $var
+     * @return $this
+     */
+    public function setWorldQueryBlock($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryBlockAction::class);
+        $this->writeOneof(75, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];</code>
+     * @return \Df\Plugin\WorldQueryBiomeAction|null
+     */
+    public function getWorldQueryBiome()
+    {
+        return $this->readOneof(76);
+    }
+
+    public function hasWorldQueryBiome()
+    {
+        return $this->hasOneof(76);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];</code>
+     * @param \Df\Plugin\WorldQueryBiomeAction $var
+     * @return $this
+     */
+    public function setWorldQueryBiome($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryBiomeAction::class);
+        $this->writeOneof(76, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];</code>
+     * @return \Df\Plugin\WorldQueryLiquidAction|null
+     */
+    public function getWorldQueryLiquid()
+    {
+        return $this->readOneof(84);
+    }
+
+    public function hasWorldQueryLiquid()
+    {
+        return $this->hasOneof(84);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];</code>
+     * @param \Df\Plugin\WorldQueryLiquidAction $var
+     * @return $this
+     */
+    public function setWorldQueryLiquid($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryLiquidAction::class);
+        $this->writeOneof(84, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];</code>
+     * @return \Df\Plugin\WorldQueryHighestBlockAction|null
+     */
+    public function getWorldQueryHighestBlock()
+    {
+        return $this->readOneof(80);
+    }
+
+    public function hasWorldQueryHighestBlock()
+    {
+        return $this->hasOneof(80);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];</code>
+     * @param \Df\Plugin\WorldQueryHighestBlockAction $var
+     * @return $this
+     */
+    public function setWorldQueryHighestBlock($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryHighestBlockAction::class);
+        $this->writeOneof(80, $var);
+
+        return $this;
+    }
+
+    /**
+     * World: Queries - Lighting
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];</code>
+     * @return \Df\Plugin\WorldQueryLightAction|null
+     */
+    public function getWorldQueryLight()
+    {
+        return $this->readOneof(77);
+    }
+
+    public function hasWorldQueryLight()
+    {
+        return $this->hasOneof(77);
+    }
+
+    /**
+     * World: Queries - Lighting
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];</code>
+     * @param \Df\Plugin\WorldQueryLightAction $var
+     * @return $this
+     */
+    public function setWorldQueryLight($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryLightAction::class);
+        $this->writeOneof(77, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];</code>
+     * @return \Df\Plugin\WorldQuerySkyLightAction|null
+     */
+    public function getWorldQuerySkyLight()
+    {
+        return $this->readOneof(78);
+    }
+
+    public function hasWorldQuerySkyLight()
+    {
+        return $this->hasOneof(78);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];</code>
+     * @param \Df\Plugin\WorldQuerySkyLightAction $var
+     * @return $this
+     */
+    public function setWorldQuerySkyLight($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQuerySkyLightAction::class);
+        $this->writeOneof(78, $var);
+
+        return $this;
+    }
+
+    /**
+     * World: Queries - Weather & Environment
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];</code>
+     * @return \Df\Plugin\WorldQueryTemperatureAction|null
+     */
+    public function getWorldQueryTemperature()
+    {
+        return $this->readOneof(79);
+    }
+
+    public function hasWorldQueryTemperature()
+    {
+        return $this->hasOneof(79);
+    }
+
+    /**
+     * World: Queries - Weather & Environment
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];</code>
+     * @param \Df\Plugin\WorldQueryTemperatureAction $var
+     * @return $this
+     */
+    public function setWorldQueryTemperature($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryTemperatureAction::class);
+        $this->writeOneof(79, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];</code>
+     * @return \Df\Plugin\WorldQueryRainingAtAction|null
+     */
+    public function getWorldQueryRainingAt()
+    {
+        return $this->readOneof(81);
+    }
+
+    public function hasWorldQueryRainingAt()
+    {
+        return $this->hasOneof(81);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];</code>
+     * @param \Df\Plugin\WorldQueryRainingAtAction $var
+     * @return $this
+     */
+    public function setWorldQueryRainingAt($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryRainingAtAction::class);
+        $this->writeOneof(81, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];</code>
+     * @return \Df\Plugin\WorldQuerySnowingAtAction|null
+     */
+    public function getWorldQuerySnowingAt()
+    {
+        return $this->readOneof(82);
+    }
+
+    public function hasWorldQuerySnowingAt()
+    {
+        return $this->hasOneof(82);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];</code>
+     * @param \Df\Plugin\WorldQuerySnowingAtAction $var
+     * @return $this
+     */
+    public function setWorldQuerySnowingAt($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQuerySnowingAtAction::class);
+        $this->writeOneof(82, $var);
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];</code>
+     * @return \Df\Plugin\WorldQueryThunderingAtAction|null
+     */
+    public function getWorldQueryThunderingAt()
+    {
+        return $this->readOneof(83);
+    }
+
+    public function hasWorldQueryThunderingAt()
+    {
+        return $this->hasOneof(83);
+    }
+
+    /**
+     * Generated from protobuf field <code>.df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];</code>
+     * @param \Df\Plugin\WorldQueryThunderingAtAction $var
+     * @return $this
+     */
+    public function setWorldQueryThunderingAt($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryThunderingAtAction::class);
+        $this->writeOneof(83, $var);
+
+        return $this;
+    }
+
+    /**
+     * World: Queries - Settings
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];</code>
+     * @return \Df\Plugin\WorldQueryDefaultGameModeAction|null
+     */
+    public function getWorldQueryDefaultGameMode()
+    {
+        return $this->readOneof(73);
+    }
+
+    public function hasWorldQueryDefaultGameMode()
+    {
+        return $this->hasOneof(73);
+    }
+
+    /**
+     * World: Queries - Settings
+     *
+     * Generated from protobuf field <code>.df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];</code>
+     * @param \Df\Plugin\WorldQueryDefaultGameModeAction $var
+     * @return $this
+     */
+    public function setWorldQueryDefaultGameMode($var)
+    {
+        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryDefaultGameModeAction::class);
+        $this->writeOneof(73, $var);
 
         return $this;
     }

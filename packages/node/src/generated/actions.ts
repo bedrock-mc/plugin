@@ -170,32 +170,35 @@ export interface ActionBatch {
 }
 
 export interface Action {
-  correlationId?: string | undefined;
+  correlationId?:
+    | string
+    | undefined;
+  /** Player: Basic Actions */
   sendChat?: SendChatAction | undefined;
   teleport?: TeleportAction | undefined;
   kick?: KickAction | undefined;
   setGameMode?:
     | SetGameModeAction
     | undefined;
-  /** Inventory & Items */
+  /** Player: Inventory & Items */
   giveItem?: GiveItemAction | undefined;
   clearInventory?: ClearInventoryAction | undefined;
   setHeldItem?:
     | SetHeldItemAction
     | undefined;
-  /** Player State */
+  /** Player: State & Attributes */
   setHealth?: SetHealthAction | undefined;
   setFood?: SetFoodAction | undefined;
   setExperience?: SetExperienceAction | undefined;
   setVelocity?:
     | SetVelocityAction
     | undefined;
-  /** Effects & Status */
+  /** Player: Effects & Status */
   addEffect?: AddEffectAction | undefined;
   removeEffect?:
     | RemoveEffectAction
     | undefined;
-  /** UI & Communication */
+  /** Player: UI & Communication */
   sendTitle?: SendTitleAction | undefined;
   sendPopup?: SendPopupAction | undefined;
   sendTip?: SendTipAction | undefined;
@@ -206,42 +209,60 @@ export interface Action {
   executeCommand?:
     | ExecuteCommandAction
     | undefined;
-  /** World configuration and effects */
+  /** World: Configuration & Settings */
   worldSetDefaultGameMode?: WorldSetDefaultGameModeAction | undefined;
   worldSetDifficulty?: WorldSetDifficultyAction | undefined;
   worldSetTickRange?: WorldSetTickRangeAction | undefined;
-  worldSetBlock?: WorldSetBlockAction | undefined;
-  worldPlaySound?: WorldPlaySoundAction | undefined;
-  worldAddParticle?: WorldAddParticleAction | undefined;
-  worldSetTime?: WorldSetTimeAction | undefined;
-  worldStopTime?: WorldStopTimeAction | undefined;
-  worldStartTime?: WorldStartTimeAction | undefined;
   worldSetSpawn?:
     | WorldSetSpawnAction
     | undefined;
-  /** World queries */
-  worldQueryEntities?: WorldQueryEntitiesAction | undefined;
-  worldQueryPlayers?: WorldQueryPlayersAction | undefined;
-  worldQueryEntitiesWithin?: WorldQueryEntitiesWithinAction | undefined;
-  worldQueryDefaultGameMode?: WorldQueryDefaultGameModeAction | undefined;
-  worldQueryPlayerSpawn?: WorldQueryPlayerSpawnAction | undefined;
-  worldQueryBlock?: WorldQueryBlockAction | undefined;
-  worldQueryBiome?: WorldQueryBiomeAction | undefined;
-  worldQueryLight?: WorldQueryLightAction | undefined;
-  worldQuerySkyLight?: WorldQuerySkyLightAction | undefined;
-  worldQueryTemperature?: WorldQueryTemperatureAction | undefined;
-  worldQueryHighestBlock?: WorldQueryHighestBlockAction | undefined;
-  worldQueryRainingAt?: WorldQueryRainingAtAction | undefined;
-  worldQuerySnowingAt?: WorldQuerySnowingAtAction | undefined;
-  worldQueryThunderingAt?: WorldQueryThunderingAtAction | undefined;
-  worldQueryLiquid?:
-    | WorldQueryLiquidAction
-    | undefined;
-  /** World mutations (additional) */
+  /** World: Actions - Blocks & Terrain */
+  worldSetBlock?: WorldSetBlockAction | undefined;
   worldSetBiome?: WorldSetBiomeAction | undefined;
   worldSetLiquid?: WorldSetLiquidAction | undefined;
   worldScheduleBlockUpdate?: WorldScheduleBlockUpdateAction | undefined;
-  worldBuildStructure?: WorldBuildStructureAction | undefined;
+  worldBuildStructure?:
+    | WorldBuildStructureAction
+    | undefined;
+  /** World: Actions -  Time */
+  worldSetTime?: WorldSetTimeAction | undefined;
+  worldStopTime?: WorldStopTimeAction | undefined;
+  worldStartTime?:
+    | WorldStartTimeAction
+    | undefined;
+  /** World: Actions - Effects & Audio */
+  worldPlaySound?: WorldPlaySoundAction | undefined;
+  worldAddParticle?:
+    | WorldAddParticleAction
+    | undefined;
+  /** World: Queries - Entities & Players */
+  worldQueryEntities?: WorldQueryEntitiesAction | undefined;
+  worldQueryPlayers?: WorldQueryPlayersAction | undefined;
+  worldQueryEntitiesWithin?: WorldQueryEntitiesWithinAction | undefined;
+  worldQueryPlayerSpawn?:
+    | WorldQueryPlayerSpawnAction
+    | undefined;
+  /** World: Queries - Blocks & Terrain */
+  worldQueryBlock?: WorldQueryBlockAction | undefined;
+  worldQueryBiome?: WorldQueryBiomeAction | undefined;
+  worldQueryLiquid?: WorldQueryLiquidAction | undefined;
+  worldQueryHighestBlock?:
+    | WorldQueryHighestBlockAction
+    | undefined;
+  /** World: Queries - Lighting */
+  worldQueryLight?: WorldQueryLightAction | undefined;
+  worldQuerySkyLight?:
+    | WorldQuerySkyLightAction
+    | undefined;
+  /** World: Queries - Weather & Environment */
+  worldQueryTemperature?: WorldQueryTemperatureAction | undefined;
+  worldQueryRainingAt?: WorldQueryRainingAtAction | undefined;
+  worldQuerySnowingAt?: WorldQuerySnowingAtAction | undefined;
+  worldQueryThunderingAt?:
+    | WorldQueryThunderingAtAction
+    | undefined;
+  /** World: Queries - Settings */
+  worldQueryDefaultGameMode?: WorldQueryDefaultGameModeAction | undefined;
 }
 
 export interface SendChatAction {
@@ -657,32 +678,32 @@ function createBaseAction(): Action {
     worldSetDefaultGameMode: undefined,
     worldSetDifficulty: undefined,
     worldSetTickRange: undefined,
-    worldSetBlock: undefined,
-    worldPlaySound: undefined,
-    worldAddParticle: undefined,
-    worldSetTime: undefined,
-    worldStopTime: undefined,
-    worldStartTime: undefined,
     worldSetSpawn: undefined,
-    worldQueryEntities: undefined,
-    worldQueryPlayers: undefined,
-    worldQueryEntitiesWithin: undefined,
-    worldQueryDefaultGameMode: undefined,
-    worldQueryPlayerSpawn: undefined,
-    worldQueryBlock: undefined,
-    worldQueryBiome: undefined,
-    worldQueryLight: undefined,
-    worldQuerySkyLight: undefined,
-    worldQueryTemperature: undefined,
-    worldQueryHighestBlock: undefined,
-    worldQueryRainingAt: undefined,
-    worldQuerySnowingAt: undefined,
-    worldQueryThunderingAt: undefined,
-    worldQueryLiquid: undefined,
+    worldSetBlock: undefined,
     worldSetBiome: undefined,
     worldSetLiquid: undefined,
     worldScheduleBlockUpdate: undefined,
     worldBuildStructure: undefined,
+    worldSetTime: undefined,
+    worldStopTime: undefined,
+    worldStartTime: undefined,
+    worldPlaySound: undefined,
+    worldAddParticle: undefined,
+    worldQueryEntities: undefined,
+    worldQueryPlayers: undefined,
+    worldQueryEntitiesWithin: undefined,
+    worldQueryPlayerSpawn: undefined,
+    worldQueryBlock: undefined,
+    worldQueryBiome: undefined,
+    worldQueryLiquid: undefined,
+    worldQueryHighestBlock: undefined,
+    worldQueryLight: undefined,
+    worldQuerySkyLight: undefined,
+    worldQueryTemperature: undefined,
+    worldQueryRainingAt: undefined,
+    worldQuerySnowingAt: undefined,
+    worldQueryThunderingAt: undefined,
+    worldQueryDefaultGameMode: undefined,
   };
 }
 
@@ -754,71 +775,11 @@ export const Action: MessageFns<Action> = {
     if (message.worldSetTickRange !== undefined) {
       WorldSetTickRangeAction.encode(message.worldSetTickRange, writer.uint32(498).fork()).join();
     }
-    if (message.worldSetBlock !== undefined) {
-      WorldSetBlockAction.encode(message.worldSetBlock, writer.uint32(506).fork()).join();
-    }
-    if (message.worldPlaySound !== undefined) {
-      WorldPlaySoundAction.encode(message.worldPlaySound, writer.uint32(514).fork()).join();
-    }
-    if (message.worldAddParticle !== undefined) {
-      WorldAddParticleAction.encode(message.worldAddParticle, writer.uint32(522).fork()).join();
-    }
-    if (message.worldSetTime !== undefined) {
-      WorldSetTimeAction.encode(message.worldSetTime, writer.uint32(530).fork()).join();
-    }
-    if (message.worldStopTime !== undefined) {
-      WorldStopTimeAction.encode(message.worldStopTime, writer.uint32(538).fork()).join();
-    }
-    if (message.worldStartTime !== undefined) {
-      WorldStartTimeAction.encode(message.worldStartTime, writer.uint32(546).fork()).join();
-    }
     if (message.worldSetSpawn !== undefined) {
       WorldSetSpawnAction.encode(message.worldSetSpawn, writer.uint32(554).fork()).join();
     }
-    if (message.worldQueryEntities !== undefined) {
-      WorldQueryEntitiesAction.encode(message.worldQueryEntities, writer.uint32(562).fork()).join();
-    }
-    if (message.worldQueryPlayers !== undefined) {
-      WorldQueryPlayersAction.encode(message.worldQueryPlayers, writer.uint32(570).fork()).join();
-    }
-    if (message.worldQueryEntitiesWithin !== undefined) {
-      WorldQueryEntitiesWithinAction.encode(message.worldQueryEntitiesWithin, writer.uint32(578).fork()).join();
-    }
-    if (message.worldQueryDefaultGameMode !== undefined) {
-      WorldQueryDefaultGameModeAction.encode(message.worldQueryDefaultGameMode, writer.uint32(586).fork()).join();
-    }
-    if (message.worldQueryPlayerSpawn !== undefined) {
-      WorldQueryPlayerSpawnAction.encode(message.worldQueryPlayerSpawn, writer.uint32(594).fork()).join();
-    }
-    if (message.worldQueryBlock !== undefined) {
-      WorldQueryBlockAction.encode(message.worldQueryBlock, writer.uint32(602).fork()).join();
-    }
-    if (message.worldQueryBiome !== undefined) {
-      WorldQueryBiomeAction.encode(message.worldQueryBiome, writer.uint32(610).fork()).join();
-    }
-    if (message.worldQueryLight !== undefined) {
-      WorldQueryLightAction.encode(message.worldQueryLight, writer.uint32(618).fork()).join();
-    }
-    if (message.worldQuerySkyLight !== undefined) {
-      WorldQuerySkyLightAction.encode(message.worldQuerySkyLight, writer.uint32(626).fork()).join();
-    }
-    if (message.worldQueryTemperature !== undefined) {
-      WorldQueryTemperatureAction.encode(message.worldQueryTemperature, writer.uint32(634).fork()).join();
-    }
-    if (message.worldQueryHighestBlock !== undefined) {
-      WorldQueryHighestBlockAction.encode(message.worldQueryHighestBlock, writer.uint32(642).fork()).join();
-    }
-    if (message.worldQueryRainingAt !== undefined) {
-      WorldQueryRainingAtAction.encode(message.worldQueryRainingAt, writer.uint32(650).fork()).join();
-    }
-    if (message.worldQuerySnowingAt !== undefined) {
-      WorldQuerySnowingAtAction.encode(message.worldQuerySnowingAt, writer.uint32(658).fork()).join();
-    }
-    if (message.worldQueryThunderingAt !== undefined) {
-      WorldQueryThunderingAtAction.encode(message.worldQueryThunderingAt, writer.uint32(666).fork()).join();
-    }
-    if (message.worldQueryLiquid !== undefined) {
-      WorldQueryLiquidAction.encode(message.worldQueryLiquid, writer.uint32(674).fork()).join();
+    if (message.worldSetBlock !== undefined) {
+      WorldSetBlockAction.encode(message.worldSetBlock, writer.uint32(506).fork()).join();
     }
     if (message.worldSetBiome !== undefined) {
       WorldSetBiomeAction.encode(message.worldSetBiome, writer.uint32(722).fork()).join();
@@ -831,6 +792,66 @@ export const Action: MessageFns<Action> = {
     }
     if (message.worldBuildStructure !== undefined) {
       WorldBuildStructureAction.encode(message.worldBuildStructure, writer.uint32(746).fork()).join();
+    }
+    if (message.worldSetTime !== undefined) {
+      WorldSetTimeAction.encode(message.worldSetTime, writer.uint32(530).fork()).join();
+    }
+    if (message.worldStopTime !== undefined) {
+      WorldStopTimeAction.encode(message.worldStopTime, writer.uint32(538).fork()).join();
+    }
+    if (message.worldStartTime !== undefined) {
+      WorldStartTimeAction.encode(message.worldStartTime, writer.uint32(546).fork()).join();
+    }
+    if (message.worldPlaySound !== undefined) {
+      WorldPlaySoundAction.encode(message.worldPlaySound, writer.uint32(514).fork()).join();
+    }
+    if (message.worldAddParticle !== undefined) {
+      WorldAddParticleAction.encode(message.worldAddParticle, writer.uint32(522).fork()).join();
+    }
+    if (message.worldQueryEntities !== undefined) {
+      WorldQueryEntitiesAction.encode(message.worldQueryEntities, writer.uint32(562).fork()).join();
+    }
+    if (message.worldQueryPlayers !== undefined) {
+      WorldQueryPlayersAction.encode(message.worldQueryPlayers, writer.uint32(570).fork()).join();
+    }
+    if (message.worldQueryEntitiesWithin !== undefined) {
+      WorldQueryEntitiesWithinAction.encode(message.worldQueryEntitiesWithin, writer.uint32(578).fork()).join();
+    }
+    if (message.worldQueryPlayerSpawn !== undefined) {
+      WorldQueryPlayerSpawnAction.encode(message.worldQueryPlayerSpawn, writer.uint32(594).fork()).join();
+    }
+    if (message.worldQueryBlock !== undefined) {
+      WorldQueryBlockAction.encode(message.worldQueryBlock, writer.uint32(602).fork()).join();
+    }
+    if (message.worldQueryBiome !== undefined) {
+      WorldQueryBiomeAction.encode(message.worldQueryBiome, writer.uint32(610).fork()).join();
+    }
+    if (message.worldQueryLiquid !== undefined) {
+      WorldQueryLiquidAction.encode(message.worldQueryLiquid, writer.uint32(674).fork()).join();
+    }
+    if (message.worldQueryHighestBlock !== undefined) {
+      WorldQueryHighestBlockAction.encode(message.worldQueryHighestBlock, writer.uint32(642).fork()).join();
+    }
+    if (message.worldQueryLight !== undefined) {
+      WorldQueryLightAction.encode(message.worldQueryLight, writer.uint32(618).fork()).join();
+    }
+    if (message.worldQuerySkyLight !== undefined) {
+      WorldQuerySkyLightAction.encode(message.worldQuerySkyLight, writer.uint32(626).fork()).join();
+    }
+    if (message.worldQueryTemperature !== undefined) {
+      WorldQueryTemperatureAction.encode(message.worldQueryTemperature, writer.uint32(634).fork()).join();
+    }
+    if (message.worldQueryRainingAt !== undefined) {
+      WorldQueryRainingAtAction.encode(message.worldQueryRainingAt, writer.uint32(650).fork()).join();
+    }
+    if (message.worldQuerySnowingAt !== undefined) {
+      WorldQuerySnowingAtAction.encode(message.worldQuerySnowingAt, writer.uint32(658).fork()).join();
+    }
+    if (message.worldQueryThunderingAt !== undefined) {
+      WorldQueryThunderingAtAction.encode(message.worldQueryThunderingAt, writer.uint32(666).fork()).join();
+    }
+    if (message.worldQueryDefaultGameMode !== undefined) {
+      WorldQueryDefaultGameModeAction.encode(message.worldQueryDefaultGameMode, writer.uint32(586).fork()).join();
     }
     return writer;
   },
@@ -1018,54 +1039,6 @@ export const Action: MessageFns<Action> = {
           message.worldSetTickRange = WorldSetTickRangeAction.decode(reader, reader.uint32());
           continue;
         }
-        case 63: {
-          if (tag !== 506) {
-            break;
-          }
-
-          message.worldSetBlock = WorldSetBlockAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 64: {
-          if (tag !== 514) {
-            break;
-          }
-
-          message.worldPlaySound = WorldPlaySoundAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 65: {
-          if (tag !== 522) {
-            break;
-          }
-
-          message.worldAddParticle = WorldAddParticleAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 66: {
-          if (tag !== 530) {
-            break;
-          }
-
-          message.worldSetTime = WorldSetTimeAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 67: {
-          if (tag !== 538) {
-            break;
-          }
-
-          message.worldStopTime = WorldStopTimeAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 68: {
-          if (tag !== 546) {
-            break;
-          }
-
-          message.worldStartTime = WorldStartTimeAction.decode(reader, reader.uint32());
-          continue;
-        }
         case 69: {
           if (tag !== 554) {
             break;
@@ -1074,124 +1047,12 @@ export const Action: MessageFns<Action> = {
           message.worldSetSpawn = WorldSetSpawnAction.decode(reader, reader.uint32());
           continue;
         }
-        case 70: {
-          if (tag !== 562) {
+        case 63: {
+          if (tag !== 506) {
             break;
           }
 
-          message.worldQueryEntities = WorldQueryEntitiesAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 71: {
-          if (tag !== 570) {
-            break;
-          }
-
-          message.worldQueryPlayers = WorldQueryPlayersAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 72: {
-          if (tag !== 578) {
-            break;
-          }
-
-          message.worldQueryEntitiesWithin = WorldQueryEntitiesWithinAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 73: {
-          if (tag !== 586) {
-            break;
-          }
-
-          message.worldQueryDefaultGameMode = WorldQueryDefaultGameModeAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 74: {
-          if (tag !== 594) {
-            break;
-          }
-
-          message.worldQueryPlayerSpawn = WorldQueryPlayerSpawnAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 75: {
-          if (tag !== 602) {
-            break;
-          }
-
-          message.worldQueryBlock = WorldQueryBlockAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 76: {
-          if (tag !== 610) {
-            break;
-          }
-
-          message.worldQueryBiome = WorldQueryBiomeAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 77: {
-          if (tag !== 618) {
-            break;
-          }
-
-          message.worldQueryLight = WorldQueryLightAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 78: {
-          if (tag !== 626) {
-            break;
-          }
-
-          message.worldQuerySkyLight = WorldQuerySkyLightAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 79: {
-          if (tag !== 634) {
-            break;
-          }
-
-          message.worldQueryTemperature = WorldQueryTemperatureAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 80: {
-          if (tag !== 642) {
-            break;
-          }
-
-          message.worldQueryHighestBlock = WorldQueryHighestBlockAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 81: {
-          if (tag !== 650) {
-            break;
-          }
-
-          message.worldQueryRainingAt = WorldQueryRainingAtAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 82: {
-          if (tag !== 658) {
-            break;
-          }
-
-          message.worldQuerySnowingAt = WorldQuerySnowingAtAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 83: {
-          if (tag !== 666) {
-            break;
-          }
-
-          message.worldQueryThunderingAt = WorldQueryThunderingAtAction.decode(reader, reader.uint32());
-          continue;
-        }
-        case 84: {
-          if (tag !== 674) {
-            break;
-          }
-
-          message.worldQueryLiquid = WorldQueryLiquidAction.decode(reader, reader.uint32());
+          message.worldSetBlock = WorldSetBlockAction.decode(reader, reader.uint32());
           continue;
         }
         case 90: {
@@ -1224,6 +1085,166 @@ export const Action: MessageFns<Action> = {
           }
 
           message.worldBuildStructure = WorldBuildStructureAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 66: {
+          if (tag !== 530) {
+            break;
+          }
+
+          message.worldSetTime = WorldSetTimeAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 67: {
+          if (tag !== 538) {
+            break;
+          }
+
+          message.worldStopTime = WorldStopTimeAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 68: {
+          if (tag !== 546) {
+            break;
+          }
+
+          message.worldStartTime = WorldStartTimeAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 64: {
+          if (tag !== 514) {
+            break;
+          }
+
+          message.worldPlaySound = WorldPlaySoundAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 65: {
+          if (tag !== 522) {
+            break;
+          }
+
+          message.worldAddParticle = WorldAddParticleAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 70: {
+          if (tag !== 562) {
+            break;
+          }
+
+          message.worldQueryEntities = WorldQueryEntitiesAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 71: {
+          if (tag !== 570) {
+            break;
+          }
+
+          message.worldQueryPlayers = WorldQueryPlayersAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 72: {
+          if (tag !== 578) {
+            break;
+          }
+
+          message.worldQueryEntitiesWithin = WorldQueryEntitiesWithinAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 74: {
+          if (tag !== 594) {
+            break;
+          }
+
+          message.worldQueryPlayerSpawn = WorldQueryPlayerSpawnAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 75: {
+          if (tag !== 602) {
+            break;
+          }
+
+          message.worldQueryBlock = WorldQueryBlockAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 76: {
+          if (tag !== 610) {
+            break;
+          }
+
+          message.worldQueryBiome = WorldQueryBiomeAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 84: {
+          if (tag !== 674) {
+            break;
+          }
+
+          message.worldQueryLiquid = WorldQueryLiquidAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 80: {
+          if (tag !== 642) {
+            break;
+          }
+
+          message.worldQueryHighestBlock = WorldQueryHighestBlockAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 77: {
+          if (tag !== 618) {
+            break;
+          }
+
+          message.worldQueryLight = WorldQueryLightAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 78: {
+          if (tag !== 626) {
+            break;
+          }
+
+          message.worldQuerySkyLight = WorldQuerySkyLightAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 79: {
+          if (tag !== 634) {
+            break;
+          }
+
+          message.worldQueryTemperature = WorldQueryTemperatureAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 81: {
+          if (tag !== 650) {
+            break;
+          }
+
+          message.worldQueryRainingAt = WorldQueryRainingAtAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 82: {
+          if (tag !== 658) {
+            break;
+          }
+
+          message.worldQuerySnowingAt = WorldQuerySnowingAtAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 83: {
+          if (tag !== 666) {
+            break;
+          }
+
+          message.worldQueryThunderingAt = WorldQueryThunderingAtAction.decode(reader, reader.uint32());
+          continue;
+        }
+        case 73: {
+          if (tag !== 586) {
+            break;
+          }
+
+          message.worldQueryDefaultGameMode = WorldQueryDefaultGameModeAction.decode(reader, reader.uint32());
           continue;
         }
       }
@@ -1265,15 +1286,23 @@ export const Action: MessageFns<Action> = {
       worldSetTickRange: isSet(object.worldSetTickRange)
         ? WorldSetTickRangeAction.fromJSON(object.worldSetTickRange)
         : undefined,
+      worldSetSpawn: isSet(object.worldSetSpawn) ? WorldSetSpawnAction.fromJSON(object.worldSetSpawn) : undefined,
       worldSetBlock: isSet(object.worldSetBlock) ? WorldSetBlockAction.fromJSON(object.worldSetBlock) : undefined,
-      worldPlaySound: isSet(object.worldPlaySound) ? WorldPlaySoundAction.fromJSON(object.worldPlaySound) : undefined,
-      worldAddParticle: isSet(object.worldAddParticle)
-        ? WorldAddParticleAction.fromJSON(object.worldAddParticle)
+      worldSetBiome: isSet(object.worldSetBiome) ? WorldSetBiomeAction.fromJSON(object.worldSetBiome) : undefined,
+      worldSetLiquid: isSet(object.worldSetLiquid) ? WorldSetLiquidAction.fromJSON(object.worldSetLiquid) : undefined,
+      worldScheduleBlockUpdate: isSet(object.worldScheduleBlockUpdate)
+        ? WorldScheduleBlockUpdateAction.fromJSON(object.worldScheduleBlockUpdate)
+        : undefined,
+      worldBuildStructure: isSet(object.worldBuildStructure)
+        ? WorldBuildStructureAction.fromJSON(object.worldBuildStructure)
         : undefined,
       worldSetTime: isSet(object.worldSetTime) ? WorldSetTimeAction.fromJSON(object.worldSetTime) : undefined,
       worldStopTime: isSet(object.worldStopTime) ? WorldStopTimeAction.fromJSON(object.worldStopTime) : undefined,
       worldStartTime: isSet(object.worldStartTime) ? WorldStartTimeAction.fromJSON(object.worldStartTime) : undefined,
-      worldSetSpawn: isSet(object.worldSetSpawn) ? WorldSetSpawnAction.fromJSON(object.worldSetSpawn) : undefined,
+      worldPlaySound: isSet(object.worldPlaySound) ? WorldPlaySoundAction.fromJSON(object.worldPlaySound) : undefined,
+      worldAddParticle: isSet(object.worldAddParticle)
+        ? WorldAddParticleAction.fromJSON(object.worldAddParticle)
+        : undefined,
       worldQueryEntities: isSet(object.worldQueryEntities)
         ? WorldQueryEntitiesAction.fromJSON(object.worldQueryEntities)
         : undefined,
@@ -1282,9 +1311,6 @@ export const Action: MessageFns<Action> = {
         : undefined,
       worldQueryEntitiesWithin: isSet(object.worldQueryEntitiesWithin)
         ? WorldQueryEntitiesWithinAction.fromJSON(object.worldQueryEntitiesWithin)
-        : undefined,
-      worldQueryDefaultGameMode: isSet(object.worldQueryDefaultGameMode)
-        ? WorldQueryDefaultGameModeAction.fromJSON(object.worldQueryDefaultGameMode)
         : undefined,
       worldQueryPlayerSpawn: isSet(object.worldQueryPlayerSpawn)
         ? WorldQueryPlayerSpawnAction.fromJSON(object.worldQueryPlayerSpawn)
@@ -1295,6 +1321,12 @@ export const Action: MessageFns<Action> = {
       worldQueryBiome: isSet(object.worldQueryBiome)
         ? WorldQueryBiomeAction.fromJSON(object.worldQueryBiome)
         : undefined,
+      worldQueryLiquid: isSet(object.worldQueryLiquid)
+        ? WorldQueryLiquidAction.fromJSON(object.worldQueryLiquid)
+        : undefined,
+      worldQueryHighestBlock: isSet(object.worldQueryHighestBlock)
+        ? WorldQueryHighestBlockAction.fromJSON(object.worldQueryHighestBlock)
+        : undefined,
       worldQueryLight: isSet(object.worldQueryLight)
         ? WorldQueryLightAction.fromJSON(object.worldQueryLight)
         : undefined,
@@ -1303,9 +1335,6 @@ export const Action: MessageFns<Action> = {
         : undefined,
       worldQueryTemperature: isSet(object.worldQueryTemperature)
         ? WorldQueryTemperatureAction.fromJSON(object.worldQueryTemperature)
-        : undefined,
-      worldQueryHighestBlock: isSet(object.worldQueryHighestBlock)
-        ? WorldQueryHighestBlockAction.fromJSON(object.worldQueryHighestBlock)
         : undefined,
       worldQueryRainingAt: isSet(object.worldQueryRainingAt)
         ? WorldQueryRainingAtAction.fromJSON(object.worldQueryRainingAt)
@@ -1316,16 +1345,8 @@ export const Action: MessageFns<Action> = {
       worldQueryThunderingAt: isSet(object.worldQueryThunderingAt)
         ? WorldQueryThunderingAtAction.fromJSON(object.worldQueryThunderingAt)
         : undefined,
-      worldQueryLiquid: isSet(object.worldQueryLiquid)
-        ? WorldQueryLiquidAction.fromJSON(object.worldQueryLiquid)
-        : undefined,
-      worldSetBiome: isSet(object.worldSetBiome) ? WorldSetBiomeAction.fromJSON(object.worldSetBiome) : undefined,
-      worldSetLiquid: isSet(object.worldSetLiquid) ? WorldSetLiquidAction.fromJSON(object.worldSetLiquid) : undefined,
-      worldScheduleBlockUpdate: isSet(object.worldScheduleBlockUpdate)
-        ? WorldScheduleBlockUpdateAction.fromJSON(object.worldScheduleBlockUpdate)
-        : undefined,
-      worldBuildStructure: isSet(object.worldBuildStructure)
-        ? WorldBuildStructureAction.fromJSON(object.worldBuildStructure)
+      worldQueryDefaultGameMode: isSet(object.worldQueryDefaultGameMode)
+        ? WorldQueryDefaultGameModeAction.fromJSON(object.worldQueryDefaultGameMode)
         : undefined,
     };
   },
@@ -1398,71 +1419,11 @@ export const Action: MessageFns<Action> = {
     if (message.worldSetTickRange !== undefined) {
       obj.worldSetTickRange = WorldSetTickRangeAction.toJSON(message.worldSetTickRange);
     }
-    if (message.worldSetBlock !== undefined) {
-      obj.worldSetBlock = WorldSetBlockAction.toJSON(message.worldSetBlock);
-    }
-    if (message.worldPlaySound !== undefined) {
-      obj.worldPlaySound = WorldPlaySoundAction.toJSON(message.worldPlaySound);
-    }
-    if (message.worldAddParticle !== undefined) {
-      obj.worldAddParticle = WorldAddParticleAction.toJSON(message.worldAddParticle);
-    }
-    if (message.worldSetTime !== undefined) {
-      obj.worldSetTime = WorldSetTimeAction.toJSON(message.worldSetTime);
-    }
-    if (message.worldStopTime !== undefined) {
-      obj.worldStopTime = WorldStopTimeAction.toJSON(message.worldStopTime);
-    }
-    if (message.worldStartTime !== undefined) {
-      obj.worldStartTime = WorldStartTimeAction.toJSON(message.worldStartTime);
-    }
     if (message.worldSetSpawn !== undefined) {
       obj.worldSetSpawn = WorldSetSpawnAction.toJSON(message.worldSetSpawn);
     }
-    if (message.worldQueryEntities !== undefined) {
-      obj.worldQueryEntities = WorldQueryEntitiesAction.toJSON(message.worldQueryEntities);
-    }
-    if (message.worldQueryPlayers !== undefined) {
-      obj.worldQueryPlayers = WorldQueryPlayersAction.toJSON(message.worldQueryPlayers);
-    }
-    if (message.worldQueryEntitiesWithin !== undefined) {
-      obj.worldQueryEntitiesWithin = WorldQueryEntitiesWithinAction.toJSON(message.worldQueryEntitiesWithin);
-    }
-    if (message.worldQueryDefaultGameMode !== undefined) {
-      obj.worldQueryDefaultGameMode = WorldQueryDefaultGameModeAction.toJSON(message.worldQueryDefaultGameMode);
-    }
-    if (message.worldQueryPlayerSpawn !== undefined) {
-      obj.worldQueryPlayerSpawn = WorldQueryPlayerSpawnAction.toJSON(message.worldQueryPlayerSpawn);
-    }
-    if (message.worldQueryBlock !== undefined) {
-      obj.worldQueryBlock = WorldQueryBlockAction.toJSON(message.worldQueryBlock);
-    }
-    if (message.worldQueryBiome !== undefined) {
-      obj.worldQueryBiome = WorldQueryBiomeAction.toJSON(message.worldQueryBiome);
-    }
-    if (message.worldQueryLight !== undefined) {
-      obj.worldQueryLight = WorldQueryLightAction.toJSON(message.worldQueryLight);
-    }
-    if (message.worldQuerySkyLight !== undefined) {
-      obj.worldQuerySkyLight = WorldQuerySkyLightAction.toJSON(message.worldQuerySkyLight);
-    }
-    if (message.worldQueryTemperature !== undefined) {
-      obj.worldQueryTemperature = WorldQueryTemperatureAction.toJSON(message.worldQueryTemperature);
-    }
-    if (message.worldQueryHighestBlock !== undefined) {
-      obj.worldQueryHighestBlock = WorldQueryHighestBlockAction.toJSON(message.worldQueryHighestBlock);
-    }
-    if (message.worldQueryRainingAt !== undefined) {
-      obj.worldQueryRainingAt = WorldQueryRainingAtAction.toJSON(message.worldQueryRainingAt);
-    }
-    if (message.worldQuerySnowingAt !== undefined) {
-      obj.worldQuerySnowingAt = WorldQuerySnowingAtAction.toJSON(message.worldQuerySnowingAt);
-    }
-    if (message.worldQueryThunderingAt !== undefined) {
-      obj.worldQueryThunderingAt = WorldQueryThunderingAtAction.toJSON(message.worldQueryThunderingAt);
-    }
-    if (message.worldQueryLiquid !== undefined) {
-      obj.worldQueryLiquid = WorldQueryLiquidAction.toJSON(message.worldQueryLiquid);
+    if (message.worldSetBlock !== undefined) {
+      obj.worldSetBlock = WorldSetBlockAction.toJSON(message.worldSetBlock);
     }
     if (message.worldSetBiome !== undefined) {
       obj.worldSetBiome = WorldSetBiomeAction.toJSON(message.worldSetBiome);
@@ -1475,6 +1436,66 @@ export const Action: MessageFns<Action> = {
     }
     if (message.worldBuildStructure !== undefined) {
       obj.worldBuildStructure = WorldBuildStructureAction.toJSON(message.worldBuildStructure);
+    }
+    if (message.worldSetTime !== undefined) {
+      obj.worldSetTime = WorldSetTimeAction.toJSON(message.worldSetTime);
+    }
+    if (message.worldStopTime !== undefined) {
+      obj.worldStopTime = WorldStopTimeAction.toJSON(message.worldStopTime);
+    }
+    if (message.worldStartTime !== undefined) {
+      obj.worldStartTime = WorldStartTimeAction.toJSON(message.worldStartTime);
+    }
+    if (message.worldPlaySound !== undefined) {
+      obj.worldPlaySound = WorldPlaySoundAction.toJSON(message.worldPlaySound);
+    }
+    if (message.worldAddParticle !== undefined) {
+      obj.worldAddParticle = WorldAddParticleAction.toJSON(message.worldAddParticle);
+    }
+    if (message.worldQueryEntities !== undefined) {
+      obj.worldQueryEntities = WorldQueryEntitiesAction.toJSON(message.worldQueryEntities);
+    }
+    if (message.worldQueryPlayers !== undefined) {
+      obj.worldQueryPlayers = WorldQueryPlayersAction.toJSON(message.worldQueryPlayers);
+    }
+    if (message.worldQueryEntitiesWithin !== undefined) {
+      obj.worldQueryEntitiesWithin = WorldQueryEntitiesWithinAction.toJSON(message.worldQueryEntitiesWithin);
+    }
+    if (message.worldQueryPlayerSpawn !== undefined) {
+      obj.worldQueryPlayerSpawn = WorldQueryPlayerSpawnAction.toJSON(message.worldQueryPlayerSpawn);
+    }
+    if (message.worldQueryBlock !== undefined) {
+      obj.worldQueryBlock = WorldQueryBlockAction.toJSON(message.worldQueryBlock);
+    }
+    if (message.worldQueryBiome !== undefined) {
+      obj.worldQueryBiome = WorldQueryBiomeAction.toJSON(message.worldQueryBiome);
+    }
+    if (message.worldQueryLiquid !== undefined) {
+      obj.worldQueryLiquid = WorldQueryLiquidAction.toJSON(message.worldQueryLiquid);
+    }
+    if (message.worldQueryHighestBlock !== undefined) {
+      obj.worldQueryHighestBlock = WorldQueryHighestBlockAction.toJSON(message.worldQueryHighestBlock);
+    }
+    if (message.worldQueryLight !== undefined) {
+      obj.worldQueryLight = WorldQueryLightAction.toJSON(message.worldQueryLight);
+    }
+    if (message.worldQuerySkyLight !== undefined) {
+      obj.worldQuerySkyLight = WorldQuerySkyLightAction.toJSON(message.worldQuerySkyLight);
+    }
+    if (message.worldQueryTemperature !== undefined) {
+      obj.worldQueryTemperature = WorldQueryTemperatureAction.toJSON(message.worldQueryTemperature);
+    }
+    if (message.worldQueryRainingAt !== undefined) {
+      obj.worldQueryRainingAt = WorldQueryRainingAtAction.toJSON(message.worldQueryRainingAt);
+    }
+    if (message.worldQuerySnowingAt !== undefined) {
+      obj.worldQuerySnowingAt = WorldQuerySnowingAtAction.toJSON(message.worldQuerySnowingAt);
+    }
+    if (message.worldQueryThunderingAt !== undefined) {
+      obj.worldQueryThunderingAt = WorldQueryThunderingAtAction.toJSON(message.worldQueryThunderingAt);
+    }
+    if (message.worldQueryDefaultGameMode !== undefined) {
+      obj.worldQueryDefaultGameMode = WorldQueryDefaultGameModeAction.toJSON(message.worldQueryDefaultGameMode);
     }
     return obj;
   },
@@ -1549,77 +1570,11 @@ export const Action: MessageFns<Action> = {
     message.worldSetTickRange = (object.worldSetTickRange !== undefined && object.worldSetTickRange !== null)
       ? WorldSetTickRangeAction.fromPartial(object.worldSetTickRange)
       : undefined;
-    message.worldSetBlock = (object.worldSetBlock !== undefined && object.worldSetBlock !== null)
-      ? WorldSetBlockAction.fromPartial(object.worldSetBlock)
-      : undefined;
-    message.worldPlaySound = (object.worldPlaySound !== undefined && object.worldPlaySound !== null)
-      ? WorldPlaySoundAction.fromPartial(object.worldPlaySound)
-      : undefined;
-    message.worldAddParticle = (object.worldAddParticle !== undefined && object.worldAddParticle !== null)
-      ? WorldAddParticleAction.fromPartial(object.worldAddParticle)
-      : undefined;
-    message.worldSetTime = (object.worldSetTime !== undefined && object.worldSetTime !== null)
-      ? WorldSetTimeAction.fromPartial(object.worldSetTime)
-      : undefined;
-    message.worldStopTime = (object.worldStopTime !== undefined && object.worldStopTime !== null)
-      ? WorldStopTimeAction.fromPartial(object.worldStopTime)
-      : undefined;
-    message.worldStartTime = (object.worldStartTime !== undefined && object.worldStartTime !== null)
-      ? WorldStartTimeAction.fromPartial(object.worldStartTime)
-      : undefined;
     message.worldSetSpawn = (object.worldSetSpawn !== undefined && object.worldSetSpawn !== null)
       ? WorldSetSpawnAction.fromPartial(object.worldSetSpawn)
       : undefined;
-    message.worldQueryEntities = (object.worldQueryEntities !== undefined && object.worldQueryEntities !== null)
-      ? WorldQueryEntitiesAction.fromPartial(object.worldQueryEntities)
-      : undefined;
-    message.worldQueryPlayers = (object.worldQueryPlayers !== undefined && object.worldQueryPlayers !== null)
-      ? WorldQueryPlayersAction.fromPartial(object.worldQueryPlayers)
-      : undefined;
-    message.worldQueryEntitiesWithin =
-      (object.worldQueryEntitiesWithin !== undefined && object.worldQueryEntitiesWithin !== null)
-        ? WorldQueryEntitiesWithinAction.fromPartial(object.worldQueryEntitiesWithin)
-        : undefined;
-    message.worldQueryDefaultGameMode =
-      (object.worldQueryDefaultGameMode !== undefined && object.worldQueryDefaultGameMode !== null)
-        ? WorldQueryDefaultGameModeAction.fromPartial(object.worldQueryDefaultGameMode)
-        : undefined;
-    message.worldQueryPlayerSpawn =
-      (object.worldQueryPlayerSpawn !== undefined && object.worldQueryPlayerSpawn !== null)
-        ? WorldQueryPlayerSpawnAction.fromPartial(object.worldQueryPlayerSpawn)
-        : undefined;
-    message.worldQueryBlock = (object.worldQueryBlock !== undefined && object.worldQueryBlock !== null)
-      ? WorldQueryBlockAction.fromPartial(object.worldQueryBlock)
-      : undefined;
-    message.worldQueryBiome = (object.worldQueryBiome !== undefined && object.worldQueryBiome !== null)
-      ? WorldQueryBiomeAction.fromPartial(object.worldQueryBiome)
-      : undefined;
-    message.worldQueryLight = (object.worldQueryLight !== undefined && object.worldQueryLight !== null)
-      ? WorldQueryLightAction.fromPartial(object.worldQueryLight)
-      : undefined;
-    message.worldQuerySkyLight = (object.worldQuerySkyLight !== undefined && object.worldQuerySkyLight !== null)
-      ? WorldQuerySkyLightAction.fromPartial(object.worldQuerySkyLight)
-      : undefined;
-    message.worldQueryTemperature =
-      (object.worldQueryTemperature !== undefined && object.worldQueryTemperature !== null)
-        ? WorldQueryTemperatureAction.fromPartial(object.worldQueryTemperature)
-        : undefined;
-    message.worldQueryHighestBlock =
-      (object.worldQueryHighestBlock !== undefined && object.worldQueryHighestBlock !== null)
-        ? WorldQueryHighestBlockAction.fromPartial(object.worldQueryHighestBlock)
-        : undefined;
-    message.worldQueryRainingAt = (object.worldQueryRainingAt !== undefined && object.worldQueryRainingAt !== null)
-      ? WorldQueryRainingAtAction.fromPartial(object.worldQueryRainingAt)
-      : undefined;
-    message.worldQuerySnowingAt = (object.worldQuerySnowingAt !== undefined && object.worldQuerySnowingAt !== null)
-      ? WorldQuerySnowingAtAction.fromPartial(object.worldQuerySnowingAt)
-      : undefined;
-    message.worldQueryThunderingAt =
-      (object.worldQueryThunderingAt !== undefined && object.worldQueryThunderingAt !== null)
-        ? WorldQueryThunderingAtAction.fromPartial(object.worldQueryThunderingAt)
-        : undefined;
-    message.worldQueryLiquid = (object.worldQueryLiquid !== undefined && object.worldQueryLiquid !== null)
-      ? WorldQueryLiquidAction.fromPartial(object.worldQueryLiquid)
+    message.worldSetBlock = (object.worldSetBlock !== undefined && object.worldSetBlock !== null)
+      ? WorldSetBlockAction.fromPartial(object.worldSetBlock)
       : undefined;
     message.worldSetBiome = (object.worldSetBiome !== undefined && object.worldSetBiome !== null)
       ? WorldSetBiomeAction.fromPartial(object.worldSetBiome)
@@ -1634,6 +1589,72 @@ export const Action: MessageFns<Action> = {
     message.worldBuildStructure = (object.worldBuildStructure !== undefined && object.worldBuildStructure !== null)
       ? WorldBuildStructureAction.fromPartial(object.worldBuildStructure)
       : undefined;
+    message.worldSetTime = (object.worldSetTime !== undefined && object.worldSetTime !== null)
+      ? WorldSetTimeAction.fromPartial(object.worldSetTime)
+      : undefined;
+    message.worldStopTime = (object.worldStopTime !== undefined && object.worldStopTime !== null)
+      ? WorldStopTimeAction.fromPartial(object.worldStopTime)
+      : undefined;
+    message.worldStartTime = (object.worldStartTime !== undefined && object.worldStartTime !== null)
+      ? WorldStartTimeAction.fromPartial(object.worldStartTime)
+      : undefined;
+    message.worldPlaySound = (object.worldPlaySound !== undefined && object.worldPlaySound !== null)
+      ? WorldPlaySoundAction.fromPartial(object.worldPlaySound)
+      : undefined;
+    message.worldAddParticle = (object.worldAddParticle !== undefined && object.worldAddParticle !== null)
+      ? WorldAddParticleAction.fromPartial(object.worldAddParticle)
+      : undefined;
+    message.worldQueryEntities = (object.worldQueryEntities !== undefined && object.worldQueryEntities !== null)
+      ? WorldQueryEntitiesAction.fromPartial(object.worldQueryEntities)
+      : undefined;
+    message.worldQueryPlayers = (object.worldQueryPlayers !== undefined && object.worldQueryPlayers !== null)
+      ? WorldQueryPlayersAction.fromPartial(object.worldQueryPlayers)
+      : undefined;
+    message.worldQueryEntitiesWithin =
+      (object.worldQueryEntitiesWithin !== undefined && object.worldQueryEntitiesWithin !== null)
+        ? WorldQueryEntitiesWithinAction.fromPartial(object.worldQueryEntitiesWithin)
+        : undefined;
+    message.worldQueryPlayerSpawn =
+      (object.worldQueryPlayerSpawn !== undefined && object.worldQueryPlayerSpawn !== null)
+        ? WorldQueryPlayerSpawnAction.fromPartial(object.worldQueryPlayerSpawn)
+        : undefined;
+    message.worldQueryBlock = (object.worldQueryBlock !== undefined && object.worldQueryBlock !== null)
+      ? WorldQueryBlockAction.fromPartial(object.worldQueryBlock)
+      : undefined;
+    message.worldQueryBiome = (object.worldQueryBiome !== undefined && object.worldQueryBiome !== null)
+      ? WorldQueryBiomeAction.fromPartial(object.worldQueryBiome)
+      : undefined;
+    message.worldQueryLiquid = (object.worldQueryLiquid !== undefined && object.worldQueryLiquid !== null)
+      ? WorldQueryLiquidAction.fromPartial(object.worldQueryLiquid)
+      : undefined;
+    message.worldQueryHighestBlock =
+      (object.worldQueryHighestBlock !== undefined && object.worldQueryHighestBlock !== null)
+        ? WorldQueryHighestBlockAction.fromPartial(object.worldQueryHighestBlock)
+        : undefined;
+    message.worldQueryLight = (object.worldQueryLight !== undefined && object.worldQueryLight !== null)
+      ? WorldQueryLightAction.fromPartial(object.worldQueryLight)
+      : undefined;
+    message.worldQuerySkyLight = (object.worldQuerySkyLight !== undefined && object.worldQuerySkyLight !== null)
+      ? WorldQuerySkyLightAction.fromPartial(object.worldQuerySkyLight)
+      : undefined;
+    message.worldQueryTemperature =
+      (object.worldQueryTemperature !== undefined && object.worldQueryTemperature !== null)
+        ? WorldQueryTemperatureAction.fromPartial(object.worldQueryTemperature)
+        : undefined;
+    message.worldQueryRainingAt = (object.worldQueryRainingAt !== undefined && object.worldQueryRainingAt !== null)
+      ? WorldQueryRainingAtAction.fromPartial(object.worldQueryRainingAt)
+      : undefined;
+    message.worldQuerySnowingAt = (object.worldQuerySnowingAt !== undefined && object.worldQuerySnowingAt !== null)
+      ? WorldQuerySnowingAtAction.fromPartial(object.worldQuerySnowingAt)
+      : undefined;
+    message.worldQueryThunderingAt =
+      (object.worldQueryThunderingAt !== undefined && object.worldQueryThunderingAt !== null)
+        ? WorldQueryThunderingAtAction.fromPartial(object.worldQueryThunderingAt)
+        : undefined;
+    message.worldQueryDefaultGameMode =
+      (object.worldQueryDefaultGameMode !== undefined && object.worldQueryDefaultGameMode !== null)
+        ? WorldQueryDefaultGameModeAction.fromPartial(object.worldQueryDefaultGameMode)
+        : undefined;
     return message;
   },
 };

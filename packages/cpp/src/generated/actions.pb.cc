@@ -2091,64 +2091,64 @@ const char descriptor_table_protodef_actions_2eproto[] ABSL_ATTRIBUTE_SECTION_VA
     "SetDifficultyActionH\000R\022worldSetDifficult"
     "y\022U\n\024world_set_tick_range\030> \001(\0132\".df.plu"
     "gin.WorldSetTickRangeActionH\000R\021worldSetT"
-    "ickRange\022H\n\017world_set_block\030\? \001(\0132\036.df.p"
-    "lugin.WorldSetBlockActionH\000R\rworldSetBlo"
-    "ck\022K\n\020world_play_sound\030@ \001(\0132\037.df.plugin"
-    ".WorldPlaySoundActionH\000R\016worldPlaySound\022"
-    "Q\n\022world_add_particle\030A \001(\0132!.df.plugin."
-    "WorldAddParticleActionH\000R\020worldAddPartic"
-    "le\022E\n\016world_set_time\030B \001(\0132\035.df.plugin.W"
-    "orldSetTimeActionH\000R\014worldSetTime\022H\n\017wor"
-    "ld_stop_time\030C \001(\0132\036.df.plugin.WorldStop"
-    "TimeActionH\000R\rworldStopTime\022K\n\020world_sta"
-    "rt_time\030D \001(\0132\037.df.plugin.WorldStartTime"
-    "ActionH\000R\016worldStartTime\022H\n\017world_set_sp"
-    "awn\030E \001(\0132\036.df.plugin.WorldSetSpawnActio"
-    "nH\000R\rworldSetSpawn\022W\n\024world_query_entiti"
-    "es\030F \001(\0132#.df.plugin.WorldQueryEntitiesA"
-    "ctionH\000R\022worldQueryEntities\022T\n\023world_que"
-    "ry_players\030G \001(\0132\".df.plugin.WorldQueryP"
-    "layersActionH\000R\021worldQueryPlayers\022j\n\033wor"
-    "ld_query_entities_within\030H \001(\0132).df.plug"
-    "in.WorldQueryEntitiesWithinActionH\000R\030wor"
-    "ldQueryEntitiesWithin\022n\n\035world_query_def"
-    "ault_game_mode\030I \001(\0132*.df.plugin.WorldQu"
-    "eryDefaultGameModeActionH\000R\031worldQueryDe"
-    "faultGameMode\022a\n\030world_query_player_spaw"
-    "n\030J \001(\0132&.df.plugin.WorldQueryPlayerSpaw"
-    "nActionH\000R\025worldQueryPlayerSpawn\022N\n\021worl"
-    "d_query_block\030K \001(\0132 .df.plugin.WorldQue"
-    "ryBlockActionH\000R\017worldQueryBlock\022N\n\021worl"
-    "d_query_biome\030L \001(\0132 .df.plugin.WorldQue"
-    "ryBiomeActionH\000R\017worldQueryBiome\022N\n\021worl"
-    "d_query_light\030M \001(\0132 .df.plugin.WorldQue"
-    "ryLightActionH\000R\017worldQueryLight\022X\n\025worl"
-    "d_query_sky_light\030N \001(\0132#.df.plugin.Worl"
-    "dQuerySkyLightActionH\000R\022worldQuerySkyLig"
-    "ht\022`\n\027world_query_temperature\030O \001(\0132&.df"
-    ".plugin.WorldQueryTemperatureActionH\000R\025w"
-    "orldQueryTemperature\022d\n\031world_query_high"
-    "est_block\030P \001(\0132\'.df.plugin.WorldQueryHi"
-    "ghestBlockActionH\000R\026worldQueryHighestBlo"
-    "ck\022[\n\026world_query_raining_at\030Q \001(\0132$.df."
-    "plugin.WorldQueryRainingAtActionH\000R\023worl"
-    "dQueryRainingAt\022[\n\026world_query_snowing_a"
-    "t\030R \001(\0132$.df.plugin.WorldQuerySnowingAtA"
-    "ctionH\000R\023worldQuerySnowingAt\022d\n\031world_qu"
-    "ery_thundering_at\030S \001(\0132\'.df.plugin.Worl"
-    "dQueryThunderingAtActionH\000R\026worldQueryTh"
-    "underingAt\022Q\n\022world_query_liquid\030T \001(\0132!"
-    ".df.plugin.WorldQueryLiquidActionH\000R\020wor"
-    "ldQueryLiquid\022H\n\017world_set_biome\030Z \001(\0132\036"
-    ".df.plugin.WorldSetBiomeActionH\000R\rworldS"
-    "etBiome\022K\n\020world_set_liquid\030[ \001(\0132\037.df.p"
-    "lugin.WorldSetLiquidActionH\000R\016worldSetLi"
-    "quid\022j\n\033world_schedule_block_update\030\\ \001("
-    "\0132).df.plugin.WorldScheduleBlockUpdateAc"
-    "tionH\000R\030worldScheduleBlockUpdate\022Z\n\025worl"
-    "d_build_structure\030] \001(\0132$.df.plugin.Worl"
-    "dBuildStructureActionH\000R\023worldBuildStruc"
-    "tureB\006\n\004kindB\021\n\017_correlation_id\"K\n\016SendC"
+    "ickRange\022H\n\017world_set_spawn\030E \001(\0132\036.df.p"
+    "lugin.WorldSetSpawnActionH\000R\rworldSetSpa"
+    "wn\022H\n\017world_set_block\030\? \001(\0132\036.df.plugin."
+    "WorldSetBlockActionH\000R\rworldSetBlock\022H\n\017"
+    "world_set_biome\030Z \001(\0132\036.df.plugin.WorldS"
+    "etBiomeActionH\000R\rworldSetBiome\022K\n\020world_"
+    "set_liquid\030[ \001(\0132\037.df.plugin.WorldSetLiq"
+    "uidActionH\000R\016worldSetLiquid\022j\n\033world_sch"
+    "edule_block_update\030\\ \001(\0132).df.plugin.Wor"
+    "ldScheduleBlockUpdateActionH\000R\030worldSche"
+    "duleBlockUpdate\022Z\n\025world_build_structure"
+    "\030] \001(\0132$.df.plugin.WorldBuildStructureAc"
+    "tionH\000R\023worldBuildStructure\022E\n\016world_set"
+    "_time\030B \001(\0132\035.df.plugin.WorldSetTimeActi"
+    "onH\000R\014worldSetTime\022H\n\017world_stop_time\030C "
+    "\001(\0132\036.df.plugin.WorldStopTimeActionH\000R\rw"
+    "orldStopTime\022K\n\020world_start_time\030D \001(\0132\037"
+    ".df.plugin.WorldStartTimeActionH\000R\016world"
+    "StartTime\022K\n\020world_play_sound\030@ \001(\0132\037.df"
+    ".plugin.WorldPlaySoundActionH\000R\016worldPla"
+    "ySound\022Q\n\022world_add_particle\030A \001(\0132!.df."
+    "plugin.WorldAddParticleActionH\000R\020worldAd"
+    "dParticle\022W\n\024world_query_entities\030F \001(\0132"
+    "#.df.plugin.WorldQueryEntitiesActionH\000R\022"
+    "worldQueryEntities\022T\n\023world_query_player"
+    "s\030G \001(\0132\".df.plugin.WorldQueryPlayersAct"
+    "ionH\000R\021worldQueryPlayers\022j\n\033world_query_"
+    "entities_within\030H \001(\0132).df.plugin.WorldQ"
+    "ueryEntitiesWithinActionH\000R\030worldQueryEn"
+    "titiesWithin\022a\n\030world_query_player_spawn"
+    "\030J \001(\0132&.df.plugin.WorldQueryPlayerSpawn"
+    "ActionH\000R\025worldQueryPlayerSpawn\022N\n\021world"
+    "_query_block\030K \001(\0132 .df.plugin.WorldQuer"
+    "yBlockActionH\000R\017worldQueryBlock\022N\n\021world"
+    "_query_biome\030L \001(\0132 .df.plugin.WorldQuer"
+    "yBiomeActionH\000R\017worldQueryBiome\022Q\n\022world"
+    "_query_liquid\030T \001(\0132!.df.plugin.WorldQue"
+    "ryLiquidActionH\000R\020worldQueryLiquid\022d\n\031wo"
+    "rld_query_highest_block\030P \001(\0132\'.df.plugi"
+    "n.WorldQueryHighestBlockActionH\000R\026worldQ"
+    "ueryHighestBlock\022N\n\021world_query_light\030M "
+    "\001(\0132 .df.plugin.WorldQueryLightActionH\000R"
+    "\017worldQueryLight\022X\n\025world_query_sky_ligh"
+    "t\030N \001(\0132#.df.plugin.WorldQuerySkyLightAc"
+    "tionH\000R\022worldQuerySkyLight\022`\n\027world_quer"
+    "y_temperature\030O \001(\0132&.df.plugin.WorldQue"
+    "ryTemperatureActionH\000R\025worldQueryTempera"
+    "ture\022[\n\026world_query_raining_at\030Q \001(\0132$.d"
+    "f.plugin.WorldQueryRainingAtActionH\000R\023wo"
+    "rldQueryRainingAt\022[\n\026world_query_snowing"
+    "_at\030R \001(\0132$.df.plugin.WorldQuerySnowingA"
+    "tActionH\000R\023worldQuerySnowingAt\022d\n\031world_"
+    "query_thundering_at\030S \001(\0132\'.df.plugin.Wo"
+    "rldQueryThunderingAtActionH\000R\026worldQuery"
+    "ThunderingAt\022n\n\035world_query_default_game"
+    "_mode\030I \001(\0132*.df.plugin.WorldQueryDefaul"
+    "tGameModeActionH\000R\031worldQueryDefaultGame"
+    "ModeB\006\n\004kindB\021\n\017_correlation_id\"K\n\016SendC"
     "hatAction\022\037\n\013target_uuid\030\001 \001(\tR\ntargetUu"
     "id\022\030\n\007message\030\002 \001(\tR\007message\"\213\001\n\016Telepor"
     "tAction\022\037\n\013player_uuid\030\001 \001(\tR\nplayerUuid"
@@ -2918,84 +2918,6 @@ void Action::set_allocated_world_set_tick_range(::df::plugin::WorldSetTickRangeA
   }
   // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_set_tick_range)
 }
-void Action::set_allocated_world_set_block(::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE world_set_block) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_set_block) {
-    ::google::protobuf::Arena* submessage_arena = world_set_block->GetArena();
-    if (message_arena != submessage_arena) {
-      world_set_block = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_set_block, submessage_arena);
-    }
-    set_has_world_set_block();
-    _impl_.kind_.world_set_block_ = world_set_block;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_set_block)
-}
-void Action::set_allocated_world_play_sound(::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE world_play_sound) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_play_sound) {
-    ::google::protobuf::Arena* submessage_arena = world_play_sound->GetArena();
-    if (message_arena != submessage_arena) {
-      world_play_sound = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_play_sound, submessage_arena);
-    }
-    set_has_world_play_sound();
-    _impl_.kind_.world_play_sound_ = world_play_sound;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_play_sound)
-}
-void Action::set_allocated_world_add_particle(::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE world_add_particle) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_add_particle) {
-    ::google::protobuf::Arena* submessage_arena = world_add_particle->GetArena();
-    if (message_arena != submessage_arena) {
-      world_add_particle = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_add_particle, submessage_arena);
-    }
-    set_has_world_add_particle();
-    _impl_.kind_.world_add_particle_ = world_add_particle;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_add_particle)
-}
-void Action::set_allocated_world_set_time(::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE world_set_time) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_set_time) {
-    ::google::protobuf::Arena* submessage_arena = world_set_time->GetArena();
-    if (message_arena != submessage_arena) {
-      world_set_time = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_set_time, submessage_arena);
-    }
-    set_has_world_set_time();
-    _impl_.kind_.world_set_time_ = world_set_time;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_set_time)
-}
-void Action::set_allocated_world_stop_time(::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE world_stop_time) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_stop_time) {
-    ::google::protobuf::Arena* submessage_arena = world_stop_time->GetArena();
-    if (message_arena != submessage_arena) {
-      world_stop_time = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_stop_time, submessage_arena);
-    }
-    set_has_world_stop_time();
-    _impl_.kind_.world_stop_time_ = world_stop_time;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_stop_time)
-}
-void Action::set_allocated_world_start_time(::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE world_start_time) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_start_time) {
-    ::google::protobuf::Arena* submessage_arena = world_start_time->GetArena();
-    if (message_arena != submessage_arena) {
-      world_start_time = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_start_time, submessage_arena);
-    }
-    set_has_world_start_time();
-    _impl_.kind_.world_start_time_ = world_start_time;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_start_time)
-}
 void Action::set_allocated_world_set_spawn(::df::plugin::WorldSetSpawnAction* PROTOBUF_NULLABLE world_set_spawn) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_kind();
@@ -3009,200 +2931,18 @@ void Action::set_allocated_world_set_spawn(::df::plugin::WorldSetSpawnAction* PR
   }
   // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_set_spawn)
 }
-void Action::set_allocated_world_query_entities(::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE world_query_entities) {
+void Action::set_allocated_world_set_block(::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE world_set_block) {
   ::google::protobuf::Arena* message_arena = GetArena();
   clear_kind();
-  if (world_query_entities) {
-    ::google::protobuf::Arena* submessage_arena = world_query_entities->GetArena();
+  if (world_set_block) {
+    ::google::protobuf::Arena* submessage_arena = world_set_block->GetArena();
     if (message_arena != submessage_arena) {
-      world_query_entities = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_entities, submessage_arena);
+      world_set_block = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_set_block, submessage_arena);
     }
-    set_has_world_query_entities();
-    _impl_.kind_.world_query_entities_ = world_query_entities;
+    set_has_world_set_block();
+    _impl_.kind_.world_set_block_ = world_set_block;
   }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_entities)
-}
-void Action::set_allocated_world_query_players(::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE world_query_players) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_players) {
-    ::google::protobuf::Arena* submessage_arena = world_query_players->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_players = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_players, submessage_arena);
-    }
-    set_has_world_query_players();
-    _impl_.kind_.world_query_players_ = world_query_players;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_players)
-}
-void Action::set_allocated_world_query_entities_within(::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE world_query_entities_within) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_entities_within) {
-    ::google::protobuf::Arena* submessage_arena = world_query_entities_within->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_entities_within = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_entities_within, submessage_arena);
-    }
-    set_has_world_query_entities_within();
-    _impl_.kind_.world_query_entities_within_ = world_query_entities_within;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_entities_within)
-}
-void Action::set_allocated_world_query_default_game_mode(::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE world_query_default_game_mode) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_default_game_mode) {
-    ::google::protobuf::Arena* submessage_arena = world_query_default_game_mode->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_default_game_mode = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_default_game_mode, submessage_arena);
-    }
-    set_has_world_query_default_game_mode();
-    _impl_.kind_.world_query_default_game_mode_ = world_query_default_game_mode;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_default_game_mode)
-}
-void Action::set_allocated_world_query_player_spawn(::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE world_query_player_spawn) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_player_spawn) {
-    ::google::protobuf::Arena* submessage_arena = world_query_player_spawn->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_player_spawn = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_player_spawn, submessage_arena);
-    }
-    set_has_world_query_player_spawn();
-    _impl_.kind_.world_query_player_spawn_ = world_query_player_spawn;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_player_spawn)
-}
-void Action::set_allocated_world_query_block(::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE world_query_block) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_block) {
-    ::google::protobuf::Arena* submessage_arena = world_query_block->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_block = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_block, submessage_arena);
-    }
-    set_has_world_query_block();
-    _impl_.kind_.world_query_block_ = world_query_block;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_block)
-}
-void Action::set_allocated_world_query_biome(::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE world_query_biome) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_biome) {
-    ::google::protobuf::Arena* submessage_arena = world_query_biome->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_biome = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_biome, submessage_arena);
-    }
-    set_has_world_query_biome();
-    _impl_.kind_.world_query_biome_ = world_query_biome;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_biome)
-}
-void Action::set_allocated_world_query_light(::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE world_query_light) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_light) {
-    ::google::protobuf::Arena* submessage_arena = world_query_light->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_light = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_light, submessage_arena);
-    }
-    set_has_world_query_light();
-    _impl_.kind_.world_query_light_ = world_query_light;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_light)
-}
-void Action::set_allocated_world_query_sky_light(::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE world_query_sky_light) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_sky_light) {
-    ::google::protobuf::Arena* submessage_arena = world_query_sky_light->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_sky_light = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_sky_light, submessage_arena);
-    }
-    set_has_world_query_sky_light();
-    _impl_.kind_.world_query_sky_light_ = world_query_sky_light;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_sky_light)
-}
-void Action::set_allocated_world_query_temperature(::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE world_query_temperature) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_temperature) {
-    ::google::protobuf::Arena* submessage_arena = world_query_temperature->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_temperature = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_temperature, submessage_arena);
-    }
-    set_has_world_query_temperature();
-    _impl_.kind_.world_query_temperature_ = world_query_temperature;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_temperature)
-}
-void Action::set_allocated_world_query_highest_block(::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE world_query_highest_block) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_highest_block) {
-    ::google::protobuf::Arena* submessage_arena = world_query_highest_block->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_highest_block = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_highest_block, submessage_arena);
-    }
-    set_has_world_query_highest_block();
-    _impl_.kind_.world_query_highest_block_ = world_query_highest_block;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_highest_block)
-}
-void Action::set_allocated_world_query_raining_at(::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE world_query_raining_at) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_raining_at) {
-    ::google::protobuf::Arena* submessage_arena = world_query_raining_at->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_raining_at = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_raining_at, submessage_arena);
-    }
-    set_has_world_query_raining_at();
-    _impl_.kind_.world_query_raining_at_ = world_query_raining_at;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_raining_at)
-}
-void Action::set_allocated_world_query_snowing_at(::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE world_query_snowing_at) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_snowing_at) {
-    ::google::protobuf::Arena* submessage_arena = world_query_snowing_at->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_snowing_at = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_snowing_at, submessage_arena);
-    }
-    set_has_world_query_snowing_at();
-    _impl_.kind_.world_query_snowing_at_ = world_query_snowing_at;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_snowing_at)
-}
-void Action::set_allocated_world_query_thundering_at(::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE world_query_thundering_at) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_thundering_at) {
-    ::google::protobuf::Arena* submessage_arena = world_query_thundering_at->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_thundering_at = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_thundering_at, submessage_arena);
-    }
-    set_has_world_query_thundering_at();
-    _impl_.kind_.world_query_thundering_at_ = world_query_thundering_at;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_thundering_at)
-}
-void Action::set_allocated_world_query_liquid(::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE world_query_liquid) {
-  ::google::protobuf::Arena* message_arena = GetArena();
-  clear_kind();
-  if (world_query_liquid) {
-    ::google::protobuf::Arena* submessage_arena = world_query_liquid->GetArena();
-    if (message_arena != submessage_arena) {
-      world_query_liquid = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_liquid, submessage_arena);
-    }
-    set_has_world_query_liquid();
-    _impl_.kind_.world_query_liquid_ = world_query_liquid;
-  }
-  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_liquid)
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_set_block)
 }
 void Action::set_allocated_world_set_biome(::df::plugin::WorldSetBiomeAction* PROTOBUF_NULLABLE world_set_biome) {
   ::google::protobuf::Arena* message_arena = GetArena();
@@ -3255,6 +2995,266 @@ void Action::set_allocated_world_build_structure(::df::plugin::WorldBuildStructu
     _impl_.kind_.world_build_structure_ = world_build_structure;
   }
   // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_build_structure)
+}
+void Action::set_allocated_world_set_time(::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE world_set_time) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_set_time) {
+    ::google::protobuf::Arena* submessage_arena = world_set_time->GetArena();
+    if (message_arena != submessage_arena) {
+      world_set_time = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_set_time, submessage_arena);
+    }
+    set_has_world_set_time();
+    _impl_.kind_.world_set_time_ = world_set_time;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_set_time)
+}
+void Action::set_allocated_world_stop_time(::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE world_stop_time) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_stop_time) {
+    ::google::protobuf::Arena* submessage_arena = world_stop_time->GetArena();
+    if (message_arena != submessage_arena) {
+      world_stop_time = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_stop_time, submessage_arena);
+    }
+    set_has_world_stop_time();
+    _impl_.kind_.world_stop_time_ = world_stop_time;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_stop_time)
+}
+void Action::set_allocated_world_start_time(::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE world_start_time) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_start_time) {
+    ::google::protobuf::Arena* submessage_arena = world_start_time->GetArena();
+    if (message_arena != submessage_arena) {
+      world_start_time = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_start_time, submessage_arena);
+    }
+    set_has_world_start_time();
+    _impl_.kind_.world_start_time_ = world_start_time;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_start_time)
+}
+void Action::set_allocated_world_play_sound(::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE world_play_sound) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_play_sound) {
+    ::google::protobuf::Arena* submessage_arena = world_play_sound->GetArena();
+    if (message_arena != submessage_arena) {
+      world_play_sound = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_play_sound, submessage_arena);
+    }
+    set_has_world_play_sound();
+    _impl_.kind_.world_play_sound_ = world_play_sound;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_play_sound)
+}
+void Action::set_allocated_world_add_particle(::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE world_add_particle) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_add_particle) {
+    ::google::protobuf::Arena* submessage_arena = world_add_particle->GetArena();
+    if (message_arena != submessage_arena) {
+      world_add_particle = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_add_particle, submessage_arena);
+    }
+    set_has_world_add_particle();
+    _impl_.kind_.world_add_particle_ = world_add_particle;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_add_particle)
+}
+void Action::set_allocated_world_query_entities(::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE world_query_entities) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_entities) {
+    ::google::protobuf::Arena* submessage_arena = world_query_entities->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_entities = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_entities, submessage_arena);
+    }
+    set_has_world_query_entities();
+    _impl_.kind_.world_query_entities_ = world_query_entities;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_entities)
+}
+void Action::set_allocated_world_query_players(::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE world_query_players) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_players) {
+    ::google::protobuf::Arena* submessage_arena = world_query_players->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_players = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_players, submessage_arena);
+    }
+    set_has_world_query_players();
+    _impl_.kind_.world_query_players_ = world_query_players;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_players)
+}
+void Action::set_allocated_world_query_entities_within(::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE world_query_entities_within) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_entities_within) {
+    ::google::protobuf::Arena* submessage_arena = world_query_entities_within->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_entities_within = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_entities_within, submessage_arena);
+    }
+    set_has_world_query_entities_within();
+    _impl_.kind_.world_query_entities_within_ = world_query_entities_within;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_entities_within)
+}
+void Action::set_allocated_world_query_player_spawn(::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE world_query_player_spawn) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_player_spawn) {
+    ::google::protobuf::Arena* submessage_arena = world_query_player_spawn->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_player_spawn = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_player_spawn, submessage_arena);
+    }
+    set_has_world_query_player_spawn();
+    _impl_.kind_.world_query_player_spawn_ = world_query_player_spawn;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_player_spawn)
+}
+void Action::set_allocated_world_query_block(::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE world_query_block) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_block) {
+    ::google::protobuf::Arena* submessage_arena = world_query_block->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_block = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_block, submessage_arena);
+    }
+    set_has_world_query_block();
+    _impl_.kind_.world_query_block_ = world_query_block;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_block)
+}
+void Action::set_allocated_world_query_biome(::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE world_query_biome) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_biome) {
+    ::google::protobuf::Arena* submessage_arena = world_query_biome->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_biome = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_biome, submessage_arena);
+    }
+    set_has_world_query_biome();
+    _impl_.kind_.world_query_biome_ = world_query_biome;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_biome)
+}
+void Action::set_allocated_world_query_liquid(::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE world_query_liquid) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_liquid) {
+    ::google::protobuf::Arena* submessage_arena = world_query_liquid->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_liquid = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_liquid, submessage_arena);
+    }
+    set_has_world_query_liquid();
+    _impl_.kind_.world_query_liquid_ = world_query_liquid;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_liquid)
+}
+void Action::set_allocated_world_query_highest_block(::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE world_query_highest_block) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_highest_block) {
+    ::google::protobuf::Arena* submessage_arena = world_query_highest_block->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_highest_block = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_highest_block, submessage_arena);
+    }
+    set_has_world_query_highest_block();
+    _impl_.kind_.world_query_highest_block_ = world_query_highest_block;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_highest_block)
+}
+void Action::set_allocated_world_query_light(::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE world_query_light) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_light) {
+    ::google::protobuf::Arena* submessage_arena = world_query_light->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_light = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_light, submessage_arena);
+    }
+    set_has_world_query_light();
+    _impl_.kind_.world_query_light_ = world_query_light;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_light)
+}
+void Action::set_allocated_world_query_sky_light(::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE world_query_sky_light) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_sky_light) {
+    ::google::protobuf::Arena* submessage_arena = world_query_sky_light->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_sky_light = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_sky_light, submessage_arena);
+    }
+    set_has_world_query_sky_light();
+    _impl_.kind_.world_query_sky_light_ = world_query_sky_light;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_sky_light)
+}
+void Action::set_allocated_world_query_temperature(::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE world_query_temperature) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_temperature) {
+    ::google::protobuf::Arena* submessage_arena = world_query_temperature->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_temperature = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_temperature, submessage_arena);
+    }
+    set_has_world_query_temperature();
+    _impl_.kind_.world_query_temperature_ = world_query_temperature;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_temperature)
+}
+void Action::set_allocated_world_query_raining_at(::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE world_query_raining_at) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_raining_at) {
+    ::google::protobuf::Arena* submessage_arena = world_query_raining_at->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_raining_at = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_raining_at, submessage_arena);
+    }
+    set_has_world_query_raining_at();
+    _impl_.kind_.world_query_raining_at_ = world_query_raining_at;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_raining_at)
+}
+void Action::set_allocated_world_query_snowing_at(::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE world_query_snowing_at) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_snowing_at) {
+    ::google::protobuf::Arena* submessage_arena = world_query_snowing_at->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_snowing_at = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_snowing_at, submessage_arena);
+    }
+    set_has_world_query_snowing_at();
+    _impl_.kind_.world_query_snowing_at_ = world_query_snowing_at;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_snowing_at)
+}
+void Action::set_allocated_world_query_thundering_at(::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE world_query_thundering_at) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_thundering_at) {
+    ::google::protobuf::Arena* submessage_arena = world_query_thundering_at->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_thundering_at = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_thundering_at, submessage_arena);
+    }
+    set_has_world_query_thundering_at();
+    _impl_.kind_.world_query_thundering_at_ = world_query_thundering_at;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_thundering_at)
+}
+void Action::set_allocated_world_query_default_game_mode(::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE world_query_default_game_mode) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  clear_kind();
+  if (world_query_default_game_mode) {
+    ::google::protobuf::Arena* submessage_arena = world_query_default_game_mode->GetArena();
+    if (message_arena != submessage_arena) {
+      world_query_default_game_mode = ::google::protobuf::internal::GetOwnedMessage(message_arena, world_query_default_game_mode, submessage_arena);
+    }
+    set_has_world_query_default_game_mode();
+    _impl_.kind_.world_query_default_game_mode_ = world_query_default_game_mode;
+  }
+  // @@protoc_insertion_point(field_set_allocated:df.plugin.Action.world_query_default_game_mode)
 }
 Action::Action(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -3354,71 +3354,11 @@ Action::Action(
       case kWorldSetTickRange:
         _impl_.kind_.world_set_tick_range_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_tick_range_);
         break;
-      case kWorldSetBlock:
-        _impl_.kind_.world_set_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_block_);
-        break;
-      case kWorldPlaySound:
-        _impl_.kind_.world_play_sound_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_play_sound_);
-        break;
-      case kWorldAddParticle:
-        _impl_.kind_.world_add_particle_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_add_particle_);
-        break;
-      case kWorldSetTime:
-        _impl_.kind_.world_set_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_time_);
-        break;
-      case kWorldStopTime:
-        _impl_.kind_.world_stop_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_stop_time_);
-        break;
-      case kWorldStartTime:
-        _impl_.kind_.world_start_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_start_time_);
-        break;
       case kWorldSetSpawn:
         _impl_.kind_.world_set_spawn_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_spawn_);
         break;
-      case kWorldQueryEntities:
-        _impl_.kind_.world_query_entities_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_entities_);
-        break;
-      case kWorldQueryPlayers:
-        _impl_.kind_.world_query_players_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_players_);
-        break;
-      case kWorldQueryEntitiesWithin:
-        _impl_.kind_.world_query_entities_within_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_entities_within_);
-        break;
-      case kWorldQueryDefaultGameMode:
-        _impl_.kind_.world_query_default_game_mode_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_default_game_mode_);
-        break;
-      case kWorldQueryPlayerSpawn:
-        _impl_.kind_.world_query_player_spawn_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_player_spawn_);
-        break;
-      case kWorldQueryBlock:
-        _impl_.kind_.world_query_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_block_);
-        break;
-      case kWorldQueryBiome:
-        _impl_.kind_.world_query_biome_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_biome_);
-        break;
-      case kWorldQueryLight:
-        _impl_.kind_.world_query_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_light_);
-        break;
-      case kWorldQuerySkyLight:
-        _impl_.kind_.world_query_sky_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_sky_light_);
-        break;
-      case kWorldQueryTemperature:
-        _impl_.kind_.world_query_temperature_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_temperature_);
-        break;
-      case kWorldQueryHighestBlock:
-        _impl_.kind_.world_query_highest_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_highest_block_);
-        break;
-      case kWorldQueryRainingAt:
-        _impl_.kind_.world_query_raining_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_raining_at_);
-        break;
-      case kWorldQuerySnowingAt:
-        _impl_.kind_.world_query_snowing_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_snowing_at_);
-        break;
-      case kWorldQueryThunderingAt:
-        _impl_.kind_.world_query_thundering_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_thundering_at_);
-        break;
-      case kWorldQueryLiquid:
-        _impl_.kind_.world_query_liquid_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_liquid_);
+      case kWorldSetBlock:
+        _impl_.kind_.world_set_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_block_);
         break;
       case kWorldSetBiome:
         _impl_.kind_.world_set_biome_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_biome_);
@@ -3431,6 +3371,66 @@ Action::Action(
         break;
       case kWorldBuildStructure:
         _impl_.kind_.world_build_structure_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_build_structure_);
+        break;
+      case kWorldSetTime:
+        _impl_.kind_.world_set_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_time_);
+        break;
+      case kWorldStopTime:
+        _impl_.kind_.world_stop_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_stop_time_);
+        break;
+      case kWorldStartTime:
+        _impl_.kind_.world_start_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_start_time_);
+        break;
+      case kWorldPlaySound:
+        _impl_.kind_.world_play_sound_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_play_sound_);
+        break;
+      case kWorldAddParticle:
+        _impl_.kind_.world_add_particle_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_add_particle_);
+        break;
+      case kWorldQueryEntities:
+        _impl_.kind_.world_query_entities_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_entities_);
+        break;
+      case kWorldQueryPlayers:
+        _impl_.kind_.world_query_players_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_players_);
+        break;
+      case kWorldQueryEntitiesWithin:
+        _impl_.kind_.world_query_entities_within_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_entities_within_);
+        break;
+      case kWorldQueryPlayerSpawn:
+        _impl_.kind_.world_query_player_spawn_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_player_spawn_);
+        break;
+      case kWorldQueryBlock:
+        _impl_.kind_.world_query_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_block_);
+        break;
+      case kWorldQueryBiome:
+        _impl_.kind_.world_query_biome_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_biome_);
+        break;
+      case kWorldQueryLiquid:
+        _impl_.kind_.world_query_liquid_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_liquid_);
+        break;
+      case kWorldQueryHighestBlock:
+        _impl_.kind_.world_query_highest_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_highest_block_);
+        break;
+      case kWorldQueryLight:
+        _impl_.kind_.world_query_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_light_);
+        break;
+      case kWorldQuerySkyLight:
+        _impl_.kind_.world_query_sky_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_sky_light_);
+        break;
+      case kWorldQueryTemperature:
+        _impl_.kind_.world_query_temperature_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_temperature_);
+        break;
+      case kWorldQueryRainingAt:
+        _impl_.kind_.world_query_raining_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_raining_at_);
+        break;
+      case kWorldQuerySnowingAt:
+        _impl_.kind_.world_query_snowing_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_snowing_at_);
+        break;
+      case kWorldQueryThunderingAt:
+        _impl_.kind_.world_query_thundering_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_thundering_at_);
+        break;
+      case kWorldQueryDefaultGameMode:
+        _impl_.kind_.world_query_default_game_mode_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_default_game_mode_);
         break;
   }
 
@@ -3637,54 +3637,6 @@ void Action::clear_kind() {
       }
       break;
     }
-    case kWorldSetBlock: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_set_block_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_set_block_);
-      }
-      break;
-    }
-    case kWorldPlaySound: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_play_sound_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_play_sound_);
-      }
-      break;
-    }
-    case kWorldAddParticle: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_add_particle_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_add_particle_);
-      }
-      break;
-    }
-    case kWorldSetTime: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_set_time_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_set_time_);
-      }
-      break;
-    }
-    case kWorldStopTime: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_stop_time_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_stop_time_);
-      }
-      break;
-    }
-    case kWorldStartTime: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_start_time_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_start_time_);
-      }
-      break;
-    }
     case kWorldSetSpawn: {
       if (GetArena() == nullptr) {
         delete _impl_.kind_.world_set_spawn_;
@@ -3693,123 +3645,11 @@ void Action::clear_kind() {
       }
       break;
     }
-    case kWorldQueryEntities: {
+    case kWorldSetBlock: {
       if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_entities_;
+        delete _impl_.kind_.world_set_block_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_entities_);
-      }
-      break;
-    }
-    case kWorldQueryPlayers: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_players_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_players_);
-      }
-      break;
-    }
-    case kWorldQueryEntitiesWithin: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_entities_within_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_entities_within_);
-      }
-      break;
-    }
-    case kWorldQueryDefaultGameMode: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_default_game_mode_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_default_game_mode_);
-      }
-      break;
-    }
-    case kWorldQueryPlayerSpawn: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_player_spawn_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_player_spawn_);
-      }
-      break;
-    }
-    case kWorldQueryBlock: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_block_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_block_);
-      }
-      break;
-    }
-    case kWorldQueryBiome: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_biome_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_biome_);
-      }
-      break;
-    }
-    case kWorldQueryLight: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_light_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_light_);
-      }
-      break;
-    }
-    case kWorldQuerySkyLight: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_sky_light_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_sky_light_);
-      }
-      break;
-    }
-    case kWorldQueryTemperature: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_temperature_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_temperature_);
-      }
-      break;
-    }
-    case kWorldQueryHighestBlock: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_highest_block_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_highest_block_);
-      }
-      break;
-    }
-    case kWorldQueryRainingAt: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_raining_at_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_raining_at_);
-      }
-      break;
-    }
-    case kWorldQuerySnowingAt: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_snowing_at_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_snowing_at_);
-      }
-      break;
-    }
-    case kWorldQueryThunderingAt: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_thundering_at_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_thundering_at_);
-      }
-      break;
-    }
-    case kWorldQueryLiquid: {
-      if (GetArena() == nullptr) {
-        delete _impl_.kind_.world_query_liquid_;
-      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_liquid_);
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_set_block_);
       }
       break;
     }
@@ -3842,6 +3682,166 @@ void Action::clear_kind() {
         delete _impl_.kind_.world_build_structure_;
       } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
         ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_build_structure_);
+      }
+      break;
+    }
+    case kWorldSetTime: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_set_time_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_set_time_);
+      }
+      break;
+    }
+    case kWorldStopTime: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_stop_time_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_stop_time_);
+      }
+      break;
+    }
+    case kWorldStartTime: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_start_time_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_start_time_);
+      }
+      break;
+    }
+    case kWorldPlaySound: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_play_sound_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_play_sound_);
+      }
+      break;
+    }
+    case kWorldAddParticle: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_add_particle_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_add_particle_);
+      }
+      break;
+    }
+    case kWorldQueryEntities: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_entities_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_entities_);
+      }
+      break;
+    }
+    case kWorldQueryPlayers: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_players_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_players_);
+      }
+      break;
+    }
+    case kWorldQueryEntitiesWithin: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_entities_within_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_entities_within_);
+      }
+      break;
+    }
+    case kWorldQueryPlayerSpawn: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_player_spawn_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_player_spawn_);
+      }
+      break;
+    }
+    case kWorldQueryBlock: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_block_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_block_);
+      }
+      break;
+    }
+    case kWorldQueryBiome: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_biome_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_biome_);
+      }
+      break;
+    }
+    case kWorldQueryLiquid: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_liquid_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_liquid_);
+      }
+      break;
+    }
+    case kWorldQueryHighestBlock: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_highest_block_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_highest_block_);
+      }
+      break;
+    }
+    case kWorldQueryLight: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_light_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_light_);
+      }
+      break;
+    }
+    case kWorldQuerySkyLight: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_sky_light_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_sky_light_);
+      }
+      break;
+    }
+    case kWorldQueryTemperature: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_temperature_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_temperature_);
+      }
+      break;
+    }
+    case kWorldQueryRainingAt: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_raining_at_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_raining_at_);
+      }
+      break;
+    }
+    case kWorldQuerySnowingAt: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_snowing_at_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_snowing_at_);
+      }
+      break;
+    }
+    case kWorldQueryThunderingAt: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_thundering_at_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_thundering_at_);
+      }
+      break;
+    }
+    case kWorldQueryDefaultGameMode: {
+      if (GetArena() == nullptr) {
+        delete _impl_.kind_.world_query_default_game_mode_;
+      } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+        ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_default_game_mode_);
       }
       break;
     }
@@ -4566,136 +4566,16 @@ PROTOBUF_NOINLINE void Action::Clear() {
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_set_tick_range_);
       break;
     }
-    // .df.plugin.WorldSetBlockAction world_set_block = 63 [json_name = "worldSetBlock"];
-    case kWorldSetBlock: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_set_block_);
-      break;
-    }
-    // .df.plugin.WorldPlaySoundAction world_play_sound = 64 [json_name = "worldPlaySound"];
-    case kWorldPlaySound: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_play_sound_);
-      break;
-    }
-    // .df.plugin.WorldAddParticleAction world_add_particle = 65 [json_name = "worldAddParticle"];
-    case kWorldAddParticle: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_add_particle_);
-      break;
-    }
-    // .df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];
-    case kWorldSetTime: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_set_time_);
-      break;
-    }
-    // .df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];
-    case kWorldStopTime: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_stop_time_);
-      break;
-    }
-    // .df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];
-    case kWorldStartTime: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_start_time_);
-      break;
-    }
     // .df.plugin.WorldSetSpawnAction world_set_spawn = 69 [json_name = "worldSetSpawn"];
     case kWorldSetSpawn: {
       total_size += 2 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_set_spawn_);
       break;
     }
-    // .df.plugin.WorldQueryEntitiesAction world_query_entities = 70 [json_name = "worldQueryEntities"];
-    case kWorldQueryEntities: {
+    // .df.plugin.WorldSetBlockAction world_set_block = 63 [json_name = "worldSetBlock"];
+    case kWorldSetBlock: {
       total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_entities_);
-      break;
-    }
-    // .df.plugin.WorldQueryPlayersAction world_query_players = 71 [json_name = "worldQueryPlayers"];
-    case kWorldQueryPlayers: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_players_);
-      break;
-    }
-    // .df.plugin.WorldQueryEntitiesWithinAction world_query_entities_within = 72 [json_name = "worldQueryEntitiesWithin"];
-    case kWorldQueryEntitiesWithin: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_entities_within_);
-      break;
-    }
-    // .df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];
-    case kWorldQueryDefaultGameMode: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_default_game_mode_);
-      break;
-    }
-    // .df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];
-    case kWorldQueryPlayerSpawn: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_player_spawn_);
-      break;
-    }
-    // .df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];
-    case kWorldQueryBlock: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_block_);
-      break;
-    }
-    // .df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];
-    case kWorldQueryBiome: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_biome_);
-      break;
-    }
-    // .df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];
-    case kWorldQueryLight: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_light_);
-      break;
-    }
-    // .df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];
-    case kWorldQuerySkyLight: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_sky_light_);
-      break;
-    }
-    // .df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];
-    case kWorldQueryTemperature: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_temperature_);
-      break;
-    }
-    // .df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];
-    case kWorldQueryHighestBlock: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_highest_block_);
-      break;
-    }
-    // .df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];
-    case kWorldQueryRainingAt: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_raining_at_);
-      break;
-    }
-    // .df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];
-    case kWorldQuerySnowingAt: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_snowing_at_);
-      break;
-    }
-    // .df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];
-    case kWorldQueryThunderingAt: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_thundering_at_);
-      break;
-    }
-    // .df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];
-    case kWorldQueryLiquid: {
-      total_size += 2 +
-                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_liquid_);
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_set_block_);
       break;
     }
     // .df.plugin.WorldSetBiomeAction world_set_biome = 90 [json_name = "worldSetBiome"];
@@ -4720,6 +4600,126 @@ PROTOBUF_NOINLINE void Action::Clear() {
     case kWorldBuildStructure: {
       total_size += 2 +
                     ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_build_structure_);
+      break;
+    }
+    // .df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];
+    case kWorldSetTime: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_set_time_);
+      break;
+    }
+    // .df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];
+    case kWorldStopTime: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_stop_time_);
+      break;
+    }
+    // .df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];
+    case kWorldStartTime: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_start_time_);
+      break;
+    }
+    // .df.plugin.WorldPlaySoundAction world_play_sound = 64 [json_name = "worldPlaySound"];
+    case kWorldPlaySound: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_play_sound_);
+      break;
+    }
+    // .df.plugin.WorldAddParticleAction world_add_particle = 65 [json_name = "worldAddParticle"];
+    case kWorldAddParticle: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_add_particle_);
+      break;
+    }
+    // .df.plugin.WorldQueryEntitiesAction world_query_entities = 70 [json_name = "worldQueryEntities"];
+    case kWorldQueryEntities: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_entities_);
+      break;
+    }
+    // .df.plugin.WorldQueryPlayersAction world_query_players = 71 [json_name = "worldQueryPlayers"];
+    case kWorldQueryPlayers: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_players_);
+      break;
+    }
+    // .df.plugin.WorldQueryEntitiesWithinAction world_query_entities_within = 72 [json_name = "worldQueryEntitiesWithin"];
+    case kWorldQueryEntitiesWithin: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_entities_within_);
+      break;
+    }
+    // .df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];
+    case kWorldQueryPlayerSpawn: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_player_spawn_);
+      break;
+    }
+    // .df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];
+    case kWorldQueryBlock: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_block_);
+      break;
+    }
+    // .df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];
+    case kWorldQueryBiome: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_biome_);
+      break;
+    }
+    // .df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];
+    case kWorldQueryLiquid: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_liquid_);
+      break;
+    }
+    // .df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];
+    case kWorldQueryHighestBlock: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_highest_block_);
+      break;
+    }
+    // .df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];
+    case kWorldQueryLight: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_light_);
+      break;
+    }
+    // .df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];
+    case kWorldQuerySkyLight: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_sky_light_);
+      break;
+    }
+    // .df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];
+    case kWorldQueryTemperature: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_temperature_);
+      break;
+    }
+    // .df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];
+    case kWorldQueryRainingAt: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_raining_at_);
+      break;
+    }
+    // .df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];
+    case kWorldQuerySnowingAt: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_snowing_at_);
+      break;
+    }
+    // .df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];
+    case kWorldQueryThunderingAt: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_thundering_at_);
+      break;
+    }
+    // .df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];
+    case kWorldQueryDefaultGameMode: {
+      total_size += 2 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.kind_.world_query_default_game_mode_);
       break;
     }
     case KIND_NOT_SET: {
@@ -4929,54 +4929,6 @@ void Action::MergeImpl(::google::protobuf::MessageLite& to_msg,
         }
         break;
       }
-      case kWorldSetBlock: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_set_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_block_);
-        } else {
-          _this->_impl_.kind_.world_set_block_->MergeFrom(*from._impl_.kind_.world_set_block_);
-        }
-        break;
-      }
-      case kWorldPlaySound: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_play_sound_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_play_sound_);
-        } else {
-          _this->_impl_.kind_.world_play_sound_->MergeFrom(*from._impl_.kind_.world_play_sound_);
-        }
-        break;
-      }
-      case kWorldAddParticle: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_add_particle_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_add_particle_);
-        } else {
-          _this->_impl_.kind_.world_add_particle_->MergeFrom(*from._impl_.kind_.world_add_particle_);
-        }
-        break;
-      }
-      case kWorldSetTime: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_set_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_time_);
-        } else {
-          _this->_impl_.kind_.world_set_time_->MergeFrom(*from._impl_.kind_.world_set_time_);
-        }
-        break;
-      }
-      case kWorldStopTime: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_stop_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_stop_time_);
-        } else {
-          _this->_impl_.kind_.world_stop_time_->MergeFrom(*from._impl_.kind_.world_stop_time_);
-        }
-        break;
-      }
-      case kWorldStartTime: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_start_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_start_time_);
-        } else {
-          _this->_impl_.kind_.world_start_time_->MergeFrom(*from._impl_.kind_.world_start_time_);
-        }
-        break;
-      }
       case kWorldSetSpawn: {
         if (oneof_needs_init) {
           _this->_impl_.kind_.world_set_spawn_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_spawn_);
@@ -4985,123 +4937,11 @@ void Action::MergeImpl(::google::protobuf::MessageLite& to_msg,
         }
         break;
       }
-      case kWorldQueryEntities: {
+      case kWorldSetBlock: {
         if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_entities_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_entities_);
+          _this->_impl_.kind_.world_set_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_block_);
         } else {
-          _this->_impl_.kind_.world_query_entities_->MergeFrom(*from._impl_.kind_.world_query_entities_);
-        }
-        break;
-      }
-      case kWorldQueryPlayers: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_players_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_players_);
-        } else {
-          _this->_impl_.kind_.world_query_players_->MergeFrom(*from._impl_.kind_.world_query_players_);
-        }
-        break;
-      }
-      case kWorldQueryEntitiesWithin: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_entities_within_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_entities_within_);
-        } else {
-          _this->_impl_.kind_.world_query_entities_within_->MergeFrom(*from._impl_.kind_.world_query_entities_within_);
-        }
-        break;
-      }
-      case kWorldQueryDefaultGameMode: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_default_game_mode_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_default_game_mode_);
-        } else {
-          _this->_impl_.kind_.world_query_default_game_mode_->MergeFrom(*from._impl_.kind_.world_query_default_game_mode_);
-        }
-        break;
-      }
-      case kWorldQueryPlayerSpawn: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_player_spawn_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_player_spawn_);
-        } else {
-          _this->_impl_.kind_.world_query_player_spawn_->MergeFrom(*from._impl_.kind_.world_query_player_spawn_);
-        }
-        break;
-      }
-      case kWorldQueryBlock: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_block_);
-        } else {
-          _this->_impl_.kind_.world_query_block_->MergeFrom(*from._impl_.kind_.world_query_block_);
-        }
-        break;
-      }
-      case kWorldQueryBiome: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_biome_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_biome_);
-        } else {
-          _this->_impl_.kind_.world_query_biome_->MergeFrom(*from._impl_.kind_.world_query_biome_);
-        }
-        break;
-      }
-      case kWorldQueryLight: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_light_);
-        } else {
-          _this->_impl_.kind_.world_query_light_->MergeFrom(*from._impl_.kind_.world_query_light_);
-        }
-        break;
-      }
-      case kWorldQuerySkyLight: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_sky_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_sky_light_);
-        } else {
-          _this->_impl_.kind_.world_query_sky_light_->MergeFrom(*from._impl_.kind_.world_query_sky_light_);
-        }
-        break;
-      }
-      case kWorldQueryTemperature: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_temperature_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_temperature_);
-        } else {
-          _this->_impl_.kind_.world_query_temperature_->MergeFrom(*from._impl_.kind_.world_query_temperature_);
-        }
-        break;
-      }
-      case kWorldQueryHighestBlock: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_highest_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_highest_block_);
-        } else {
-          _this->_impl_.kind_.world_query_highest_block_->MergeFrom(*from._impl_.kind_.world_query_highest_block_);
-        }
-        break;
-      }
-      case kWorldQueryRainingAt: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_raining_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_raining_at_);
-        } else {
-          _this->_impl_.kind_.world_query_raining_at_->MergeFrom(*from._impl_.kind_.world_query_raining_at_);
-        }
-        break;
-      }
-      case kWorldQuerySnowingAt: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_snowing_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_snowing_at_);
-        } else {
-          _this->_impl_.kind_.world_query_snowing_at_->MergeFrom(*from._impl_.kind_.world_query_snowing_at_);
-        }
-        break;
-      }
-      case kWorldQueryThunderingAt: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_thundering_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_thundering_at_);
-        } else {
-          _this->_impl_.kind_.world_query_thundering_at_->MergeFrom(*from._impl_.kind_.world_query_thundering_at_);
-        }
-        break;
-      }
-      case kWorldQueryLiquid: {
-        if (oneof_needs_init) {
-          _this->_impl_.kind_.world_query_liquid_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_liquid_);
-        } else {
-          _this->_impl_.kind_.world_query_liquid_->MergeFrom(*from._impl_.kind_.world_query_liquid_);
+          _this->_impl_.kind_.world_set_block_->MergeFrom(*from._impl_.kind_.world_set_block_);
         }
         break;
       }
@@ -5134,6 +4974,166 @@ void Action::MergeImpl(::google::protobuf::MessageLite& to_msg,
           _this->_impl_.kind_.world_build_structure_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_build_structure_);
         } else {
           _this->_impl_.kind_.world_build_structure_->MergeFrom(*from._impl_.kind_.world_build_structure_);
+        }
+        break;
+      }
+      case kWorldSetTime: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_set_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_set_time_);
+        } else {
+          _this->_impl_.kind_.world_set_time_->MergeFrom(*from._impl_.kind_.world_set_time_);
+        }
+        break;
+      }
+      case kWorldStopTime: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_stop_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_stop_time_);
+        } else {
+          _this->_impl_.kind_.world_stop_time_->MergeFrom(*from._impl_.kind_.world_stop_time_);
+        }
+        break;
+      }
+      case kWorldStartTime: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_start_time_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_start_time_);
+        } else {
+          _this->_impl_.kind_.world_start_time_->MergeFrom(*from._impl_.kind_.world_start_time_);
+        }
+        break;
+      }
+      case kWorldPlaySound: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_play_sound_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_play_sound_);
+        } else {
+          _this->_impl_.kind_.world_play_sound_->MergeFrom(*from._impl_.kind_.world_play_sound_);
+        }
+        break;
+      }
+      case kWorldAddParticle: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_add_particle_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_add_particle_);
+        } else {
+          _this->_impl_.kind_.world_add_particle_->MergeFrom(*from._impl_.kind_.world_add_particle_);
+        }
+        break;
+      }
+      case kWorldQueryEntities: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_entities_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_entities_);
+        } else {
+          _this->_impl_.kind_.world_query_entities_->MergeFrom(*from._impl_.kind_.world_query_entities_);
+        }
+        break;
+      }
+      case kWorldQueryPlayers: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_players_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_players_);
+        } else {
+          _this->_impl_.kind_.world_query_players_->MergeFrom(*from._impl_.kind_.world_query_players_);
+        }
+        break;
+      }
+      case kWorldQueryEntitiesWithin: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_entities_within_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_entities_within_);
+        } else {
+          _this->_impl_.kind_.world_query_entities_within_->MergeFrom(*from._impl_.kind_.world_query_entities_within_);
+        }
+        break;
+      }
+      case kWorldQueryPlayerSpawn: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_player_spawn_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_player_spawn_);
+        } else {
+          _this->_impl_.kind_.world_query_player_spawn_->MergeFrom(*from._impl_.kind_.world_query_player_spawn_);
+        }
+        break;
+      }
+      case kWorldQueryBlock: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_block_);
+        } else {
+          _this->_impl_.kind_.world_query_block_->MergeFrom(*from._impl_.kind_.world_query_block_);
+        }
+        break;
+      }
+      case kWorldQueryBiome: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_biome_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_biome_);
+        } else {
+          _this->_impl_.kind_.world_query_biome_->MergeFrom(*from._impl_.kind_.world_query_biome_);
+        }
+        break;
+      }
+      case kWorldQueryLiquid: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_liquid_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_liquid_);
+        } else {
+          _this->_impl_.kind_.world_query_liquid_->MergeFrom(*from._impl_.kind_.world_query_liquid_);
+        }
+        break;
+      }
+      case kWorldQueryHighestBlock: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_highest_block_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_highest_block_);
+        } else {
+          _this->_impl_.kind_.world_query_highest_block_->MergeFrom(*from._impl_.kind_.world_query_highest_block_);
+        }
+        break;
+      }
+      case kWorldQueryLight: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_light_);
+        } else {
+          _this->_impl_.kind_.world_query_light_->MergeFrom(*from._impl_.kind_.world_query_light_);
+        }
+        break;
+      }
+      case kWorldQuerySkyLight: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_sky_light_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_sky_light_);
+        } else {
+          _this->_impl_.kind_.world_query_sky_light_->MergeFrom(*from._impl_.kind_.world_query_sky_light_);
+        }
+        break;
+      }
+      case kWorldQueryTemperature: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_temperature_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_temperature_);
+        } else {
+          _this->_impl_.kind_.world_query_temperature_->MergeFrom(*from._impl_.kind_.world_query_temperature_);
+        }
+        break;
+      }
+      case kWorldQueryRainingAt: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_raining_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_raining_at_);
+        } else {
+          _this->_impl_.kind_.world_query_raining_at_->MergeFrom(*from._impl_.kind_.world_query_raining_at_);
+        }
+        break;
+      }
+      case kWorldQuerySnowingAt: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_snowing_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_snowing_at_);
+        } else {
+          _this->_impl_.kind_.world_query_snowing_at_->MergeFrom(*from._impl_.kind_.world_query_snowing_at_);
+        }
+        break;
+      }
+      case kWorldQueryThunderingAt: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_thundering_at_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_thundering_at_);
+        } else {
+          _this->_impl_.kind_.world_query_thundering_at_->MergeFrom(*from._impl_.kind_.world_query_thundering_at_);
+        }
+        break;
+      }
+      case kWorldQueryDefaultGameMode: {
+        if (oneof_needs_init) {
+          _this->_impl_.kind_.world_query_default_game_mode_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.kind_.world_query_default_game_mode_);
+        } else {
+          _this->_impl_.kind_.world_query_default_game_mode_->MergeFrom(*from._impl_.kind_.world_query_default_game_mode_);
         }
         break;
       }

@@ -188,6 +188,7 @@ inline constexpr PluginHello::Impl_::Impl_(
       : _cached_size_{0},
         commands_{},
         custom_items_{},
+        custom_blocks_{},
         name_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
@@ -480,17 +481,19 @@ const ::uint32_t
         ~0u,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::df::plugin::PluginHello, _impl_._has_bits_),
-        8, // hasbit index offset
+        9, // hasbit index offset
         PROTOBUF_FIELD_OFFSET(::df::plugin::PluginHello, _impl_.name_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::PluginHello, _impl_.version_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::PluginHello, _impl_.api_version_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::PluginHello, _impl_.commands_),
         PROTOBUF_FIELD_OFFSET(::df::plugin::PluginHello, _impl_.custom_items_),
-        2,
+        PROTOBUF_FIELD_OFFSET(::df::plugin::PluginHello, _impl_.custom_blocks_),
         3,
         4,
+        5,
         0,
         1,
+        2,
         0x081, // bitmap
         PROTOBUF_FIELD_OFFSET(::df::plugin::LogMessage, _impl_._has_bits_),
         5, // hasbit index offset
@@ -515,8 +518,8 @@ static const ::_pbi::MigrationSchema
         {35, sizeof(::df::plugin::EventEnvelope)},
         {144, sizeof(::df::plugin::PluginToHost)},
         {163, sizeof(::df::plugin::PluginHello)},
-        {176, sizeof(::df::plugin::LogMessage)},
-        {183, sizeof(::df::plugin::EventSubscribe)},
+        {178, sizeof(::df::plugin::LogMessage)},
+        {185, sizeof(::df::plugin::EventSubscribe)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::df::plugin::_HostToPlugin_default_instance_._instance,
@@ -657,50 +660,52 @@ const char descriptor_table_protodef_plugin_2eproto[] ABSL_ATTRIBUTE_SECTION_VAR
     ".plugin.ActionBatchH\000R\007actions\022)\n\003log\030\036 "
     "\001(\0132\025.df.plugin.LogMessageH\000R\003log\022;\n\014eve"
     "nt_result\030( \001(\0132\026.df.plugin.EventResultH"
-    "\000R\013eventResultB\t\n\007payload\"\324\001\n\013PluginHell"
+    "\000R\013eventResultB\t\n\007payload\"\233\002\n\013PluginHell"
     "o\022\022\n\004name\030\001 \001(\tR\004name\022\030\n\007version\030\002 \001(\tR\007"
     "version\022\037\n\013api_version\030\003 \001(\tR\napiVersion"
     "\0222\n\010commands\030\004 \003(\0132\026.df.plugin.CommandSp"
     "ecR\010commands\022B\n\014custom_items\030\005 \003(\0132\037.df."
     "plugin.CustomItemDefinitionR\013customItems"
-    "\"<\n\nLogMessage\022\024\n\005level\030\001 \001(\tR\005level\022\030\n\007"
-    "message\030\002 \001(\tR\007message\">\n\016EventSubscribe"
-    "\022,\n\006events\030\001 \003(\0162\024.df.plugin.EventTypeR\006"
-    "events*\212\t\n\tEventType\022\032\n\026EVENT_TYPE_UNSPE"
-    "CIFIED\020\000\022\022\n\016EVENT_TYPE_ALL\020\001\022\017\n\013PLAYER_J"
-    "OIN\020\n\022\017\n\013PLAYER_QUIT\020\013\022\017\n\013PLAYER_MOVE\020\014\022"
-    "\017\n\013PLAYER_JUMP\020\r\022\023\n\017PLAYER_TELEPORT\020\016\022\027\n"
-    "\023PLAYER_CHANGE_WORLD\020\017\022\030\n\024PLAYER_TOGGLE_"
-    "SPRINT\020\020\022\027\n\023PLAYER_TOGGLE_SNEAK\020\021\022\010\n\004CHA"
-    "T\020\022\022\024\n\020PLAYER_FOOD_LOSS\020\023\022\017\n\013PLAYER_HEAL"
-    "\020\024\022\017\n\013PLAYER_HURT\020\025\022\020\n\014PLAYER_DEATH\020\026\022\022\n"
-    "\016PLAYER_RESPAWN\020\027\022\026\n\022PLAYER_SKIN_CHANGE\020"
-    "\030\022\032\n\026PLAYER_FIRE_EXTINGUISH\020\031\022\026\n\022PLAYER_"
-    "START_BREAK\020\032\022\026\n\022PLAYER_BLOCK_BREAK\020\033\022\026\n"
-    "\022PLAYER_BLOCK_PLACE\020\034\022\025\n\021PLAYER_BLOCK_PI"
-    "CK\020\035\022\023\n\017PLAYER_ITEM_USE\020\036\022\034\n\030PLAYER_ITEM"
-    "_USE_ON_BLOCK\020\037\022\035\n\031PLAYER_ITEM_USE_ON_EN"
-    "TITY\020 \022\027\n\023PLAYER_ITEM_RELEASE\020!\022\027\n\023PLAYE"
-    "R_ITEM_CONSUME\020\"\022\030\n\024PLAYER_ATTACK_ENTITY"
-    "\020#\022\032\n\026PLAYER_EXPERIENCE_GAIN\020$\022\024\n\020PLAYER"
-    "_PUNCH_AIR\020%\022\024\n\020PLAYER_SIGN_EDIT\020&\022\034\n\030PL"
-    "AYER_LECTERN_PAGE_TURN\020\'\022\026\n\022PLAYER_ITEM_"
-    "DAMAGE\020(\022\026\n\022PLAYER_ITEM_PICKUP\020)\022\033\n\027PLAY"
-    "ER_HELD_SLOT_CHANGE\020*\022\024\n\020PLAYER_ITEM_DRO"
-    "P\020+\022\023\n\017PLAYER_TRANSFER\020,\022\013\n\007COMMAND\020-\022\026\n"
-    "\022PLAYER_DIAGNOSTICS\020.\022\025\n\021WORLD_LIQUID_FL"
-    "OW\020F\022\026\n\022WORLD_LIQUID_DECAY\020G\022\027\n\023WORLD_LI"
-    "QUID_HARDEN\020H\022\017\n\013WORLD_SOUND\020I\022\025\n\021WORLD_"
-    "FIRE_SPREAD\020J\022\024\n\020WORLD_BLOCK_BURN\020K\022\026\n\022W"
-    "ORLD_CROP_TRAMPLE\020L\022\026\n\022WORLD_LEAVES_DECA"
-    "Y\020M\022\026\n\022WORLD_ENTITY_SPAWN\020N\022\030\n\024WORLD_ENT"
-    "ITY_DESPAWN\020O\022\023\n\017WORLD_EXPLOSION\020P\022\017\n\013WO"
-    "RLD_CLOSE\020Q2M\n\006Plugin\022C\n\013EventStream\022\027.d"
-    "f.plugin.PluginToHost\032\027.df.plugin.HostTo"
-    "Plugin(\0010\001B\212\001\n\rcom.df.pluginB\013PluginProt"
-    "oP\001Z\'github.com/secmc/plugin/proto/gener"
-    "ated\242\002\003DPX\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\"
-    "Plugin\\GPBMetadata\352\002\nDf::Pluginb\006proto3"
+    "\022E\n\rcustom_blocks\030\006 \003(\0132 .df.plugin.Cust"
+    "omBlockDefinitionR\014customBlocks\"<\n\nLogMe"
+    "ssage\022\024\n\005level\030\001 \001(\tR\005level\022\030\n\007message\030\002"
+    " \001(\tR\007message\">\n\016EventSubscribe\022,\n\006event"
+    "s\030\001 \003(\0162\024.df.plugin.EventTypeR\006events*\212\t"
+    "\n\tEventType\022\032\n\026EVENT_TYPE_UNSPECIFIED\020\000\022"
+    "\022\n\016EVENT_TYPE_ALL\020\001\022\017\n\013PLAYER_JOIN\020\n\022\017\n\013"
+    "PLAYER_QUIT\020\013\022\017\n\013PLAYER_MOVE\020\014\022\017\n\013PLAYER"
+    "_JUMP\020\r\022\023\n\017PLAYER_TELEPORT\020\016\022\027\n\023PLAYER_C"
+    "HANGE_WORLD\020\017\022\030\n\024PLAYER_TOGGLE_SPRINT\020\020\022"
+    "\027\n\023PLAYER_TOGGLE_SNEAK\020\021\022\010\n\004CHAT\020\022\022\024\n\020PL"
+    "AYER_FOOD_LOSS\020\023\022\017\n\013PLAYER_HEAL\020\024\022\017\n\013PLA"
+    "YER_HURT\020\025\022\020\n\014PLAYER_DEATH\020\026\022\022\n\016PLAYER_R"
+    "ESPAWN\020\027\022\026\n\022PLAYER_SKIN_CHANGE\020\030\022\032\n\026PLAY"
+    "ER_FIRE_EXTINGUISH\020\031\022\026\n\022PLAYER_START_BRE"
+    "AK\020\032\022\026\n\022PLAYER_BLOCK_BREAK\020\033\022\026\n\022PLAYER_B"
+    "LOCK_PLACE\020\034\022\025\n\021PLAYER_BLOCK_PICK\020\035\022\023\n\017P"
+    "LAYER_ITEM_USE\020\036\022\034\n\030PLAYER_ITEM_USE_ON_B"
+    "LOCK\020\037\022\035\n\031PLAYER_ITEM_USE_ON_ENTITY\020 \022\027\n"
+    "\023PLAYER_ITEM_RELEASE\020!\022\027\n\023PLAYER_ITEM_CO"
+    "NSUME\020\"\022\030\n\024PLAYER_ATTACK_ENTITY\020#\022\032\n\026PLA"
+    "YER_EXPERIENCE_GAIN\020$\022\024\n\020PLAYER_PUNCH_AI"
+    "R\020%\022\024\n\020PLAYER_SIGN_EDIT\020&\022\034\n\030PLAYER_LECT"
+    "ERN_PAGE_TURN\020\'\022\026\n\022PLAYER_ITEM_DAMAGE\020(\022"
+    "\026\n\022PLAYER_ITEM_PICKUP\020)\022\033\n\027PLAYER_HELD_S"
+    "LOT_CHANGE\020*\022\024\n\020PLAYER_ITEM_DROP\020+\022\023\n\017PL"
+    "AYER_TRANSFER\020,\022\013\n\007COMMAND\020-\022\026\n\022PLAYER_D"
+    "IAGNOSTICS\020.\022\025\n\021WORLD_LIQUID_FLOW\020F\022\026\n\022W"
+    "ORLD_LIQUID_DECAY\020G\022\027\n\023WORLD_LIQUID_HARD"
+    "EN\020H\022\017\n\013WORLD_SOUND\020I\022\025\n\021WORLD_FIRE_SPRE"
+    "AD\020J\022\024\n\020WORLD_BLOCK_BURN\020K\022\026\n\022WORLD_CROP"
+    "_TRAMPLE\020L\022\026\n\022WORLD_LEAVES_DECAY\020M\022\026\n\022WO"
+    "RLD_ENTITY_SPAWN\020N\022\030\n\024WORLD_ENTITY_DESPA"
+    "WN\020O\022\023\n\017WORLD_EXPLOSION\020P\022\017\n\013WORLD_CLOSE"
+    "\020Q2M\n\006Plugin\022C\n\013EventStream\022\027.df.plugin."
+    "PluginToHost\032\027.df.plugin.HostToPlugin(\0010"
+    "\001B\212\001\n\rcom.df.pluginB\013PluginProtoP\001Z\'gith"
+    "ub.com/secmc/plugin/proto/generated\242\002\003DP"
+    "X\252\002\tDf.Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GP"
+    "BMetadata\352\002\nDf::Pluginb\006proto3"
 };
 static const ::_pbi::DescriptorTable* PROTOBUF_NONNULL const
     descriptor_table_plugin_2eproto_deps[7] = {
@@ -716,7 +721,7 @@ static ::absl::once_flag descriptor_table_plugin_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_plugin_2eproto = {
     false,
     false,
-    6759,
+    6830,
     descriptor_table_protodef_plugin_2eproto,
     "plugin.proto",
     &descriptor_table_plugin_2eproto_once,
@@ -6217,6 +6222,12 @@ void PluginHello::clear_custom_items() {
   ClearHasBitForRepeated(_impl_._has_bits_[0],
                   0x00000002U);
 }
+void PluginHello::clear_custom_blocks() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.custom_blocks_.Clear();
+  ClearHasBitForRepeated(_impl_._has_bits_[0],
+                  0x00000004U);
+}
 PluginHello::PluginHello(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
     : ::google::protobuf::Message(arena, PluginHello_class_data_.base()) {
@@ -6234,6 +6245,7 @@ PROTOBUF_NDEBUG_INLINE PluginHello::Impl_::Impl_(
         _cached_size_{0},
         commands_{visibility, arena, from.commands_},
         custom_items_{visibility, arena, from.custom_items_},
+        custom_blocks_{visibility, arena, from.custom_blocks_},
         name_(arena, from.name_),
         version_(arena, from.version_),
         api_version_(arena, from.api_version_) {}
@@ -6260,6 +6272,7 @@ PROTOBUF_NDEBUG_INLINE PluginHello::Impl_::Impl_(
       : _cached_size_{0},
         commands_{visibility, arena},
         custom_items_{visibility, arena},
+        custom_blocks_{visibility, arena},
         name_(arena),
         version_(arena),
         api_version_(arena) {}
@@ -6297,6 +6310,10 @@ constexpr auto PluginHello::InternalNewImpl_() {
                   ::google::protobuf::Message::internal_visibility()),
       PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.custom_items_) +
           decltype(PluginHello::_impl_.custom_items_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.custom_blocks_) +
+          decltype(PluginHello::_impl_.custom_blocks_)::
               InternalGetArenaOffset(
                   ::google::protobuf::Message::internal_visibility()),
   });
@@ -6343,17 +6360,17 @@ PluginHello::GetClassData() const {
   return PluginHello_class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<3, 5, 2, 52, 2>
+const ::_pbi::TcParseTable<3, 6, 3, 52, 2>
 PluginHello::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(PluginHello, _impl_._has_bits_),
     0, // no _extensions_
-    5, 56,  // max_field_number, fast_idx_mask
+    6, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967264,  // skipmap
+    4294967232,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    5,  // num_field_entries
-    2,  // num_aux_entries
+    6,  // num_field_entries
+    3,  // num_aux_entries
     offsetof(decltype(_table_), aux_entries),
     PluginHello_class_data_.base(),
     nullptr,  // post_loop_handler
@@ -6365,15 +6382,15 @@ PluginHello::_table_ = {
     {::_pbi::TcParser::MiniParse, {}},
     // string name = 1 [json_name = "name"];
     {::_pbi::TcParser::FastUS1,
-     {10, 2, 0,
+     {10, 3, 0,
       PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.name_)}},
     // string version = 2 [json_name = "version"];
     {::_pbi::TcParser::FastUS1,
-     {18, 3, 0,
+     {18, 4, 0,
       PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.version_)}},
     // string api_version = 3 [json_name = "apiVersion"];
     {::_pbi::TcParser::FastUS1,
-     {26, 4, 0,
+     {26, 5, 0,
       PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.api_version_)}},
     // repeated .df.plugin.CommandSpec commands = 4 [json_name = "commands"];
     {::_pbi::TcParser::FastMtR1,
@@ -6383,25 +6400,31 @@ PluginHello::_table_ = {
     {::_pbi::TcParser::FastMtR1,
      {42, 1, 1,
       PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.custom_items_)}},
-    {::_pbi::TcParser::MiniParse, {}},
+    // repeated .df.plugin.CustomBlockDefinition custom_blocks = 6 [json_name = "customBlocks"];
+    {::_pbi::TcParser::FastMtR1,
+     {50, 2, 2,
+      PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.custom_blocks_)}},
     {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
     // string name = 1 [json_name = "name"];
-    {PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.name_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.name_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string version = 2 [json_name = "version"];
-    {PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.version_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.version_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string api_version = 3 [json_name = "apiVersion"];
-    {PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.api_version_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    {PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.api_version_), _Internal::kHasBitsOffset + 5, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // repeated .df.plugin.CommandSpec commands = 4 [json_name = "commands"];
     {PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.commands_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
     // repeated .df.plugin.CustomItemDefinition custom_items = 5 [json_name = "customItems"];
     {PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.custom_items_), _Internal::kHasBitsOffset + 1, 1, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .df.plugin.CustomBlockDefinition custom_blocks = 6 [json_name = "customBlocks"];
+    {PROTOBUF_FIELD_OFFSET(PluginHello, _impl_.custom_blocks_), _Internal::kHasBitsOffset + 2, 2, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
   }},
   {{
       {::_pbi::TcParser::GetTable<::df::plugin::CommandSpec>()},
       {::_pbi::TcParser::GetTable<::df::plugin::CustomItemDefinition>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::CustomBlockDefinition>()},
   }},
   {{
     "\25\4\7\13\0\0\0\0"
@@ -6419,20 +6442,23 @@ PROTOBUF_NOINLINE void PluginHello::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _impl_.commands_.Clear();
     }
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000002U)) {
       _impl_.custom_items_.Clear();
     }
-    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
-      _impl_.name_.ClearNonDefaultToEmpty();
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      _impl_.custom_blocks_.Clear();
     }
     if (CheckHasBit(cached_has_bits, 0x00000008U)) {
-      _impl_.version_.ClearNonDefaultToEmpty();
+      _impl_.name_.ClearNonDefaultToEmpty();
     }
     if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      _impl_.version_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       _impl_.api_version_.ClearNonDefaultToEmpty();
     }
   }
@@ -6460,7 +6486,7 @@ PROTOBUF_NOINLINE void PluginHello::Clear() {
 
   cached_has_bits = this_._impl_._has_bits_[0];
   // string name = 1 [json_name = "name"];
-  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
     if (!this_._internal_name().empty()) {
       const ::std::string& _s = this_._internal_name();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -6470,7 +6496,7 @@ PROTOBUF_NOINLINE void PluginHello::Clear() {
   }
 
   // string version = 2 [json_name = "version"];
-  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
     if (!this_._internal_version().empty()) {
       const ::std::string& _s = this_._internal_version();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -6480,7 +6506,7 @@ PROTOBUF_NOINLINE void PluginHello::Clear() {
   }
 
   // string api_version = 3 [json_name = "apiVersion"];
-  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
     if (!this_._internal_api_version().empty()) {
       const ::std::string& _s = this_._internal_api_version();
       ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -6515,6 +6541,19 @@ PROTOBUF_NOINLINE void PluginHello::Clear() {
     }
   }
 
+  // repeated .df.plugin.CustomBlockDefinition custom_blocks = 6 [json_name = "customBlocks"];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_custom_blocks_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_custom_blocks().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              6, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
   if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -6540,7 +6579,7 @@ PROTOBUF_NOINLINE void PluginHello::Clear() {
 
   ::_pbi::Prefetch5LinesFrom7Lines(&this_);
   cached_has_bits = this_._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
     // repeated .df.plugin.CommandSpec commands = 4 [json_name = "commands"];
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       total_size += 1UL * this_._internal_commands_size();
@@ -6555,22 +6594,29 @@ PROTOBUF_NOINLINE void PluginHello::Clear() {
         total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
       }
     }
+    // repeated .df.plugin.CustomBlockDefinition custom_blocks = 6 [json_name = "customBlocks"];
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      total_size += 1UL * this_._internal_custom_blocks_size();
+      for (const auto& msg : this_._internal_custom_blocks()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
     // string name = 1 [json_name = "name"];
-    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
       if (!this_._internal_name().empty()) {
         total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                         this_._internal_name());
       }
     }
     // string version = 2 [json_name = "version"];
-    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
       if (!this_._internal_version().empty()) {
         total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                         this_._internal_version());
       }
     }
     // string api_version = 3 [json_name = "apiVersion"];
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       if (!this_._internal_api_version().empty()) {
         total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
                                         this_._internal_api_version());
@@ -6596,7 +6642,7 @@ void PluginHello::MergeImpl(::google::protobuf::MessageLite& to_msg,
   (void)cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+  if (BatchCheckHasBit(cached_has_bits, 0x0000003fU)) {
     if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
       _this->_internal_mutable_commands()->InternalMergeFromWithArena(
           ::google::protobuf::MessageLite::internal_visibility(), arena,
@@ -6607,7 +6653,12 @@ void PluginHello::MergeImpl(::google::protobuf::MessageLite& to_msg,
           ::google::protobuf::MessageLite::internal_visibility(), arena,
           from._internal_custom_items());
     }
-    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000004U)) {
+      _this->_internal_mutable_custom_blocks()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_custom_blocks());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
       if (!from._internal_name().empty()) {
         _this->_internal_set_name(from._internal_name());
       } else {
@@ -6616,7 +6667,7 @@ void PluginHello::MergeImpl(::google::protobuf::MessageLite& to_msg,
         }
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
       if (!from._internal_version().empty()) {
         _this->_internal_set_version(from._internal_version());
       } else {
@@ -6625,7 +6676,7 @@ void PluginHello::MergeImpl(::google::protobuf::MessageLite& to_msg,
         }
       }
     }
-    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
       if (!from._internal_api_version().empty()) {
         _this->_internal_set_api_version(from._internal_api_version());
       } else {
@@ -6656,6 +6707,7 @@ void PluginHello::InternalSwap(PluginHello* PROTOBUF_RESTRICT PROTOBUF_NONNULL o
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.commands_.InternalSwap(&other->_impl_.commands_);
   _impl_.custom_items_.InternalSwap(&other->_impl_.custom_items_);
+  _impl_.custom_blocks_.InternalSwap(&other->_impl_.custom_blocks_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.version_, &other->_impl_.version_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.api_version_, &other->_impl_.api_version_, arena);

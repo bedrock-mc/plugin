@@ -239,6 +239,94 @@ struct CustomItemDefinitionDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CustomItemDefinitionDefaultTypeInternal _CustomItemDefinition_default_instance_;
+
+inline constexpr CustomBlockTexture::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        image_png_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()) {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CustomBlockTexture::CustomBlockTexture(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(CustomBlockTexture_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct CustomBlockTextureDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CustomBlockTextureDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CustomBlockTextureDefaultTypeInternal() {}
+  union {
+    CustomBlockTexture _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CustomBlockTextureDefaultTypeInternal _CustomBlockTexture_default_instance_;
+
+inline constexpr CustomBlockStateValues::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        values_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CustomBlockStateValues::CustomBlockStateValues(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(CustomBlockStateValues_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct CustomBlockStateValuesDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CustomBlockStateValuesDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CustomBlockStateValuesDefaultTypeInternal() {}
+  union {
+    CustomBlockStateValues _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CustomBlockStateValuesDefaultTypeInternal _CustomBlockStateValues_default_instance_;
+
+inline constexpr CustomBlockMaterial::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        target_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        texture_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        render_method_{static_cast< ::df::plugin::CustomBlockRenderMethod >(0)},
+        face_dimming_{false},
+        ambient_occlusion_{false} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CustomBlockMaterial::CustomBlockMaterial(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(CustomBlockMaterial_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct CustomBlockMaterialDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CustomBlockMaterialDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CustomBlockMaterialDefaultTypeInternal() {}
+  union {
+    CustomBlockMaterial _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CustomBlockMaterialDefaultTypeInternal _CustomBlockMaterial_default_instance_;
 template <typename>
 PROTOBUF_CONSTEXPR BlockState_PropertiesEntry_DoNotUse::BlockState_PropertiesEntry_DoNotUse(::_pbi::ConstantInitialized)
 #if defined(PROTOBUF_CUSTOM_VTABLE)
@@ -347,6 +435,24 @@ struct EntityRefDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 EntityRefDefaultTypeInternal _EntityRef_default_instance_;
+template <typename>
+PROTOBUF_CONSTEXPR CustomBlockProperties_StatesEntry_DoNotUse::CustomBlockProperties_StatesEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : CustomBlockProperties_StatesEntry_DoNotUse::MapEntry(CustomBlockProperties_StatesEntry_DoNotUse_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : CustomBlockProperties_StatesEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct CustomBlockProperties_StatesEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CustomBlockProperties_StatesEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CustomBlockProperties_StatesEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    CustomBlockProperties_StatesEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CustomBlockProperties_StatesEntry_DoNotUseDefaultTypeInternal _CustomBlockProperties_StatesEntry_DoNotUse_default_instance_;
 
 inline constexpr BlockState::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -431,10 +537,112 @@ struct LiquidStateDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 LiquidStateDefaultTypeInternal _LiquidState_default_instance_;
+
+inline constexpr CustomBlockPermutation::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        condition_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        properties_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CustomBlockPermutation::CustomBlockPermutation(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(CustomBlockPermutation_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct CustomBlockPermutationDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CustomBlockPermutationDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CustomBlockPermutationDefaultTypeInternal() {}
+  union {
+    CustomBlockPermutation _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CustomBlockPermutationDefaultTypeInternal _CustomBlockPermutation_default_instance_;
+
+inline constexpr CustomBlockProperties::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        materials_{},
+        geometry_identifier_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        map_colour_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        collision_box_{nullptr},
+        selection_box_{nullptr},
+        rotation_{nullptr},
+        translation_{nullptr},
+        scale_{nullptr},
+        cube_{false},
+        states_{},
+        permutations_{} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CustomBlockProperties::CustomBlockProperties(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(CustomBlockProperties_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct CustomBlockPropertiesDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CustomBlockPropertiesDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CustomBlockPropertiesDefaultTypeInternal() {}
+  union {
+    CustomBlockProperties _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CustomBlockPropertiesDefaultTypeInternal _CustomBlockProperties_default_instance_;
+
+inline constexpr CustomBlockDefinition::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : _cached_size_{0},
+        textures_{},
+        id_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        display_name_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        geometry_json_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        properties_{nullptr} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR CustomBlockDefinition::CustomBlockDefinition(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(CustomBlockDefinition_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct CustomBlockDefinitionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CustomBlockDefinitionDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CustomBlockDefinitionDefaultTypeInternal() {}
+  union {
+    CustomBlockDefinition _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CustomBlockDefinitionDefaultTypeInternal _CustomBlockDefinition_default_instance_;
 }  // namespace plugin
 }  // namespace df
 static const ::_pb::EnumDescriptor* PROTOBUF_NONNULL
-    file_level_enum_descriptors_common_2eproto[5];
+    file_level_enum_descriptors_common_2eproto[6];
 static constexpr const ::_pb::ServiceDescriptor* PROTOBUF_NONNULL* PROTOBUF_NULLABLE
     file_level_service_descriptors_common_2eproto = nullptr;
 const ::uint32_t
@@ -564,6 +772,83 @@ const ::uint32_t
         4,
         3,
         5,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockTexture, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockTexture, _impl_.name_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockTexture, _impl_.image_png_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockMaterial, _impl_._has_bits_),
+        8, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockMaterial, _impl_.target_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockMaterial, _impl_.texture_name_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockMaterial, _impl_.render_method_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockMaterial, _impl_.face_dimming_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockMaterial, _impl_.ambient_occlusion_),
+        0,
+        1,
+        2,
+        3,
+        4,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties_StatesEntry_DoNotUse, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties_StatesEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties_StatesEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_._has_bits_),
+        14, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_.collision_box_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_.selection_box_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_.geometry_identifier_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_.cube_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_.map_colour_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_.rotation_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_.translation_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_.scale_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_.materials_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_.states_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockProperties, _impl_.permutations_),
+        3,
+        4,
+        1,
+        8,
+        2,
+        5,
+        6,
+        7,
+        0,
+        9,
+        10,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockDefinition, _impl_._has_bits_),
+        8, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockDefinition, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockDefinition, _impl_.display_name_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockDefinition, _impl_.geometry_json_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockDefinition, _impl_.textures_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockDefinition, _impl_.properties_),
+        1,
+        2,
+        3,
+        0,
+        4,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockStateValues, _impl_._has_bits_),
+        4, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockStateValues, _impl_.values_),
+        0,
+        0x081, // bitmap
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockPermutation, _impl_._has_bits_),
+        5, // hasbit index offset
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockPermutation, _impl_.condition_),
+        PROTOBUF_FIELD_OFFSET(::df::plugin::CustomBlockPermutation, _impl_.properties_),
+        0,
+        1,
 };
 
 static const ::_pbi::MigrationSchema
@@ -582,6 +867,13 @@ static const ::_pbi::MigrationSchema
         {95, sizeof(::df::plugin::HealingSource)},
         {102, sizeof(::df::plugin::Address)},
         {109, sizeof(::df::plugin::CustomItemDefinition)},
+        {124, sizeof(::df::plugin::CustomBlockTexture)},
+        {131, sizeof(::df::plugin::CustomBlockMaterial)},
+        {144, sizeof(::df::plugin::CustomBlockProperties_StatesEntry_DoNotUse)},
+        {151, sizeof(::df::plugin::CustomBlockProperties)},
+        {176, sizeof(::df::plugin::CustomBlockDefinition)},
+        {189, sizeof(::df::plugin::CustomBlockStateValues)},
+        {194, sizeof(::df::plugin::CustomBlockPermutation)},
 };
 static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::df::plugin::_Vec3_default_instance_._instance,
@@ -598,6 +890,13 @@ static const ::_pb::Message* PROTOBUF_NONNULL const file_default_instances[] = {
     &::df::plugin::_HealingSource_default_instance_._instance,
     &::df::plugin::_Address_default_instance_._instance,
     &::df::plugin::_CustomItemDefinition_default_instance_._instance,
+    &::df::plugin::_CustomBlockTexture_default_instance_._instance,
+    &::df::plugin::_CustomBlockMaterial_default_instance_._instance,
+    &::df::plugin::_CustomBlockProperties_StatesEntry_DoNotUse_default_instance_._instance,
+    &::df::plugin::_CustomBlockProperties_default_instance_._instance,
+    &::df::plugin::_CustomBlockDefinition_default_instance_._instance,
+    &::df::plugin::_CustomBlockStateValues_default_instance_._instance,
+    &::df::plugin::_CustomBlockPermutation_default_instance_._instance,
 };
 const char descriptor_table_protodef_common_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
@@ -635,50 +934,95 @@ const char descriptor_table_protodef_common_2eproto[] ABSL_ATTRIBUTE_SECTION_VAR
     "displayName\022!\n\014texture_data\030\003 \001(\014R\013textu"
     "reData\0223\n\010category\030\004 \001(\0162\027.df.plugin.Ite"
     "mCategoryR\010category\022\031\n\005group\030\005 \001(\tH\000R\005gr"
-    "oup\210\001\001\022\022\n\004meta\030\006 \001(\005R\004metaB\010\n\006_group*D\n\010"
-    "GameMode\022\014\n\010SURVIVAL\020\000\022\014\n\010CREATIVE\020\001\022\r\n\t"
-    "ADVENTURE\020\002\022\r\n\tSPECTATOR\020\003*:\n\nDifficulty"
-    "\022\014\n\010PEACEFUL\020\000\022\010\n\004EASY\020\001\022\n\n\006NORMAL\020\002\022\010\n\004"
-    "HARD\020\003*\342\003\n\nEffectType\022\022\n\016EFFECT_UNKNOWN\020"
-    "\000\022\t\n\005SPEED\020\001\022\014\n\010SLOWNESS\020\002\022\t\n\005HASTE\020\003\022\022\n"
-    "\016MINING_FATIGUE\020\004\022\014\n\010STRENGTH\020\005\022\022\n\016INSTA"
-    "NT_HEALTH\020\006\022\022\n\016INSTANT_DAMAGE\020\007\022\016\n\nJUMP_"
-    "BOOST\020\010\022\n\n\006NAUSEA\020\t\022\020\n\014REGENERATION\020\n\022\016\n"
-    "\nRESISTANCE\020\013\022\023\n\017FIRE_RESISTANCE\020\014\022\023\n\017WA"
-    "TER_BREATHING\020\r\022\020\n\014INVISIBILITY\020\016\022\r\n\tBLI"
-    "NDNESS\020\017\022\020\n\014NIGHT_VISION\020\020\022\n\n\006HUNGER\020\021\022\014"
-    "\n\010WEAKNESS\020\022\022\n\n\006POISON\020\023\022\n\n\006WITHER\020\024\022\020\n\014"
-    "HEALTH_BOOST\020\025\022\016\n\nABSORPTION\020\026\022\016\n\nSATURA"
-    "TION\020\027\022\016\n\nLEVITATION\020\030\022\020\n\014FATAL_POISON\020\031"
-    "\022\021\n\rCONDUIT_POWER\020\032\022\020\n\014SLOW_FALLING\020\033\022\014\n"
-    "\010DARKNESS\020\036*\315\002\n\005Sound\022\021\n\rSOUND_UNKNOWN\020\000"
-    "\022\n\n\006ATTACK\020\001\022\014\n\010DROWNING\020\002\022\013\n\007BURNING\020\003\022"
-    "\010\n\004FALL\020\004\022\010\n\004BURP\020\005\022\007\n\003POP\020\006\022\r\n\tEXPLOSIO"
-    "N\020\007\022\013\n\007THUNDER\020\010\022\014\n\010LEVEL_UP\020\t\022\016\n\nEXPERI"
-    "ENCE\020\n\022\023\n\017FIREWORK_LAUNCH\020\013\022\027\n\023FIREWORK_"
-    "HUGE_BLAST\020\014\022\022\n\016FIREWORK_BLAST\020\r\022\024\n\020FIRE"
-    "WORK_TWINKLE\020\016\022\014\n\010TELEPORT\020\017\022\r\n\tARROW_HI"
-    "T\020\020\022\016\n\nITEM_BREAK\020\021\022\016\n\nITEM_THROW\020\022\022\t\n\005T"
-    "OTEM\020\023\022\023\n\017FIRE_EXTINGUISH\020\024*~\n\014ItemCateg"
-    "ory\022\036\n\032ITEM_CATEGORY_CONSTRUCTION\020\000\022\030\n\024I"
-    "TEM_CATEGORY_NATURE\020\001\022\033\n\027ITEM_CATEGORY_E"
-    "QUIPMENT\020\002\022\027\n\023ITEM_CATEGORY_ITEMS\020\003B\212\001\n\r"
-    "com.df.pluginB\013CommonProtoP\001Z\'github.com"
-    "/secmc/plugin/proto/generated\242\002\003DPX\252\002\tDf"
-    ".Plugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMetad"
-    "ata\352\002\nDf::Pluginb\006proto3"
+    "oup\210\001\001\022\022\n\004meta\030\006 \001(\005R\004metaB\010\n\006_group\"E\n\022"
+    "CustomBlockTexture\022\022\n\004name\030\001 \001(\tR\004name\022\033"
+    "\n\timage_png\030\002 \001(\014R\010imagePng\"\232\002\n\023CustomBl"
+    "ockMaterial\022\026\n\006target\030\001 \001(\tR\006target\022!\n\014t"
+    "exture_name\030\002 \001(\tR\013textureName\022G\n\rrender"
+    "_method\030\003 \001(\0162\".df.plugin.CustomBlockRen"
+    "derMethodR\014renderMethod\022&\n\014face_dimming\030"
+    "\004 \001(\010H\000R\013faceDimming\210\001\001\0220\n\021ambient_occlu"
+    "sion\030\005 \001(\010H\001R\020ambientOcclusion\210\001\001B\017\n\r_fa"
+    "ce_dimmingB\024\n\022_ambient_occlusion\"\254\006\n\025Cus"
+    "tomBlockProperties\0229\n\rcollision_box\030\001 \001("
+    "\0132\017.df.plugin.BBoxH\000R\014collisionBox\210\001\001\0229\n"
+    "\rselection_box\030\002 \001(\0132\017.df.plugin.BBoxH\001R"
+    "\014selectionBox\210\001\001\0224\n\023geometry_identifier\030"
+    "\003 \001(\tH\002R\022geometryIdentifier\210\001\001\022\022\n\004cube\030\004"
+    " \001(\010R\004cube\022\"\n\nmap_colour\030\005 \001(\tH\003R\tmapCol"
+    "our\210\001\001\0220\n\010rotation\030\006 \001(\0132\017.df.plugin.Vec"
+    "3H\004R\010rotation\210\001\001\0226\n\013translation\030\007 \001(\0132\017."
+    "df.plugin.Vec3H\005R\013translation\210\001\001\022*\n\005scal"
+    "e\030\010 \001(\0132\017.df.plugin.Vec3H\006R\005scale\210\001\001\022<\n\t"
+    "materials\030\n \003(\0132\036.df.plugin.CustomBlockM"
+    "aterialR\tmaterials\022D\n\006states\030\024 \003(\0132,.df."
+    "plugin.CustomBlockProperties.StatesEntry"
+    "R\006states\022E\n\014permutations\030\025 \003(\0132!.df.plug"
+    "in.CustomBlockPermutationR\014permutations\032"
+    "\\\n\013StatesEntry\022\020\n\003key\030\001 \001(\tR\003key\0227\n\005valu"
+    "e\030\002 \001(\0132!.df.plugin.CustomBlockStateValu"
+    "esR\005value:\0028\001B\020\n\016_collision_boxB\020\n\016_sele"
+    "ction_boxB\026\n\024_geometry_identifierB\r\n\013_ma"
+    "p_colourB\013\n\t_rotationB\016\n\014_translationB\010\n"
+    "\006_scale\"\203\002\n\025CustomBlockDefinition\022\016\n\002id\030"
+    "\001 \001(\tR\002id\022!\n\014display_name\030\002 \001(\tR\013display"
+    "Name\022(\n\rgeometry_json\030\003 \001(\014H\000R\014geometryJ"
+    "son\210\001\001\0229\n\010textures\030\004 \003(\0132\035.df.plugin.Cus"
+    "tomBlockTextureR\010textures\022@\n\nproperties\030"
+    "\005 \001(\0132 .df.plugin.CustomBlockPropertiesR"
+    "\npropertiesB\020\n\016_geometry_json\"0\n\026CustomB"
+    "lockStateValues\022\026\n\006values\030\001 \003(\tR\006values\""
+    "x\n\026CustomBlockPermutation\022\034\n\tcondition\030\001"
+    " \001(\tR\tcondition\022@\n\nproperties\030\002 \001(\0132 .df"
+    ".plugin.CustomBlockPropertiesR\npropertie"
+    "s*D\n\010GameMode\022\014\n\010SURVIVAL\020\000\022\014\n\010CREATIVE\020"
+    "\001\022\r\n\tADVENTURE\020\002\022\r\n\tSPECTATOR\020\003*:\n\nDiffi"
+    "culty\022\014\n\010PEACEFUL\020\000\022\010\n\004EASY\020\001\022\n\n\006NORMAL\020"
+    "\002\022\010\n\004HARD\020\003*\342\003\n\nEffectType\022\022\n\016EFFECT_UNK"
+    "NOWN\020\000\022\t\n\005SPEED\020\001\022\014\n\010SLOWNESS\020\002\022\t\n\005HASTE"
+    "\020\003\022\022\n\016MINING_FATIGUE\020\004\022\014\n\010STRENGTH\020\005\022\022\n\016"
+    "INSTANT_HEALTH\020\006\022\022\n\016INSTANT_DAMAGE\020\007\022\016\n\n"
+    "JUMP_BOOST\020\010\022\n\n\006NAUSEA\020\t\022\020\n\014REGENERATION"
+    "\020\n\022\016\n\nRESISTANCE\020\013\022\023\n\017FIRE_RESISTANCE\020\014\022"
+    "\023\n\017WATER_BREATHING\020\r\022\020\n\014INVISIBILITY\020\016\022\r"
+    "\n\tBLINDNESS\020\017\022\020\n\014NIGHT_VISION\020\020\022\n\n\006HUNGE"
+    "R\020\021\022\014\n\010WEAKNESS\020\022\022\n\n\006POISON\020\023\022\n\n\006WITHER\020"
+    "\024\022\020\n\014HEALTH_BOOST\020\025\022\016\n\nABSORPTION\020\026\022\016\n\nS"
+    "ATURATION\020\027\022\016\n\nLEVITATION\020\030\022\020\n\014FATAL_POI"
+    "SON\020\031\022\021\n\rCONDUIT_POWER\020\032\022\020\n\014SLOW_FALLING"
+    "\020\033\022\014\n\010DARKNESS\020\036*\315\002\n\005Sound\022\021\n\rSOUND_UNKN"
+    "OWN\020\000\022\n\n\006ATTACK\020\001\022\014\n\010DROWNING\020\002\022\013\n\007BURNI"
+    "NG\020\003\022\010\n\004FALL\020\004\022\010\n\004BURP\020\005\022\007\n\003POP\020\006\022\r\n\tEXP"
+    "LOSION\020\007\022\013\n\007THUNDER\020\010\022\014\n\010LEVEL_UP\020\t\022\016\n\nE"
+    "XPERIENCE\020\n\022\023\n\017FIREWORK_LAUNCH\020\013\022\027\n\023FIRE"
+    "WORK_HUGE_BLAST\020\014\022\022\n\016FIREWORK_BLAST\020\r\022\024\n"
+    "\020FIREWORK_TWINKLE\020\016\022\014\n\010TELEPORT\020\017\022\r\n\tARR"
+    "OW_HIT\020\020\022\016\n\nITEM_BREAK\020\021\022\016\n\nITEM_THROW\020\022"
+    "\022\t\n\005TOTEM\020\023\022\023\n\017FIRE_EXTINGUISH\020\024*~\n\014Item"
+    "Category\022\036\n\032ITEM_CATEGORY_CONSTRUCTION\020\000"
+    "\022\030\n\024ITEM_CATEGORY_NATURE\020\001\022\033\n\027ITEM_CATEG"
+    "ORY_EQUIPMENT\020\002\022\027\n\023ITEM_CATEGORY_ITEMS\020\003"
+    "*\276\001\n\027CustomBlockRenderMethod\022%\n!CUSTOM_B"
+    "LOCK_RENDER_METHOD_OPAQUE\020\000\022)\n%CUSTOM_BL"
+    "OCK_RENDER_METHOD_ALPHA_TEST\020\001\022$\n CUSTOM"
+    "_BLOCK_RENDER_METHOD_BLEND\020\002\022+\n\'CUSTOM_B"
+    "LOCK_RENDER_METHOD_DOUBLE_SIDED\020\003B\212\001\n\rco"
+    "m.df.pluginB\013CommonProtoP\001Z\'github.com/s"
+    "ecmc/plugin/proto/generated\242\002\003DPX\252\002\tDf.P"
+    "lugin\312\002\tDf\\Plugin\342\002\025Df\\Plugin\\GPBMetadat"
+    "a\352\002\nDf::Pluginb\006proto3"
 };
 static ::absl::once_flag descriptor_table_common_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_common_2eproto = {
     false,
     false,
-    2624,
+    4422,
     descriptor_table_protodef_common_2eproto,
     "common.proto",
     &descriptor_table_common_2eproto_once,
     nullptr,
     0,
-    14,
+    21,
     schemas,
     file_default_instances,
     TableStruct_common_2eproto::offsets,
@@ -716,6 +1060,12 @@ const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL ItemCategory_descript
   return file_level_enum_descriptors_common_2eproto[4];
 }
 PROTOBUF_CONSTINIT const uint32_t ItemCategory_internal_data_[] = {
+    262144u, 0u, };
+const ::google::protobuf::EnumDescriptor* PROTOBUF_NONNULL CustomBlockRenderMethod_descriptor() {
+  ::google::protobuf::internal::AssignDescriptors(&descriptor_table_common_2eproto);
+  return file_level_enum_descriptors_common_2eproto[5];
+}
+PROTOBUF_CONSTINIT const uint32_t CustomBlockRenderMethod_internal_data_[] = {
     262144u, 0u, };
 // ===================================================================
 
@@ -5363,6 +5713,2550 @@ void CustomItemDefinition::InternalSwap(CustomItemDefinition* PROTOBUF_RESTRICT 
 }
 
 ::google::protobuf::Metadata CustomItemDefinition::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class CustomBlockTexture::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<CustomBlockTexture>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(CustomBlockTexture, _impl_._has_bits_);
+};
+
+CustomBlockTexture::CustomBlockTexture(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockTexture_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.CustomBlockTexture)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockTexture::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::CustomBlockTexture& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        name_(arena, from.name_),
+        image_png_(arena, from.image_png_) {}
+
+CustomBlockTexture::CustomBlockTexture(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const CustomBlockTexture& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockTexture_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  CustomBlockTexture* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.CustomBlockTexture)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockTexture::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        name_(arena),
+        image_png_(arena) {}
+
+inline void CustomBlockTexture::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+CustomBlockTexture::~CustomBlockTexture() {
+  // @@protoc_insertion_point(destructor:df.plugin.CustomBlockTexture)
+  SharedDtor(*this);
+}
+inline void CustomBlockTexture::SharedDtor(MessageLite& self) {
+  CustomBlockTexture& this_ = static_cast<CustomBlockTexture&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.name_.Destroy();
+  this_._impl_.image_png_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL CustomBlockTexture::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) CustomBlockTexture(arena);
+}
+constexpr auto CustomBlockTexture::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(CustomBlockTexture),
+                                            alignof(CustomBlockTexture));
+}
+constexpr auto CustomBlockTexture::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_CustomBlockTexture_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &CustomBlockTexture::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<CustomBlockTexture>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &CustomBlockTexture::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<CustomBlockTexture>(), &CustomBlockTexture::ByteSizeLong,
+              &CustomBlockTexture::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(CustomBlockTexture, _impl_._cached_size_),
+          false,
+      },
+      &CustomBlockTexture::kDescriptorMethods,
+      &descriptor_table_common_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull CustomBlockTexture_class_data_ =
+        CustomBlockTexture::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+CustomBlockTexture::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&CustomBlockTexture_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(CustomBlockTexture_class_data_.tc_table);
+  return CustomBlockTexture_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 0, 41, 2>
+CustomBlockTexture::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(CustomBlockTexture, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    CustomBlockTexture_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::CustomBlockTexture>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // bytes image_png = 2 [json_name = "imagePng"];
+    {::_pbi::TcParser::FastBS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockTexture, _impl_.image_png_)}},
+    // string name = 1 [json_name = "name"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockTexture, _impl_.name_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string name = 1 [json_name = "name"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockTexture, _impl_.name_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // bytes image_png = 2 [json_name = "imagePng"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockTexture, _impl_.image_png_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+  }},
+  // no aux_entries
+  {{
+    "\34\4\0\0\0\0\0\0"
+    "df.plugin.CustomBlockTexture"
+    "name"
+  }},
+};
+PROTOBUF_NOINLINE void CustomBlockTexture::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.CustomBlockTexture)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.name_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.image_png_.ClearNonDefaultToEmpty();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL CustomBlockTexture::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const CustomBlockTexture& this_ = static_cast<const CustomBlockTexture&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL CustomBlockTexture::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const CustomBlockTexture& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.CustomBlockTexture)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string name = 1 [json_name = "name"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_name().empty()) {
+      const ::std::string& _s = this_._internal_name();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.CustomBlockTexture.name");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // bytes image_png = 2 [json_name = "imagePng"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_image_png().empty()) {
+      const ::std::string& _s = this_._internal_image_png();
+      target = stream->WriteBytesMaybeAliased(2, _s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.CustomBlockTexture)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t CustomBlockTexture::ByteSizeLong(const MessageLite& base) {
+  const CustomBlockTexture& this_ = static_cast<const CustomBlockTexture&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t CustomBlockTexture::ByteSizeLong() const {
+  const CustomBlockTexture& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.CustomBlockTexture)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // string name = 1 [json_name = "name"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_name().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_name());
+      }
+    }
+    // bytes image_png = 2 [json_name = "imagePng"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_image_png().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                        this_._internal_image_png());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void CustomBlockTexture::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<CustomBlockTexture*>(&to_msg);
+  auto& from = static_cast<const CustomBlockTexture&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.CustomBlockTexture)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_name().empty()) {
+        _this->_internal_set_name(from._internal_name());
+      } else {
+        if (_this->_impl_.name_.IsDefault()) {
+          _this->_internal_set_name("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_image_png().empty()) {
+        _this->_internal_set_image_png(from._internal_image_png());
+      } else {
+        if (_this->_impl_.image_png_.IsDefault()) {
+          _this->_internal_set_image_png("");
+        }
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void CustomBlockTexture::CopyFrom(const CustomBlockTexture& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.CustomBlockTexture)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void CustomBlockTexture::InternalSwap(CustomBlockTexture* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.image_png_, &other->_impl_.image_png_, arena);
+}
+
+::google::protobuf::Metadata CustomBlockTexture::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class CustomBlockMaterial::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<CustomBlockMaterial>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_._has_bits_);
+};
+
+CustomBlockMaterial::CustomBlockMaterial(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockMaterial_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.CustomBlockMaterial)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockMaterial::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::CustomBlockMaterial& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        target_(arena, from.target_),
+        texture_name_(arena, from.texture_name_) {}
+
+CustomBlockMaterial::CustomBlockMaterial(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const CustomBlockMaterial& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockMaterial_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  CustomBlockMaterial* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, render_method_),
+           reinterpret_cast<const char*>(&from._impl_) +
+               offsetof(Impl_, render_method_),
+           offsetof(Impl_, ambient_occlusion_) -
+               offsetof(Impl_, render_method_) +
+               sizeof(Impl_::ambient_occlusion_));
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.CustomBlockMaterial)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockMaterial::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        target_(arena),
+        texture_name_(arena) {}
+
+inline void CustomBlockMaterial::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, render_method_),
+           0,
+           offsetof(Impl_, ambient_occlusion_) -
+               offsetof(Impl_, render_method_) +
+               sizeof(Impl_::ambient_occlusion_));
+}
+CustomBlockMaterial::~CustomBlockMaterial() {
+  // @@protoc_insertion_point(destructor:df.plugin.CustomBlockMaterial)
+  SharedDtor(*this);
+}
+inline void CustomBlockMaterial::SharedDtor(MessageLite& self) {
+  CustomBlockMaterial& this_ = static_cast<CustomBlockMaterial&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.target_.Destroy();
+  this_._impl_.texture_name_.Destroy();
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL CustomBlockMaterial::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) CustomBlockMaterial(arena);
+}
+constexpr auto CustomBlockMaterial::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(CustomBlockMaterial),
+                                            alignof(CustomBlockMaterial));
+}
+constexpr auto CustomBlockMaterial::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_CustomBlockMaterial_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &CustomBlockMaterial::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<CustomBlockMaterial>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &CustomBlockMaterial::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<CustomBlockMaterial>(), &CustomBlockMaterial::ByteSizeLong,
+              &CustomBlockMaterial::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_._cached_size_),
+          false,
+      },
+      &CustomBlockMaterial::kDescriptorMethods,
+      &descriptor_table_common_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull CustomBlockMaterial_class_data_ =
+        CustomBlockMaterial::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+CustomBlockMaterial::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&CustomBlockMaterial_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(CustomBlockMaterial_class_data_.tc_table);
+  return CustomBlockMaterial_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 0, 56, 2>
+CustomBlockMaterial::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_._has_bits_),
+    0, // no _extensions_
+    5, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967264,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    CustomBlockMaterial_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::CustomBlockMaterial>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string target = 1 [json_name = "target"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.target_)}},
+    // string texture_name = 2 [json_name = "textureName"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.texture_name_)}},
+    // .df.plugin.CustomBlockRenderMethod render_method = 3 [json_name = "renderMethod"];
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(CustomBlockMaterial, _impl_.render_method_), 2>(),
+     {24, 2, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.render_method_)}},
+    // optional bool face_dimming = 4 [json_name = "faceDimming"];
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CustomBlockMaterial, _impl_.face_dimming_), 3>(),
+     {32, 3, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.face_dimming_)}},
+    // optional bool ambient_occlusion = 5 [json_name = "ambientOcclusion"];
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CustomBlockMaterial, _impl_.ambient_occlusion_), 4>(),
+     {40, 4, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.ambient_occlusion_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string target = 1 [json_name = "target"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.target_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string texture_name = 2 [json_name = "textureName"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.texture_name_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .df.plugin.CustomBlockRenderMethod render_method = 3 [json_name = "renderMethod"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.render_method_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kOpenEnum)},
+    // optional bool face_dimming = 4 [json_name = "faceDimming"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.face_dimming_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // optional bool ambient_occlusion = 5 [json_name = "ambientOcclusion"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.ambient_occlusion_), _Internal::kHasBitsOffset + 4, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+  }},
+  // no aux_entries
+  {{
+    "\35\6\14\0\0\0\0\0"
+    "df.plugin.CustomBlockMaterial"
+    "target"
+    "texture_name"
+  }},
+};
+PROTOBUF_NOINLINE void CustomBlockMaterial::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.CustomBlockMaterial)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.target_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.texture_name_.ClearNonDefaultToEmpty();
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001cU)) {
+    ::memset(&_impl_.render_method_, 0, static_cast<::size_t>(
+        reinterpret_cast<char*>(&_impl_.ambient_occlusion_) -
+        reinterpret_cast<char*>(&_impl_.render_method_)) + sizeof(_impl_.ambient_occlusion_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL CustomBlockMaterial::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const CustomBlockMaterial& this_ = static_cast<const CustomBlockMaterial&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL CustomBlockMaterial::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const CustomBlockMaterial& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.CustomBlockMaterial)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string target = 1 [json_name = "target"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_target().empty()) {
+      const ::std::string& _s = this_._internal_target();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.CustomBlockMaterial.target");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // string texture_name = 2 [json_name = "textureName"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_texture_name().empty()) {
+      const ::std::string& _s = this_._internal_texture_name();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.CustomBlockMaterial.texture_name");
+      target = stream->WriteStringMaybeAliased(2, _s, target);
+    }
+  }
+
+  // .df.plugin.CustomBlockRenderMethod render_method = 3 [json_name = "renderMethod"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (this_._internal_render_method() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteEnumToArray(
+          3, this_._internal_render_method(), target);
+    }
+  }
+
+  // optional bool face_dimming = 4 [json_name = "faceDimming"];
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        4, this_._internal_face_dimming(), target);
+  }
+
+  // optional bool ambient_occlusion = 5 [json_name = "ambientOcclusion"];
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(
+        5, this_._internal_ambient_occlusion(), target);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.CustomBlockMaterial)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t CustomBlockMaterial::ByteSizeLong(const MessageLite& base) {
+  const CustomBlockMaterial& this_ = static_cast<const CustomBlockMaterial&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t CustomBlockMaterial::ByteSizeLong() const {
+  const CustomBlockMaterial& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.CustomBlockMaterial)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  total_size += ::absl::popcount(0x00000018U & cached_has_bits) * 2;
+  if (BatchCheckHasBit(cached_has_bits, 0x00000007U)) {
+    // string target = 1 [json_name = "target"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_target().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_target());
+      }
+    }
+    // string texture_name = 2 [json_name = "textureName"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_texture_name().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_texture_name());
+      }
+    }
+    // .df.plugin.CustomBlockRenderMethod render_method = 3 [json_name = "renderMethod"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (this_._internal_render_method() != 0) {
+        total_size += 1 +
+                      ::_pbi::WireFormatLite::EnumSize(this_._internal_render_method());
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void CustomBlockMaterial::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<CustomBlockMaterial*>(&to_msg);
+  auto& from = static_cast<const CustomBlockMaterial&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.CustomBlockMaterial)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_target().empty()) {
+        _this->_internal_set_target(from._internal_target());
+      } else {
+        if (_this->_impl_.target_.IsDefault()) {
+          _this->_internal_set_target("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_texture_name().empty()) {
+        _this->_internal_set_texture_name(from._internal_texture_name());
+      } else {
+        if (_this->_impl_.texture_name_.IsDefault()) {
+          _this->_internal_set_texture_name("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (from._internal_render_method() != 0) {
+        _this->_impl_.render_method_ = from._impl_.render_method_;
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      _this->_impl_.face_dimming_ = from._impl_.face_dimming_;
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      _this->_impl_.ambient_occlusion_ = from._impl_.ambient_occlusion_;
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void CustomBlockMaterial::CopyFrom(const CustomBlockMaterial& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.CustomBlockMaterial)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void CustomBlockMaterial::InternalSwap(CustomBlockMaterial* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.target_, &other->_impl_.target_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.texture_name_, &other->_impl_.texture_name_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.ambient_occlusion_)
+      + sizeof(CustomBlockMaterial::_impl_.ambient_occlusion_)
+      - PROTOBUF_FIELD_OFFSET(CustomBlockMaterial, _impl_.render_method_)>(
+          reinterpret_cast<char*>(&_impl_.render_method_),
+          reinterpret_cast<char*>(&other->_impl_.render_method_));
+}
+
+::google::protobuf::Metadata CustomBlockMaterial::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+CustomBlockProperties_StatesEntry_DoNotUse::CustomBlockProperties_StatesEntry_DoNotUse()
+    : SuperType(CustomBlockProperties_StatesEntry_DoNotUse_class_data_.base()) {}
+CustomBlockProperties_StatesEntry_DoNotUse::CustomBlockProperties_StatesEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+    : SuperType(arena, CustomBlockProperties_StatesEntry_DoNotUse_class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+CustomBlockProperties_StatesEntry_DoNotUse::CustomBlockProperties_StatesEntry_DoNotUse() : SuperType() {}
+CustomBlockProperties_StatesEntry_DoNotUse::CustomBlockProperties_StatesEntry_DoNotUse(::google::protobuf::Arena* PROTOBUF_NULLABLE arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+inline void* PROTOBUF_NONNULL CustomBlockProperties_StatesEntry_DoNotUse::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) CustomBlockProperties_StatesEntry_DoNotUse(arena);
+}
+constexpr auto CustomBlockProperties_StatesEntry_DoNotUse::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(CustomBlockProperties_StatesEntry_DoNotUse),
+                                            alignof(CustomBlockProperties_StatesEntry_DoNotUse));
+}
+constexpr auto CustomBlockProperties_StatesEntry_DoNotUse::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_CustomBlockProperties_StatesEntry_DoNotUse_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &CustomBlockProperties_StatesEntry_DoNotUse::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<CustomBlockProperties_StatesEntry_DoNotUse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &CustomBlockProperties_StatesEntry_DoNotUse::SharedDtor,
+          static_cast<void (::google::protobuf::MessageLite::*)()>(&CustomBlockProperties_StatesEntry_DoNotUse::ClearImpl),
+              ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+              ,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(CustomBlockProperties_StatesEntry_DoNotUse, _impl_._cached_size_),
+          false,
+      },
+      &CustomBlockProperties_StatesEntry_DoNotUse::kDescriptorMethods,
+      &descriptor_table_common_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull CustomBlockProperties_StatesEntry_DoNotUse_class_data_ =
+        CustomBlockProperties_StatesEntry_DoNotUse::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+CustomBlockProperties_StatesEntry_DoNotUse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&CustomBlockProperties_StatesEntry_DoNotUse_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(CustomBlockProperties_StatesEntry_DoNotUse_class_data_.tc_table);
+  return CustomBlockProperties_StatesEntry_DoNotUse_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 55, 2>
+CustomBlockProperties_StatesEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(CustomBlockProperties_StatesEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    CustomBlockProperties_StatesEntry_DoNotUse_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::CustomBlockProperties_StatesEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.CustomBlockStateValues value = 2 [json_name = "value"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties_StatesEntry_DoNotUse, _impl_.value_)}},
+    // string key = 1 [json_name = "key"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties_StatesEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string key = 1 [json_name = "key"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties_StatesEntry_DoNotUse, _impl_.key_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .df.plugin.CustomBlockStateValues value = 2 [json_name = "value"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties_StatesEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::CustomBlockStateValues>()},
+  }},
+  {{
+    "\53\3\0\0\0\0\0\0"
+    "df.plugin.CustomBlockProperties.StatesEntry"
+    "key"
+  }},
+};
+// ===================================================================
+
+class CustomBlockProperties::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<CustomBlockProperties>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_._has_bits_);
+};
+
+CustomBlockProperties::CustomBlockProperties(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockProperties_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.CustomBlockProperties)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockProperties::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::CustomBlockProperties& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        materials_{visibility, arena, from.materials_},
+        geometry_identifier_(arena, from.geometry_identifier_),
+        map_colour_(arena, from.map_colour_),
+        states_{visibility, arena, from.states_},
+        permutations_{visibility, arena, from.permutations_} {}
+
+CustomBlockProperties::CustomBlockProperties(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const CustomBlockProperties& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockProperties_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  CustomBlockProperties* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.collision_box_ = (CheckHasBit(cached_has_bits, 0x00000008U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.collision_box_)
+                : nullptr;
+  _impl_.selection_box_ = (CheckHasBit(cached_has_bits, 0x00000010U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.selection_box_)
+                : nullptr;
+  _impl_.rotation_ = (CheckHasBit(cached_has_bits, 0x00000020U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.rotation_)
+                : nullptr;
+  _impl_.translation_ = (CheckHasBit(cached_has_bits, 0x00000040U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.translation_)
+                : nullptr;
+  _impl_.scale_ = (CheckHasBit(cached_has_bits, 0x00000080U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.scale_)
+                : nullptr;
+  _impl_.cube_ = from._impl_.cube_;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.CustomBlockProperties)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockProperties::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        materials_{visibility, arena},
+        geometry_identifier_(arena),
+        map_colour_(arena),
+        states_{visibility, arena},
+        permutations_{visibility, arena} {}
+
+inline void CustomBlockProperties::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  ::memset(reinterpret_cast<char*>(&_impl_) +
+               offsetof(Impl_, collision_box_),
+           0,
+           offsetof(Impl_, cube_) -
+               offsetof(Impl_, collision_box_) +
+               sizeof(Impl_::cube_));
+}
+CustomBlockProperties::~CustomBlockProperties() {
+  // @@protoc_insertion_point(destructor:df.plugin.CustomBlockProperties)
+  SharedDtor(*this);
+}
+inline void CustomBlockProperties::SharedDtor(MessageLite& self) {
+  CustomBlockProperties& this_ = static_cast<CustomBlockProperties&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.geometry_identifier_.Destroy();
+  this_._impl_.map_colour_.Destroy();
+  delete this_._impl_.collision_box_;
+  delete this_._impl_.selection_box_;
+  delete this_._impl_.rotation_;
+  delete this_._impl_.translation_;
+  delete this_._impl_.scale_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL CustomBlockProperties::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) CustomBlockProperties(arena);
+}
+constexpr auto CustomBlockProperties::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.materials_) +
+          decltype(CustomBlockProperties::_impl_.materials_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.states_) +
+          decltype(CustomBlockProperties::_impl_.states_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.permutations_) +
+          decltype(CustomBlockProperties::_impl_.permutations_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(CustomBlockProperties), alignof(CustomBlockProperties), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&CustomBlockProperties::PlacementNew_,
+                                 sizeof(CustomBlockProperties),
+                                 alignof(CustomBlockProperties));
+  }
+}
+constexpr auto CustomBlockProperties::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_CustomBlockProperties_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &CustomBlockProperties::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<CustomBlockProperties>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &CustomBlockProperties::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<CustomBlockProperties>(), &CustomBlockProperties::ByteSizeLong,
+              &CustomBlockProperties::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_._cached_size_),
+          false,
+      },
+      &CustomBlockProperties::kDescriptorMethods,
+      &descriptor_table_common_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull CustomBlockProperties_class_data_ =
+        CustomBlockProperties::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+CustomBlockProperties::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&CustomBlockProperties_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(CustomBlockProperties_class_data_.tc_table);
+  return CustomBlockProperties_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<4, 11, 9, 83, 2>
+CustomBlockProperties::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_._has_bits_),
+    0, // no _extensions_
+    21, 120,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4293393664,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    11,  // num_field_entries
+    9,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    CustomBlockProperties_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::CustomBlockProperties>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // optional .df.plugin.BBox collision_box = 1 [json_name = "collisionBox"];
+    {::_pbi::TcParser::FastMtS1,
+     {10, 3, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.collision_box_)}},
+    // optional .df.plugin.BBox selection_box = 2 [json_name = "selectionBox"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 4, 1,
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.selection_box_)}},
+    // optional string geometry_identifier = 3 [json_name = "geometryIdentifier"];
+    {::_pbi::TcParser::FastUS1,
+     {26, 1, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.geometry_identifier_)}},
+    // bool cube = 4 [json_name = "cube"];
+    {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(CustomBlockProperties, _impl_.cube_), 8>(),
+     {32, 8, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.cube_)}},
+    // optional string map_colour = 5 [json_name = "mapColour"];
+    {::_pbi::TcParser::FastUS1,
+     {42, 2, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.map_colour_)}},
+    // optional .df.plugin.Vec3 rotation = 6 [json_name = "rotation"];
+    {::_pbi::TcParser::FastMtS1,
+     {50, 5, 2,
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.rotation_)}},
+    // optional .df.plugin.Vec3 translation = 7 [json_name = "translation"];
+    {::_pbi::TcParser::FastMtS1,
+     {58, 6, 3,
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.translation_)}},
+    // optional .df.plugin.Vec3 scale = 8 [json_name = "scale"];
+    {::_pbi::TcParser::FastMtS1,
+     {66, 7, 4,
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.scale_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    // repeated .df.plugin.CustomBlockMaterial materials = 10 [json_name = "materials"];
+    {::_pbi::TcParser::FastMtR1,
+     {82, 0, 5,
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.materials_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // optional .df.plugin.BBox collision_box = 1 [json_name = "collisionBox"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.collision_box_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // optional .df.plugin.BBox selection_box = 2 [json_name = "selectionBox"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.selection_box_), _Internal::kHasBitsOffset + 4, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // optional string geometry_identifier = 3 [json_name = "geometryIdentifier"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.geometry_identifier_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // bool cube = 4 [json_name = "cube"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.cube_), _Internal::kHasBitsOffset + 8, 0, (0 | ::_fl::kFcOptional | ::_fl::kBool)},
+    // optional string map_colour = 5 [json_name = "mapColour"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.map_colour_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // optional .df.plugin.Vec3 rotation = 6 [json_name = "rotation"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.rotation_), _Internal::kHasBitsOffset + 5, 2, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // optional .df.plugin.Vec3 translation = 7 [json_name = "translation"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.translation_), _Internal::kHasBitsOffset + 6, 3, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // optional .df.plugin.Vec3 scale = 8 [json_name = "scale"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.scale_), _Internal::kHasBitsOffset + 7, 4, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+    // repeated .df.plugin.CustomBlockMaterial materials = 10 [json_name = "materials"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.materials_), _Internal::kHasBitsOffset + 0, 5, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // map<string, .df.plugin.CustomBlockStateValues> states = 20 [json_name = "states"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.states_), _Internal::kHasBitsOffset + 9, 7, (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+    // repeated .df.plugin.CustomBlockPermutation permutations = 21 [json_name = "permutations"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.permutations_), _Internal::kHasBitsOffset + 10, 6, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::BBox>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::BBox>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::Vec3>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::Vec3>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::Vec3>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::CustomBlockMaterial>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::CustomBlockPermutation>()},
+      {::_pbi::TcParser::GetMapAuxInfo(
+          1, 0, 9, 11, 0)},
+      {::_pbi::TcParser::GetTable<::df::plugin::CustomBlockStateValues>()},
+  }},
+  {{
+    "\37\0\0\23\0\12\0\0\0\0\6\0\0\0\0\0"
+    "df.plugin.CustomBlockProperties"
+    "geometry_identifier"
+    "map_colour"
+    "states"
+  }},
+};
+PROTOBUF_NOINLINE void CustomBlockProperties::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.CustomBlockProperties)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.materials_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.geometry_identifier_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _impl_.map_colour_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      ABSL_DCHECK(_impl_.collision_box_ != nullptr);
+      _impl_.collision_box_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      ABSL_DCHECK(_impl_.selection_box_ != nullptr);
+      _impl_.selection_box_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      ABSL_DCHECK(_impl_.rotation_ != nullptr);
+      _impl_.rotation_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      ABSL_DCHECK(_impl_.translation_ != nullptr);
+      _impl_.translation_->Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+      ABSL_DCHECK(_impl_.scale_ != nullptr);
+      _impl_.scale_->Clear();
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x00000700U)) {
+    _impl_.cube_ = false;
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
+      _impl_.states_.Clear();
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+      _impl_.permutations_.Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL CustomBlockProperties::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const CustomBlockProperties& this_ = static_cast<const CustomBlockProperties&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL CustomBlockProperties::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const CustomBlockProperties& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.CustomBlockProperties)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // optional .df.plugin.BBox collision_box = 1 [json_name = "collisionBox"];
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        1, *this_._impl_.collision_box_, this_._impl_.collision_box_->GetCachedSize(), target,
+        stream);
+  }
+
+  // optional .df.plugin.BBox selection_box = 2 [json_name = "selectionBox"];
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.selection_box_, this_._impl_.selection_box_->GetCachedSize(), target,
+        stream);
+  }
+
+  // optional string geometry_identifier = 3 [json_name = "geometryIdentifier"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    const ::std::string& _s = this_._internal_geometry_identifier();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.CustomBlockProperties.geometry_identifier");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
+  }
+
+  // bool cube = 4 [json_name = "cube"];
+  if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+    if (this_._internal_cube() != 0) {
+      target = stream->EnsureSpace(target);
+      target = ::_pbi::WireFormatLite::WriteBoolToArray(
+          4, this_._internal_cube(), target);
+    }
+  }
+
+  // optional string map_colour = 5 [json_name = "mapColour"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    const ::std::string& _s = this_._internal_map_colour();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.CustomBlockProperties.map_colour");
+    target = stream->WriteStringMaybeAliased(5, _s, target);
+  }
+
+  // optional .df.plugin.Vec3 rotation = 6 [json_name = "rotation"];
+  if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        6, *this_._impl_.rotation_, this_._impl_.rotation_->GetCachedSize(), target,
+        stream);
+  }
+
+  // optional .df.plugin.Vec3 translation = 7 [json_name = "translation"];
+  if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        7, *this_._impl_.translation_, this_._impl_.translation_->GetCachedSize(), target,
+        stream);
+  }
+
+  // optional .df.plugin.Vec3 scale = 8 [json_name = "scale"];
+  if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        8, *this_._impl_.scale_, this_._impl_.scale_->GetCachedSize(), target,
+        stream);
+  }
+
+  // repeated .df.plugin.CustomBlockMaterial materials = 10 [json_name = "materials"];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_materials_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_materials().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              10, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // map<string, .df.plugin.CustomBlockStateValues> states = 20 [json_name = "states"];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
+    if (!this_._internal_states().empty()) {
+      using MapType = ::google::protobuf::Map<::std::string, ::df::plugin::CustomBlockStateValues>;
+      using WireHelper = _pbi::MapEntryFuncs<::std::string, ::df::plugin::CustomBlockStateValues,
+                                     _pbi::WireFormatLite::TYPE_STRING,
+                                     _pbi::WireFormatLite::TYPE_MESSAGE>;
+      const auto& field = this_._internal_states();
+
+      if (stream->IsSerializationDeterministic() && field.size() > 1) {
+        for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
+          target = WireHelper::InternalSerialize(
+              20, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.CustomBlockProperties.states");
+        }
+      } else {
+        for (const auto& entry : field) {
+          target = WireHelper::InternalSerialize(
+              20, entry.first, entry.second, target, stream);
+          ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+              entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.CustomBlockProperties.states");
+        }
+      }
+    }
+  }
+
+  // repeated .df.plugin.CustomBlockPermutation permutations = 21 [json_name = "permutations"];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_permutations_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_permutations().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              21, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.CustomBlockProperties)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t CustomBlockProperties::ByteSizeLong(const MessageLite& base) {
+  const CustomBlockProperties& this_ = static_cast<const CustomBlockProperties&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t CustomBlockProperties::ByteSizeLong() const {
+  const CustomBlockProperties& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.CustomBlockProperties)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
+    // repeated .df.plugin.CustomBlockMaterial materials = 10 [json_name = "materials"];
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_materials_size();
+      for (const auto& msg : this_._internal_materials()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // optional string geometry_identifier = 3 [json_name = "geometryIdentifier"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                      this_._internal_geometry_identifier());
+    }
+    // optional string map_colour = 5 [json_name = "mapColour"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                      this_._internal_map_colour());
+    }
+    // optional .df.plugin.BBox collision_box = 1 [json_name = "collisionBox"];
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.collision_box_);
+    }
+    // optional .df.plugin.BBox selection_box = 2 [json_name = "selectionBox"];
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.selection_box_);
+    }
+    // optional .df.plugin.Vec3 rotation = 6 [json_name = "rotation"];
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.rotation_);
+    }
+    // optional .df.plugin.Vec3 translation = 7 [json_name = "translation"];
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.translation_);
+    }
+    // optional .df.plugin.Vec3 scale = 8 [json_name = "scale"];
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.scale_);
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x00000700U)) {
+    // bool cube = 4 [json_name = "cube"];
+    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+      if (this_._internal_cube() != 0) {
+        total_size += 2;
+      }
+    }
+    // map<string, .df.plugin.CustomBlockStateValues> states = 20 [json_name = "states"];
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
+      total_size +=
+          2 * ::google::protobuf::internal::FromIntSize(this_._internal_states_size());
+      for (const auto& entry : this_._internal_states()) {
+        total_size += _pbi::MapEntryFuncs<::std::string, ::df::plugin::CustomBlockStateValues,
+                                       _pbi::WireFormatLite::TYPE_STRING,
+                                       _pbi::WireFormatLite::TYPE_MESSAGE>::ByteSizeLong(entry.first, entry.second);
+      }
+    }
+    // repeated .df.plugin.CustomBlockPermutation permutations = 21 [json_name = "permutations"];
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+      total_size += 2UL * this_._internal_permutations_size();
+      for (const auto& msg : this_._internal_permutations()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void CustomBlockProperties::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<CustomBlockProperties*>(&to_msg);
+  auto& from = static_cast<const CustomBlockProperties&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.CustomBlockProperties)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x000000ffU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_materials()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_materials());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _this->_internal_set_geometry_identifier(from._internal_geometry_identifier());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _this->_internal_set_map_colour(from._internal_map_colour());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      ABSL_DCHECK(from._impl_.collision_box_ != nullptr);
+      if (_this->_impl_.collision_box_ == nullptr) {
+        _this->_impl_.collision_box_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.collision_box_);
+      } else {
+        _this->_impl_.collision_box_->MergeFrom(*from._impl_.collision_box_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      ABSL_DCHECK(from._impl_.selection_box_ != nullptr);
+      if (_this->_impl_.selection_box_ == nullptr) {
+        _this->_impl_.selection_box_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.selection_box_);
+      } else {
+        _this->_impl_.selection_box_->MergeFrom(*from._impl_.selection_box_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000020U)) {
+      ABSL_DCHECK(from._impl_.rotation_ != nullptr);
+      if (_this->_impl_.rotation_ == nullptr) {
+        _this->_impl_.rotation_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.rotation_);
+      } else {
+        _this->_impl_.rotation_->MergeFrom(*from._impl_.rotation_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000040U)) {
+      ABSL_DCHECK(from._impl_.translation_ != nullptr);
+      if (_this->_impl_.translation_ == nullptr) {
+        _this->_impl_.translation_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.translation_);
+      } else {
+        _this->_impl_.translation_->MergeFrom(*from._impl_.translation_);
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000080U)) {
+      ABSL_DCHECK(from._impl_.scale_ != nullptr);
+      if (_this->_impl_.scale_ == nullptr) {
+        _this->_impl_.scale_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.scale_);
+      } else {
+        _this->_impl_.scale_->MergeFrom(*from._impl_.scale_);
+      }
+    }
+  }
+  if (BatchCheckHasBit(cached_has_bits, 0x00000700U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000100U)) {
+      if (from._internal_cube() != 0) {
+        _this->_impl_.cube_ = from._impl_.cube_;
+      }
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000200U)) {
+      _this->_impl_.states_.MergeFrom(from._impl_.states_);
+    }
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000400U)) {
+      _this->_internal_mutable_permutations()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_permutations());
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void CustomBlockProperties::CopyFrom(const CustomBlockProperties& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.CustomBlockProperties)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void CustomBlockProperties::InternalSwap(CustomBlockProperties* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.materials_.InternalSwap(&other->_impl_.materials_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.geometry_identifier_, &other->_impl_.geometry_identifier_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.map_colour_, &other->_impl_.map_colour_, arena);
+  ::google::protobuf::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.cube_)
+      + sizeof(CustomBlockProperties::_impl_.cube_)
+      - PROTOBUF_FIELD_OFFSET(CustomBlockProperties, _impl_.collision_box_)>(
+          reinterpret_cast<char*>(&_impl_.collision_box_),
+          reinterpret_cast<char*>(&other->_impl_.collision_box_));
+  _impl_.states_.InternalSwap(&other->_impl_.states_);
+  _impl_.permutations_.InternalSwap(&other->_impl_.permutations_);
+}
+
+::google::protobuf::Metadata CustomBlockProperties::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class CustomBlockDefinition::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<CustomBlockDefinition>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_._has_bits_);
+};
+
+CustomBlockDefinition::CustomBlockDefinition(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockDefinition_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.CustomBlockDefinition)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockDefinition::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::CustomBlockDefinition& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        textures_{visibility, arena, from.textures_},
+        id_(arena, from.id_),
+        display_name_(arena, from.display_name_),
+        geometry_json_(arena, from.geometry_json_) {}
+
+CustomBlockDefinition::CustomBlockDefinition(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const CustomBlockDefinition& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockDefinition_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  CustomBlockDefinition* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.properties_ = (CheckHasBit(cached_has_bits, 0x00000010U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.properties_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.CustomBlockDefinition)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockDefinition::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        textures_{visibility, arena},
+        id_(arena),
+        display_name_(arena),
+        geometry_json_(arena) {}
+
+inline void CustomBlockDefinition::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.properties_ = {};
+}
+CustomBlockDefinition::~CustomBlockDefinition() {
+  // @@protoc_insertion_point(destructor:df.plugin.CustomBlockDefinition)
+  SharedDtor(*this);
+}
+inline void CustomBlockDefinition::SharedDtor(MessageLite& self) {
+  CustomBlockDefinition& this_ = static_cast<CustomBlockDefinition&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.id_.Destroy();
+  this_._impl_.display_name_.Destroy();
+  this_._impl_.geometry_json_.Destroy();
+  delete this_._impl_.properties_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL CustomBlockDefinition::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) CustomBlockDefinition(arena);
+}
+constexpr auto CustomBlockDefinition::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_.textures_) +
+          decltype(CustomBlockDefinition::_impl_.textures_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(CustomBlockDefinition), alignof(CustomBlockDefinition), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&CustomBlockDefinition::PlacementNew_,
+                                 sizeof(CustomBlockDefinition),
+                                 alignof(CustomBlockDefinition));
+  }
+}
+constexpr auto CustomBlockDefinition::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_CustomBlockDefinition_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &CustomBlockDefinition::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<CustomBlockDefinition>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &CustomBlockDefinition::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<CustomBlockDefinition>(), &CustomBlockDefinition::ByteSizeLong,
+              &CustomBlockDefinition::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_._cached_size_),
+          false,
+      },
+      &CustomBlockDefinition::kDescriptorMethods,
+      &descriptor_table_common_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull CustomBlockDefinition_class_data_ =
+        CustomBlockDefinition::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+CustomBlockDefinition::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&CustomBlockDefinition_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(CustomBlockDefinition_class_data_.tc_table);
+  return CustomBlockDefinition_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<3, 5, 2, 54, 2>
+CustomBlockDefinition::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_._has_bits_),
+    0, // no _extensions_
+    5, 56,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967264,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    5,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    CustomBlockDefinition_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::CustomBlockDefinition>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+    // string id = 1 [json_name = "id"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 1, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_.id_)}},
+    // string display_name = 2 [json_name = "displayName"];
+    {::_pbi::TcParser::FastUS1,
+     {18, 2, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_.display_name_)}},
+    // optional bytes geometry_json = 3 [json_name = "geometryJson"];
+    {::_pbi::TcParser::FastBS1,
+     {26, 3, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_.geometry_json_)}},
+    // repeated .df.plugin.CustomBlockTexture textures = 4 [json_name = "textures"];
+    {::_pbi::TcParser::FastMtR1,
+     {34, 0, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_.textures_)}},
+    // .df.plugin.CustomBlockProperties properties = 5 [json_name = "properties"];
+    {::_pbi::TcParser::FastMtS1,
+     {42, 4, 1,
+      PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_.properties_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string id = 1 [json_name = "id"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_.id_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // string display_name = 2 [json_name = "displayName"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_.display_name_), _Internal::kHasBitsOffset + 2, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // optional bytes geometry_json = 3 [json_name = "geometryJson"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_.geometry_json_), _Internal::kHasBitsOffset + 3, 0, (0 | ::_fl::kFcOptional | ::_fl::kBytes | ::_fl::kRepAString)},
+    // repeated .df.plugin.CustomBlockTexture textures = 4 [json_name = "textures"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_.textures_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kMessage | ::_fl::kTvTable)},
+    // .df.plugin.CustomBlockProperties properties = 5 [json_name = "properties"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockDefinition, _impl_.properties_), _Internal::kHasBitsOffset + 4, 1, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::CustomBlockTexture>()},
+      {::_pbi::TcParser::GetTable<::df::plugin::CustomBlockProperties>()},
+  }},
+  {{
+    "\37\2\14\0\0\0\0\0"
+    "df.plugin.CustomBlockDefinition"
+    "id"
+    "display_name"
+  }},
+};
+PROTOBUF_NOINLINE void CustomBlockDefinition::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.CustomBlockDefinition)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _impl_.textures_.Clear();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      _impl_.id_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      _impl_.display_name_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      _impl_.geometry_json_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      ABSL_DCHECK(_impl_.properties_ != nullptr);
+      _impl_.properties_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL CustomBlockDefinition::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const CustomBlockDefinition& this_ = static_cast<const CustomBlockDefinition&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL CustomBlockDefinition::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const CustomBlockDefinition& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.CustomBlockDefinition)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string id = 1 [json_name = "id"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    if (!this_._internal_id().empty()) {
+      const ::std::string& _s = this_._internal_id();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.CustomBlockDefinition.id");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // string display_name = 2 [json_name = "displayName"];
+  if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+    if (!this_._internal_display_name().empty()) {
+      const ::std::string& _s = this_._internal_display_name();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.CustomBlockDefinition.display_name");
+      target = stream->WriteStringMaybeAliased(2, _s, target);
+    }
+  }
+
+  // optional bytes geometry_json = 3 [json_name = "geometryJson"];
+  if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+    const ::std::string& _s = this_._internal_geometry_json();
+    target = stream->WriteBytesMaybeAliased(3, _s, target);
+  }
+
+  // repeated .df.plugin.CustomBlockTexture textures = 4 [json_name = "textures"];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (unsigned i = 0, n = static_cast<unsigned>(
+                             this_._internal_textures_size());
+         i < n; i++) {
+      const auto& repfield = this_._internal_textures().Get(i);
+      target =
+          ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+              4, repfield, repfield.GetCachedSize(),
+              target, stream);
+    }
+  }
+
+  // .df.plugin.CustomBlockProperties properties = 5 [json_name = "properties"];
+  if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        5, *this_._impl_.properties_, this_._impl_.properties_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.CustomBlockDefinition)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t CustomBlockDefinition::ByteSizeLong(const MessageLite& base) {
+  const CustomBlockDefinition& this_ = static_cast<const CustomBlockDefinition&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t CustomBlockDefinition::ByteSizeLong() const {
+  const CustomBlockDefinition& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.CustomBlockDefinition)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    // repeated .df.plugin.CustomBlockTexture textures = 4 [json_name = "textures"];
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size += 1UL * this_._internal_textures_size();
+      for (const auto& msg : this_._internal_textures()) {
+        total_size += ::google::protobuf::internal::WireFormatLite::MessageSize(msg);
+      }
+    }
+    // string id = 1 [json_name = "id"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!this_._internal_id().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_id());
+      }
+    }
+    // string display_name = 2 [json_name = "displayName"];
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!this_._internal_display_name().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_display_name());
+      }
+    }
+    // optional bytes geometry_json = 3 [json_name = "geometryJson"];
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      total_size += 1 + ::google::protobuf::internal::WireFormatLite::BytesSize(
+                                      this_._internal_geometry_json());
+    }
+    // .df.plugin.CustomBlockProperties properties = 5 [json_name = "properties"];
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.properties_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void CustomBlockDefinition::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<CustomBlockDefinition*>(&to_msg);
+  auto& from = static_cast<const CustomBlockDefinition&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.CustomBlockDefinition)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x0000001fU)) {
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      _this->_internal_mutable_textures()->InternalMergeFromWithArena(
+          ::google::protobuf::MessageLite::internal_visibility(), arena,
+          from._internal_textures());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      if (!from._internal_id().empty()) {
+        _this->_internal_set_id(from._internal_id());
+      } else {
+        if (_this->_impl_.id_.IsDefault()) {
+          _this->_internal_set_id("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000004U)) {
+      if (!from._internal_display_name().empty()) {
+        _this->_internal_set_display_name(from._internal_display_name());
+      } else {
+        if (_this->_impl_.display_name_.IsDefault()) {
+          _this->_internal_set_display_name("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000008U)) {
+      _this->_internal_set_geometry_json(from._internal_geometry_json());
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000010U)) {
+      ABSL_DCHECK(from._impl_.properties_ != nullptr);
+      if (_this->_impl_.properties_ == nullptr) {
+        _this->_impl_.properties_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.properties_);
+      } else {
+        _this->_impl_.properties_->MergeFrom(*from._impl_.properties_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void CustomBlockDefinition::CopyFrom(const CustomBlockDefinition& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.CustomBlockDefinition)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void CustomBlockDefinition::InternalSwap(CustomBlockDefinition* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.textures_.InternalSwap(&other->_impl_.textures_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.id_, &other->_impl_.id_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.display_name_, &other->_impl_.display_name_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.geometry_json_, &other->_impl_.geometry_json_, arena);
+  swap(_impl_.properties_, other->_impl_.properties_);
+}
+
+::google::protobuf::Metadata CustomBlockDefinition::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class CustomBlockStateValues::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<CustomBlockStateValues>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(CustomBlockStateValues, _impl_._has_bits_);
+};
+
+CustomBlockStateValues::CustomBlockStateValues(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockStateValues_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.CustomBlockStateValues)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockStateValues::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::CustomBlockStateValues& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        values_{visibility, arena, from.values_} {}
+
+CustomBlockStateValues::CustomBlockStateValues(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const CustomBlockStateValues& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockStateValues_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  CustomBlockStateValues* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.CustomBlockStateValues)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockStateValues::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        values_{visibility, arena} {}
+
+inline void CustomBlockStateValues::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+CustomBlockStateValues::~CustomBlockStateValues() {
+  // @@protoc_insertion_point(destructor:df.plugin.CustomBlockStateValues)
+  SharedDtor(*this);
+}
+inline void CustomBlockStateValues::SharedDtor(MessageLite& self) {
+  CustomBlockStateValues& this_ = static_cast<CustomBlockStateValues&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL CustomBlockStateValues::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) CustomBlockStateValues(arena);
+}
+constexpr auto CustomBlockStateValues::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(CustomBlockStateValues, _impl_.values_) +
+          decltype(CustomBlockStateValues::_impl_.values_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::ZeroInit(
+        sizeof(CustomBlockStateValues), alignof(CustomBlockStateValues), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&CustomBlockStateValues::PlacementNew_,
+                                 sizeof(CustomBlockStateValues),
+                                 alignof(CustomBlockStateValues));
+  }
+}
+constexpr auto CustomBlockStateValues::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_CustomBlockStateValues_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &CustomBlockStateValues::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<CustomBlockStateValues>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &CustomBlockStateValues::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<CustomBlockStateValues>(), &CustomBlockStateValues::ByteSizeLong,
+              &CustomBlockStateValues::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(CustomBlockStateValues, _impl_._cached_size_),
+          false,
+      },
+      &CustomBlockStateValues::kDescriptorMethods,
+      &descriptor_table_common_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull CustomBlockStateValues_class_data_ =
+        CustomBlockStateValues::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+CustomBlockStateValues::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&CustomBlockStateValues_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(CustomBlockStateValues_class_data_.tc_table);
+  return CustomBlockStateValues_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 47, 2>
+CustomBlockStateValues::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(CustomBlockStateValues, _impl_._has_bits_),
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    CustomBlockStateValues_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::CustomBlockStateValues>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated string values = 1 [json_name = "values"];
+    {::_pbi::TcParser::FastUR1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockStateValues, _impl_.values_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated string values = 1 [json_name = "values"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockStateValues, _impl_.values_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
+  }},
+  // no aux_entries
+  {{
+    "\40\6\0\0\0\0\0\0"
+    "df.plugin.CustomBlockStateValues"
+    "values"
+  }},
+};
+PROTOBUF_NOINLINE void CustomBlockStateValues::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.CustomBlockStateValues)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    _impl_.values_.Clear();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL CustomBlockStateValues::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const CustomBlockStateValues& this_ = static_cast<const CustomBlockStateValues&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL CustomBlockStateValues::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const CustomBlockStateValues& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.CustomBlockStateValues)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // repeated string values = 1 [json_name = "values"];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    for (int i = 0, n = this_._internal_values_size(); i < n; ++i) {
+      const auto& s = this_._internal_values().Get(i);
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.CustomBlockStateValues.values");
+      target = stream->WriteString(1, s, target);
+    }
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.CustomBlockStateValues)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t CustomBlockStateValues::ByteSizeLong(const MessageLite& base) {
+  const CustomBlockStateValues& this_ = static_cast<const CustomBlockStateValues&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t CustomBlockStateValues::ByteSizeLong() const {
+  const CustomBlockStateValues& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.CustomBlockStateValues)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+   {
+    // repeated string values = 1 [json_name = "values"];
+    cached_has_bits = this_._impl_._has_bits_[0];
+    if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+      total_size +=
+          1 * ::google::protobuf::internal::FromIntSize(this_._internal_values().size());
+      for (int i = 0, n = this_._internal_values().size(); i < n; ++i) {
+        total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+            this_._internal_values().Get(i));
+      }
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void CustomBlockStateValues::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<CustomBlockStateValues*>(&to_msg);
+  auto& from = static_cast<const CustomBlockStateValues&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.CustomBlockStateValues)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (CheckHasBitForRepeated(cached_has_bits, 0x00000001U)) {
+    _this->_internal_mutable_values()->InternalMergeFromWithArena(
+        ::google::protobuf::MessageLite::internal_visibility(), arena,
+        from._internal_values());
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void CustomBlockStateValues::CopyFrom(const CustomBlockStateValues& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.CustomBlockStateValues)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void CustomBlockStateValues::InternalSwap(CustomBlockStateValues* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.values_.InternalSwap(&other->_impl_.values_);
+}
+
+::google::protobuf::Metadata CustomBlockStateValues::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class CustomBlockPermutation::_Internal {
+ public:
+  using HasBits =
+      decltype(::std::declval<CustomBlockPermutation>()._impl_._has_bits_);
+  static constexpr ::int32_t kHasBitsOffset =
+      8 * PROTOBUF_FIELD_OFFSET(CustomBlockPermutation, _impl_._has_bits_);
+};
+
+CustomBlockPermutation::CustomBlockPermutation(::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockPermutation_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:df.plugin.CustomBlockPermutation)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockPermutation::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena, const Impl_& from,
+    [[maybe_unused]] const ::df::plugin::CustomBlockPermutation& from_msg)
+      : _has_bits_{from._has_bits_},
+        _cached_size_{0},
+        condition_(arena, from.condition_) {}
+
+CustomBlockPermutation::CustomBlockPermutation(
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena,
+    const CustomBlockPermutation& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, CustomBlockPermutation_class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  CustomBlockPermutation* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::uint32_t cached_has_bits = _impl_._has_bits_[0];
+  _impl_.properties_ = (CheckHasBit(cached_has_bits, 0x00000002U))
+                ? ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.properties_)
+                : nullptr;
+
+  // @@protoc_insertion_point(copy_constructor:df.plugin.CustomBlockPermutation)
+}
+PROTOBUF_NDEBUG_INLINE CustomBlockPermutation::Impl_::Impl_(
+    [[maybe_unused]] ::google::protobuf::internal::InternalVisibility visibility,
+    [[maybe_unused]] ::google::protobuf::Arena* PROTOBUF_NULLABLE arena)
+      : _cached_size_{0},
+        condition_(arena) {}
+
+inline void CustomBlockPermutation::SharedCtor(::_pb::Arena* PROTOBUF_NULLABLE arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+  _impl_.properties_ = {};
+}
+CustomBlockPermutation::~CustomBlockPermutation() {
+  // @@protoc_insertion_point(destructor:df.plugin.CustomBlockPermutation)
+  SharedDtor(*this);
+}
+inline void CustomBlockPermutation::SharedDtor(MessageLite& self) {
+  CustomBlockPermutation& this_ = static_cast<CustomBlockPermutation&>(self);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.condition_.Destroy();
+  delete this_._impl_.properties_;
+  this_._impl_.~Impl_();
+}
+
+inline void* PROTOBUF_NONNULL CustomBlockPermutation::PlacementNew_(
+    const void* PROTOBUF_NONNULL, void* PROTOBUF_NONNULL mem,
+    ::google::protobuf::Arena* PROTOBUF_NULLABLE arena) {
+  return ::new (mem) CustomBlockPermutation(arena);
+}
+constexpr auto CustomBlockPermutation::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(CustomBlockPermutation),
+                                            alignof(CustomBlockPermutation));
+}
+constexpr auto CustomBlockPermutation::InternalGenerateClassData_() {
+  return ::google::protobuf::internal::ClassDataFull{
+      ::google::protobuf::internal::ClassData{
+          &_CustomBlockPermutation_default_instance_._instance,
+          &_table_.header,
+          nullptr,  // OnDemandRegisterArenaDtor
+          nullptr,  // IsInitialized
+          &CustomBlockPermutation::MergeImpl,
+          ::google::protobuf::Message::GetNewImpl<CustomBlockPermutation>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+          &CustomBlockPermutation::SharedDtor,
+          ::google::protobuf::Message::GetClearImpl<CustomBlockPermutation>(), &CustomBlockPermutation::ByteSizeLong,
+              &CustomBlockPermutation::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          PROTOBUF_FIELD_OFFSET(CustomBlockPermutation, _impl_._cached_size_),
+          false,
+      },
+      &CustomBlockPermutation::kDescriptorMethods,
+      &descriptor_table_common_2eproto,
+      nullptr,  // tracker
+  };
+}
+
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 const
+    ::google::protobuf::internal::ClassDataFull CustomBlockPermutation_class_data_ =
+        CustomBlockPermutation::InternalGenerateClassData_();
+
+PROTOBUF_ATTRIBUTE_WEAK const ::google::protobuf::internal::ClassData* PROTOBUF_NONNULL
+CustomBlockPermutation::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&CustomBlockPermutation_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(CustomBlockPermutation_class_data_.tc_table);
+  return CustomBlockPermutation_class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 50, 2>
+CustomBlockPermutation::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(CustomBlockPermutation, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    CustomBlockPermutation_class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::df::plugin::CustomBlockPermutation>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .df.plugin.CustomBlockProperties properties = 2 [json_name = "properties"];
+    {::_pbi::TcParser::FastMtS1,
+     {18, 1, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockPermutation, _impl_.properties_)}},
+    // string condition = 1 [json_name = "condition"];
+    {::_pbi::TcParser::FastUS1,
+     {10, 0, 0,
+      PROTOBUF_FIELD_OFFSET(CustomBlockPermutation, _impl_.condition_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string condition = 1 [json_name = "condition"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockPermutation, _impl_.condition_), _Internal::kHasBitsOffset + 0, 0, (0 | ::_fl::kFcOptional | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .df.plugin.CustomBlockProperties properties = 2 [json_name = "properties"];
+    {PROTOBUF_FIELD_OFFSET(CustomBlockPermutation, _impl_.properties_), _Internal::kHasBitsOffset + 1, 0, (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }},
+  {{
+      {::_pbi::TcParser::GetTable<::df::plugin::CustomBlockProperties>()},
+  }},
+  {{
+    "\40\11\0\0\0\0\0\0"
+    "df.plugin.CustomBlockPermutation"
+    "condition"
+  }},
+};
+PROTOBUF_NOINLINE void CustomBlockPermutation::Clear() {
+// @@protoc_insertion_point(message_clear_start:df.plugin.CustomBlockPermutation)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      _impl_.condition_.ClearNonDefaultToEmpty();
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(_impl_.properties_ != nullptr);
+      _impl_.properties_->Clear();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::uint8_t* PROTOBUF_NONNULL CustomBlockPermutation::_InternalSerialize(
+    const ::google::protobuf::MessageLite& base, ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) {
+  const CustomBlockPermutation& this_ = static_cast<const CustomBlockPermutation&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::uint8_t* PROTOBUF_NONNULL CustomBlockPermutation::_InternalSerialize(
+    ::uint8_t* PROTOBUF_NONNULL target,
+    ::google::protobuf::io::EpsCopyOutputStream* PROTOBUF_NONNULL stream) const {
+  const CustomBlockPermutation& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    this_.CheckHasBitConsistency();
+  }
+  // @@protoc_insertion_point(serialize_to_array_start:df.plugin.CustomBlockPermutation)
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = this_._impl_._has_bits_[0];
+  // string condition = 1 [json_name = "condition"];
+  if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+    if (!this_._internal_condition().empty()) {
+      const ::std::string& _s = this_._internal_condition();
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+          _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "df.plugin.CustomBlockPermutation.condition");
+      target = stream->WriteStringMaybeAliased(1, _s, target);
+    }
+  }
+
+  // .df.plugin.CustomBlockProperties properties = 2 [json_name = "properties"];
+  if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+    target = ::google::protobuf::internal::WireFormatLite::InternalWriteMessage(
+        2, *this_._impl_.properties_, this_._impl_.properties_->GetCachedSize(), target,
+        stream);
+  }
+
+  if (ABSL_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+    target =
+        ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+            this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:df.plugin.CustomBlockPermutation)
+  return target;
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+::size_t CustomBlockPermutation::ByteSizeLong(const MessageLite& base) {
+  const CustomBlockPermutation& this_ = static_cast<const CustomBlockPermutation&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+::size_t CustomBlockPermutation::ByteSizeLong() const {
+  const CustomBlockPermutation& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(message_byte_size_start:df.plugin.CustomBlockPermutation)
+  ::size_t total_size = 0;
+
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void)cached_has_bits;
+
+  ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+  cached_has_bits = this_._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    // string condition = 1 [json_name = "condition"];
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!this_._internal_condition().empty()) {
+        total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                        this_._internal_condition());
+      }
+    }
+    // .df.plugin.CustomBlockProperties properties = 2 [json_name = "properties"];
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      total_size += 1 +
+                    ::google::protobuf::internal::WireFormatLite::MessageSize(*this_._impl_.properties_);
+    }
+  }
+  return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                             &this_._impl_._cached_size_);
+}
+
+void CustomBlockPermutation::MergeImpl(::google::protobuf::MessageLite& to_msg,
+                            const ::google::protobuf::MessageLite& from_msg) {
+   auto* const _this =
+      static_cast<CustomBlockPermutation*>(&to_msg);
+  auto& from = static_cast<const CustomBlockPermutation&>(from_msg);
+  if constexpr (::_pbi::DebugHardenCheckHasBitConsistency()) {
+    from.CheckHasBitConsistency();
+  }
+  ::google::protobuf::Arena* arena = _this->GetArena();
+  // @@protoc_insertion_point(class_specific_merge_from_start:df.plugin.CustomBlockPermutation)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void)cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (BatchCheckHasBit(cached_has_bits, 0x00000003U)) {
+    if (CheckHasBit(cached_has_bits, 0x00000001U)) {
+      if (!from._internal_condition().empty()) {
+        _this->_internal_set_condition(from._internal_condition());
+      } else {
+        if (_this->_impl_.condition_.IsDefault()) {
+          _this->_internal_set_condition("");
+        }
+      }
+    }
+    if (CheckHasBit(cached_has_bits, 0x00000002U)) {
+      ABSL_DCHECK(from._impl_.properties_ != nullptr);
+      if (_this->_impl_.properties_ == nullptr) {
+        _this->_impl_.properties_ = ::google::protobuf::Message::CopyConstruct(arena, *from._impl_.properties_);
+      } else {
+        _this->_impl_.properties_->MergeFrom(*from._impl_.properties_);
+      }
+    }
+  }
+  _this->_impl_._has_bits_[0] |= cached_has_bits;
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+}
+
+void CustomBlockPermutation::CopyFrom(const CustomBlockPermutation& from) {
+  // @@protoc_insertion_point(class_specific_copy_from_start:df.plugin.CustomBlockPermutation)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void CustomBlockPermutation::InternalSwap(CustomBlockPermutation* PROTOBUF_RESTRICT PROTOBUF_NONNULL other) {
+  using ::std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.condition_, &other->_impl_.condition_, arena);
+  swap(_impl_.properties_, other->_impl_.properties_);
+}
+
+::google::protobuf::Metadata CustomBlockPermutation::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

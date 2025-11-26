@@ -11066,32 +11066,32 @@ class Action final : public ::google::protobuf::Message
     kWorldSetDefaultGameMode = 60,
     kWorldSetDifficulty = 61,
     kWorldSetTickRange = 62,
-    kWorldSetBlock = 63,
-    kWorldPlaySound = 64,
-    kWorldAddParticle = 65,
-    kWorldSetTime = 66,
-    kWorldStopTime = 67,
-    kWorldStartTime = 68,
     kWorldSetSpawn = 69,
-    kWorldQueryEntities = 70,
-    kWorldQueryPlayers = 71,
-    kWorldQueryEntitiesWithin = 72,
-    kWorldQueryDefaultGameMode = 73,
-    kWorldQueryPlayerSpawn = 74,
-    kWorldQueryBlock = 75,
-    kWorldQueryBiome = 76,
-    kWorldQueryLight = 77,
-    kWorldQuerySkyLight = 78,
-    kWorldQueryTemperature = 79,
-    kWorldQueryHighestBlock = 80,
-    kWorldQueryRainingAt = 81,
-    kWorldQuerySnowingAt = 82,
-    kWorldQueryThunderingAt = 83,
-    kWorldQueryLiquid = 84,
+    kWorldSetBlock = 63,
     kWorldSetBiome = 90,
     kWorldSetLiquid = 91,
     kWorldScheduleBlockUpdate = 92,
     kWorldBuildStructure = 93,
+    kWorldSetTime = 66,
+    kWorldStopTime = 67,
+    kWorldStartTime = 68,
+    kWorldPlaySound = 64,
+    kWorldAddParticle = 65,
+    kWorldQueryEntities = 70,
+    kWorldQueryPlayers = 71,
+    kWorldQueryEntitiesWithin = 72,
+    kWorldQueryPlayerSpawn = 74,
+    kWorldQueryBlock = 75,
+    kWorldQueryBiome = 76,
+    kWorldQueryLiquid = 84,
+    kWorldQueryHighestBlock = 80,
+    kWorldQueryLight = 77,
+    kWorldQuerySkyLight = 78,
+    kWorldQueryTemperature = 79,
+    kWorldQueryRainingAt = 81,
+    kWorldQuerySnowingAt = 82,
+    kWorldQueryThunderingAt = 83,
+    kWorldQueryDefaultGameMode = 73,
     KIND_NOT_SET = 0,
   };
   static constexpr int kIndexInFileMessages = 1;
@@ -11203,32 +11203,32 @@ class Action final : public ::google::protobuf::Message
     kWorldSetDefaultGameModeFieldNumber = 60,
     kWorldSetDifficultyFieldNumber = 61,
     kWorldSetTickRangeFieldNumber = 62,
-    kWorldSetBlockFieldNumber = 63,
-    kWorldPlaySoundFieldNumber = 64,
-    kWorldAddParticleFieldNumber = 65,
-    kWorldSetTimeFieldNumber = 66,
-    kWorldStopTimeFieldNumber = 67,
-    kWorldStartTimeFieldNumber = 68,
     kWorldSetSpawnFieldNumber = 69,
-    kWorldQueryEntitiesFieldNumber = 70,
-    kWorldQueryPlayersFieldNumber = 71,
-    kWorldQueryEntitiesWithinFieldNumber = 72,
-    kWorldQueryDefaultGameModeFieldNumber = 73,
-    kWorldQueryPlayerSpawnFieldNumber = 74,
-    kWorldQueryBlockFieldNumber = 75,
-    kWorldQueryBiomeFieldNumber = 76,
-    kWorldQueryLightFieldNumber = 77,
-    kWorldQuerySkyLightFieldNumber = 78,
-    kWorldQueryTemperatureFieldNumber = 79,
-    kWorldQueryHighestBlockFieldNumber = 80,
-    kWorldQueryRainingAtFieldNumber = 81,
-    kWorldQuerySnowingAtFieldNumber = 82,
-    kWorldQueryThunderingAtFieldNumber = 83,
-    kWorldQueryLiquidFieldNumber = 84,
+    kWorldSetBlockFieldNumber = 63,
     kWorldSetBiomeFieldNumber = 90,
     kWorldSetLiquidFieldNumber = 91,
     kWorldScheduleBlockUpdateFieldNumber = 92,
     kWorldBuildStructureFieldNumber = 93,
+    kWorldSetTimeFieldNumber = 66,
+    kWorldStopTimeFieldNumber = 67,
+    kWorldStartTimeFieldNumber = 68,
+    kWorldPlaySoundFieldNumber = 64,
+    kWorldAddParticleFieldNumber = 65,
+    kWorldQueryEntitiesFieldNumber = 70,
+    kWorldQueryPlayersFieldNumber = 71,
+    kWorldQueryEntitiesWithinFieldNumber = 72,
+    kWorldQueryPlayerSpawnFieldNumber = 74,
+    kWorldQueryBlockFieldNumber = 75,
+    kWorldQueryBiomeFieldNumber = 76,
+    kWorldQueryLiquidFieldNumber = 84,
+    kWorldQueryHighestBlockFieldNumber = 80,
+    kWorldQueryLightFieldNumber = 77,
+    kWorldQuerySkyLightFieldNumber = 78,
+    kWorldQueryTemperatureFieldNumber = 79,
+    kWorldQueryRainingAtFieldNumber = 81,
+    kWorldQuerySnowingAtFieldNumber = 82,
+    kWorldQueryThunderingAtFieldNumber = 83,
+    kWorldQueryDefaultGameModeFieldNumber = 73,
   };
   // optional string correlation_id = 1 [json_name = "correlationId"];
   bool has_correlation_id() const;
@@ -11645,120 +11645,6 @@ class Action final : public ::google::protobuf::Message
   ::df::plugin::WorldSetTickRangeAction* PROTOBUF_NONNULL _internal_mutable_world_set_tick_range();
 
   public:
-  // .df.plugin.WorldSetBlockAction world_set_block = 63 [json_name = "worldSetBlock"];
-  bool has_world_set_block() const;
-  private:
-  bool _internal_has_world_set_block() const;
-
-  public:
-  void clear_world_set_block() ;
-  const ::df::plugin::WorldSetBlockAction& world_set_block() const;
-  [[nodiscard]] ::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE release_world_set_block();
-  ::df::plugin::WorldSetBlockAction* PROTOBUF_NONNULL mutable_world_set_block();
-  void set_allocated_world_set_block(::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_set_block(::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE unsafe_arena_release_world_set_block();
-
-  private:
-  const ::df::plugin::WorldSetBlockAction& _internal_world_set_block() const;
-  ::df::plugin::WorldSetBlockAction* PROTOBUF_NONNULL _internal_mutable_world_set_block();
-
-  public:
-  // .df.plugin.WorldPlaySoundAction world_play_sound = 64 [json_name = "worldPlaySound"];
-  bool has_world_play_sound() const;
-  private:
-  bool _internal_has_world_play_sound() const;
-
-  public:
-  void clear_world_play_sound() ;
-  const ::df::plugin::WorldPlaySoundAction& world_play_sound() const;
-  [[nodiscard]] ::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE release_world_play_sound();
-  ::df::plugin::WorldPlaySoundAction* PROTOBUF_NONNULL mutable_world_play_sound();
-  void set_allocated_world_play_sound(::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_play_sound(::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE unsafe_arena_release_world_play_sound();
-
-  private:
-  const ::df::plugin::WorldPlaySoundAction& _internal_world_play_sound() const;
-  ::df::plugin::WorldPlaySoundAction* PROTOBUF_NONNULL _internal_mutable_world_play_sound();
-
-  public:
-  // .df.plugin.WorldAddParticleAction world_add_particle = 65 [json_name = "worldAddParticle"];
-  bool has_world_add_particle() const;
-  private:
-  bool _internal_has_world_add_particle() const;
-
-  public:
-  void clear_world_add_particle() ;
-  const ::df::plugin::WorldAddParticleAction& world_add_particle() const;
-  [[nodiscard]] ::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE release_world_add_particle();
-  ::df::plugin::WorldAddParticleAction* PROTOBUF_NONNULL mutable_world_add_particle();
-  void set_allocated_world_add_particle(::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_add_particle(::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE unsafe_arena_release_world_add_particle();
-
-  private:
-  const ::df::plugin::WorldAddParticleAction& _internal_world_add_particle() const;
-  ::df::plugin::WorldAddParticleAction* PROTOBUF_NONNULL _internal_mutable_world_add_particle();
-
-  public:
-  // .df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];
-  bool has_world_set_time() const;
-  private:
-  bool _internal_has_world_set_time() const;
-
-  public:
-  void clear_world_set_time() ;
-  const ::df::plugin::WorldSetTimeAction& world_set_time() const;
-  [[nodiscard]] ::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE release_world_set_time();
-  ::df::plugin::WorldSetTimeAction* PROTOBUF_NONNULL mutable_world_set_time();
-  void set_allocated_world_set_time(::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_set_time(::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE unsafe_arena_release_world_set_time();
-
-  private:
-  const ::df::plugin::WorldSetTimeAction& _internal_world_set_time() const;
-  ::df::plugin::WorldSetTimeAction* PROTOBUF_NONNULL _internal_mutable_world_set_time();
-
-  public:
-  // .df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];
-  bool has_world_stop_time() const;
-  private:
-  bool _internal_has_world_stop_time() const;
-
-  public:
-  void clear_world_stop_time() ;
-  const ::df::plugin::WorldStopTimeAction& world_stop_time() const;
-  [[nodiscard]] ::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE release_world_stop_time();
-  ::df::plugin::WorldStopTimeAction* PROTOBUF_NONNULL mutable_world_stop_time();
-  void set_allocated_world_stop_time(::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_stop_time(::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE unsafe_arena_release_world_stop_time();
-
-  private:
-  const ::df::plugin::WorldStopTimeAction& _internal_world_stop_time() const;
-  ::df::plugin::WorldStopTimeAction* PROTOBUF_NONNULL _internal_mutable_world_stop_time();
-
-  public:
-  // .df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];
-  bool has_world_start_time() const;
-  private:
-  bool _internal_has_world_start_time() const;
-
-  public:
-  void clear_world_start_time() ;
-  const ::df::plugin::WorldStartTimeAction& world_start_time() const;
-  [[nodiscard]] ::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE release_world_start_time();
-  ::df::plugin::WorldStartTimeAction* PROTOBUF_NONNULL mutable_world_start_time();
-  void set_allocated_world_start_time(::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_start_time(::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE unsafe_arena_release_world_start_time();
-
-  private:
-  const ::df::plugin::WorldStartTimeAction& _internal_world_start_time() const;
-  ::df::plugin::WorldStartTimeAction* PROTOBUF_NONNULL _internal_mutable_world_start_time();
-
-  public:
   // .df.plugin.WorldSetSpawnAction world_set_spawn = 69 [json_name = "worldSetSpawn"];
   bool has_world_set_spawn() const;
   private:
@@ -11778,289 +11664,23 @@ class Action final : public ::google::protobuf::Message
   ::df::plugin::WorldSetSpawnAction* PROTOBUF_NONNULL _internal_mutable_world_set_spawn();
 
   public:
-  // .df.plugin.WorldQueryEntitiesAction world_query_entities = 70 [json_name = "worldQueryEntities"];
-  bool has_world_query_entities() const;
+  // .df.plugin.WorldSetBlockAction world_set_block = 63 [json_name = "worldSetBlock"];
+  bool has_world_set_block() const;
   private:
-  bool _internal_has_world_query_entities() const;
+  bool _internal_has_world_set_block() const;
 
   public:
-  void clear_world_query_entities() ;
-  const ::df::plugin::WorldQueryEntitiesAction& world_query_entities() const;
-  [[nodiscard]] ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE release_world_query_entities();
-  ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NONNULL mutable_world_query_entities();
-  void set_allocated_world_query_entities(::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_entities(::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_entities();
+  void clear_world_set_block() ;
+  const ::df::plugin::WorldSetBlockAction& world_set_block() const;
+  [[nodiscard]] ::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE release_world_set_block();
+  ::df::plugin::WorldSetBlockAction* PROTOBUF_NONNULL mutable_world_set_block();
+  void set_allocated_world_set_block(::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_set_block(::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE unsafe_arena_release_world_set_block();
 
   private:
-  const ::df::plugin::WorldQueryEntitiesAction& _internal_world_query_entities() const;
-  ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NONNULL _internal_mutable_world_query_entities();
-
-  public:
-  // .df.plugin.WorldQueryPlayersAction world_query_players = 71 [json_name = "worldQueryPlayers"];
-  bool has_world_query_players() const;
-  private:
-  bool _internal_has_world_query_players() const;
-
-  public:
-  void clear_world_query_players() ;
-  const ::df::plugin::WorldQueryPlayersAction& world_query_players() const;
-  [[nodiscard]] ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE release_world_query_players();
-  ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NONNULL mutable_world_query_players();
-  void set_allocated_world_query_players(::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_players(::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_players();
-
-  private:
-  const ::df::plugin::WorldQueryPlayersAction& _internal_world_query_players() const;
-  ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NONNULL _internal_mutable_world_query_players();
-
-  public:
-  // .df.plugin.WorldQueryEntitiesWithinAction world_query_entities_within = 72 [json_name = "worldQueryEntitiesWithin"];
-  bool has_world_query_entities_within() const;
-  private:
-  bool _internal_has_world_query_entities_within() const;
-
-  public:
-  void clear_world_query_entities_within() ;
-  const ::df::plugin::WorldQueryEntitiesWithinAction& world_query_entities_within() const;
-  [[nodiscard]] ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE release_world_query_entities_within();
-  ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NONNULL mutable_world_query_entities_within();
-  void set_allocated_world_query_entities_within(::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_entities_within(::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_entities_within();
-
-  private:
-  const ::df::plugin::WorldQueryEntitiesWithinAction& _internal_world_query_entities_within() const;
-  ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NONNULL _internal_mutable_world_query_entities_within();
-
-  public:
-  // .df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];
-  bool has_world_query_default_game_mode() const;
-  private:
-  bool _internal_has_world_query_default_game_mode() const;
-
-  public:
-  void clear_world_query_default_game_mode() ;
-  const ::df::plugin::WorldQueryDefaultGameModeAction& world_query_default_game_mode() const;
-  [[nodiscard]] ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE release_world_query_default_game_mode();
-  ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NONNULL mutable_world_query_default_game_mode();
-  void set_allocated_world_query_default_game_mode(::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_default_game_mode(::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_default_game_mode();
-
-  private:
-  const ::df::plugin::WorldQueryDefaultGameModeAction& _internal_world_query_default_game_mode() const;
-  ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NONNULL _internal_mutable_world_query_default_game_mode();
-
-  public:
-  // .df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];
-  bool has_world_query_player_spawn() const;
-  private:
-  bool _internal_has_world_query_player_spawn() const;
-
-  public:
-  void clear_world_query_player_spawn() ;
-  const ::df::plugin::WorldQueryPlayerSpawnAction& world_query_player_spawn() const;
-  [[nodiscard]] ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE release_world_query_player_spawn();
-  ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NONNULL mutable_world_query_player_spawn();
-  void set_allocated_world_query_player_spawn(::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_player_spawn(::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_player_spawn();
-
-  private:
-  const ::df::plugin::WorldQueryPlayerSpawnAction& _internal_world_query_player_spawn() const;
-  ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NONNULL _internal_mutable_world_query_player_spawn();
-
-  public:
-  // .df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];
-  bool has_world_query_block() const;
-  private:
-  bool _internal_has_world_query_block() const;
-
-  public:
-  void clear_world_query_block() ;
-  const ::df::plugin::WorldQueryBlockAction& world_query_block() const;
-  [[nodiscard]] ::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE release_world_query_block();
-  ::df::plugin::WorldQueryBlockAction* PROTOBUF_NONNULL mutable_world_query_block();
-  void set_allocated_world_query_block(::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_block(::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_block();
-
-  private:
-  const ::df::plugin::WorldQueryBlockAction& _internal_world_query_block() const;
-  ::df::plugin::WorldQueryBlockAction* PROTOBUF_NONNULL _internal_mutable_world_query_block();
-
-  public:
-  // .df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];
-  bool has_world_query_biome() const;
-  private:
-  bool _internal_has_world_query_biome() const;
-
-  public:
-  void clear_world_query_biome() ;
-  const ::df::plugin::WorldQueryBiomeAction& world_query_biome() const;
-  [[nodiscard]] ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE release_world_query_biome();
-  ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NONNULL mutable_world_query_biome();
-  void set_allocated_world_query_biome(::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_biome(::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_biome();
-
-  private:
-  const ::df::plugin::WorldQueryBiomeAction& _internal_world_query_biome() const;
-  ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NONNULL _internal_mutable_world_query_biome();
-
-  public:
-  // .df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];
-  bool has_world_query_light() const;
-  private:
-  bool _internal_has_world_query_light() const;
-
-  public:
-  void clear_world_query_light() ;
-  const ::df::plugin::WorldQueryLightAction& world_query_light() const;
-  [[nodiscard]] ::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE release_world_query_light();
-  ::df::plugin::WorldQueryLightAction* PROTOBUF_NONNULL mutable_world_query_light();
-  void set_allocated_world_query_light(::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_light(::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_light();
-
-  private:
-  const ::df::plugin::WorldQueryLightAction& _internal_world_query_light() const;
-  ::df::plugin::WorldQueryLightAction* PROTOBUF_NONNULL _internal_mutable_world_query_light();
-
-  public:
-  // .df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];
-  bool has_world_query_sky_light() const;
-  private:
-  bool _internal_has_world_query_sky_light() const;
-
-  public:
-  void clear_world_query_sky_light() ;
-  const ::df::plugin::WorldQuerySkyLightAction& world_query_sky_light() const;
-  [[nodiscard]] ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE release_world_query_sky_light();
-  ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NONNULL mutable_world_query_sky_light();
-  void set_allocated_world_query_sky_light(::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_sky_light(::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_sky_light();
-
-  private:
-  const ::df::plugin::WorldQuerySkyLightAction& _internal_world_query_sky_light() const;
-  ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NONNULL _internal_mutable_world_query_sky_light();
-
-  public:
-  // .df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];
-  bool has_world_query_temperature() const;
-  private:
-  bool _internal_has_world_query_temperature() const;
-
-  public:
-  void clear_world_query_temperature() ;
-  const ::df::plugin::WorldQueryTemperatureAction& world_query_temperature() const;
-  [[nodiscard]] ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE release_world_query_temperature();
-  ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NONNULL mutable_world_query_temperature();
-  void set_allocated_world_query_temperature(::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_temperature(::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_temperature();
-
-  private:
-  const ::df::plugin::WorldQueryTemperatureAction& _internal_world_query_temperature() const;
-  ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NONNULL _internal_mutable_world_query_temperature();
-
-  public:
-  // .df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];
-  bool has_world_query_highest_block() const;
-  private:
-  bool _internal_has_world_query_highest_block() const;
-
-  public:
-  void clear_world_query_highest_block() ;
-  const ::df::plugin::WorldQueryHighestBlockAction& world_query_highest_block() const;
-  [[nodiscard]] ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE release_world_query_highest_block();
-  ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NONNULL mutable_world_query_highest_block();
-  void set_allocated_world_query_highest_block(::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_highest_block(::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_highest_block();
-
-  private:
-  const ::df::plugin::WorldQueryHighestBlockAction& _internal_world_query_highest_block() const;
-  ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NONNULL _internal_mutable_world_query_highest_block();
-
-  public:
-  // .df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];
-  bool has_world_query_raining_at() const;
-  private:
-  bool _internal_has_world_query_raining_at() const;
-
-  public:
-  void clear_world_query_raining_at() ;
-  const ::df::plugin::WorldQueryRainingAtAction& world_query_raining_at() const;
-  [[nodiscard]] ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE release_world_query_raining_at();
-  ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NONNULL mutable_world_query_raining_at();
-  void set_allocated_world_query_raining_at(::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_raining_at(::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_raining_at();
-
-  private:
-  const ::df::plugin::WorldQueryRainingAtAction& _internal_world_query_raining_at() const;
-  ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NONNULL _internal_mutable_world_query_raining_at();
-
-  public:
-  // .df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];
-  bool has_world_query_snowing_at() const;
-  private:
-  bool _internal_has_world_query_snowing_at() const;
-
-  public:
-  void clear_world_query_snowing_at() ;
-  const ::df::plugin::WorldQuerySnowingAtAction& world_query_snowing_at() const;
-  [[nodiscard]] ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE release_world_query_snowing_at();
-  ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NONNULL mutable_world_query_snowing_at();
-  void set_allocated_world_query_snowing_at(::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_snowing_at(::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_snowing_at();
-
-  private:
-  const ::df::plugin::WorldQuerySnowingAtAction& _internal_world_query_snowing_at() const;
-  ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NONNULL _internal_mutable_world_query_snowing_at();
-
-  public:
-  // .df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];
-  bool has_world_query_thundering_at() const;
-  private:
-  bool _internal_has_world_query_thundering_at() const;
-
-  public:
-  void clear_world_query_thundering_at() ;
-  const ::df::plugin::WorldQueryThunderingAtAction& world_query_thundering_at() const;
-  [[nodiscard]] ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE release_world_query_thundering_at();
-  ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NONNULL mutable_world_query_thundering_at();
-  void set_allocated_world_query_thundering_at(::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_thundering_at(::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_thundering_at();
-
-  private:
-  const ::df::plugin::WorldQueryThunderingAtAction& _internal_world_query_thundering_at() const;
-  ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NONNULL _internal_mutable_world_query_thundering_at();
-
-  public:
-  // .df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];
-  bool has_world_query_liquid() const;
-  private:
-  bool _internal_has_world_query_liquid() const;
-
-  public:
-  void clear_world_query_liquid() ;
-  const ::df::plugin::WorldQueryLiquidAction& world_query_liquid() const;
-  [[nodiscard]] ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE release_world_query_liquid();
-  ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NONNULL mutable_world_query_liquid();
-  void set_allocated_world_query_liquid(::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE value);
-  void unsafe_arena_set_allocated_world_query_liquid(::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE value);
-  ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_liquid();
-
-  private:
-  const ::df::plugin::WorldQueryLiquidAction& _internal_world_query_liquid() const;
-  ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NONNULL _internal_mutable_world_query_liquid();
+  const ::df::plugin::WorldSetBlockAction& _internal_world_set_block() const;
+  ::df::plugin::WorldSetBlockAction* PROTOBUF_NONNULL _internal_mutable_world_set_block();
 
   public:
   // .df.plugin.WorldSetBiomeAction world_set_biome = 90 [json_name = "worldSetBiome"];
@@ -12139,6 +11759,386 @@ class Action final : public ::google::protobuf::Message
   ::df::plugin::WorldBuildStructureAction* PROTOBUF_NONNULL _internal_mutable_world_build_structure();
 
   public:
+  // .df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];
+  bool has_world_set_time() const;
+  private:
+  bool _internal_has_world_set_time() const;
+
+  public:
+  void clear_world_set_time() ;
+  const ::df::plugin::WorldSetTimeAction& world_set_time() const;
+  [[nodiscard]] ::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE release_world_set_time();
+  ::df::plugin::WorldSetTimeAction* PROTOBUF_NONNULL mutable_world_set_time();
+  void set_allocated_world_set_time(::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_set_time(::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE unsafe_arena_release_world_set_time();
+
+  private:
+  const ::df::plugin::WorldSetTimeAction& _internal_world_set_time() const;
+  ::df::plugin::WorldSetTimeAction* PROTOBUF_NONNULL _internal_mutable_world_set_time();
+
+  public:
+  // .df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];
+  bool has_world_stop_time() const;
+  private:
+  bool _internal_has_world_stop_time() const;
+
+  public:
+  void clear_world_stop_time() ;
+  const ::df::plugin::WorldStopTimeAction& world_stop_time() const;
+  [[nodiscard]] ::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE release_world_stop_time();
+  ::df::plugin::WorldStopTimeAction* PROTOBUF_NONNULL mutable_world_stop_time();
+  void set_allocated_world_stop_time(::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_stop_time(::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE unsafe_arena_release_world_stop_time();
+
+  private:
+  const ::df::plugin::WorldStopTimeAction& _internal_world_stop_time() const;
+  ::df::plugin::WorldStopTimeAction* PROTOBUF_NONNULL _internal_mutable_world_stop_time();
+
+  public:
+  // .df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];
+  bool has_world_start_time() const;
+  private:
+  bool _internal_has_world_start_time() const;
+
+  public:
+  void clear_world_start_time() ;
+  const ::df::plugin::WorldStartTimeAction& world_start_time() const;
+  [[nodiscard]] ::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE release_world_start_time();
+  ::df::plugin::WorldStartTimeAction* PROTOBUF_NONNULL mutable_world_start_time();
+  void set_allocated_world_start_time(::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_start_time(::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE unsafe_arena_release_world_start_time();
+
+  private:
+  const ::df::plugin::WorldStartTimeAction& _internal_world_start_time() const;
+  ::df::plugin::WorldStartTimeAction* PROTOBUF_NONNULL _internal_mutable_world_start_time();
+
+  public:
+  // .df.plugin.WorldPlaySoundAction world_play_sound = 64 [json_name = "worldPlaySound"];
+  bool has_world_play_sound() const;
+  private:
+  bool _internal_has_world_play_sound() const;
+
+  public:
+  void clear_world_play_sound() ;
+  const ::df::plugin::WorldPlaySoundAction& world_play_sound() const;
+  [[nodiscard]] ::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE release_world_play_sound();
+  ::df::plugin::WorldPlaySoundAction* PROTOBUF_NONNULL mutable_world_play_sound();
+  void set_allocated_world_play_sound(::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_play_sound(::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE unsafe_arena_release_world_play_sound();
+
+  private:
+  const ::df::plugin::WorldPlaySoundAction& _internal_world_play_sound() const;
+  ::df::plugin::WorldPlaySoundAction* PROTOBUF_NONNULL _internal_mutable_world_play_sound();
+
+  public:
+  // .df.plugin.WorldAddParticleAction world_add_particle = 65 [json_name = "worldAddParticle"];
+  bool has_world_add_particle() const;
+  private:
+  bool _internal_has_world_add_particle() const;
+
+  public:
+  void clear_world_add_particle() ;
+  const ::df::plugin::WorldAddParticleAction& world_add_particle() const;
+  [[nodiscard]] ::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE release_world_add_particle();
+  ::df::plugin::WorldAddParticleAction* PROTOBUF_NONNULL mutable_world_add_particle();
+  void set_allocated_world_add_particle(::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_add_particle(::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE unsafe_arena_release_world_add_particle();
+
+  private:
+  const ::df::plugin::WorldAddParticleAction& _internal_world_add_particle() const;
+  ::df::plugin::WorldAddParticleAction* PROTOBUF_NONNULL _internal_mutable_world_add_particle();
+
+  public:
+  // .df.plugin.WorldQueryEntitiesAction world_query_entities = 70 [json_name = "worldQueryEntities"];
+  bool has_world_query_entities() const;
+  private:
+  bool _internal_has_world_query_entities() const;
+
+  public:
+  void clear_world_query_entities() ;
+  const ::df::plugin::WorldQueryEntitiesAction& world_query_entities() const;
+  [[nodiscard]] ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE release_world_query_entities();
+  ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NONNULL mutable_world_query_entities();
+  void set_allocated_world_query_entities(::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_entities(::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_entities();
+
+  private:
+  const ::df::plugin::WorldQueryEntitiesAction& _internal_world_query_entities() const;
+  ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NONNULL _internal_mutable_world_query_entities();
+
+  public:
+  // .df.plugin.WorldQueryPlayersAction world_query_players = 71 [json_name = "worldQueryPlayers"];
+  bool has_world_query_players() const;
+  private:
+  bool _internal_has_world_query_players() const;
+
+  public:
+  void clear_world_query_players() ;
+  const ::df::plugin::WorldQueryPlayersAction& world_query_players() const;
+  [[nodiscard]] ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE release_world_query_players();
+  ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NONNULL mutable_world_query_players();
+  void set_allocated_world_query_players(::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_players(::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_players();
+
+  private:
+  const ::df::plugin::WorldQueryPlayersAction& _internal_world_query_players() const;
+  ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NONNULL _internal_mutable_world_query_players();
+
+  public:
+  // .df.plugin.WorldQueryEntitiesWithinAction world_query_entities_within = 72 [json_name = "worldQueryEntitiesWithin"];
+  bool has_world_query_entities_within() const;
+  private:
+  bool _internal_has_world_query_entities_within() const;
+
+  public:
+  void clear_world_query_entities_within() ;
+  const ::df::plugin::WorldQueryEntitiesWithinAction& world_query_entities_within() const;
+  [[nodiscard]] ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE release_world_query_entities_within();
+  ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NONNULL mutable_world_query_entities_within();
+  void set_allocated_world_query_entities_within(::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_entities_within(::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_entities_within();
+
+  private:
+  const ::df::plugin::WorldQueryEntitiesWithinAction& _internal_world_query_entities_within() const;
+  ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NONNULL _internal_mutable_world_query_entities_within();
+
+  public:
+  // .df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];
+  bool has_world_query_player_spawn() const;
+  private:
+  bool _internal_has_world_query_player_spawn() const;
+
+  public:
+  void clear_world_query_player_spawn() ;
+  const ::df::plugin::WorldQueryPlayerSpawnAction& world_query_player_spawn() const;
+  [[nodiscard]] ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE release_world_query_player_spawn();
+  ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NONNULL mutable_world_query_player_spawn();
+  void set_allocated_world_query_player_spawn(::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_player_spawn(::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_player_spawn();
+
+  private:
+  const ::df::plugin::WorldQueryPlayerSpawnAction& _internal_world_query_player_spawn() const;
+  ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NONNULL _internal_mutable_world_query_player_spawn();
+
+  public:
+  // .df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];
+  bool has_world_query_block() const;
+  private:
+  bool _internal_has_world_query_block() const;
+
+  public:
+  void clear_world_query_block() ;
+  const ::df::plugin::WorldQueryBlockAction& world_query_block() const;
+  [[nodiscard]] ::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE release_world_query_block();
+  ::df::plugin::WorldQueryBlockAction* PROTOBUF_NONNULL mutable_world_query_block();
+  void set_allocated_world_query_block(::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_block(::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_block();
+
+  private:
+  const ::df::plugin::WorldQueryBlockAction& _internal_world_query_block() const;
+  ::df::plugin::WorldQueryBlockAction* PROTOBUF_NONNULL _internal_mutable_world_query_block();
+
+  public:
+  // .df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];
+  bool has_world_query_biome() const;
+  private:
+  bool _internal_has_world_query_biome() const;
+
+  public:
+  void clear_world_query_biome() ;
+  const ::df::plugin::WorldQueryBiomeAction& world_query_biome() const;
+  [[nodiscard]] ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE release_world_query_biome();
+  ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NONNULL mutable_world_query_biome();
+  void set_allocated_world_query_biome(::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_biome(::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_biome();
+
+  private:
+  const ::df::plugin::WorldQueryBiomeAction& _internal_world_query_biome() const;
+  ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NONNULL _internal_mutable_world_query_biome();
+
+  public:
+  // .df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];
+  bool has_world_query_liquid() const;
+  private:
+  bool _internal_has_world_query_liquid() const;
+
+  public:
+  void clear_world_query_liquid() ;
+  const ::df::plugin::WorldQueryLiquidAction& world_query_liquid() const;
+  [[nodiscard]] ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE release_world_query_liquid();
+  ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NONNULL mutable_world_query_liquid();
+  void set_allocated_world_query_liquid(::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_liquid(::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_liquid();
+
+  private:
+  const ::df::plugin::WorldQueryLiquidAction& _internal_world_query_liquid() const;
+  ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NONNULL _internal_mutable_world_query_liquid();
+
+  public:
+  // .df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];
+  bool has_world_query_highest_block() const;
+  private:
+  bool _internal_has_world_query_highest_block() const;
+
+  public:
+  void clear_world_query_highest_block() ;
+  const ::df::plugin::WorldQueryHighestBlockAction& world_query_highest_block() const;
+  [[nodiscard]] ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE release_world_query_highest_block();
+  ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NONNULL mutable_world_query_highest_block();
+  void set_allocated_world_query_highest_block(::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_highest_block(::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_highest_block();
+
+  private:
+  const ::df::plugin::WorldQueryHighestBlockAction& _internal_world_query_highest_block() const;
+  ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NONNULL _internal_mutable_world_query_highest_block();
+
+  public:
+  // .df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];
+  bool has_world_query_light() const;
+  private:
+  bool _internal_has_world_query_light() const;
+
+  public:
+  void clear_world_query_light() ;
+  const ::df::plugin::WorldQueryLightAction& world_query_light() const;
+  [[nodiscard]] ::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE release_world_query_light();
+  ::df::plugin::WorldQueryLightAction* PROTOBUF_NONNULL mutable_world_query_light();
+  void set_allocated_world_query_light(::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_light(::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_light();
+
+  private:
+  const ::df::plugin::WorldQueryLightAction& _internal_world_query_light() const;
+  ::df::plugin::WorldQueryLightAction* PROTOBUF_NONNULL _internal_mutable_world_query_light();
+
+  public:
+  // .df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];
+  bool has_world_query_sky_light() const;
+  private:
+  bool _internal_has_world_query_sky_light() const;
+
+  public:
+  void clear_world_query_sky_light() ;
+  const ::df::plugin::WorldQuerySkyLightAction& world_query_sky_light() const;
+  [[nodiscard]] ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE release_world_query_sky_light();
+  ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NONNULL mutable_world_query_sky_light();
+  void set_allocated_world_query_sky_light(::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_sky_light(::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_sky_light();
+
+  private:
+  const ::df::plugin::WorldQuerySkyLightAction& _internal_world_query_sky_light() const;
+  ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NONNULL _internal_mutable_world_query_sky_light();
+
+  public:
+  // .df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];
+  bool has_world_query_temperature() const;
+  private:
+  bool _internal_has_world_query_temperature() const;
+
+  public:
+  void clear_world_query_temperature() ;
+  const ::df::plugin::WorldQueryTemperatureAction& world_query_temperature() const;
+  [[nodiscard]] ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE release_world_query_temperature();
+  ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NONNULL mutable_world_query_temperature();
+  void set_allocated_world_query_temperature(::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_temperature(::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_temperature();
+
+  private:
+  const ::df::plugin::WorldQueryTemperatureAction& _internal_world_query_temperature() const;
+  ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NONNULL _internal_mutable_world_query_temperature();
+
+  public:
+  // .df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];
+  bool has_world_query_raining_at() const;
+  private:
+  bool _internal_has_world_query_raining_at() const;
+
+  public:
+  void clear_world_query_raining_at() ;
+  const ::df::plugin::WorldQueryRainingAtAction& world_query_raining_at() const;
+  [[nodiscard]] ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE release_world_query_raining_at();
+  ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NONNULL mutable_world_query_raining_at();
+  void set_allocated_world_query_raining_at(::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_raining_at(::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_raining_at();
+
+  private:
+  const ::df::plugin::WorldQueryRainingAtAction& _internal_world_query_raining_at() const;
+  ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NONNULL _internal_mutable_world_query_raining_at();
+
+  public:
+  // .df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];
+  bool has_world_query_snowing_at() const;
+  private:
+  bool _internal_has_world_query_snowing_at() const;
+
+  public:
+  void clear_world_query_snowing_at() ;
+  const ::df::plugin::WorldQuerySnowingAtAction& world_query_snowing_at() const;
+  [[nodiscard]] ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE release_world_query_snowing_at();
+  ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NONNULL mutable_world_query_snowing_at();
+  void set_allocated_world_query_snowing_at(::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_snowing_at(::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_snowing_at();
+
+  private:
+  const ::df::plugin::WorldQuerySnowingAtAction& _internal_world_query_snowing_at() const;
+  ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NONNULL _internal_mutable_world_query_snowing_at();
+
+  public:
+  // .df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];
+  bool has_world_query_thundering_at() const;
+  private:
+  bool _internal_has_world_query_thundering_at() const;
+
+  public:
+  void clear_world_query_thundering_at() ;
+  const ::df::plugin::WorldQueryThunderingAtAction& world_query_thundering_at() const;
+  [[nodiscard]] ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE release_world_query_thundering_at();
+  ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NONNULL mutable_world_query_thundering_at();
+  void set_allocated_world_query_thundering_at(::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_thundering_at(::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_thundering_at();
+
+  private:
+  const ::df::plugin::WorldQueryThunderingAtAction& _internal_world_query_thundering_at() const;
+  ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NONNULL _internal_mutable_world_query_thundering_at();
+
+  public:
+  // .df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];
+  bool has_world_query_default_game_mode() const;
+  private:
+  bool _internal_has_world_query_default_game_mode() const;
+
+  public:
+  void clear_world_query_default_game_mode() ;
+  const ::df::plugin::WorldQueryDefaultGameModeAction& world_query_default_game_mode() const;
+  [[nodiscard]] ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE release_world_query_default_game_mode();
+  ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NONNULL mutable_world_query_default_game_mode();
+  void set_allocated_world_query_default_game_mode(::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE value);
+  void unsafe_arena_set_allocated_world_query_default_game_mode(::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE value);
+  ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE unsafe_arena_release_world_query_default_game_mode();
+
+  private:
+  const ::df::plugin::WorldQueryDefaultGameModeAction& _internal_world_query_default_game_mode() const;
+  ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NONNULL _internal_mutable_world_query_default_game_mode();
+
+  public:
   void clear_kind();
   KindCase kind_case() const;
   // @@protoc_insertion_point(class_scope:df.plugin.Action)
@@ -12165,32 +12165,32 @@ class Action final : public ::google::protobuf::Message
   void set_has_world_set_default_game_mode();
   void set_has_world_set_difficulty();
   void set_has_world_set_tick_range();
-  void set_has_world_set_block();
-  void set_has_world_play_sound();
-  void set_has_world_add_particle();
-  void set_has_world_set_time();
-  void set_has_world_stop_time();
-  void set_has_world_start_time();
   void set_has_world_set_spawn();
-  void set_has_world_query_entities();
-  void set_has_world_query_players();
-  void set_has_world_query_entities_within();
-  void set_has_world_query_default_game_mode();
-  void set_has_world_query_player_spawn();
-  void set_has_world_query_block();
-  void set_has_world_query_biome();
-  void set_has_world_query_light();
-  void set_has_world_query_sky_light();
-  void set_has_world_query_temperature();
-  void set_has_world_query_highest_block();
-  void set_has_world_query_raining_at();
-  void set_has_world_query_snowing_at();
-  void set_has_world_query_thundering_at();
-  void set_has_world_query_liquid();
+  void set_has_world_set_block();
   void set_has_world_set_biome();
   void set_has_world_set_liquid();
   void set_has_world_schedule_block_update();
   void set_has_world_build_structure();
+  void set_has_world_set_time();
+  void set_has_world_stop_time();
+  void set_has_world_start_time();
+  void set_has_world_play_sound();
+  void set_has_world_add_particle();
+  void set_has_world_query_entities();
+  void set_has_world_query_players();
+  void set_has_world_query_entities_within();
+  void set_has_world_query_player_spawn();
+  void set_has_world_query_block();
+  void set_has_world_query_biome();
+  void set_has_world_query_liquid();
+  void set_has_world_query_highest_block();
+  void set_has_world_query_light();
+  void set_has_world_query_sky_light();
+  void set_has_world_query_temperature();
+  void set_has_world_query_raining_at();
+  void set_has_world_query_snowing_at();
+  void set_has_world_query_thundering_at();
+  void set_has_world_query_default_game_mode();
   inline bool has_kind() const;
   inline void clear_has_kind();
   friend class ::google::protobuf::internal::TcParser;
@@ -12241,32 +12241,32 @@ class Action final : public ::google::protobuf::Message
       ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_default_game_mode_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_difficulty_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_tick_range_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_block_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_play_sound_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_add_particle_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_time_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_stop_time_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_start_time_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_spawn_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_entities_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_players_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_entities_within_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_default_game_mode_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_player_spawn_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_block_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_biome_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_light_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_sky_light_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_temperature_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_highest_block_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_raining_at_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_snowing_at_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_thundering_at_;
-      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_liquid_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_block_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_biome_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_liquid_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE world_schedule_block_update_;
       ::google::protobuf::Message* PROTOBUF_NULLABLE world_build_structure_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_set_time_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_stop_time_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_start_time_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_play_sound_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_add_particle_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_entities_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_players_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_entities_within_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_player_spawn_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_block_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_biome_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_liquid_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_highest_block_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_light_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_sky_light_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_temperature_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_raining_at_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_snowing_at_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_thundering_at_;
+      ::google::protobuf::Message* PROTOBUF_NULLABLE world_query_default_game_mode_;
     } kind_;
     ::uint32_t _oneof_case_[1];
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -14341,498 +14341,6 @@ inline ::df::plugin::WorldSetTickRangeAction* PROTOBUF_NONNULL Action::mutable_w
   return _msg;
 }
 
-// .df.plugin.WorldSetBlockAction world_set_block = 63 [json_name = "worldSetBlock"];
-inline bool Action::has_world_set_block() const {
-  return kind_case() == kWorldSetBlock;
-}
-inline bool Action::_internal_has_world_set_block() const {
-  return kind_case() == kWorldSetBlock;
-}
-inline void Action::set_has_world_set_block() {
-  _impl_._oneof_case_[0] = kWorldSetBlock;
-}
-inline void Action::clear_world_set_block() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldSetBlock) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_set_block_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_set_block_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE Action::release_world_set_block() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_set_block)
-  if (kind_case() == kWorldSetBlock) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldSetBlockAction*>(_impl_.kind_.world_set_block_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_set_block_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldSetBlockAction& Action::_internal_world_set_block() const {
-  return kind_case() == kWorldSetBlock ? static_cast<const ::df::plugin::WorldSetBlockAction&>(*reinterpret_cast<::df::plugin::WorldSetBlockAction*>(_impl_.kind_.world_set_block_))
-                     : reinterpret_cast<const ::df::plugin::WorldSetBlockAction&>(::df::plugin::_WorldSetBlockAction_default_instance_);
-}
-inline const ::df::plugin::WorldSetBlockAction& Action::world_set_block() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_set_block)
-  return _internal_world_set_block();
-}
-inline ::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_set_block() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_set_block)
-  if (kind_case() == kWorldSetBlock) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldSetBlockAction*>(_impl_.kind_.world_set_block_);
-    _impl_.kind_.world_set_block_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_set_block(
-    ::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_set_block();
-    _impl_.kind_.world_set_block_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_set_block)
-}
-inline ::df::plugin::WorldSetBlockAction* PROTOBUF_NONNULL Action::_internal_mutable_world_set_block() {
-  if (kind_case() != kWorldSetBlock) {
-    clear_kind();
-    set_has_world_set_block();
-    _impl_.kind_.world_set_block_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldSetBlockAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldSetBlockAction*>(_impl_.kind_.world_set_block_);
-}
-inline ::df::plugin::WorldSetBlockAction* PROTOBUF_NONNULL Action::mutable_world_set_block()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldSetBlockAction* _msg = _internal_mutable_world_set_block();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_set_block)
-  return _msg;
-}
-
-// .df.plugin.WorldPlaySoundAction world_play_sound = 64 [json_name = "worldPlaySound"];
-inline bool Action::has_world_play_sound() const {
-  return kind_case() == kWorldPlaySound;
-}
-inline bool Action::_internal_has_world_play_sound() const {
-  return kind_case() == kWorldPlaySound;
-}
-inline void Action::set_has_world_play_sound() {
-  _impl_._oneof_case_[0] = kWorldPlaySound;
-}
-inline void Action::clear_world_play_sound() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldPlaySound) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_play_sound_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_play_sound_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE Action::release_world_play_sound() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_play_sound)
-  if (kind_case() == kWorldPlaySound) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldPlaySoundAction*>(_impl_.kind_.world_play_sound_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_play_sound_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldPlaySoundAction& Action::_internal_world_play_sound() const {
-  return kind_case() == kWorldPlaySound ? static_cast<const ::df::plugin::WorldPlaySoundAction&>(*reinterpret_cast<::df::plugin::WorldPlaySoundAction*>(_impl_.kind_.world_play_sound_))
-                     : reinterpret_cast<const ::df::plugin::WorldPlaySoundAction&>(::df::plugin::_WorldPlaySoundAction_default_instance_);
-}
-inline const ::df::plugin::WorldPlaySoundAction& Action::world_play_sound() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_play_sound)
-  return _internal_world_play_sound();
-}
-inline ::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_play_sound() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_play_sound)
-  if (kind_case() == kWorldPlaySound) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldPlaySoundAction*>(_impl_.kind_.world_play_sound_);
-    _impl_.kind_.world_play_sound_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_play_sound(
-    ::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_play_sound();
-    _impl_.kind_.world_play_sound_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_play_sound)
-}
-inline ::df::plugin::WorldPlaySoundAction* PROTOBUF_NONNULL Action::_internal_mutable_world_play_sound() {
-  if (kind_case() != kWorldPlaySound) {
-    clear_kind();
-    set_has_world_play_sound();
-    _impl_.kind_.world_play_sound_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldPlaySoundAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldPlaySoundAction*>(_impl_.kind_.world_play_sound_);
-}
-inline ::df::plugin::WorldPlaySoundAction* PROTOBUF_NONNULL Action::mutable_world_play_sound()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldPlaySoundAction* _msg = _internal_mutable_world_play_sound();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_play_sound)
-  return _msg;
-}
-
-// .df.plugin.WorldAddParticleAction world_add_particle = 65 [json_name = "worldAddParticle"];
-inline bool Action::has_world_add_particle() const {
-  return kind_case() == kWorldAddParticle;
-}
-inline bool Action::_internal_has_world_add_particle() const {
-  return kind_case() == kWorldAddParticle;
-}
-inline void Action::set_has_world_add_particle() {
-  _impl_._oneof_case_[0] = kWorldAddParticle;
-}
-inline void Action::clear_world_add_particle() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldAddParticle) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_add_particle_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_add_particle_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE Action::release_world_add_particle() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_add_particle)
-  if (kind_case() == kWorldAddParticle) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldAddParticleAction*>(_impl_.kind_.world_add_particle_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_add_particle_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldAddParticleAction& Action::_internal_world_add_particle() const {
-  return kind_case() == kWorldAddParticle ? static_cast<const ::df::plugin::WorldAddParticleAction&>(*reinterpret_cast<::df::plugin::WorldAddParticleAction*>(_impl_.kind_.world_add_particle_))
-                     : reinterpret_cast<const ::df::plugin::WorldAddParticleAction&>(::df::plugin::_WorldAddParticleAction_default_instance_);
-}
-inline const ::df::plugin::WorldAddParticleAction& Action::world_add_particle() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_add_particle)
-  return _internal_world_add_particle();
-}
-inline ::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_add_particle() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_add_particle)
-  if (kind_case() == kWorldAddParticle) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldAddParticleAction*>(_impl_.kind_.world_add_particle_);
-    _impl_.kind_.world_add_particle_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_add_particle(
-    ::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_add_particle();
-    _impl_.kind_.world_add_particle_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_add_particle)
-}
-inline ::df::plugin::WorldAddParticleAction* PROTOBUF_NONNULL Action::_internal_mutable_world_add_particle() {
-  if (kind_case() != kWorldAddParticle) {
-    clear_kind();
-    set_has_world_add_particle();
-    _impl_.kind_.world_add_particle_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldAddParticleAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldAddParticleAction*>(_impl_.kind_.world_add_particle_);
-}
-inline ::df::plugin::WorldAddParticleAction* PROTOBUF_NONNULL Action::mutable_world_add_particle()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldAddParticleAction* _msg = _internal_mutable_world_add_particle();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_add_particle)
-  return _msg;
-}
-
-// .df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];
-inline bool Action::has_world_set_time() const {
-  return kind_case() == kWorldSetTime;
-}
-inline bool Action::_internal_has_world_set_time() const {
-  return kind_case() == kWorldSetTime;
-}
-inline void Action::set_has_world_set_time() {
-  _impl_._oneof_case_[0] = kWorldSetTime;
-}
-inline void Action::clear_world_set_time() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldSetTime) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_set_time_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_set_time_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE Action::release_world_set_time() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_set_time)
-  if (kind_case() == kWorldSetTime) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldSetTimeAction*>(_impl_.kind_.world_set_time_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_set_time_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldSetTimeAction& Action::_internal_world_set_time() const {
-  return kind_case() == kWorldSetTime ? static_cast<const ::df::plugin::WorldSetTimeAction&>(*reinterpret_cast<::df::plugin::WorldSetTimeAction*>(_impl_.kind_.world_set_time_))
-                     : reinterpret_cast<const ::df::plugin::WorldSetTimeAction&>(::df::plugin::_WorldSetTimeAction_default_instance_);
-}
-inline const ::df::plugin::WorldSetTimeAction& Action::world_set_time() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_set_time)
-  return _internal_world_set_time();
-}
-inline ::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_set_time() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_set_time)
-  if (kind_case() == kWorldSetTime) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldSetTimeAction*>(_impl_.kind_.world_set_time_);
-    _impl_.kind_.world_set_time_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_set_time(
-    ::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_set_time();
-    _impl_.kind_.world_set_time_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_set_time)
-}
-inline ::df::plugin::WorldSetTimeAction* PROTOBUF_NONNULL Action::_internal_mutable_world_set_time() {
-  if (kind_case() != kWorldSetTime) {
-    clear_kind();
-    set_has_world_set_time();
-    _impl_.kind_.world_set_time_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldSetTimeAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldSetTimeAction*>(_impl_.kind_.world_set_time_);
-}
-inline ::df::plugin::WorldSetTimeAction* PROTOBUF_NONNULL Action::mutable_world_set_time()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldSetTimeAction* _msg = _internal_mutable_world_set_time();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_set_time)
-  return _msg;
-}
-
-// .df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];
-inline bool Action::has_world_stop_time() const {
-  return kind_case() == kWorldStopTime;
-}
-inline bool Action::_internal_has_world_stop_time() const {
-  return kind_case() == kWorldStopTime;
-}
-inline void Action::set_has_world_stop_time() {
-  _impl_._oneof_case_[0] = kWorldStopTime;
-}
-inline void Action::clear_world_stop_time() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldStopTime) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_stop_time_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_stop_time_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE Action::release_world_stop_time() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_stop_time)
-  if (kind_case() == kWorldStopTime) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldStopTimeAction*>(_impl_.kind_.world_stop_time_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_stop_time_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldStopTimeAction& Action::_internal_world_stop_time() const {
-  return kind_case() == kWorldStopTime ? static_cast<const ::df::plugin::WorldStopTimeAction&>(*reinterpret_cast<::df::plugin::WorldStopTimeAction*>(_impl_.kind_.world_stop_time_))
-                     : reinterpret_cast<const ::df::plugin::WorldStopTimeAction&>(::df::plugin::_WorldStopTimeAction_default_instance_);
-}
-inline const ::df::plugin::WorldStopTimeAction& Action::world_stop_time() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_stop_time)
-  return _internal_world_stop_time();
-}
-inline ::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_stop_time() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_stop_time)
-  if (kind_case() == kWorldStopTime) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldStopTimeAction*>(_impl_.kind_.world_stop_time_);
-    _impl_.kind_.world_stop_time_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_stop_time(
-    ::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_stop_time();
-    _impl_.kind_.world_stop_time_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_stop_time)
-}
-inline ::df::plugin::WorldStopTimeAction* PROTOBUF_NONNULL Action::_internal_mutable_world_stop_time() {
-  if (kind_case() != kWorldStopTime) {
-    clear_kind();
-    set_has_world_stop_time();
-    _impl_.kind_.world_stop_time_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldStopTimeAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldStopTimeAction*>(_impl_.kind_.world_stop_time_);
-}
-inline ::df::plugin::WorldStopTimeAction* PROTOBUF_NONNULL Action::mutable_world_stop_time()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldStopTimeAction* _msg = _internal_mutable_world_stop_time();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_stop_time)
-  return _msg;
-}
-
-// .df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];
-inline bool Action::has_world_start_time() const {
-  return kind_case() == kWorldStartTime;
-}
-inline bool Action::_internal_has_world_start_time() const {
-  return kind_case() == kWorldStartTime;
-}
-inline void Action::set_has_world_start_time() {
-  _impl_._oneof_case_[0] = kWorldStartTime;
-}
-inline void Action::clear_world_start_time() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldStartTime) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_start_time_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_start_time_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE Action::release_world_start_time() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_start_time)
-  if (kind_case() == kWorldStartTime) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldStartTimeAction*>(_impl_.kind_.world_start_time_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_start_time_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldStartTimeAction& Action::_internal_world_start_time() const {
-  return kind_case() == kWorldStartTime ? static_cast<const ::df::plugin::WorldStartTimeAction&>(*reinterpret_cast<::df::plugin::WorldStartTimeAction*>(_impl_.kind_.world_start_time_))
-                     : reinterpret_cast<const ::df::plugin::WorldStartTimeAction&>(::df::plugin::_WorldStartTimeAction_default_instance_);
-}
-inline const ::df::plugin::WorldStartTimeAction& Action::world_start_time() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_start_time)
-  return _internal_world_start_time();
-}
-inline ::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_start_time() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_start_time)
-  if (kind_case() == kWorldStartTime) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldStartTimeAction*>(_impl_.kind_.world_start_time_);
-    _impl_.kind_.world_start_time_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_start_time(
-    ::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_start_time();
-    _impl_.kind_.world_start_time_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_start_time)
-}
-inline ::df::plugin::WorldStartTimeAction* PROTOBUF_NONNULL Action::_internal_mutable_world_start_time() {
-  if (kind_case() != kWorldStartTime) {
-    clear_kind();
-    set_has_world_start_time();
-    _impl_.kind_.world_start_time_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldStartTimeAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldStartTimeAction*>(_impl_.kind_.world_start_time_);
-}
-inline ::df::plugin::WorldStartTimeAction* PROTOBUF_NONNULL Action::mutable_world_start_time()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldStartTimeAction* _msg = _internal_mutable_world_start_time();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_start_time)
-  return _msg;
-}
-
 // .df.plugin.WorldSetSpawnAction world_set_spawn = 69 [json_name = "worldSetSpawn"];
 inline bool Action::has_world_set_spawn() const {
   return kind_case() == kWorldSetSpawn;
@@ -14915,1233 +14423,85 @@ inline ::df::plugin::WorldSetSpawnAction* PROTOBUF_NONNULL Action::mutable_world
   return _msg;
 }
 
-// .df.plugin.WorldQueryEntitiesAction world_query_entities = 70 [json_name = "worldQueryEntities"];
-inline bool Action::has_world_query_entities() const {
-  return kind_case() == kWorldQueryEntities;
+// .df.plugin.WorldSetBlockAction world_set_block = 63 [json_name = "worldSetBlock"];
+inline bool Action::has_world_set_block() const {
+  return kind_case() == kWorldSetBlock;
 }
-inline bool Action::_internal_has_world_query_entities() const {
-  return kind_case() == kWorldQueryEntities;
+inline bool Action::_internal_has_world_set_block() const {
+  return kind_case() == kWorldSetBlock;
 }
-inline void Action::set_has_world_query_entities() {
-  _impl_._oneof_case_[0] = kWorldQueryEntities;
+inline void Action::set_has_world_set_block() {
+  _impl_._oneof_case_[0] = kWorldSetBlock;
 }
-inline void Action::clear_world_query_entities() {
+inline void Action::clear_world_set_block() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryEntities) {
+  if (kind_case() == kWorldSetBlock) {
     if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_entities_;
+      delete _impl_.kind_.world_set_block_;
     } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_entities_);
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_set_block_);
     }
     clear_has_kind();
   }
 }
-inline ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE Action::release_world_query_entities() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_entities)
-  if (kind_case() == kWorldQueryEntities) {
+inline ::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE Action::release_world_set_block() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_set_block)
+  if (kind_case() == kWorldSetBlock) {
     clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryEntitiesAction*>(_impl_.kind_.world_query_entities_);
+    auto* temp = reinterpret_cast<::df::plugin::WorldSetBlockAction*>(_impl_.kind_.world_set_block_);
     if (GetArena() != nullptr) {
       temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
     }
-    _impl_.kind_.world_query_entities_ = nullptr;
+    _impl_.kind_.world_set_block_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline const ::df::plugin::WorldQueryEntitiesAction& Action::_internal_world_query_entities() const {
-  return kind_case() == kWorldQueryEntities ? static_cast<const ::df::plugin::WorldQueryEntitiesAction&>(*reinterpret_cast<::df::plugin::WorldQueryEntitiesAction*>(_impl_.kind_.world_query_entities_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryEntitiesAction&>(::df::plugin::_WorldQueryEntitiesAction_default_instance_);
+inline const ::df::plugin::WorldSetBlockAction& Action::_internal_world_set_block() const {
+  return kind_case() == kWorldSetBlock ? static_cast<const ::df::plugin::WorldSetBlockAction&>(*reinterpret_cast<::df::plugin::WorldSetBlockAction*>(_impl_.kind_.world_set_block_))
+                     : reinterpret_cast<const ::df::plugin::WorldSetBlockAction&>(::df::plugin::_WorldSetBlockAction_default_instance_);
 }
-inline const ::df::plugin::WorldQueryEntitiesAction& Action::world_query_entities() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_entities)
-  return _internal_world_query_entities();
+inline const ::df::plugin::WorldSetBlockAction& Action::world_set_block() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_set_block)
+  return _internal_world_set_block();
 }
-inline ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_entities() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_entities)
-  if (kind_case() == kWorldQueryEntities) {
+inline ::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_set_block() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_set_block)
+  if (kind_case() == kWorldSetBlock) {
     clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryEntitiesAction*>(_impl_.kind_.world_query_entities_);
-    _impl_.kind_.world_query_entities_ = nullptr;
+    auto* temp = reinterpret_cast<::df::plugin::WorldSetBlockAction*>(_impl_.kind_.world_set_block_);
+    _impl_.kind_.world_set_block_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void Action::unsafe_arena_set_allocated_world_query_entities(
-    ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE value) {
+inline void Action::unsafe_arena_set_allocated_world_set_block(
+    ::df::plugin::WorldSetBlockAction* PROTOBUF_NULLABLE value) {
   // We rely on the oneof clear method to free the earlier contents
   // of this oneof. We can directly use the pointer we're given to
   // set the new value.
   clear_kind();
   if (value) {
-    set_has_world_query_entities();
-    _impl_.kind_.world_query_entities_ = reinterpret_cast<::google::protobuf::Message*>(value);
+    set_has_world_set_block();
+    _impl_.kind_.world_set_block_ = reinterpret_cast<::google::protobuf::Message*>(value);
   }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_entities)
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_set_block)
 }
-inline ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_entities() {
-  if (kind_case() != kWorldQueryEntities) {
+inline ::df::plugin::WorldSetBlockAction* PROTOBUF_NONNULL Action::_internal_mutable_world_set_block() {
+  if (kind_case() != kWorldSetBlock) {
     clear_kind();
-    set_has_world_query_entities();
-    _impl_.kind_.world_query_entities_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryEntitiesAction>(GetArena()));
+    set_has_world_set_block();
+    _impl_.kind_.world_set_block_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldSetBlockAction>(GetArena()));
   }
-  return reinterpret_cast<::df::plugin::WorldQueryEntitiesAction*>(_impl_.kind_.world_query_entities_);
+  return reinterpret_cast<::df::plugin::WorldSetBlockAction*>(_impl_.kind_.world_set_block_);
 }
-inline ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NONNULL Action::mutable_world_query_entities()
+inline ::df::plugin::WorldSetBlockAction* PROTOBUF_NONNULL Action::mutable_world_set_block()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryEntitiesAction* _msg = _internal_mutable_world_query_entities();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_entities)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryPlayersAction world_query_players = 71 [json_name = "worldQueryPlayers"];
-inline bool Action::has_world_query_players() const {
-  return kind_case() == kWorldQueryPlayers;
-}
-inline bool Action::_internal_has_world_query_players() const {
-  return kind_case() == kWorldQueryPlayers;
-}
-inline void Action::set_has_world_query_players() {
-  _impl_._oneof_case_[0] = kWorldQueryPlayers;
-}
-inline void Action::clear_world_query_players() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryPlayers) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_players_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_players_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE Action::release_world_query_players() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_players)
-  if (kind_case() == kWorldQueryPlayers) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryPlayersAction*>(_impl_.kind_.world_query_players_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_players_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryPlayersAction& Action::_internal_world_query_players() const {
-  return kind_case() == kWorldQueryPlayers ? static_cast<const ::df::plugin::WorldQueryPlayersAction&>(*reinterpret_cast<::df::plugin::WorldQueryPlayersAction*>(_impl_.kind_.world_query_players_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryPlayersAction&>(::df::plugin::_WorldQueryPlayersAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryPlayersAction& Action::world_query_players() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_players)
-  return _internal_world_query_players();
-}
-inline ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_players() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_players)
-  if (kind_case() == kWorldQueryPlayers) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryPlayersAction*>(_impl_.kind_.world_query_players_);
-    _impl_.kind_.world_query_players_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_players(
-    ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_players();
-    _impl_.kind_.world_query_players_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_players)
-}
-inline ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_players() {
-  if (kind_case() != kWorldQueryPlayers) {
-    clear_kind();
-    set_has_world_query_players();
-    _impl_.kind_.world_query_players_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryPlayersAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryPlayersAction*>(_impl_.kind_.world_query_players_);
-}
-inline ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NONNULL Action::mutable_world_query_players()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryPlayersAction* _msg = _internal_mutable_world_query_players();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_players)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryEntitiesWithinAction world_query_entities_within = 72 [json_name = "worldQueryEntitiesWithin"];
-inline bool Action::has_world_query_entities_within() const {
-  return kind_case() == kWorldQueryEntitiesWithin;
-}
-inline bool Action::_internal_has_world_query_entities_within() const {
-  return kind_case() == kWorldQueryEntitiesWithin;
-}
-inline void Action::set_has_world_query_entities_within() {
-  _impl_._oneof_case_[0] = kWorldQueryEntitiesWithin;
-}
-inline void Action::clear_world_query_entities_within() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryEntitiesWithin) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_entities_within_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_entities_within_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE Action::release_world_query_entities_within() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_entities_within)
-  if (kind_case() == kWorldQueryEntitiesWithin) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryEntitiesWithinAction*>(_impl_.kind_.world_query_entities_within_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_entities_within_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryEntitiesWithinAction& Action::_internal_world_query_entities_within() const {
-  return kind_case() == kWorldQueryEntitiesWithin ? static_cast<const ::df::plugin::WorldQueryEntitiesWithinAction&>(*reinterpret_cast<::df::plugin::WorldQueryEntitiesWithinAction*>(_impl_.kind_.world_query_entities_within_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryEntitiesWithinAction&>(::df::plugin::_WorldQueryEntitiesWithinAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryEntitiesWithinAction& Action::world_query_entities_within() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_entities_within)
-  return _internal_world_query_entities_within();
-}
-inline ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_entities_within() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_entities_within)
-  if (kind_case() == kWorldQueryEntitiesWithin) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryEntitiesWithinAction*>(_impl_.kind_.world_query_entities_within_);
-    _impl_.kind_.world_query_entities_within_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_entities_within(
-    ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_entities_within();
-    _impl_.kind_.world_query_entities_within_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_entities_within)
-}
-inline ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_entities_within() {
-  if (kind_case() != kWorldQueryEntitiesWithin) {
-    clear_kind();
-    set_has_world_query_entities_within();
-    _impl_.kind_.world_query_entities_within_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryEntitiesWithinAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryEntitiesWithinAction*>(_impl_.kind_.world_query_entities_within_);
-}
-inline ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NONNULL Action::mutable_world_query_entities_within()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryEntitiesWithinAction* _msg = _internal_mutable_world_query_entities_within();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_entities_within)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];
-inline bool Action::has_world_query_default_game_mode() const {
-  return kind_case() == kWorldQueryDefaultGameMode;
-}
-inline bool Action::_internal_has_world_query_default_game_mode() const {
-  return kind_case() == kWorldQueryDefaultGameMode;
-}
-inline void Action::set_has_world_query_default_game_mode() {
-  _impl_._oneof_case_[0] = kWorldQueryDefaultGameMode;
-}
-inline void Action::clear_world_query_default_game_mode() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryDefaultGameMode) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_default_game_mode_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_default_game_mode_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE Action::release_world_query_default_game_mode() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_default_game_mode)
-  if (kind_case() == kWorldQueryDefaultGameMode) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryDefaultGameModeAction*>(_impl_.kind_.world_query_default_game_mode_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_default_game_mode_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryDefaultGameModeAction& Action::_internal_world_query_default_game_mode() const {
-  return kind_case() == kWorldQueryDefaultGameMode ? static_cast<const ::df::plugin::WorldQueryDefaultGameModeAction&>(*reinterpret_cast<::df::plugin::WorldQueryDefaultGameModeAction*>(_impl_.kind_.world_query_default_game_mode_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryDefaultGameModeAction&>(::df::plugin::_WorldQueryDefaultGameModeAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryDefaultGameModeAction& Action::world_query_default_game_mode() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_default_game_mode)
-  return _internal_world_query_default_game_mode();
-}
-inline ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_default_game_mode() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_default_game_mode)
-  if (kind_case() == kWorldQueryDefaultGameMode) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryDefaultGameModeAction*>(_impl_.kind_.world_query_default_game_mode_);
-    _impl_.kind_.world_query_default_game_mode_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_default_game_mode(
-    ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_default_game_mode();
-    _impl_.kind_.world_query_default_game_mode_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_default_game_mode)
-}
-inline ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_default_game_mode() {
-  if (kind_case() != kWorldQueryDefaultGameMode) {
-    clear_kind();
-    set_has_world_query_default_game_mode();
-    _impl_.kind_.world_query_default_game_mode_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryDefaultGameModeAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryDefaultGameModeAction*>(_impl_.kind_.world_query_default_game_mode_);
-}
-inline ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NONNULL Action::mutable_world_query_default_game_mode()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryDefaultGameModeAction* _msg = _internal_mutable_world_query_default_game_mode();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_default_game_mode)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];
-inline bool Action::has_world_query_player_spawn() const {
-  return kind_case() == kWorldQueryPlayerSpawn;
-}
-inline bool Action::_internal_has_world_query_player_spawn() const {
-  return kind_case() == kWorldQueryPlayerSpawn;
-}
-inline void Action::set_has_world_query_player_spawn() {
-  _impl_._oneof_case_[0] = kWorldQueryPlayerSpawn;
-}
-inline void Action::clear_world_query_player_spawn() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryPlayerSpawn) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_player_spawn_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_player_spawn_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE Action::release_world_query_player_spawn() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_player_spawn)
-  if (kind_case() == kWorldQueryPlayerSpawn) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryPlayerSpawnAction*>(_impl_.kind_.world_query_player_spawn_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_player_spawn_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryPlayerSpawnAction& Action::_internal_world_query_player_spawn() const {
-  return kind_case() == kWorldQueryPlayerSpawn ? static_cast<const ::df::plugin::WorldQueryPlayerSpawnAction&>(*reinterpret_cast<::df::plugin::WorldQueryPlayerSpawnAction*>(_impl_.kind_.world_query_player_spawn_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryPlayerSpawnAction&>(::df::plugin::_WorldQueryPlayerSpawnAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryPlayerSpawnAction& Action::world_query_player_spawn() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_player_spawn)
-  return _internal_world_query_player_spawn();
-}
-inline ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_player_spawn() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_player_spawn)
-  if (kind_case() == kWorldQueryPlayerSpawn) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryPlayerSpawnAction*>(_impl_.kind_.world_query_player_spawn_);
-    _impl_.kind_.world_query_player_spawn_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_player_spawn(
-    ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_player_spawn();
-    _impl_.kind_.world_query_player_spawn_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_player_spawn)
-}
-inline ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_player_spawn() {
-  if (kind_case() != kWorldQueryPlayerSpawn) {
-    clear_kind();
-    set_has_world_query_player_spawn();
-    _impl_.kind_.world_query_player_spawn_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryPlayerSpawnAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryPlayerSpawnAction*>(_impl_.kind_.world_query_player_spawn_);
-}
-inline ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NONNULL Action::mutable_world_query_player_spawn()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryPlayerSpawnAction* _msg = _internal_mutable_world_query_player_spawn();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_player_spawn)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];
-inline bool Action::has_world_query_block() const {
-  return kind_case() == kWorldQueryBlock;
-}
-inline bool Action::_internal_has_world_query_block() const {
-  return kind_case() == kWorldQueryBlock;
-}
-inline void Action::set_has_world_query_block() {
-  _impl_._oneof_case_[0] = kWorldQueryBlock;
-}
-inline void Action::clear_world_query_block() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryBlock) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_block_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_block_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE Action::release_world_query_block() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_block)
-  if (kind_case() == kWorldQueryBlock) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryBlockAction*>(_impl_.kind_.world_query_block_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_block_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryBlockAction& Action::_internal_world_query_block() const {
-  return kind_case() == kWorldQueryBlock ? static_cast<const ::df::plugin::WorldQueryBlockAction&>(*reinterpret_cast<::df::plugin::WorldQueryBlockAction*>(_impl_.kind_.world_query_block_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryBlockAction&>(::df::plugin::_WorldQueryBlockAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryBlockAction& Action::world_query_block() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_block)
-  return _internal_world_query_block();
-}
-inline ::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_block() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_block)
-  if (kind_case() == kWorldQueryBlock) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryBlockAction*>(_impl_.kind_.world_query_block_);
-    _impl_.kind_.world_query_block_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_block(
-    ::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_block();
-    _impl_.kind_.world_query_block_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_block)
-}
-inline ::df::plugin::WorldQueryBlockAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_block() {
-  if (kind_case() != kWorldQueryBlock) {
-    clear_kind();
-    set_has_world_query_block();
-    _impl_.kind_.world_query_block_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryBlockAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryBlockAction*>(_impl_.kind_.world_query_block_);
-}
-inline ::df::plugin::WorldQueryBlockAction* PROTOBUF_NONNULL Action::mutable_world_query_block()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryBlockAction* _msg = _internal_mutable_world_query_block();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_block)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];
-inline bool Action::has_world_query_biome() const {
-  return kind_case() == kWorldQueryBiome;
-}
-inline bool Action::_internal_has_world_query_biome() const {
-  return kind_case() == kWorldQueryBiome;
-}
-inline void Action::set_has_world_query_biome() {
-  _impl_._oneof_case_[0] = kWorldQueryBiome;
-}
-inline void Action::clear_world_query_biome() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryBiome) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_biome_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_biome_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE Action::release_world_query_biome() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_biome)
-  if (kind_case() == kWorldQueryBiome) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryBiomeAction*>(_impl_.kind_.world_query_biome_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_biome_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryBiomeAction& Action::_internal_world_query_biome() const {
-  return kind_case() == kWorldQueryBiome ? static_cast<const ::df::plugin::WorldQueryBiomeAction&>(*reinterpret_cast<::df::plugin::WorldQueryBiomeAction*>(_impl_.kind_.world_query_biome_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryBiomeAction&>(::df::plugin::_WorldQueryBiomeAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryBiomeAction& Action::world_query_biome() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_biome)
-  return _internal_world_query_biome();
-}
-inline ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_biome() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_biome)
-  if (kind_case() == kWorldQueryBiome) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryBiomeAction*>(_impl_.kind_.world_query_biome_);
-    _impl_.kind_.world_query_biome_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_biome(
-    ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_biome();
-    _impl_.kind_.world_query_biome_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_biome)
-}
-inline ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_biome() {
-  if (kind_case() != kWorldQueryBiome) {
-    clear_kind();
-    set_has_world_query_biome();
-    _impl_.kind_.world_query_biome_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryBiomeAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryBiomeAction*>(_impl_.kind_.world_query_biome_);
-}
-inline ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NONNULL Action::mutable_world_query_biome()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryBiomeAction* _msg = _internal_mutable_world_query_biome();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_biome)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];
-inline bool Action::has_world_query_light() const {
-  return kind_case() == kWorldQueryLight;
-}
-inline bool Action::_internal_has_world_query_light() const {
-  return kind_case() == kWorldQueryLight;
-}
-inline void Action::set_has_world_query_light() {
-  _impl_._oneof_case_[0] = kWorldQueryLight;
-}
-inline void Action::clear_world_query_light() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryLight) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_light_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_light_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE Action::release_world_query_light() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_light)
-  if (kind_case() == kWorldQueryLight) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryLightAction*>(_impl_.kind_.world_query_light_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_light_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryLightAction& Action::_internal_world_query_light() const {
-  return kind_case() == kWorldQueryLight ? static_cast<const ::df::plugin::WorldQueryLightAction&>(*reinterpret_cast<::df::plugin::WorldQueryLightAction*>(_impl_.kind_.world_query_light_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryLightAction&>(::df::plugin::_WorldQueryLightAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryLightAction& Action::world_query_light() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_light)
-  return _internal_world_query_light();
-}
-inline ::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_light() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_light)
-  if (kind_case() == kWorldQueryLight) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryLightAction*>(_impl_.kind_.world_query_light_);
-    _impl_.kind_.world_query_light_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_light(
-    ::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_light();
-    _impl_.kind_.world_query_light_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_light)
-}
-inline ::df::plugin::WorldQueryLightAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_light() {
-  if (kind_case() != kWorldQueryLight) {
-    clear_kind();
-    set_has_world_query_light();
-    _impl_.kind_.world_query_light_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryLightAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryLightAction*>(_impl_.kind_.world_query_light_);
-}
-inline ::df::plugin::WorldQueryLightAction* PROTOBUF_NONNULL Action::mutable_world_query_light()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryLightAction* _msg = _internal_mutable_world_query_light();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_light)
-  return _msg;
-}
-
-// .df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];
-inline bool Action::has_world_query_sky_light() const {
-  return kind_case() == kWorldQuerySkyLight;
-}
-inline bool Action::_internal_has_world_query_sky_light() const {
-  return kind_case() == kWorldQuerySkyLight;
-}
-inline void Action::set_has_world_query_sky_light() {
-  _impl_._oneof_case_[0] = kWorldQuerySkyLight;
-}
-inline void Action::clear_world_query_sky_light() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQuerySkyLight) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_sky_light_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_sky_light_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE Action::release_world_query_sky_light() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_sky_light)
-  if (kind_case() == kWorldQuerySkyLight) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQuerySkyLightAction*>(_impl_.kind_.world_query_sky_light_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_sky_light_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQuerySkyLightAction& Action::_internal_world_query_sky_light() const {
-  return kind_case() == kWorldQuerySkyLight ? static_cast<const ::df::plugin::WorldQuerySkyLightAction&>(*reinterpret_cast<::df::plugin::WorldQuerySkyLightAction*>(_impl_.kind_.world_query_sky_light_))
-                     : reinterpret_cast<const ::df::plugin::WorldQuerySkyLightAction&>(::df::plugin::_WorldQuerySkyLightAction_default_instance_);
-}
-inline const ::df::plugin::WorldQuerySkyLightAction& Action::world_query_sky_light() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_sky_light)
-  return _internal_world_query_sky_light();
-}
-inline ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_sky_light() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_sky_light)
-  if (kind_case() == kWorldQuerySkyLight) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQuerySkyLightAction*>(_impl_.kind_.world_query_sky_light_);
-    _impl_.kind_.world_query_sky_light_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_sky_light(
-    ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_sky_light();
-    _impl_.kind_.world_query_sky_light_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_sky_light)
-}
-inline ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_sky_light() {
-  if (kind_case() != kWorldQuerySkyLight) {
-    clear_kind();
-    set_has_world_query_sky_light();
-    _impl_.kind_.world_query_sky_light_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQuerySkyLightAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQuerySkyLightAction*>(_impl_.kind_.world_query_sky_light_);
-}
-inline ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NONNULL Action::mutable_world_query_sky_light()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQuerySkyLightAction* _msg = _internal_mutable_world_query_sky_light();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_sky_light)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];
-inline bool Action::has_world_query_temperature() const {
-  return kind_case() == kWorldQueryTemperature;
-}
-inline bool Action::_internal_has_world_query_temperature() const {
-  return kind_case() == kWorldQueryTemperature;
-}
-inline void Action::set_has_world_query_temperature() {
-  _impl_._oneof_case_[0] = kWorldQueryTemperature;
-}
-inline void Action::clear_world_query_temperature() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryTemperature) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_temperature_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_temperature_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE Action::release_world_query_temperature() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_temperature)
-  if (kind_case() == kWorldQueryTemperature) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryTemperatureAction*>(_impl_.kind_.world_query_temperature_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_temperature_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryTemperatureAction& Action::_internal_world_query_temperature() const {
-  return kind_case() == kWorldQueryTemperature ? static_cast<const ::df::plugin::WorldQueryTemperatureAction&>(*reinterpret_cast<::df::plugin::WorldQueryTemperatureAction*>(_impl_.kind_.world_query_temperature_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryTemperatureAction&>(::df::plugin::_WorldQueryTemperatureAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryTemperatureAction& Action::world_query_temperature() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_temperature)
-  return _internal_world_query_temperature();
-}
-inline ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_temperature() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_temperature)
-  if (kind_case() == kWorldQueryTemperature) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryTemperatureAction*>(_impl_.kind_.world_query_temperature_);
-    _impl_.kind_.world_query_temperature_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_temperature(
-    ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_temperature();
-    _impl_.kind_.world_query_temperature_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_temperature)
-}
-inline ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_temperature() {
-  if (kind_case() != kWorldQueryTemperature) {
-    clear_kind();
-    set_has_world_query_temperature();
-    _impl_.kind_.world_query_temperature_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryTemperatureAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryTemperatureAction*>(_impl_.kind_.world_query_temperature_);
-}
-inline ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NONNULL Action::mutable_world_query_temperature()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryTemperatureAction* _msg = _internal_mutable_world_query_temperature();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_temperature)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];
-inline bool Action::has_world_query_highest_block() const {
-  return kind_case() == kWorldQueryHighestBlock;
-}
-inline bool Action::_internal_has_world_query_highest_block() const {
-  return kind_case() == kWorldQueryHighestBlock;
-}
-inline void Action::set_has_world_query_highest_block() {
-  _impl_._oneof_case_[0] = kWorldQueryHighestBlock;
-}
-inline void Action::clear_world_query_highest_block() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryHighestBlock) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_highest_block_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_highest_block_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE Action::release_world_query_highest_block() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_highest_block)
-  if (kind_case() == kWorldQueryHighestBlock) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryHighestBlockAction*>(_impl_.kind_.world_query_highest_block_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_highest_block_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryHighestBlockAction& Action::_internal_world_query_highest_block() const {
-  return kind_case() == kWorldQueryHighestBlock ? static_cast<const ::df::plugin::WorldQueryHighestBlockAction&>(*reinterpret_cast<::df::plugin::WorldQueryHighestBlockAction*>(_impl_.kind_.world_query_highest_block_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryHighestBlockAction&>(::df::plugin::_WorldQueryHighestBlockAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryHighestBlockAction& Action::world_query_highest_block() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_highest_block)
-  return _internal_world_query_highest_block();
-}
-inline ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_highest_block() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_highest_block)
-  if (kind_case() == kWorldQueryHighestBlock) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryHighestBlockAction*>(_impl_.kind_.world_query_highest_block_);
-    _impl_.kind_.world_query_highest_block_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_highest_block(
-    ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_highest_block();
-    _impl_.kind_.world_query_highest_block_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_highest_block)
-}
-inline ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_highest_block() {
-  if (kind_case() != kWorldQueryHighestBlock) {
-    clear_kind();
-    set_has_world_query_highest_block();
-    _impl_.kind_.world_query_highest_block_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryHighestBlockAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryHighestBlockAction*>(_impl_.kind_.world_query_highest_block_);
-}
-inline ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NONNULL Action::mutable_world_query_highest_block()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryHighestBlockAction* _msg = _internal_mutable_world_query_highest_block();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_highest_block)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];
-inline bool Action::has_world_query_raining_at() const {
-  return kind_case() == kWorldQueryRainingAt;
-}
-inline bool Action::_internal_has_world_query_raining_at() const {
-  return kind_case() == kWorldQueryRainingAt;
-}
-inline void Action::set_has_world_query_raining_at() {
-  _impl_._oneof_case_[0] = kWorldQueryRainingAt;
-}
-inline void Action::clear_world_query_raining_at() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryRainingAt) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_raining_at_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_raining_at_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE Action::release_world_query_raining_at() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_raining_at)
-  if (kind_case() == kWorldQueryRainingAt) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryRainingAtAction*>(_impl_.kind_.world_query_raining_at_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_raining_at_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryRainingAtAction& Action::_internal_world_query_raining_at() const {
-  return kind_case() == kWorldQueryRainingAt ? static_cast<const ::df::plugin::WorldQueryRainingAtAction&>(*reinterpret_cast<::df::plugin::WorldQueryRainingAtAction*>(_impl_.kind_.world_query_raining_at_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryRainingAtAction&>(::df::plugin::_WorldQueryRainingAtAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryRainingAtAction& Action::world_query_raining_at() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_raining_at)
-  return _internal_world_query_raining_at();
-}
-inline ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_raining_at() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_raining_at)
-  if (kind_case() == kWorldQueryRainingAt) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryRainingAtAction*>(_impl_.kind_.world_query_raining_at_);
-    _impl_.kind_.world_query_raining_at_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_raining_at(
-    ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_raining_at();
-    _impl_.kind_.world_query_raining_at_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_raining_at)
-}
-inline ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_raining_at() {
-  if (kind_case() != kWorldQueryRainingAt) {
-    clear_kind();
-    set_has_world_query_raining_at();
-    _impl_.kind_.world_query_raining_at_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryRainingAtAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryRainingAtAction*>(_impl_.kind_.world_query_raining_at_);
-}
-inline ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NONNULL Action::mutable_world_query_raining_at()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryRainingAtAction* _msg = _internal_mutable_world_query_raining_at();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_raining_at)
-  return _msg;
-}
-
-// .df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];
-inline bool Action::has_world_query_snowing_at() const {
-  return kind_case() == kWorldQuerySnowingAt;
-}
-inline bool Action::_internal_has_world_query_snowing_at() const {
-  return kind_case() == kWorldQuerySnowingAt;
-}
-inline void Action::set_has_world_query_snowing_at() {
-  _impl_._oneof_case_[0] = kWorldQuerySnowingAt;
-}
-inline void Action::clear_world_query_snowing_at() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQuerySnowingAt) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_snowing_at_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_snowing_at_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE Action::release_world_query_snowing_at() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_snowing_at)
-  if (kind_case() == kWorldQuerySnowingAt) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQuerySnowingAtAction*>(_impl_.kind_.world_query_snowing_at_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_snowing_at_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQuerySnowingAtAction& Action::_internal_world_query_snowing_at() const {
-  return kind_case() == kWorldQuerySnowingAt ? static_cast<const ::df::plugin::WorldQuerySnowingAtAction&>(*reinterpret_cast<::df::plugin::WorldQuerySnowingAtAction*>(_impl_.kind_.world_query_snowing_at_))
-                     : reinterpret_cast<const ::df::plugin::WorldQuerySnowingAtAction&>(::df::plugin::_WorldQuerySnowingAtAction_default_instance_);
-}
-inline const ::df::plugin::WorldQuerySnowingAtAction& Action::world_query_snowing_at() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_snowing_at)
-  return _internal_world_query_snowing_at();
-}
-inline ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_snowing_at() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_snowing_at)
-  if (kind_case() == kWorldQuerySnowingAt) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQuerySnowingAtAction*>(_impl_.kind_.world_query_snowing_at_);
-    _impl_.kind_.world_query_snowing_at_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_snowing_at(
-    ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_snowing_at();
-    _impl_.kind_.world_query_snowing_at_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_snowing_at)
-}
-inline ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_snowing_at() {
-  if (kind_case() != kWorldQuerySnowingAt) {
-    clear_kind();
-    set_has_world_query_snowing_at();
-    _impl_.kind_.world_query_snowing_at_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQuerySnowingAtAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQuerySnowingAtAction*>(_impl_.kind_.world_query_snowing_at_);
-}
-inline ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NONNULL Action::mutable_world_query_snowing_at()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQuerySnowingAtAction* _msg = _internal_mutable_world_query_snowing_at();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_snowing_at)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];
-inline bool Action::has_world_query_thundering_at() const {
-  return kind_case() == kWorldQueryThunderingAt;
-}
-inline bool Action::_internal_has_world_query_thundering_at() const {
-  return kind_case() == kWorldQueryThunderingAt;
-}
-inline void Action::set_has_world_query_thundering_at() {
-  _impl_._oneof_case_[0] = kWorldQueryThunderingAt;
-}
-inline void Action::clear_world_query_thundering_at() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryThunderingAt) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_thundering_at_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_thundering_at_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE Action::release_world_query_thundering_at() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_thundering_at)
-  if (kind_case() == kWorldQueryThunderingAt) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryThunderingAtAction*>(_impl_.kind_.world_query_thundering_at_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_thundering_at_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryThunderingAtAction& Action::_internal_world_query_thundering_at() const {
-  return kind_case() == kWorldQueryThunderingAt ? static_cast<const ::df::plugin::WorldQueryThunderingAtAction&>(*reinterpret_cast<::df::plugin::WorldQueryThunderingAtAction*>(_impl_.kind_.world_query_thundering_at_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryThunderingAtAction&>(::df::plugin::_WorldQueryThunderingAtAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryThunderingAtAction& Action::world_query_thundering_at() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_thundering_at)
-  return _internal_world_query_thundering_at();
-}
-inline ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_thundering_at() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_thundering_at)
-  if (kind_case() == kWorldQueryThunderingAt) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryThunderingAtAction*>(_impl_.kind_.world_query_thundering_at_);
-    _impl_.kind_.world_query_thundering_at_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_thundering_at(
-    ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_thundering_at();
-    _impl_.kind_.world_query_thundering_at_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_thundering_at)
-}
-inline ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_thundering_at() {
-  if (kind_case() != kWorldQueryThunderingAt) {
-    clear_kind();
-    set_has_world_query_thundering_at();
-    _impl_.kind_.world_query_thundering_at_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryThunderingAtAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryThunderingAtAction*>(_impl_.kind_.world_query_thundering_at_);
-}
-inline ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NONNULL Action::mutable_world_query_thundering_at()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryThunderingAtAction* _msg = _internal_mutable_world_query_thundering_at();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_thundering_at)
-  return _msg;
-}
-
-// .df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];
-inline bool Action::has_world_query_liquid() const {
-  return kind_case() == kWorldQueryLiquid;
-}
-inline bool Action::_internal_has_world_query_liquid() const {
-  return kind_case() == kWorldQueryLiquid;
-}
-inline void Action::set_has_world_query_liquid() {
-  _impl_._oneof_case_[0] = kWorldQueryLiquid;
-}
-inline void Action::clear_world_query_liquid() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  if (kind_case() == kWorldQueryLiquid) {
-    if (GetArena() == nullptr) {
-      delete _impl_.kind_.world_query_liquid_;
-    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
-      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_liquid_);
-    }
-    clear_has_kind();
-  }
-}
-inline ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE Action::release_world_query_liquid() {
-  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_liquid)
-  if (kind_case() == kWorldQueryLiquid) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryLiquidAction*>(_impl_.kind_.world_query_liquid_);
-    if (GetArena() != nullptr) {
-      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
-    }
-    _impl_.kind_.world_query_liquid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline const ::df::plugin::WorldQueryLiquidAction& Action::_internal_world_query_liquid() const {
-  return kind_case() == kWorldQueryLiquid ? static_cast<const ::df::plugin::WorldQueryLiquidAction&>(*reinterpret_cast<::df::plugin::WorldQueryLiquidAction*>(_impl_.kind_.world_query_liquid_))
-                     : reinterpret_cast<const ::df::plugin::WorldQueryLiquidAction&>(::df::plugin::_WorldQueryLiquidAction_default_instance_);
-}
-inline const ::df::plugin::WorldQueryLiquidAction& Action::world_query_liquid() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_liquid)
-  return _internal_world_query_liquid();
-}
-inline ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_liquid() {
-  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_liquid)
-  if (kind_case() == kWorldQueryLiquid) {
-    clear_has_kind();
-    auto* temp = reinterpret_cast<::df::plugin::WorldQueryLiquidAction*>(_impl_.kind_.world_query_liquid_);
-    _impl_.kind_.world_query_liquid_ = nullptr;
-    return temp;
-  } else {
-    return nullptr;
-  }
-}
-inline void Action::unsafe_arena_set_allocated_world_query_liquid(
-    ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE value) {
-  // We rely on the oneof clear method to free the earlier contents
-  // of this oneof. We can directly use the pointer we're given to
-  // set the new value.
-  clear_kind();
-  if (value) {
-    set_has_world_query_liquid();
-    _impl_.kind_.world_query_liquid_ = reinterpret_cast<::google::protobuf::Message*>(value);
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_liquid)
-}
-inline ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_liquid() {
-  if (kind_case() != kWorldQueryLiquid) {
-    clear_kind();
-    set_has_world_query_liquid();
-    _impl_.kind_.world_query_liquid_ = reinterpret_cast<::google::protobuf::Message*>(
-        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryLiquidAction>(GetArena()));
-  }
-  return reinterpret_cast<::df::plugin::WorldQueryLiquidAction*>(_impl_.kind_.world_query_liquid_);
-}
-inline ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NONNULL Action::mutable_world_query_liquid()
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  ::df::plugin::WorldQueryLiquidAction* _msg = _internal_mutable_world_query_liquid();
-  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_liquid)
+  ::df::plugin::WorldSetBlockAction* _msg = _internal_mutable_world_set_block();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_set_block)
   return _msg;
 }
 
@@ -16470,6 +14830,1646 @@ inline ::df::plugin::WorldBuildStructureAction* PROTOBUF_NONNULL Action::mutable
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::df::plugin::WorldBuildStructureAction* _msg = _internal_mutable_world_build_structure();
   // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_build_structure)
+  return _msg;
+}
+
+// .df.plugin.WorldSetTimeAction world_set_time = 66 [json_name = "worldSetTime"];
+inline bool Action::has_world_set_time() const {
+  return kind_case() == kWorldSetTime;
+}
+inline bool Action::_internal_has_world_set_time() const {
+  return kind_case() == kWorldSetTime;
+}
+inline void Action::set_has_world_set_time() {
+  _impl_._oneof_case_[0] = kWorldSetTime;
+}
+inline void Action::clear_world_set_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldSetTime) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_set_time_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_set_time_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE Action::release_world_set_time() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_set_time)
+  if (kind_case() == kWorldSetTime) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldSetTimeAction*>(_impl_.kind_.world_set_time_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_set_time_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldSetTimeAction& Action::_internal_world_set_time() const {
+  return kind_case() == kWorldSetTime ? static_cast<const ::df::plugin::WorldSetTimeAction&>(*reinterpret_cast<::df::plugin::WorldSetTimeAction*>(_impl_.kind_.world_set_time_))
+                     : reinterpret_cast<const ::df::plugin::WorldSetTimeAction&>(::df::plugin::_WorldSetTimeAction_default_instance_);
+}
+inline const ::df::plugin::WorldSetTimeAction& Action::world_set_time() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_set_time)
+  return _internal_world_set_time();
+}
+inline ::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_set_time() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_set_time)
+  if (kind_case() == kWorldSetTime) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldSetTimeAction*>(_impl_.kind_.world_set_time_);
+    _impl_.kind_.world_set_time_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_set_time(
+    ::df::plugin::WorldSetTimeAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_set_time();
+    _impl_.kind_.world_set_time_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_set_time)
+}
+inline ::df::plugin::WorldSetTimeAction* PROTOBUF_NONNULL Action::_internal_mutable_world_set_time() {
+  if (kind_case() != kWorldSetTime) {
+    clear_kind();
+    set_has_world_set_time();
+    _impl_.kind_.world_set_time_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldSetTimeAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldSetTimeAction*>(_impl_.kind_.world_set_time_);
+}
+inline ::df::plugin::WorldSetTimeAction* PROTOBUF_NONNULL Action::mutable_world_set_time()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldSetTimeAction* _msg = _internal_mutable_world_set_time();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_set_time)
+  return _msg;
+}
+
+// .df.plugin.WorldStopTimeAction world_stop_time = 67 [json_name = "worldStopTime"];
+inline bool Action::has_world_stop_time() const {
+  return kind_case() == kWorldStopTime;
+}
+inline bool Action::_internal_has_world_stop_time() const {
+  return kind_case() == kWorldStopTime;
+}
+inline void Action::set_has_world_stop_time() {
+  _impl_._oneof_case_[0] = kWorldStopTime;
+}
+inline void Action::clear_world_stop_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldStopTime) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_stop_time_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_stop_time_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE Action::release_world_stop_time() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_stop_time)
+  if (kind_case() == kWorldStopTime) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldStopTimeAction*>(_impl_.kind_.world_stop_time_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_stop_time_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldStopTimeAction& Action::_internal_world_stop_time() const {
+  return kind_case() == kWorldStopTime ? static_cast<const ::df::plugin::WorldStopTimeAction&>(*reinterpret_cast<::df::plugin::WorldStopTimeAction*>(_impl_.kind_.world_stop_time_))
+                     : reinterpret_cast<const ::df::plugin::WorldStopTimeAction&>(::df::plugin::_WorldStopTimeAction_default_instance_);
+}
+inline const ::df::plugin::WorldStopTimeAction& Action::world_stop_time() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_stop_time)
+  return _internal_world_stop_time();
+}
+inline ::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_stop_time() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_stop_time)
+  if (kind_case() == kWorldStopTime) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldStopTimeAction*>(_impl_.kind_.world_stop_time_);
+    _impl_.kind_.world_stop_time_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_stop_time(
+    ::df::plugin::WorldStopTimeAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_stop_time();
+    _impl_.kind_.world_stop_time_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_stop_time)
+}
+inline ::df::plugin::WorldStopTimeAction* PROTOBUF_NONNULL Action::_internal_mutable_world_stop_time() {
+  if (kind_case() != kWorldStopTime) {
+    clear_kind();
+    set_has_world_stop_time();
+    _impl_.kind_.world_stop_time_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldStopTimeAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldStopTimeAction*>(_impl_.kind_.world_stop_time_);
+}
+inline ::df::plugin::WorldStopTimeAction* PROTOBUF_NONNULL Action::mutable_world_stop_time()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldStopTimeAction* _msg = _internal_mutable_world_stop_time();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_stop_time)
+  return _msg;
+}
+
+// .df.plugin.WorldStartTimeAction world_start_time = 68 [json_name = "worldStartTime"];
+inline bool Action::has_world_start_time() const {
+  return kind_case() == kWorldStartTime;
+}
+inline bool Action::_internal_has_world_start_time() const {
+  return kind_case() == kWorldStartTime;
+}
+inline void Action::set_has_world_start_time() {
+  _impl_._oneof_case_[0] = kWorldStartTime;
+}
+inline void Action::clear_world_start_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldStartTime) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_start_time_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_start_time_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE Action::release_world_start_time() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_start_time)
+  if (kind_case() == kWorldStartTime) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldStartTimeAction*>(_impl_.kind_.world_start_time_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_start_time_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldStartTimeAction& Action::_internal_world_start_time() const {
+  return kind_case() == kWorldStartTime ? static_cast<const ::df::plugin::WorldStartTimeAction&>(*reinterpret_cast<::df::plugin::WorldStartTimeAction*>(_impl_.kind_.world_start_time_))
+                     : reinterpret_cast<const ::df::plugin::WorldStartTimeAction&>(::df::plugin::_WorldStartTimeAction_default_instance_);
+}
+inline const ::df::plugin::WorldStartTimeAction& Action::world_start_time() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_start_time)
+  return _internal_world_start_time();
+}
+inline ::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_start_time() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_start_time)
+  if (kind_case() == kWorldStartTime) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldStartTimeAction*>(_impl_.kind_.world_start_time_);
+    _impl_.kind_.world_start_time_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_start_time(
+    ::df::plugin::WorldStartTimeAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_start_time();
+    _impl_.kind_.world_start_time_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_start_time)
+}
+inline ::df::plugin::WorldStartTimeAction* PROTOBUF_NONNULL Action::_internal_mutable_world_start_time() {
+  if (kind_case() != kWorldStartTime) {
+    clear_kind();
+    set_has_world_start_time();
+    _impl_.kind_.world_start_time_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldStartTimeAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldStartTimeAction*>(_impl_.kind_.world_start_time_);
+}
+inline ::df::plugin::WorldStartTimeAction* PROTOBUF_NONNULL Action::mutable_world_start_time()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldStartTimeAction* _msg = _internal_mutable_world_start_time();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_start_time)
+  return _msg;
+}
+
+// .df.plugin.WorldPlaySoundAction world_play_sound = 64 [json_name = "worldPlaySound"];
+inline bool Action::has_world_play_sound() const {
+  return kind_case() == kWorldPlaySound;
+}
+inline bool Action::_internal_has_world_play_sound() const {
+  return kind_case() == kWorldPlaySound;
+}
+inline void Action::set_has_world_play_sound() {
+  _impl_._oneof_case_[0] = kWorldPlaySound;
+}
+inline void Action::clear_world_play_sound() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldPlaySound) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_play_sound_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_play_sound_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE Action::release_world_play_sound() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_play_sound)
+  if (kind_case() == kWorldPlaySound) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldPlaySoundAction*>(_impl_.kind_.world_play_sound_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_play_sound_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldPlaySoundAction& Action::_internal_world_play_sound() const {
+  return kind_case() == kWorldPlaySound ? static_cast<const ::df::plugin::WorldPlaySoundAction&>(*reinterpret_cast<::df::plugin::WorldPlaySoundAction*>(_impl_.kind_.world_play_sound_))
+                     : reinterpret_cast<const ::df::plugin::WorldPlaySoundAction&>(::df::plugin::_WorldPlaySoundAction_default_instance_);
+}
+inline const ::df::plugin::WorldPlaySoundAction& Action::world_play_sound() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_play_sound)
+  return _internal_world_play_sound();
+}
+inline ::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_play_sound() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_play_sound)
+  if (kind_case() == kWorldPlaySound) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldPlaySoundAction*>(_impl_.kind_.world_play_sound_);
+    _impl_.kind_.world_play_sound_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_play_sound(
+    ::df::plugin::WorldPlaySoundAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_play_sound();
+    _impl_.kind_.world_play_sound_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_play_sound)
+}
+inline ::df::plugin::WorldPlaySoundAction* PROTOBUF_NONNULL Action::_internal_mutable_world_play_sound() {
+  if (kind_case() != kWorldPlaySound) {
+    clear_kind();
+    set_has_world_play_sound();
+    _impl_.kind_.world_play_sound_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldPlaySoundAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldPlaySoundAction*>(_impl_.kind_.world_play_sound_);
+}
+inline ::df::plugin::WorldPlaySoundAction* PROTOBUF_NONNULL Action::mutable_world_play_sound()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldPlaySoundAction* _msg = _internal_mutable_world_play_sound();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_play_sound)
+  return _msg;
+}
+
+// .df.plugin.WorldAddParticleAction world_add_particle = 65 [json_name = "worldAddParticle"];
+inline bool Action::has_world_add_particle() const {
+  return kind_case() == kWorldAddParticle;
+}
+inline bool Action::_internal_has_world_add_particle() const {
+  return kind_case() == kWorldAddParticle;
+}
+inline void Action::set_has_world_add_particle() {
+  _impl_._oneof_case_[0] = kWorldAddParticle;
+}
+inline void Action::clear_world_add_particle() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldAddParticle) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_add_particle_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_add_particle_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE Action::release_world_add_particle() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_add_particle)
+  if (kind_case() == kWorldAddParticle) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldAddParticleAction*>(_impl_.kind_.world_add_particle_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_add_particle_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldAddParticleAction& Action::_internal_world_add_particle() const {
+  return kind_case() == kWorldAddParticle ? static_cast<const ::df::plugin::WorldAddParticleAction&>(*reinterpret_cast<::df::plugin::WorldAddParticleAction*>(_impl_.kind_.world_add_particle_))
+                     : reinterpret_cast<const ::df::plugin::WorldAddParticleAction&>(::df::plugin::_WorldAddParticleAction_default_instance_);
+}
+inline const ::df::plugin::WorldAddParticleAction& Action::world_add_particle() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_add_particle)
+  return _internal_world_add_particle();
+}
+inline ::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_add_particle() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_add_particle)
+  if (kind_case() == kWorldAddParticle) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldAddParticleAction*>(_impl_.kind_.world_add_particle_);
+    _impl_.kind_.world_add_particle_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_add_particle(
+    ::df::plugin::WorldAddParticleAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_add_particle();
+    _impl_.kind_.world_add_particle_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_add_particle)
+}
+inline ::df::plugin::WorldAddParticleAction* PROTOBUF_NONNULL Action::_internal_mutable_world_add_particle() {
+  if (kind_case() != kWorldAddParticle) {
+    clear_kind();
+    set_has_world_add_particle();
+    _impl_.kind_.world_add_particle_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldAddParticleAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldAddParticleAction*>(_impl_.kind_.world_add_particle_);
+}
+inline ::df::plugin::WorldAddParticleAction* PROTOBUF_NONNULL Action::mutable_world_add_particle()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldAddParticleAction* _msg = _internal_mutable_world_add_particle();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_add_particle)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryEntitiesAction world_query_entities = 70 [json_name = "worldQueryEntities"];
+inline bool Action::has_world_query_entities() const {
+  return kind_case() == kWorldQueryEntities;
+}
+inline bool Action::_internal_has_world_query_entities() const {
+  return kind_case() == kWorldQueryEntities;
+}
+inline void Action::set_has_world_query_entities() {
+  _impl_._oneof_case_[0] = kWorldQueryEntities;
+}
+inline void Action::clear_world_query_entities() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryEntities) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_entities_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_entities_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE Action::release_world_query_entities() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_entities)
+  if (kind_case() == kWorldQueryEntities) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryEntitiesAction*>(_impl_.kind_.world_query_entities_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_entities_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryEntitiesAction& Action::_internal_world_query_entities() const {
+  return kind_case() == kWorldQueryEntities ? static_cast<const ::df::plugin::WorldQueryEntitiesAction&>(*reinterpret_cast<::df::plugin::WorldQueryEntitiesAction*>(_impl_.kind_.world_query_entities_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryEntitiesAction&>(::df::plugin::_WorldQueryEntitiesAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryEntitiesAction& Action::world_query_entities() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_entities)
+  return _internal_world_query_entities();
+}
+inline ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_entities() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_entities)
+  if (kind_case() == kWorldQueryEntities) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryEntitiesAction*>(_impl_.kind_.world_query_entities_);
+    _impl_.kind_.world_query_entities_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_entities(
+    ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_entities();
+    _impl_.kind_.world_query_entities_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_entities)
+}
+inline ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_entities() {
+  if (kind_case() != kWorldQueryEntities) {
+    clear_kind();
+    set_has_world_query_entities();
+    _impl_.kind_.world_query_entities_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryEntitiesAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryEntitiesAction*>(_impl_.kind_.world_query_entities_);
+}
+inline ::df::plugin::WorldQueryEntitiesAction* PROTOBUF_NONNULL Action::mutable_world_query_entities()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryEntitiesAction* _msg = _internal_mutable_world_query_entities();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_entities)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryPlayersAction world_query_players = 71 [json_name = "worldQueryPlayers"];
+inline bool Action::has_world_query_players() const {
+  return kind_case() == kWorldQueryPlayers;
+}
+inline bool Action::_internal_has_world_query_players() const {
+  return kind_case() == kWorldQueryPlayers;
+}
+inline void Action::set_has_world_query_players() {
+  _impl_._oneof_case_[0] = kWorldQueryPlayers;
+}
+inline void Action::clear_world_query_players() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryPlayers) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_players_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_players_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE Action::release_world_query_players() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_players)
+  if (kind_case() == kWorldQueryPlayers) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryPlayersAction*>(_impl_.kind_.world_query_players_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_players_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryPlayersAction& Action::_internal_world_query_players() const {
+  return kind_case() == kWorldQueryPlayers ? static_cast<const ::df::plugin::WorldQueryPlayersAction&>(*reinterpret_cast<::df::plugin::WorldQueryPlayersAction*>(_impl_.kind_.world_query_players_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryPlayersAction&>(::df::plugin::_WorldQueryPlayersAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryPlayersAction& Action::world_query_players() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_players)
+  return _internal_world_query_players();
+}
+inline ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_players() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_players)
+  if (kind_case() == kWorldQueryPlayers) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryPlayersAction*>(_impl_.kind_.world_query_players_);
+    _impl_.kind_.world_query_players_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_players(
+    ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_players();
+    _impl_.kind_.world_query_players_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_players)
+}
+inline ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_players() {
+  if (kind_case() != kWorldQueryPlayers) {
+    clear_kind();
+    set_has_world_query_players();
+    _impl_.kind_.world_query_players_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryPlayersAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryPlayersAction*>(_impl_.kind_.world_query_players_);
+}
+inline ::df::plugin::WorldQueryPlayersAction* PROTOBUF_NONNULL Action::mutable_world_query_players()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryPlayersAction* _msg = _internal_mutable_world_query_players();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_players)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryEntitiesWithinAction world_query_entities_within = 72 [json_name = "worldQueryEntitiesWithin"];
+inline bool Action::has_world_query_entities_within() const {
+  return kind_case() == kWorldQueryEntitiesWithin;
+}
+inline bool Action::_internal_has_world_query_entities_within() const {
+  return kind_case() == kWorldQueryEntitiesWithin;
+}
+inline void Action::set_has_world_query_entities_within() {
+  _impl_._oneof_case_[0] = kWorldQueryEntitiesWithin;
+}
+inline void Action::clear_world_query_entities_within() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryEntitiesWithin) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_entities_within_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_entities_within_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE Action::release_world_query_entities_within() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_entities_within)
+  if (kind_case() == kWorldQueryEntitiesWithin) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryEntitiesWithinAction*>(_impl_.kind_.world_query_entities_within_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_entities_within_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryEntitiesWithinAction& Action::_internal_world_query_entities_within() const {
+  return kind_case() == kWorldQueryEntitiesWithin ? static_cast<const ::df::plugin::WorldQueryEntitiesWithinAction&>(*reinterpret_cast<::df::plugin::WorldQueryEntitiesWithinAction*>(_impl_.kind_.world_query_entities_within_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryEntitiesWithinAction&>(::df::plugin::_WorldQueryEntitiesWithinAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryEntitiesWithinAction& Action::world_query_entities_within() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_entities_within)
+  return _internal_world_query_entities_within();
+}
+inline ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_entities_within() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_entities_within)
+  if (kind_case() == kWorldQueryEntitiesWithin) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryEntitiesWithinAction*>(_impl_.kind_.world_query_entities_within_);
+    _impl_.kind_.world_query_entities_within_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_entities_within(
+    ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_entities_within();
+    _impl_.kind_.world_query_entities_within_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_entities_within)
+}
+inline ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_entities_within() {
+  if (kind_case() != kWorldQueryEntitiesWithin) {
+    clear_kind();
+    set_has_world_query_entities_within();
+    _impl_.kind_.world_query_entities_within_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryEntitiesWithinAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryEntitiesWithinAction*>(_impl_.kind_.world_query_entities_within_);
+}
+inline ::df::plugin::WorldQueryEntitiesWithinAction* PROTOBUF_NONNULL Action::mutable_world_query_entities_within()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryEntitiesWithinAction* _msg = _internal_mutable_world_query_entities_within();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_entities_within)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryPlayerSpawnAction world_query_player_spawn = 74 [json_name = "worldQueryPlayerSpawn"];
+inline bool Action::has_world_query_player_spawn() const {
+  return kind_case() == kWorldQueryPlayerSpawn;
+}
+inline bool Action::_internal_has_world_query_player_spawn() const {
+  return kind_case() == kWorldQueryPlayerSpawn;
+}
+inline void Action::set_has_world_query_player_spawn() {
+  _impl_._oneof_case_[0] = kWorldQueryPlayerSpawn;
+}
+inline void Action::clear_world_query_player_spawn() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryPlayerSpawn) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_player_spawn_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_player_spawn_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE Action::release_world_query_player_spawn() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_player_spawn)
+  if (kind_case() == kWorldQueryPlayerSpawn) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryPlayerSpawnAction*>(_impl_.kind_.world_query_player_spawn_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_player_spawn_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryPlayerSpawnAction& Action::_internal_world_query_player_spawn() const {
+  return kind_case() == kWorldQueryPlayerSpawn ? static_cast<const ::df::plugin::WorldQueryPlayerSpawnAction&>(*reinterpret_cast<::df::plugin::WorldQueryPlayerSpawnAction*>(_impl_.kind_.world_query_player_spawn_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryPlayerSpawnAction&>(::df::plugin::_WorldQueryPlayerSpawnAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryPlayerSpawnAction& Action::world_query_player_spawn() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_player_spawn)
+  return _internal_world_query_player_spawn();
+}
+inline ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_player_spawn() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_player_spawn)
+  if (kind_case() == kWorldQueryPlayerSpawn) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryPlayerSpawnAction*>(_impl_.kind_.world_query_player_spawn_);
+    _impl_.kind_.world_query_player_spawn_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_player_spawn(
+    ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_player_spawn();
+    _impl_.kind_.world_query_player_spawn_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_player_spawn)
+}
+inline ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_player_spawn() {
+  if (kind_case() != kWorldQueryPlayerSpawn) {
+    clear_kind();
+    set_has_world_query_player_spawn();
+    _impl_.kind_.world_query_player_spawn_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryPlayerSpawnAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryPlayerSpawnAction*>(_impl_.kind_.world_query_player_spawn_);
+}
+inline ::df::plugin::WorldQueryPlayerSpawnAction* PROTOBUF_NONNULL Action::mutable_world_query_player_spawn()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryPlayerSpawnAction* _msg = _internal_mutable_world_query_player_spawn();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_player_spawn)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryBlockAction world_query_block = 75 [json_name = "worldQueryBlock"];
+inline bool Action::has_world_query_block() const {
+  return kind_case() == kWorldQueryBlock;
+}
+inline bool Action::_internal_has_world_query_block() const {
+  return kind_case() == kWorldQueryBlock;
+}
+inline void Action::set_has_world_query_block() {
+  _impl_._oneof_case_[0] = kWorldQueryBlock;
+}
+inline void Action::clear_world_query_block() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryBlock) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_block_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_block_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE Action::release_world_query_block() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_block)
+  if (kind_case() == kWorldQueryBlock) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryBlockAction*>(_impl_.kind_.world_query_block_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_block_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryBlockAction& Action::_internal_world_query_block() const {
+  return kind_case() == kWorldQueryBlock ? static_cast<const ::df::plugin::WorldQueryBlockAction&>(*reinterpret_cast<::df::plugin::WorldQueryBlockAction*>(_impl_.kind_.world_query_block_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryBlockAction&>(::df::plugin::_WorldQueryBlockAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryBlockAction& Action::world_query_block() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_block)
+  return _internal_world_query_block();
+}
+inline ::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_block() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_block)
+  if (kind_case() == kWorldQueryBlock) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryBlockAction*>(_impl_.kind_.world_query_block_);
+    _impl_.kind_.world_query_block_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_block(
+    ::df::plugin::WorldQueryBlockAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_block();
+    _impl_.kind_.world_query_block_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_block)
+}
+inline ::df::plugin::WorldQueryBlockAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_block() {
+  if (kind_case() != kWorldQueryBlock) {
+    clear_kind();
+    set_has_world_query_block();
+    _impl_.kind_.world_query_block_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryBlockAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryBlockAction*>(_impl_.kind_.world_query_block_);
+}
+inline ::df::plugin::WorldQueryBlockAction* PROTOBUF_NONNULL Action::mutable_world_query_block()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryBlockAction* _msg = _internal_mutable_world_query_block();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_block)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryBiomeAction world_query_biome = 76 [json_name = "worldQueryBiome"];
+inline bool Action::has_world_query_biome() const {
+  return kind_case() == kWorldQueryBiome;
+}
+inline bool Action::_internal_has_world_query_biome() const {
+  return kind_case() == kWorldQueryBiome;
+}
+inline void Action::set_has_world_query_biome() {
+  _impl_._oneof_case_[0] = kWorldQueryBiome;
+}
+inline void Action::clear_world_query_biome() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryBiome) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_biome_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_biome_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE Action::release_world_query_biome() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_biome)
+  if (kind_case() == kWorldQueryBiome) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryBiomeAction*>(_impl_.kind_.world_query_biome_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_biome_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryBiomeAction& Action::_internal_world_query_biome() const {
+  return kind_case() == kWorldQueryBiome ? static_cast<const ::df::plugin::WorldQueryBiomeAction&>(*reinterpret_cast<::df::plugin::WorldQueryBiomeAction*>(_impl_.kind_.world_query_biome_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryBiomeAction&>(::df::plugin::_WorldQueryBiomeAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryBiomeAction& Action::world_query_biome() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_biome)
+  return _internal_world_query_biome();
+}
+inline ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_biome() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_biome)
+  if (kind_case() == kWorldQueryBiome) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryBiomeAction*>(_impl_.kind_.world_query_biome_);
+    _impl_.kind_.world_query_biome_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_biome(
+    ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_biome();
+    _impl_.kind_.world_query_biome_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_biome)
+}
+inline ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_biome() {
+  if (kind_case() != kWorldQueryBiome) {
+    clear_kind();
+    set_has_world_query_biome();
+    _impl_.kind_.world_query_biome_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryBiomeAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryBiomeAction*>(_impl_.kind_.world_query_biome_);
+}
+inline ::df::plugin::WorldQueryBiomeAction* PROTOBUF_NONNULL Action::mutable_world_query_biome()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryBiomeAction* _msg = _internal_mutable_world_query_biome();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_biome)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryLiquidAction world_query_liquid = 84 [json_name = "worldQueryLiquid"];
+inline bool Action::has_world_query_liquid() const {
+  return kind_case() == kWorldQueryLiquid;
+}
+inline bool Action::_internal_has_world_query_liquid() const {
+  return kind_case() == kWorldQueryLiquid;
+}
+inline void Action::set_has_world_query_liquid() {
+  _impl_._oneof_case_[0] = kWorldQueryLiquid;
+}
+inline void Action::clear_world_query_liquid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryLiquid) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_liquid_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_liquid_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE Action::release_world_query_liquid() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_liquid)
+  if (kind_case() == kWorldQueryLiquid) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryLiquidAction*>(_impl_.kind_.world_query_liquid_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_liquid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryLiquidAction& Action::_internal_world_query_liquid() const {
+  return kind_case() == kWorldQueryLiquid ? static_cast<const ::df::plugin::WorldQueryLiquidAction&>(*reinterpret_cast<::df::plugin::WorldQueryLiquidAction*>(_impl_.kind_.world_query_liquid_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryLiquidAction&>(::df::plugin::_WorldQueryLiquidAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryLiquidAction& Action::world_query_liquid() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_liquid)
+  return _internal_world_query_liquid();
+}
+inline ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_liquid() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_liquid)
+  if (kind_case() == kWorldQueryLiquid) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryLiquidAction*>(_impl_.kind_.world_query_liquid_);
+    _impl_.kind_.world_query_liquid_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_liquid(
+    ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_liquid();
+    _impl_.kind_.world_query_liquid_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_liquid)
+}
+inline ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_liquid() {
+  if (kind_case() != kWorldQueryLiquid) {
+    clear_kind();
+    set_has_world_query_liquid();
+    _impl_.kind_.world_query_liquid_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryLiquidAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryLiquidAction*>(_impl_.kind_.world_query_liquid_);
+}
+inline ::df::plugin::WorldQueryLiquidAction* PROTOBUF_NONNULL Action::mutable_world_query_liquid()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryLiquidAction* _msg = _internal_mutable_world_query_liquid();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_liquid)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryHighestBlockAction world_query_highest_block = 80 [json_name = "worldQueryHighestBlock"];
+inline bool Action::has_world_query_highest_block() const {
+  return kind_case() == kWorldQueryHighestBlock;
+}
+inline bool Action::_internal_has_world_query_highest_block() const {
+  return kind_case() == kWorldQueryHighestBlock;
+}
+inline void Action::set_has_world_query_highest_block() {
+  _impl_._oneof_case_[0] = kWorldQueryHighestBlock;
+}
+inline void Action::clear_world_query_highest_block() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryHighestBlock) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_highest_block_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_highest_block_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE Action::release_world_query_highest_block() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_highest_block)
+  if (kind_case() == kWorldQueryHighestBlock) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryHighestBlockAction*>(_impl_.kind_.world_query_highest_block_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_highest_block_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryHighestBlockAction& Action::_internal_world_query_highest_block() const {
+  return kind_case() == kWorldQueryHighestBlock ? static_cast<const ::df::plugin::WorldQueryHighestBlockAction&>(*reinterpret_cast<::df::plugin::WorldQueryHighestBlockAction*>(_impl_.kind_.world_query_highest_block_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryHighestBlockAction&>(::df::plugin::_WorldQueryHighestBlockAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryHighestBlockAction& Action::world_query_highest_block() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_highest_block)
+  return _internal_world_query_highest_block();
+}
+inline ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_highest_block() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_highest_block)
+  if (kind_case() == kWorldQueryHighestBlock) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryHighestBlockAction*>(_impl_.kind_.world_query_highest_block_);
+    _impl_.kind_.world_query_highest_block_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_highest_block(
+    ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_highest_block();
+    _impl_.kind_.world_query_highest_block_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_highest_block)
+}
+inline ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_highest_block() {
+  if (kind_case() != kWorldQueryHighestBlock) {
+    clear_kind();
+    set_has_world_query_highest_block();
+    _impl_.kind_.world_query_highest_block_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryHighestBlockAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryHighestBlockAction*>(_impl_.kind_.world_query_highest_block_);
+}
+inline ::df::plugin::WorldQueryHighestBlockAction* PROTOBUF_NONNULL Action::mutable_world_query_highest_block()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryHighestBlockAction* _msg = _internal_mutable_world_query_highest_block();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_highest_block)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryLightAction world_query_light = 77 [json_name = "worldQueryLight"];
+inline bool Action::has_world_query_light() const {
+  return kind_case() == kWorldQueryLight;
+}
+inline bool Action::_internal_has_world_query_light() const {
+  return kind_case() == kWorldQueryLight;
+}
+inline void Action::set_has_world_query_light() {
+  _impl_._oneof_case_[0] = kWorldQueryLight;
+}
+inline void Action::clear_world_query_light() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryLight) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_light_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_light_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE Action::release_world_query_light() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_light)
+  if (kind_case() == kWorldQueryLight) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryLightAction*>(_impl_.kind_.world_query_light_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_light_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryLightAction& Action::_internal_world_query_light() const {
+  return kind_case() == kWorldQueryLight ? static_cast<const ::df::plugin::WorldQueryLightAction&>(*reinterpret_cast<::df::plugin::WorldQueryLightAction*>(_impl_.kind_.world_query_light_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryLightAction&>(::df::plugin::_WorldQueryLightAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryLightAction& Action::world_query_light() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_light)
+  return _internal_world_query_light();
+}
+inline ::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_light() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_light)
+  if (kind_case() == kWorldQueryLight) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryLightAction*>(_impl_.kind_.world_query_light_);
+    _impl_.kind_.world_query_light_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_light(
+    ::df::plugin::WorldQueryLightAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_light();
+    _impl_.kind_.world_query_light_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_light)
+}
+inline ::df::plugin::WorldQueryLightAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_light() {
+  if (kind_case() != kWorldQueryLight) {
+    clear_kind();
+    set_has_world_query_light();
+    _impl_.kind_.world_query_light_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryLightAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryLightAction*>(_impl_.kind_.world_query_light_);
+}
+inline ::df::plugin::WorldQueryLightAction* PROTOBUF_NONNULL Action::mutable_world_query_light()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryLightAction* _msg = _internal_mutable_world_query_light();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_light)
+  return _msg;
+}
+
+// .df.plugin.WorldQuerySkyLightAction world_query_sky_light = 78 [json_name = "worldQuerySkyLight"];
+inline bool Action::has_world_query_sky_light() const {
+  return kind_case() == kWorldQuerySkyLight;
+}
+inline bool Action::_internal_has_world_query_sky_light() const {
+  return kind_case() == kWorldQuerySkyLight;
+}
+inline void Action::set_has_world_query_sky_light() {
+  _impl_._oneof_case_[0] = kWorldQuerySkyLight;
+}
+inline void Action::clear_world_query_sky_light() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQuerySkyLight) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_sky_light_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_sky_light_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE Action::release_world_query_sky_light() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_sky_light)
+  if (kind_case() == kWorldQuerySkyLight) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQuerySkyLightAction*>(_impl_.kind_.world_query_sky_light_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_sky_light_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQuerySkyLightAction& Action::_internal_world_query_sky_light() const {
+  return kind_case() == kWorldQuerySkyLight ? static_cast<const ::df::plugin::WorldQuerySkyLightAction&>(*reinterpret_cast<::df::plugin::WorldQuerySkyLightAction*>(_impl_.kind_.world_query_sky_light_))
+                     : reinterpret_cast<const ::df::plugin::WorldQuerySkyLightAction&>(::df::plugin::_WorldQuerySkyLightAction_default_instance_);
+}
+inline const ::df::plugin::WorldQuerySkyLightAction& Action::world_query_sky_light() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_sky_light)
+  return _internal_world_query_sky_light();
+}
+inline ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_sky_light() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_sky_light)
+  if (kind_case() == kWorldQuerySkyLight) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQuerySkyLightAction*>(_impl_.kind_.world_query_sky_light_);
+    _impl_.kind_.world_query_sky_light_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_sky_light(
+    ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_sky_light();
+    _impl_.kind_.world_query_sky_light_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_sky_light)
+}
+inline ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_sky_light() {
+  if (kind_case() != kWorldQuerySkyLight) {
+    clear_kind();
+    set_has_world_query_sky_light();
+    _impl_.kind_.world_query_sky_light_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQuerySkyLightAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQuerySkyLightAction*>(_impl_.kind_.world_query_sky_light_);
+}
+inline ::df::plugin::WorldQuerySkyLightAction* PROTOBUF_NONNULL Action::mutable_world_query_sky_light()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQuerySkyLightAction* _msg = _internal_mutable_world_query_sky_light();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_sky_light)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryTemperatureAction world_query_temperature = 79 [json_name = "worldQueryTemperature"];
+inline bool Action::has_world_query_temperature() const {
+  return kind_case() == kWorldQueryTemperature;
+}
+inline bool Action::_internal_has_world_query_temperature() const {
+  return kind_case() == kWorldQueryTemperature;
+}
+inline void Action::set_has_world_query_temperature() {
+  _impl_._oneof_case_[0] = kWorldQueryTemperature;
+}
+inline void Action::clear_world_query_temperature() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryTemperature) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_temperature_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_temperature_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE Action::release_world_query_temperature() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_temperature)
+  if (kind_case() == kWorldQueryTemperature) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryTemperatureAction*>(_impl_.kind_.world_query_temperature_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_temperature_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryTemperatureAction& Action::_internal_world_query_temperature() const {
+  return kind_case() == kWorldQueryTemperature ? static_cast<const ::df::plugin::WorldQueryTemperatureAction&>(*reinterpret_cast<::df::plugin::WorldQueryTemperatureAction*>(_impl_.kind_.world_query_temperature_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryTemperatureAction&>(::df::plugin::_WorldQueryTemperatureAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryTemperatureAction& Action::world_query_temperature() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_temperature)
+  return _internal_world_query_temperature();
+}
+inline ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_temperature() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_temperature)
+  if (kind_case() == kWorldQueryTemperature) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryTemperatureAction*>(_impl_.kind_.world_query_temperature_);
+    _impl_.kind_.world_query_temperature_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_temperature(
+    ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_temperature();
+    _impl_.kind_.world_query_temperature_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_temperature)
+}
+inline ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_temperature() {
+  if (kind_case() != kWorldQueryTemperature) {
+    clear_kind();
+    set_has_world_query_temperature();
+    _impl_.kind_.world_query_temperature_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryTemperatureAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryTemperatureAction*>(_impl_.kind_.world_query_temperature_);
+}
+inline ::df::plugin::WorldQueryTemperatureAction* PROTOBUF_NONNULL Action::mutable_world_query_temperature()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryTemperatureAction* _msg = _internal_mutable_world_query_temperature();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_temperature)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryRainingAtAction world_query_raining_at = 81 [json_name = "worldQueryRainingAt"];
+inline bool Action::has_world_query_raining_at() const {
+  return kind_case() == kWorldQueryRainingAt;
+}
+inline bool Action::_internal_has_world_query_raining_at() const {
+  return kind_case() == kWorldQueryRainingAt;
+}
+inline void Action::set_has_world_query_raining_at() {
+  _impl_._oneof_case_[0] = kWorldQueryRainingAt;
+}
+inline void Action::clear_world_query_raining_at() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryRainingAt) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_raining_at_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_raining_at_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE Action::release_world_query_raining_at() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_raining_at)
+  if (kind_case() == kWorldQueryRainingAt) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryRainingAtAction*>(_impl_.kind_.world_query_raining_at_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_raining_at_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryRainingAtAction& Action::_internal_world_query_raining_at() const {
+  return kind_case() == kWorldQueryRainingAt ? static_cast<const ::df::plugin::WorldQueryRainingAtAction&>(*reinterpret_cast<::df::plugin::WorldQueryRainingAtAction*>(_impl_.kind_.world_query_raining_at_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryRainingAtAction&>(::df::plugin::_WorldQueryRainingAtAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryRainingAtAction& Action::world_query_raining_at() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_raining_at)
+  return _internal_world_query_raining_at();
+}
+inline ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_raining_at() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_raining_at)
+  if (kind_case() == kWorldQueryRainingAt) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryRainingAtAction*>(_impl_.kind_.world_query_raining_at_);
+    _impl_.kind_.world_query_raining_at_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_raining_at(
+    ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_raining_at();
+    _impl_.kind_.world_query_raining_at_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_raining_at)
+}
+inline ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_raining_at() {
+  if (kind_case() != kWorldQueryRainingAt) {
+    clear_kind();
+    set_has_world_query_raining_at();
+    _impl_.kind_.world_query_raining_at_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryRainingAtAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryRainingAtAction*>(_impl_.kind_.world_query_raining_at_);
+}
+inline ::df::plugin::WorldQueryRainingAtAction* PROTOBUF_NONNULL Action::mutable_world_query_raining_at()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryRainingAtAction* _msg = _internal_mutable_world_query_raining_at();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_raining_at)
+  return _msg;
+}
+
+// .df.plugin.WorldQuerySnowingAtAction world_query_snowing_at = 82 [json_name = "worldQuerySnowingAt"];
+inline bool Action::has_world_query_snowing_at() const {
+  return kind_case() == kWorldQuerySnowingAt;
+}
+inline bool Action::_internal_has_world_query_snowing_at() const {
+  return kind_case() == kWorldQuerySnowingAt;
+}
+inline void Action::set_has_world_query_snowing_at() {
+  _impl_._oneof_case_[0] = kWorldQuerySnowingAt;
+}
+inline void Action::clear_world_query_snowing_at() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQuerySnowingAt) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_snowing_at_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_snowing_at_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE Action::release_world_query_snowing_at() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_snowing_at)
+  if (kind_case() == kWorldQuerySnowingAt) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQuerySnowingAtAction*>(_impl_.kind_.world_query_snowing_at_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_snowing_at_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQuerySnowingAtAction& Action::_internal_world_query_snowing_at() const {
+  return kind_case() == kWorldQuerySnowingAt ? static_cast<const ::df::plugin::WorldQuerySnowingAtAction&>(*reinterpret_cast<::df::plugin::WorldQuerySnowingAtAction*>(_impl_.kind_.world_query_snowing_at_))
+                     : reinterpret_cast<const ::df::plugin::WorldQuerySnowingAtAction&>(::df::plugin::_WorldQuerySnowingAtAction_default_instance_);
+}
+inline const ::df::plugin::WorldQuerySnowingAtAction& Action::world_query_snowing_at() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_snowing_at)
+  return _internal_world_query_snowing_at();
+}
+inline ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_snowing_at() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_snowing_at)
+  if (kind_case() == kWorldQuerySnowingAt) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQuerySnowingAtAction*>(_impl_.kind_.world_query_snowing_at_);
+    _impl_.kind_.world_query_snowing_at_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_snowing_at(
+    ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_snowing_at();
+    _impl_.kind_.world_query_snowing_at_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_snowing_at)
+}
+inline ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_snowing_at() {
+  if (kind_case() != kWorldQuerySnowingAt) {
+    clear_kind();
+    set_has_world_query_snowing_at();
+    _impl_.kind_.world_query_snowing_at_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQuerySnowingAtAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQuerySnowingAtAction*>(_impl_.kind_.world_query_snowing_at_);
+}
+inline ::df::plugin::WorldQuerySnowingAtAction* PROTOBUF_NONNULL Action::mutable_world_query_snowing_at()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQuerySnowingAtAction* _msg = _internal_mutable_world_query_snowing_at();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_snowing_at)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryThunderingAtAction world_query_thundering_at = 83 [json_name = "worldQueryThunderingAt"];
+inline bool Action::has_world_query_thundering_at() const {
+  return kind_case() == kWorldQueryThunderingAt;
+}
+inline bool Action::_internal_has_world_query_thundering_at() const {
+  return kind_case() == kWorldQueryThunderingAt;
+}
+inline void Action::set_has_world_query_thundering_at() {
+  _impl_._oneof_case_[0] = kWorldQueryThunderingAt;
+}
+inline void Action::clear_world_query_thundering_at() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryThunderingAt) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_thundering_at_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_thundering_at_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE Action::release_world_query_thundering_at() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_thundering_at)
+  if (kind_case() == kWorldQueryThunderingAt) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryThunderingAtAction*>(_impl_.kind_.world_query_thundering_at_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_thundering_at_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryThunderingAtAction& Action::_internal_world_query_thundering_at() const {
+  return kind_case() == kWorldQueryThunderingAt ? static_cast<const ::df::plugin::WorldQueryThunderingAtAction&>(*reinterpret_cast<::df::plugin::WorldQueryThunderingAtAction*>(_impl_.kind_.world_query_thundering_at_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryThunderingAtAction&>(::df::plugin::_WorldQueryThunderingAtAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryThunderingAtAction& Action::world_query_thundering_at() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_thundering_at)
+  return _internal_world_query_thundering_at();
+}
+inline ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_thundering_at() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_thundering_at)
+  if (kind_case() == kWorldQueryThunderingAt) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryThunderingAtAction*>(_impl_.kind_.world_query_thundering_at_);
+    _impl_.kind_.world_query_thundering_at_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_thundering_at(
+    ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_thundering_at();
+    _impl_.kind_.world_query_thundering_at_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_thundering_at)
+}
+inline ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_thundering_at() {
+  if (kind_case() != kWorldQueryThunderingAt) {
+    clear_kind();
+    set_has_world_query_thundering_at();
+    _impl_.kind_.world_query_thundering_at_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryThunderingAtAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryThunderingAtAction*>(_impl_.kind_.world_query_thundering_at_);
+}
+inline ::df::plugin::WorldQueryThunderingAtAction* PROTOBUF_NONNULL Action::mutable_world_query_thundering_at()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryThunderingAtAction* _msg = _internal_mutable_world_query_thundering_at();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_thundering_at)
+  return _msg;
+}
+
+// .df.plugin.WorldQueryDefaultGameModeAction world_query_default_game_mode = 73 [json_name = "worldQueryDefaultGameMode"];
+inline bool Action::has_world_query_default_game_mode() const {
+  return kind_case() == kWorldQueryDefaultGameMode;
+}
+inline bool Action::_internal_has_world_query_default_game_mode() const {
+  return kind_case() == kWorldQueryDefaultGameMode;
+}
+inline void Action::set_has_world_query_default_game_mode() {
+  _impl_._oneof_case_[0] = kWorldQueryDefaultGameMode;
+}
+inline void Action::clear_world_query_default_game_mode() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (kind_case() == kWorldQueryDefaultGameMode) {
+    if (GetArena() == nullptr) {
+      delete _impl_.kind_.world_query_default_game_mode_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.kind_.world_query_default_game_mode_);
+    }
+    clear_has_kind();
+  }
+}
+inline ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE Action::release_world_query_default_game_mode() {
+  // @@protoc_insertion_point(field_release:df.plugin.Action.world_query_default_game_mode)
+  if (kind_case() == kWorldQueryDefaultGameMode) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryDefaultGameModeAction*>(_impl_.kind_.world_query_default_game_mode_);
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.kind_.world_query_default_game_mode_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::df::plugin::WorldQueryDefaultGameModeAction& Action::_internal_world_query_default_game_mode() const {
+  return kind_case() == kWorldQueryDefaultGameMode ? static_cast<const ::df::plugin::WorldQueryDefaultGameModeAction&>(*reinterpret_cast<::df::plugin::WorldQueryDefaultGameModeAction*>(_impl_.kind_.world_query_default_game_mode_))
+                     : reinterpret_cast<const ::df::plugin::WorldQueryDefaultGameModeAction&>(::df::plugin::_WorldQueryDefaultGameModeAction_default_instance_);
+}
+inline const ::df::plugin::WorldQueryDefaultGameModeAction& Action::world_query_default_game_mode() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:df.plugin.Action.world_query_default_game_mode)
+  return _internal_world_query_default_game_mode();
+}
+inline ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE Action::unsafe_arena_release_world_query_default_game_mode() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:df.plugin.Action.world_query_default_game_mode)
+  if (kind_case() == kWorldQueryDefaultGameMode) {
+    clear_has_kind();
+    auto* temp = reinterpret_cast<::df::plugin::WorldQueryDefaultGameModeAction*>(_impl_.kind_.world_query_default_game_mode_);
+    _impl_.kind_.world_query_default_game_mode_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void Action::unsafe_arena_set_allocated_world_query_default_game_mode(
+    ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NULLABLE value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_kind();
+  if (value) {
+    set_has_world_query_default_game_mode();
+    _impl_.kind_.world_query_default_game_mode_ = reinterpret_cast<::google::protobuf::Message*>(value);
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:df.plugin.Action.world_query_default_game_mode)
+}
+inline ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NONNULL Action::_internal_mutable_world_query_default_game_mode() {
+  if (kind_case() != kWorldQueryDefaultGameMode) {
+    clear_kind();
+    set_has_world_query_default_game_mode();
+    _impl_.kind_.world_query_default_game_mode_ = reinterpret_cast<::google::protobuf::Message*>(
+        ::google::protobuf::Message::DefaultConstruct<::df::plugin::WorldQueryDefaultGameModeAction>(GetArena()));
+  }
+  return reinterpret_cast<::df::plugin::WorldQueryDefaultGameModeAction*>(_impl_.kind_.world_query_default_game_mode_);
+}
+inline ::df::plugin::WorldQueryDefaultGameModeAction* PROTOBUF_NONNULL Action::mutable_world_query_default_game_mode()
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::df::plugin::WorldQueryDefaultGameModeAction* _msg = _internal_mutable_world_query_default_game_mode();
+  // @@protoc_insertion_point(field_mutable:df.plugin.Action.world_query_default_game_mode)
   return _msg;
 }
 

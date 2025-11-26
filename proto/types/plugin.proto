@@ -116,6 +116,7 @@ message PluginHello {
   string api_version = 3;
   repeated CommandSpec commands = 4;
   repeated CustomItemDefinition custom_items = 5;
+  repeated CustomBlockDefinition custom_blocks = 6;
 }
 
 message LogMessage {

@@ -1541,12 +1541,13 @@ func (*PluginToHost_Log) isPluginToHost_Payload() {}
 func (*PluginToHost_EventResult) isPluginToHost_Payload() {}
 
 type PluginHello struct {
-	state         protoimpl.MessageState  `protogen:"open.v1"`
-	Name          string                  `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Version       string                  `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
-	ApiVersion    string                  `protobuf:"bytes,3,opt,name=api_version,json=apiVersion,proto3" json:"api_version,omitempty"`
-	Commands      []*CommandSpec          `protobuf:"bytes,4,rep,name=commands,proto3" json:"commands,omitempty"`
-	CustomItems   []*CustomItemDefinition `protobuf:"bytes,5,rep,name=custom_items,json=customItems,proto3" json:"custom_items,omitempty"`
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	Name          string                   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Version       string                   `protobuf:"bytes,2,opt,name=version,proto3" json:"version,omitempty"`
+	ApiVersion    string                   `protobuf:"bytes,3,opt,name=api_version,json=apiVersion,proto3" json:"api_version,omitempty"`
+	Commands      []*CommandSpec           `protobuf:"bytes,4,rep,name=commands,proto3" json:"commands,omitempty"`
+	CustomItems   []*CustomItemDefinition  `protobuf:"bytes,5,rep,name=custom_items,json=customItems,proto3" json:"custom_items,omitempty"`
+	CustomBlocks  []*CustomBlockDefinition `protobuf:"bytes,6,rep,name=custom_blocks,json=customBlocks,proto3" json:"custom_blocks,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1612,6 +1613,13 @@ func (x *PluginHello) GetCommands() []*CommandSpec {
 func (x *PluginHello) GetCustomItems() []*CustomItemDefinition {
 	if x != nil {
 		return x.CustomItems
+	}
+	return nil
+}
+
+func (x *PluginHello) GetCustomBlocks() []*CustomBlockDefinition {
+	if x != nil {
+		return x.CustomBlocks
 	}
 	return nil
 }
@@ -1810,14 +1818,15 @@ const file_plugin_proto_rawDesc = "" +
 	"\aactions\x18\x14 \x01(\v2\x16.df.plugin.ActionBatchH\x00R\aactions\x12)\n" +
 	"\x03log\x18\x1e \x01(\v2\x15.df.plugin.LogMessageH\x00R\x03log\x12;\n" +
 	"\fevent_result\x18( \x01(\v2\x16.df.plugin.EventResultH\x00R\veventResultB\t\n" +
-	"\apayload\"\xd4\x01\n" +
+	"\apayload\"\x9b\x02\n" +
 	"\vPluginHello\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12\x1f\n" +
 	"\vapi_version\x18\x03 \x01(\tR\n" +
 	"apiVersion\x122\n" +
 	"\bcommands\x18\x04 \x03(\v2\x16.df.plugin.CommandSpecR\bcommands\x12B\n" +
-	"\fcustom_items\x18\x05 \x03(\v2\x1f.df.plugin.CustomItemDefinitionR\vcustomItems\"<\n" +
+	"\fcustom_items\x18\x05 \x03(\v2\x1f.df.plugin.CustomItemDefinitionR\vcustomItems\x12E\n" +
+	"\rcustom_blocks\x18\x06 \x03(\v2 .df.plugin.CustomBlockDefinitionR\fcustomBlocks\"<\n" +
 	"\n" +
 	"LogMessage\x12\x14\n" +
 	"\x05level\x18\x01 \x01(\tR\x05level\x12\x18\n" +
@@ -1962,6 +1971,7 @@ var file_plugin_proto_goTypes = []any{
 	(*EventResult)(nil),                // 62: df.plugin.EventResult
 	(*CommandSpec)(nil),                // 63: df.plugin.CommandSpec
 	(*CustomItemDefinition)(nil),       // 64: df.plugin.CustomItemDefinition
+	(*CustomBlockDefinition)(nil),      // 65: df.plugin.CustomBlockDefinition
 }
 var file_plugin_proto_depIdxs = []int32{
 	4,  // 0: df.plugin.HostToPlugin.hello:type_name -> df.plugin.HostHello
@@ -2027,14 +2037,15 @@ var file_plugin_proto_depIdxs = []int32{
 	62, // 60: df.plugin.PluginToHost.event_result:type_name -> df.plugin.EventResult
 	63, // 61: df.plugin.PluginHello.commands:type_name -> df.plugin.CommandSpec
 	64, // 62: df.plugin.PluginHello.custom_items:type_name -> df.plugin.CustomItemDefinition
-	0,  // 63: df.plugin.EventSubscribe.events:type_name -> df.plugin.EventType
-	7,  // 64: df.plugin.Plugin.EventStream:input_type -> df.plugin.PluginToHost
-	1,  // 65: df.plugin.Plugin.EventStream:output_type -> df.plugin.HostToPlugin
-	65, // [65:66] is the sub-list for method output_type
-	64, // [64:65] is the sub-list for method input_type
-	64, // [64:64] is the sub-list for extension type_name
-	64, // [64:64] is the sub-list for extension extendee
-	0,  // [0:64] is the sub-list for field type_name
+	65, // 63: df.plugin.PluginHello.custom_blocks:type_name -> df.plugin.CustomBlockDefinition
+	0,  // 64: df.plugin.EventSubscribe.events:type_name -> df.plugin.EventType
+	7,  // 65: df.plugin.Plugin.EventStream:input_type -> df.plugin.PluginToHost
+	1,  // 66: df.plugin.Plugin.EventStream:output_type -> df.plugin.HostToPlugin
+	66, // [66:67] is the sub-list for method output_type
+	65, // [65:66] is the sub-list for method input_type
+	65, // [65:65] is the sub-list for extension type_name
+	65, // [65:65] is the sub-list for extension extendee
+	0,  // [0:65] is the sub-list for field type_name
 }
 
 func init() { file_plugin_proto_init() }

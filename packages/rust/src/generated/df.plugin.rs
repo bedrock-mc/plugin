@@ -139,6 +139,104 @@ pub struct CustomItemDefinition {
     #[prost(int32, tag="6")]
     pub meta: i32,
 }
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockTexture {
+    /// Texture name used by materials (e.g., "my_block" or "my_block_side")
+    #[prost(string, tag="1")]
+    pub name: ::prost::alloc::string::String,
+    /// PNG-encoded bytes
+    #[prost(bytes="vec", tag="2")]
+    pub image_png: ::prost::alloc::vec::Vec<u8>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockMaterial {
+    /// "*", "up", "down", "north", "south", "east", "west"
+    #[prost(string, tag="1")]
+    pub target: ::prost::alloc::string::String,
+    /// Must match a CustomBlockTexture.name
+    #[prost(string, tag="2")]
+    pub texture_name: ::prost::alloc::string::String,
+    /// Optional, defaults to OPAQUE
+    #[prost(enumeration="CustomBlockRenderMethod", tag="3")]
+    pub render_method: i32,
+    /// Optional: defaults true
+    #[prost(bool, optional, tag="4")]
+    pub face_dimming: ::core::option::Option<bool>,
+    /// Optional: defaults based on render_method
+    #[prost(bool, optional, tag="5")]
+    pub ambient_occlusion: ::core::option::Option<bool>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockProperties {
+    #[prost(message, optional, tag="1")]
+    pub collision_box: ::core::option::Option<BBox>,
+    #[prost(message, optional, tag="2")]
+    pub selection_box: ::core::option::Option<BBox>,
+    /// e.g., "geometry.my_block"
+    #[prost(string, optional, tag="3")]
+    pub geometry_identifier: ::core::option::Option<::prost::alloc::string::String>,
+    /// true to use unit cube geometry when no identifier is provided
+    #[prost(bool, tag="4")]
+    pub cube: bool,
+    /// hex string like "#RRGGBB" for map colour
+    #[prost(string, optional, tag="5")]
+    pub map_colour: ::core::option::Option<::prost::alloc::string::String>,
+    /// integer degrees (90-degree increments), x/y/z
+    #[prost(message, optional, tag="6")]
+    pub rotation: ::core::option::Option<Vec3>,
+    /// translation vector
+    #[prost(message, optional, tag="7")]
+    pub translation: ::core::option::Option<Vec3>,
+    /// scaling factor
+    #[prost(message, optional, tag="8")]
+    pub scale: ::core::option::Option<Vec3>,
+    /// material instances by target
+    #[prost(message, repeated, tag="10")]
+    pub materials: ::prost::alloc::vec::Vec<CustomBlockMaterial>,
+    /// Client-side state properties and permutations (pack-only; no runtime IDs).
+    #[prost(map="string, message", tag="20")]
+    pub states: ::std::collections::HashMap<::prost::alloc::string::String, CustomBlockStateValues>,
+    #[prost(message, repeated, tag="21")]
+    pub permutations: ::prost::alloc::vec::Vec<CustomBlockPermutation>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockDefinition {
+    /// e.g., "my_plugin:my_block"
+    #[prost(string, tag="1")]
+    pub id: ::prost::alloc::string::String,
+    /// display name for language entry
+    #[prost(string, tag="2")]
+    pub display_name: ::prost::alloc::string::String,
+    /// optional geometry JSON for models/blocks/<name>.geo.json
+    #[prost(bytes="vec", optional, tag="3")]
+    pub geometry_json: ::core::option::Option<::prost::alloc::vec::Vec<u8>>,
+    /// textures referred by materials
+    #[prost(message, repeated, tag="4")]
+    pub textures: ::prost::alloc::vec::Vec<CustomBlockTexture>,
+    /// server/client properties/components
+    #[prost(message, optional, tag="5")]
+    pub properties: ::core::option::Option<CustomBlockProperties>,
+}
+/// Value list for a single custom block property (strings parsed to bool/int/float where possible).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockStateValues {
+    #[prost(string, repeated, tag="1")]
+    pub values: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// Permutation with molang condition and property overrides.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct CustomBlockPermutation {
+    #[prost(string, tag="1")]
+    pub condition: ::prost::alloc::string::String,
+    #[prost(message, optional, tag="2")]
+    pub properties: ::core::option::Option<CustomBlockProperties>,
+}
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 pub enum GameMode {
@@ -432,6 +530,39 @@ impl ItemCategory {
         }
     }
 }
+/// Custom block support
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+pub enum CustomBlockRenderMethod {
+    Opaque = 0,
+    AlphaTest = 1,
+    Blend = 2,
+    DoubleSided = 3,
+}
+impl CustomBlockRenderMethod {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            CustomBlockRenderMethod::Opaque => "CUSTOM_BLOCK_RENDER_METHOD_OPAQUE",
+            CustomBlockRenderMethod::AlphaTest => "CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST",
+            CustomBlockRenderMethod::Blend => "CUSTOM_BLOCK_RENDER_METHOD_BLEND",
+            CustomBlockRenderMethod::DoubleSided => "CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "CUSTOM_BLOCK_RENDER_METHOD_OPAQUE" => Some(Self::Opaque),
+            "CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST" => Some(Self::AlphaTest),
+            "CUSTOM_BLOCK_RENDER_METHOD_BLEND" => Some(Self::Blend),
+            "CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED" => Some(Self::DoubleSided),
+            _ => None,
+        }
+    }
+}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ActionResult {
@@ -648,7 +779,7 @@ pub struct ActionBatch {
 pub struct Action {
     #[prost(string, optional, tag="1")]
     pub correlation_id: ::core::option::Option<::prost::alloc::string::String>,
-    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 30, 31, 40, 41, 42, 43, 50, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 90, 91, 92, 93")]
+    #[prost(oneof="action::Kind", tags="10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 30, 31, 40, 41, 42, 43, 50, 60, 61, 62, 69, 63, 90, 91, 92, 93, 66, 67, 68, 64, 65, 70, 71, 72, 74, 75, 76, 84, 80, 77, 78, 79, 81, 82, 83, 73")]
     pub kind: ::core::option::Option<action::Kind>,
 }
 /// Nested message and enum types in `Action`.
@@ -656,6 +787,7 @@ pub mod action {
     #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Kind {
+        /// Player: Basic Actions
         #[prost(message, tag="10")]
         SendChat(super::SendChatAction),
         #[prost(message, tag="11")]
@@ -664,14 +796,14 @@ pub mod action {
         Kick(super::KickAction),
         #[prost(message, tag="13")]
         SetGameMode(super::SetGameModeAction),
-        /// Inventory & Items
+        /// Player: Inventory & Items
         #[prost(message, tag="14")]
         GiveItem(super::GiveItemAction),
         #[prost(message, tag="15")]
         ClearInventory(super::ClearInventoryAction),
         #[prost(message, tag="16")]
         SetHeldItem(super::SetHeldItemAction),
-        /// Player State
+        /// Player: State & Attributes
         #[prost(message, tag="20")]
         SetHealth(super::SetHealthAction),
         #[prost(message, tag="21")]
@@ -680,12 +812,12 @@ pub mod action {
         SetExperience(super::SetExperienceAction),
         #[prost(message, tag="23")]
         SetVelocity(super::SetVelocityAction),
-        /// Effects & Status
+        /// Player: Effects & Status
         #[prost(message, tag="30")]
         AddEffect(super::AddEffectAction),
         #[prost(message, tag="31")]
         RemoveEffect(super::RemoveEffectAction),
-        /// UI & Communication
+        /// Player: UI & Communication
         #[prost(message, tag="40")]
         SendTitle(super::SendTitleAction),
         #[prost(message, tag="41")]
@@ -697,59 +829,18 @@ pub mod action {
         /// Commands
         #[prost(message, tag="50")]
         ExecuteCommand(super::ExecuteCommandAction),
-        /// World configuration and effects
+        /// World: Configuration & Settings
         #[prost(message, tag="60")]
         WorldSetDefaultGameMode(super::WorldSetDefaultGameModeAction),
         #[prost(message, tag="61")]
         WorldSetDifficulty(super::WorldSetDifficultyAction),
         #[prost(message, tag="62")]
         WorldSetTickRange(super::WorldSetTickRangeAction),
-        #[prost(message, tag="63")]
-        WorldSetBlock(super::WorldSetBlockAction),
-        #[prost(message, tag="64")]
-        WorldPlaySound(super::WorldPlaySoundAction),
-        #[prost(message, tag="65")]
-        WorldAddParticle(super::WorldAddParticleAction),
-        #[prost(message, tag="66")]
-        WorldSetTime(super::WorldSetTimeAction),
-        #[prost(message, tag="67")]
-        WorldStopTime(super::WorldStopTimeAction),
-        #[prost(message, tag="68")]
-        WorldStartTime(super::WorldStartTimeAction),
         #[prost(message, tag="69")]
         WorldSetSpawn(super::WorldSetSpawnAction),
-        /// World queries
-        #[prost(message, tag="70")]
-        WorldQueryEntities(super::WorldQueryEntitiesAction),
-        #[prost(message, tag="71")]
-        WorldQueryPlayers(super::WorldQueryPlayersAction),
-        #[prost(message, tag="72")]
-        WorldQueryEntitiesWithin(super::WorldQueryEntitiesWithinAction),
-        #[prost(message, tag="73")]
-        WorldQueryDefaultGameMode(super::WorldQueryDefaultGameModeAction),
-        #[prost(message, tag="74")]
-        WorldQueryPlayerSpawn(super::WorldQueryPlayerSpawnAction),
-        #[prost(message, tag="75")]
-        WorldQueryBlock(super::WorldQueryBlockAction),
-        #[prost(message, tag="76")]
-        WorldQueryBiome(super::WorldQueryBiomeAction),
-        #[prost(message, tag="77")]
-        WorldQueryLight(super::WorldQueryLightAction),
-        #[prost(message, tag="78")]
-        WorldQuerySkyLight(super::WorldQuerySkyLightAction),
-        #[prost(message, tag="79")]
-        WorldQueryTemperature(super::WorldQueryTemperatureAction),
-        #[prost(message, tag="80")]
-        WorldQueryHighestBlock(super::WorldQueryHighestBlockAction),
-        #[prost(message, tag="81")]
-        WorldQueryRainingAt(super::WorldQueryRainingAtAction),
-        #[prost(message, tag="82")]
-        WorldQuerySnowingAt(super::WorldQuerySnowingAtAction),
-        #[prost(message, tag="83")]
-        WorldQueryThunderingAt(super::WorldQueryThunderingAtAction),
-        #[prost(message, tag="84")]
-        WorldQueryLiquid(super::WorldQueryLiquidAction),
-        /// World mutations (additional)
+        /// World: Actions - Blocks & Terrain
+        #[prost(message, tag="63")]
+        WorldSetBlock(super::WorldSetBlockAction),
         #[prost(message, tag="90")]
         WorldSetBiome(super::WorldSetBiomeAction),
         #[prost(message, tag="91")]
@@ -758,6 +849,53 @@ pub mod action {
         WorldScheduleBlockUpdate(super::WorldScheduleBlockUpdateAction),
         #[prost(message, tag="93")]
         WorldBuildStructure(super::WorldBuildStructureAction),
+        /// World: Actions -  Time
+        #[prost(message, tag="66")]
+        WorldSetTime(super::WorldSetTimeAction),
+        #[prost(message, tag="67")]
+        WorldStopTime(super::WorldStopTimeAction),
+        #[prost(message, tag="68")]
+        WorldStartTime(super::WorldStartTimeAction),
+        /// World: Actions - Effects & Audio
+        #[prost(message, tag="64")]
+        WorldPlaySound(super::WorldPlaySoundAction),
+        #[prost(message, tag="65")]
+        WorldAddParticle(super::WorldAddParticleAction),
+        /// World: Queries - Entities & Players
+        #[prost(message, tag="70")]
+        WorldQueryEntities(super::WorldQueryEntitiesAction),
+        #[prost(message, tag="71")]
+        WorldQueryPlayers(super::WorldQueryPlayersAction),
+        #[prost(message, tag="72")]
+        WorldQueryEntitiesWithin(super::WorldQueryEntitiesWithinAction),
+        #[prost(message, tag="74")]
+        WorldQueryPlayerSpawn(super::WorldQueryPlayerSpawnAction),
+        /// World: Queries - Blocks & Terrain
+        #[prost(message, tag="75")]
+        WorldQueryBlock(super::WorldQueryBlockAction),
+        #[prost(message, tag="76")]
+        WorldQueryBiome(super::WorldQueryBiomeAction),
+        #[prost(message, tag="84")]
+        WorldQueryLiquid(super::WorldQueryLiquidAction),
+        #[prost(message, tag="80")]
+        WorldQueryHighestBlock(super::WorldQueryHighestBlockAction),
+        /// World: Queries - Lighting
+        #[prost(message, tag="77")]
+        WorldQueryLight(super::WorldQueryLightAction),
+        #[prost(message, tag="78")]
+        WorldQuerySkyLight(super::WorldQuerySkyLightAction),
+        /// World: Queries - Weather & Environment
+        #[prost(message, tag="79")]
+        WorldQueryTemperature(super::WorldQueryTemperatureAction),
+        #[prost(message, tag="81")]
+        WorldQueryRainingAt(super::WorldQueryRainingAtAction),
+        #[prost(message, tag="82")]
+        WorldQuerySnowingAt(super::WorldQuerySnowingAtAction),
+        #[prost(message, tag="83")]
+        WorldQueryThunderingAt(super::WorldQueryThunderingAtAction),
+        /// World: Queries - Settings
+        #[prost(message, tag="73")]
+        WorldQueryDefaultGameMode(super::WorldQueryDefaultGameModeAction),
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2360,6 +2498,8 @@ pub struct PluginHello {
     pub commands: ::prost::alloc::vec::Vec<CommandSpec>,
     #[prost(message, repeated, tag="5")]
     pub custom_items: ::prost::alloc::vec::Vec<CustomItemDefinition>,
+    #[prost(message, repeated, tag="6")]
+    pub custom_blocks: ::prost::alloc::vec::Vec<CustomBlockDefinition>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]

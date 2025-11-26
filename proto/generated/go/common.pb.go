@@ -414,6 +414,59 @@ func (ItemCategory) EnumDescriptor() ([]byte, []int) {
 	return file_common_proto_rawDescGZIP(), []int{4}
 }
 
+// Custom block support
+type CustomBlockRenderMethod int32
+
+const (
+	CustomBlockRenderMethod_CUSTOM_BLOCK_RENDER_METHOD_OPAQUE       CustomBlockRenderMethod = 0
+	CustomBlockRenderMethod_CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST   CustomBlockRenderMethod = 1
+	CustomBlockRenderMethod_CUSTOM_BLOCK_RENDER_METHOD_BLEND        CustomBlockRenderMethod = 2
+	CustomBlockRenderMethod_CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED CustomBlockRenderMethod = 3
+)
+
+// Enum value maps for CustomBlockRenderMethod.
+var (
+	CustomBlockRenderMethod_name = map[int32]string{
+		0: "CUSTOM_BLOCK_RENDER_METHOD_OPAQUE",
+		1: "CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST",
+		2: "CUSTOM_BLOCK_RENDER_METHOD_BLEND",
+		3: "CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED",
+	}
+	CustomBlockRenderMethod_value = map[string]int32{
+		"CUSTOM_BLOCK_RENDER_METHOD_OPAQUE":       0,
+		"CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST":   1,
+		"CUSTOM_BLOCK_RENDER_METHOD_BLEND":        2,
+		"CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED": 3,
+	}
+)
+
+func (x CustomBlockRenderMethod) Enum() *CustomBlockRenderMethod {
+	p := new(CustomBlockRenderMethod)
+	*p = x
+	return p
+}
+
+func (x CustomBlockRenderMethod) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (CustomBlockRenderMethod) Descriptor() protoreflect.EnumDescriptor {
+	return file_common_proto_enumTypes[5].Descriptor()
+}
+
+func (CustomBlockRenderMethod) Type() protoreflect.EnumType {
+	return &file_common_proto_enumTypes[5]
+}
+
+func (x CustomBlockRenderMethod) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use CustomBlockRenderMethod.Descriptor instead.
+func (CustomBlockRenderMethod) EnumDescriptor() ([]byte, []int) {
+	return file_common_proto_rawDescGZIP(), []int{5}
+}
+
 type Vec3 struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	X             float64                `protobuf:"fixed64,1,opt,name=x,proto3" json:"x,omitempty"`
@@ -1196,6 +1249,433 @@ func (x *CustomItemDefinition) GetMeta() int32 {
 	return 0
 }
 
+type CustomBlockTexture struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`                         // Texture name used by materials (e.g., "my_block" or "my_block_side")
+	ImagePng      []byte                 `protobuf:"bytes,2,opt,name=image_png,json=imagePng,proto3" json:"image_png,omitempty"` // PNG-encoded bytes
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CustomBlockTexture) Reset() {
+	*x = CustomBlockTexture{}
+	mi := &file_common_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CustomBlockTexture) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CustomBlockTexture) ProtoMessage() {}
+
+func (x *CustomBlockTexture) ProtoReflect() protoreflect.Message {
+	mi := &file_common_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CustomBlockTexture.ProtoReflect.Descriptor instead.
+func (*CustomBlockTexture) Descriptor() ([]byte, []int) {
+	return file_common_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *CustomBlockTexture) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *CustomBlockTexture) GetImagePng() []byte {
+	if x != nil {
+		return x.ImagePng
+	}
+	return nil
+}
+
+type CustomBlockMaterial struct {
+	state            protoimpl.MessageState  `protogen:"open.v1"`
+	Target           string                  `protobuf:"bytes,1,opt,name=target,proto3" json:"target,omitempty"`                                                                         // "*", "up", "down", "north", "south", "east", "west"
+	TextureName      string                  `protobuf:"bytes,2,opt,name=texture_name,json=textureName,proto3" json:"texture_name,omitempty"`                                            // Must match a CustomBlockTexture.name
+	RenderMethod     CustomBlockRenderMethod `protobuf:"varint,3,opt,name=render_method,json=renderMethod,proto3,enum=df.plugin.CustomBlockRenderMethod" json:"render_method,omitempty"` // Optional, defaults to OPAQUE
+	FaceDimming      *bool                   `protobuf:"varint,4,opt,name=face_dimming,json=faceDimming,proto3,oneof" json:"face_dimming,omitempty"`                                     // Optional: defaults true
+	AmbientOcclusion *bool                   `protobuf:"varint,5,opt,name=ambient_occlusion,json=ambientOcclusion,proto3,oneof" json:"ambient_occlusion,omitempty"`                      // Optional: defaults based on render_method
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *CustomBlockMaterial) Reset() {
+	*x = CustomBlockMaterial{}
+	mi := &file_common_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CustomBlockMaterial) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CustomBlockMaterial) ProtoMessage() {}
+
+func (x *CustomBlockMaterial) ProtoReflect() protoreflect.Message {
+	mi := &file_common_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CustomBlockMaterial.ProtoReflect.Descriptor instead.
+func (*CustomBlockMaterial) Descriptor() ([]byte, []int) {
+	return file_common_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *CustomBlockMaterial) GetTarget() string {
+	if x != nil {
+		return x.Target
+	}
+	return ""
+}
+
+func (x *CustomBlockMaterial) GetTextureName() string {
+	if x != nil {
+		return x.TextureName
+	}
+	return ""
+}
+
+func (x *CustomBlockMaterial) GetRenderMethod() CustomBlockRenderMethod {
+	if x != nil {
+		return x.RenderMethod
+	}
+	return CustomBlockRenderMethod_CUSTOM_BLOCK_RENDER_METHOD_OPAQUE
+}
+
+func (x *CustomBlockMaterial) GetFaceDimming() bool {
+	if x != nil && x.FaceDimming != nil {
+		return *x.FaceDimming
+	}
+	return false
+}
+
+func (x *CustomBlockMaterial) GetAmbientOcclusion() bool {
+	if x != nil && x.AmbientOcclusion != nil {
+		return *x.AmbientOcclusion
+	}
+	return false
+}
+
+type CustomBlockProperties struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	CollisionBox       *BBox                  `protobuf:"bytes,1,opt,name=collision_box,json=collisionBox,proto3,oneof" json:"collision_box,omitempty"`
+	SelectionBox       *BBox                  `protobuf:"bytes,2,opt,name=selection_box,json=selectionBox,proto3,oneof" json:"selection_box,omitempty"`
+	GeometryIdentifier *string                `protobuf:"bytes,3,opt,name=geometry_identifier,json=geometryIdentifier,proto3,oneof" json:"geometry_identifier,omitempty"` // e.g., "geometry.my_block"
+	Cube               bool                   `protobuf:"varint,4,opt,name=cube,proto3" json:"cube,omitempty"`                                                            // true to use unit cube geometry when no identifier is provided
+	MapColour          *string                `protobuf:"bytes,5,opt,name=map_colour,json=mapColour,proto3,oneof" json:"map_colour,omitempty"`                            // hex string like "#RRGGBB" for map colour
+	Rotation           *Vec3                  `protobuf:"bytes,6,opt,name=rotation,proto3,oneof" json:"rotation,omitempty"`                                               // integer degrees (90-degree increments), x/y/z
+	Translation        *Vec3                  `protobuf:"bytes,7,opt,name=translation,proto3,oneof" json:"translation,omitempty"`                                         // translation vector
+	Scale              *Vec3                  `protobuf:"bytes,8,opt,name=scale,proto3,oneof" json:"scale,omitempty"`                                                     // scaling factor
+	Materials          []*CustomBlockMaterial `protobuf:"bytes,10,rep,name=materials,proto3" json:"materials,omitempty"`                                                  // material instances by target
+	// Client-side state properties and permutations (pack-only; no runtime IDs).
+	States        map[string]*CustomBlockStateValues `protobuf:"bytes,20,rep,name=states,proto3" json:"states,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Permutations  []*CustomBlockPermutation          `protobuf:"bytes,21,rep,name=permutations,proto3" json:"permutations,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CustomBlockProperties) Reset() {
+	*x = CustomBlockProperties{}
+	mi := &file_common_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CustomBlockProperties) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CustomBlockProperties) ProtoMessage() {}
+
+func (x *CustomBlockProperties) ProtoReflect() protoreflect.Message {
+	mi := &file_common_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CustomBlockProperties.ProtoReflect.Descriptor instead.
+func (*CustomBlockProperties) Descriptor() ([]byte, []int) {
+	return file_common_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *CustomBlockProperties) GetCollisionBox() *BBox {
+	if x != nil {
+		return x.CollisionBox
+	}
+	return nil
+}
+
+func (x *CustomBlockProperties) GetSelectionBox() *BBox {
+	if x != nil {
+		return x.SelectionBox
+	}
+	return nil
+}
+
+func (x *CustomBlockProperties) GetGeometryIdentifier() string {
+	if x != nil && x.GeometryIdentifier != nil {
+		return *x.GeometryIdentifier
+	}
+	return ""
+}
+
+func (x *CustomBlockProperties) GetCube() bool {
+	if x != nil {
+		return x.Cube
+	}
+	return false
+}
+
+func (x *CustomBlockProperties) GetMapColour() string {
+	if x != nil && x.MapColour != nil {
+		return *x.MapColour
+	}
+	return ""
+}
+
+func (x *CustomBlockProperties) GetRotation() *Vec3 {
+	if x != nil {
+		return x.Rotation
+	}
+	return nil
+}
+
+func (x *CustomBlockProperties) GetTranslation() *Vec3 {
+	if x != nil {
+		return x.Translation
+	}
+	return nil
+}
+
+func (x *CustomBlockProperties) GetScale() *Vec3 {
+	if x != nil {
+		return x.Scale
+	}
+	return nil
+}
+
+func (x *CustomBlockProperties) GetMaterials() []*CustomBlockMaterial {
+	if x != nil {
+		return x.Materials
+	}
+	return nil
+}
+
+func (x *CustomBlockProperties) GetStates() map[string]*CustomBlockStateValues {
+	if x != nil {
+		return x.States
+	}
+	return nil
+}
+
+func (x *CustomBlockProperties) GetPermutations() []*CustomBlockPermutation {
+	if x != nil {
+		return x.Permutations
+	}
+	return nil
+}
+
+type CustomBlockDefinition struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`                                               // e.g., "my_plugin:my_block"
+	DisplayName   string                 `protobuf:"bytes,2,opt,name=display_name,json=displayName,proto3" json:"display_name,omitempty"`          // display name for language entry
+	GeometryJson  []byte                 `protobuf:"bytes,3,opt,name=geometry_json,json=geometryJson,proto3,oneof" json:"geometry_json,omitempty"` // optional geometry JSON for models/blocks/<name>.geo.json
+	Textures      []*CustomBlockTexture  `protobuf:"bytes,4,rep,name=textures,proto3" json:"textures,omitempty"`                                   // textures referred by materials
+	Properties    *CustomBlockProperties `protobuf:"bytes,5,opt,name=properties,proto3" json:"properties,omitempty"`                               // server/client properties/components
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CustomBlockDefinition) Reset() {
+	*x = CustomBlockDefinition{}
+	mi := &file_common_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CustomBlockDefinition) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CustomBlockDefinition) ProtoMessage() {}
+
+func (x *CustomBlockDefinition) ProtoReflect() protoreflect.Message {
+	mi := &file_common_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CustomBlockDefinition.ProtoReflect.Descriptor instead.
+func (*CustomBlockDefinition) Descriptor() ([]byte, []int) {
+	return file_common_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *CustomBlockDefinition) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *CustomBlockDefinition) GetDisplayName() string {
+	if x != nil {
+		return x.DisplayName
+	}
+	return ""
+}
+
+func (x *CustomBlockDefinition) GetGeometryJson() []byte {
+	if x != nil {
+		return x.GeometryJson
+	}
+	return nil
+}
+
+func (x *CustomBlockDefinition) GetTextures() []*CustomBlockTexture {
+	if x != nil {
+		return x.Textures
+	}
+	return nil
+}
+
+func (x *CustomBlockDefinition) GetProperties() *CustomBlockProperties {
+	if x != nil {
+		return x.Properties
+	}
+	return nil
+}
+
+// Value list for a single custom block property (strings parsed to bool/int/float where possible).
+type CustomBlockStateValues struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Values        []string               `protobuf:"bytes,1,rep,name=values,proto3" json:"values,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CustomBlockStateValues) Reset() {
+	*x = CustomBlockStateValues{}
+	mi := &file_common_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CustomBlockStateValues) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CustomBlockStateValues) ProtoMessage() {}
+
+func (x *CustomBlockStateValues) ProtoReflect() protoreflect.Message {
+	mi := &file_common_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CustomBlockStateValues.ProtoReflect.Descriptor instead.
+func (*CustomBlockStateValues) Descriptor() ([]byte, []int) {
+	return file_common_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *CustomBlockStateValues) GetValues() []string {
+	if x != nil {
+		return x.Values
+	}
+	return nil
+}
+
+// Permutation with molang condition and property overrides.
+type CustomBlockPermutation struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Condition     string                 `protobuf:"bytes,1,opt,name=condition,proto3" json:"condition,omitempty"`
+	Properties    *CustomBlockProperties `protobuf:"bytes,2,opt,name=properties,proto3" json:"properties,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CustomBlockPermutation) Reset() {
+	*x = CustomBlockPermutation{}
+	mi := &file_common_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CustomBlockPermutation) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CustomBlockPermutation) ProtoMessage() {}
+
+func (x *CustomBlockPermutation) ProtoReflect() protoreflect.Message {
+	mi := &file_common_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CustomBlockPermutation.ProtoReflect.Descriptor instead.
+func (*CustomBlockPermutation) Descriptor() ([]byte, []int) {
+	return file_common_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *CustomBlockPermutation) GetCondition() string {
+	if x != nil {
+		return x.Condition
+	}
+	return ""
+}
+
+func (x *CustomBlockPermutation) GetProperties() *CustomBlockProperties {
+	if x != nil {
+		return x.Properties
+	}
+	return nil
+}
+
 var File_common_proto protoreflect.FileDescriptor
 
 const file_common_proto_rawDesc = "" +
@@ -1265,7 +1745,58 @@ const file_common_proto_rawDesc = "" +
 	"\bcategory\x18\x04 \x01(\x0e2\x17.df.plugin.ItemCategoryR\bcategory\x12\x19\n" +
 	"\x05group\x18\x05 \x01(\tH\x00R\x05group\x88\x01\x01\x12\x12\n" +
 	"\x04meta\x18\x06 \x01(\x05R\x04metaB\b\n" +
-	"\x06_group*D\n" +
+	"\x06_group\"E\n" +
+	"\x12CustomBlockTexture\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1b\n" +
+	"\timage_png\x18\x02 \x01(\fR\bimagePng\"\x9a\x02\n" +
+	"\x13CustomBlockMaterial\x12\x16\n" +
+	"\x06target\x18\x01 \x01(\tR\x06target\x12!\n" +
+	"\ftexture_name\x18\x02 \x01(\tR\vtextureName\x12G\n" +
+	"\rrender_method\x18\x03 \x01(\x0e2\".df.plugin.CustomBlockRenderMethodR\frenderMethod\x12&\n" +
+	"\fface_dimming\x18\x04 \x01(\bH\x00R\vfaceDimming\x88\x01\x01\x120\n" +
+	"\x11ambient_occlusion\x18\x05 \x01(\bH\x01R\x10ambientOcclusion\x88\x01\x01B\x0f\n" +
+	"\r_face_dimmingB\x14\n" +
+	"\x12_ambient_occlusion\"\xac\x06\n" +
+	"\x15CustomBlockProperties\x129\n" +
+	"\rcollision_box\x18\x01 \x01(\v2\x0f.df.plugin.BBoxH\x00R\fcollisionBox\x88\x01\x01\x129\n" +
+	"\rselection_box\x18\x02 \x01(\v2\x0f.df.plugin.BBoxH\x01R\fselectionBox\x88\x01\x01\x124\n" +
+	"\x13geometry_identifier\x18\x03 \x01(\tH\x02R\x12geometryIdentifier\x88\x01\x01\x12\x12\n" +
+	"\x04cube\x18\x04 \x01(\bR\x04cube\x12\"\n" +
+	"\n" +
+	"map_colour\x18\x05 \x01(\tH\x03R\tmapColour\x88\x01\x01\x120\n" +
+	"\brotation\x18\x06 \x01(\v2\x0f.df.plugin.Vec3H\x04R\brotation\x88\x01\x01\x126\n" +
+	"\vtranslation\x18\a \x01(\v2\x0f.df.plugin.Vec3H\x05R\vtranslation\x88\x01\x01\x12*\n" +
+	"\x05scale\x18\b \x01(\v2\x0f.df.plugin.Vec3H\x06R\x05scale\x88\x01\x01\x12<\n" +
+	"\tmaterials\x18\n" +
+	" \x03(\v2\x1e.df.plugin.CustomBlockMaterialR\tmaterials\x12D\n" +
+	"\x06states\x18\x14 \x03(\v2,.df.plugin.CustomBlockProperties.StatesEntryR\x06states\x12E\n" +
+	"\fpermutations\x18\x15 \x03(\v2!.df.plugin.CustomBlockPermutationR\fpermutations\x1a\\\n" +
+	"\vStatesEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x127\n" +
+	"\x05value\x18\x02 \x01(\v2!.df.plugin.CustomBlockStateValuesR\x05value:\x028\x01B\x10\n" +
+	"\x0e_collision_boxB\x10\n" +
+	"\x0e_selection_boxB\x16\n" +
+	"\x14_geometry_identifierB\r\n" +
+	"\v_map_colourB\v\n" +
+	"\t_rotationB\x0e\n" +
+	"\f_translationB\b\n" +
+	"\x06_scale\"\x83\x02\n" +
+	"\x15CustomBlockDefinition\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12!\n" +
+	"\fdisplay_name\x18\x02 \x01(\tR\vdisplayName\x12(\n" +
+	"\rgeometry_json\x18\x03 \x01(\fH\x00R\fgeometryJson\x88\x01\x01\x129\n" +
+	"\btextures\x18\x04 \x03(\v2\x1d.df.plugin.CustomBlockTextureR\btextures\x12@\n" +
+	"\n" +
+	"properties\x18\x05 \x01(\v2 .df.plugin.CustomBlockPropertiesR\n" +
+	"propertiesB\x10\n" +
+	"\x0e_geometry_json\"0\n" +
+	"\x16CustomBlockStateValues\x12\x16\n" +
+	"\x06values\x18\x01 \x03(\tR\x06values\"x\n" +
+	"\x16CustomBlockPermutation\x12\x1c\n" +
+	"\tcondition\x18\x01 \x01(\tR\tcondition\x12@\n" +
+	"\n" +
+	"properties\x18\x02 \x01(\v2 .df.plugin.CustomBlockPropertiesR\n" +
+	"properties*D\n" +
 	"\bGameMode\x12\f\n" +
 	"\bSURVIVAL\x10\x00\x12\f\n" +
 	"\bCREATIVE\x10\x01\x12\r\n" +
@@ -1350,7 +1881,12 @@ const file_common_proto_rawDesc = "" +
 	"\x1aITEM_CATEGORY_CONSTRUCTION\x10\x00\x12\x18\n" +
 	"\x14ITEM_CATEGORY_NATURE\x10\x01\x12\x1b\n" +
 	"\x17ITEM_CATEGORY_EQUIPMENT\x10\x02\x12\x17\n" +
-	"\x13ITEM_CATEGORY_ITEMS\x10\x03B\x8a\x01\n" +
+	"\x13ITEM_CATEGORY_ITEMS\x10\x03*\xbe\x01\n" +
+	"\x17CustomBlockRenderMethod\x12%\n" +
+	"!CUSTOM_BLOCK_RENDER_METHOD_OPAQUE\x10\x00\x12)\n" +
+	"%CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST\x10\x01\x12$\n" +
+	" CUSTOM_BLOCK_RENDER_METHOD_BLEND\x10\x02\x12+\n" +
+	"'CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED\x10\x03B\x8a\x01\n" +
 	"\rcom.df.pluginB\vCommonProtoP\x01Z'github.com/secmc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
 	"Df::Pluginb\x06proto3"
 
@@ -1366,42 +1902,63 @@ func file_common_proto_rawDescGZIP() []byte {
 	return file_common_proto_rawDescData
 }
 
-var file_common_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
-var file_common_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
+var file_common_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
+var file_common_proto_msgTypes = make([]protoimpl.MessageInfo, 21)
 var file_common_proto_goTypes = []any{
-	(GameMode)(0),                // 0: df.plugin.GameMode
-	(Difficulty)(0),              // 1: df.plugin.Difficulty
-	(EffectType)(0),              // 2: df.plugin.EffectType
-	(Sound)(0),                   // 3: df.plugin.Sound
-	(ItemCategory)(0),            // 4: df.plugin.ItemCategory
-	(*Vec3)(nil),                 // 5: df.plugin.Vec3
-	(*Rotation)(nil),             // 6: df.plugin.Rotation
-	(*BBox)(nil),                 // 7: df.plugin.BBox
-	(*BlockPos)(nil),             // 8: df.plugin.BlockPos
-	(*ItemStack)(nil),            // 9: df.plugin.ItemStack
-	(*BlockState)(nil),           // 10: df.plugin.BlockState
-	(*LiquidState)(nil),          // 11: df.plugin.LiquidState
-	(*WorldRef)(nil),             // 12: df.plugin.WorldRef
-	(*EntityRef)(nil),            // 13: df.plugin.EntityRef
-	(*DamageSource)(nil),         // 14: df.plugin.DamageSource
-	(*HealingSource)(nil),        // 15: df.plugin.HealingSource
-	(*Address)(nil),              // 16: df.plugin.Address
-	(*CustomItemDefinition)(nil), // 17: df.plugin.CustomItemDefinition
-	nil,                          // 18: df.plugin.BlockState.PropertiesEntry
+	(GameMode)(0),                  // 0: df.plugin.GameMode
+	(Difficulty)(0),                // 1: df.plugin.Difficulty
+	(EffectType)(0),                // 2: df.plugin.EffectType
+	(Sound)(0),                     // 3: df.plugin.Sound
+	(ItemCategory)(0),              // 4: df.plugin.ItemCategory
+	(CustomBlockRenderMethod)(0),   // 5: df.plugin.CustomBlockRenderMethod
+	(*Vec3)(nil),                   // 6: df.plugin.Vec3
+	(*Rotation)(nil),               // 7: df.plugin.Rotation
+	(*BBox)(nil),                   // 8: df.plugin.BBox
+	(*BlockPos)(nil),               // 9: df.plugin.BlockPos
+	(*ItemStack)(nil),              // 10: df.plugin.ItemStack
+	(*BlockState)(nil),             // 11: df.plugin.BlockState
+	(*LiquidState)(nil),            // 12: df.plugin.LiquidState
+	(*WorldRef)(nil),               // 13: df.plugin.WorldRef
+	(*EntityRef)(nil),              // 14: df.plugin.EntityRef
+	(*DamageSource)(nil),           // 15: df.plugin.DamageSource
+	(*HealingSource)(nil),          // 16: df.plugin.HealingSource
+	(*Address)(nil),                // 17: df.plugin.Address
+	(*CustomItemDefinition)(nil),   // 18: df.plugin.CustomItemDefinition
+	(*CustomBlockTexture)(nil),     // 19: df.plugin.CustomBlockTexture
+	(*CustomBlockMaterial)(nil),    // 20: df.plugin.CustomBlockMaterial
+	(*CustomBlockProperties)(nil),  // 21: df.plugin.CustomBlockProperties
+	(*CustomBlockDefinition)(nil),  // 22: df.plugin.CustomBlockDefinition
+	(*CustomBlockStateValues)(nil), // 23: df.plugin.CustomBlockStateValues
+	(*CustomBlockPermutation)(nil), // 24: df.plugin.CustomBlockPermutation
+	nil,                            // 25: df.plugin.BlockState.PropertiesEntry
+	nil,                            // 26: df.plugin.CustomBlockProperties.StatesEntry
 }
 var file_common_proto_depIdxs = []int32{
-	5,  // 0: df.plugin.BBox.min:type_name -> df.plugin.Vec3
-	5,  // 1: df.plugin.BBox.max:type_name -> df.plugin.Vec3
-	18, // 2: df.plugin.BlockState.properties:type_name -> df.plugin.BlockState.PropertiesEntry
-	10, // 3: df.plugin.LiquidState.block:type_name -> df.plugin.BlockState
-	5,  // 4: df.plugin.EntityRef.position:type_name -> df.plugin.Vec3
-	6,  // 5: df.plugin.EntityRef.rotation:type_name -> df.plugin.Rotation
+	6,  // 0: df.plugin.BBox.min:type_name -> df.plugin.Vec3
+	6,  // 1: df.plugin.BBox.max:type_name -> df.plugin.Vec3
+	25, // 2: df.plugin.BlockState.properties:type_name -> df.plugin.BlockState.PropertiesEntry
+	11, // 3: df.plugin.LiquidState.block:type_name -> df.plugin.BlockState
+	6,  // 4: df.plugin.EntityRef.position:type_name -> df.plugin.Vec3
+	7,  // 5: df.plugin.EntityRef.rotation:type_name -> df.plugin.Rotation
 	4,  // 6: df.plugin.CustomItemDefinition.category:type_name -> df.plugin.ItemCategory
-	7,  // [7:7] is the sub-list for method output_type
-	7,  // [7:7] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	5,  // 7: df.plugin.CustomBlockMaterial.render_method:type_name -> df.plugin.CustomBlockRenderMethod
+	8,  // 8: df.plugin.CustomBlockProperties.collision_box:type_name -> df.plugin.BBox
+	8,  // 9: df.plugin.CustomBlockProperties.selection_box:type_name -> df.plugin.BBox
+	6,  // 10: df.plugin.CustomBlockProperties.rotation:type_name -> df.plugin.Vec3
+	6,  // 11: df.plugin.CustomBlockProperties.translation:type_name -> df.plugin.Vec3
+	6,  // 12: df.plugin.CustomBlockProperties.scale:type_name -> df.plugin.Vec3
+	20, // 13: df.plugin.CustomBlockProperties.materials:type_name -> df.plugin.CustomBlockMaterial
+	26, // 14: df.plugin.CustomBlockProperties.states:type_name -> df.plugin.CustomBlockProperties.StatesEntry
+	24, // 15: df.plugin.CustomBlockProperties.permutations:type_name -> df.plugin.CustomBlockPermutation
+	19, // 16: df.plugin.CustomBlockDefinition.textures:type_name -> df.plugin.CustomBlockTexture
+	21, // 17: df.plugin.CustomBlockDefinition.properties:type_name -> df.plugin.CustomBlockProperties
+	21, // 18: df.plugin.CustomBlockPermutation.properties:type_name -> df.plugin.CustomBlockProperties
+	23, // 19: df.plugin.CustomBlockProperties.StatesEntry.value:type_name -> df.plugin.CustomBlockStateValues
+	20, // [20:20] is the sub-list for method output_type
+	20, // [20:20] is the sub-list for method input_type
+	20, // [20:20] is the sub-list for extension type_name
+	20, // [20:20] is the sub-list for extension extendee
+	0,  // [0:20] is the sub-list for field type_name
 }
 
 func init() { file_common_proto_init() }
@@ -1413,13 +1970,16 @@ func file_common_proto_init() {
 	file_common_proto_msgTypes[9].OneofWrappers = []any{}
 	file_common_proto_msgTypes[10].OneofWrappers = []any{}
 	file_common_proto_msgTypes[12].OneofWrappers = []any{}
+	file_common_proto_msgTypes[14].OneofWrappers = []any{}
+	file_common_proto_msgTypes[15].OneofWrappers = []any{}
+	file_common_proto_msgTypes[16].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_common_proto_rawDesc), len(file_common_proto_rawDesc)),
-			NumEnums:      5,
-			NumMessages:   14,
+			NumEnums:      6,
+			NumMessages:   21,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
