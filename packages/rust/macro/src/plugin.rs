@@ -126,7 +126,7 @@ pub(crate) fn generate_plugin_impl(
             impl dragonfly_plugin::command::CommandRegistry for #derive_name {}
         }
     } else {
-        // Has commands: generate get_commands() and __dispatch_commands()
+        // Has commands: generate get_commands() and dispatch_commands()
         let spec_calls = commands.iter().map(|cmd| {
             quote! { #cmd::spec() }
         });

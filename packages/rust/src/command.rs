@@ -1,6 +1,5 @@
 use crate::{server::Server, types};
 
-pub use dragonfly_plugin_macro::{command_handlers, Command};
 use tokio::sync::mpsc;
 
 /// Per-command execution context.

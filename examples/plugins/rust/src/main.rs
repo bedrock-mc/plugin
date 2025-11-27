@@ -4,10 +4,7 @@
 /// pay: pay yourself money
 /// bal: view your balance / money
 use dragonfly_plugin::{
-    Plugin, PluginRunner,
-    command::{Command, Ctx, command_handlers},
-    event::EventHandler,
-    event_handler, types,
+    Command, Plugin, PluginRunner, command::Ctx, event::EventHandler, event_handler, types,
 };
 use sqlx::{SqlitePool, sqlite::SqlitePoolOptions};
 
@@ -71,16 +68,21 @@ impl RusticEconomy {
 }
 
 #[derive(Command)]
-#[command(name = "eco", description = "Rustic Economy commands.")]
+#[command(
+    name = "eco",
+    description = "Rustic Economy commands.",
+    aliases("economy", "rustic_eco")
+)]
 pub enum Eco {
+    #[subcommand(aliases("donate"))]
     Pay { amount: f64 },
+    #[subcommand(aliases("balance", "money"))]
     Bal,
 }
 
-#[command_handlers]
-impl Eco {
-    async fn pay(state: &RusticEconomy, ctx: Ctx<'_>, amount: f64) {
-        match state.add_money(&ctx.sender, amount).await {
+impl EcoHandler for RusticEconomy {
+    async fn pay(&self, ctx: Ctx<'_>, amount: f64) {
+        match self.add_money(&ctx.sender, amount).await {
             Ok(new_balance) => ctx
                 .reply(format!(
                     "Added ${:.2}! New balance: ${:.2}",
@@ -97,8 +99,8 @@ impl Eco {
         }
     }
 
-    async fn bal(state: &RusticEconomy, ctx: Ctx<'_>) {
-        match state.get_balance(&ctx.sender).await {
+    async fn bal(&self, ctx: Ctx<'_>) {
+        match self.get_balance(&ctx.sender).await {
             Ok(balance) => ctx
                 .reply(format!("Your balance: ${:.2}", balance))
                 .await

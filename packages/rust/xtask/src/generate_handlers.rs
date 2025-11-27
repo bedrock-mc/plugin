@@ -58,6 +58,8 @@ fn generate_handler_trait_tokens(ast: &File) -> Result<String> {
                         server.plugin_id.clone(),
                     );
 
+                    context.send_ack_if_needed().await;
+
                     // Try registered commands first
                     let handled = handler.dispatch_commands(server, &mut context).await;
 
@@ -65,8 +67,6 @@ fn generate_handler_trait_tokens(ast: &File) -> Result<String> {
                     if !handled {
                         handler.#handler_fn_name(server, &mut context).await;
                     }
-
-                    context.send_ack_if_needed().await;
                 },
             }
         } else {

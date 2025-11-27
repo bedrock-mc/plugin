@@ -1,6 +1,6 @@
 use heck::ToSnakeCase;
 use proc_macro2::TokenStream;
-use quote::quote;
+use quote::{format_ident, quote};
 use syn::{
     parse::{Parse, ParseStream},
     punctuated::Punctuated,
@@ -76,6 +76,60 @@ impl Parse for CommandInfoParser {
     }
 }
 
+#[derive(Default)]
+struct SubcommandAttr {
+    pub name: Option<LitStr>,
+    pub aliases: Vec<LitStr>,
+}
+
+fn parse_subcommand_attr(attrs: &[Attribute]) -> syn::Result<SubcommandAttr> {
+    let mut out = SubcommandAttr::default();
+
+    for attr in attrs {
+        if !attr.path().is_ident("subcommand") {
+            continue;
+        }
+
+        let metas = attr.parse_args_with(Punctuated::<Meta, Token![,]>::parse_terminated)?;
+
+        for meta in metas {
+            match meta {
+                // name = "pay"
+                Meta::NameValue(nv) if nv.path.is_ident("name") => {
+                    if let Expr::Lit(ExprLit {
+                        lit: Lit::Str(s), ..
+                    }) = nv.value
+                    {
+                        out.name = Some(s);
+                    } else {
+                        return Err(syn::Error::new_spanned(
+                            nv.value,
+                            "subcommand `name` must be a string literal",
+                        ));
+                    }
+                }
+
+                // aliases("give", "send")
+                Meta::List(list) if list.path.is_ident("aliases") => {
+                    out.aliases = list
+                        .parse_args_with(Punctuated::<LitStr, Token![,]>::parse_terminated)?
+                        .into_iter()
+                        .collect();
+                }
+
+                _ => {
+                    return Err(syn::Error::new_spanned(
+                        meta,
+                        "unknown subcommand attribute; expected `name = \"...\"` or `aliases(..)`",
+                    ));
+                }
+            }
+        }
+    }
+
+    Ok(out)
+}
+
 pub fn generate_command_impls(ast: &DeriveInput, attr: &Attribute) -> TokenStream {
     let command_info = match attr.parse_args::<CommandInfoParser>() {
         Ok(info) => info,
@@ -93,11 +147,15 @@ pub fn generate_command_impls(ast: &DeriveInput, attr: &Attribute) -> TokenStrea
     };
 
     let spec_impl = generate_spec_impl(cmd_ident, cmd_name_lit, cmd_desc_lit, aliases_lits, &shape);
-    let try_from_impl = generate_try_from_impl(cmd_ident, cmd_name_lit, &shape);
+    let try_from_impl = generate_try_from_impl(cmd_ident, cmd_name_lit, aliases_lits, &shape);
+    let trait_impl = generate_handler_trait(cmd_ident, &shape);
+    let exec_impl = generate_execute_impl(cmd_ident, &shape);
 
     quote! {
         #spec_impl
         #try_from_impl
+        #trait_impl
+        #exec_impl
     }
 }
 
@@ -115,15 +173,19 @@ fn generate_spec_impl(
         }
         CommandShape::Enum { variants } => {
             // First param: subcommand enum
-            let variant_names: Vec<String> =
-                variants.iter().map(|v| v.name_snake.clone()).collect();
+            let variant_names_iter = variants.iter().map(|v| &v.canonical);
+            let subcommand_names: Vec<&LitStr> = variants
+                .iter()
+                .flat_map(|v| &v.aliases)
+                .chain(variant_names_iter)
+                .collect();
             let subcommand_spec = quote! {
                 dragonfly_plugin::types::ParamSpec {
                     name: "subcommand".to_string(),
                     r#type: dragonfly_plugin::types::ParamType::ParamEnum as i32,
                     optional: false,
                     suffix: String::new(),
-                    enum_values: vec![ #( #variant_names.to_string() ),* ],
+                    enum_values: vec![ #( #subcommand_names.to_string() ),* ],
                 }
             };
 
@@ -197,6 +259,7 @@ fn merge_variant_params(variants: &[VariantMeta]) -> Vec<ParamMeta> {
 fn generate_try_from_impl(
     cmd_ident: &Ident,
     cmd_name_lit: &LitStr,
+    cmd_aliases: &[LitStr],
     shape: &CommandShape,
 ) -> TokenStream {
     let body = match shape {
@@ -211,19 +274,25 @@ fn generate_try_from_impl(
         CommandShape::Enum { variants } => {
             let match_arms = variants.iter().map(|v| {
                 let variant_ident = &v.ident;
-                let name_snake = &v.name_snake;
+                let params = &v.params;
 
-                if v.params.is_empty() {
-                    // Unit-like variant
+                // Build patterns: "canonical" | "alias1" | "alias2"
+                let mut name_lits = Vec::new();
+                name_lits.push(&v.canonical);
+                for alias in &v.aliases {
+                    name_lits.push(alias);
+                }
+
+                let subcommand_patterns = quote! { #( #name_lits )|* };
+
+                if params.is_empty() {
                     quote! {
-                        #name_snake => Ok(Self::#variant_ident),
+                        #subcommand_patterns => Ok(Self::#variant_ident),
                     }
                 } else {
-                    // Struct-like variant with fields
-                    // Note: arg index starts at 1 (index 0 is the subcommand itself)
-                    let field_inits = v.params.iter().map(enum_field_init);
+                    let field_inits = params.iter().map(enum_field_init);
                     quote! {
-                        #name_snake => Ok(Self::#variant_ident {
+                        #subcommand_patterns => Ok(Self::#variant_ident {
                             #( #field_inits, )*
                         }),
                     }
@@ -243,12 +312,19 @@ fn generate_try_from_impl(
         }
     };
 
+    let mut conditions = Vec::with_capacity(1 + cmd_aliases.len());
+    conditions.push(quote! { event.command != #cmd_name_lit });
+
+    for alias in cmd_aliases {
+        conditions.push(quote! { && event.command != #alias });
+    }
+
     quote! {
         impl ::core::convert::TryFrom<&dragonfly_plugin::types::CommandEvent> for #cmd_ident {
             type Error = dragonfly_plugin::command::CommandParseError;
 
             fn try_from(event: &dragonfly_plugin::types::CommandEvent) -> Result<Self, Self::Error> {
-                if event.command != #cmd_name_lit {
+                if #(#conditions)* {
                     return Err(dragonfly_plugin::command::CommandParseError::NoMatch);
                 }
 
@@ -313,8 +389,10 @@ struct ParamMeta {
 struct VariantMeta {
     /// Variant identifier, e.g. `Pay`
     ident: Ident,
-    /// Snake-case name for matching, e.g. `"pay"`
-    name_snake: String,
+    /// name for matching, e.g. `"pay"`
+    canonical: LitStr,
+    /// Aliases e.g give, donate.
+    aliases: Vec<LitStr>,
     /// Parameters (fields) for this variant
     params: Vec<ParamMeta>,
 }
@@ -331,31 +409,38 @@ fn collect_command_shape(ast: &DeriveInput) -> syn::Result<CommandShape> {
             Ok(CommandShape::Struct { params })
         }
         Data::Enum(data) => {
-            let mut variants = Vec::new();
+            let mut variants_meta = Vec::new();
 
             for variant in &data.variants {
                 let ident = variant.ident.clone();
-                let name_snake = ident.to_string().to_snake_case();
+                let default_name =
+                    LitStr::new(ident.to_string().to_snake_case().as_str(), ident.span());
 
-                // Collect params for this variant's fields
-                // Note: index is relative to args AFTER the subcommand arg
+                let sub_attr = parse_subcommand_attr(&variant.attrs)?;
+                let canonical = sub_attr.name.unwrap_or(default_name);
+
+                let aliases = sub_attr.aliases.into_iter().collect::<Vec<_>>();
+
                 let params = collect_params_from_fields(&variant.fields)?;
 
-                variants.push(VariantMeta {
+                variants_meta.push(VariantMeta {
                     ident,
-                    name_snake,
+                    canonical,
+                    aliases,
                     params,
                 });
             }
 
-            if variants.is_empty() {
+            if variants_meta.is_empty() {
                 return Err(syn::Error::new_spanned(
                     &ast.ident,
                     "enum commands must have at least one variant",
                 ));
             }
 
-            Ok(CommandShape::Enum { variants })
+            Ok(CommandShape::Enum {
+                variants: variants_meta,
+            })
         }
         Data::Union(_) => Err(syn::Error::new_spanned(
             ast,
@@ -481,4 +566,114 @@ fn option_inner(ty: &Type) -> Option<&Type> {
         }
     }
     None
+}
+
+fn generate_handler_trait(cmd_ident: &Ident, shape: &CommandShape) -> TokenStream {
+    let trait_ident = format_ident!("{}Handler", cmd_ident);
+
+    match shape {
+        CommandShape::Struct { params } => {
+            // method name = struct name in snake_case, e.g. Ping -> ping
+            let method_ident = format_ident!("{}", cmd_ident.to_string().to_snake_case());
+
+            // args from struct fields if you want
+            let args = params.iter().map(|p| {
+                let ident = &p.field_ident;
+                let ty = &p.field_ty;
+                quote! { #ident: #ty }
+            });
+
+            quote! {
+                #[allow(async_fn_in_trait)]
+                pub trait #trait_ident: Send + Sync {
+                    async fn #method_ident(
+                        &self,
+                        ctx: dragonfly_plugin::command::Ctx<'_>,
+                        #( #args ),*
+                    );
+                }
+            }
+        }
+        CommandShape::Enum { variants } => {
+            let methods = variants.iter().map(|v| {
+                let method_ident = format_ident!("{}", v.ident.to_string().to_snake_case());
+                let args = v.params.iter().map(|p| {
+                    let ident = &p.field_ident;
+                    let ty = &p.field_ty;
+                    quote! { #ident: #ty }
+                });
+                quote! {
+                    async fn #method_ident(
+                        &self,
+                        ctx: dragonfly_plugin::command::Ctx<'_>,
+                        #( #args ),*
+                    );
+                }
+            });
+
+            quote! {
+                #[allow(async_fn_in_trait)]
+                pub trait #trait_ident: Send + Sync {
+                    #( #methods )*
+                }
+            }
+        }
+    }
+}
+
+fn generate_execute_impl(cmd_ident: &Ident, shape: &CommandShape) -> TokenStream {
+    let trait_ident = format_ident!("{}Handler", cmd_ident);
+
+    match shape {
+        CommandShape::Struct { params } => {
+            let method_ident = format_ident!("{}", cmd_ident.to_string().to_snake_case());
+            let field_idents: Vec<_> = params.iter().map(|p| &p.field_ident).collect();
+
+            quote! {
+                impl #cmd_ident {
+                    pub async fn __execute<H: #trait_ident>(
+                        self,
+                        handler: &H,
+                        ctx: dragonfly_plugin::command::Ctx<'_>,
+                    ) {
+                        let Self { #( #field_idents ),* } = self;
+                        handler.#method_ident(ctx, #( #field_idents ),*).await;
+                    }
+                }
+            }
+        }
+        CommandShape::Enum { variants } => {
+            let match_arms = variants.iter().map(|v| {
+                let variant_ident = &v.ident;
+                let method_ident = format_ident!("{}", v.ident.to_string().to_snake_case());
+                let field_idents: Vec<_> = v.params.iter().map(|p| &p.field_ident).collect();
+
+                if field_idents.is_empty() {
+                    quote! {
+                        Self::#variant_ident => handler.#method_ident(ctx).await,
+                    }
+                } else {
+                    quote! {
+                        Self::#variant_ident { #( #field_idents ),* } => {
+                            handler.#method_ident(ctx, #( #field_idents ),*).await
+                        }
+                    }
+                }
+            });
+
+            quote! {
+                impl #cmd_ident {
+                    pub async fn __execute<H: #trait_ident>(
+                        self,
+                        handler: &H,
+                        ctx: dragonfly_plugin::command::Ctx<'_>,
+                    ) {
+                        match self {
+                            #( #match_arms )*
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
