@@ -47,253 +47,98 @@ abstract class PluginBase {
 
     private bool $running = false;
 
-    /** @var array<int, array{name: string, description: string, aliases?: string[]        }
-    }
+    /** @var array<int, array{name: string, description: string, aliases?: string[]}> */
+    private array $commandSpecs = [];
 
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
+    /** @var CustomItemDefinition[] */
+    private array $customItems = [];
 
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
+    /** @var array<string, Command> name/alias => command instance */
+    private array $commandInstances = [];
+    private bool $commandHandlerRegistered = false;
+    private bool $enabledOnce = false;
 
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
+    public function __construct(?string $pluginId = null, ?string $serverAddress = null) {
+        $this->pluginId = $pluginId ?? (getenv('DF_PLUGIN_ID') ?: 'php-plugin');
+        $address = $serverAddress ?? (getenv('DF_PLUGIN_SERVER_ADDRESS') ?: $this->getDefaultAddress());
+        $this->serverAddress = $this->normalizeServerAddress($address);
     }
 
     private function getDefaultAddress(): string {
         if (PHP_OS_FAMILY === 'Windows') {
             return 'unix://C:/temp/dragonfly_plugin.sock';
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
+        // PHP gRPC extension format for Unix sockets
+        return 'unix:/tmp/dragonfly_plugin.sock';
     }
 
     private function normalizeServerAddress(string $address): string {
         // Handle bare Unix socket paths: "/tmp/dragonfly_plugin.sock" -> "unix:/tmp/dragonfly_plugin.sock"
         if ($address !== '' && $address[0] === '/') {
             return 'unix:' . $address;
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
+        // Normalize triple-slash form to single-slash: "unix:///path" -> "unix:/path"
+        $normalized = preg_replace('#^unix:///#', 'unix:/', $address);
+        return $normalized ?? $address;
     }
 
     // Lifecycle hooks
-    public function onLoad(): void {        }
-    }
+    public function onLoad(): void {}
+    public function onEnable(): void {}
+    public function onDisable(): void {}
 
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-    public function onDisable(): void {        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
+    /**
+     * Get the Server instance for accessing online players.
+     */
+    public function getServer(): Server {
+        return $this->server;
     }
 
     // Registration APIs
     public function subscribe(array $eventTypes): void {
         $this->subscriptions = array_values(array_unique($eventTypes));
-            }
     }
 
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
+    public function addEventHandler(int $eventType, callable $handler): void {
+        if (!isset($this->handlers[$eventType])) {
+            $this->handlers[$eventType] = [];
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
         $this->handlers[$eventType][] = $handler;
-            }
     }
 
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    } else {
+    /**
+     * Register many handlers at once.
+     * Keys must be int EventType values (e.g. EventType::PLAYER_JOIN).
+     *
+     * Handlers receive (string $eventId, EventEnvelope $event).
+     */
+    public function registerHandlers(array $map): void {
+        foreach ($map as $key => $handler) {
+            if (is_int($key)) {
+                $this->addEventHandler($key, $handler);
+            } else {
                 throw new \InvalidArgumentException('Handler map keys must be int EventType values.');
-                    }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
             }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-            }
     }
 
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
+    /**
+     * Subscribe to the set of types that have handlers registered.
+     */
+    public function subscribeToRegisteredHandlers(): void {
+        $types = [];
+        foreach ($this->handlers as $type => $_) {
+            if (is_int($type)) {
+                $types[] = $type;
             }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
+        if (!empty($types)) {
+            $this->subscriptions = array_values(array_unique($types));
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-            }
     }
 
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
+    public function registerCommand(string $name, string $description): void {
+        $this->commandSpecs[] = ['name' => $name, 'description' => $description];
     }
 
     /**
@@ -304,71 +149,33 @@ abstract class PluginBase {
         $name = $cmd->getName();
         if ($name === '') {
             throw new \InvalidArgumentException('Command name must not be empty.');
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
+        // Store instance by name and aliases for quick lookup.
+        $this->commandInstances[$name] = $cmd;
+        foreach ($cmd->getAliases() as $alias) {
+            if ($alias !== '' && !isset($this->commandInstances[$alias])) {
+                $this->commandInstances[$alias] = $cmd;
             }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+        // Queue spec for handshake (with aliases).
+        $spec = [
+            'name' => $name,
+            'description' => $cmd->getDescription(),
+        ];
+        $aliases = $cmd->getAliases();
+        if (!empty($aliases)) {
+            $spec['aliases'] = array_values(array_unique($aliases));
+        }
         $this->commandSpecs[] = $spec;
         // Ensure we are subscribed to command events.
         $this->ensureCommandHandler();
-            }
     }
 
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
+    /**
+     * Queue a custom item definition to be sent in PluginHello.
+     */
+    public function registerCustomItem(CustomItemDefinition $def): void {
+        $this->customItems[] = $def;
     }
 
     /**
@@ -384,27 +191,8 @@ abstract class PluginBase {
     public function registerCustomItemFromFile(string $id, string $displayName, string $pngPath, int $category, ?string $group = null, int $meta = 0): void {
         $data = @file_get_contents($pngPath);
         if ($data === false) {
-            throw new \RuntimeException("Failed to read PNG file: {$pngPath        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
+            throw new \RuntimeException("Failed to read PNG file: {$pngPath}");
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
         $def = new CustomItemDefinition();
         $def->setId($id);
         $def->setDisplayName($displayName);
@@ -412,26 +200,9 @@ abstract class PluginBase {
         $def->setCategory($category);
         if ($group !== null && $group !== '') {
             $def->setGroup($group);
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
+        $def->setMeta($meta);
+        $this->registerCustomItem($def);
     }
 
     /**
@@ -451,255 +222,75 @@ abstract class PluginBase {
     public function registerListener(object $listener): void {
         if (!$listener instanceof Listener) {
             throw new \InvalidArgumentException('Listener must implement ' . Listener::class);
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
 
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+        $ref = new ReflectionClass($listener);
+        foreach ($ref->getMethods(ReflectionMethod::IS_PUBLIC) as $method) {
+            if ($method->isStatic() || $method->isConstructor() || $method->isDestructor()) {
+                continue;
+            }
             $params = $method->getParameters();
             if (count($params) < 1) {
                 continue;
-                    }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
             }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+            $param = $params[0];
+            $type = $param->getType();
+            if (!$type instanceof ReflectionNamedType || $type->isBuiltin()) {
+                continue;
+            }
             $paramClass = $type->getName();
             $binding = $this->resolveEventBinding($paramClass);
             if ($binding === null) {
                 continue;
-                    }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
             }
-            return;
-        }
 
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }();
+            $eventType = $binding['type'];
+            $getter = $binding['getter'];
+            $methodName = $method->getName();
+
+            $wantsContext = $method->getNumberOfParameters() >= 2;
+            $this->addEventHandler($eventType, function (string $eventId, EventEnvelope $event) use ($listener, $methodName, $getter, $wantsContext): void {
+                $payload = $event->{$getter}();
                 $ctx = new EventContext($this->pluginId, $eventId, $this->sender, $this->server, $event->getExpectsResponse(), $payload);
                 try {
                     if ($wantsContext) {
-                        $listener->{$methodName        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    } else {
-                        $listener->{$methodName        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-                        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }\n");
-                        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+                        $listener->{$methodName}($payload, $ctx);
+                    } else {
+                        $listener->{$methodName}($payload);
                     }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
+                } catch (\Throwable $e) {
+                    fwrite(STDERR, "[php] listener error: {$e->getMessage()}\n");
+                } finally {
+                    $ctx->ackIfUnhandled();
                 }
-            }
-            return;
+            });
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-            }
     }
 
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }|null
+    /**
+     * Resolve event type constant and Event getter name from a payload FQCN.
+     * Example: \Df\Plugin\PlayerJoinEvent -> ['type' => EventType::PLAYER_JOIN, 'getter' => 'getPlayerJoin']
+     *
+     * @return array{type:int,getter:string}|null
      */
     private function resolveEventBinding(string $payloadFqcn): ?array {
         if (!str_starts_with($payloadFqcn, 'Df\\Plugin\\') || !str_ends_with($payloadFqcn, 'Event')) {
             return null;
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+        $short = ($pos = strrpos($payloadFqcn, '\\')) !== false ? substr($payloadFqcn, $pos + 1) : $payloadFqcn;
+        $base = substr($short, 0, -strlen('Event'));
+        if ($base === '') {
+            return null;
+        }
         $getter = 'get' . $base;
         $constName = strtoupper(preg_replace('/(?<!^)[A-Z]/', '_$0', $base));
         $constFq = 'Df\\Plugin\\EventType::' . $constName;
         if (!defined($constFq)) {
             return null;
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
+        /** @var int $type */
+        $type = constant($constFq);
+        return ['type' => $type, 'getter' => $getter];
     }
 
     // Action helpers moved to StreamSender and HandlerContext
@@ -709,27 +300,8 @@ abstract class PluginBase {
         if (!\extension_loaded('grpc')) {
             fwrite(STDERR, "[php] gRPC extension (ext-grpc) not loaded. Install via 'pecl install grpc' or run with the bundled PHP binary that includes gRPC.\n");
             throw new \RuntimeException('Missing required PHP extension: ext-grpc');
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }...\n");
+        fwrite(STDOUT, "[php] connecting to {$this->serverAddress}...\n");
 
         $credClass = '\\Grpc\\ChannelCredentials';
         $options = [];
@@ -737,27 +309,29 @@ abstract class PluginBase {
             /** @var callable $factory */
             $factory = [$credClass, 'createInsecure'];
             $options['credentials'] = \call_user_func($factory);
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
+        $this->client = new PluginClient($this->serverAddress, $options);
+        $this->call = $this->client->EventStream();
+        $this->sender = new StreamSender($this->call);
+        $this->server = new Server(new Actions($this->sender, $this->pluginId));
+        $this->running = true;
 
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+        // Register internal handlers to track online players
+        $this->registerPlayerTracking();
+
+        // Lifecycle
+        // onLoad: runs on every plugin process start/reload.
+        $this->onLoad();
+        // onEnable: run once per server boot BEFORE handshake so that one-time
+        // resources (e.g., custom items) are present in PluginHello on first boot.
+        $bootIdEnv = getenv('DF_HOST_BOOT_ID') ?: '';
+        $this->maybeRunOnEnableOnce($bootIdEnv);
+
+        // Defaults if not set
+        if (empty($this->subscriptions)) {
+            // Prefer subscriptions matching registered handlers if present.
+            $this->subscribeToRegisteredHandlers();
+        }
 
         // Handshake
         fwrite(STDOUT, "[php] connected, sending handshake\n");
@@ -775,115 +349,44 @@ abstract class PluginBase {
                 $c->setDescription($spec['description']);
                 if (isset($spec['aliases']) && is_array($spec['aliases']) && !empty($spec['aliases'])) {
                     $c->setAliases($spec['aliases']);
-                        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
                 }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    });
+                // If protobuf has params field, populate it from the registered command class.
+                if (method_exists($c, 'setParams') && isset($this->commandInstances[$spec['name']])) {
+                    $cmd = $this->commandInstances[$spec['name']];
+                    $schema = $cmd->serializeParamSpec();
+                    $pbParams = [];
+                    foreach ($schema as $p) {
+                        $pp = new PbParamSpec();
+                        $pp->setName($p['name']);
+                        // Map string type to enum.
+                        $type = $p['type'] ?? 'string';
+                        $pp->setType(match ($type) {
+                            'int' => PbParamType::PARAM_INT,
+                            'float' => PbParamType::PARAM_FLOAT,
+                            'bool' => PbParamType::PARAM_BOOL,
+                            'enum' => PbParamType::PARAM_ENUM,
+                            'varargs' => PbParamType::PARAM_VARARGS,
+                            default => PbParamType::PARAM_STRING,
+                        });
                         if (!empty($p['optional'])) {
                             $pp->setOptional(true);
-                                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-                        $pbParams[] = $pp;
-                            }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
                         }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
+                        if (!empty($p['enum_values']) && method_exists($pp, 'setEnumValues')) {
+                            $pp->setEnumValues($p['enum_values']);
+                        }
+                        $pbParams[] = $pp;
+                    }
+                    if (!empty($pbParams)) {
+                        $c->setParams($pbParams);
+                    }
                 }
+                $cmds[] = $c;
             }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
             $pluginHello->setCommands($cmds);
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+        if (!empty($this->customItems)) {
+            $pluginHello->setCustomItems($this->customItems);
+        }
         $hello->setHello($pluginHello);
         $this->sender->enqueue($hello);
 
@@ -903,186 +406,60 @@ abstract class PluginBase {
                     fwrite(STDOUT, "[php] stream closed - status: code=" . $status->code . " details=" . $status->details . "\n");
                     $this->running = false;
                     break;
-                        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
                 }
-            }
-            return;
-        }
 
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }, plugin=" . $this->apiVersion . ")\n");
+                if ($message->hasHello()) {
+                    $hostHello = $message->getHello();
+                    fwrite(STDOUT, "[php] host hello api=" . $hostHello->getApiVersion() . "\n");
+                    if ($hostHello->getApiVersion() !== $this->apiVersion) {
+                        fwrite(STDOUT, "[php] WARNING: API version mismatch (host={$hostHello->getApiVersion()}, plugin=" . $this->apiVersion . ")\n");
+                    }
+                    continue;
+                }
+
+                if ($message->hasEvent()) {
+                    $event = $message->getEvent();
+                    $eventId = $event->getEventId();
+                    $type = $event->getType();
+
+                    if (isset($this->handlers[$type])) {
+                        foreach ($this->handlers[$type] as $handler) {
+                            try {
+                                $handler($eventId, $event);
+                            } catch (\Throwable $e) {
+                                fwrite(STDERR, "[php] handler error: {$e->getMessage()}\n");
                             }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-
-                                if (->hasEvent()) {
-                    ->handleEvent(->getEvent());
-                    continue;
                         }
-    }
+                        continue;
+                    }
 
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+                    // Default ack when unhandled
+                    (new EventContext($this->pluginId, $eventId, $this->sender, $this->server, $event->getExpectsResponse()))->ackIfUnhandled();
                     continue;
-                        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
                 }
-            }
-            return;
-        }
 
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+                if ($message->hasActionResult()) {
+                    $result = $message->getActionResult();
+                    $this->sender->dispatchActionResult($result);
+                    continue;
+                }
 
                 if ($message->hasShutdown()) {
                     fwrite(STDOUT, "[php] shutdown received\n");
                     $this->running = false;
                     continue;
-                        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
                 }
             }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
+        } finally {
+            try {
+                $this->onDisable();
+            } catch (\Throwable $e) {
+                fwrite(STDERR, "[php] onDisable error: {$e->getMessage()}\n");
             }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    } catch (\Throwable $e) {
-                fwrite(STDERR, "[php] onDisable error: {$e->getMessage()        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
             $this->call->writesDone();
             fwrite(STDOUT, "[php] client completed\n");
             fwrite(STDOUT, "[php] connection closing\n");
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
     }
 
     /**
@@ -1092,116 +469,28 @@ abstract class PluginBase {
     private function maybeRunOnEnableOnce(string $bootId): void {
         if ($this->enabledOnce) {
             return;
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    } catch (\Throwable $e) {
-                fwrite(STDERR, "[php] onEnable error: {$e->getMessage()        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
+        $path = $this->bootIdCachePath();
+        $last = @file_exists($path) ? @trim((string)@file_get_contents($path)) : '';
+        if ($bootId === '' || $bootId !== $last) {
+            // First time for this server boot: run onEnable and store boot ID.
+            try {
+                $this->onEnable();
+            } catch (\Throwable $e) {
+                fwrite(STDERR, "[php] onEnable error: {$e->getMessage()}\n");
             }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
             if ($bootId !== '') {
                 @file_put_contents($path, $bootId);
-                    }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
             }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    } else {
+        } else {
             fwrite(STDOUT, "[php] skipping onEnable (already enabled for this server boot)\n");
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
+        $this->enabledOnce = true;
     }
 
     private function bootIdCachePath(): string {
         $safeId = preg_replace('/[^a-zA-Z0-9._-]+/', '_', $this->pluginId);
-        return rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . "df_boot_{$safeId        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
+        return rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . "df_boot_{$safeId}.txt";
     }
 
     /**
@@ -1211,250 +500,89 @@ abstract class PluginBase {
     private function ensureCommandHandler(): void {
         if ($this->commandHandlerRegistered) {
             return;
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
         }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+        $this->commandHandlerRegistered = true;
+        $this->addEventHandler(EventType::COMMAND, function (string $eventId, EventEnvelope $event): void {
+            $cmdEvt = $event->getCommand();
+            if ($cmdEvt === null) {
+                return;
+            }
             $commandName = $cmdEvt->getCommand();
             if ($commandName === '' || !isset($this->commandInstances[$commandName])) {
                 return;
-                    }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
             }
-            return;
-        }
+            // Work with a fresh instance per execution.
+            $template = $this->commandInstances[$commandName];
+            $cmd = clone $template;
 
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+            $senderUuid = $cmdEvt->getPlayerUuid();
+            $ctx = new EventContext($this->pluginId, $eventId, $this->sender, $this->server, $event->getExpectsResponse());
+            $sender = $ctx->commandSender($senderUuid);
+            if ($sender === null) {
+                // Can't resolve sender; let server handle normally
+                $ctx->ackIfUnhandled();
+                return;
+            }
 
             try {
                 $argsField = $cmdEvt->getArgs();
                 // Convert protobuf RepeatedField to a native array.
                 if (is_array($argsField)) {
                     $args = $argsField;
-                        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    } else {
+                } elseif ($argsField instanceof \Traversable) {
+                    $args = iterator_to_array($argsField);
+                } else {
                     $args = [];
-                        }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
                 }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
+                if (!$cmd->parseArgs($args)) {
+                    $usage = method_exists($cmd, 'generateUsage') ? $cmd->generateUsage() : ('/' . $commandName);
+                    $ctx->chatToUuid($senderUuid, "§cUsage: " . $usage);
+                    $ctx->cancel();
+                    return;
+                }
                 $cmd->execute($sender, $ctx);
                 // Ensure base command execution is suppressed server-side.
                 $ctx->cancel();
-                    }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    } finally {
+            } catch (\Throwable $e) {
+                $ctx->chatToUuid($senderUuid, "§cCommand error: " . $e->getMessage());
+                // Suppress base command execution even on error to avoid duplicate messages.
+                $ctx->cancel();
+            } finally {
                 $ctx->ackIfUnhandled();
-                    }
+            }
+        });
     }
 
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
+    /**
+     * Register internal handlers to track online players via join/quit events.
+     */
+    private function registerPlayerTracking(): void {
+        // Track player joins
+        $this->addEventHandler(EventType::PLAYER_JOIN, function (string $eventId, EventEnvelope $event): void {
+            $payload = $event->getPlayerJoin();
+            if ($payload !== null) {
+                $world = method_exists($payload, 'getWorld') ? $payload->getWorld() : null;
+                $this->server->addPlayer($payload->getPlayerUuid(), $payload->getName(), $world);
+            }
+        });
 
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
+        // Track player quits
+        $this->addEventHandler(EventType::PLAYER_QUIT, function (string $eventId, EventEnvelope $event): void {
+            $payload = $event->getPlayerQuit();
+            if ($payload !== null) {
+                $this->server->removePlayer($payload->getPlayerUuid());
+            }
+        });
+
+        // Track world changes
+        $this->addEventHandler(EventType::PLAYER_CHANGE_WORLD, function (string $eventId, EventEnvelope $event): void {
+            $payload = $event->getPlayerChangeWorld();
+            if ($payload !== null && method_exists($payload, 'getAfter')) {
+                $world = $payload->getAfter();
+                if ($world !== null) {
+                    $this->server->setPlayerWorld($payload->getPlayerUuid(), $world);
                 }
             }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    });
-            }
+        });
     }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-                }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-                    }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    });
-            }
-    }
-
-    private function handleEvent(EventEnvelope ): void {
-         = ->getEventId();
-         = ->getType();
-
-        if (isset(->handlers[])) {
-            foreach (->handlers[] as ) {
-                try {
-                    (, );
-                } catch (\Throwable ) {
-                    fwrite(STDERR, "[php] handler error: {->getMessage()}\n");
-                }
-            }
-            return;
-        }
-
-        // Default ack when unhandled
-        (new EventContext(->pluginId, , ->sender, ->server, ->getExpectsResponse()))->ackIfUnhandled();
-    }
-
-
+}

@@ -14,122 +14,141 @@ trait ActionsTrait {
     abstract protected function getActions(): Actions;
 
     public function startBatch(): void {
-        ->getActions()->startBatch();
+        $this->getActions()->startBatch();
     }
 
     public function commitBatch(): void {
-        ->getActions()->commitBatch();
+        $this->getActions()->commitBatch();
     }
 
-    public function sendActions(array ): void {
-        ->getActions()->sendActions();
+    public function sendActions(array $actions): void {
+        $this->getActions()->sendActions($actions);
     }
 
-    public function chatToUuid(string , string ): void {
-        ->getActions()->chatToUuid(, );
+    public function chatToUuid(string $uuid, string $message): void {
+        $this->getActions()->chatToUuid($uuid, $message);
     }
 
-    public function teleportUuid(string , ?Vec3  = null, ?Vec3  = null): void {
-        ->getActions()->teleportUuid(, , );
+    public function teleportUuid(string $uuid, ?Vec3 $pos = null, ?Vec3 $rot = null): void {
+        $this->getActions()->teleportUuid($uuid, $pos, $rot);
     }
 
-    public function kickUuid(string , string ): void {
-        ->getActions()->kickUuid(, );
+    public function kickUuid(string $uuid, string $reason): void {
+        $this->getActions()->kickUuid($uuid, $reason);
     }
 
-    public function setGameModeUuid(string , int ): void {
-        ->getActions()->setGameModeUuid(, );
+    public function setGameModeUuid(string $uuid, int $mode): void {
+        $this->getActions()->setGameModeUuid($uuid, $mode);
     }
 
-    public function giveItemUuid(string , ItemStack ): void {
-        ->getActions()->giveItemUuid(, );
+    public function giveItemUuid(string $uuid, ItemStack $item): void {
+        $this->getActions()->giveItemUuid($uuid, $item);
     }
 
-    public function clearInventoryUuid(string ): void {
-        ->getActions()->clearInventoryUuid();
+    public function clearInventoryUuid(string $uuid): void {
+        $this->getActions()->clearInventoryUuid($uuid);
     }
 
-    public function setHeldItemsUuid(string , ?ItemStack  = null, ?ItemStack  = null): void {
-        ->getActions()->setHeldItemsUuid(, , );
+    public function setHeldItemsUuid(string $uuid, ?ItemStack $main = null, ?ItemStack $off = null): void {
+        $this->getActions()->setHeldItemsUuid($uuid, $main, $off);
     }
 
-    public function setHealthUuid(string , float , ?float  = null): void {
-        ->getActions()->setHealthUuid(, , );
+    public function setHealthUuid(string $uuid, float $health, ?float $max = null): void {
+        $this->getActions()->setHealthUuid($uuid, $health, $max);
     }
 
-    public function setFoodUuid(string , int ): void {
-        ->getActions()->setFoodUuid(, );
+    public function setFoodUuid(string $uuid, int $food): void {
+        $this->getActions()->setFoodUuid($uuid, $food);
     }
 
-    public function setExperienceUuid(string , ?int  = null, ?float  = null, ?int  = null): void {
-        ->getActions()->setExperienceUuid(, , , );
+    public function setExperienceUuid(string $uuid, ?int $xp = null, ?float $progress = null, ?int $level = null): void {
+        $this->getActions()->setExperienceUuid($uuid, $xp, $progress, $level);
     }
 
-    public function setVelocityUuid(string , Vec3 ): void {
-        ->getActions()->setVelocityUuid(, );
+    public function setVelocityUuid(string $uuid, Vec3 $velocity): void {
+        $this->getActions()->setVelocityUuid($uuid, $velocity);
     }
 
-    public function addEffectUuid(string , int , int , int , bool  = true): void {
-        ->getActions()->addEffectUuid(, , , , );
+    public function addEffectUuid(string $uuid, int $id, int $duration, int $amplifier, bool $show = true): void {
+        $this->getActions()->addEffectUuid($uuid, $id, $duration, $amplifier, $show);
     }
 
-    public function removeEffectUuid(string , int ): void {
-        ->getActions()->removeEffectUuid(, );
+    public function removeEffectUuid(string $uuid, int $id): void {
+        $this->getActions()->removeEffectUuid($uuid, $id);
     }
 
-    public function sendTitleUuid(string , string , ?string  = null, ?int  = null, ?int  = null, ?int  = null): void {
-        ->getActions()->sendTitleUuid(, , , , , );
+    public function sendTitleUuid(
+        string $uuid,
+        string $title,
+        ?string $subtitle = null,
+        ?int $fadeIn = null,
+        ?int $stay = null,
+        ?int $fadeOut = null
+    ): void {
+        $this->getActions()->sendTitleUuid($uuid, $title, $subtitle, $fadeIn, $stay, $fadeOut);
     }
 
-    public function sendPopupUuid(string , string ): void {
-        ->getActions()->sendPopupUuid(, );
+    public function sendPopupUuid(string $uuid, string $message): void {
+        $this->getActions()->sendPopupUuid($uuid, $message);
     }
 
-    public function sendTipUuid(string , string ): void {
-        ->getActions()->sendTipUuid(, );
+    public function sendTipUuid(string $uuid, string $message): void {
+        $this->getActions()->sendTipUuid($uuid, $message);
     }
 
-    public function playSoundUuid(string , int , ?Vec3  = null, ?float  = null, ?float  = null): void {
-        ->getActions()->playSoundUuid(, , , , );
+    public function playSoundUuid(
+        string $uuid,
+        int $sound,
+        ?Vec3 $pos = null,
+        ?float $volume = null,
+        ?float $pitch = null
+    ): void {
+        $this->getActions()->playSoundUuid($uuid, $sound, $pos, $volume, $pitch);
     }
 
-    public function executeCommandUuid(string , string ): void {
-        ->getActions()->executeCommandUuid(, );
+    public function executeCommandUuid(string $uuid, string $command): void {
+        $this->getActions()->executeCommandUuid($uuid, $command);
     }
 
-    public function worldSetDefaultGameMode(WorldRef , int ): void {
-        ->getActions()->worldSetDefaultGameMode(, );
+    public function worldSetDefaultGameMode(WorldRef $world, int $mode): void {
+        $this->getActions()->worldSetDefaultGameMode($world, $mode);
     }
 
-    public function worldSetDifficulty(WorldRef , int ): void {
-        ->getActions()->worldSetDifficulty(, );
+    public function worldSetDifficulty(WorldRef $world, int $difficulty): void {
+        $this->getActions()->worldSetDifficulty($world, $difficulty);
     }
 
-    public function worldSetTickRange(WorldRef , int ): void {
-        ->getActions()->worldSetTickRange(, );
+    public function worldSetTickRange(WorldRef $world, int $range): void {
+        $this->getActions()->worldSetTickRange($world, $range);
     }
 
-    public function worldSetBlock(WorldRef , BlockPos , ?BlockState  = null): void {
-        ->getActions()->worldSetBlock(, , );
+    public function worldSetBlock(WorldRef $world, BlockPos $pos, ?BlockState $state = null): void {
+        $this->getActions()->worldSetBlock($world, $pos, $state);
     }
 
-    public function worldPlaySound(WorldRef , int , Vec3 ): void {
-        ->getActions()->worldPlaySound(, , );
+    public function worldPlaySound(WorldRef $world, int $sound, Vec3 $pos): void {
+        $this->getActions()->worldPlaySound($world, $sound, $pos);
     }
 
-    public function worldAddParticle(WorldRef , Vec3 , int , ?BlockState  = null, ?int  = null): void {
-        ->getActions()->worldAddParticle(, , , , );
+    public function worldAddParticle(
+        WorldRef $world,
+        Vec3 $pos,
+        int $type,
+        ?BlockState $state = null,
+        ?int $count = null
+    ): void {
+        $this->getActions()->worldAddParticle($world, $pos, $type, $state, $count);
     }
 
-    public function worldQueryEntities(WorldRef , ?string  = null): void {
-        ->getActions()->worldQueryEntities(, );
+    public function worldQueryEntities(WorldRef $world, ?string $selector = null): void {
+        $this->getActions()->worldQueryEntities($world, $selector);
     }
 
-    public function worldQueryPlayers(WorldRef , ?string  = null): void {
-        ->getActions()->worldQueryPlayers(, );
+    public function worldQueryPlayers(WorldRef $world, ?string $selector = null): void {
+        $this->getActions()->worldQueryPlayers($world, $selector);
     }
 
-    public function worldQueryEntitiesWithin(WorldRef , BBox , ?string  = null): void {
-        ->getActions()->worldQueryEntitiesWithin(, , );
+    public function worldQueryEntitiesWithin(WorldRef $world, BBox $bbox, ?string $selector = null): void {
+        $this->getActions()->worldQueryEntitiesWithin($world, $bbox, $selector);
     }
 }

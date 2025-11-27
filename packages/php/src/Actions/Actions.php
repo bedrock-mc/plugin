@@ -41,359 +41,317 @@ use Df\Plugin\BBox;
 use Dragonfly\PluginLib\StreamSender;
 
 final class Actions {
-    private ?ActionBatch  = null;
+    private ?ActionBatch $activeBatch = null;
 
     public function __construct(
-        private StreamSender ,
-        private string ,
+        private StreamSender $sender,
+        private string $pluginId,
     ) {}
 
     public function startBatch(): void {
-        ->activeBatch = new ActionBatch();
+        $this->activeBatch = new ActionBatch();
     }
 
     public function commitBatch(): void {
-        if (->activeBatch !== null && count(->activeBatch->getActions()) > 0) {
-             = new PluginToHost();
-            ->setPluginId(->pluginId);
-            ->setActions(->activeBatch);
-            ->sender->enqueue();
+        if ($this->activeBatch !== null && count($this->activeBatch->getActions()) > 0) {
+            $toHost = new PluginToHost();
+            $toHost->setPluginId($this->pluginId);
+            $toHost->setActions($this->activeBatch);
+            $this->sender->enqueue($toHost);
         }
-        ->activeBatch = null;
+        $this->activeBatch = null;
     }
 
-    private function sendOrBatch(Action ): void {
-        if (->activeBatch !== null) {
-             = ->activeBatch->getActions();
-            [] = ;
-            ->activeBatch->setActions();
+    private function sendOrBatch(Action $action): void {
+        if ($this->activeBatch !== null) {
+            $actions = $this->activeBatch->getActions();
+            $actions[] = $action;
+            $this->activeBatch->setActions($actions);
         } else {
-            ->sendAction();
+            $this->sendAction($action);
         }
     }
 
-    public function sendActions(array ): void {
-         = new ActionBatch();
-        ->setActions();
+    public function sendActions(array $actions): void {
+        $batch = new ActionBatch();
+        $batch->setActions($actions);
 
-         = new PluginToHost();
-        ->setPluginId(->pluginId);
-        ->setActions();
-        ->sender->enqueue();
+        $toHost = new PluginToHost();
+        $toHost->setPluginId($this->pluginId);
+        $toHost->setActions($batch);
+        $this->sender->enqueue($toHost);
     }
 
-    private function sendAction(Action ): void {
-         = new ActionBatch();
-        ->setActions([]);
+    private function sendAction(Action $action): void {
+        $batch = new ActionBatch();
+        $batch->setActions([$action]);
 
-         = new PluginToHost();
-        ->setPluginId(->pluginId);
-        ->setActions();
-        ->sender->enqueue();
+        $toHost = new PluginToHost();
+        $toHost->setPluginId($this->pluginId);
+        $toHost->setActions($batch);
+        $this->sender->enqueue($toHost);
     }
 
-    public function chatToUuid(string , string ): void {
-         = new Action();
-         = new SendChatAction();
-        ->setTargetUuid();
-        ->setMessage();
-        ->setSendChat();
-        ->sendOrBatch();
+    public function chatToUuid(string $uuid, string $message): void {
+        $action = new Action();
+        $chat = new SendChatAction();
+        $chat->setTargetUuid($uuid);
+        $chat->setMessage($message);
+        $action->setSendChat($chat);
+        $this->sendOrBatch($action);
     }
 
-    public function teleportUuid(string , ?Vec3  = null, ?Vec3  = null): void {
-         = new Action();
-         = new TeleportAction();
-        ->setPlayerUuid();
-        if ( !== null) {
-            ->setPosition();
-        }
-        if ( !== null) {
-            ->setRotation();
-        }
-        ->setTeleport();
-        ->sendOrBatch();
+    public function teleportUuid(string $uuid, ?Vec3 $pos = null, ?Vec3 $rot = null): void {
+        $action = new Action();
+        $tp = new TeleportAction();
+        $tp->setPlayerUuid($uuid);
+        if ($pos !== null) $tp->setPosition($pos);
+        if ($rot !== null) $tp->setRotation($rot);
+        $action->setTeleport($tp);
+        $this->sendOrBatch($action);
     }
 
-    public function kickUuid(string , string ): void {
-         = new Action();
-         = new KickAction();
-        ->setPlayerUuid();
-        ->setReason();
-        ->setKick();
-        ->sendOrBatch();
+    public function kickUuid(string $uuid, string $reason): void {
+        $action = new Action();
+        $k = new KickAction();
+        $k->setPlayerUuid($uuid);
+        $k->setReason($reason);
+        $action->setKick($k);
+        $this->sendOrBatch($action);
     }
 
-    public function setGameModeUuid(string , int ): void {
-         = new Action();
-         = new SetGameModeAction();
-        ->setPlayerUuid();
-        ->setGameMode();
-        ->setSetGameMode();
-        ->sendOrBatch();
+    public function setGameModeUuid(string $uuid, int $mode): void {
+        $action = new Action();
+        $gm = new SetGameModeAction();
+        $gm->setPlayerUuid($uuid);
+        $gm->setGameMode($mode);
+        $action->setSetGameMode($gm);
+        $this->sendOrBatch($action);
     }
 
-    public function giveItemUuid(string , ItemStack ): void {
-         = new Action();
-         = new GiveItemAction();
-        ->setPlayerUuid();
-        ->setItem();
-        ->setGiveItem();
-        ->sendOrBatch();
+    public function giveItemUuid(string $uuid, ItemStack $item): void {
+        $action = new Action();
+        $gi = new GiveItemAction();
+        $gi->setPlayerUuid($uuid);
+        $gi->setItem($item);
+        $action->setGiveItem($gi);
+        $this->sendOrBatch($action);
     }
 
-    public function clearInventoryUuid(string ): void {
-         = new Action();
-         = new ClearInventoryAction();
-        ->setPlayerUuid();
-        ->setClearInventory();
-        ->sendOrBatch();
+    public function clearInventoryUuid(string $uuid): void {
+        $action = new Action();
+        $ci = new ClearInventoryAction();
+        $ci->setPlayerUuid($uuid);
+        $action->setClearInventory($ci);
+        $this->sendOrBatch($action);
     }
 
-    public function setHeldItemsUuid(string , ?ItemStack  = null, ?ItemStack  = null): void {
-         = new Action();
-         = new SetHeldItemAction();
-        ->setPlayerUuid();
-        if ( !== null) {
-            ->setMain();
-        }
-        if ( !== null) {
-            ->setOffhand();
-        }
-        ->setSetHeldItem();
-        ->sendOrBatch();
+    public function setHeldItemsUuid(string $uuid, ?ItemStack $main = null, ?ItemStack $off = null): void {
+        $action = new Action();
+        $hi = new SetHeldItemAction();
+        $hi->setPlayerUuid($uuid);
+        if ($main !== null) $hi->setMain($main);
+        if ($off !== null) $hi->setOffhand($off);
+        $action->setSetHeldItem($hi);
+        $this->sendOrBatch($action);
     }
 
-    public function setHealthUuid(string , float , ?float  = null): void {
-         = new Action();
-         = new SetHealthAction();
-        ->setPlayerUuid();
-        ->setHealth();
-        if ( !== null) {
-            ->setMaxHealth();
-        }
-        ->setSetHealth();
-        ->sendOrBatch();
+    public function setHealthUuid(string $uuid, float $health, ?float $max = null): void {
+        $action = new Action();
+        $sh = new SetHealthAction();
+        $sh->setPlayerUuid($uuid);
+        $sh->setHealth($health);
+        if ($max !== null) $sh->setMaxHealth($max);
+        $action->setSetHealth($sh);
+        $this->sendOrBatch($action);
     }
 
-    public function setFoodUuid(string , int ): void {
-         = new Action();
-         = new SetFoodAction();
-        ->setPlayerUuid();
-        ->setFood();
-        ->setSetFood();
-        ->sendOrBatch();
+    public function setFoodUuid(string $uuid, int $food): void {
+        $action = new Action();
+        $sf = new SetFoodAction();
+        $sf->setPlayerUuid($uuid);
+        $sf->setFood($food);
+        $action->setSetFood($sf);
+        $this->sendOrBatch($action);
     }
 
-    public function setExperienceUuid(string , ?int  = null, ?float  = null, ?int  = null): void {
-         = new Action();
-         = new SetExperienceAction();
-        ->setPlayerUuid();
-        if ( !== null) {
-            ->setLevel();
-        }
-        if ( !== null) {
-            ->setProgress();
-        }
-        if ( !== null) {
-            ->setAmount();
-        }
-        ->setSetExperience();
-        ->sendOrBatch();
+    public function setExperienceUuid(string $uuid, ?int $level = null, ?float $progress = null, ?int $amount = null): void {
+        $action = new Action();
+        $xp = new SetExperienceAction();
+        $xp->setPlayerUuid($uuid);
+        if ($level !== null) $xp->setLevel($level);
+        if ($progress !== null) $xp->setProgress($progress);
+        if ($amount !== null) $xp->setAmount($amount);
+        $action->setSetExperience($xp);
+        $this->sendOrBatch($action);
     }
 
-    public function setVelocityUuid(string , Vec3 ): void {
-         = new Action();
-         = new SetVelocityAction();
-        ->setPlayerUuid();
-        ->setVelocity();
-        ->setSetVelocity();
-        ->sendOrBatch();
+    public function setVelocityUuid(string $uuid, Vec3 $vel): void {
+        $action = new Action();
+        $sv = new SetVelocityAction();
+        $sv->setPlayerUuid($uuid);
+        $sv->setVelocity($vel);
+        $action->setSetVelocity($sv);
+        $this->sendOrBatch($action);
     }
 
-    public function addEffectUuid(string , int , int , int , bool  = true): void {
-         = new Action();
-         = new AddEffectAction();
-        ->setPlayerUuid();
-        ->setEffectType();
-        ->setLevel();
-        ->setDurationMs();
-        ->setShowParticles();
-        ->setAddEffect();
-        ->sendOrBatch();
+    public function addEffectUuid(string $uuid, int $type, int $level, int $durationMs, bool $showParticles = true): void {
+        $action = new Action();
+        $fx = new AddEffectAction();
+        $fx->setPlayerUuid($uuid);
+        $fx->setEffectType($type);
+        $fx->setLevel($level);
+        $fx->setDurationMs($durationMs);
+        $fx->setShowParticles($showParticles);
+        $action->setAddEffect($fx);
+        $this->sendOrBatch($action);
     }
 
-    public function removeEffectUuid(string , int ): void {
-         = new Action();
-         = new RemoveEffectAction();
-        ->setPlayerUuid();
-        ->setEffectType();
-        ->setRemoveEffect();
-        ->sendOrBatch();
+    public function removeEffectUuid(string $uuid, int $type): void {
+        $action = new Action();
+        $fx = new RemoveEffectAction();
+        $fx->setPlayerUuid($uuid);
+        $fx->setEffectType($type);
+        $action->setRemoveEffect($fx);
+        $this->sendOrBatch($action);
     }
 
-    public function sendTitleUuid(string , string , ?string  = null, ?int  = null, ?int  = null, ?int  = null): void {
-         = new Action();
-         = new SendTitleAction();
-        ->setPlayerUuid();
-        ->setTitle();
-        if ( !== null) {
-            ->setSubtitle();
-        }
-        if ( !== null) {
-            ->setFadeInMs();
-        }
-        if ( !== null) {
-            ->setDurationMs();
-        }
-        if ( !== null) {
-            ->setFadeOutMs();
-        }
-        ->setSendTitle();
-        ->sendOrBatch();
+    public function sendTitleUuid(string $uuid, string $title, ?string $subtitle = null, ?int $fadeIn = null, ?int $duration = null, ?int $fadeOut = null): void {
+        $action = new Action();
+        $st = new SendTitleAction();
+        $st->setPlayerUuid($uuid);
+        $st->setTitle($title);
+        if ($subtitle !== null) $st->setSubtitle($subtitle);
+        if ($fadeIn !== null) $st->setFadeInMs($fadeIn);
+        if ($duration !== null) $st->setDurationMs($duration);
+        if ($fadeOut !== null) $st->setFadeOutMs($fadeOut);
+        $action->setSendTitle($st);
+        $this->sendOrBatch($action);
     }
 
-    public function sendPopupUuid(string , string ): void {
-         = new Action();
-         = new SendPopupAction();
-        ->setPlayerUuid();
-        ->setMessage();
-        ->setSendPopup();
-        ->sendOrBatch();
+    public function sendPopupUuid(string $uuid, string $msg): void {
+        $action = new Action();
+        $pu = new SendPopupAction();
+        $pu->setPlayerUuid($uuid);
+        $pu->setMessage($msg);
+        $action->setSendPopup($pu);
+        $this->sendOrBatch($action);
     }
 
-    public function sendTipUuid(string , string ): void {
-         = new Action();
-         = new SendTipAction();
-        ->setPlayerUuid();
-        ->setMessage();
-        ->setSendTip();
-        ->sendOrBatch();
+    public function sendTipUuid(string $uuid, string $msg): void {
+        $action = new Action();
+        $tp = new SendTipAction();
+        $tp->setPlayerUuid($uuid);
+        $tp->setMessage($msg);
+        $action->setSendTip($tp);
+        $this->sendOrBatch($action);
     }
 
-    public function playSoundUuid(string , int , ?Vec3  = null, ?float  = null, ?float  = null): void {
-         = new Action();
-         = new PlaySoundAction();
-        ->setPlayerUuid();
-        ->setSound();
-        if ( !== null) {
-            ->setPosition();
-        }
-        if ( !== null) {
-            ->setVolume();
-        }
-        if ( !== null) {
-            ->setPitch();
-        }
-        ->setPlaySound();
-        ->sendOrBatch();
+    public function playSoundUuid(string $uuid, int $soundId, ?Vec3 $pos = null, ?float $volume = null, ?float $pitch = null): void {
+        $action = new Action();
+        $ps = new PlaySoundAction();
+        $ps->setPlayerUuid($uuid);
+        $ps->setSound($soundId);
+        if ($pos !== null) $ps->setPosition($pos);
+        if ($volume !== null) $ps->setVolume($volume);
+        if ($pitch !== null) $ps->setPitch($pitch);
+        $action->setPlaySound($ps);
+        $this->sendOrBatch($action);
     }
 
-    public function executeCommandUuid(string , string ): void {
-         = new Action();
-         = new ExecuteCommandAction();
-        ->setPlayerUuid();
-        ->setCommand();
-        ->setExecuteCommand();
-        ->sendOrBatch();
+    public function executeCommandUuid(string $uuid, string $cmd): void {
+        $action = new Action();
+        $ec = new ExecuteCommandAction();
+        $ec->setPlayerUuid($uuid);
+        $ec->setCommand($cmd);
+        $action->setExecuteCommand($ec);
+        $this->sendOrBatch($action);
     }
 
-    public function worldSetDefaultGameMode(WorldRef , int ): void {
-         = new Action();
-         = new WorldSetDefaultGameModeAction();
-        ->setWorld();
-        ->setGameMode();
-        ->setWorldSetDefaultGameMode();
-        ->sendOrBatch();
+    public function worldSetDefaultGameMode(WorldRef $world, int $mode): void {
+        $action = new Action();
+        $w = new WorldSetDefaultGameModeAction();
+        $w->setWorld($world);
+        $w->setGameMode($mode);
+        $action->setWorldSetDefaultGameMode($w);
+        $this->sendOrBatch($action);
     }
 
-    public function worldSetDifficulty(WorldRef , int ): void {
-         = new Action();
-         = new WorldSetDifficultyAction();
-        ->setWorld();
-        ->setDifficulty();
-        ->setWorldSetDifficulty();
-        ->sendOrBatch();
+    public function worldSetDifficulty(WorldRef $world, int $difficulty): void {
+        $action = new Action();
+        $wd = new WorldSetDifficultyAction();
+        $wd->setWorld($world);
+        $wd->setDifficulty($difficulty);
+        $action->setWorldSetDifficulty($wd);
+        $this->sendOrBatch($action);
     }
 
-    public function worldSetTickRange(WorldRef , int ): void {
-         = new Action();
-         = new WorldSetTickRangeAction();
-        ->setWorld();
-        ->setTickRange();
-        ->setWorldSetTickRange();
-        ->sendOrBatch();
+    public function worldSetTickRange(WorldRef $world, int $range): void {
+        $action = new Action();
+        $wr = new WorldSetTickRangeAction();
+        $wr->setWorld($world);
+        $wr->setTickRange($range);
+        $action->setWorldSetTickRange($wr);
+        $this->sendOrBatch($action);
     }
 
-    public function worldSetBlock(WorldRef , BlockPos , ?BlockState  = null): void {
-         = new Action();
-         = new WorldSetBlockAction();
-        ->setWorld();
-        ->setPosition();
-        if ( !== null) {
-            ->setBlock();
-        }
-        ->setWorldSetBlock();
-        ->sendOrBatch();
+    public function worldSetBlock(WorldRef $world, BlockPos $pos, ?BlockState $state = null): void {
+        $action = new Action();
+        $wb = new WorldSetBlockAction();
+        $wb->setWorld($world);
+        $wb->setPosition($pos);
+        if ($state !== null) $wb->setBlock($state);
+        $action->setWorldSetBlock($wb);
+        $this->sendOrBatch($action);
     }
 
-    public function worldPlaySound(WorldRef , int , Vec3 ): void {
-         = new Action();
-         = new WorldPlaySoundAction();
-        ->setWorld();
-        ->setSound();
-        ->setPosition();
-        ->setWorldPlaySound();
-        ->sendOrBatch();
+    public function worldPlaySound(WorldRef $world, int $soundId, Vec3 $pos): void {
+        $action = new Action();
+        $ws = new WorldPlaySoundAction();
+        $ws->setWorld($world);
+        $ws->setSound($soundId);
+        $ws->setPosition($pos);
+        $action->setWorldPlaySound($ws);
+        $this->sendOrBatch($action);
     }
 
-    public function worldAddParticle(WorldRef , Vec3 , int , ?BlockState  = null, ?int  = null): void {
-         = new Action();
-         = new WorldAddParticleAction();
-        ->setWorld();
-        ->setPosition();
-        ->setParticle();
-        if ( !== null) {
-            ->setBlock();
-        }
-        if ( !== null) {
-            ->setFace();
-        }
-        ->setWorldAddParticle();
-        ->sendOrBatch();
+    public function worldAddParticle(WorldRef $world, Vec3 $pos, int $particle, ?BlockState $block = null, ?int $face = null): void {
+        $action = new Action();
+        $wp = new WorldAddParticleAction();
+        $wp->setWorld($world);
+        $wp->setPosition($pos);
+        $wp->setParticle($particle);
+        if ($block !== null) $wp->setBlock($block);
+        if ($face !== null) $wp->setFace($face);
+        $action->setWorldAddParticle($wp);
+        $this->sendOrBatch($action);
     }
 
-    public function worldQueryEntities(WorldRef , ?string  = null): void {
-         = new Action();
-        if ( !== null) {
-            ->setCorrelationId();
-        }
-         = new WorldQueryEntitiesAction();
-        ->setWorld();
-        ->setWorldQueryEntities();
-        ->sendOrBatch();
+    public function worldQueryEntities(WorldRef $world, ?string $corr = null): void {
+        $action = new Action();
+        if ($corr !== null) $action->setCorrelationId($corr);
+        $q = new WorldQueryEntitiesAction();
+        $q->setWorld($world);
+        $action->setWorldQueryEntities($q);
+        $this->sendOrBatch($action);
     }
 
-    public function worldQueryPlayers(WorldRef , ?string  = null): void {
-         = new Action();
-        if ( !== null) {
-            ->setCorrelationId();
-        }
-         = new WorldQueryPlayersAction();
-        ->setWorld();
-        ->setWorldQueryPlayers();
-        ->sendOrBatch();
+    public function worldQueryPlayers(WorldRef $world, ?string $corr = null): void {
+        $action = new Action();
+        if ($corr !== null) $action->setCorrelationId($corr);
+        $q = new WorldQueryPlayersAction();
+        $q->setWorld($world);
+        $action->setWorldQueryPlayers($q);
+        $this->sendOrBatch($action);
     }
 
-    public function worldQueryEntitiesWithin(WorldRef , BBox , ?string  = null): void {
-         = new Action();
-        if ( !== null) {
-            ->setCorrelationId();
-        }
-         = new WorldQueryEntitiesWithinAction();
-        ->setWorld();
-        ->setBox();
-        ->setWorldQueryEntitiesWithin();
-        ->sendOrBatch();
+    public function worldQueryEntitiesWithin(WorldRef $world, BBox $box, ?string $corr = null): void {
+        $action = new Action();
+        if ($corr !== null) $action->setCorrelationId($corr);
+        $q = new WorldQueryEntitiesWithinAction();
+        $q->setWorld($world);
+        $q->setBox($box);
+        $action->setWorldQueryEntitiesWithin($q);
+        $this->sendOrBatch($action);
     }
 }
