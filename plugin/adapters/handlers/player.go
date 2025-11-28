@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"fmt"
+	"math"
 	"net"
 	"time"
 
@@ -19,6 +20,10 @@ import (
 type PlayerHandler struct {
 	player.NopHandler
 	manager ports.EventManager
+
+	lastPos   mgl64.Vec3
+	lastYaw   float64
+	lastPitch float64
 }
 
 func NewPlayerHandler(manager ports.EventManager) player.Handler {
@@ -30,6 +35,22 @@ func (h *PlayerHandler) HandleChat(ctx *player.Context, message *string) {
 }
 
 func (h *PlayerHandler) HandleMove(ctx *player.Context, newPos mgl64.Vec3, newRot cube.Rotation) {
+	// Thresholds for filtering insignificant updates
+	const (
+		posEpsilonSqr = 0.0025 // 0.05 blocks linear distance
+		rotEpsilon    = 0.5    // degrees
+	)
+
+	if h.lastPos.Sub(newPos).LenSqr() < posEpsilonSqr &&
+		math.Abs(h.lastYaw-newRot.Yaw()) < rotEpsilon &&
+		math.Abs(h.lastPitch-newRot.Pitch()) < rotEpsilon {
+		return
+	}
+
+	h.lastPos = newPos
+	h.lastYaw = newRot.Yaw()
+	h.lastPitch = newRot.Pitch()
+
 	h.manager.EmitPlayerMove(ctx, ctx.Val(), newPos, newRot)
 }
 

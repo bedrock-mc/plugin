@@ -412,6 +412,10 @@ func (m *Manager) dispatchEventParallel(envelope *pb.EventEnvelope, expectResult
 	return results
 }
 
+type cancelContext interface {
+	Cancel()
+}
+
 func (m *Manager) emitCancellable(ctx cancelContext, envelope *pb.EventEnvelope) []*pb.EventResult {
 	envelope.ExpectsResponse = true
 	// Fire all at once and wait for all responses.
@@ -609,7 +613,7 @@ func (m *Manager) handlePluginMessage(p *pluginProcess, msg *pb.PluginToHost) {
 		m.log.Info(fmt.Sprintf("  %s subscribed to %d events", pluginName, len(eventNames)), "events", eventNames)
 		p.updateSubscriptions(subscribe.Events)
 	case *pb.PluginToHost_Actions:
-		m.applyActions(p, payload.Actions)
+		p.queueActions(payload.Actions)
 	case *pb.PluginToHost_Log:
 		logMsg := payload.Log
 		level := strings.ToLower(logMsg.Level)

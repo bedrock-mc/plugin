@@ -16,24 +16,12 @@ import (
 	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
-type cancelContext interface {
-	Cancel()
-}
-
 func playerWorldDimension(p *player.Player) string {
 	if p == nil {
 		return ""
 	}
-	// Prefer current transaction when available to avoid deadlocks.
 	if tx := p.Tx(); tx != nil {
 		return worldDimension(tx.World())
-	}
-	// Fallback when no tx is available
-	dim := ""
-	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
-		dim = worldDimension(tx.World())
-	}); ok && dim != "" {
-		return dim
 	}
 	return ""
 }
@@ -42,16 +30,8 @@ func playerWorldRef(p *player.Player) *pb.WorldRef {
 	if p == nil {
 		return nil
 	}
-	// Prefer current transaction when available to avoid deadlocks.
 	if tx := p.Tx(); tx != nil {
 		return protoWorldRef(tx.World())
-	}
-	// Fallback when no tx is available
-	var ref *pb.WorldRef
-	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
-		ref = protoWorldRef(tx.World())
-	}); ok && ref != nil {
-		return ref
 	}
 	return nil
 }

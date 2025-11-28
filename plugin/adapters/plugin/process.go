@@ -41,8 +41,9 @@ type pluginProcess struct {
 	stream   *grpc.GrpcStream
 	streamMu sync.RWMutex
 
-	sendCh chan *pb.HostToPlugin
-	done   chan struct{}
+	sendCh   chan *pb.HostToPlugin
+	actionCh chan *pb.ActionBatch
+	done     chan struct{}
 	wg     sync.WaitGroup
 
 	subscriptions sync.Map
@@ -70,9 +71,11 @@ func newPluginProcess(m *Manager, cfg config.PluginConfig) *pluginProcess {
 		id:      cfg.ID,
 		cfg:     cfg,
 		manager: m,
-		log:     logger,
-		sendCh:  make(chan *pb.HostToPlugin, sendChannelBuffer),
-		done:    make(chan struct{}),
+				log:      logger,
+				sendCh:   make(chan *pb.HostToPlugin, sendChannelBuffer),
+				actionCh: make(chan *pb.ActionBatch, sendChannelBuffer),
+				done:     make(chan struct{}),
+		
 		pending: make(map[string]chan *pb.EventResult),
 	}
 }
@@ -105,10 +108,11 @@ func (p *pluginProcess) attachStream(stream *grpc.GrpcStream) error {
 		return err
 	}
 
-		p.wg.Add(3)
+		p.wg.Add(4)
 	go p.sendLoop()
 	go p.recvLoop()
 	go p.batchSendLoop()
+	go p.actionLoop()
 	return nil
 }
 
@@ -123,6 +127,29 @@ func (p *pluginProcess) clearStream() {
 	}
 	p.streamMu.Unlock()
 	p.connected.Store(false)
+}
+
+func (p *pluginProcess) queueActions(batch *pb.ActionBatch) {
+	if p.closed.Load() {
+		return
+	}
+	select {
+	case p.actionCh <- batch:
+	default:
+		p.log.Warn("action queue full, dropping batch")
+	}
+}
+
+func (p *pluginProcess) actionLoop() {
+	defer p.wg.Done()
+	for {
+		select {
+		case <-p.done:
+			return
+		case batch := <-p.actionCh:
+			p.manager.applyActions(p, batch)
+		}
+	}
 }
 
 func (p *pluginProcess) launchProcess(ctx context.Context, serverAddress string) error {
