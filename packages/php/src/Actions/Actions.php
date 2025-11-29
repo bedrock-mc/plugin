@@ -3,6 +3,8 @@
 namespace Dragonfly\PluginLib\Actions;
 
 use Df\Plugin\Action;
+use Df\Plugin\ActionBatch;
+use Df\Plugin\PluginToHost;
 use Df\Plugin\AddEffectAction;
 use Df\Plugin\ClearInventoryAction;
 use Df\Plugin\ExecuteCommandAction;
@@ -41,10 +43,17 @@ use Dragonfly\PluginLib\StreamSender;
 final class Actions {
     public function __construct(
         private StreamSender $sender,
+        private string $pluginId,
     ) {}
 
     public function sendAction(Action $action): void {
-        $this->sender->queueAction($action);
+        // $this->sender->queueAction($action); // Action batching is currently disabled due to high overhead in the current impl.
+        $batch = new ActionBatch();
+        $batch->setActions([$action]);
+        $resp = new PluginToHost();
+        $resp->setPluginId($this->pluginId);
+        $resp->setActions($batch);
+        $this->sender->enqueue($resp);
     }
 
     /**

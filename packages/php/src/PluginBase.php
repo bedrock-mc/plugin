@@ -325,7 +325,7 @@ abstract class PluginBase {
         $this->client = new PluginClient($this->serverAddress, $options);
         $this->call = $this->client->EventStream();
         $this->sender = new StreamSender($this->call, $this->pluginId);
-        $this->server = new Server(new Actions($this->sender));
+        $this->server = new Server(new Actions($this->sender, $this->pluginId));
         $this->running = true;
 
         // Register internal handlers to track online players
