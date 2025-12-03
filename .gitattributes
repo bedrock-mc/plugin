@@ -2,3 +2,11 @@
 *.php text eol=lf
 *.ts text eol=lf
 *.go text eol=lf
+
+# Generated files from buf/protoc
+proto/generated/** linguist-generated=true
+packages/cpp/src/generated/** linguist-generated=true
+packages/php/src/generated/** linguist-generated=true
+packages/python/src/generated/** linguist-generated=true
+packages/rust/src/generated/** linguist-generated=true
+packages/node/src/generated/** linguist-generated=true
