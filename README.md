@@ -1,6 +1,6 @@
 # Dragonfly Plugin System
 
-Write plugins for your Minecraft Bedrock server in whatever language you love. This gRPC bridge sits on top of the [Dragonfly](https://github.com/df-mc/dragonfly) server and lets external processes stream protobuf events and actions without touching the core runtime.
+Write plugins for your Minecraft Bedrock server in any language, built on top of the [Dragonfly](https://github.com/df-mc/dragonfly) server software.
 
 ## Why Dragonfly Plugins?
 
@@ -38,6 +38,28 @@ rustc plugin.rs --release   # Compile to binary
 - **Language samples**: TypeScript, Node, PHP, and more under `examples/plugins/` to kick-start new plugins.
 - **Automation ready**: `make proto` (buf + scripts) and `make run` wire up the host for you.
 
+## How It Works
+
+```
+┌─────────────────┐         gRPC Stream          ┌──────────────────┐
+│                 │ ←──────────────────────────→ │                  │
+│  Dragonfly      │   Events: JOIN, CHAT, etc.   │  Your Plugin     │
+│  Server (Go)    │   Actions: TELEPORT, etc.    │  (Any Language)  │
+└─────────────────┘                              └──────────────────┘
+```
+
+1. **Server starts** and loads plugin configuration from `cmd/plugins/plugins.yaml`.
+2. **Plugin process launches** via the configured command (for example `node plugin.js`).
+3. **Handshake** occurs where the plugin registers its metadata and commands.
+4. **Plugin subscribes** to the events it wants.
+5. **Events flow** from Dragonfly to the plugin in real time.
+6. **Plugin executes actions** by sending protobuf messages back to the host.
+
+## Prerequisites
+
+- Go 1.22+ with `GOBIN` on your `PATH`.
+- [buf](https://buf.build/docs/cli/installation/) and `protoc-gen-go` (`go install google.golang.org/protobuf/cmd/protoc-gen-go@latest`).
+
 ## Quick Start
 
 1. **Clone & bootstrap**
@@ -62,23 +84,6 @@ rustc plugin.rs --release   # Compile to binary
    ```
 4. **Iterate in your language** – edit the example plugin, or point the config at your own command/binary.
 
-## How It Works
-
-```
-┌─────────────────┐         gRPC Stream          ┌──────────────────┐
-│                 │ ←──────────────────────────→ │                  │
-│  Dragonfly      │   Events: JOIN, CHAT, etc.   │  Your Plugin     │
-│  Server (Go)    │   Actions: TELEPORT, etc.    │  (Any Language)  │
-└─────────────────┘                              └──────────────────┘
-```
-
-1. **Server starts** and loads plugin configuration from `cmd/plugins/plugins.yaml`.
-2. **Plugin process launches** via the configured command (for example `node plugin.js`).
-3. **Handshake** occurs where the plugin registers its metadata and commands.
-4. **Plugin subscribes** to the events it wants.
-5. **Events flow** from Dragonfly to the plugin in real time.
-6. **Plugin executes actions** by sending protobuf messages back to the host.
-
 ## Building Plugins
 
 1. Copy an example from `examples/plugins/` or start fresh with `proto/types/plugin.proto`.
@@ -96,8 +101,3 @@ make run          # launch Dragonfly host with sample config
 npm run dev --prefix examples/plugins/typescript   # TypeScript live dev
 examples/plugins/php/bin/php7/bin/php examples/plugins/php/src/HelloPlugin.php   # PHP sample
 ```
-
-## Prerequisites
-
-- Go 1.22+ with `GOBIN` on your `PATH`.
-- [buf](https://buf.build/docs/cli/installation/) and `protoc-gen-go` (`go install google.golang.org/protobuf/cmd/protoc-gen-go@latest`).
