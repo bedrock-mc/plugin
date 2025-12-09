@@ -64,7 +64,7 @@ rustc plugin.rs --release   # Compile to binary
 
 1. **Clone & bootstrap**
    ```bash
-   git clone https://github.com/secmc/plugin.git
+   git clone https://github.com/bedrock-mc/plugin.git
    cd plugin
    go mod download
    make proto

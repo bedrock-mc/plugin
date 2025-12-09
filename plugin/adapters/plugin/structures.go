@@ -3,8 +3,8 @@ package plugin
 import (
 	"fmt"
 
+	pb "github.com/bedrock-mc/plugin/proto/generated/go"
 	"github.com/df-mc/dragonfly/server/world"
-	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 // protoStructure implements world.Structure for sparse voxel data sent over protobuf.

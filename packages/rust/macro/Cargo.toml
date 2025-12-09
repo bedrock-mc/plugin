@@ -3,10 +3,10 @@ name = "dragonfly-plugin-macro"
 version = "0.3.0"
 edition = "2021"
 license = "MIT"
-repository = "https://github.com/secmc/dragonfly-plugins"
+repository = "https://github.com/bedrock-mc/dragonfly-plugins"
 documentation = "https://docs.rs/rust-plugin-macro"
 description = "Procedural macros for the Dragonfly gRPC plugin SDK"
-homepage = "https://github.com/secmc/dragonfly-plugins"
+homepage = "https://github.com/bedrock-mc/dragonfly-plugins"
 keywords = ["dragonfly", "plugin", "grpc", "macro"]
 categories = ["development-tools::procedural-macro-helpers"]
 

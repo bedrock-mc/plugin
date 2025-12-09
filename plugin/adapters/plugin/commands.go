@@ -5,10 +5,10 @@ import (
 	"sort"
 	"strings"
 
+	pb "github.com/bedrock-mc/plugin/proto/generated/go"
 	"github.com/df-mc/dragonfly/server/cmd"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/world"
-	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 func (m *Manager) registerCommands(p *pluginProcess, specs []*pb.CommandSpec) {

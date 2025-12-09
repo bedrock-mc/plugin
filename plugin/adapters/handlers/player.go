@@ -5,6 +5,7 @@ import (
 	"net"
 	"time"
 
+	"github.com/bedrock-mc/plugin/plugin/ports"
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/cmd"
 	"github.com/df-mc/dragonfly/server/item"
@@ -13,7 +14,6 @@ import (
 	"github.com/df-mc/dragonfly/server/session"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/go-gl/mathgl/mgl64"
-	"github.com/secmc/plugin/plugin/ports"
 )
 
 type PlayerHandler struct {

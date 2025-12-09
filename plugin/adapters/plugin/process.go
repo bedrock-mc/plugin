@@ -19,9 +19,9 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"github.com/secmc/plugin/plugin/adapters/grpc"
-	"github.com/secmc/plugin/plugin/config"
-	pb "github.com/secmc/plugin/proto/generated/go"
+	"github.com/bedrock-mc/plugin/plugin/adapters/grpc"
+	"github.com/bedrock-mc/plugin/plugin/config"
+	pb "github.com/bedrock-mc/plugin/proto/generated/go"
 )
 
 const (

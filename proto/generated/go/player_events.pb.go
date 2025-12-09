@@ -2911,8 +2911,8 @@ const file_player_events_proto_rawDesc = "" +
 	"\x16average_end_frame_time\x18\t \x01(\x01R\x13averageEndFrameTime\x12C\n" +
 	"\x1eaverage_remainder_time_percent\x18\n" +
 	" \x01(\x01R\x1baverageRemainderTimePercent\x12G\n" +
-	" average_unaccounted_time_percent\x18\v \x01(\x01R\x1daverageUnaccountedTimePercentB\x90\x01\n" +
-	"\rcom.df.pluginB\x11PlayerEventsProtoP\x01Z'github.com/secmc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
+	" average_unaccounted_time_percent\x18\v \x01(\x01R\x1daverageUnaccountedTimePercentB\x95\x01\n" +
+	"\rcom.df.pluginB\x11PlayerEventsProtoP\x01Z,github.com/bedrock-mc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
 	"Df::Pluginb\x06proto3"
 
 var (

@@ -16,16 +16,16 @@ if [[ "$OS" == MINGW* ]] || [[ "$OS" == MSYS* ]] || [[ "$OS" == CYGWIN* ]]; then
 fi
 
 # PHP build URL (PocketMine PHP 8.3 with gRPC built-in)
-# Source: secmc/PHP-Binaries
+# Source: bedrock-mc/PHP-Binaries
 if [ "$OS" = "Darwin" ]; then
     # macOS - both arm64 and x86_64 supported!
     if [ "$ARCH" = "arm64" ]; then
-        PHP_BUILD_URL="https://github.com/secmc/PHP-Binaries/releases/download/pm5-php-8.3-latest/PHP-8.3-MacOS-arm64-PM5.tar.gz"
+        PHP_BUILD_URL="https://github.com/bedrock-mc/PHP-Binaries/releases/download/pm5-php-8.3-latest/PHP-8.3-MacOS-arm64-PM5.tar.gz"
         PHP_BIN="bin/php7/bin/php"
         IS_WINDOWS=false
     else
         # x86_64 or other arch - use x86_64 build
-        PHP_BUILD_URL="https://github.com/secmc/PHP-Binaries/releases/download/pm5-php-8.3-latest/PHP-8.3-MacOS-x86_64-PM5.tar.gz"
+        PHP_BUILD_URL="https://github.com/bedrock-mc/PHP-Binaries/releases/download/pm5-php-8.3-latest/PHP-8.3-MacOS-x86_64-PM5.tar.gz"
         PHP_BIN="bin/php7/bin/php"
         IS_WINDOWS=false
     fi
@@ -47,13 +47,13 @@ elif [ "$OS" = "Linux" ]; then
         exit 1
     else
         # Linux x86_64 - supported!
-        PHP_BUILD_URL="https://github.com/secmc/PHP-Binaries/releases/download/pm5-php-8.3-latest/PHP-8.3-Linux-x86_64-PM5.tar.gz"
+        PHP_BUILD_URL="https://github.com/bedrock-mc/PHP-Binaries/releases/download/pm5-php-8.3-latest/PHP-8.3-Linux-x86_64-PM5.tar.gz"
         PHP_BIN="bin/php7/bin/php"
         IS_WINDOWS=false
     fi
 elif [ "$OS" = "Windows" ]; then
     # Windows x64 - supported!
-    PHP_BUILD_URL="https://github.com/secmc/PHP-Binaries/releases/download/pm5-php-8.3-latest/PHP-8.3-Windows-x64-PM5.zip"
+    PHP_BUILD_URL="https://github.com/bedrock-mc/PHP-Binaries/releases/download/pm5-php-8.3-latest/PHP-8.3-Windows-x64-PM5.zip"
     PHP_BIN="bin/php/php.exe"
     IS_WINDOWS=true
 else
@@ -72,7 +72,7 @@ if [ -f "$PHP_BIN" ]; then
     echo "   $PHP_VERSION"
 else
     echo "📥 Downloading pre-compiled PHP 8.3 with gRPC..."
-    echo "   Source: secmc/PHP-Binaries"
+    echo "   Source: bedrock-mc/PHP-Binaries"
     echo ""
     
     # Download PHP build

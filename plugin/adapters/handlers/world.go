@@ -1,10 +1,10 @@
 package handlers
 
 import (
+	"github.com/bedrock-mc/plugin/plugin/ports"
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/go-gl/mathgl/mgl64"
-	"github.com/secmc/plugin/plugin/ports"
 )
 
 var _ world.Handler = (*WorldHandler)(nil)

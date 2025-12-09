@@ -3,7 +3,7 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: github.com/secmc/plugin/proto/generated
+      value: github.com/bedrock-mc/plugin/proto/generated
 plugins:
   # Go
   - local: protoc-gen-go

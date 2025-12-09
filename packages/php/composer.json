@@ -4,7 +4,7 @@
   "type": "library",
   "license": "MIT",
   "keywords": ["minecraft", "bedrock", "dragonfly", "plugin", "grpc", "server", "mcpe", "minecraft-bedrock"],
-  "homepage": "https://github.com/secmc/dragonfly-php-sdk",
+  "homepage": "https://github.com/bedrock-mc/dragonfly-php-sdk",
   "require": {
     "php": ">=8.1",
     "grpc/grpc": "^1.74.0",

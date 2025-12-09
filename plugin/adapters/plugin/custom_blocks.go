@@ -6,12 +6,12 @@ import (
 	"image"
 	"image/png"
 
+	pb "github.com/bedrock-mc/plugin/proto/generated/go"
 	"github.com/df-mc/dragonfly/server/block"
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/block/customblock"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/go-gl/mathgl/mgl64"
-	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 type customBlock struct {

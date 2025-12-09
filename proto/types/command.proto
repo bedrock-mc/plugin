@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package df.plugin;
 
-option go_package = "github.com/secmc/plugin/proto/generated";
+option go_package = "github.com/bedrock-mc/plugin/proto/generated";
 
 // Supported parameter types for commands.
 enum ParamType {

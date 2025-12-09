@@ -1,4 +1,4 @@
-module github.com/secmc/plugin
+module github.com/bedrock-mc/plugin
 
 go 1.25.0
 

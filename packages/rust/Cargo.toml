@@ -14,9 +14,9 @@ name = "dragonfly-plugin"
 version = "0.3.0"
 edition = "2021"
 license = "MIT"
-repository = "https://github.com/secmc/dragonfly-plugins"
+repository = "https://github.com/bedrock-mc/dragonfly-plugins"
 description = "Dragonfly gRPC plugin SDK for Rust"
-homepage = "https://github.com/secmc/dragonfly-plugins"
+homepage = "https://github.com/bedrock-mc/dragonfly-plugins"
 keywords = ["dragonfly", "plugin", "grpc", "macro"]
 
 [lib]

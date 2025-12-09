@@ -1886,8 +1886,8 @@ const file_common_proto_rawDesc = "" +
 	"!CUSTOM_BLOCK_RENDER_METHOD_OPAQUE\x10\x00\x12)\n" +
 	"%CUSTOM_BLOCK_RENDER_METHOD_ALPHA_TEST\x10\x01\x12$\n" +
 	" CUSTOM_BLOCK_RENDER_METHOD_BLEND\x10\x02\x12+\n" +
-	"'CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED\x10\x03B\x8a\x01\n" +
-	"\rcom.df.pluginB\vCommonProtoP\x01Z'github.com/secmc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
+	"'CUSTOM_BLOCK_RENDER_METHOD_DOUBLE_SIDED\x10\x03B\x8f\x01\n" +
+	"\rcom.df.pluginB\vCommonProtoP\x01Z,github.com/bedrock-mc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
 	"Df::Pluginb\x06proto3"
 
 var (

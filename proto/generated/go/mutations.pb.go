@@ -1155,8 +1155,8 @@ const file_mutations_proto_rawDesc = "" +
 	"\r_entity_uuidsB\t\n" +
 	"\a_blocksB\x13\n" +
 	"\x11_item_drop_chanceB\r\n" +
-	"\v_spawn_fireB\x8d\x01\n" +
-	"\rcom.df.pluginB\x0eMutationsProtoP\x01Z'github.com/secmc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
+	"\v_spawn_fireB\x92\x01\n" +
+	"\rcom.df.pluginB\x0eMutationsProtoP\x01Z,github.com/bedrock-mc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
 	"Df::Pluginb\x06proto3"
 
 var (

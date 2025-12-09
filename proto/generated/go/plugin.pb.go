@@ -1887,8 +1887,8 @@ const file_plugin_proto_rawDesc = "" +
 	"\x0fWORLD_EXPLOSION\x10P\x12\x0f\n" +
 	"\vWORLD_CLOSE\x10Q2M\n" +
 	"\x06Plugin\x12C\n" +
-	"\vEventStream\x12\x17.df.plugin.PluginToHost\x1a\x17.df.plugin.HostToPlugin(\x010\x01B\x8a\x01\n" +
-	"\rcom.df.pluginB\vPluginProtoP\x01Z'github.com/secmc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
+	"\vEventStream\x12\x17.df.plugin.PluginToHost\x1a\x17.df.plugin.HostToPlugin(\x010\x01B\x8f\x01\n" +
+	"\rcom.df.pluginB\vPluginProtoP\x01Z,github.com/bedrock-mc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
 	"Df::Pluginb\x06proto3"
 
 var (

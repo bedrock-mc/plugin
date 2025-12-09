@@ -41,7 +41,7 @@ jobs:
                   VERSION=${GITHUB_REF#refs/tags/php-sdk-}
 
                   # Push to separate repo
-                  git remote add php-sdk git@github.com:secmc/dragonfly-php-sdk.git
+                  git remote add php-sdk git@github.com:bedrock-mc/dragonfly-php-sdk.git
                   git push php-sdk php-sdk-split:main --force
                   git push php-sdk php-sdk-split:refs/tags/$VERSION
 

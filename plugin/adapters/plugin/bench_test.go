@@ -11,8 +11,8 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/protobuf/proto"
 
-	"github.com/secmc/plugin/plugin/config"
-	pb "github.com/secmc/plugin/proto/generated/go"
+	"github.com/bedrock-mc/plugin/plugin/config"
+	pb "github.com/bedrock-mc/plugin/proto/generated/go"
 )
 
 // rawProtoCodec is a minimal client-side codec that passes raw protobuf bytes.

@@ -6,9 +6,9 @@ import (
 	"image"
 	"image/png"
 
+	pb "github.com/bedrock-mc/plugin/proto/generated/go"
 	"github.com/df-mc/dragonfly/server/item/category"
 	"github.com/df-mc/dragonfly/server/world"
-	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 // customItem implements world.CustomItem

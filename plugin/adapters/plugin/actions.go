@@ -5,6 +5,7 @@ import (
 	"strings"
 	"time"
 
+	pb "github.com/bedrock-mc/plugin/proto/generated/go"
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/entity"
 	"github.com/df-mc/dragonfly/server/entity/effect"
@@ -22,7 +23,6 @@ import (
 	"github.com/df-mc/dragonfly/server/world/sound"
 	"github.com/go-gl/mathgl/mgl64"
 	"github.com/google/uuid"
-	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 func (m *Manager) applyActions(p *pluginProcess, batch *pb.ActionBatch) {

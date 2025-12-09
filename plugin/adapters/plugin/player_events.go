@@ -5,6 +5,7 @@ import (
 	"strings"
 	"time"
 
+	pb "github.com/bedrock-mc/plugin/proto/generated/go"
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/item"
 	"github.com/df-mc/dragonfly/server/player"
@@ -12,7 +13,6 @@ import (
 	"github.com/df-mc/dragonfly/server/session"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/go-gl/mathgl/mgl64"
-	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 func (m *Manager) EmitPlayerJoin(p *player.Player) {

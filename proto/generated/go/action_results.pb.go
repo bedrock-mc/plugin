@@ -1359,8 +1359,8 @@ const file_action_results_proto_rawDesc = "" +
 	"\x05world\x18\x01 \x01(\v2\x13.df.plugin.WorldRefR\x05world\x12/\n" +
 	"\bposition\x18\x02 \x01(\v2\x13.df.plugin.BlockPosR\bposition\x123\n" +
 	"\x06liquid\x18\x03 \x01(\v2\x16.df.plugin.LiquidStateH\x00R\x06liquid\x88\x01\x01B\t\n" +
-	"\a_liquidB\x91\x01\n" +
-	"\rcom.df.pluginB\x12ActionResultsProtoP\x01Z'github.com/secmc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
+	"\a_liquidB\x96\x01\n" +
+	"\rcom.df.pluginB\x12ActionResultsProtoP\x01Z,github.com/bedrock-mc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
 	"Df::Pluginb\x06proto3"
 
 var (

@@ -14,15 +14,15 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
+	"github.com/bedrock-mc/plugin/plugin/adapters/grpc"
+	"github.com/bedrock-mc/plugin/plugin/config"
+	"github.com/bedrock-mc/plugin/plugin/ports"
+	pb "github.com/bedrock-mc/plugin/proto/generated/go"
 	"github.com/df-mc/dragonfly/server"
 	"github.com/df-mc/dragonfly/server/item"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/google/uuid"
-	"github.com/secmc/plugin/plugin/adapters/grpc"
-	"github.com/secmc/plugin/plugin/config"
-	"github.com/secmc/plugin/plugin/ports"
-	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 type Manager struct {

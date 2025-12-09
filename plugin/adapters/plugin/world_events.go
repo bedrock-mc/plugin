@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
+	pb "github.com/bedrock-mc/plugin/proto/generated/go"
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/world"
 	"github.com/go-gl/mathgl/mgl64"
-	pb "github.com/secmc/plugin/proto/generated/go"
 )
 
 func (m *Manager) EmitWorldLiquidFlow(ctx *world.Context, from, into cube.Pos, liquid world.Liquid, replaced world.Block) {

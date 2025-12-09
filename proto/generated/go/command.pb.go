@@ -346,8 +346,8 @@ const file_command_proto_rawDesc = "" +
 	"\n" +
 	"PARAM_ENUM\x10\x05\x12\x10\n" +
 	"\fPARAM_TARGET\x10\x06\x12\x11\n" +
-	"\rPARAM_TARGETS\x10\aB\x8b\x01\n" +
-	"\rcom.df.pluginB\fCommandProtoP\x01Z'github.com/secmc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
+	"\rPARAM_TARGETS\x10\aB\x90\x01\n" +
+	"\rcom.df.pluginB\fCommandProtoP\x01Z,github.com/bedrock-mc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
 	"Df::Pluginb\x06proto3"
 
 var (

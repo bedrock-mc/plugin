@@ -8,6 +8,10 @@ import (
 	"os"
 	"time"
 
+	"github.com/bedrock-mc/plugin/plugin/adapters/handlers"
+	"github.com/bedrock-mc/plugin/plugin/adapters/plugin"
+	pcfg "github.com/bedrock-mc/plugin/plugin/config"
+	"github.com/bedrock-mc/plugin/plugin/ports"
 	"github.com/df-mc/dragonfly/server"
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/player/chat"
@@ -16,10 +20,6 @@ import (
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/pelletier/go-toml"
 	"github.com/sandertv/gophertunnel/minecraft"
-	"github.com/secmc/plugin/plugin/adapters/handlers"
-	"github.com/secmc/plugin/plugin/adapters/plugin"
-	pcfg "github.com/secmc/plugin/plugin/config"
-	"github.com/secmc/plugin/plugin/ports"
 )
 
 func main() {

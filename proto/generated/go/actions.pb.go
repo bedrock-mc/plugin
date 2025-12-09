@@ -8563,8 +8563,8 @@ const file_actions_proto_rawDesc = "" +
 	"\x18HUD_ELEMENT_HORSE_HEALTH\x10\n" +
 	"\x12\x1e\n" +
 	"\x1aHUD_ELEMENT_STATUS_EFFECTS\x10\v\x12\x19\n" +
-	"\x15HUD_ELEMENT_ITEM_TEXT\x10\fB\x8b\x01\n" +
-	"\rcom.df.pluginB\fActionsProtoP\x01Z'github.com/secmc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
+	"\x15HUD_ELEMENT_ITEM_TEXT\x10\fB\x90\x01\n" +
+	"\rcom.df.pluginB\fActionsProtoP\x01Z,github.com/bedrock-mc/plugin/proto/generated\xa2\x02\x03DPX\xaa\x02\tDf.Plugin\xca\x02\tDf\\Plugin\xe2\x02\x15Df\\Plugin\\GPBMetadata\xea\x02\n" +
 	"Df::Pluginb\x06proto3"
 
 var (
