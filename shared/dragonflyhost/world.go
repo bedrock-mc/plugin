@@ -38,7 +38,9 @@ func PlayerWorldName(p *player.Player, fallback string) string {
 		return fallback
 	}
 	if tx := p.Tx(); tx != nil {
-		return WorldName(tx.World(), fallback)
+		if name, ok := txWorldName(tx, fallback); ok {
+			return name
+		}
 	}
 	name := ""
 	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
@@ -54,7 +56,9 @@ func PlayerWorldDimension(p *player.Player) string {
 		return ""
 	}
 	if tx := p.Tx(); tx != nil {
-		return WorldDimension(tx.World())
+		if dimension, ok := txWorldDimension(tx); ok {
+			return dimension
+		}
 	}
 	dimension := ""
 	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
@@ -70,7 +74,9 @@ func PlayerWorldReference(p *player.Player) *WorldRef {
 		return nil
 	}
 	if tx := p.Tx(); tx != nil {
-		return WorldReference(tx.World())
+		if ref, ok := txWorldReference(tx); ok {
+			return ref
+		}
 	}
 	var ref *WorldRef
 	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
@@ -79,4 +85,34 @@ func PlayerWorldReference(p *player.Player) *WorldRef {
 		return ref
 	}
 	return nil
+}
+
+func txWorldName(tx *world.Tx, fallback string) (name string, ok bool) {
+	defer func() {
+		if recover() != nil {
+			name = ""
+			ok = false
+		}
+	}()
+	return WorldName(tx.World(), fallback), true
+}
+
+func txWorldDimension(tx *world.Tx) (dimension string, ok bool) {
+	defer func() {
+		if recover() != nil {
+			dimension = ""
+			ok = false
+		}
+	}()
+	return WorldDimension(tx.World()), true
+}
+
+func txWorldReference(tx *world.Tx) (ref *WorldRef, ok bool) {
+	defer func() {
+		if recover() != nil {
+			ref = nil
+			ok = false
+		}
+	}()
+	return WorldReference(tx.World()), true
 }
