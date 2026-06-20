@@ -1104,7 +1104,7 @@ func (m *Manager) handlePlayerSetItemCooldown(act *pb.PlayerSetItemCooldownActio
 func convertBossBarColour(c pb.BossBarColour) bossbar.Colour {
 	switch c {
 	case pb.BossBarColour_BOSS_BAR_COLOUR_GREY:
-		return bossbar.Grey()
+		return bossbar.White()
 	case pb.BossBarColour_BOSS_BAR_COLOUR_BLUE:
 		return bossbar.Blue()
 	case pb.BossBarColour_BOSS_BAR_COLOUR_RED:

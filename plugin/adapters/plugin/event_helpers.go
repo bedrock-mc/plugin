@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net"
 	"strconv"
-	"strings"
 
 	pb "github.com/bedrock-mc/plugin/proto/generated/go"
+	dfhost "github.com/bedrock-mc/plugin/shared/dragonflyhost"
 	"github.com/df-mc/dragonfly/server/block/cube"
 	"github.com/df-mc/dragonfly/server/item"
 	"github.com/df-mc/dragonfly/server/player"
@@ -21,46 +21,15 @@ type cancelContext interface {
 }
 
 func playerWorldDimension(p *player.Player) string {
-	if p == nil {
-		return ""
-	}
-	// Prefer current transaction when available to avoid deadlocks.
-	if tx := p.Tx(); tx != nil {
-		return worldDimension(tx.World())
-	}
-	// Fallback when no tx is available
-	dim := ""
-	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
-		dim = worldDimension(tx.World())
-	}); ok && dim != "" {
-		return dim
-	}
-	return ""
+	return dfhost.PlayerWorldDimension(p)
 }
 
 func playerWorldRef(p *player.Player) *pb.WorldRef {
-	if p == nil {
-		return nil
-	}
-	// Prefer current transaction when available to avoid deadlocks.
-	if tx := p.Tx(); tx != nil {
-		return protoWorldRef(tx.World())
-	}
-	// Fallback when no tx is available
-	var ref *pb.WorldRef
-	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
-		ref = protoWorldRef(tx.World())
-	}); ok && ref != nil {
-		return ref
-	}
-	return nil
+	return protoWorldRefSnapshot(dfhost.PlayerWorldReference(p))
 }
 
 func worldDimension(w *world.World) string {
-	if w == nil {
-		return ""
-	}
-	return strings.ToLower(fmt.Sprint(w.Dimension()))
+	return dfhost.WorldDimension(w)
 }
 
 func protoVec3(v mgl64.Vec3) *pb.Vec3 {
@@ -125,18 +94,14 @@ func protoLiquidOrBlockState(b world.Block) *pb.LiquidState {
 }
 
 func protoItemStack(it item.Stack) *pb.ItemStack {
-	if it.Empty() {
+	stack := dfhost.ItemStackSnapshot(it)
+	if stack.Count <= 0 || stack.TypeID == "" || stack.TypeID == "minecraft:air" {
 		return nil
 	}
-	itm := it.Item()
-	if itm == nil {
-		return nil
-	}
-	name, meta := itm.EncodeItem()
 	return &pb.ItemStack{
-		Name:  name,
-		Meta:  int32(meta),
-		Count: int32(it.Count()),
+		Name:  stack.TypeID,
+		Meta:  int32(stack.Meta),
+		Count: int32(stack.Count),
 	}
 }
 
@@ -219,23 +184,28 @@ func parseProtoAddress(addr *pb.Address) *net.UDPAddr {
 }
 
 func protoWorldRef(w *world.World) *pb.WorldRef {
-	if w == nil {
+	return protoWorldRefSnapshot(dfhost.WorldReference(w))
+}
+
+func protoWorldRefSnapshot(ref *dfhost.WorldRef) *pb.WorldRef {
+	if ref == nil {
 		return nil
 	}
 	return &pb.WorldRef{
-		Id:        fmt.Sprintf("%p", w),
-		Name:      w.Name(),
-		Dimension: worldDimension(w),
+		Id:        ref.ID,
+		Name:      ref.Name,
+		Dimension: ref.Dimension,
 	}
 }
 
 func protoDamageSource(src world.DamageSource) *pb.DamageSource {
-	if src == nil {
+	info := dfhost.DamageSourceSnapshot(src)
+	if info == nil {
 		return nil
 	}
-	desc := fmt.Sprint(src)
-	ds := &pb.DamageSource{Type: fmt.Sprintf("%T", src)}
-	if desc != "" {
+	ds := &pb.DamageSource{Type: info.Type}
+	if info.Description != "" {
+		desc := info.Description
 		ds.Description = &desc
 	}
 	return ds

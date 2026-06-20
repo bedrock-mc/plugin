@@ -16,7 +16,6 @@ import (
 	"github.com/df-mc/dragonfly/server/player"
 	"github.com/df-mc/dragonfly/server/player/chat"
 	"github.com/df-mc/dragonfly/server/world"
-	"github.com/didntpot/pregdk"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/pelletier/go-toml"
 	"github.com/sandertv/gophertunnel/minecraft"
@@ -102,7 +101,7 @@ func readConfig(log *slog.Logger) (server.Config, error) {
 	}
 	cfg, _ := c.Config(log)
 	listenerFunc(&cfg, c.Network.Address, []minecraft.Protocol{
-		pregdk.Protocol(false),
+		minecraft.DefaultProtocol,
 		basicProtocol{Protocol: 860, Version: "1.21.124"},
 	})
 	return cfg, nil

@@ -155,8 +155,12 @@ func (h *PlayerHandler) HandleLecternPageTurn(ctx *player.Context, pos cube.Pos,
 	h.manager.EmitPlayerLecternPageTurn(ctx, ctx.Val(), pos, oldPage, newPage)
 }
 
-func (h *PlayerHandler) HandleItemDamage(ctx *player.Context, it item.Stack, damage int) {
-	h.manager.EmitPlayerItemDamage(ctx, ctx.Val(), it, damage)
+func (h *PlayerHandler) HandleItemDamage(ctx *player.Context, it item.Stack, damage *int) {
+	amount := 0
+	if damage != nil {
+		amount = *damage
+	}
+	h.manager.EmitPlayerItemDamage(ctx, ctx.Val(), it, amount)
 }
 
 func (h *PlayerHandler) HandleItemPickup(ctx *player.Context, it *item.Stack) {
