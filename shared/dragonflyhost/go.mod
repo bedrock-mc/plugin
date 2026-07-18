@@ -3,7 +3,7 @@ module github.com/bedrock-mc/plugin/shared/dragonflyhost
 go 1.26.0
 
 require (
-	github.com/df-mc/dragonfly v0.10.15-0.20260617164324-7f68b0673dd7
+	github.com/df-mc/dragonfly v0.11.0
 	github.com/go-gl/mathgl v1.2.0
 )
 

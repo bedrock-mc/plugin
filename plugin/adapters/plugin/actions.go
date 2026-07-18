@@ -558,9 +558,9 @@ func (m *Manager) handleWorldBuildStructure(p *pluginProcess, correlationID stri
 		return
 	}
 	origin := cube.Pos{int(act.Origin.X), int(act.Origin.Y), int(act.Origin.Z)}
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		tx.BuildStructure(origin, ps)
-	})
+	}).Done()
 	m.sendActionOK(p, correlationID)
 }
 
@@ -1353,9 +1353,9 @@ func (m *Manager) handleWorldSetBlock(p *pluginProcess, correlationID string, ac
 			return
 		}
 	}
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		tx.SetBlock(pos, blk, nil)
-	})
+	}).Done()
 	m.sendActionOK(p, correlationID)
 }
 
@@ -1371,9 +1371,9 @@ func (m *Manager) handleWorldPlaySound(p *pluginProcess, correlationID string, a
 		return
 	}
 	s := soundFromProto(act.Sound)
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		tx.PlaySound(pos, s)
-	})
+	}).Done()
 	m.sendActionOK(p, correlationID)
 }
 
@@ -1393,9 +1393,9 @@ func (m *Manager) handleWorldAddParticle(p *pluginProcess, correlationID string,
 		m.sendActionError(p, correlationID, "unknown particle")
 		return
 	}
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		tx.AddParticle(pos, part)
-	})
+	}).Done()
 	m.sendActionOK(p, correlationID)
 }
 
@@ -1451,11 +1451,11 @@ func (m *Manager) handleWorldQueryEntities(p *pluginProcess, correlationID strin
 		return
 	}
 	entities := make([]world.Entity, 0)
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		for e := range tx.Entities() {
 			entities = append(entities, e)
 		}
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -1473,11 +1473,11 @@ func (m *Manager) handleWorldQueryPlayers(p *pluginProcess, correlationID string
 		return
 	}
 	players := make([]world.Entity, 0)
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		for pl := range tx.Players() {
 			players = append(players, pl)
 		}
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -1500,11 +1500,11 @@ func (m *Manager) handleWorldQueryEntitiesWithin(p *pluginProcess, correlationID
 		return
 	}
 	entities := make([]world.Entity, 0)
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		for e := range tx.EntitiesWithin(box) {
 			entities = append(entities, e)
 		}
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -1565,10 +1565,8 @@ func (m *Manager) execMethod(id uuid.UUID, method func(pl *player.Player)) {
 		return
 	}
 	if handle, ok := m.srv.Player(id); ok {
-		handle.ExecWorld(func(tx *world.Tx, e world.Entity) {
-			if pl, ok := e.(*player.Player); ok {
-				method(pl)
-			}
+		player.Do(handle, func(_ *world.Tx, pl *player.Player) {
+			method(pl)
 		})
 	}
 }
@@ -1734,9 +1732,9 @@ func (m *Manager) handleWorldQueryBlock(p *pluginProcess, correlationID string, 
 	}
 	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
 	var block world.Block
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		block = tx.Block(pos)
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -1760,9 +1758,9 @@ func (m *Manager) handleWorldQueryBiome(p *pluginProcess, correlationID string, 
 	}
 	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
 	var biome world.Biome
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		biome = tx.Biome(pos)
-	})
+	}).Done()
 	biomeID := fmt.Sprintf("%d", biome.EncodeBiome())
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
@@ -1787,9 +1785,9 @@ func (m *Manager) handleWorldQueryLight(p *pluginProcess, correlationID string, 
 	}
 	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
 	var lightLevel uint8
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		lightLevel = tx.Light(pos)
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -1813,9 +1811,9 @@ func (m *Manager) handleWorldQuerySkyLight(p *pluginProcess, correlationID strin
 	}
 	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
 	var skyLightLevel uint8
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		skyLightLevel = tx.SkyLight(pos)
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -1839,9 +1837,9 @@ func (m *Manager) handleWorldQueryTemperature(p *pluginProcess, correlationID st
 	}
 	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
 	var temperature float64
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		temperature = tx.Temperature(pos)
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -1860,9 +1858,9 @@ func (m *Manager) handleWorldQueryHighestBlock(p *pluginProcess, correlationID s
 		return
 	}
 	var y int
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		y = tx.HighestBlock(int(act.X), int(act.Z))
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -1887,9 +1885,9 @@ func (m *Manager) handleWorldQueryRainingAt(p *pluginProcess, correlationID stri
 	}
 	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
 	var raining bool
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		raining = tx.RainingAt(pos)
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -1913,9 +1911,9 @@ func (m *Manager) handleWorldQuerySnowingAt(p *pluginProcess, correlationID stri
 	}
 	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
 	var snowing bool
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		snowing = tx.SnowingAt(pos)
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -1939,9 +1937,9 @@ func (m *Manager) handleWorldQueryThunderingAt(p *pluginProcess, correlationID s
 	}
 	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
 	var thundering bool
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		thundering = tx.ThunderingAt(pos)
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -1965,11 +1963,11 @@ func (m *Manager) handleWorldQueryLiquid(p *pluginProcess, correlationID string,
 	}
 	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
 	var liquidState *pb.LiquidState
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		if liq, ok := tx.Liquid(pos); ok {
 			liquidState = protoLiquidState(liq)
 		}
-	})
+	}).Done()
 	m.sendActionResult(p, &pb.ActionResult{
 		CorrelationId: correlationID,
 		Status:        &pb.ActionStatus{Ok: true},
@@ -2016,9 +2014,9 @@ func (m *Manager) handleWorldSetBiome(p *pluginProcess, correlationID string, ac
 		}
 	}
 	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		tx.SetBiome(pos, biome)
-	})
+	}).Done()
 	m.sendActionOK(p, correlationID)
 }
 
@@ -2047,9 +2045,9 @@ func (m *Manager) handleWorldSetLiquid(p *pluginProcess, correlationID string, a
 			return
 		}
 	}
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		tx.SetLiquid(pos, liquid)
-	})
+	}).Done()
 	m.sendActionOK(p, correlationID)
 }
 
@@ -2074,8 +2072,8 @@ func (m *Manager) handleWorldScheduleBlockUpdate(p *pluginProcess, correlationID
 	}
 	pos := cube.Pos{int(act.Position.X), int(act.Position.Y), int(act.Position.Z)}
 	delay := time.Duration(act.DelayMs) * time.Millisecond
-	<-w.Exec(func(tx *world.Tx) {
+	<-w.Do(func(tx *world.Tx) {
 		tx.ScheduleBlockUpdate(pos, blk, delay)
-	})
+	}).Done()
 	m.sendActionOK(p, correlationID)
 }

@@ -1,6 +1,7 @@
 package dragonflyhost
 
 import (
+	"context"
 	"fmt"
 	"strings"
 
@@ -42,10 +43,10 @@ func PlayerWorldName(p *player.Player, fallback string) string {
 			return name
 		}
 	}
-	name := ""
-	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
-		name = WorldName(tx.World(), fallback)
-	}); ok && name != "" {
+	name, err := player.Call(context.Background(), p.H(), func(tx *world.Tx, _ *player.Player) (string, error) {
+		return WorldName(tx.World(), fallback), nil
+	})
+	if err == nil && name != "" {
 		return name
 	}
 	return fallback
@@ -60,10 +61,10 @@ func PlayerWorldDimension(p *player.Player) string {
 			return dimension
 		}
 	}
-	dimension := ""
-	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
-		dimension = WorldDimension(tx.World())
-	}); ok && dimension != "" {
+	dimension, err := player.Call(context.Background(), p.H(), func(tx *world.Tx, _ *player.Player) (string, error) {
+		return WorldDimension(tx.World()), nil
+	})
+	if err == nil && dimension != "" {
 		return dimension
 	}
 	return ""
@@ -78,10 +79,10 @@ func PlayerWorldReference(p *player.Player) *WorldRef {
 			return ref
 		}
 	}
-	var ref *WorldRef
-	if ok := p.H().ExecWorld(func(tx *world.Tx, _ world.Entity) {
-		ref = WorldReference(tx.World())
-	}); ok && ref != nil {
+	ref, err := player.Call(context.Background(), p.H(), func(tx *world.Tx, _ *player.Player) (*WorldRef, error) {
+		return WorldReference(tx.World()), nil
+	})
+	if err == nil && ref != nil {
 		return ref
 	}
 	return nil

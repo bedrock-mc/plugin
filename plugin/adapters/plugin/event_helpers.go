@@ -293,9 +293,5 @@ func worldFromContext(ctx *world.Context) *world.World {
 	if ctx == nil {
 		return nil
 	}
-	tx := ctx.Val()
-	if tx == nil {
-		return nil
-	}
-	return tx.World()
+	return ctx.World()
 }
