@@ -69,9 +69,9 @@ class PlayerSetArmourAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -101,9 +101,8 @@ class PlayerSetArmourAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ItemStack $var
      * @return $this
      */
-    public function setHelmet($var)
+    public function setHelmet(\Df\Plugin\ItemStack|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ItemStack::class);
         $this->helmet = $var;
 
         return $this;
@@ -133,9 +132,8 @@ class PlayerSetArmourAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ItemStack $var
      * @return $this
      */
-    public function setChestplate($var)
+    public function setChestplate(\Df\Plugin\ItemStack|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ItemStack::class);
         $this->chestplate = $var;
 
         return $this;
@@ -165,9 +163,8 @@ class PlayerSetArmourAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ItemStack $var
      * @return $this
      */
-    public function setLeggings($var)
+    public function setLeggings(\Df\Plugin\ItemStack|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ItemStack::class);
         $this->leggings = $var;
 
         return $this;
@@ -197,9 +194,8 @@ class PlayerSetArmourAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ItemStack $var
      * @return $this
      */
-    public function setBoots($var)
+    public function setBoots(\Df\Plugin\ItemStack|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ItemStack::class);
         $this->boots = $var;
 
         return $this;

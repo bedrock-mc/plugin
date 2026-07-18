@@ -54,9 +54,9 @@ class CustomBlockPermutation extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setCondition($var)
+    public function setCondition(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->condition = $var;
 
         return $this;
@@ -86,9 +86,8 @@ class CustomBlockPermutation extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\CustomBlockProperties $var
      * @return $this
      */
-    public function setProperties($var)
+    public function setProperties(\Df\Plugin\CustomBlockProperties|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\CustomBlockProperties::class);
         $this->properties = $var;
 
         return $this;

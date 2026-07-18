@@ -125,5 +125,3 @@ pub(crate) fn parse_subcommand_attr(attrs: &[Attribute]) -> syn::Result<Subcomma
 
     Ok(out)
 }
-
-

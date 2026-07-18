@@ -55,9 +55,9 @@ class SetFoodAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -81,7 +81,7 @@ class SetFoodAction extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setFood($var)
+    public function setFood(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->food = $var;

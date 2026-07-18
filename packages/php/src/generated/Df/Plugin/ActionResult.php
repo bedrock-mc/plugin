@@ -68,9 +68,9 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setCorrelationId($var)
+    public function setCorrelationId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->correlation_id = $var;
 
         return $this;
@@ -100,9 +100,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ActionStatus $var
      * @return $this
      */
-    public function setStatus($var)
+    public function setStatus(\Df\Plugin\ActionStatus|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ActionStatus::class);
         $this->status = $var;
 
         return $this;
@@ -127,9 +126,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldEntitiesResult $var
      * @return $this
      */
-    public function setWorldEntities($var)
+    public function setWorldEntities(\Df\Plugin\WorldEntitiesResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldEntitiesResult::class);
         $this->writeOneof(10, $var);
 
         return $this;
@@ -154,9 +152,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldPlayersResult $var
      * @return $this
      */
-    public function setWorldPlayers($var)
+    public function setWorldPlayers(\Df\Plugin\WorldPlayersResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldPlayersResult::class);
         $this->writeOneof(11, $var);
 
         return $this;
@@ -181,9 +178,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldEntitiesWithinResult $var
      * @return $this
      */
-    public function setWorldEntitiesWithin($var)
+    public function setWorldEntitiesWithin(\Df\Plugin\WorldEntitiesWithinResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldEntitiesWithinResult::class);
         $this->writeOneof(12, $var);
 
         return $this;
@@ -208,9 +204,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldDefaultGameModeResult $var
      * @return $this
      */
-    public function setWorldDefaultGameMode($var)
+    public function setWorldDefaultGameMode(\Df\Plugin\WorldDefaultGameModeResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldDefaultGameModeResult::class);
         $this->writeOneof(13, $var);
 
         return $this;
@@ -235,9 +230,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldPlayerSpawnResult $var
      * @return $this
      */
-    public function setWorldPlayerSpawn($var)
+    public function setWorldPlayerSpawn(\Df\Plugin\WorldPlayerSpawnResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldPlayerSpawnResult::class);
         $this->writeOneof(14, $var);
 
         return $this;
@@ -262,9 +256,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldBlockResult $var
      * @return $this
      */
-    public function setWorldBlock($var)
+    public function setWorldBlock(\Df\Plugin\WorldBlockResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldBlockResult::class);
         $this->writeOneof(15, $var);
 
         return $this;
@@ -289,9 +282,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldBiomeResult $var
      * @return $this
      */
-    public function setWorldBiome($var)
+    public function setWorldBiome(\Df\Plugin\WorldBiomeResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldBiomeResult::class);
         $this->writeOneof(16, $var);
 
         return $this;
@@ -316,9 +308,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldLightResult $var
      * @return $this
      */
-    public function setWorldLight($var)
+    public function setWorldLight(\Df\Plugin\WorldLightResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldLightResult::class);
         $this->writeOneof(17, $var);
 
         return $this;
@@ -343,9 +334,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldSkyLightResult $var
      * @return $this
      */
-    public function setWorldSkyLight($var)
+    public function setWorldSkyLight(\Df\Plugin\WorldSkyLightResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSkyLightResult::class);
         $this->writeOneof(18, $var);
 
         return $this;
@@ -370,9 +360,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldTemperatureResult $var
      * @return $this
      */
-    public function setWorldTemperature($var)
+    public function setWorldTemperature(\Df\Plugin\WorldTemperatureResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldTemperatureResult::class);
         $this->writeOneof(19, $var);
 
         return $this;
@@ -397,9 +386,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldHighestBlockResult $var
      * @return $this
      */
-    public function setWorldHighestBlock($var)
+    public function setWorldHighestBlock(\Df\Plugin\WorldHighestBlockResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldHighestBlockResult::class);
         $this->writeOneof(20, $var);
 
         return $this;
@@ -424,9 +412,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldRainingAtResult $var
      * @return $this
      */
-    public function setWorldRainingAt($var)
+    public function setWorldRainingAt(\Df\Plugin\WorldRainingAtResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldRainingAtResult::class);
         $this->writeOneof(21, $var);
 
         return $this;
@@ -451,9 +438,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldSnowingAtResult $var
      * @return $this
      */
-    public function setWorldSnowingAt($var)
+    public function setWorldSnowingAt(\Df\Plugin\WorldSnowingAtResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSnowingAtResult::class);
         $this->writeOneof(22, $var);
 
         return $this;
@@ -478,9 +464,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldThunderingAtResult $var
      * @return $this
      */
-    public function setWorldThunderingAt($var)
+    public function setWorldThunderingAt(\Df\Plugin\WorldThunderingAtResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldThunderingAtResult::class);
         $this->writeOneof(23, $var);
 
         return $this;
@@ -505,9 +490,8 @@ class ActionResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldLiquidResult $var
      * @return $this
      */
-    public function setWorldLiquid($var)
+    public function setWorldLiquid(\Df\Plugin\WorldLiquidResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldLiquidResult::class);
         $this->writeOneof(24, $var);
 
         return $this;

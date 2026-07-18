@@ -78,9 +78,9 @@ class PlaySoundAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -88,7 +88,7 @@ class PlaySoundAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.Sound sound = 2 [json_name = "sound"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\Sound}
      */
     public function getSound()
     {
@@ -97,10 +97,10 @@ class PlaySoundAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.Sound sound = 2 [json_name = "sound"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\Sound}
      * @return $this
      */
-    public function setSound($var)
+    public function setSound(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\Sound::class);
         $this->sound = $var;
@@ -136,9 +136,8 @@ class PlaySoundAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Vec3 $var
      * @return $this
      */
-    public function setPosition($var)
+    public function setPosition(\Df\Plugin\Vec3|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Vec3::class);
         $this->position = $var;
 
         return $this;
@@ -172,9 +171,8 @@ class PlaySoundAction extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setVolume($var)
+    public function setVolume(float $var)
     {
-        GPBUtil::checkFloat($var);
         $this->volume = $var;
 
         return $this;
@@ -208,9 +206,8 @@ class PlaySoundAction extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setPitch($var)
+    public function setPitch(float $var)
     {
-        GPBUtil::checkFloat($var);
         $this->pitch = $var;
 
         return $this;

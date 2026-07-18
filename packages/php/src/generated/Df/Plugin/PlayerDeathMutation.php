@@ -57,9 +57,8 @@ class PlayerDeathMutation extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setKeepInventory($var)
+    public function setKeepInventory(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->keep_inventory = $var;
 
         return $this;

@@ -86,9 +86,9 @@ class CustomBlockMaterial extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTarget($var)
+    public function setTarget(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->target = $var;
 
         return $this;
@@ -112,9 +112,9 @@ class CustomBlockMaterial extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTextureName($var)
+    public function setTextureName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->texture_name = $var;
 
         return $this;
@@ -124,7 +124,7 @@ class CustomBlockMaterial extends \Google\Protobuf\Internal\Message
      * Optional, defaults to OPAQUE
      *
      * Generated from protobuf field <code>.df.plugin.CustomBlockRenderMethod render_method = 3 [json_name = "renderMethod"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\CustomBlockRenderMethod}
      */
     public function getRenderMethod()
     {
@@ -135,10 +135,10 @@ class CustomBlockMaterial extends \Google\Protobuf\Internal\Message
      * Optional, defaults to OPAQUE
      *
      * Generated from protobuf field <code>.df.plugin.CustomBlockRenderMethod render_method = 3 [json_name = "renderMethod"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\CustomBlockRenderMethod}
      * @return $this
      */
-    public function setRenderMethod($var)
+    public function setRenderMethod(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\CustomBlockRenderMethod::class);
         $this->render_method = $var;
@@ -174,9 +174,8 @@ class CustomBlockMaterial extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setFaceDimming($var)
+    public function setFaceDimming(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->face_dimming = $var;
 
         return $this;
@@ -210,9 +209,8 @@ class CustomBlockMaterial extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setAmbientOcclusion($var)
+    public function setAmbientOcclusion(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->ambient_occlusion = $var;
 
         return $this;

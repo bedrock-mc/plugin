@@ -57,9 +57,8 @@ class PlayerItemPickupMutation extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ItemStack $var
      * @return $this
      */
-    public function setItem($var)
+    public function setItem(\Df\Plugin\ItemStack|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ItemStack::class);
         $this->item = $var;
 
         return $this;

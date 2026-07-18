@@ -86,9 +86,9 @@ class CustomBlockDefinition extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setId($var)
+    public function setId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->id = $var;
 
         return $this;
@@ -112,9 +112,9 @@ class CustomBlockDefinition extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDisplayName($var)
+    public function setDisplayName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->display_name = $var;
 
         return $this;
@@ -148,9 +148,9 @@ class CustomBlockDefinition extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setGeometryJson($var)
+    public function setGeometryJson(string $var)
     {
-        GPBUtil::checkString($var, False);
+        GPBUtil::checkString($var, false);
         $this->geometry_json = $var;
 
         return $this;
@@ -174,7 +174,7 @@ class CustomBlockDefinition extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\CustomBlockTexture[] $var
      * @return $this
      */
-    public function setTextures($var)
+    public function setTextures(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\CustomBlockTexture::class);
         $this->textures = $arr;
@@ -210,9 +210,8 @@ class CustomBlockDefinition extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\CustomBlockProperties $var
      * @return $this
      */
-    public function setProperties($var)
+    public function setProperties(\Df\Plugin\CustomBlockProperties|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\CustomBlockProperties::class);
         $this->properties = $var;
 
         return $this;

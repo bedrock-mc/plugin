@@ -77,9 +77,9 @@ class PlayerSignEditEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -99,9 +99,9 @@ class PlayerSignEditEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -121,9 +121,9 @@ class PlayerSignEditEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setWorld($var)
+    public function setWorld(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->world = $var;
 
         return $this;
@@ -153,9 +153,8 @@ class PlayerSignEditEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockPos $var
      * @return $this
      */
-    public function setPosition($var)
+    public function setPosition(\Df\Plugin\BlockPos|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockPos::class);
         $this->position = $var;
 
         return $this;
@@ -175,9 +174,8 @@ class PlayerSignEditEvent extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setFrontSide($var)
+    public function setFrontSide(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->front_side = $var;
 
         return $this;
@@ -197,9 +195,9 @@ class PlayerSignEditEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setOldText($var)
+    public function setOldText(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->old_text = $var;
 
         return $this;
@@ -219,9 +217,9 @@ class PlayerSignEditEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setNewText($var)
+    public function setNewText(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->new_text = $var;
 
         return $this;

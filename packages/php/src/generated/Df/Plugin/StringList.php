@@ -47,7 +47,7 @@ class StringList extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setValues($var)
+    public function setValues(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->values = $arr;

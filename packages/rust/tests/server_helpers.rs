@@ -91,9 +91,34 @@ async fn subscribe_sends_subscribe_payload() {
             assert_eq!(sub.events.len(), 2);
             assert_eq!(sub.events[0], types::EventType::Chat as i32);
             assert_eq!(sub.events[1], types::EventType::Command as i32);
+            assert!(sub.observe_events.is_empty());
         }
         other => panic!("unexpected payload: {:?}", other),
     }
 }
 
+#[tokio::test]
+async fn observe_sends_non_blocking_subscriptions() {
+    let (tx, mut rx) = mpsc::channel(1);
+    let server = Server {
+        plugin_id: "plugin-id".to_string(),
+        sender: tx,
+    };
 
+    server
+        .observe(vec![types::EventType::PlayerMove])
+        .await
+        .expect("observe failed");
+
+    let msg = rx.recv().await.expect("expected PluginToHost message");
+    match msg.payload.expect("missing payload") {
+        types::PluginPayload::Subscribe(sub) => {
+            assert!(sub.events.is_empty());
+            assert_eq!(
+                sub.observe_events,
+                vec![types::EventType::PlayerMove as i32]
+            );
+        }
+        other => panic!("unexpected payload: {:?}", other),
+    }
+}

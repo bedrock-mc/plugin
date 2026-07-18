@@ -67,9 +67,9 @@ class EntityRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setUuid($var)
+    public function setUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->uuid = $var;
 
         return $this;
@@ -89,9 +89,9 @@ class EntityRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setType($var)
+    public function setType(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->type = $var;
 
         return $this;
@@ -121,9 +121,9 @@ class EntityRef extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -153,9 +153,8 @@ class EntityRef extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Vec3 $var
      * @return $this
      */
-    public function setPosition($var)
+    public function setPosition(\Df\Plugin\Vec3|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Vec3::class);
         $this->position = $var;
 
         return $this;
@@ -185,9 +184,8 @@ class EntityRef extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Rotation $var
      * @return $this
      */
-    public function setRotation($var)
+    public function setRotation(\Df\Plugin\Rotation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Rotation::class);
         $this->rotation = $var;
 
         return $this;

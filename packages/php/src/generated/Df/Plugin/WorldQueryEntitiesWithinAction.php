@@ -62,9 +62,8 @@ class WorldQueryEntitiesWithinAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldRef $var
      * @return $this
      */
-    public function setWorld($var)
+    public function setWorld(\Df\Plugin\WorldRef|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldRef::class);
         $this->world = $var;
 
         return $this;
@@ -94,9 +93,8 @@ class WorldQueryEntitiesWithinAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BBox $var
      * @return $this
      */
-    public function setBox($var)
+    public function setBox(\Df\Plugin\BBox|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BBox::class);
         $this->box = $var;
 
         return $this;

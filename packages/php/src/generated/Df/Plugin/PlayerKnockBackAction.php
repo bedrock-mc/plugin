@@ -62,9 +62,9 @@ class PlayerKnockBackAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -94,9 +94,8 @@ class PlayerKnockBackAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Vec3 $var
      * @return $this
      */
-    public function setSource($var)
+    public function setSource(\Df\Plugin\Vec3|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Vec3::class);
         $this->source = $var;
 
         return $this;
@@ -116,9 +115,8 @@ class PlayerKnockBackAction extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setForce($var)
+    public function setForce(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->force = $var;
 
         return $this;
@@ -138,9 +136,8 @@ class PlayerKnockBackAction extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setHeight($var)
+    public function setHeight(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->height = $var;
 
         return $this;

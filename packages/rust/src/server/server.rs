@@ -52,8 +52,26 @@ impl Server {
         &self,
         events: Vec<types::EventType>,
     ) -> Result<(), mpsc::error::SendError<PluginToHost>> {
+        self.subscribe_modes(events, Vec::new()).await
+    }
+
+    /// Observe events without participating in synchronous cancellation or mutation.
+    pub async fn observe(
+        &self,
+        events: Vec<types::EventType>,
+    ) -> Result<(), mpsc::error::SendError<PluginToHost>> {
+        self.subscribe_modes(Vec::new(), events).await
+    }
+
+    /// Configure blocking and observation-only subscriptions in one update.
+    pub async fn subscribe_modes(
+        &self,
+        events: Vec<types::EventType>,
+        observe_events: Vec<types::EventType>,
+    ) -> Result<(), mpsc::error::SendError<PluginToHost>> {
         let sub = types::EventSubscribe {
             events: events.into_iter().map(|e| e.into()).collect(),
+            observe_events: observe_events.into_iter().map(|e| e.into()).collect(),
         };
         let msg = PluginToHost {
             plugin_id: self.plugin_id.clone(),

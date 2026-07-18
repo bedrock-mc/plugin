@@ -57,9 +57,8 @@ class Vec3 extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setX($var)
+    public function setX(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->x = $var;
 
         return $this;
@@ -79,9 +78,8 @@ class Vec3 extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setY($var)
+    public function setY(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->y = $var;
 
         return $this;
@@ -101,9 +99,8 @@ class Vec3 extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setZ($var)
+    public function setZ(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->z = $var;
 
         return $this;

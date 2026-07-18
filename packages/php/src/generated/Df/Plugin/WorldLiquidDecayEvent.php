@@ -72,9 +72,8 @@ class WorldLiquidDecayEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldRef $var
      * @return $this
      */
-    public function setWorld($var)
+    public function setWorld(\Df\Plugin\WorldRef|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldRef::class);
         $this->world = $var;
 
         return $this;
@@ -104,9 +103,8 @@ class WorldLiquidDecayEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockPos $var
      * @return $this
      */
-    public function setPosition($var)
+    public function setPosition(\Df\Plugin\BlockPos|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockPos::class);
         $this->position = $var;
 
         return $this;
@@ -136,9 +134,8 @@ class WorldLiquidDecayEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\LiquidState $var
      * @return $this
      */
-    public function setBefore($var)
+    public function setBefore(\Df\Plugin\LiquidState|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\LiquidState::class);
         $this->before = $var;
 
         return $this;
@@ -168,9 +165,8 @@ class WorldLiquidDecayEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\LiquidState $var
      * @return $this
      */
-    public function setAfter($var)
+    public function setAfter(\Df\Plugin\LiquidState|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\LiquidState::class);
         $this->after = $var;
 
         return $this;

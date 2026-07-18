@@ -68,9 +68,9 @@ class PlayerSendBossBarAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -90,9 +90,9 @@ class PlayerSendBossBarAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setText($var)
+    public function setText(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->text = $var;
 
         return $this;
@@ -126,9 +126,8 @@ class PlayerSendBossBarAction extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setHealthPercentage($var)
+    public function setHealthPercentage(float $var)
     {
-        GPBUtil::checkFloat($var);
         $this->health_percentage = $var;
 
         return $this;
@@ -138,7 +137,7 @@ class PlayerSendBossBarAction extends \Google\Protobuf\Internal\Message
      * default PURPLE
      *
      * Generated from protobuf field <code>optional .df.plugin.BossBarColour colour = 4 [json_name = "colour"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\BossBarColour}
      */
     public function getColour()
     {
@@ -159,10 +158,10 @@ class PlayerSendBossBarAction extends \Google\Protobuf\Internal\Message
      * default PURPLE
      *
      * Generated from protobuf field <code>optional .df.plugin.BossBarColour colour = 4 [json_name = "colour"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\BossBarColour}
      * @return $this
      */
-    public function setColour($var)
+    public function setColour(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\BossBarColour::class);
         $this->colour = $var;

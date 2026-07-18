@@ -75,9 +75,9 @@ class AddEffectAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -85,7 +85,7 @@ class AddEffectAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.EffectType effect_type = 2 [json_name = "effectType"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\EffectType}
      */
     public function getEffectType()
     {
@@ -94,10 +94,10 @@ class AddEffectAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.EffectType effect_type = 2 [json_name = "effectType"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\EffectType}
      * @return $this
      */
-    public function setEffectType($var)
+    public function setEffectType(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\EffectType::class);
         $this->effect_type = $var;
@@ -123,7 +123,7 @@ class AddEffectAction extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setLevel($var)
+    public function setLevel(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->level = $var;
@@ -149,7 +149,7 @@ class AddEffectAction extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setDurationMs($var)
+    public function setDurationMs(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->duration_ms = $var;
@@ -171,9 +171,8 @@ class AddEffectAction extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setShowParticles($var)
+    public function setShowParticles(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->show_particles = $var;
 
         return $this;

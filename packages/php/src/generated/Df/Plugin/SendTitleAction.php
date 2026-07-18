@@ -74,9 +74,9 @@ class SendTitleAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -96,9 +96,9 @@ class SendTitleAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTitle($var)
+    public function setTitle(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->title = $var;
 
         return $this;
@@ -128,9 +128,9 @@ class SendTitleAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSubtitle($var)
+    public function setSubtitle(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->subtitle = $var;
 
         return $this;
@@ -142,7 +142,7 @@ class SendTitleAction extends \Google\Protobuf\Internal\Message
      */
     public function getFadeInMs()
     {
-        return isset($this->fade_in_ms) ? $this->fade_in_ms : 0;
+        return isset($this->fade_in_ms) ? $this->fade_in_ms : GPBUtil::compatibleInt64(0, '0');
     }
 
     public function hasFadeInMs()
@@ -160,7 +160,7 @@ class SendTitleAction extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setFadeInMs($var)
+    public function setFadeInMs(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->fade_in_ms = $var;
@@ -174,7 +174,7 @@ class SendTitleAction extends \Google\Protobuf\Internal\Message
      */
     public function getDurationMs()
     {
-        return isset($this->duration_ms) ? $this->duration_ms : 0;
+        return isset($this->duration_ms) ? $this->duration_ms : GPBUtil::compatibleInt64(0, '0');
     }
 
     public function hasDurationMs()
@@ -192,7 +192,7 @@ class SendTitleAction extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setDurationMs($var)
+    public function setDurationMs(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->duration_ms = $var;
@@ -206,7 +206,7 @@ class SendTitleAction extends \Google\Protobuf\Internal\Message
      */
     public function getFadeOutMs()
     {
-        return isset($this->fade_out_ms) ? $this->fade_out_ms : 0;
+        return isset($this->fade_out_ms) ? $this->fade_out_ms : GPBUtil::compatibleInt64(0, '0');
     }
 
     public function hasFadeOutMs()
@@ -224,7 +224,7 @@ class SendTitleAction extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setFadeOutMs($var)
+    public function setFadeOutMs(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->fade_out_ms = $var;

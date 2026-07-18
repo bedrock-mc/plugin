@@ -63,6 +63,14 @@ type pluginProcess struct {
 	pending   map[string]chan *pb.EventResult
 }
 
+type subscriptionMode uint8
+
+const (
+	subscriptionNone subscriptionMode = iota
+	subscriptionObserve
+	subscriptionBlocking
+)
+
 func newPluginProcess(m *Manager, cfg config.PluginConfig) *pluginProcess {
 	logger := m.log.With("plugin", cfg.ID)
 	if cfg.Name != "" {
@@ -339,29 +347,42 @@ func (p *pluginProcess) recvLoop() {
 }
 
 func (p *pluginProcess) HasSubscription(event pb.EventType) bool {
-	if !p.ready.Load() {
-		return false
-	}
-	if _, ok := p.subscriptions.Load(pb.EventType_EVENT_TYPE_ALL); ok {
-		return true
-	}
-	if event == pb.EventType_EVENT_TYPE_UNSPECIFIED {
-		return false
-	}
-	_, ok := p.subscriptions.Load(event)
-	return ok
+	return p.SubscriptionMode(event) != subscriptionNone
 }
 
-func (p *pluginProcess) updateSubscriptions(events []pb.EventType) {
+func (p *pluginProcess) SubscriptionMode(event pb.EventType) subscriptionMode {
+	if !p.ready.Load() || event == pb.EventType_EVENT_TYPE_UNSPECIFIED {
+		return subscriptionNone
+	}
+	if mode, ok := p.subscriptions.Load(event); ok {
+		return mode.(subscriptionMode)
+	}
+	if mode, ok := p.subscriptions.Load(pb.EventType_EVENT_TYPE_ALL); ok {
+		return mode.(subscriptionMode)
+	}
+	return subscriptionNone
+}
+
+func (p *pluginProcess) CanReceiveEvents() bool {
+	return p.ready.Load() && p.connected.Load() && !p.closed.Load()
+}
+
+func (p *pluginProcess) updateSubscriptions(events, observeEvents []pb.EventType) {
 	p.subscriptions.Range(func(key, value any) bool {
 		p.subscriptions.Delete(key)
 		return true
 	})
+	for _, evt := range observeEvents {
+		if evt == pb.EventType_EVENT_TYPE_UNSPECIFIED {
+			continue
+		}
+		p.subscriptions.Store(evt, subscriptionObserve)
+	}
 	for _, evt := range events {
 		if evt == pb.EventType_EVENT_TYPE_UNSPECIFIED {
 			continue
 		}
-		p.subscriptions.Store(evt, struct{}{})
+		p.subscriptions.Store(evt, subscriptionBlocking)
 	}
 	p.ready.Store(true)
 }

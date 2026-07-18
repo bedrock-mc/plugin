@@ -52,9 +52,8 @@ class Rotation extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setYaw($var)
+    public function setYaw(float $var)
     {
-        GPBUtil::checkFloat($var);
         $this->yaw = $var;
 
         return $this;
@@ -74,9 +73,8 @@ class Rotation extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setPitch($var)
+    public function setPitch(float $var)
     {
-        GPBUtil::checkFloat($var);
         $this->pitch = $var;
 
         return $this;

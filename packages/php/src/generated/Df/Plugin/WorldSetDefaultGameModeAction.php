@@ -62,9 +62,8 @@ class WorldSetDefaultGameModeAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldRef $var
      * @return $this
      */
-    public function setWorld($var)
+    public function setWorld(\Df\Plugin\WorldRef|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldRef::class);
         $this->world = $var;
 
         return $this;
@@ -72,7 +71,7 @@ class WorldSetDefaultGameModeAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.GameMode game_mode = 2 [json_name = "gameMode"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\GameMode}
      */
     public function getGameMode()
     {
@@ -81,10 +80,10 @@ class WorldSetDefaultGameModeAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.GameMode game_mode = 2 [json_name = "gameMode"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\GameMode}
      * @return $this
      */
-    public function setGameMode($var)
+    public function setGameMode(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\GameMode::class);
         $this->game_mode = $var;

@@ -44,7 +44,6 @@ func (m *Manager) EmitPlayerQuit(p *player.Player) {
 			},
 		},
 	})
-	m.detachPlayer(p)
 }
 
 func (m *Manager) EmitChat(ctx *player.Context, p *player.Player, msg *string) {

@@ -53,9 +53,9 @@ class HostToPlugin extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPluginId($var)
+    public function setPluginId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->plugin_id = $var;
 
         return $this;
@@ -80,9 +80,8 @@ class HostToPlugin extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\HostHello $var
      * @return $this
      */
-    public function setHello($var)
+    public function setHello(\Df\Plugin\HostHello|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\HostHello::class);
         $this->writeOneof(10, $var);
 
         return $this;
@@ -107,9 +106,8 @@ class HostToPlugin extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\HostShutdown $var
      * @return $this
      */
-    public function setShutdown($var)
+    public function setShutdown(\Df\Plugin\HostShutdown|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\HostShutdown::class);
         $this->writeOneof(11, $var);
 
         return $this;
@@ -134,9 +132,8 @@ class HostToPlugin extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ServerInformationResponse $var
      * @return $this
      */
-    public function setServerInfo($var)
+    public function setServerInfo(\Df\Plugin\ServerInformationResponse|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ServerInformationResponse::class);
         $this->writeOneof(12, $var);
 
         return $this;
@@ -161,9 +158,8 @@ class HostToPlugin extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\EventEnvelope $var
      * @return $this
      */
-    public function setEvent($var)
+    public function setEvent(\Df\Plugin\EventEnvelope|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\EventEnvelope::class);
         $this->writeOneof(20, $var);
 
         return $this;
@@ -188,9 +184,8 @@ class HostToPlugin extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ActionResult $var
      * @return $this
      */
-    public function setActionResult($var)
+    public function setActionResult(\Df\Plugin\ActionResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ActionResult::class);
         $this->writeOneof(21, $var);
 
         return $this;

@@ -57,9 +57,8 @@ class PlayerTransferMutation extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Address $var
      * @return $this
      */
-    public function setAddress($var)
+    public function setAddress(\Df\Plugin\Address|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Address::class);
         $this->address = $var;
 
         return $this;

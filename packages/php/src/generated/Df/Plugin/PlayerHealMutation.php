@@ -57,9 +57,8 @@ class PlayerHealMutation extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAmount($var)
+    public function setAmount(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->amount = $var;
 
         return $this;

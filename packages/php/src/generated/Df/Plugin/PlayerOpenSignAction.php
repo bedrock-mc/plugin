@@ -59,9 +59,9 @@ class PlayerOpenSignAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -91,9 +91,8 @@ class PlayerOpenSignAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockPos $var
      * @return $this
      */
-    public function setPosition($var)
+    public function setPosition(\Df\Plugin\BlockPos|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockPos::class);
         $this->position = $var;
 
         return $this;
@@ -113,9 +112,8 @@ class PlayerOpenSignAction extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setFrontSide($var)
+    public function setFrontSide(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->front_side = $var;
 
         return $this;

@@ -67,9 +67,8 @@ class PlayerAttackEntityMutation extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setForce($var)
+    public function setForce(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->force = $var;
 
         return $this;
@@ -99,9 +98,8 @@ class PlayerAttackEntityMutation extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setHeight($var)
+    public function setHeight(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->height = $var;
 
         return $this;
@@ -131,9 +129,8 @@ class PlayerAttackEntityMutation extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setCritical($var)
+    public function setCritical(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->critical = $var;
 
         return $this;

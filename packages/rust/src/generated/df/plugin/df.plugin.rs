@@ -3019,8 +3019,14 @@ pub struct LogMessage {
 }
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct EventSubscribe {
+    /// Events that may participate in synchronous cancellation or mutation.
+    /// This retains the legacy subscription behaviour.
     #[prost(enumeration="EventType", repeated, tag="1")]
     pub events: ::prost::alloc::vec::Vec<i32>,
+    /// Events delivered for observation only. These never block the world owner
+    /// and arrive with expects_response=false.
+    #[prost(enumeration="EventType", repeated, tag="2")]
+    pub observe_events: ::prost::alloc::vec::Vec<i32>,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]

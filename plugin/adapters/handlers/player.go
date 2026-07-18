@@ -91,7 +91,7 @@ func (h *PlayerHandler) HandleCommandExecution(ctx *player.Context, command cmd.
 
 func (h *PlayerHandler) HandleBlockBreak(ctx *player.Context, pos cube.Pos, drops *[]item.Stack, xp *int) {
 	p := ctx.Player()
-	worldDim := fmt.Sprint(p.Tx().World().Dimension())
+	worldDim := fmt.Sprint(ctx.World().Dimension())
 	h.manager.EmitBlockBreak(ctx, p, pos, drops, xp, worldDim)
 }
 
@@ -116,10 +116,7 @@ func (h *PlayerHandler) HandleItemUseOnBlock(ctx *player.Context, pos cube.Pos, 
 	if p == nil {
 		return
 	}
-	var block world.Block
-	if tx := p.Tx(); tx != nil {
-		block = tx.Block(pos)
-	}
+	block := ctx.Block(pos)
 	h.manager.EmitPlayerItemUseOnBlock(ctx, p, pos, face, clickPos, block)
 }
 

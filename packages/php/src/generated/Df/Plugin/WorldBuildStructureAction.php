@@ -70,9 +70,8 @@ class WorldBuildStructureAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldRef $var
      * @return $this
      */
-    public function setWorld($var)
+    public function setWorld(\Df\Plugin\WorldRef|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldRef::class);
         $this->world = $var;
 
         return $this;
@@ -106,9 +105,8 @@ class WorldBuildStructureAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockPos $var
      * @return $this
      */
-    public function setOrigin($var)
+    public function setOrigin(\Df\Plugin\BlockPos|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockPos::class);
         $this->origin = $var;
 
         return $this;
@@ -138,9 +136,8 @@ class WorldBuildStructureAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\StructureDef $var
      * @return $this
      */
-    public function setStructure($var)
+    public function setStructure(\Df\Plugin\StructureDef|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\StructureDef::class);
         $this->structure = $var;
 
         return $this;

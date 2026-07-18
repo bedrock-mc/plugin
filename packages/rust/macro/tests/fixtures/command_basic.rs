@@ -6,4 +6,5 @@ pub struct Ping {
     times: i32,
 }
 
+fn main() {}
 

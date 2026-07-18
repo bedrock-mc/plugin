@@ -52,9 +52,9 @@ class PlayerSetVerticalFlightSpeedAction extends \Google\Protobuf\Internal\Messa
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -74,9 +74,8 @@ class PlayerSetVerticalFlightSpeedAction extends \Google\Protobuf\Internal\Messa
      * @param float $var
      * @return $this
      */
-    public function setVerticalFlightSpeed($var)
+    public function setVerticalFlightSpeed(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->vertical_flight_speed = $var;
 
         return $this;

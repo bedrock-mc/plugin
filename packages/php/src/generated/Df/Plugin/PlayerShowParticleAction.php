@@ -75,9 +75,9 @@ class PlayerShowParticleAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -107,9 +107,8 @@ class PlayerShowParticleAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Vec3 $var
      * @return $this
      */
-    public function setPosition($var)
+    public function setPosition(\Df\Plugin\Vec3|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Vec3::class);
         $this->position = $var;
 
         return $this;
@@ -117,7 +116,7 @@ class PlayerShowParticleAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.ParticleType particle = 3 [json_name = "particle"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\ParticleType}
      */
     public function getParticle()
     {
@@ -126,10 +125,10 @@ class PlayerShowParticleAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.ParticleType particle = 3 [json_name = "particle"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\ParticleType}
      * @return $this
      */
-    public function setParticle($var)
+    public function setParticle(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\ParticleType::class);
         $this->particle = $var;
@@ -165,9 +164,8 @@ class PlayerShowParticleAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockState $var
      * @return $this
      */
-    public function setBlock($var)
+    public function setBlock(\Df\Plugin\BlockState|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockState::class);
         $this->block = $var;
 
         return $this;
@@ -201,7 +199,7 @@ class PlayerShowParticleAction extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setFace($var)
+    public function setFace(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->face = $var;

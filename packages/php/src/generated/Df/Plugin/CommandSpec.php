@@ -64,9 +64,9 @@ class CommandSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -86,9 +86,9 @@ class CommandSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDescription($var)
+    public function setDescription(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->description = $var;
 
         return $this;
@@ -108,7 +108,7 @@ class CommandSpec extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setAliases($var)
+    public function setAliases(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->aliases = $arr;
@@ -130,7 +130,7 @@ class CommandSpec extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ParamSpec[] $var
      * @return $this
      */
-    public function setParams($var)
+    public function setParams(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\ParamSpec::class);
         $this->params = $arr;

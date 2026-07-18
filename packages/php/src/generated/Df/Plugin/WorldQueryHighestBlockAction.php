@@ -67,9 +67,8 @@ class WorldQueryHighestBlockAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldRef $var
      * @return $this
      */
-    public function setWorld($var)
+    public function setWorld(\Df\Plugin\WorldRef|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldRef::class);
         $this->world = $var;
 
         return $this;
@@ -89,7 +88,7 @@ class WorldQueryHighestBlockAction extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setX($var)
+    public function setX(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->x = $var;
@@ -111,7 +110,7 @@ class WorldQueryHighestBlockAction extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setZ($var)
+    public function setZ(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->z = $var;

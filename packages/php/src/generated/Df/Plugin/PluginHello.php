@@ -72,9 +72,9 @@ class PluginHello extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -94,9 +94,9 @@ class PluginHello extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setVersion($var)
+    public function setVersion(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->version = $var;
 
         return $this;
@@ -116,9 +116,9 @@ class PluginHello extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setApiVersion($var)
+    public function setApiVersion(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->api_version = $var;
 
         return $this;
@@ -138,7 +138,7 @@ class PluginHello extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\CommandSpec[] $var
      * @return $this
      */
-    public function setCommands($var)
+    public function setCommands(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\CommandSpec::class);
         $this->commands = $arr;
@@ -160,7 +160,7 @@ class PluginHello extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\CustomItemDefinition[] $var
      * @return $this
      */
-    public function setCustomItems($var)
+    public function setCustomItems(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\CustomItemDefinition::class);
         $this->custom_items = $arr;
@@ -182,7 +182,7 @@ class PluginHello extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\CustomBlockDefinition[] $var
      * @return $this
      */
-    public function setCustomBlocks($var)
+    public function setCustomBlocks(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\CustomBlockDefinition::class);
         $this->custom_blocks = $arr;

@@ -82,9 +82,9 @@ class PlayerItemUseOnBlockEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -104,9 +104,9 @@ class PlayerItemUseOnBlockEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -126,9 +126,9 @@ class PlayerItemUseOnBlockEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setWorld($var)
+    public function setWorld(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->world = $var;
 
         return $this;
@@ -158,9 +158,8 @@ class PlayerItemUseOnBlockEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockPos $var
      * @return $this
      */
-    public function setPosition($var)
+    public function setPosition(\Df\Plugin\BlockPos|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockPos::class);
         $this->position = $var;
 
         return $this;
@@ -180,9 +179,9 @@ class PlayerItemUseOnBlockEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setFace($var)
+    public function setFace(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->face = $var;
 
         return $this;
@@ -212,9 +211,8 @@ class PlayerItemUseOnBlockEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Vec3 $var
      * @return $this
      */
-    public function setClickPosition($var)
+    public function setClickPosition(\Df\Plugin\Vec3|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Vec3::class);
         $this->click_position = $var;
 
         return $this;
@@ -244,9 +242,8 @@ class PlayerItemUseOnBlockEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockState $var
      * @return $this
      */
-    public function setBlock($var)
+    public function setBlock(\Df\Plugin\BlockState|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockState::class);
         $this->block = $var;
 
         return $this;
@@ -276,9 +273,8 @@ class PlayerItemUseOnBlockEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ItemStack $var
      * @return $this
      */
-    public function setItem($var)
+    public function setItem(\Df\Plugin\ItemStack|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ItemStack::class);
         $this->item = $var;
 
         return $this;

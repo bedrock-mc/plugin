@@ -52,9 +52,9 @@ class PlayerSetScoreTagAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -74,9 +74,9 @@ class PlayerSetScoreTagAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setScoreTag($var)
+    public function setScoreTag(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->score_tag = $var;
 
         return $this;

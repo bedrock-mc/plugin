@@ -122,6 +122,31 @@ async fn dispatch_event_routes_chat_to_handler() {
 }
 
 #[tokio::test]
+async fn dispatch_observed_event_does_not_send_a_response() {
+    let (tx, mut rx) = mpsc::channel(1);
+    let server = Server {
+        plugin_id: "plugin-id".to_string(),
+        sender: tx,
+    };
+    let plugin = RecordingPlugin::default();
+    let envelope = types::EventEnvelope {
+        event_id: "observed-chat".to_string(),
+        r#type: types::EventType::Chat as i32,
+        expects_response: false,
+        payload: Some(types::EventPayload::Chat(types::ChatEvent {
+            player_uuid: "player-uuid".to_string(),
+            name: "Player".to_string(),
+            message: "hello".to_string(),
+        })),
+    };
+
+    dragonfly_plugin::event::dispatch_event(&server, &plugin, &envelope).await;
+
+    assert_eq!(plugin.calls.lock().await.as_slice(), &["chat"]);
+    assert!(rx.try_recv().is_err());
+}
+
+#[tokio::test]
 #[should_panic(expected = "Attempted to respond twice to the same event!")]
 async fn event_context_double_send_panics_in_debug() {
     let (tx, _rx) = mpsc::channel(1);

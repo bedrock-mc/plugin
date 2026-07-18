@@ -55,9 +55,9 @@ class HostHello extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setApiVersion($var)
+    public function setApiVersion(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->api_version = $var;
 
         return $this;
@@ -81,9 +81,9 @@ class HostHello extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setBootId($var)
+    public function setBootId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->boot_id = $var;
 
         return $this;

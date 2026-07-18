@@ -192,9 +192,9 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setCorrelationId($var)
+    public function setCorrelationId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->correlation_id = $var;
 
         return $this;
@@ -223,9 +223,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\SendChatAction $var
      * @return $this
      */
-    public function setSendChat($var)
+    public function setSendChat(\Df\Plugin\SendChatAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\SendChatAction::class);
         $this->writeOneof(10, $var);
 
         return $this;
@@ -250,9 +249,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\TeleportAction $var
      * @return $this
      */
-    public function setTeleport($var)
+    public function setTeleport(\Df\Plugin\TeleportAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\TeleportAction::class);
         $this->writeOneof(11, $var);
 
         return $this;
@@ -277,9 +275,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\KickAction $var
      * @return $this
      */
-    public function setKick($var)
+    public function setKick(\Df\Plugin\KickAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\KickAction::class);
         $this->writeOneof(12, $var);
 
         return $this;
@@ -304,9 +301,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\SetGameModeAction $var
      * @return $this
      */
-    public function setSetGameMode($var)
+    public function setSetGameMode(\Df\Plugin\SetGameModeAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\SetGameModeAction::class);
         $this->writeOneof(13, $var);
 
         return $this;
@@ -335,9 +331,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\GiveItemAction $var
      * @return $this
      */
-    public function setGiveItem($var)
+    public function setGiveItem(\Df\Plugin\GiveItemAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\GiveItemAction::class);
         $this->writeOneof(14, $var);
 
         return $this;
@@ -362,9 +357,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ClearInventoryAction $var
      * @return $this
      */
-    public function setClearInventory($var)
+    public function setClearInventory(\Df\Plugin\ClearInventoryAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ClearInventoryAction::class);
         $this->writeOneof(15, $var);
 
         return $this;
@@ -389,9 +383,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\SetHeldItemAction $var
      * @return $this
      */
-    public function setSetHeldItem($var)
+    public function setSetHeldItem(\Df\Plugin\SetHeldItemAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\SetHeldItemAction::class);
         $this->writeOneof(16, $var);
 
         return $this;
@@ -416,9 +409,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetArmourAction $var
      * @return $this
      */
-    public function setPlayerSetArmour($var)
+    public function setPlayerSetArmour(\Df\Plugin\PlayerSetArmourAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetArmourAction::class);
         $this->writeOneof(132, $var);
 
         return $this;
@@ -443,9 +435,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerOpenBlockContainerAction $var
      * @return $this
      */
-    public function setPlayerOpenBlockContainer($var)
+    public function setPlayerOpenBlockContainer(\Df\Plugin\PlayerOpenBlockContainerAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerOpenBlockContainerAction::class);
         $this->writeOneof(147, $var);
 
         return $this;
@@ -470,9 +461,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerDropItemAction $var
      * @return $this
      */
-    public function setPlayerDropItem($var)
+    public function setPlayerDropItem(\Df\Plugin\PlayerDropItemAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerDropItemAction::class);
         $this->writeOneof(148, $var);
 
         return $this;
@@ -497,9 +487,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetItemCooldownAction $var
      * @return $this
      */
-    public function setPlayerSetItemCooldown($var)
+    public function setPlayerSetItemCooldown(\Df\Plugin\PlayerSetItemCooldownAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetItemCooldownAction::class);
         $this->writeOneof(149, $var);
 
         return $this;
@@ -528,9 +517,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\SetHealthAction $var
      * @return $this
      */
-    public function setSetHealth($var)
+    public function setSetHealth(\Df\Plugin\SetHealthAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\SetHealthAction::class);
         $this->writeOneof(20, $var);
 
         return $this;
@@ -555,9 +543,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\SetFoodAction $var
      * @return $this
      */
-    public function setSetFood($var)
+    public function setSetFood(\Df\Plugin\SetFoodAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\SetFoodAction::class);
         $this->writeOneof(21, $var);
 
         return $this;
@@ -582,9 +569,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\SetExperienceAction $var
      * @return $this
      */
-    public function setSetExperience($var)
+    public function setSetExperience(\Df\Plugin\SetExperienceAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\SetExperienceAction::class);
         $this->writeOneof(22, $var);
 
         return $this;
@@ -609,9 +595,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\SetVelocityAction $var
      * @return $this
      */
-    public function setSetVelocity($var)
+    public function setSetVelocity(\Df\Plugin\SetVelocityAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\SetVelocityAction::class);
         $this->writeOneof(23, $var);
 
         return $this;
@@ -640,9 +625,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\AddEffectAction $var
      * @return $this
      */
-    public function setAddEffect($var)
+    public function setAddEffect(\Df\Plugin\AddEffectAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\AddEffectAction::class);
         $this->writeOneof(30, $var);
 
         return $this;
@@ -667,9 +651,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\RemoveEffectAction $var
      * @return $this
      */
-    public function setRemoveEffect($var)
+    public function setRemoveEffect(\Df\Plugin\RemoveEffectAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\RemoveEffectAction::class);
         $this->writeOneof(31, $var);
 
         return $this;
@@ -698,9 +681,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\SendTitleAction $var
      * @return $this
      */
-    public function setSendTitle($var)
+    public function setSendTitle(\Df\Plugin\SendTitleAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\SendTitleAction::class);
         $this->writeOneof(40, $var);
 
         return $this;
@@ -725,9 +707,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\SendPopupAction $var
      * @return $this
      */
-    public function setSendPopup($var)
+    public function setSendPopup(\Df\Plugin\SendPopupAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\SendPopupAction::class);
         $this->writeOneof(41, $var);
 
         return $this;
@@ -752,9 +733,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\SendTipAction $var
      * @return $this
      */
-    public function setSendTip($var)
+    public function setSendTip(\Df\Plugin\SendTipAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\SendTipAction::class);
         $this->writeOneof(42, $var);
 
         return $this;
@@ -779,9 +759,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSendToastAction $var
      * @return $this
      */
-    public function setPlayerSendToast($var)
+    public function setPlayerSendToast(\Df\Plugin\PlayerSendToastAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSendToastAction::class);
         $this->writeOneof(118, $var);
 
         return $this;
@@ -806,9 +785,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSendJukeboxPopupAction $var
      * @return $this
      */
-    public function setPlayerSendJukeboxPopup($var)
+    public function setPlayerSendJukeboxPopup(\Df\Plugin\PlayerSendJukeboxPopupAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSendJukeboxPopupAction::class);
         $this->writeOneof(119, $var);
 
         return $this;
@@ -833,9 +811,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerShowCoordinatesAction $var
      * @return $this
      */
-    public function setPlayerShowCoordinates($var)
+    public function setPlayerShowCoordinates(\Df\Plugin\PlayerShowCoordinatesAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerShowCoordinatesAction::class);
         $this->writeOneof(120, $var);
 
         return $this;
@@ -860,9 +837,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerHideCoordinatesAction $var
      * @return $this
      */
-    public function setPlayerHideCoordinates($var)
+    public function setPlayerHideCoordinates(\Df\Plugin\PlayerHideCoordinatesAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerHideCoordinatesAction::class);
         $this->writeOneof(121, $var);
 
         return $this;
@@ -887,9 +863,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerEnableInstantRespawnAction $var
      * @return $this
      */
-    public function setPlayerEnableInstantRespawn($var)
+    public function setPlayerEnableInstantRespawn(\Df\Plugin\PlayerEnableInstantRespawnAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerEnableInstantRespawnAction::class);
         $this->writeOneof(122, $var);
 
         return $this;
@@ -914,9 +889,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerDisableInstantRespawnAction $var
      * @return $this
      */
-    public function setPlayerDisableInstantRespawn($var)
+    public function setPlayerDisableInstantRespawn(\Df\Plugin\PlayerDisableInstantRespawnAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerDisableInstantRespawnAction::class);
         $this->writeOneof(123, $var);
 
         return $this;
@@ -945,9 +919,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetNameTagAction $var
      * @return $this
      */
-    public function setPlayerSetNameTag($var)
+    public function setPlayerSetNameTag(\Df\Plugin\PlayerSetNameTagAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetNameTagAction::class);
         $this->writeOneof(124, $var);
 
         return $this;
@@ -972,9 +945,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetScoreTagAction $var
      * @return $this
      */
-    public function setPlayerSetScoreTag($var)
+    public function setPlayerSetScoreTag(\Df\Plugin\PlayerSetScoreTagAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetScoreTagAction::class);
         $this->writeOneof(125, $var);
 
         return $this;
@@ -1003,9 +975,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlaySoundAction $var
      * @return $this
      */
-    public function setPlaySound($var)
+    public function setPlaySound(\Df\Plugin\PlaySoundAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlaySoundAction::class);
         $this->writeOneof(43, $var);
 
         return $this;
@@ -1030,9 +1001,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerShowParticleAction $var
      * @return $this
      */
-    public function setPlayerShowParticle($var)
+    public function setPlayerShowParticle(\Df\Plugin\PlayerShowParticleAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerShowParticleAction::class);
         $this->writeOneof(126, $var);
 
         return $this;
@@ -1061,9 +1031,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSendScoreboardAction $var
      * @return $this
      */
-    public function setPlayerSendScoreboard($var)
+    public function setPlayerSendScoreboard(\Df\Plugin\PlayerSendScoreboardAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSendScoreboardAction::class);
         $this->writeOneof(133, $var);
 
         return $this;
@@ -1088,9 +1057,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerRemoveScoreboardAction $var
      * @return $this
      */
-    public function setPlayerRemoveScoreboard($var)
+    public function setPlayerRemoveScoreboard(\Df\Plugin\PlayerRemoveScoreboardAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerRemoveScoreboardAction::class);
         $this->writeOneof(134, $var);
 
         return $this;
@@ -1119,9 +1087,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSendMenuFormAction $var
      * @return $this
      */
-    public function setPlayerSendMenuForm($var)
+    public function setPlayerSendMenuForm(\Df\Plugin\PlayerSendMenuFormAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSendMenuFormAction::class);
         $this->writeOneof(150, $var);
 
         return $this;
@@ -1146,9 +1113,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSendModalFormAction $var
      * @return $this
      */
-    public function setPlayerSendModalForm($var)
+    public function setPlayerSendModalForm(\Df\Plugin\PlayerSendModalFormAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSendModalFormAction::class);
         $this->writeOneof(151, $var);
 
         return $this;
@@ -1173,9 +1139,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSendDialogueAction $var
      * @return $this
      */
-    public function setPlayerSendDialogue($var)
+    public function setPlayerSendDialogue(\Df\Plugin\PlayerSendDialogueAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSendDialogueAction::class);
         $this->writeOneof(152, $var);
 
         return $this;
@@ -1200,9 +1165,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerCloseDialogueAction $var
      * @return $this
      */
-    public function setPlayerCloseDialogue($var)
+    public function setPlayerCloseDialogue(\Df\Plugin\PlayerCloseDialogueAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerCloseDialogueAction::class);
         $this->writeOneof(139, $var);
 
         return $this;
@@ -1227,9 +1191,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerCloseFormAction $var
      * @return $this
      */
-    public function setPlayerCloseForm($var)
+    public function setPlayerCloseForm(\Df\Plugin\PlayerCloseFormAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerCloseFormAction::class);
         $this->writeOneof(140, $var);
 
         return $this;
@@ -1258,9 +1221,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ExecuteCommandAction $var
      * @return $this
      */
-    public function setExecuteCommand($var)
+    public function setExecuteCommand(\Df\Plugin\ExecuteCommandAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ExecuteCommandAction::class);
         $this->writeOneof(50, $var);
 
         return $this;
@@ -1289,9 +1251,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStartSprintingAction $var
      * @return $this
      */
-    public function setPlayerStartSprinting($var)
+    public function setPlayerStartSprinting(\Df\Plugin\PlayerStartSprintingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStartSprintingAction::class);
         $this->writeOneof(94, $var);
 
         return $this;
@@ -1316,9 +1277,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStopSprintingAction $var
      * @return $this
      */
-    public function setPlayerStopSprinting($var)
+    public function setPlayerStopSprinting(\Df\Plugin\PlayerStopSprintingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStopSprintingAction::class);
         $this->writeOneof(95, $var);
 
         return $this;
@@ -1343,9 +1303,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStartSneakingAction $var
      * @return $this
      */
-    public function setPlayerStartSneaking($var)
+    public function setPlayerStartSneaking(\Df\Plugin\PlayerStartSneakingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStartSneakingAction::class);
         $this->writeOneof(96, $var);
 
         return $this;
@@ -1370,9 +1329,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStopSneakingAction $var
      * @return $this
      */
-    public function setPlayerStopSneaking($var)
+    public function setPlayerStopSneaking(\Df\Plugin\PlayerStopSneakingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStopSneakingAction::class);
         $this->writeOneof(97, $var);
 
         return $this;
@@ -1397,9 +1355,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStartSwimmingAction $var
      * @return $this
      */
-    public function setPlayerStartSwimming($var)
+    public function setPlayerStartSwimming(\Df\Plugin\PlayerStartSwimmingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStartSwimmingAction::class);
         $this->writeOneof(98, $var);
 
         return $this;
@@ -1424,9 +1381,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStopSwimmingAction $var
      * @return $this
      */
-    public function setPlayerStopSwimming($var)
+    public function setPlayerStopSwimming(\Df\Plugin\PlayerStopSwimmingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStopSwimmingAction::class);
         $this->writeOneof(99, $var);
 
         return $this;
@@ -1451,9 +1407,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStartCrawlingAction $var
      * @return $this
      */
-    public function setPlayerStartCrawling($var)
+    public function setPlayerStartCrawling(\Df\Plugin\PlayerStartCrawlingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStartCrawlingAction::class);
         $this->writeOneof(100, $var);
 
         return $this;
@@ -1478,9 +1433,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStopCrawlingAction $var
      * @return $this
      */
-    public function setPlayerStopCrawling($var)
+    public function setPlayerStopCrawling(\Df\Plugin\PlayerStopCrawlingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStopCrawlingAction::class);
         $this->writeOneof(101, $var);
 
         return $this;
@@ -1505,9 +1459,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStartGlidingAction $var
      * @return $this
      */
-    public function setPlayerStartGliding($var)
+    public function setPlayerStartGliding(\Df\Plugin\PlayerStartGlidingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStartGlidingAction::class);
         $this->writeOneof(102, $var);
 
         return $this;
@@ -1532,9 +1485,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStopGlidingAction $var
      * @return $this
      */
-    public function setPlayerStopGliding($var)
+    public function setPlayerStopGliding(\Df\Plugin\PlayerStopGlidingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStopGlidingAction::class);
         $this->writeOneof(103, $var);
 
         return $this;
@@ -1559,9 +1511,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStartFlyingAction $var
      * @return $this
      */
-    public function setPlayerStartFlying($var)
+    public function setPlayerStartFlying(\Df\Plugin\PlayerStartFlyingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStartFlyingAction::class);
         $this->writeOneof(104, $var);
 
         return $this;
@@ -1586,9 +1537,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStopFlyingAction $var
      * @return $this
      */
-    public function setPlayerStopFlying($var)
+    public function setPlayerStopFlying(\Df\Plugin\PlayerStopFlyingAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStopFlyingAction::class);
         $this->writeOneof(105, $var);
 
         return $this;
@@ -1617,9 +1567,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetImmobileAction $var
      * @return $this
      */
-    public function setPlayerSetImmobile($var)
+    public function setPlayerSetImmobile(\Df\Plugin\PlayerSetImmobileAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetImmobileAction::class);
         $this->writeOneof(106, $var);
 
         return $this;
@@ -1644,9 +1593,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetMobileAction $var
      * @return $this
      */
-    public function setPlayerSetMobile($var)
+    public function setPlayerSetMobile(\Df\Plugin\PlayerSetMobileAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetMobileAction::class);
         $this->writeOneof(107, $var);
 
         return $this;
@@ -1675,9 +1623,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetSpeedAction $var
      * @return $this
      */
-    public function setPlayerSetSpeed($var)
+    public function setPlayerSetSpeed(\Df\Plugin\PlayerSetSpeedAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetSpeedAction::class);
         $this->writeOneof(108, $var);
 
         return $this;
@@ -1702,9 +1649,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetFlightSpeedAction $var
      * @return $this
      */
-    public function setPlayerSetFlightSpeed($var)
+    public function setPlayerSetFlightSpeed(\Df\Plugin\PlayerSetFlightSpeedAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetFlightSpeedAction::class);
         $this->writeOneof(109, $var);
 
         return $this;
@@ -1729,9 +1675,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetVerticalFlightSpeedAction $var
      * @return $this
      */
-    public function setPlayerSetVerticalFlightSpeed($var)
+    public function setPlayerSetVerticalFlightSpeed(\Df\Plugin\PlayerSetVerticalFlightSpeedAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetVerticalFlightSpeedAction::class);
         $this->writeOneof(110, $var);
 
         return $this;
@@ -1760,9 +1705,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetAbsorptionAction $var
      * @return $this
      */
-    public function setPlayerSetAbsorption($var)
+    public function setPlayerSetAbsorption(\Df\Plugin\PlayerSetAbsorptionAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetAbsorptionAction::class);
         $this->writeOneof(111, $var);
 
         return $this;
@@ -1787,9 +1731,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetOnFireAction $var
      * @return $this
      */
-    public function setPlayerSetOnFire($var)
+    public function setPlayerSetOnFire(\Df\Plugin\PlayerSetOnFireAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetOnFireAction::class);
         $this->writeOneof(112, $var);
 
         return $this;
@@ -1814,9 +1757,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerExtinguishAction $var
      * @return $this
      */
-    public function setPlayerExtinguish($var)
+    public function setPlayerExtinguish(\Df\Plugin\PlayerExtinguishAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerExtinguishAction::class);
         $this->writeOneof(113, $var);
 
         return $this;
@@ -1841,9 +1783,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetInvisibleAction $var
      * @return $this
      */
-    public function setPlayerSetInvisible($var)
+    public function setPlayerSetInvisible(\Df\Plugin\PlayerSetInvisibleAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetInvisibleAction::class);
         $this->writeOneof(114, $var);
 
         return $this;
@@ -1868,9 +1809,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetVisibleAction $var
      * @return $this
      */
-    public function setPlayerSetVisible($var)
+    public function setPlayerSetVisible(\Df\Plugin\PlayerSetVisibleAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetVisibleAction::class);
         $this->writeOneof(115, $var);
 
         return $this;
@@ -1899,9 +1839,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetScaleAction $var
      * @return $this
      */
-    public function setPlayerSetScale($var)
+    public function setPlayerSetScale(\Df\Plugin\PlayerSetScaleAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetScaleAction::class);
         $this->writeOneof(116, $var);
 
         return $this;
@@ -1926,9 +1865,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSetHeldSlotAction $var
      * @return $this
      */
-    public function setPlayerSetHeldSlot($var)
+    public function setPlayerSetHeldSlot(\Df\Plugin\PlayerSetHeldSlotAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSetHeldSlotAction::class);
         $this->writeOneof(117, $var);
 
         return $this;
@@ -1957,9 +1895,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerRespawnAction $var
      * @return $this
      */
-    public function setPlayerRespawn($var)
+    public function setPlayerRespawn(\Df\Plugin\PlayerRespawnAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerRespawnAction::class);
         $this->writeOneof(127, $var);
 
         return $this;
@@ -1984,9 +1921,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerTransferAction $var
      * @return $this
      */
-    public function setPlayerTransfer($var)
+    public function setPlayerTransfer(\Df\Plugin\PlayerTransferAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerTransferAction::class);
         $this->writeOneof(128, $var);
 
         return $this;
@@ -2011,9 +1947,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerKnockBackAction $var
      * @return $this
      */
-    public function setPlayerKnockBack($var)
+    public function setPlayerKnockBack(\Df\Plugin\PlayerKnockBackAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerKnockBackAction::class);
         $this->writeOneof(129, $var);
 
         return $this;
@@ -2038,9 +1973,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSwingArmAction $var
      * @return $this
      */
-    public function setPlayerSwingArm($var)
+    public function setPlayerSwingArm(\Df\Plugin\PlayerSwingArmAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSwingArmAction::class);
         $this->writeOneof(130, $var);
 
         return $this;
@@ -2065,9 +1999,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerPunchAirAction $var
      * @return $this
      */
-    public function setPlayerPunchAir($var)
+    public function setPlayerPunchAir(\Df\Plugin\PlayerPunchAirAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerPunchAirAction::class);
         $this->writeOneof(131, $var);
 
         return $this;
@@ -2096,9 +2029,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSendBossBarAction $var
      * @return $this
      */
-    public function setPlayerSendBossBar($var)
+    public function setPlayerSendBossBar(\Df\Plugin\PlayerSendBossBarAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSendBossBarAction::class);
         $this->writeOneof(135, $var);
 
         return $this;
@@ -2123,9 +2055,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerRemoveBossBarAction $var
      * @return $this
      */
-    public function setPlayerRemoveBossBar($var)
+    public function setPlayerRemoveBossBar(\Df\Plugin\PlayerRemoveBossBarAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerRemoveBossBarAction::class);
         $this->writeOneof(136, $var);
 
         return $this;
@@ -2154,9 +2085,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerShowHudElementAction $var
      * @return $this
      */
-    public function setPlayerShowHudElement($var)
+    public function setPlayerShowHudElement(\Df\Plugin\PlayerShowHudElementAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerShowHudElementAction::class);
         $this->writeOneof(137, $var);
 
         return $this;
@@ -2181,9 +2111,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerHideHudElementAction $var
      * @return $this
      */
-    public function setPlayerHideHudElement($var)
+    public function setPlayerHideHudElement(\Df\Plugin\PlayerHideHudElementAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerHideHudElementAction::class);
         $this->writeOneof(138, $var);
 
         return $this;
@@ -2212,9 +2141,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerOpenSignAction $var
      * @return $this
      */
-    public function setPlayerOpenSign($var)
+    public function setPlayerOpenSign(\Df\Plugin\PlayerOpenSignAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerOpenSignAction::class);
         $this->writeOneof(141, $var);
 
         return $this;
@@ -2239,9 +2167,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerEditSignAction $var
      * @return $this
      */
-    public function setPlayerEditSign($var)
+    public function setPlayerEditSign(\Df\Plugin\PlayerEditSignAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerEditSignAction::class);
         $this->writeOneof(142, $var);
 
         return $this;
@@ -2266,9 +2193,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerTurnLecternPageAction $var
      * @return $this
      */
-    public function setPlayerTurnLecternPage($var)
+    public function setPlayerTurnLecternPage(\Df\Plugin\PlayerTurnLecternPageAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerTurnLecternPageAction::class);
         $this->writeOneof(143, $var);
 
         return $this;
@@ -2297,9 +2223,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerHidePlayerAction $var
      * @return $this
      */
-    public function setPlayerHidePlayer($var)
+    public function setPlayerHidePlayer(\Df\Plugin\PlayerHidePlayerAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerHidePlayerAction::class);
         $this->writeOneof(144, $var);
 
         return $this;
@@ -2324,9 +2249,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerShowPlayerAction $var
      * @return $this
      */
-    public function setPlayerShowPlayer($var)
+    public function setPlayerShowPlayer(\Df\Plugin\PlayerShowPlayerAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerShowPlayerAction::class);
         $this->writeOneof(145, $var);
 
         return $this;
@@ -2355,9 +2279,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerRemoveAllDebugShapesAction $var
      * @return $this
      */
-    public function setPlayerRemoveAllDebugShapes($var)
+    public function setPlayerRemoveAllDebugShapes(\Df\Plugin\PlayerRemoveAllDebugShapesAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerRemoveAllDebugShapesAction::class);
         $this->writeOneof(146, $var);
 
         return $this;
@@ -2386,9 +2309,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldSetDefaultGameModeAction $var
      * @return $this
      */
-    public function setWorldSetDefaultGameMode($var)
+    public function setWorldSetDefaultGameMode(\Df\Plugin\WorldSetDefaultGameModeAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetDefaultGameModeAction::class);
         $this->writeOneof(60, $var);
 
         return $this;
@@ -2413,9 +2335,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldSetDifficultyAction $var
      * @return $this
      */
-    public function setWorldSetDifficulty($var)
+    public function setWorldSetDifficulty(\Df\Plugin\WorldSetDifficultyAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetDifficultyAction::class);
         $this->writeOneof(61, $var);
 
         return $this;
@@ -2440,9 +2361,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldSetTickRangeAction $var
      * @return $this
      */
-    public function setWorldSetTickRange($var)
+    public function setWorldSetTickRange(\Df\Plugin\WorldSetTickRangeAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetTickRangeAction::class);
         $this->writeOneof(62, $var);
 
         return $this;
@@ -2467,9 +2387,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldSetBlockAction $var
      * @return $this
      */
-    public function setWorldSetBlock($var)
+    public function setWorldSetBlock(\Df\Plugin\WorldSetBlockAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetBlockAction::class);
         $this->writeOneof(63, $var);
 
         return $this;
@@ -2494,9 +2413,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldPlaySoundAction $var
      * @return $this
      */
-    public function setWorldPlaySound($var)
+    public function setWorldPlaySound(\Df\Plugin\WorldPlaySoundAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldPlaySoundAction::class);
         $this->writeOneof(64, $var);
 
         return $this;
@@ -2521,9 +2439,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldAddParticleAction $var
      * @return $this
      */
-    public function setWorldAddParticle($var)
+    public function setWorldAddParticle(\Df\Plugin\WorldAddParticleAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldAddParticleAction::class);
         $this->writeOneof(65, $var);
 
         return $this;
@@ -2552,9 +2469,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldSetTimeAction $var
      * @return $this
      */
-    public function setWorldSetTime($var)
+    public function setWorldSetTime(\Df\Plugin\WorldSetTimeAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetTimeAction::class);
         $this->writeOneof(66, $var);
 
         return $this;
@@ -2579,9 +2495,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldStopTimeAction $var
      * @return $this
      */
-    public function setWorldStopTime($var)
+    public function setWorldStopTime(\Df\Plugin\WorldStopTimeAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldStopTimeAction::class);
         $this->writeOneof(67, $var);
 
         return $this;
@@ -2606,9 +2521,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldStartTimeAction $var
      * @return $this
      */
-    public function setWorldStartTime($var)
+    public function setWorldStartTime(\Df\Plugin\WorldStartTimeAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldStartTimeAction::class);
         $this->writeOneof(68, $var);
 
         return $this;
@@ -2633,9 +2547,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldSetSpawnAction $var
      * @return $this
      */
-    public function setWorldSetSpawn($var)
+    public function setWorldSetSpawn(\Df\Plugin\WorldSetSpawnAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetSpawnAction::class);
         $this->writeOneof(69, $var);
 
         return $this;
@@ -2664,9 +2577,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldSetBiomeAction $var
      * @return $this
      */
-    public function setWorldSetBiome($var)
+    public function setWorldSetBiome(\Df\Plugin\WorldSetBiomeAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetBiomeAction::class);
         $this->writeOneof(90, $var);
 
         return $this;
@@ -2691,9 +2603,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldSetLiquidAction $var
      * @return $this
      */
-    public function setWorldSetLiquid($var)
+    public function setWorldSetLiquid(\Df\Plugin\WorldSetLiquidAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSetLiquidAction::class);
         $this->writeOneof(91, $var);
 
         return $this;
@@ -2718,9 +2629,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldScheduleBlockUpdateAction $var
      * @return $this
      */
-    public function setWorldScheduleBlockUpdate($var)
+    public function setWorldScheduleBlockUpdate(\Df\Plugin\WorldScheduleBlockUpdateAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldScheduleBlockUpdateAction::class);
         $this->writeOneof(92, $var);
 
         return $this;
@@ -2745,9 +2655,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldBuildStructureAction $var
      * @return $this
      */
-    public function setWorldBuildStructure($var)
+    public function setWorldBuildStructure(\Df\Plugin\WorldBuildStructureAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldBuildStructureAction::class);
         $this->writeOneof(93, $var);
 
         return $this;
@@ -2776,9 +2685,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryEntitiesAction $var
      * @return $this
      */
-    public function setWorldQueryEntities($var)
+    public function setWorldQueryEntities(\Df\Plugin\WorldQueryEntitiesAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryEntitiesAction::class);
         $this->writeOneof(70, $var);
 
         return $this;
@@ -2803,9 +2711,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryPlayersAction $var
      * @return $this
      */
-    public function setWorldQueryPlayers($var)
+    public function setWorldQueryPlayers(\Df\Plugin\WorldQueryPlayersAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryPlayersAction::class);
         $this->writeOneof(71, $var);
 
         return $this;
@@ -2830,9 +2737,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryEntitiesWithinAction $var
      * @return $this
      */
-    public function setWorldQueryEntitiesWithin($var)
+    public function setWorldQueryEntitiesWithin(\Df\Plugin\WorldQueryEntitiesWithinAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryEntitiesWithinAction::class);
         $this->writeOneof(72, $var);
 
         return $this;
@@ -2857,9 +2763,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryPlayerSpawnAction $var
      * @return $this
      */
-    public function setWorldQueryPlayerSpawn($var)
+    public function setWorldQueryPlayerSpawn(\Df\Plugin\WorldQueryPlayerSpawnAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryPlayerSpawnAction::class);
         $this->writeOneof(74, $var);
 
         return $this;
@@ -2888,9 +2793,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryBlockAction $var
      * @return $this
      */
-    public function setWorldQueryBlock($var)
+    public function setWorldQueryBlock(\Df\Plugin\WorldQueryBlockAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryBlockAction::class);
         $this->writeOneof(75, $var);
 
         return $this;
@@ -2915,9 +2819,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryBiomeAction $var
      * @return $this
      */
-    public function setWorldQueryBiome($var)
+    public function setWorldQueryBiome(\Df\Plugin\WorldQueryBiomeAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryBiomeAction::class);
         $this->writeOneof(76, $var);
 
         return $this;
@@ -2942,9 +2845,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryLightAction $var
      * @return $this
      */
-    public function setWorldQueryLight($var)
+    public function setWorldQueryLight(\Df\Plugin\WorldQueryLightAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryLightAction::class);
         $this->writeOneof(77, $var);
 
         return $this;
@@ -2969,9 +2871,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQuerySkyLightAction $var
      * @return $this
      */
-    public function setWorldQuerySkyLight($var)
+    public function setWorldQuerySkyLight(\Df\Plugin\WorldQuerySkyLightAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQuerySkyLightAction::class);
         $this->writeOneof(78, $var);
 
         return $this;
@@ -2996,9 +2897,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryTemperatureAction $var
      * @return $this
      */
-    public function setWorldQueryTemperature($var)
+    public function setWorldQueryTemperature(\Df\Plugin\WorldQueryTemperatureAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryTemperatureAction::class);
         $this->writeOneof(79, $var);
 
         return $this;
@@ -3023,9 +2923,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryHighestBlockAction $var
      * @return $this
      */
-    public function setWorldQueryHighestBlock($var)
+    public function setWorldQueryHighestBlock(\Df\Plugin\WorldQueryHighestBlockAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryHighestBlockAction::class);
         $this->writeOneof(80, $var);
 
         return $this;
@@ -3054,9 +2953,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryRainingAtAction $var
      * @return $this
      */
-    public function setWorldQueryRainingAt($var)
+    public function setWorldQueryRainingAt(\Df\Plugin\WorldQueryRainingAtAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryRainingAtAction::class);
         $this->writeOneof(81, $var);
 
         return $this;
@@ -3081,9 +2979,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQuerySnowingAtAction $var
      * @return $this
      */
-    public function setWorldQuerySnowingAt($var)
+    public function setWorldQuerySnowingAt(\Df\Plugin\WorldQuerySnowingAtAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQuerySnowingAtAction::class);
         $this->writeOneof(82, $var);
 
         return $this;
@@ -3108,9 +3005,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryThunderingAtAction $var
      * @return $this
      */
-    public function setWorldQueryThunderingAt($var)
+    public function setWorldQueryThunderingAt(\Df\Plugin\WorldQueryThunderingAtAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryThunderingAtAction::class);
         $this->writeOneof(83, $var);
 
         return $this;
@@ -3139,9 +3035,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryLiquidAction $var
      * @return $this
      */
-    public function setWorldQueryLiquid($var)
+    public function setWorldQueryLiquid(\Df\Plugin\WorldQueryLiquidAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryLiquidAction::class);
         $this->writeOneof(84, $var);
 
         return $this;
@@ -3166,9 +3061,8 @@ class Action extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldQueryDefaultGameModeAction $var
      * @return $this
      */
-    public function setWorldQueryDefaultGameMode($var)
+    public function setWorldQueryDefaultGameMode(\Df\Plugin\WorldQueryDefaultGameModeAction|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldQueryDefaultGameModeAction::class);
         $this->writeOneof(73, $var);
 
         return $this;

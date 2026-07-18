@@ -57,9 +57,9 @@ class ExecuteCommandAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -83,9 +83,9 @@ class ExecuteCommandAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setCommand($var)
+    public function setCommand(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->command = $var;
 
         return $this;

@@ -65,7 +65,7 @@ class StructureDef extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setWidth($var)
+    public function setWidth(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->width = $var;
@@ -87,7 +87,7 @@ class StructureDef extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setHeight($var)
+    public function setHeight(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->height = $var;
@@ -109,7 +109,7 @@ class StructureDef extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setLength($var)
+    public function setLength(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->length = $var;
@@ -135,7 +135,7 @@ class StructureDef extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\StructureVoxel[] $var
      * @return $this
      */
-    public function setVoxels($var)
+    public function setVoxels(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\StructureVoxel::class);
         $this->voxels = $arr;

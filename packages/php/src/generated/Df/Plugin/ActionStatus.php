@@ -52,9 +52,8 @@ class ActionStatus extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setOk($var)
+    public function setOk(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->ok = $var;
 
         return $this;
@@ -84,9 +83,9 @@ class ActionStatus extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setError($var)
+    public function setError(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->error = $var;
 
         return $this;

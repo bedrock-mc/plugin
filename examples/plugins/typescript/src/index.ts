@@ -382,6 +382,7 @@ const helloMessage: PluginToHost = {
             { name: '/gamemode', description: 'Change game mode (survival, creative, adventure, spectator)', aliases: ['gm'], params: [] },
         ],
         customItems: [],
+        customBlocks: [],
     },
 };
 call.write(helloMessage);
@@ -396,6 +397,7 @@ const initialSubscribe: PluginToHost = {
             EventType.CHAT,
             EventType.PLAYER_BLOCK_BREAK,
         ],
+		observeEvents: [],
     },
 };
 call.write(initialSubscribe);
@@ -438,4 +440,3 @@ process.on('SIGINT', () => {
     console.log('[ts] shutting down...');
     call.end();
 });
-

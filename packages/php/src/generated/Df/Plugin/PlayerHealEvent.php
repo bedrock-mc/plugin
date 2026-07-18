@@ -62,9 +62,9 @@ class PlayerHealEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -84,9 +84,9 @@ class PlayerHealEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -106,9 +106,8 @@ class PlayerHealEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAmount($var)
+    public function setAmount(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->amount = $var;
 
         return $this;
@@ -138,9 +137,8 @@ class PlayerHealEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\HealingSource $var
      * @return $this
      */
-    public function setSource($var)
+    public function setSource(\Df\Plugin\HealingSource|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\HealingSource::class);
         $this->source = $var;
 
         return $this;

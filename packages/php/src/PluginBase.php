@@ -35,6 +35,9 @@ abstract class PluginBase {
     /** @var int[] */
     private array $subscriptions = [];
 
+    /** @var int[] */
+    private array $observeSubscriptions = [];
+
     /** @var PluginClient */
     private PluginClient $client;
 
@@ -97,6 +100,13 @@ abstract class PluginBase {
     // Registration APIs
     public function subscribe(array $eventTypes): void {
         $this->subscriptions = array_values(array_unique($eventTypes));
+    }
+
+    /**
+     * Observe events without participating in synchronous cancellation or mutation.
+     */
+    public function observe(array $eventTypes): void {
+        $this->observeSubscriptions = array_values(array_unique($eventTypes));
     }
 
     public function addEventHandler(int $eventType, callable $handler): void {
@@ -407,6 +417,7 @@ abstract class PluginBase {
         $subscribeMsg->setPluginId($this->pluginId);
         $subscribe = new EventSubscribe();
         $subscribe->setEvents($this->subscriptions);
+        $subscribe->setObserveEvents($this->observeSubscriptions);
         $subscribeMsg->setSubscribe($subscribe);
         $this->sender->enqueue($subscribeMsg);
 

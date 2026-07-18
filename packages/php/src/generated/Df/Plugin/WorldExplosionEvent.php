@@ -82,9 +82,8 @@ class WorldExplosionEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldRef $var
      * @return $this
      */
-    public function setWorld($var)
+    public function setWorld(\Df\Plugin\WorldRef|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldRef::class);
         $this->world = $var;
 
         return $this;
@@ -114,9 +113,8 @@ class WorldExplosionEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Vec3 $var
      * @return $this
      */
-    public function setPosition($var)
+    public function setPosition(\Df\Plugin\Vec3|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Vec3::class);
         $this->position = $var;
 
         return $this;
@@ -136,7 +134,7 @@ class WorldExplosionEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\EntityRef[] $var
      * @return $this
      */
-    public function setAffectedEntities($var)
+    public function setAffectedEntities(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\EntityRef::class);
         $this->affected_entities = $arr;
@@ -158,7 +156,7 @@ class WorldExplosionEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockPos[] $var
      * @return $this
      */
-    public function setAffectedBlocks($var)
+    public function setAffectedBlocks(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\BlockPos::class);
         $this->affected_blocks = $arr;
@@ -180,9 +178,8 @@ class WorldExplosionEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setItemDropChance($var)
+    public function setItemDropChance(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->item_drop_chance = $var;
 
         return $this;
@@ -202,9 +199,8 @@ class WorldExplosionEvent extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setSpawnFire($var)
+    public function setSpawnFire(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->spawn_fire = $var;
 
         return $this;

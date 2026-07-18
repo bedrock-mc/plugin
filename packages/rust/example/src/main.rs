@@ -1,10 +1,10 @@
 use dragonfly_plugin::{
-    Plugin,
-    PluginRunner,
-    Server,
     event::{EventContext, EventHandler},
     event_handler,
     types, // All the raw prost/tonic types
+    Plugin,
+    PluginRunner,
+    Server,
 };
 
 // --- 2. Define a struct for your plugin's state ---

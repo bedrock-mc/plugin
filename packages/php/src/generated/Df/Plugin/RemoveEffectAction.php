@@ -52,9 +52,9 @@ class RemoveEffectAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -62,7 +62,7 @@ class RemoveEffectAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.EffectType effect_type = 2 [json_name = "effectType"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\EffectType}
      */
     public function getEffectType()
     {
@@ -71,10 +71,10 @@ class RemoveEffectAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.EffectType effect_type = 2 [json_name = "effectType"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\EffectType}
      * @return $this
      */
-    public function setEffectType($var)
+    public function setEffectType(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\EffectType::class);
         $this->effect_type = $var;

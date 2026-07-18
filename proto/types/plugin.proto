@@ -125,7 +125,12 @@ message LogMessage {
 }
 
 message EventSubscribe {
+  // Events that may participate in synchronous cancellation or mutation.
+  // This retains the legacy subscription behaviour.
   repeated EventType events = 1;
+  // Events delivered for observation only. These never block the world owner
+  // and arrive with expects_response=false.
+  repeated EventType observe_events = 2;
 }
 
 enum EventType {

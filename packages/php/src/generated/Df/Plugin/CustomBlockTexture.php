@@ -62,9 +62,9 @@ class CustomBlockTexture extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -88,9 +88,9 @@ class CustomBlockTexture extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setImagePng($var)
+    public function setImagePng(string $var)
     {
-        GPBUtil::checkString($var, False);
+        GPBUtil::checkString($var, false);
         $this->image_png = $var;
 
         return $this;

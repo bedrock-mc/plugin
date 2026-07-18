@@ -47,7 +47,7 @@ class ServerInformationResponse extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setPlugins($var)
+    public function setPlugins(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->plugins = $arr;

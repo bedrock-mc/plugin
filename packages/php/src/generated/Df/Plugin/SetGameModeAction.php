@@ -52,9 +52,9 @@ class SetGameModeAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -62,7 +62,7 @@ class SetGameModeAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.GameMode game_mode = 2 [json_name = "gameMode"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\GameMode}
      */
     public function getGameMode()
     {
@@ -71,10 +71,10 @@ class SetGameModeAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.GameMode game_mode = 2 [json_name = "gameMode"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\GameMode}
      * @return $this
      */
-    public function setGameMode($var)
+    public function setGameMode(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\GameMode::class);
         $this->game_mode = $var;

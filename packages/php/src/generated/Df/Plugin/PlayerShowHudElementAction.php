@@ -52,9 +52,9 @@ class PlayerShowHudElementAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -62,7 +62,7 @@ class PlayerShowHudElementAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.HudElement element = 2 [json_name = "element"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\HudElement}
      */
     public function getElement()
     {
@@ -71,10 +71,10 @@ class PlayerShowHudElementAction extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.HudElement element = 2 [json_name = "element"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\HudElement}
      * @return $this
      */
-    public function setElement($var)
+    public function setElement(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\HudElement::class);
         $this->element = $var;

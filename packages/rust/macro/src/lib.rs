@@ -96,7 +96,7 @@ pub fn event_handler(_attr: TokenStream, item: TokenStream) -> TokenStream {
                 let event_name_pascal = event_name_snake.to_pascal_case();
 
                 let variant_ident = format_ident!("{}", event_name_pascal);
-                event_variants.push(quote! { types::EventType::#variant_ident });
+                event_variants.push(quote! { dragonfly_plugin::types::EventType::#variant_ident });
             }
         }
     }
@@ -105,7 +105,7 @@ pub fn event_handler(_attr: TokenStream, item: TokenStream) -> TokenStream {
 
     let subscriptions_impl = quote! {
         impl dragonfly_plugin::EventSubscriptions for #self_ty {
-            fn get_subscriptions(&self) -> Vec<types::EventType> {
+            fn get_subscriptions(&self) -> Vec<dragonfly_plugin::types::EventType> {
                 vec![
                     #( #event_variants ),*
                 ]

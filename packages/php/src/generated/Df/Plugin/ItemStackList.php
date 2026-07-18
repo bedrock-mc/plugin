@@ -49,7 +49,7 @@ class ItemStackList extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ItemStack[] $var
      * @return $this
      */
-    public function setItems($var)
+    public function setItems(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\ItemStack::class);
         $this->items = $arr;

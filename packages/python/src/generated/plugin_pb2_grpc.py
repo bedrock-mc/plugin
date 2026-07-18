@@ -5,7 +5,7 @@ import grpc
 import plugin_pb2 as plugin__pb2
 
 
-class PluginStub(object):
+class PluginStub:
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -21,7 +21,7 @@ class PluginStub(object):
                 _registered_method=True)
 
 
-class PluginServicer(object):
+class PluginServicer:
     """Missing associated documentation comment in .proto file."""
 
     def EventStream(self, request_iterator, context):
@@ -46,7 +46,7 @@ def add_PluginServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class Plugin(object):
+class Plugin:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod

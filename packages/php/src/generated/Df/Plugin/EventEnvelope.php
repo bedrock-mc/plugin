@@ -110,9 +110,9 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setEventId($var)
+    public function setEventId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->event_id = $var;
 
         return $this;
@@ -120,7 +120,7 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.EventType type = 2 [json_name = "type"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\EventType}
      */
     public function getType()
     {
@@ -129,10 +129,10 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.EventType type = 2 [json_name = "type"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\EventType}
      * @return $this
      */
-    public function setType($var)
+    public function setType(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\EventType::class);
         $this->type = $var;
@@ -158,9 +158,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setExpectsResponse($var)
+    public function setExpectsResponse(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->expects_response = $var;
 
         return $this;
@@ -185,9 +184,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerJoinEvent $var
      * @return $this
      */
-    public function setPlayerJoin($var)
+    public function setPlayerJoin(\Df\Plugin\PlayerJoinEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerJoinEvent::class);
         $this->writeOneof(10, $var);
 
         return $this;
@@ -212,9 +210,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerQuitEvent $var
      * @return $this
      */
-    public function setPlayerQuit($var)
+    public function setPlayerQuit(\Df\Plugin\PlayerQuitEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerQuitEvent::class);
         $this->writeOneof(11, $var);
 
         return $this;
@@ -239,9 +236,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerMoveEvent $var
      * @return $this
      */
-    public function setPlayerMove($var)
+    public function setPlayerMove(\Df\Plugin\PlayerMoveEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerMoveEvent::class);
         $this->writeOneof(12, $var);
 
         return $this;
@@ -266,9 +262,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerJumpEvent $var
      * @return $this
      */
-    public function setPlayerJump($var)
+    public function setPlayerJump(\Df\Plugin\PlayerJumpEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerJumpEvent::class);
         $this->writeOneof(13, $var);
 
         return $this;
@@ -293,9 +288,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerTeleportEvent $var
      * @return $this
      */
-    public function setPlayerTeleport($var)
+    public function setPlayerTeleport(\Df\Plugin\PlayerTeleportEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerTeleportEvent::class);
         $this->writeOneof(14, $var);
 
         return $this;
@@ -320,9 +314,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerChangeWorldEvent $var
      * @return $this
      */
-    public function setPlayerChangeWorld($var)
+    public function setPlayerChangeWorld(\Df\Plugin\PlayerChangeWorldEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerChangeWorldEvent::class);
         $this->writeOneof(15, $var);
 
         return $this;
@@ -347,9 +340,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerToggleSprintEvent $var
      * @return $this
      */
-    public function setPlayerToggleSprint($var)
+    public function setPlayerToggleSprint(\Df\Plugin\PlayerToggleSprintEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerToggleSprintEvent::class);
         $this->writeOneof(16, $var);
 
         return $this;
@@ -374,9 +366,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerToggleSneakEvent $var
      * @return $this
      */
-    public function setPlayerToggleSneak($var)
+    public function setPlayerToggleSneak(\Df\Plugin\PlayerToggleSneakEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerToggleSneakEvent::class);
         $this->writeOneof(17, $var);
 
         return $this;
@@ -401,9 +392,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ChatEvent $var
      * @return $this
      */
-    public function setChat($var)
+    public function setChat(\Df\Plugin\ChatEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ChatEvent::class);
         $this->writeOneof(18, $var);
 
         return $this;
@@ -428,9 +418,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerFoodLossEvent $var
      * @return $this
      */
-    public function setPlayerFoodLoss($var)
+    public function setPlayerFoodLoss(\Df\Plugin\PlayerFoodLossEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerFoodLossEvent::class);
         $this->writeOneof(19, $var);
 
         return $this;
@@ -455,9 +444,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerHealEvent $var
      * @return $this
      */
-    public function setPlayerHeal($var)
+    public function setPlayerHeal(\Df\Plugin\PlayerHealEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerHealEvent::class);
         $this->writeOneof(20, $var);
 
         return $this;
@@ -482,9 +470,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerHurtEvent $var
      * @return $this
      */
-    public function setPlayerHurt($var)
+    public function setPlayerHurt(\Df\Plugin\PlayerHurtEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerHurtEvent::class);
         $this->writeOneof(21, $var);
 
         return $this;
@@ -509,9 +496,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerDeathEvent $var
      * @return $this
      */
-    public function setPlayerDeath($var)
+    public function setPlayerDeath(\Df\Plugin\PlayerDeathEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerDeathEvent::class);
         $this->writeOneof(22, $var);
 
         return $this;
@@ -536,9 +522,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerRespawnEvent $var
      * @return $this
      */
-    public function setPlayerRespawn($var)
+    public function setPlayerRespawn(\Df\Plugin\PlayerRespawnEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerRespawnEvent::class);
         $this->writeOneof(23, $var);
 
         return $this;
@@ -563,9 +548,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSkinChangeEvent $var
      * @return $this
      */
-    public function setPlayerSkinChange($var)
+    public function setPlayerSkinChange(\Df\Plugin\PlayerSkinChangeEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSkinChangeEvent::class);
         $this->writeOneof(24, $var);
 
         return $this;
@@ -590,9 +574,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerFireExtinguishEvent $var
      * @return $this
      */
-    public function setPlayerFireExtinguish($var)
+    public function setPlayerFireExtinguish(\Df\Plugin\PlayerFireExtinguishEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerFireExtinguishEvent::class);
         $this->writeOneof(25, $var);
 
         return $this;
@@ -617,9 +600,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerStartBreakEvent $var
      * @return $this
      */
-    public function setPlayerStartBreak($var)
+    public function setPlayerStartBreak(\Df\Plugin\PlayerStartBreakEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerStartBreakEvent::class);
         $this->writeOneof(26, $var);
 
         return $this;
@@ -644,9 +626,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockBreakEvent $var
      * @return $this
      */
-    public function setBlockBreak($var)
+    public function setBlockBreak(\Df\Plugin\BlockBreakEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockBreakEvent::class);
         $this->writeOneof(27, $var);
 
         return $this;
@@ -671,9 +652,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerBlockPlaceEvent $var
      * @return $this
      */
-    public function setPlayerBlockPlace($var)
+    public function setPlayerBlockPlace(\Df\Plugin\PlayerBlockPlaceEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerBlockPlaceEvent::class);
         $this->writeOneof(28, $var);
 
         return $this;
@@ -698,9 +678,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerBlockPickEvent $var
      * @return $this
      */
-    public function setPlayerBlockPick($var)
+    public function setPlayerBlockPick(\Df\Plugin\PlayerBlockPickEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerBlockPickEvent::class);
         $this->writeOneof(29, $var);
 
         return $this;
@@ -725,9 +704,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerItemUseEvent $var
      * @return $this
      */
-    public function setPlayerItemUse($var)
+    public function setPlayerItemUse(\Df\Plugin\PlayerItemUseEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerItemUseEvent::class);
         $this->writeOneof(30, $var);
 
         return $this;
@@ -752,9 +730,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerItemUseOnBlockEvent $var
      * @return $this
      */
-    public function setPlayerItemUseOnBlock($var)
+    public function setPlayerItemUseOnBlock(\Df\Plugin\PlayerItemUseOnBlockEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerItemUseOnBlockEvent::class);
         $this->writeOneof(31, $var);
 
         return $this;
@@ -779,9 +756,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerItemUseOnEntityEvent $var
      * @return $this
      */
-    public function setPlayerItemUseOnEntity($var)
+    public function setPlayerItemUseOnEntity(\Df\Plugin\PlayerItemUseOnEntityEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerItemUseOnEntityEvent::class);
         $this->writeOneof(32, $var);
 
         return $this;
@@ -806,9 +782,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerItemReleaseEvent $var
      * @return $this
      */
-    public function setPlayerItemRelease($var)
+    public function setPlayerItemRelease(\Df\Plugin\PlayerItemReleaseEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerItemReleaseEvent::class);
         $this->writeOneof(33, $var);
 
         return $this;
@@ -833,9 +808,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerItemConsumeEvent $var
      * @return $this
      */
-    public function setPlayerItemConsume($var)
+    public function setPlayerItemConsume(\Df\Plugin\PlayerItemConsumeEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerItemConsumeEvent::class);
         $this->writeOneof(34, $var);
 
         return $this;
@@ -860,9 +834,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerAttackEntityEvent $var
      * @return $this
      */
-    public function setPlayerAttackEntity($var)
+    public function setPlayerAttackEntity(\Df\Plugin\PlayerAttackEntityEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerAttackEntityEvent::class);
         $this->writeOneof(35, $var);
 
         return $this;
@@ -887,9 +860,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerExperienceGainEvent $var
      * @return $this
      */
-    public function setPlayerExperienceGain($var)
+    public function setPlayerExperienceGain(\Df\Plugin\PlayerExperienceGainEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerExperienceGainEvent::class);
         $this->writeOneof(36, $var);
 
         return $this;
@@ -914,9 +886,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerPunchAirEvent $var
      * @return $this
      */
-    public function setPlayerPunchAir($var)
+    public function setPlayerPunchAir(\Df\Plugin\PlayerPunchAirEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerPunchAirEvent::class);
         $this->writeOneof(37, $var);
 
         return $this;
@@ -941,9 +912,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerSignEditEvent $var
      * @return $this
      */
-    public function setPlayerSignEdit($var)
+    public function setPlayerSignEdit(\Df\Plugin\PlayerSignEditEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerSignEditEvent::class);
         $this->writeOneof(38, $var);
 
         return $this;
@@ -968,9 +938,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerLecternPageTurnEvent $var
      * @return $this
      */
-    public function setPlayerLecternPageTurn($var)
+    public function setPlayerLecternPageTurn(\Df\Plugin\PlayerLecternPageTurnEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerLecternPageTurnEvent::class);
         $this->writeOneof(39, $var);
 
         return $this;
@@ -995,9 +964,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerItemDamageEvent $var
      * @return $this
      */
-    public function setPlayerItemDamage($var)
+    public function setPlayerItemDamage(\Df\Plugin\PlayerItemDamageEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerItemDamageEvent::class);
         $this->writeOneof(40, $var);
 
         return $this;
@@ -1022,9 +990,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerItemPickupEvent $var
      * @return $this
      */
-    public function setPlayerItemPickup($var)
+    public function setPlayerItemPickup(\Df\Plugin\PlayerItemPickupEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerItemPickupEvent::class);
         $this->writeOneof(41, $var);
 
         return $this;
@@ -1049,9 +1016,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerHeldSlotChangeEvent $var
      * @return $this
      */
-    public function setPlayerHeldSlotChange($var)
+    public function setPlayerHeldSlotChange(\Df\Plugin\PlayerHeldSlotChangeEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerHeldSlotChangeEvent::class);
         $this->writeOneof(42, $var);
 
         return $this;
@@ -1076,9 +1042,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerItemDropEvent $var
      * @return $this
      */
-    public function setPlayerItemDrop($var)
+    public function setPlayerItemDrop(\Df\Plugin\PlayerItemDropEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerItemDropEvent::class);
         $this->writeOneof(43, $var);
 
         return $this;
@@ -1103,9 +1068,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerTransferEvent $var
      * @return $this
      */
-    public function setPlayerTransfer($var)
+    public function setPlayerTransfer(\Df\Plugin\PlayerTransferEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerTransferEvent::class);
         $this->writeOneof(44, $var);
 
         return $this;
@@ -1130,9 +1094,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\CommandEvent $var
      * @return $this
      */
-    public function setCommand($var)
+    public function setCommand(\Df\Plugin\CommandEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\CommandEvent::class);
         $this->writeOneof(45, $var);
 
         return $this;
@@ -1157,9 +1120,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerDiagnosticsEvent $var
      * @return $this
      */
-    public function setPlayerDiagnostics($var)
+    public function setPlayerDiagnostics(\Df\Plugin\PlayerDiagnosticsEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerDiagnosticsEvent::class);
         $this->writeOneof(46, $var);
 
         return $this;
@@ -1184,9 +1146,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldLiquidFlowEvent $var
      * @return $this
      */
-    public function setWorldLiquidFlow($var)
+    public function setWorldLiquidFlow(\Df\Plugin\WorldLiquidFlowEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldLiquidFlowEvent::class);
         $this->writeOneof(70, $var);
 
         return $this;
@@ -1211,9 +1172,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldLiquidDecayEvent $var
      * @return $this
      */
-    public function setWorldLiquidDecay($var)
+    public function setWorldLiquidDecay(\Df\Plugin\WorldLiquidDecayEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldLiquidDecayEvent::class);
         $this->writeOneof(71, $var);
 
         return $this;
@@ -1238,9 +1198,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldLiquidHardenEvent $var
      * @return $this
      */
-    public function setWorldLiquidHarden($var)
+    public function setWorldLiquidHarden(\Df\Plugin\WorldLiquidHardenEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldLiquidHardenEvent::class);
         $this->writeOneof(72, $var);
 
         return $this;
@@ -1265,9 +1224,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldSoundEvent $var
      * @return $this
      */
-    public function setWorldSound($var)
+    public function setWorldSound(\Df\Plugin\WorldSoundEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldSoundEvent::class);
         $this->writeOneof(73, $var);
 
         return $this;
@@ -1292,9 +1250,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldFireSpreadEvent $var
      * @return $this
      */
-    public function setWorldFireSpread($var)
+    public function setWorldFireSpread(\Df\Plugin\WorldFireSpreadEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldFireSpreadEvent::class);
         $this->writeOneof(74, $var);
 
         return $this;
@@ -1319,9 +1276,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldBlockBurnEvent $var
      * @return $this
      */
-    public function setWorldBlockBurn($var)
+    public function setWorldBlockBurn(\Df\Plugin\WorldBlockBurnEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldBlockBurnEvent::class);
         $this->writeOneof(75, $var);
 
         return $this;
@@ -1346,9 +1302,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldCropTrampleEvent $var
      * @return $this
      */
-    public function setWorldCropTrample($var)
+    public function setWorldCropTrample(\Df\Plugin\WorldCropTrampleEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldCropTrampleEvent::class);
         $this->writeOneof(76, $var);
 
         return $this;
@@ -1373,9 +1328,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldLeavesDecayEvent $var
      * @return $this
      */
-    public function setWorldLeavesDecay($var)
+    public function setWorldLeavesDecay(\Df\Plugin\WorldLeavesDecayEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldLeavesDecayEvent::class);
         $this->writeOneof(77, $var);
 
         return $this;
@@ -1400,9 +1354,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldEntitySpawnEvent $var
      * @return $this
      */
-    public function setWorldEntitySpawn($var)
+    public function setWorldEntitySpawn(\Df\Plugin\WorldEntitySpawnEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldEntitySpawnEvent::class);
         $this->writeOneof(78, $var);
 
         return $this;
@@ -1427,9 +1380,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldEntityDespawnEvent $var
      * @return $this
      */
-    public function setWorldEntityDespawn($var)
+    public function setWorldEntityDespawn(\Df\Plugin\WorldEntityDespawnEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldEntityDespawnEvent::class);
         $this->writeOneof(79, $var);
 
         return $this;
@@ -1454,9 +1406,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldExplosionEvent $var
      * @return $this
      */
-    public function setWorldExplosion($var)
+    public function setWorldExplosion(\Df\Plugin\WorldExplosionEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldExplosionEvent::class);
         $this->writeOneof(80, $var);
 
         return $this;
@@ -1481,9 +1432,8 @@ class EventEnvelope extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldCloseEvent $var
      * @return $this
      */
-    public function setWorldClose($var)
+    public function setWorldClose(\Df\Plugin\WorldCloseEvent|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldCloseEvent::class);
         $this->writeOneof(81, $var);
 
         return $this;

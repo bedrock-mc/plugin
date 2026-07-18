@@ -97,9 +97,9 @@ class CustomItemDefinition extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setId($var)
+    public function setId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->id = $var;
 
         return $this;
@@ -123,9 +123,9 @@ class CustomItemDefinition extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setDisplayName($var)
+    public function setDisplayName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->display_name = $var;
 
         return $this;
@@ -149,9 +149,9 @@ class CustomItemDefinition extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTextureData($var)
+    public function setTextureData(string $var)
     {
-        GPBUtil::checkString($var, False);
+        GPBUtil::checkString($var, false);
         $this->texture_data = $var;
 
         return $this;
@@ -161,7 +161,7 @@ class CustomItemDefinition extends \Google\Protobuf\Internal\Message
      * Creative inventory category
      *
      * Generated from protobuf field <code>.df.plugin.ItemCategory category = 4 [json_name = "category"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\ItemCategory}
      */
     public function getCategory()
     {
@@ -172,10 +172,10 @@ class CustomItemDefinition extends \Google\Protobuf\Internal\Message
      * Creative inventory category
      *
      * Generated from protobuf field <code>.df.plugin.ItemCategory category = 4 [json_name = "category"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\ItemCategory}
      * @return $this
      */
-    public function setCategory($var)
+    public function setCategory(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\ItemCategory::class);
         $this->category = $var;
@@ -211,9 +211,9 @@ class CustomItemDefinition extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setGroup($var)
+    public function setGroup(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->group = $var;
 
         return $this;
@@ -237,7 +237,7 @@ class CustomItemDefinition extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setMeta($var)
+    public function setMeta(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->meta = $var;

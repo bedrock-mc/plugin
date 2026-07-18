@@ -52,9 +52,9 @@ class SendChatAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setTargetUuid($var)
+    public function setTargetUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->target_uuid = $var;
 
         return $this;
@@ -74,9 +74,9 @@ class SendChatAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setMessage($var)
+    public function setMessage(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->message = $var;
 
         return $this;

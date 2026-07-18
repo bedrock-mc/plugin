@@ -62,9 +62,9 @@ class PlayerItemPickupEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -84,9 +84,9 @@ class PlayerItemPickupEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -106,9 +106,9 @@ class PlayerItemPickupEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setWorld($var)
+    public function setWorld(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->world = $var;
 
         return $this;
@@ -138,9 +138,8 @@ class PlayerItemPickupEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ItemStack $var
      * @return $this
      */
-    public function setItem($var)
+    public function setItem(\Df\Plugin\ItemStack|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ItemStack::class);
         $this->item = $var;
 
         return $this;

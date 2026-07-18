@@ -57,7 +57,7 @@ class PlayerFoodLossMutation extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setTo($var)
+    public function setTo(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->to = $var;

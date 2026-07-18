@@ -57,9 +57,9 @@ class PlayerToggleSneakEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -79,9 +79,9 @@ class PlayerToggleSneakEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -101,9 +101,8 @@ class PlayerToggleSneakEvent extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setAfter($var)
+    public function setAfter(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->after = $var;
 
         return $this;

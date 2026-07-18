@@ -57,7 +57,7 @@ class BlockPos extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setX($var)
+    public function setX(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->x = $var;
@@ -79,7 +79,7 @@ class BlockPos extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setY($var)
+    public function setY(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->y = $var;
@@ -101,7 +101,7 @@ class BlockPos extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setZ($var)
+    public function setZ(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->z = $var;

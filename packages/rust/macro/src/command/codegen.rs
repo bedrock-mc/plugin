@@ -24,8 +24,7 @@ pub fn generate_command_impls(ast: &DeriveInput, attr: &Attribute) -> TokenStrea
         Err(e) => return e.to_compile_error(),
     };
 
-    let spec_impl =
-        generate_spec_impl(cmd_ident, cmd_name_lit, cmd_desc_lit, aliases_lits, &shape);
+    let spec_impl = generate_spec_impl(cmd_ident, cmd_name_lit, cmd_desc_lit, aliases_lits, &shape);
     let try_from_impl = generate_try_from_impl(cmd_ident, cmd_name_lit, aliases_lits, &shape);
     let trait_impl = generate_handler_trait(cmd_ident, &shape);
     let exec_impl = generate_execute_impl(cmd_ident, &shape);
@@ -357,5 +356,3 @@ fn generate_execute_impl(cmd_ident: &Ident, shape: &CommandShape) -> TokenStream
         }
     }
 }
-
-

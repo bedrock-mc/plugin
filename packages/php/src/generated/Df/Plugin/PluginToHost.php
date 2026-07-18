@@ -54,9 +54,9 @@ class PluginToHost extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPluginId($var)
+    public function setPluginId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->plugin_id = $var;
 
         return $this;
@@ -81,9 +81,8 @@ class PluginToHost extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PluginHello $var
      * @return $this
      */
-    public function setHello($var)
+    public function setHello(\Df\Plugin\PluginHello|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PluginHello::class);
         $this->writeOneof(10, $var);
 
         return $this;
@@ -108,9 +107,8 @@ class PluginToHost extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\EventSubscribe $var
      * @return $this
      */
-    public function setSubscribe($var)
+    public function setSubscribe(\Df\Plugin\EventSubscribe|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\EventSubscribe::class);
         $this->writeOneof(11, $var);
 
         return $this;
@@ -135,9 +133,8 @@ class PluginToHost extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ServerInformationRequest $var
      * @return $this
      */
-    public function setServerInfo($var)
+    public function setServerInfo(\Df\Plugin\ServerInformationRequest|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ServerInformationRequest::class);
         $this->writeOneof(12, $var);
 
         return $this;
@@ -162,9 +159,8 @@ class PluginToHost extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ActionBatch $var
      * @return $this
      */
-    public function setActions($var)
+    public function setActions(\Df\Plugin\ActionBatch|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ActionBatch::class);
         $this->writeOneof(20, $var);
 
         return $this;
@@ -189,9 +185,8 @@ class PluginToHost extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\LogMessage $var
      * @return $this
      */
-    public function setLog($var)
+    public function setLog(\Df\Plugin\LogMessage|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\LogMessage::class);
         $this->writeOneof(30, $var);
 
         return $this;
@@ -216,9 +211,8 @@ class PluginToHost extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\EventResult $var
      * @return $this
      */
-    public function setEventResult($var)
+    public function setEventResult(\Df\Plugin\EventResult|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\EventResult::class);
         $this->writeOneof(40, $var);
 
         return $this;

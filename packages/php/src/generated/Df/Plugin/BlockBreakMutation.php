@@ -62,9 +62,8 @@ class BlockBreakMutation extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ItemStackList $var
      * @return $this
      */
-    public function setDrops($var)
+    public function setDrops(\Df\Plugin\ItemStackList|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ItemStackList::class);
         $this->drops = $var;
 
         return $this;
@@ -94,7 +93,7 @@ class BlockBreakMutation extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setXp($var)
+    public function setXp(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->xp = $var;

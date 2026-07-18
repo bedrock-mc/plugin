@@ -36,7 +36,6 @@ type Manager struct {
 
 	mu       sync.RWMutex
 	plugins  map[string]*pluginProcess
-	players  map[uuid.UUID]*player.Player
 	commands map[string]commandBinding
 
 	worldMu sync.RWMutex
@@ -80,7 +79,6 @@ func NewManager(srv *server.Server, log *slog.Logger, playerHandlerFactory ports
 		ctx:                  ctx,
 		cancel:               cancel,
 		plugins:              make(map[string]*pluginProcess),
-		players:              make(map[uuid.UUID]*player.Player),
 		commands:             make(map[string]commandBinding),
 		worlds:               make(map[string]*world.World),
 		worldsByDim:          make(map[string]*world.World),
@@ -225,16 +223,7 @@ func (m *Manager) AttachPlayer(p *player.Player) {
 		handler := m.playerHandlerFactory(m)
 		p.Handle(handler)
 	}
-	m.mu.Lock()
-	m.players[p.UUID()] = p
-	m.mu.Unlock()
 	m.EmitPlayerJoin(p)
-}
-
-func (m *Manager) detachPlayer(p *player.Player) {
-	m.mu.Lock()
-	delete(m.players, p.UUID())
-	m.mu.Unlock()
 }
 
 // broadcastEvent sends an event which does not expect a response.
@@ -251,12 +240,19 @@ func (m *Manager) dispatchEvent(envelope *pb.EventEnvelope, expectResult bool) [
 	if envelope.EventId == "" {
 		envelope.EventId = m.generateEventID()
 	}
+	if expectResult {
+		m.dispatchObservers(envelope)
+	}
 
 	eventType := envelope.Type
 	m.mu.RLock()
 	procs := make([]*pluginProcess, 0, len(m.plugins))
 	for _, proc := range m.plugins {
-		if !proc.HasSubscription(eventType) {
+		if !proc.CanReceiveEvents() {
+			continue
+		}
+		mode := proc.SubscriptionMode(eventType)
+		if mode == subscriptionNone || (expectResult && mode != subscriptionBlocking) {
 			continue
 		}
 		procs = append(procs, proc)
@@ -331,12 +327,19 @@ func (m *Manager) dispatchEventParallel(envelope *pb.EventEnvelope, expectResult
 	if envelope.EventId == "" {
 		envelope.EventId = m.generateEventID()
 	}
+	if expectResult {
+		m.dispatchObservers(envelope)
+	}
 
 	eventType := envelope.Type
 	m.mu.RLock()
 	procs := make([]*pluginProcess, 0, len(m.plugins))
 	for _, proc := range m.plugins {
-		if !proc.HasSubscription(eventType) {
+		if !proc.CanReceiveEvents() {
+			continue
+		}
+		mode := proc.SubscriptionMode(eventType)
+		if mode == subscriptionNone || (expectResult && mode != subscriptionBlocking) {
 			continue
 		}
 		procs = append(procs, proc)
@@ -385,6 +388,22 @@ func (m *Manager) dispatchEventParallel(envelope *pb.EventEnvelope, expectResult
 	}
 	wg.Wait()
 	return results
+}
+
+func (m *Manager) dispatchObservers(envelope *pb.EventEnvelope) {
+	observerEnvelope := proto.Clone(envelope).(*pb.EventEnvelope)
+	observerEnvelope.ExpectsResponse = false
+	m.mu.RLock()
+	defer m.mu.RUnlock()
+	for _, proc := range m.plugins {
+		if !proc.CanReceiveEvents() || proc.SubscriptionMode(envelope.Type) != subscriptionObserve {
+			continue
+		}
+		proc.queue(&pb.HostToPlugin{
+			PluginId: proc.id,
+			Payload:  &pb.HostToPlugin_Event{Event: observerEnvelope},
+		})
+	}
 }
 
 func (m *Manager) emitCancellable(ctx cancelContext, envelope *pb.EventEnvelope) []*pb.EventResult {
@@ -577,12 +596,16 @@ func (m *Manager) handlePluginMessage(p *pluginProcess, msg *pb.PluginToHost) {
 		eventNames := mapSlice(subscribe.Events, func(evt pb.EventType) string {
 			return evt.String()
 		})
+		observeEventNames := mapSlice(subscribe.ObserveEvents, func(evt pb.EventType) string {
+			return evt.String()
+		})
 		pluginName := p.id
 		if hello := p.helloInfo(); hello != nil && hello.Name != "" {
 			pluginName = hello.Name
 		}
-		m.log.Info(fmt.Sprintf("  %s subscribed to %d events", pluginName, len(eventNames)), "events", eventNames)
-		p.updateSubscriptions(subscribe.Events)
+		m.log.Info(fmt.Sprintf("  %s subscribed to %d blocking and %d observer events", pluginName, len(eventNames), len(observeEventNames)),
+			"events", eventNames, "observe_events", observeEventNames)
+		p.updateSubscriptions(subscribe.Events, subscribe.ObserveEvents)
 	case *pb.PluginToHost_Actions:
 		p.enqueueActions(payload.Actions)
 	case *pb.PluginToHost_Log:

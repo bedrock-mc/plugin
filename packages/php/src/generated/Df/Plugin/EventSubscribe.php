@@ -15,9 +15,19 @@ use Google\Protobuf\RepeatedField;
 class EventSubscribe extends \Google\Protobuf\Internal\Message
 {
     /**
+     * Events that may participate in synchronous cancellation or mutation.
+     * This retains the legacy subscription behaviour.
+     *
      * Generated from protobuf field <code>repeated .df.plugin.EventType events = 1 [json_name = "events"];</code>
      */
     private $events;
+    /**
+     * Events delivered for observation only. These never block the world owner
+     * and arrive with expects_response=false.
+     *
+     * Generated from protobuf field <code>repeated .df.plugin.EventType observe_events = 2 [json_name = "observeEvents"];</code>
+     */
+    private $observe_events;
 
     /**
      * Constructor.
@@ -26,6 +36,11 @@ class EventSubscribe extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int[] $events
+     *           Events that may participate in synchronous cancellation or mutation.
+     *           This retains the legacy subscription behaviour.
+     *     @type int[] $observe_events
+     *           Events delivered for observation only. These never block the world owner
+     *           and arrive with expects_response=false.
      * }
      */
     public function __construct($data = NULL) {
@@ -34,8 +49,11 @@ class EventSubscribe extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Events that may participate in synchronous cancellation or mutation.
+     * This retains the legacy subscription behaviour.
+     *
      * Generated from protobuf field <code>repeated .df.plugin.EventType events = 1 [json_name = "events"];</code>
-     * @return RepeatedField<int>
+     * @return RepeatedField<int> one of the values in {@see \Df\Plugin\EventType}
      */
     public function getEvents()
     {
@@ -43,14 +61,45 @@ class EventSubscribe extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Events that may participate in synchronous cancellation or mutation.
+     * This retains the legacy subscription behaviour.
+     *
      * Generated from protobuf field <code>repeated .df.plugin.EventType events = 1 [json_name = "events"];</code>
-     * @param int[] $var
+     * @param int[] $var one of the values in {@see \Df\Plugin\EventType}
      * @return $this
      */
-    public function setEvents($var)
+    public function setEvents(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::ENUM, \Df\Plugin\EventType::class);
         $this->events = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Events delivered for observation only. These never block the world owner
+     * and arrive with expects_response=false.
+     *
+     * Generated from protobuf field <code>repeated .df.plugin.EventType observe_events = 2 [json_name = "observeEvents"];</code>
+     * @return RepeatedField<int> one of the values in {@see \Df\Plugin\EventType}
+     */
+    public function getObserveEvents()
+    {
+        return $this->observe_events;
+    }
+
+    /**
+     * Events delivered for observation only. These never block the world owner
+     * and arrive with expects_response=false.
+     *
+     * Generated from protobuf field <code>repeated .df.plugin.EventType observe_events = 2 [json_name = "observeEvents"];</code>
+     * @param int[] $var one of the values in {@see \Df\Plugin\EventType}
+     * @return $this
+     */
+    public function setObserveEvents(array|RepeatedField $var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::ENUM, \Df\Plugin\EventType::class);
+        $this->observe_events = $arr;
 
         return $this;
     }

@@ -66,9 +66,9 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setEventId($var)
+    public function setEventId(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->event_id = $var;
 
         return $this;
@@ -98,9 +98,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setCancel($var)
+    public function setCancel(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->cancel = $var;
 
         return $this;
@@ -125,9 +124,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ChatMutation $var
      * @return $this
      */
-    public function setChat($var)
+    public function setChat(\Df\Plugin\ChatMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ChatMutation::class);
         $this->writeOneof(10, $var);
 
         return $this;
@@ -152,9 +150,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockBreakMutation $var
      * @return $this
      */
-    public function setBlockBreak($var)
+    public function setBlockBreak(\Df\Plugin\BlockBreakMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockBreakMutation::class);
         $this->writeOneof(11, $var);
 
         return $this;
@@ -179,9 +176,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerFoodLossMutation $var
      * @return $this
      */
-    public function setPlayerFoodLoss($var)
+    public function setPlayerFoodLoss(\Df\Plugin\PlayerFoodLossMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerFoodLossMutation::class);
         $this->writeOneof(12, $var);
 
         return $this;
@@ -206,9 +202,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerHealMutation $var
      * @return $this
      */
-    public function setPlayerHeal($var)
+    public function setPlayerHeal(\Df\Plugin\PlayerHealMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerHealMutation::class);
         $this->writeOneof(13, $var);
 
         return $this;
@@ -233,9 +228,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerHurtMutation $var
      * @return $this
      */
-    public function setPlayerHurt($var)
+    public function setPlayerHurt(\Df\Plugin\PlayerHurtMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerHurtMutation::class);
         $this->writeOneof(14, $var);
 
         return $this;
@@ -260,9 +254,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerDeathMutation $var
      * @return $this
      */
-    public function setPlayerDeath($var)
+    public function setPlayerDeath(\Df\Plugin\PlayerDeathMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerDeathMutation::class);
         $this->writeOneof(15, $var);
 
         return $this;
@@ -287,9 +280,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerRespawnMutation $var
      * @return $this
      */
-    public function setPlayerRespawn($var)
+    public function setPlayerRespawn(\Df\Plugin\PlayerRespawnMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerRespawnMutation::class);
         $this->writeOneof(16, $var);
 
         return $this;
@@ -314,9 +306,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerAttackEntityMutation $var
      * @return $this
      */
-    public function setPlayerAttackEntity($var)
+    public function setPlayerAttackEntity(\Df\Plugin\PlayerAttackEntityMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerAttackEntityMutation::class);
         $this->writeOneof(17, $var);
 
         return $this;
@@ -341,9 +332,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerExperienceGainMutation $var
      * @return $this
      */
-    public function setPlayerExperienceGain($var)
+    public function setPlayerExperienceGain(\Df\Plugin\PlayerExperienceGainMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerExperienceGainMutation::class);
         $this->writeOneof(18, $var);
 
         return $this;
@@ -368,9 +358,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerLecternPageTurnMutation $var
      * @return $this
      */
-    public function setPlayerLecternPageTurn($var)
+    public function setPlayerLecternPageTurn(\Df\Plugin\PlayerLecternPageTurnMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerLecternPageTurnMutation::class);
         $this->writeOneof(19, $var);
 
         return $this;
@@ -395,9 +384,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerItemPickupMutation $var
      * @return $this
      */
-    public function setPlayerItemPickup($var)
+    public function setPlayerItemPickup(\Df\Plugin\PlayerItemPickupMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerItemPickupMutation::class);
         $this->writeOneof(20, $var);
 
         return $this;
@@ -422,9 +410,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\PlayerTransferMutation $var
      * @return $this
      */
-    public function setPlayerTransfer($var)
+    public function setPlayerTransfer(\Df\Plugin\PlayerTransferMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\PlayerTransferMutation::class);
         $this->writeOneof(21, $var);
 
         return $this;
@@ -449,9 +436,8 @@ class EventResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldExplosionMutation $var
      * @return $this
      */
-    public function setWorldExplosion($var)
+    public function setWorldExplosion(\Df\Plugin\WorldExplosionMutation|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldExplosionMutation::class);
         $this->writeOneof(30, $var);
 
         return $this;

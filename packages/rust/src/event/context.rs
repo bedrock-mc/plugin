@@ -26,6 +26,7 @@ pub struct EventContext<'a, T> {
     event_id: &'a str,
     sender: mpsc::Sender<PluginToHost>,
     plugin_id: String,
+    expects_response: bool,
     sent: bool,
 }
 
@@ -37,12 +38,24 @@ impl<'a, T> EventContext<'a, T> {
         sender: mpsc::Sender<PluginToHost>,
         plugin_id: String,
     ) -> Self {
+        Self::new_with_response(event_id, data, sender, plugin_id, true)
+    }
+
+    #[doc(hidden)]
+    pub fn new_with_response(
+        event_id: &'a str,
+        data: &'a T,
+        sender: mpsc::Sender<PluginToHost>,
+        plugin_id: String,
+        expects_response: bool,
+    ) -> Self {
         Self {
             event_id,
             data,
             result: EventResult::None,
             sender,
             plugin_id,
+            expects_response,
             sent: false,
         }
     }
@@ -61,7 +74,7 @@ impl<'a, T> EventContext<'a, T> {
     }
 
     pub(crate) async fn send_ack_if_needed(&mut self) {
-        if self.sent {
+        if self.sent || !self.expects_response {
             return;
         }
         // result is still EventResultUpdate::None, which sends ack
@@ -69,6 +82,10 @@ impl<'a, T> EventContext<'a, T> {
     }
 
     pub async fn send(&mut self) {
+        if !self.expects_response {
+            self.sent = true;
+            return;
+        }
         if self.sent {
             #[cfg(debug_assertions)]
             panic!("Attempted to respond twice to the same event!");

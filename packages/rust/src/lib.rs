@@ -1,5 +1,5 @@
 #[doc = include_str!("../README.md")]
-#[path = "generated/df.plugin.rs"]
+#[path = "generated/df/plugin/df.plugin.rs"]
 mod df_plugin;
 
 pub mod types {
@@ -22,6 +22,7 @@ use std::error::Error;
 pub use server::*;
 
 // main usage stuff for plugin devs:
+#[cfg(feature = "macros")]
 pub use dragonfly_plugin_macro::{event_handler, Command, Plugin};
 pub use event::EventHandler;
 use tokio::sync::mpsc;
@@ -31,6 +32,8 @@ use tokio_stream::{wrappers::ReceiverStream, StreamExt};
 use hyper_util::rt::TokioIo;
 #[cfg(unix)]
 use tokio::net::UnixStream;
+#[cfg(unix)]
+use tower::service_fn;
 
 use crate::command::CommandRegistry;
 

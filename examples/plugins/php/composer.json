@@ -2,6 +2,7 @@
   "name": "dragonfly/php-plugin-example",
   "description": "Example PHP plugin for Dragonfly using gRPC",
   "type": "project",
+  "license": "MIT",
   "repositories": [
     {
       "type": "path",
@@ -14,8 +15,8 @@
   "require": {
     "php": ">=8.1",
     "dragonfly-plugins/plugin-sdk": "dev-main",
-    "grpc/grpc": "1.74.0",
-    "google/protobuf": "^3.25"
+    "grpc/grpc": "^1.82.0",
+    "google/protobuf": "^4.33.6"
   },
   "require-dev": {
     "phpstan/phpstan": "^1.10"

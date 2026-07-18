@@ -52,9 +52,9 @@ class PlayerSetOnFireAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -74,7 +74,7 @@ class PlayerSetOnFireAction extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setDurationMs($var)
+    public function setDurationMs(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->duration_ms = $var;

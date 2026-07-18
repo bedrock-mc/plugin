@@ -1,5 +1,7 @@
 use dragonfly_plugin_macro::{event_handler, Plugin};
 
+#[derive(Plugin)]
+#[plugin(id = "example-rust", name = "Example Rust Plugin", version = "0.3.0", api = "1.0.0")]
 struct MyPlugin;
 
 #[event_handler]
@@ -15,8 +17,4 @@ impl dragonfly_plugin::EventHandler for MyPlugin {
     }
 }
 
-#[derive(Plugin)]
-#[plugin(id = "example-rust", name = "Example Rust Plugin", version = "0.3.0", api = "1.0.0")]
-struct PluginInfoPlugin;
-
-
+fn main() {}

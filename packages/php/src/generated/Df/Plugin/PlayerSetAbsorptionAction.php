@@ -54,9 +54,9 @@ class PlayerSetAbsorptionAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -76,9 +76,8 @@ class PlayerSetAbsorptionAction extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAbsorption($var)
+    public function setAbsorption(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->absorption = $var;
 
         return $this;

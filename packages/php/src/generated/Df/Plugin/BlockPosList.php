@@ -47,7 +47,7 @@ class BlockPosList extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockPos[] $var
      * @return $this
      */
-    public function setPositions($var)
+    public function setPositions(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\BlockPos::class);
         $this->positions = $arr;

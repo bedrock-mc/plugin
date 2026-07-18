@@ -54,9 +54,9 @@ class PlayerSetScaleAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -76,9 +76,8 @@ class PlayerSetScaleAction extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setScale($var)
+    public function setScale(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->scale = $var;
 
         return $this;

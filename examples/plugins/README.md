@@ -109,7 +109,8 @@ Host ←→ Plugin (EventStream)
 
 **Plugin → Host:**
 - `PluginHello` - Register plugin capabilities
-- `EventSubscribe` - Subscribe to specific events
+- `EventSubscribe.events` - Subscribe to events that may synchronously cancel or mutate host behaviour
+- `EventSubscribe.observe_events` - Observe events asynchronously without stalling Dragonfly's world owner
 - `ActionBatch` - Execute actions (teleport, chat, kick, etc.)
 - `EventResult` - Cancel or mutate events
 

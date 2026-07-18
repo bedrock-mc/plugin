@@ -51,7 +51,7 @@ call.write({
 
 call.write({
   pluginId: pluginId,
-  subscribe: { events: ['PLAYER_JOIN', 'COMMAND', 'CHAT'] },
+  subscribe: { events: ['PLAYER_JOIN', 'COMMAND', 'CHAT'], observeEvents: [] },
 });
 
 call.on('data', (message) => {

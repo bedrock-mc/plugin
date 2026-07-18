@@ -62,9 +62,8 @@ class PlayerHurtMutation extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setDamage($var)
+    public function setDamage(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->damage = $var;
 
         return $this;
@@ -76,7 +75,7 @@ class PlayerHurtMutation extends \Google\Protobuf\Internal\Message
      */
     public function getAttackImmunityMs()
     {
-        return isset($this->attack_immunity_ms) ? $this->attack_immunity_ms : 0;
+        return isset($this->attack_immunity_ms) ? $this->attack_immunity_ms : GPBUtil::compatibleInt64(0, '0');
     }
 
     public function hasAttackImmunityMs()
@@ -94,7 +93,7 @@ class PlayerHurtMutation extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setAttackImmunityMs($var)
+    public function setAttackImmunityMs(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->attack_immunity_ms = $var;

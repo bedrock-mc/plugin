@@ -63,9 +63,9 @@ class SetHeldItemAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -99,9 +99,8 @@ class SetHeldItemAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ItemStack $var
      * @return $this
      */
-    public function setMain($var)
+    public function setMain(\Df\Plugin\ItemStack|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ItemStack::class);
         $this->main = $var;
 
         return $this;
@@ -135,9 +134,8 @@ class SetHeldItemAction extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\ItemStack $var
      * @return $this
      */
-    public function setOffhand($var)
+    public function setOffhand(\Df\Plugin\ItemStack|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\ItemStack::class);
         $this->offhand = $var;
 
         return $this;

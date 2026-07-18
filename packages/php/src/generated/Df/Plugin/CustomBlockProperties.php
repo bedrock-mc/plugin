@@ -131,9 +131,8 @@ class CustomBlockProperties extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BBox $var
      * @return $this
      */
-    public function setCollisionBox($var)
+    public function setCollisionBox(\Df\Plugin\BBox|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BBox::class);
         $this->collision_box = $var;
 
         return $this;
@@ -163,9 +162,8 @@ class CustomBlockProperties extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BBox $var
      * @return $this
      */
-    public function setSelectionBox($var)
+    public function setSelectionBox(\Df\Plugin\BBox|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BBox::class);
         $this->selection_box = $var;
 
         return $this;
@@ -199,9 +197,9 @@ class CustomBlockProperties extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setGeometryIdentifier($var)
+    public function setGeometryIdentifier(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->geometry_identifier = $var;
 
         return $this;
@@ -225,9 +223,8 @@ class CustomBlockProperties extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setCube($var)
+    public function setCube(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->cube = $var;
 
         return $this;
@@ -261,9 +258,9 @@ class CustomBlockProperties extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setMapColour($var)
+    public function setMapColour(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->map_colour = $var;
 
         return $this;
@@ -297,9 +294,8 @@ class CustomBlockProperties extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Vec3 $var
      * @return $this
      */
-    public function setRotation($var)
+    public function setRotation(\Df\Plugin\Vec3|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Vec3::class);
         $this->rotation = $var;
 
         return $this;
@@ -333,9 +329,8 @@ class CustomBlockProperties extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Vec3 $var
      * @return $this
      */
-    public function setTranslation($var)
+    public function setTranslation(\Df\Plugin\Vec3|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Vec3::class);
         $this->translation = $var;
 
         return $this;
@@ -369,9 +364,8 @@ class CustomBlockProperties extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Vec3 $var
      * @return $this
      */
-    public function setScale($var)
+    public function setScale(\Df\Plugin\Vec3|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Vec3::class);
         $this->scale = $var;
 
         return $this;
@@ -395,7 +389,7 @@ class CustomBlockProperties extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\CustomBlockMaterial[] $var
      * @return $this
      */
-    public function setMaterials($var)
+    public function setMaterials(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\CustomBlockMaterial::class);
         $this->materials = $arr;
@@ -421,7 +415,7 @@ class CustomBlockProperties extends \Google\Protobuf\Internal\Message
      * @param array|\Google\Protobuf\Internal\MapField $var
      * @return $this
      */
-    public function setStates($var)
+    public function setStates(array|\Google\Protobuf\Internal\MapField $var)
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\CustomBlockStateValues::class);
         $this->states = $arr;
@@ -443,7 +437,7 @@ class CustomBlockProperties extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\CustomBlockPermutation[] $var
      * @return $this
      */
-    public function setPermutations($var)
+    public function setPermutations(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\CustomBlockPermutation::class);
         $this->permutations = $arr;

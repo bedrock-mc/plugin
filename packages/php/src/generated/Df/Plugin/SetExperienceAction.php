@@ -71,9 +71,9 @@ class SetExperienceAction extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -107,7 +107,7 @@ class SetExperienceAction extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setLevel($var)
+    public function setLevel(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->level = $var;
@@ -143,9 +143,8 @@ class SetExperienceAction extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setProgress($var)
+    public function setProgress(float $var)
     {
-        GPBUtil::checkFloat($var);
         $this->progress = $var;
 
         return $this;
@@ -179,7 +178,7 @@ class SetExperienceAction extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setAmount($var)
+    public function setAmount(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->amount = $var;

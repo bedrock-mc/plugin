@@ -72,9 +72,8 @@ class WorldExplosionMutation extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\StringList $var
      * @return $this
      */
-    public function setEntityUuids($var)
+    public function setEntityUuids(\Df\Plugin\StringList|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\StringList::class);
         $this->entity_uuids = $var;
 
         return $this;
@@ -104,9 +103,8 @@ class WorldExplosionMutation extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockPosList $var
      * @return $this
      */
-    public function setBlocks($var)
+    public function setBlocks(\Df\Plugin\BlockPosList|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockPosList::class);
         $this->blocks = $var;
 
         return $this;
@@ -136,9 +134,8 @@ class WorldExplosionMutation extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setItemDropChance($var)
+    public function setItemDropChance(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->item_drop_chance = $var;
 
         return $this;
@@ -168,9 +165,8 @@ class WorldExplosionMutation extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setSpawnFire($var)
+    public function setSpawnFire(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->spawn_fire = $var;
 
         return $this;

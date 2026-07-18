@@ -4,5 +4,3 @@ fn macros_compile_on_basic_examples() {
     t.pass("tests/fixtures/plugin_basic.rs");
     t.pass("tests/fixtures/command_basic.rs");
 }
-
-

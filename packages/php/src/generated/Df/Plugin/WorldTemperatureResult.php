@@ -67,9 +67,8 @@ class WorldTemperatureResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\WorldRef $var
      * @return $this
      */
-    public function setWorld($var)
+    public function setWorld(\Df\Plugin\WorldRef|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\WorldRef::class);
         $this->world = $var;
 
         return $this;
@@ -99,9 +98,8 @@ class WorldTemperatureResult extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockPos $var
      * @return $this
      */
-    public function setPosition($var)
+    public function setPosition(\Df\Plugin\BlockPos|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockPos::class);
         $this->position = $var;
 
         return $this;
@@ -121,9 +119,8 @@ class WorldTemperatureResult extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setTemperature($var)
+    public function setTemperature(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->temperature = $var;
 
         return $this;

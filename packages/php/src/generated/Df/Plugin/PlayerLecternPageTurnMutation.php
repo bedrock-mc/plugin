@@ -57,7 +57,7 @@ class PlayerLecternPageTurnMutation extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setNewPage($var)
+    public function setNewPage(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->new_page = $var;

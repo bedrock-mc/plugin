@@ -97,9 +97,9 @@ class PlayerDiagnosticsEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -119,9 +119,9 @@ class PlayerDiagnosticsEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -141,9 +141,8 @@ class PlayerDiagnosticsEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAverageFramesPerSecond($var)
+    public function setAverageFramesPerSecond(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->average_frames_per_second = $var;
 
         return $this;
@@ -163,9 +162,8 @@ class PlayerDiagnosticsEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAverageServerSimTickTime($var)
+    public function setAverageServerSimTickTime(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->average_server_sim_tick_time = $var;
 
         return $this;
@@ -185,9 +183,8 @@ class PlayerDiagnosticsEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAverageClientSimTickTime($var)
+    public function setAverageClientSimTickTime(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->average_client_sim_tick_time = $var;
 
         return $this;
@@ -207,9 +204,8 @@ class PlayerDiagnosticsEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAverageBeginFrameTime($var)
+    public function setAverageBeginFrameTime(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->average_begin_frame_time = $var;
 
         return $this;
@@ -229,9 +225,8 @@ class PlayerDiagnosticsEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAverageInputTime($var)
+    public function setAverageInputTime(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->average_input_time = $var;
 
         return $this;
@@ -251,9 +246,8 @@ class PlayerDiagnosticsEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAverageRenderTime($var)
+    public function setAverageRenderTime(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->average_render_time = $var;
 
         return $this;
@@ -273,9 +267,8 @@ class PlayerDiagnosticsEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAverageEndFrameTime($var)
+    public function setAverageEndFrameTime(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->average_end_frame_time = $var;
 
         return $this;
@@ -295,9 +288,8 @@ class PlayerDiagnosticsEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAverageRemainderTimePercent($var)
+    public function setAverageRemainderTimePercent(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->average_remainder_time_percent = $var;
 
         return $this;
@@ -317,9 +309,8 @@ class PlayerDiagnosticsEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setAverageUnaccountedTimePercent($var)
+    public function setAverageUnaccountedTimePercent(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->average_unaccounted_time_percent = $var;
 
         return $this;

@@ -57,7 +57,7 @@ class PlayerExperienceGainMutation extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setAmount($var)
+    public function setAmount(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->amount = $var;

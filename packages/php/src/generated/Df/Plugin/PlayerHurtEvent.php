@@ -72,9 +72,9 @@ class PlayerHurtEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -94,9 +94,9 @@ class PlayerHurtEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -116,9 +116,8 @@ class PlayerHurtEvent extends \Google\Protobuf\Internal\Message
      * @param float $var
      * @return $this
      */
-    public function setDamage($var)
+    public function setDamage(float $var)
     {
-        GPBUtil::checkDouble($var);
         $this->damage = $var;
 
         return $this;
@@ -138,9 +137,8 @@ class PlayerHurtEvent extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setImmune($var)
+    public function setImmune(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->immune = $var;
 
         return $this;
@@ -160,7 +158,7 @@ class PlayerHurtEvent extends \Google\Protobuf\Internal\Message
      * @param int|string $var
      * @return $this
      */
-    public function setAttackImmunityMs($var)
+    public function setAttackImmunityMs(int|string $var)
     {
         GPBUtil::checkInt64($var);
         $this->attack_immunity_ms = $var;
@@ -192,9 +190,8 @@ class PlayerHurtEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\DamageSource $var
      * @return $this
      */
-    public function setSource($var)
+    public function setSource(\Df\Plugin\DamageSource|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\DamageSource::class);
         $this->source = $var;
 
         return $this;

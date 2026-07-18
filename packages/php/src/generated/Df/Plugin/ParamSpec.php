@@ -77,9 +77,9 @@ class ParamSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -87,7 +87,7 @@ class ParamSpec extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.ParamType type = 2 [json_name = "type"];</code>
-     * @return int
+     * @return int one of the values in {@see \Df\Plugin\ParamType}
      */
     public function getType()
     {
@@ -96,10 +96,10 @@ class ParamSpec extends \Google\Protobuf\Internal\Message
 
     /**
      * Generated from protobuf field <code>.df.plugin.ParamType type = 2 [json_name = "type"];</code>
-     * @param int $var
+     * @param int $var one of the values in {@see \Df\Plugin\ParamType}
      * @return $this
      */
-    public function setType($var)
+    public function setType(int $var)
     {
         GPBUtil::checkEnum($var, \Df\Plugin\ParamType::class);
         $this->type = $var;
@@ -121,9 +121,8 @@ class ParamSpec extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setOptional($var)
+    public function setOptional(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->optional = $var;
 
         return $this;
@@ -147,9 +146,9 @@ class ParamSpec extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setSuffix($var)
+    public function setSuffix(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->suffix = $var;
 
         return $this;
@@ -175,7 +174,7 @@ class ParamSpec extends \Google\Protobuf\Internal\Message
      * @param string[] $var
      * @return $this
      */
-    public function setEnumValues($var)
+    public function setEnumValues(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->enum_values = $arr;

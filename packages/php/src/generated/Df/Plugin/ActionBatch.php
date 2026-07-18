@@ -47,7 +47,7 @@ class ActionBatch extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Action[] $var
      * @return $this
      */
-    public function setActions($var)
+    public function setActions(array|RepeatedField $var)
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Df\Plugin\Action::class);
         $this->actions = $arr;

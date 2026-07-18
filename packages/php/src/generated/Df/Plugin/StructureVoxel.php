@@ -75,7 +75,7 @@ class StructureVoxel extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setX($var)
+    public function setX(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->x = $var;
@@ -97,7 +97,7 @@ class StructureVoxel extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setY($var)
+    public function setY(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->y = $var;
@@ -119,7 +119,7 @@ class StructureVoxel extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setZ($var)
+    public function setZ(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->z = $var;
@@ -155,9 +155,8 @@ class StructureVoxel extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockState $var
      * @return $this
      */
-    public function setBlock($var)
+    public function setBlock(\Df\Plugin\BlockState|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockState::class);
         $this->block = $var;
 
         return $this;
@@ -191,9 +190,8 @@ class StructureVoxel extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\LiquidState $var
      * @return $this
      */
-    public function setLiquid($var)
+    public function setLiquid(\Df\Plugin\LiquidState|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\LiquidState::class);
         $this->liquid = $var;
 
         return $this;

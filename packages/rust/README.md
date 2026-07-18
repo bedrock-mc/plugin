@@ -122,6 +122,11 @@ The `#[event_handler]` macro:
 
 - Detects which `on_*` methods you implement.
 - Generates an `EventSubscriptions` impl that subscribes to the corresponding `types::EventType` variants.
+
+For high-frequency events that do not need cancellation or mutation, use
+`server.observe(events).await` or `server.subscribe_modes(blocking, observed).await`.
+Observed events are delivered with `expects_response = false` and never block
+Dragonfly's world owner.
 - Wires those events into `event::dispatch_event`.
 
 ---

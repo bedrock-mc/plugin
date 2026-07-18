@@ -57,9 +57,9 @@ class PlayerTransferEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setPlayerUuid($var)
+    public function setPlayerUuid(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->player_uuid = $var;
 
         return $this;
@@ -79,9 +79,9 @@ class PlayerTransferEvent extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setName($var)
+    public function setName(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->name = $var;
 
         return $this;
@@ -111,9 +111,8 @@ class PlayerTransferEvent extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\Address $var
      * @return $this
      */
-    public function setAddress($var)
+    public function setAddress(\Df\Plugin\Address|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\Address::class);
         $this->address = $var;
 
         return $this;

@@ -72,9 +72,8 @@ class LiquidState extends \Google\Protobuf\Internal\Message
      * @param \Df\Plugin\BlockState $var
      * @return $this
      */
-    public function setBlock($var)
+    public function setBlock(\Df\Plugin\BlockState|null $var)
     {
-        GPBUtil::checkMessage($var, \Df\Plugin\BlockState::class);
         $this->block = $var;
 
         return $this;
@@ -94,7 +93,7 @@ class LiquidState extends \Google\Protobuf\Internal\Message
      * @param int $var
      * @return $this
      */
-    public function setDepth($var)
+    public function setDepth(int $var)
     {
         GPBUtil::checkInt32($var);
         $this->depth = $var;
@@ -116,9 +115,8 @@ class LiquidState extends \Google\Protobuf\Internal\Message
      * @param bool $var
      * @return $this
      */
-    public function setFalling($var)
+    public function setFalling(bool $var)
     {
-        GPBUtil::checkBool($var);
         $this->falling = $var;
 
         return $this;
@@ -138,9 +136,9 @@ class LiquidState extends \Google\Protobuf\Internal\Message
      * @param string $var
      * @return $this
      */
-    public function setLiquidType($var)
+    public function setLiquidType(string $var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, true);
         $this->liquid_type = $var;
 
         return $this;
